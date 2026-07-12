@@ -1,0 +1,525 @@
+{
+  "meta": {
+    "id": "medical-hypoglycemia-etoh-001",
+    "name": "Hypoglycemia Masked by Alcohol — Combative Diabetic, IV Dextrose First-Line",
+    "version": 1,
+    "difficulty": "intermediate",
+    "category": "Medical",
+    "protocols": [
+      "medical-hypoglycemia",
+      "medical-altered-mental-status",
+      "resp-airway-management"
+    ],
+    "totalTimeSeconds": 1200,
+    "createdAt": "2026-07-12T00:00:00Z",
+    "tags": [
+      "hypoglycemia",
+      "altered mental status",
+      "alcohol intoxication",
+      "anchoring bias",
+      "D10",
+      "dextrose",
+      "glucagon",
+      "combative patient",
+      "dismissive bystander",
+      "capacity",
+      "intermediate"
+    ]
+  },
+  "patient": {
+    "name": "Doug Vandehei",
+    "age": 42,
+    "ageUnit": "years",
+    "sex": "male",
+    "weight": 88,
+    "weightLbs": 194,
+    "height": 178,
+    "chiefComplaint": "Confused, slurring his words, and combative when touched. Family says he has been 'acting weird and scary' since the football game ended about 40 minutes ago.",
+    "history": {
+      "hpi": "42-year-old male with Type 2 diabetes on insulin. He spent the afternoon watching the Packers game and drinking beer — his wife estimates four or five over about four hours — and skipped dinner entirely. He took his usual evening long-acting insulin around 17:00 before the game. Roughly 40 minutes ago, shortly after the game ended, he began slurring his words, staring blankly, and dropping his phone repeatedly. He became combative and swore at his wife when she tried to get him up off the couch. His 12-year-old daughter, frightened by how he was acting, called 911 from the upstairs bathroom. His wife did not want EMS called and states repeatedly that he is 'just drunk' and 'always gets like this.' The daughter says this is NOT how he normally acts when he drinks — 'he gets quiet and falls asleep, he doesn't get like this.' His skin is cool and soaked with sweat despite a warm house, which does not fit alcohol intoxication.",
+      "pastMedical": [
+        "Type 2 diabetes mellitus, insulin-dependent (diagnosed 9 years ago)",
+        "Hypertension",
+        "Hyperlipidemia",
+        "Prior ED visit for hypoglycemia approximately 8 months ago (per daughter, 'they gave him sugar in an IV')",
+        "No seizure history, no known liver disease"
+      ],
+      "medications": [
+        "Insulin glargine (long-acting) 30 units subcutaneous nightly — taken at ~17:00 today, before the game",
+        "Metformin 1000 mg PO twice daily",
+        "Lisinopril 20 mg PO daily",
+        "Atorvastatin 40 mg PO daily"
+      ],
+      "allergies": [
+        "Sulfa drugs (rash)"
+      ],
+      "lastOralIntake": "No solid food since a late breakfast around 10:00 — roughly 10 hours ago. Four to five beers over the afternoon. Skipped dinner entirely.",
+      "events": "Long-acting insulin taken on schedule at ~17:00, followed by four to five beers over the afternoon on an empty stomach with no dinner. Progressive confusion, slurred speech, staring, and combativeness beginning about 40 minutes ago as the game ended. Daughter called 911; wife is actively trying to wave EMS off."
+    }
+  },
+  "scene": {
+    "dispatch": "Dispatch: 42-year-old male, altered mental status at a private residence. Caller is a 12-year-old juvenile reporting her father is 'acting weird and scary.' Adult female on scene reportedly uncooperative. Law enforcement notified.",
+    "location": "Living room of a single-family home. Patient slumped on a sectional couch facing a large TV still showing post-game coverage. Coffee table crowded with empty beer cans, chip bags, and a half-eaten plate of nachos.",
+    "time": "Sunday, 20:05, evening in late autumn",
+    "safety": "Patient is combative when touched — approach deliberately, from the front, with a partner. Wife is agitated and actively obstructing (standing between crew and patient, repeatedly saying to leave). Law enforcement en route but not yet on scene. Do not corner the patient or crowd him; hypoglycemic patients are irritable and can strike out without intent.",
+    "bystanders": "12-year-old daughter (the 911 caller) is the reliable historian — she confirms the insulin, the skipped dinner, the beer, and says this is NOT how her dad normally acts when he drinks. Wife is dismissive and obstructive: 'He's fine, he just had four or five beers during the game. He always gets like this. Just leave, he needs to sleep it off.' She does not want him transported.",
+    "visualCues": [
+      "Middle-aged man slumped on the couch, eyes rolling closed, head bobbing, jaw slack",
+      "Skin is COOL and SOAKED with sweat despite a warm living room — this does not fit simple alcohol intoxication",
+      "Speech is thick and slurred; he swings an arm and swears when a hand is placed on his shoulder",
+      "Strong odor of beer on his breath — the anchor that will hide the diagnosis if the crew accepts it",
+      "Empty beer cans across the coffee table",
+      "An insulin pen and a glucometer case visible on the kitchen counter, in plain view from the couch",
+      "Diabetic supply bag with test strips tucked beside the recliner",
+      "Wife physically positions herself between the crew and the patient while talking"
+    ]
+  },
+  "phases": [
+    {
+      "id": "initial-contact",
+      "name": "Initial Contact",
+      "description": "A 42-year-old diabetic man who reeks of beer, slurs, sweats, and swings at anyone who touches him. Every surface cue on this scene says 'drunk,' and a dismissive spouse is standing in the doorway confirming it for free. He is hypoglycemic at 42 mg/dL, and the ONLY way the crew finds that out is by putting a glucometer on him. This is not a subtle protocol point — MATC's Hypoglycemia guideline explicitly lists 'patients with suspected alcohol ingestion' and 'patients who appear to be intoxicated' as INCLUSION criteria. The smell of alcohol is a reason to check a sugar, not a reason to skip one. The cool, diaphoretic skin is the physical tell that does not belong to intoxication. His combativeness is not belligerence — MATC states plainly that hypoglycemic patients can be irritable and violent. And the wife's refusal is legally irrelevant: this patient has impaired decision-making capacity, which is the entry criterion for the Altered Mental Status guideline, and an altered patient cannot refuse care through a proxy who is not his guardian.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Verbal",
+        "gcs": {
+          "eye": 3,
+          "verbal": 4,
+          "motor": 5
+        },
+        "airway": "Patent for now but at risk — jaw slack, thick slurred speech, tongue heavy; he is not reliably protecting it and cannot safely swallow",
+        "breathing": "RR 20, unlabored; lungs clear bilaterally; good tidal volume",
+        "circulation": "Strong, rapid radial pulse at 112; cap refill 2 sec; skin COOL and profoundly DIAPHORETIC",
+        "skin": {
+          "color": "pale",
+          "temperature": "cool",
+          "moisture": "profusely diaphoretic — soaked through his shirt"
+        },
+        "pupils": "Equal at 4 mm, reactive",
+        "motorFunction": "Moves all four; swings and pushes when touched; no focal deficit, no facial droop, grips are symmetric",
+        "otherFindings": [
+          "BLOOD GLUCOSE 42 mg/dL — but ONLY if the crew thinks to check it",
+          "MATC Hypoglycemia INCLUSION criteria explicitly include suspected alcohol ingestion and patients who APPEAR intoxicated",
+          "Cool + diaphoretic skin does NOT fit alcohol intoxication — it fits hypoglycemia",
+          "Combativeness is a SYMPTOM here, not a personality — hypoglycemic patients can be irritable and violent",
+          "No focal neuro deficit, no facial droop — argues against stroke, but glucose still must be checked in any stroke-like presentation",
+          "Long-acting insulin on board + no dinner + alcohol = the whole mechanism",
+          "Wife's objection carries no legal weight — patient has impaired decision-making capacity"
+        ],
+        "patientSpeech": "(thick, slurred, eyes closing) …m'fine. Get… get off me. Leave me 'lone."
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 112,
+        "bpSys": 138,
+        "bpDia": 86,
+        "respRate": 20,
+        "spo2": 96,
+        "etco2": 36,
+        "temp": 36.7,
+        "tempF": 98.1,
+        "obstruction": 0,
+        "glucose": 42,
+        "trendTimeSeconds": 0,
+        "visibility": {
+          "spo2Visible": true,
+          "spo2Attached": true,
+          "rrVisible": true,
+          "etco2Visible": true,
+          "cvpVisible": false
+        }
+      },
+      "expectedActions": [
+        {
+          "id": "check-blood-glucose",
+          "shortAction": "CHECK BLOOD GLUCOSE — 'appears intoxicated' is an inclusion criterion, not an exclusion",
+          "priority": "critical",
+          "rationale": "MATC Hypoglycemia Inclusion Criteria 6 and 8 — 'patients with suspected alcohol ingestion' and 'patients who appear to be intoxicated' are explicitly IN this protocol. The alcohol on his breath is the reason to check a sugar, not permission to skip one. This single action is the entire scenario; a crew that never checks a glucose never finds the diagnosis.",
+          "protocolReference": "MATC: Hypoglycemia",
+          "protocolExcerpt": "Inclusion Criteria: Patients with blood glucose less than 60 mg/dL with symptoms of hypoglycemia. Patients with altered level of consciousness. Patients with stroke symptoms (e.g., hemiparesis, dysarthria). Patients with seizure. Patients with history of diabetes and other medical symptoms. Patients with suspected alcohol ingestion. Patients with metabolic disorders. Patients who appear to be intoxicated. Assessment: Monitoring: Check blood glucose level."
+        },
+        {
+          "id": "ams-differential-aeiou-tips",
+          "shortAction": "Work the AEIOU-TIPS differential — do not anchor on alcohol",
+          "priority": "critical",
+          "rationale": "MATC Altered Mental Status Key Consideration 4 — the AEIOU-TIPS mnemonic exists precisely to stop crews from stopping at the first plausible cause. 'A' for Alcohol sits in the same list as 'I' for Insulin. Both are on this scene; only one of them is killing him.",
+          "protocolReference": "MATC: Altered Mental Status",
+          "protocolExcerpt": "Consider the following differential using the mnemonic AEIOU-TIPS: A – Alcohol, Abuse, Atypical migraine; E – Epilepsy, Electrolytes; I – Insulin (hypoglycemia); O – Oxygen, Overdose; U – Uremia (kidney failure); T – Trauma, Tumor; I – Infection; P – Psych, Poisoning; S – Seizure, Subarachnoid hemorrhage, Sepsis."
+        },
+        {
+          "id": "combative-is-a-symptom",
+          "shortAction": "Recognize combativeness as hypoglycemia, not belligerence; approach safely with a partner",
+          "priority": "critical",
+          "rationale": "MATC Altered Mental Status Patient Safety 3 — hypoglycemic and hypoxic patients can be irritable and violent. Crews that read this as a hostile drunk escalate to restraint and law enforcement instead of treating the cause. The glucose fixes the behavior.",
+          "protocolReference": "MATC: Altered Mental Status",
+          "protocolExcerpt": "Patient Safety Considerations: With depressed mental status, initial focus is on airway protection, oxygenation, ventilation, and perfusion. The violent patient may need pharmacologic and/or physical management to insure proper assessment and treatment. Hypoglycemic and hypoxic patients can be irritable and violent."
+        },
+        {
+          "id": "withhold-oral-glucose",
+          "shortAction": "WITHHOLD oral glucose — reserved for a conscious patient with a patent airway; he cannot safely swallow",
+          "priority": "critical",
+          "rationale": "MATC Hypoglycemia Treatment 2a — oral glucose (25 g adult) is authorized ONLY for the conscious patient with a patent airway. This patient is at GCS 12, thick-tongued, slurring, and combative. Putting glucose gel in his mouth is an aspiration event waiting to happen. The protocol routes an unprotected airway to Treatment 2b instead.",
+          "protocolReference": "MATC: Hypoglycemia",
+          "protocolExcerpt": "If blood glucose is 60 mg/dL or less administer one of the following: Conscious patient with a patent airway: Glucose, oral (in form of glucose tablets, glucose gel, tube of cake icing, etc.): Adult Dosing: 25 g; Pediatric Dosing: 0.5–1 g/kg."
+        },
+        {
+          "id": "iv-dextrose-d10-first-line",
+          "shortAction": "IV access, then D10% incrementally to max field dose 25 g (250 mL of D10) until mental status improves",
+          "priority": "critical",
+          "rationale": "MATC Hypoglycemia Treatment 2b-i — for the patient who cannot protect their airway, DEXTROSE IV is the treatment, and D10% is explicitly preferred where available. Dosing is INCREMENTAL — titrated until mental status improves or the 25 g field maximum is reached — not a reflexive slam of an amp. Key Consideration 5 warns against overshoot hyperglycemia. This is the first-line intervention; glucagon is not.",
+          "protocolReference": "MATC: Hypoglycemia",
+          "protocolExcerpt": "Unconscious patient, or patients who are unable to protect their own airway: Dextrose IV – administer in incremental doses until mental status improves or maximum field dosing is reached (if available, D10% is preferred). Maximum field adult dosing: 25 g of 10–50% dextrose IV: 50 mL of 50% dextrose; 100 mL of 25% dextrose; 250 mL of 10% dextrose. Key Considerations: Using 10% dextrose is as effective and safer than other stronger concentrations. Avoid overshoot hyperglycemia when correcting hypoglycemia. Administer dextrose-containing IV fluids in small doses until either mental status improves or a maximum field dose is achieved."
+        },
+        {
+          "id": "airway-protection-positioning",
+          "shortAction": "Protect the airway — position, suction ready; escalate if he decompensates further",
+          "priority": "critical",
+          "rationale": "MATC Altered Mental Status Patient Safety 1 — with depressed mental status the initial focus is airway protection, oxygenation, ventilation, and perfusion. MATC Airway Management Treatment 3 covers positioning and suction. This patient's airway is the thing that will kill him before the glucose does if he keeps dropping.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)",
+          "protocolExcerpt": "Open and maintain patent airway. If needed, Provide head tilt/chin lift, or jaw thrust if concern for potential spinal injury. Suction airway. Oropharyngeal airways (OPA) or nasopharyngeal airways (NPA) can be placed if needed to maintain a patent airway and make BVM ventilation more effective: OPA are used for patients without gag reflex; NPA are used for patients with gag reflex."
+        },
+        {
+          "id": "capacity-wife-cannot-refuse",
+          "shortAction": "Patient has impaired decision-making capacity — the wife's refusal does not bind you",
+          "priority": "important",
+          "rationale": "MATC Altered Mental Status Inclusion Criteria — the protocol's entry criterion is literally 'impaired decision-making capacity.' A patient at GCS 12 who cannot state where he is cannot consent to or refuse care, and a spouse is not a legal guardian or healthcare power of attorney by default. Treat the patient. Document the exchange, and use law enforcement for scene control if she physically obstructs.",
+          "protocolReference": "MATC: Altered Mental Status",
+          "protocolExcerpt": "Patient Presentation: Inclusion Criteria: Impaired decision-making capacity. Key Documentation Elements: Glasgow Coma Score (GCS) or AVPU description. Baseline developmental status and change from baseline. Patient and medic safety were considered."
+        },
+        {
+          "id": "ams-workup-adjuncts",
+          "shortAction": "Full AMS workup: pupils, stroke screen, SpO2/EtCO2, cardiac monitor, breath odor, scan the scene",
+          "priority": "important",
+          "rationale": "MATC Altered Mental Status Assessment 1–15 — the structured sweep that catches what anchoring misses: pupils, focal deficits, glucose, rhythm, breath odor, and an environmental survey for pills and paraphernalia. Hypoglycemia is the answer here, but it is only the answer because the crew ruled the alternatives out rather than never asking.",
+          "protocolReference": "MATC: Altered Mental Status",
+          "protocolExcerpt": "Look for treatable causes of altered mental status (AMS): Airway: Make sure airway remains patent. Breathing: Look for respiratory depression; check SPO2, EtCO2. Circulation: Look for signs of poor perfusion. Glasgow Coma Score and/or AVPU. Pupils. Stroke assessment tool including focal neurologic findings. Blood glucose level. EKG or cardiac monitor: arrhythmia limiting perfusion. Breath odor: Possible unusual odors include alcohol, acidosis, ammonia. Environment: Survey for pills, paraphernalia, substance use, medication patches, medical devices."
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "dextrose-given",
+          "if": "BGM checked; IV D10 given",
+          "condition": "Crew checks the blood glucose despite the alcohol anchor, finds 42 mg/dL, establishes IV access, and titrates D10% incrementally until mental status improves — correctly withholding oral glucose in a patient who cannot protect his airway.",
+          "conditionType": "action_taken",
+          "triggerActionIds": [
+            "check-blood-glucose",
+            "iv-dextrose-d10-first-line"
+          ]
+        },
+        {
+          "targetPhaseId": "branch-no-iv-glucagon",
+          "if": "IV access cannot be established",
+          "condition": "Crew correctly identifies the hypoglycemia but cannot obtain IV access — the patient is combative, diaphoretic, and thrashing, and two attempts fail. This is the ONE circumstance in which MATC authorizes glucagon: as an option for patients in whom IV access cannot be established.",
+          "conditionType": "action_taken",
+          "triggerActionIds": [
+            "check-blood-glucose"
+          ]
+        },
+        {
+          "targetPhaseId": "branch-missed-hypoglycemia",
+          "if": "BGM never checked; treated as intoxication",
+          "condition": "Crew accepts the alcohol anchor and the wife's account, never checks a blood glucose, and either leaves the patient to 'sleep it off' or begins packaging him as a routine intoxication. The blood sugar continues to fall and he loses his airway.",
+          "conditionType": "action_not_taken",
+          "triggerActionIds": [
+            "check-blood-glucose"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dextrose-given",
+      "name": "IV D10 given",
+      "description": "Incremental D10% brings him back. Within a few minutes of the first 100–150 mL he stops swinging, opens his eyes, and asks what everyone is doing in his living room. Repeat glucose is 118 mg/dL and his mental status is fully normal — he is oriented, apologetic, and embarrassed. The diaphoresis dries up. Now comes the part crews get wrong: he feels fine, his wife is telling him he doesn't need to go, and he is a competent adult again with every right to refuse. MATC does allow release without transport after hypoglycemia — but it gates it behind EIGHT criteria that must ALL be true, and this patient fails at least two of them outright. He has a major co-morbid symptom (intoxication) and his hypoglycemia was caused by long-acting insulin plus alcohol plus a skipped meal, which will keep working on him for hours after the dextrose wears off. The protocol does not ask the crew how they feel about it; it gives them a checklist, and the checklist says transport.",
+      "triggerCondition": "Blood glucose was checked (42 mg/dL), IV access obtained, and D10% titrated incrementally. Within minutes mental status normalizes, combativeness resolves, and repeat glucose is 118 mg/dL.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": {
+          "eye": 4,
+          "verbal": 5,
+          "motor": 6
+        },
+        "airway": "Patent and self-maintained; speech clear, no slurring",
+        "breathing": "RR 16, unlabored; lungs clear",
+        "circulation": "Radial pulse strong at 88; cap refill under 2 sec; skin warming and drying",
+        "skin": {
+          "color": "normal color returning",
+          "temperature": "warm",
+          "moisture": "drying — diaphoresis resolving"
+        },
+        "pupils": "Equal at 4 mm, briskly reactive",
+        "motorFunction": "Moves all four purposefully; no deficit; cooperative and calm",
+        "otherFindings": [
+          "Repeat glucose 118 mg/dL — mental status fully normalized",
+          "Protocol: repeat glucose check is NOT required once mental status returns to normal",
+          "He is now a competent adult and CAN legally refuse — which is exactly why the release criteria matter",
+          "MATC release-without-transport requires ALL 8 criteria to be true; he fails at least two",
+          "FAILS: 'No major co-morbid symptoms exist, like... intoxication' — he is intoxicated",
+          "Long-acting insulin (glargine) + alcohol + no food = recurrence risk for hours after D10 wears off",
+          "Wife is now arguing harder because 'see, he's fine'"
+        ],
+        "patientSpeech": "Whoa — what is going on? Why are you all in my house? I'm fine, I just… did I fall asleep? Honestly I feel fine now, I don't need to go anywhere."
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Rhythm",
+        "ecgWaveform": 9,
+        "hr": 88,
+        "bpSys": 132,
+        "bpDia": 80,
+        "respRate": 16,
+        "spo2": 98,
+        "etco2": 38,
+        "temp": 36.8,
+        "tempF": 98.2,
+        "obstruction": 0,
+        "glucose": 118,
+        "trendTimeSeconds": 45,
+        "visibility": {
+          "spo2Visible": true,
+          "spo2Attached": true,
+          "rrVisible": true,
+          "etco2Visible": true,
+          "cvpVisible": false
+        }
+      },
+      "expectedActions": [
+        {
+          "id": "reassess-mental-status",
+          "shortAction": "Reassess vitals and mental status post-dextrose; repeat BGM not required once mentation is normal",
+          "priority": "critical",
+          "rationale": "MATC Hypoglycemia Treatment 3 — reassess vitals and mental status; repeat the glucose only if mental status has NOT returned to normal. This is a small but commonly missed detail: crews reflexively re-stick a patient who is already talking to them normally.",
+          "protocolReference": "MATC: Hypoglycemia",
+          "protocolExcerpt": "Reassess patient: Reassess vital signs (pulse, blood pressure, respiratory rate, neurologic status assessment) and mental status. Repeat check of blood glucose level if previous hypoglycemia and mental status has not returned to normal. It is not necessary to repeat check of blood glucose level blood sugar if mental status has returned to normal."
+        },
+        {
+          "id": "release-criteria-fail-transport",
+          "shortAction": "Apply the 8 release criteria — he FAILS (intoxication); transport is indicated",
+          "priority": "critical",
+          "rationale": "MATC Hypoglycemia Disposition 4c — release without transport may be considered ONLY if ALL eight criteria are true. This patient fails 'No major co-morbid symptoms exist, like chest pain, shortness of breath, seizures, intoxication.' He is intoxicated. The crew does not have to argue with the wife about whether he feels fine; they have a protocol checklist that answers the question for them, and it says he goes.",
+          "protocolReference": "MATC: Hypoglycemia",
+          "protocolExcerpt": "If symptoms of hypoglycemia resolve after treatment, release without transport should only be considered if all the following are true: Repeat glucose is greater than 80 mg/dL; Patient takes insulin or metformin to control diabetes and does not take long-acting oral sulphunylurea agents; Patient returns to normal mental status, with no focal neurologic signs/symptoms after receiving glucose/dextrose; Patient can promptly obtain and will eat a carbohydrate meal; Patient or legal guardian refuses transport and EMS clinicians agree transport not indicated; A reliable adult will be staying with patient; No major co-morbid symptoms exist, like chest pain, shortness of breath, seizures, intoxication; A clear cause of the hypoglycemia is identified (e.g., missed meal)."
+        },
+        {
+          "id": "transport-continued-symptoms",
+          "shortAction": "Transport to closest appropriate facility — hypoglycemia with an identified ongoing driver",
+          "priority": "critical",
+          "rationale": "MATC Hypoglycemia Disposition 4a — hypoglycemia with continued symptoms goes to the closest appropriate receiving facility. The long-acting insulin on board has hours of duration left, the alcohol is still in his system, and he has eaten nothing. The dextrose bought time; it did not remove the cause.",
+          "protocolReference": "MATC: Hypoglycemia",
+          "protocolExcerpt": "Disposition: If hypoglycemia with continued symptoms, transport to closest appropriate receiving facility. Hypoglycemic patients who have had a seizure should be transported to the hospital regardless of their mental status and response to therapy."
+        },
+        {
+          "id": "document-response",
+          "shortAction": "Document glucose value, dose/route given, and mental status before AND after treatment",
+          "priority": "important",
+          "rationale": "MATC Hypoglycemia Key Documentation Elements — document the point-of-care glucose and the reassessment of vitals and mental status after glucose/dextrose/glucagon. If this patient does ultimately refuse, this documentation is the entire defense of the encounter.",
+          "protocolReference": "MATC: Hypoglycemia",
+          "protocolExcerpt": "Key Documentation Elements: Document reassessment of vital signs and mental status after administration of glucose/dextrose/glucagon. Document point of care glucose level (if in scope of practice) when indicated. Performance Measures: When in scope of practice, blood glucose is checked for all patients with symptoms of altered level of consciousness, seizure, stroke, or hypoglycemia. If patient released at scene, criteria documented for safe release."
+        }
+      ]
+    },
+    {
+      "id": "branch-no-iv-glucagon",
+      "name": "IV failed — Glucagon given",
+      "description": "This is a CORRECT path, not an error — and it is the one place MATC authorizes glucagon. The patient is thrashing and soaked in sweat, his veins are flat, and two IV attempts have failed. MATC lists glucagon IM/IN explicitly as 'an option for patients for whom IV access cannot be established' — a fallback, not a first choice. Adult dose is 1 mg IM/IN. The crew must understand what they have bought: glucagon does not deliver glucose, it tells the liver to release stored glycogen. Onset is slow (10–15 minutes) compared to IV dextrose, and this patient has been drinking heavily on an empty stomach for hours — the population in whom hepatic glycogen stores are most likely to be depleted. So the crew gives the glucagon AND keeps working the access problem, because if he does not wake up, the answer is a line and dextrose, not a second dose of hope. The protocol's own fallback ladder ends with disabling an insulin pump if the above cannot be completed — not applicable here, since he is on injected glargine.",
+      "triggerCondition": "Hypoglycemia identified at 42 mg/dL, but IV access cannot be established — the patient is combative, diaphoretic, and peripherally shut down, and attempts have failed. Glucagon is now the protocol-authorized option.",
+      "isDefault": false,
+      "clinicalPresentation": {
+        "avpu": "Verbal",
+        "gcs": {
+          "eye": 3,
+          "verbal": 3,
+          "motor": 5
+        },
+        "airway": "Patent but unprotected — cannot safely swallow; suction staged",
+        "breathing": "RR 18, unlabored; lungs clear",
+        "circulation": "Pulse 116; peripheral veins flat and non-visible from diaphoresis and vasoconstriction; cap refill 2–3 sec",
+        "skin": {
+          "color": "pale",
+          "temperature": "cool",
+          "moisture": "profusely diaphoretic — IV sites will not hold a dressing"
+        },
+        "pupils": "Equal at 4 mm, reactive",
+        "motorFunction": "Thrashing intermittently; pulls away from IV attempts",
+        "otherFindings": [
+          "Glucagon is the FALLBACK, not the plan — MATC authorizes it only when IV access cannot be established",
+          "Adult dose: 1 mg IM/IN (or prefilled 3 mg dry powder IN, or prefilled IM autoinjector)",
+          "Glucagon does not GIVE glucose — it mobilizes hepatic glycogen, so onset is 10–15 min, far slower than IV D10",
+          "This patient has been drinking on an empty stomach for hours — the exact scenario where glycogen stores may be depleted and glucagon underperforms",
+          "KEEP WORKING THE ACCESS PROBLEM — if he does not wake, the answer is a line and dextrose, not more waiting",
+          "IO is a reasonable escalation if he continues to deteriorate without access",
+          "Oral glucose remains contraindicated — he still cannot protect his airway"
+        ],
+        "patientSpeech": "(slurred, agitated) Don't— don't stick me. Get off."
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 116,
+        "bpSys": 136,
+        "bpDia": 84,
+        "respRate": 18,
+        "spo2": 95,
+        "etco2": 37,
+        "temp": 36.6,
+        "tempF": 97.9,
+        "obstruction": 0,
+        "glucose": 40,
+        "trendTimeSeconds": 30,
+        "visibility": {
+          "spo2Visible": true,
+          "spo2Attached": true,
+          "rrVisible": true,
+          "etco2Visible": true,
+          "cvpVisible": false
+        }
+      },
+      "expectedActions": [
+        {
+          "id": "glucagon-1mg-im",
+          "shortAction": "Glucagon 1 mg IM/IN (adult fixed dose) — authorized because IV access cannot be established",
+          "priority": "critical",
+          "rationale": "MATC Hypoglycemia Treatment 2b-ii — glucagon IM/IN is 'an option for patients for whom IV access cannot be established,' at an adult dose of 1 mg. The protocol's ordering is the teaching point: dextrose IV is listed FIRST for the unprotected airway, and glucagon is the fallback beneath it. A crew that reaches for glucagon with a working line has skipped a rung on the ladder.",
+          "protocolReference": "MATC: Hypoglycemia",
+          "protocolExcerpt": "Glucagon IM/IN – an option for patients for whom IV access cannot be established: Adult dosing: 1 mg IM/IN (or prefilled 3 mg dry powder IN or prefilled IM autoinjector). Pediatric dosing: 1 mg IM/IN if ≥ 20 kg (or ≥ 5 years old (or prefilled 4 mg dry powder IN for patients greater than 4 years old or prefilled IM autoinjector); 0.5 mg IM/IN if less than 20 kg (or less than 5 years old)."
+        },
+        {
+          "id": "keep-pursuing-access",
+          "shortAction": "Keep pursuing vascular access — if he does not wake, the answer is dextrose, not a second glucagon",
+          "priority": "critical",
+          "rationale": "MATC Hypoglycemia Treatment 2b-i and Treatment 3c — dextrose remains the definitive therapy, and if maximal field dosing does not achieve euglycemia and normal mental status the protocol directs transport and continued treatment with dextrose solutions. Glucagon bought time; it did not replace the need for a line.",
+          "protocolReference": "MATC: Hypoglycemia",
+          "protocolExcerpt": "If maximal field dosage of dextrose solution does not achieve euglycemia and normalization of mental status: Initiate transport to closest appropriate receiving facility for further treatment of refractory hypoglycemia; Evaluate for alternative causes of altered mental status; Continue treatment of hypoglycemia using dextrose solutions as noted above."
+        },
+        {
+          "id": "reassess-after-glucagon",
+          "shortAction": "Reassess mental status and repeat BGM — glucagon onset is slow; do not assume it worked",
+          "priority": "critical",
+          "rationale": "MATC Hypoglycemia Treatment 3 — reassess vitals and mental status, and repeat the glucose check because mental status has NOT returned to normal. With glucagon's delayed onset this reassessment is the only thing that tells the crew whether the fallback is working or whether they are watching a patient quietly get worse.",
+          "protocolReference": "MATC: Hypoglycemia",
+          "protocolExcerpt": "Reassess patient: Reassess vital signs (pulse, blood pressure, respiratory rate, neurologic status assessment) and mental status. Repeat check of blood glucose level if previous hypoglycemia and mental status has not returned to normal."
+        },
+        {
+          "id": "airway-during-wait",
+          "shortAction": "Protect the airway during the 10–15 min glucagon window — position, suction, monitor",
+          "priority": "critical",
+          "rationale": "MATC Altered Mental Status Patient Safety 1 — with depressed mental status the initial focus is airway protection, oxygenation, ventilation, and perfusion. The glucagon window is a period of watchful waiting, and the airway is what can be lost during it.",
+          "protocolReference": "MATC: Altered Mental Status",
+          "protocolExcerpt": "Patient Safety Considerations: With depressed mental status, initial focus is on airway protection, oxygenation, ventilation, and perfusion."
+        },
+        {
+          "id": "transport-glucagon-path",
+          "shortAction": "Transport — refractory or slow-to-correct hypoglycemia goes to the ED regardless",
+          "priority": "important",
+          "rationale": "MATC Hypoglycemia Disposition 4a and Treatment 3c-i — hypoglycemia with continued symptoms is transported, and refractory hypoglycemia is transported to the closest appropriate receiving facility. A patient who needed glucagon because you could not get a line is not a release candidate.",
+          "protocolReference": "MATC: Hypoglycemia",
+          "protocolExcerpt": "Disposition: If hypoglycemia with continued symptoms, transport to closest appropriate receiving facility. Initiate transport to closest appropriate receiving facility for further treatment of refractory hypoglycemia."
+        }
+      ]
+    },
+    {
+      "id": "branch-missed-hypoglycemia",
+      "name": "BGM never checked; treated as intoxication",
+      "description": "The crew took the smell of beer, the empty cans, and the wife's word, and never put a glucometer on him. Twenty minutes later the sugar is 31 mg/dL and he is no longer combative — because he is no longer conscious. He is GCS 3 with snoring respirations as his tongue falls back, his rate has dropped to 6, and he is bradycardic and hypoxic from hypoventilation. This is what an untreated hypoglycemic brain does: it stops. The lesson is not subtle and it is not really about diabetes — it is about what happens when a crew lets a plausible story do the work of an assessment. Note that the wife's version of events never changed; she was wrong the whole time, confidently, and the only thing that could ever have corrected her was a $0.30 test strip. The rescue is airway first, then the sugar he should have had twenty minutes ago.",
+      "triggerCondition": "Blood glucose was never checked. The crew accepted alcohol intoxication as the working diagnosis. The blood sugar continued to fall; the patient is now unresponsive with snoring respirations, hypoventilation, and bradycardia.",
+      "isDefault": false,
+      "clinicalPresentation": {
+        "avpu": "Unresponsive",
+        "gcs": {
+          "eye": 1,
+          "verbal": 1,
+          "motor": 1
+        },
+        "airway": "OBSTRUCTED by tongue — loud snoring respirations; no gag; requires immediate repositioning and an OPA",
+        "breathing": "RR 6 and shallow — hypoventilating; poor tidal volume; SpO2 falling",
+        "circulation": "Bradycardic at 48; pulse present but slow; cap refill 3 sec",
+        "skin": {
+          "color": "pale, dusky around the lips",
+          "temperature": "cool",
+          "moisture": "still diaphoretic"
+        },
+        "pupils": "Equal at 3 mm, sluggish",
+        "motorFunction": "Flaccid — no longer combative because he is no longer conscious",
+        "otherFindings": [
+          "GLUCOSE 31 mg/dL — the number nobody looked for",
+          "Snoring respirations = tongue occluding the airway; this is an AIRWAY emergency first",
+          "RR 6 with rising EtCO2 (54) = hypoventilation, not just sedation",
+          "Bradycardia at 48 — a late, ominous sign in hypoglycemic decompensation",
+          "The combativeness resolving was NOT improvement — it was the patient deteriorating",
+          "RESCUE ORDER: airway (position, OPA, BVM) → glucose check → IV D10",
+          "Wife's account never changed and was never right — the test strip was the only correction available"
+        ],
+        "patientSpeech": "(none — unresponsive, snoring respirations)"
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Bradycardia",
+        "ecgWaveform": 9,
+        "hr": 48,
+        "bpSys": 108,
+        "bpDia": 68,
+        "respRate": 6,
+        "spo2": 84,
+        "etco2": 54,
+        "temp": 36.4,
+        "tempF": 97.5,
+        "obstruction": 30,
+        "glucose": 31,
+        "trendTimeSeconds": 40,
+        "visibility": {
+          "spo2Visible": true,
+          "spo2Attached": true,
+          "rrVisible": true,
+          "etco2Visible": true,
+          "cvpVisible": false
+        }
+      },
+      "expectedActions": [
+        {
+          "id": "rescue-airway-first",
+          "shortAction": "AIRWAY FIRST — reposition, suction, OPA (no gag); BVM at 10–12/min for RR 6",
+          "priority": "critical",
+          "rationale": "MATC Airway Management Treatment 3 and 4 — open and maintain the airway with positioning and an OPA in the patient without a gag reflex, and use BVM ventilation in the setting of respiratory failure at an adult rate of 10–12 breaths/minute. He is hypoventilating at 6; the airway and ventilation come before the sugar.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)",
+          "protocolExcerpt": "Open and maintain patent airway. Oropharyngeal airways (OPA) or nasopharyngeal airways (NPA) can be placed if needed to maintain a patent airway and make BVM ventilation more effective: OPA are used for patients without gag reflex. Use bag-valve-mask (BVM) ventilation in the setting of respiratory failure or arrest. Two-person, two-thumbs-up BVM ventilation is preferred. Rate: Adult: 10–12 breaths/minute."
+        },
+        {
+          "id": "rescue-check-glucose-now",
+          "shortAction": "Check the blood glucose NOW — the assessment that was owed 20 minutes ago",
+          "priority": "critical",
+          "rationale": "MATC Hypoglycemia Assessment 1 and Altered Mental Status Assessment 9 — check the blood glucose level. The AMS protocol's stated performance measure is that hypoglycemia is considered and a blood glucose level is obtained. Nothing in this branch improves until that number is on the screen.",
+          "protocolReference": "MATC: Altered Mental Status",
+          "protocolExcerpt": "Look for treatable causes of altered mental status (AMS): Blood glucose level. Performance Measures: Hypoglycemia considered and treated appropriately - Blood glucose level obtained."
+        },
+        {
+          "id": "rescue-d10-iv",
+          "shortAction": "IV D10% incrementally to max field dose 25 g (250 mL) — unconscious, cannot protect airway",
+          "priority": "critical",
+          "rationale": "MATC Hypoglycemia Treatment 2b-i — the unconscious patient who cannot protect their airway gets dextrose IV, D10% preferred, titrated incrementally to mental status or the 25 g field max. Oral glucose is now absolutely contraindicated.",
+          "protocolReference": "MATC: Hypoglycemia",
+          "protocolExcerpt": "Unconscious patient, or patients who are unable to protect their own airway: Dextrose IV – administer in incremental doses until mental status improves or maximum field dosing is reached (if available, D10% is preferred). Maximum field adult dosing: 25 g of 10–50% dextrose IV: 250 mL of 10% dextrose."
+        },
+        {
+          "id": "rescue-reassess-transport",
+          "shortAction": "Reassess mental status and vitals; transport — this patient is not a release candidate",
+          "priority": "critical",
+          "rationale": "MATC Hypoglycemia Treatment 3 and Disposition 4a — reassess after treatment and transport hypoglycemia with continued symptoms. A patient who lost his airway to hypoglycemia goes to the hospital regardless of how well the dextrose works.",
+          "protocolReference": "MATC: Hypoglycemia",
+          "protocolExcerpt": "Reassess patient: Reassess vital signs (pulse, blood pressure, respiratory rate, neurologic status assessment) and mental status. Disposition: If hypoglycemia with continued symptoms, transport to closest appropriate receiving facility."
+        },
+        {
+          "id": "rescue-qi-anchoring",
+          "shortAction": "Debrief the anchoring error: 'appears intoxicated' is an INCLUSION criterion for this protocol",
+          "priority": "important",
+          "rationale": "MATC Hypoglycemia Inclusion Criteria 6 and 8 — the protocol anticipated this exact failure mode and wrote the drunk-looking patient INTO the guideline. The QI point is that the crew's diagnosis was never wrong about the alcohol; it was wrong about the alcohol being the whole story.",
+          "protocolReference": "MATC: Hypoglycemia",
+          "protocolExcerpt": "Inclusion Criteria: Patients with suspected alcohol ingestion. Patients who appear to be intoxicated. Performance Measures: When in scope of practice, blood glucose is checked for all patients with symptoms of altered level of consciousness, seizure, stroke, or hypoglycemia."
+        }
+      ]
+    }
+  ],
+  "realiti": {
+    "scenarioMonitorType": 2,
+    "scenarioDefaultEnergy": 200,
+    "scenarioDefaultPacerThreshold": 55
+  }
+}
