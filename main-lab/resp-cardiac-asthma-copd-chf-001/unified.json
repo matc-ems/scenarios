@@ -1,0 +1,634 @@
+{
+  "meta": {
+    "id": "resp-cardiac-asthma-copd-chf-001",
+    "name": "Cardiac Asthma — Wheezing in a COPD Patient Who Is Actually in Heart Failure",
+    "version": 1,
+    "difficulty": "advanced",
+    "category": "Respiratory",
+    "protocols": [
+      "resp-respiratory-distress",
+      "resp-airway-management"
+    ],
+    "totalTimeSeconds": 1500,
+    "createdAt": "2026-07-12T00:00:00Z",
+    "tags": [
+      "cardiac asthma",
+      "acute heart failure",
+      "pulmonary edema",
+      "COPD",
+      "differentiation",
+      "CPAP",
+      "high-dose nitroglycerin",
+      "PDE5 screen",
+      "furosemide harm",
+      "capnography",
+      "advanced"
+    ]
+  },
+  "patient": {
+    "name": "Walter Krueger",
+    "age": 68,
+    "ageUnit": "years",
+    "sex": "male",
+    "weight": 92,
+    "weightLbs": 203,
+    "height": 175,
+    "chiefComplaint": "Woke suddenly around 02:30 unable to breathe, sat bolt upright on the edge of the bed, and has been getting worse since. Cannot speak more than two or three words at a time.",
+    "history": {
+      "hpi": "68-year-old male with a genuine, documented history of BOTH COPD (35 pack-year smoker, quit 6 years ago) AND congestive heart failure with reduced ejection fraction. He went to bed feeling 'a little puffy' after a salty restaurant dinner. He woke abruptly around 02:30 gasping for air — paroxysmal nocturnal dyspnea — and has been sitting on the edge of the bed in a tripod position ever since, unable to lie back down. His wife counted three pillows he has been sleeping on for the past week, up from his usual one, because 'lying flat makes him feel like he's drowning.' He reached for his rescue albuterol inhaler and used it four times over the last 40 minutes with no relief whatsoever — a detail that matters, because a true bronchospastic exacerbation almost always yields something to a beta-agonist. He has gained about 6 pounds in the last week and his wedding ring no longer fits. He has been coughing up small amounts of frothy sputum, faintly pink-tinged. He denies chest pain. His wife mentions, when asked directly, that he 'takes something for his prostate and, you know, other things' — a detail no one volunteers unprompted.",
+      "pastMedical": [
+        "Congestive heart failure with reduced ejection fraction (EF 35% on last echo, 8 months ago)",
+        "COPD — 35 pack-year smoking history, quit 6 years ago; uses albuterol rescue inhaler",
+        "Asthma diagnosed in childhood",
+        "Hypertension — poorly controlled, admits to skipping his medication 'when the pills run low'",
+        "Type 2 diabetes",
+        "Two prior CHF admissions in the past 18 months, one requiring BiPAP",
+        "Benign prostatic hyperplasia"
+      ],
+      "medications": [
+        "Albuterol MDI PRN (used ×4 in the last 40 minutes with NO relief)",
+        "Furosemide 40 mg PO daily — admits he skipped it the last two days because it 'makes him get up all night'",
+        "Lisinopril 20 mg PO daily",
+        "Metoprolol succinate 50 mg PO daily",
+        "Metformin 1000 mg PO twice daily",
+        "Tadalafil 5 mg PO daily — prescribed for benign prostatic hyperplasia; LAST DOSE APPROXIMATELY 20 HOURS AGO. He will not volunteer this. It must be asked for."
+      ],
+      "allergies": [
+        "Shellfish (hives)"
+      ],
+      "lastOralIntake": "Large restaurant dinner around 19:00 — fish fry, heavily salted, with two beers",
+      "events": "Salty restaurant dinner; two skipped doses of furosemide; progressive orthopnea over the past week requiring three pillows; abrupt paroxysmal nocturnal dyspnea at ~02:30 with immediate severe distress. Four albuterol puffs with no relief. No chest pain, no fever, no cough productive of purulent sputum, no recent illness."
+    }
+  },
+  "scene": {
+    "dispatch": "Dispatch: 68-year-old male, difficulty breathing at a private residence. Caller is his wife — reports he is sitting on the edge of the bed and cannot speak in full sentences. Conscious. ALS response.",
+    "location": "Upstairs bedroom of a two-story home. Narrow staircase with a turn at the landing — plan the extrication route before you commit. Patient tripoding on the edge of a queen bed with three pillows stacked behind him.",
+    "time": "Tuesday, 03:05, early morning",
+    "safety": "Scene safe. Narrow stairwell is the operational hazard — a 92 kg patient who cannot lie flat will not come down on a supine board. Consider a stair chair with the patient upright, and do NOT lay him flat to move him.",
+    "bystanders": "Wife is calm, organized, and an excellent historian. She has a shoebox with all his medication bottles and hands it over without being asked. She reports the three-pillow change, the six-pound weight gain, the tight wedding ring, the skipped water pills, and the salty dinner. When asked directly about ALL medications — including anything for erectile dysfunction or prostate — she produces the tadalafil bottle.",
+    "visualCues": [
+      "Elderly man tripoding on the edge of the bed, hands braced on his knees, refusing to lie back",
+      "Marked accessory muscle use — suprasternal and intercostal retractions with every breath",
+      "Cyanosis of the lips and nail beds",
+      "Audible wheezing AND coarse crackles from the doorway — no stethoscope required",
+      "Small amount of pink-tinged frothy sputum at the corner of his mouth and on a tissue in his hand",
+      "Jugular veins visibly distended at 45 degrees",
+      "Ankles and shins grossly swollen — sock lines cut deep into the skin",
+      "Three pillows stacked behind him; an empty albuterol inhaler on the nightstand",
+      "A shoebox of medication bottles on the dresser — the tadalafil is in it"
+    ]
+  },
+  "phases": [
+    {
+      "id": "initial-contact",
+      "name": "Initial Contact",
+      "description": "Everything about this patient's chart says COPD and asthma, and he is wheezing audibly. The trap is fully loaded: a real bronchospastic history, an inhaler on the nightstand, and a sound in the chest that every student associates with albuterol. But this is CARDIAC ASTHMA — wheeze generated by fluid in the interstitium, not by constricted smooth muscle — and MATC gives the crew a clean discriminator table for exactly this moment. Fluid-overload etiology is suggested by jugular venous distention, rales, peripheral edema, and a history of CHF/diuretic therapy/hypertension. He has ALL FOUR. Bronchospastic etiology is suggested by wheezing, a 'shark fin' capnograph or prolonged expiratory phase, and a history of asthma/COPD. He has the wheeze and the history — but his capnograph is a NORMAL square waveform with no shark fin, and his EtCO2 is LOW at 32, which fits MATC's pearl that CHF tends to run lower EtCO2 than COPD. The exam beats the chart. Add the four albuterol puffs that did nothing, the PND, the orthopnea, the six-pound weight gain, and the skipped diuretic, and the picture is acute decompensated heart failure. The treatment is oxygenation and CPAP first, then HIGH-dose nitroglycerin — and, before a single nitrate touches this 68-year-old man, a direct question about phosphodiesterase inhibitors.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": {
+          "eye": 4,
+          "verbal": 4,
+          "motor": 6
+        },
+        "airway": "Patent — but he can only manage two to three words per breath",
+        "breathing": "RR 32, severely labored, tripoding with accessory muscle use and retractions. Auscultation: coarse RALES in both bases rising to the mid-fields, WITH expiratory wheeze throughout the upper fields. Expiratory phase is NOT prolonged.",
+        "circulation": "Rapid, bounding pulse at 124; markedly hypertensive; JVD to the angle of the jaw at 45°; 3+ pitting edema to mid-shin bilaterally",
+        "skin": {
+          "color": "cyanotic lips and nail beds, dusky",
+          "temperature": "cool",
+          "moisture": "diaphoretic"
+        },
+        "pupils": "Equal at 3 mm, reactive",
+        "motorFunction": "Intact but will not tolerate any position except upright",
+        "otherFindings": [
+          "FLUID-OVERLOAD ETIOLOGY (MATC discriminator): JVD ✓ · rales ✓ · peripheral edema ✓ · history of CHF/diuretic/hypertension ✓ — ALL FOUR PRESENT",
+          "BRONCHOSPASTIC ETIOLOGY (MATC discriminator): wheeze ✓ · shark-fin capnograph ✗ · prolonged expiratory phase ✗ · asthma/COPD history ✓ — only 2 of 4",
+          "CAPNOGRAPH IS A NORMAL SQUARE WAVEFORM — no shark fin. This is the discriminator students skip.",
+          "EtCO2 is LOW at 32 — MATC pearl: CHF tends to run LOWER EtCO2 than COPD",
+          "FOUR albuterol puffs produced ZERO relief — true bronchospasm almost always yields something",
+          "PND + 3-pillow orthopnea + 6 lb weight gain + skipped furosemide + salty meal = decompensated heart failure",
+          "SBP 196 — this is the HIGH-dose nitroglycerin bracket (≥160), NOT the 0.4 mg bracket",
+          "ASK ABOUT PDE5 INHIBITORS BEFORE NITRATES — he is on daily tadalafil and will not volunteer it"
+        ],
+        "patientSpeech": "(two to three words per breath) Can't… breathe. Drowning. Inhaler… didn't… help."
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 124,
+        "bpSys": 196,
+        "bpDia": 112,
+        "respRate": 32,
+        "spo2": 84,
+        "etco2": 32,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 45,
+        "glucose": 132,
+        "trendTimeSeconds": 0,
+        "visibility": {
+          "spo2Visible": true,
+          "spo2Attached": true,
+          "rrVisible": true,
+          "etco2Visible": true,
+          "cvpVisible": false
+        }
+      },
+      "expectedActions": [
+        {
+          "id": "differentiate-etiology",
+          "shortAction": "Differentiate the wheeze: JVD + rales + edema + CHF history = fluid overload, not bronchospasm",
+          "priority": "critical",
+          "rationale": "MATC Respiratory Distress Pertinent Assessment Findings 4 — the protocol supplies an explicit two-column discriminator. Fluid overload: JVD, rales, peripheral edema, history of CHF/diuretic/hypertension. Bronchospastic: wheezing, shark-fin capnograph or prolonged expiratory phase, history of asthma/COPD. This patient has all four fluid-overload findings and only two of four bronchospastic findings — and the two he has (wheeze, history) are the two that mislead. Patient Care Goal 4 is to deliver appropriate therapy BY DIFFERENTIATING the likely cause.",
+          "protocolReference": "MATC: Respiratory Distress (includes Bronchospasm, Pulmonary Edema)",
+          "protocolExcerpt": "Etiology of respiratory distress: Bronchospastic etiology (e.g., asthma, COPD) is suggested by: Wheezing on auscultation; \"Shark fin\" waveform capnograph or prolonged expiratory phase; History of asthma/COPD. Fluid overload etiology (e.g., CHF, pulmonary edema) is suggested by: Jugular venous distention; Rales on auscultation; Peripheral edema; History of CHF, diuretic therapy, dialysis noncompliance, hypertension."
+        },
+        {
+          "id": "capnography-discriminator",
+          "shortAction": "Read the capnograph: normal square waveform + low EtCO2 argues CHF, not bronchospasm",
+          "priority": "critical",
+          "rationale": "MATC Respiratory Distress Pertinent Assessment Findings 3 and Educational Pearl 4 — a shark fin on waveform capnography suggests significant bronchospasm and obstructive physiology, and CHF tends to be associated with LOWER EtCO2 compared to COPD. This patient's waveform is square and his EtCO2 is 32. The capnograph is quietly telling the crew the wheeze is not obstructive, and almost nobody looks at it.",
+          "protocolReference": "MATC: Respiratory Distress (includes Bronchospasm, Pulmonary Edema)",
+          "protocolExcerpt": "A \"shark fin\" on waveform capnography suggests significant bronchospasm and obstructive physiology. When assessing for cause of respiratory distress, CHF tends to be associated with lower levels of EtCO2 compared to COPD. EtCO2 values that are extremely low and high are markers of poor outcomes and need for intubation or ICU admission."
+        },
+        {
+          "id": "cpap-early",
+          "shortAction": "CPAP now — start PEEP 5 cmH2O, step up 2–3 at a time; coach him onto the mask",
+          "priority": "critical",
+          "rationale": "MATC Respiratory Distress Treatment 5a — for pulmonary edema due to acute heart failure, restoration of adequate oxygenation and ventilation should PRECEDE or accompany the medication therapies. NIV is indicated for severe distress. MATC Airway Management sets initial PEEP at 5 cmH2O with stepwise 2–3 cmH2O increases, and notes that the key to success in an NIV-naive patient is coaching and reassurance — not sedation.",
+          "protocolReference": "MATC: Respiratory Distress (includes Bronchospasm, Pulmonary Edema)",
+          "protocolExcerpt": "Adults with suspected pulmonary edema due to acute heart failure or fluid overload: Restoration of adequate oxygenation and ventilation should precede or be accomplished simultaneously with other medication therapies below: CPAP/BiPAP. Non-invasive ventilation (NIV) should be administered for severe respiratory distress via BVM, continuous positive airway pressure (CPAP) or bi-level positive airway pressure (BiPAP)."
+        },
+        {
+          "id": "pde5-screen-before-nitrates",
+          "shortAction": "SCREEN FOR PDE5 INHIBITORS before any nitrate — ask directly; he takes daily tadalafil",
+          "priority": "critical",
+          "rationale": "MATC Respiratory Distress Patient Safety 2 — nitrates must be avoided in any patient who has used a phosphodiesterase inhibitor within the past 48 hours. This 68-year-old man takes tadalafil daily for BPH and dosed roughly 20 hours ago. He will not volunteer it, his wife will only produce the bottle if asked directly, and a crew that gives 0.8 mg of nitroglycerin without asking is about to cause profound, refractory hypotension in a patient who is already critically ill.",
+          "protocolReference": "MATC: Respiratory Distress (includes Bronchospasm, Pulmonary Edema)",
+          "protocolExcerpt": "Patient Safety Considerations: The use of nitrates should be avoided in any patient who has used a phosphodiesterase inhibitor within the past 48 hours. Examples are sildenafil, vardenafil and tadalafil, which are used for erectile dysfunction and pulmonary hypertension. Also avoid use in patients receiving intravenous epoprostenol or treporstenil which are used for pulmonary hypertension."
+        },
+        {
+          "id": "oxygen-target",
+          "shortAction": "Oxygen titrated to SpO2 94–98%, escalating device as needed (he is 84% on room air)",
+          "priority": "critical",
+          "rationale": "MATC Respiratory Distress Treatment 1a — supplemental oxygen for dyspnea to a target of 94–98% saturation, escalating from nasal cannula as needed to reach the goal.",
+          "protocolReference": "MATC: Respiratory Distress (includes Bronchospasm, Pulmonary Edema)",
+          "protocolExcerpt": "Airway: Give supplemental oxygen for dyspnea to a target of 94–98% saturation. Escalate from a nasal cannula as needed to reach this goal."
+        },
+        {
+          "id": "monitor-12-lead",
+          "shortAction": "Continuous cardiac monitor + 12-lead — indicated in decompensated CHF presentations",
+          "priority": "important",
+          "rationale": "MATC Respiratory Distress Monitoring 2b and 2c — continuous cardiac monitoring may be indicated in respiratory distress associated with suspected acute or decompensated CHF or dysrhythmia, and a 12-lead may be indicated to assess for dysrhythmia or ischemia, particularly with a presentation consistent with CHF. Acute heart failure is frequently ischemia-driven; find out before you treat.",
+          "protocolReference": "MATC: Respiratory Distress (includes Bronchospasm, Pulmonary Edema)",
+          "protocolExcerpt": "Monitoring: Pulse oximetry and EtCO2 should be routinely used as adjuncts to other forms of monitoring in patients with respiratory complaints. Continuous cardiac monitoring may be indicated in patients with respiratory distress associated with suspected acute or decompensated congestive heart failure (CHF) or dysrhythmia. 12-lead EKG may be indicated to assess for dysrhythmia or ischemia, particularly in patients with risk factors for coronary artery disease and/or presentation consistent with CHF."
+        },
+        {
+          "id": "withhold-furosemide",
+          "shortAction": "WITHHOLD furosemide — no immediate benefit and can cause significant harm",
+          "priority": "critical",
+          "rationale": "MATC Respiratory Distress Educational Pearl 6 — pulmonary edema is more commonly a problem of volume DISTRIBUTION than total body fluid overload, so diuretics such as furosemide provide no immediate benefit for most patients and can cause significant harm. Furosemide appears NOWHERE in the MATC treatment pathway for pulmonary edema. That his own home Lasix bottle is sitting in the shoebox makes this a live temptation, not a theoretical one.",
+          "protocolReference": "MATC: Respiratory Distress (includes Bronchospasm, Pulmonary Edema)",
+          "protocolExcerpt": "Pulmonary edema is more commonly a problem of volume distribution than total body fluid overload, so administration of diuretics such as furosemide provide no immediate benefit for most patients and can cause significant harm. Inducement of inappropriate diuresis can lead to increased morbidity and mortality in patients with other disease processes such as pneumonia and sepsis."
+        },
+        {
+          "id": "position-upright",
+          "shortAction": "Keep him upright — never lay him flat, including for the stair chair extrication",
+          "priority": "important",
+          "rationale": "MATC Airway Management Treatment 3d — patient positioning significantly impacts respiratory mechanics; leave the patient in the position of comfort and elevate the head to improve mechanics and limit aspiration. A patient in flash pulmonary edema who is laid supine for the stairs can arrest on the landing.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)",
+          "protocolExcerpt": "Patient positioning can significantly impact respiratory mechanics. Patients with severe bronchospasm should be left in the position of comfort (perhaps tripod) whenever possible. Elevating the head or padding (shoulders, occiput) can assist with opening airway and respiratory mechanics. This can both improve the ability to ventilate and limit aspiration."
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "cpap-nitro-given",
+          "if": "CPAP + PDE5 screen + 0.8 mg SL nitro",
+          "condition": "Crew differentiates cardiac asthma from bronchospasm, applies CPAP early, screens directly for phosphodiesterase inhibitors (finding the tadalafil), and — recognizing that SBP 196 places him in the ≥160 mmHg bracket — administers high-dose nitroglycerin 0.8 mg SL.",
+          "conditionType": "action_taken",
+          "triggerActionIds": [
+            "differentiate-etiology",
+            "cpap-early",
+            "pde5-screen-before-nitrates"
+          ]
+        },
+        {
+          "targetPhaseId": "branch-copd-path",
+          "if": "Treated as COPD; CPAP delayed",
+          "condition": "Crew anchors on the COPD/asthma history and the audible wheeze, treats a bronchospastic exacerbation with albuterol and ipratropium, considers steroids, and delays CPAP and nitrates. The beta-agonist drives the heart rate higher and increases myocardial oxygen demand in a failing ventricle while the alveoli continue to fill.",
+          "conditionType": "action_not_taken",
+          "triggerActionIds": [
+            "differentiate-etiology",
+            "cpap-early"
+          ]
+        },
+        {
+          "targetPhaseId": "branch-nitro-no-pde5",
+          "if": "Nitro given without PDE5 screen",
+          "condition": "Crew correctly identifies cardiac pulmonary edema and reaches for nitroglycerin, but never asks about phosphodiesterase inhibitors. The patient took tadalafil 20 hours ago. Nitrate-PDE5 synergy produces profound, refractory vasodilation and the blood pressure collapses.",
+          "conditionType": "action_not_taken",
+          "triggerActionIds": [
+            "pde5-screen-before-nitrates"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cpap-nitro-given",
+      "name": "CPAP + 0.8 mg SL nitro given",
+      "description": "The crew got both halves right. CPAP went on early with coaching, PEEP started at 5 cmH2O and stepped up to 8, and the intrathoracic pressure began driving fluid back out of the alveoli. Critically, before any nitrate, someone asked the direct question about phosphodiesterase inhibitors — and the wife produced the tadalafil bottle. NOTE WHAT THAT MEANS: in the real protocol, a tadalafil dose 20 hours ago falls INSIDE the 48-hour exclusion window, and nitrates are contraindicated. This phase represents the crew that asked, found the tadalafil, correctly WITHHELD nitroglycerin, and treated aggressively with CPAP alone — escalating PEEP as the tool they still have. That is the protocol-correct answer, and it is a harder, more honest scenario than the one where the drug is available. The patient improves on CPAP: SpO2 climbs to 92%, work of breathing eases, he manages short sentences. The blood pressure remains high because the crew cannot use the drug that would fix it. This is what practicing inside real constraints looks like.",
+      "triggerCondition": "CPAP applied early with coaching and stepped PEEP; direct PDE5 screening performed, revealing daily tadalafil dosed ~20 hours ago — INSIDE the 48-hour window, so nitrates are withheld per protocol. Oxygenation and ventilation improve on CPAP alone.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": {
+          "eye": 4,
+          "verbal": 5,
+          "motor": 6
+        },
+        "airway": "Patent, tolerating the CPAP mask after coaching",
+        "breathing": "RR 24, work of breathing visibly decreased; rales receding from the mid-fields toward the bases; wheeze diminishing as the interstitial fluid clears",
+        "circulation": "Pulse 108, still bounding; JVD persists; edema unchanged",
+        "skin": {
+          "color": "cyanosis resolving — lips returning to pink",
+          "temperature": "cool",
+          "moisture": "less diaphoretic"
+        },
+        "pupils": "Equal at 3 mm, reactive",
+        "motorFunction": "Intact; calmer, cooperating with the mask",
+        "otherFindings": [
+          "CPAP at PEEP 8 cmH2O; SpO2 up from 84% → 92%; RR down from 32 → 24",
+          "TADALAFIL FOUND — dosed ~20 hours ago, INSIDE the 48-hour window → NITRATES CONTRAINDICATED",
+          "This is the protocol-correct outcome of asking the question: the answer takes a drug OFF the table",
+          "BP remains 178/104 — the crew must accept this and lean on CPAP, not force the nitrate",
+          "PEEP is now the primary lever: step up 2–3 cmH2O at a time, watch hemodynamics",
+          "DO NOT break the mask seal — atelectasis and abrupt decompensation follow",
+          "Still no furosemide. Still no albuterol. The diagnosis has not changed."
+        ],
+        "patientSpeech": "(short sentences, through the mask) This thing… is helping. I can get a breath now. Don't take it off."
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 108,
+        "bpSys": 178,
+        "bpDia": 104,
+        "respRate": 24,
+        "spo2": 92,
+        "etco2": 36,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 30,
+        "glucose": 132,
+        "trendTimeSeconds": 45,
+        "visibility": {
+          "spo2Visible": true,
+          "spo2Attached": true,
+          "rrVisible": true,
+          "etco2Visible": true,
+          "cvpVisible": false
+        }
+      },
+      "expectedActions": [
+        {
+          "id": "withhold-nitrate-pde5-positive",
+          "shortAction": "WITHHOLD nitroglycerin — tadalafil 20 hrs ago is inside the 48-hour exclusion window",
+          "priority": "critical",
+          "rationale": "MATC Respiratory Distress Patient Safety 2 — nitrates are to be avoided in any patient who has used a phosphodiesterase inhibitor within the past 48 hours. Twenty hours is inside that window. The crew asked the question and got an answer they did not want; the protocol does not offer a workaround, and the discipline is in honoring the finding rather than rationalizing around it because the patient is sick and the nitrate is right there.",
+          "protocolReference": "MATC: Respiratory Distress (includes Bronchospasm, Pulmonary Edema)",
+          "protocolExcerpt": "Patient Safety Considerations: The use of nitrates should be avoided in any patient who has used a phosphodiesterase inhibitor within the past 48 hours. Examples are sildenafil, vardenafil and tadalafil, which are used for erectile dysfunction and pulmonary hypertension."
+        },
+        {
+          "id": "escalate-peep",
+          "shortAction": "Escalate PEEP stepwise 2–3 cmH2O (to a max of 15) — CPAP is now the primary lever",
+          "priority": "critical",
+          "rationale": "MATC Airway Management Treatment 4b — increase PEEP in stepwise fashion 2–3 cmH2O at a time, allowing equilibration between changes, targeting the lowest PEEP that adequately ventilates. Higher PEEP carries greater hemodynamic cost, and physician consultation should be considered above 10–15 cmH2O. With nitrates off the table, PEEP is the tool that remains.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)",
+          "protocolExcerpt": "PEEP should be used with BVM. 5 cmH2O is generally an appropriate initial PEEP setting. Increase PEEP in stepwise fashion (2–3 cmH2O at a time) as necessary, allowing time for the patient to equilibrate with each change before further adjustments are made. The goal is to reach the lowest PEEP needed to adequately ventilate the patient. Higher PEEP results in greater negative hemodynamic impact. Generally, physician consultation should be considered for higher PEEP levels (greater than 10–15 cmH2O)."
+        },
+        {
+          "id": "maintain-mask-seal",
+          "shortAction": "Do NOT break the CPAP seal until the ED can take over — decompensation follows atelectasis",
+          "priority": "critical",
+          "rationale": "MATC Airway Management Patient Safety 9 — once initiated and tolerated, do NOT discontinue CPAP/BiPAP until the patient is on the ED stretcher with hospital CPAP immediately available. Breaking the mask seal causes a significant decrease in airway pressures and may lead to abrupt decompensation from atelectasis and alveolar collapse. This governs how the crew moves him down that narrow staircase.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)",
+          "protocolExcerpt": "Once initiated and patient is tolerating mask, DO NOT discontinue CPAP/BiPAP until patient is on the emergency department stretcher and hospital CPAP/BiPAP is immediately available for patient to be switched over, or physician is at bedside and requesting CPAP/BiPAP be discontinued. Breaking the mask seal causes a significant decrease in airway pressures and may lead to abrupt decompensation due to atelectasis and alveolar collapse."
+        },
+        {
+          "id": "no-sedation-for-mask-anxiety",
+          "shortAction": "Coach, do not sedate — NIV anxiety is presumed hypoxia and treated with ventilatory support",
+          "priority": "important",
+          "rationale": "MATC Airway Management Patient Safety 3 and Key Consideration 12 — routine sedation is NOT recommended for anxiety in patients on NIV. Anxiety should be presumed due to hypoxia or inadequate minute ventilation and treated primarily with ventilatory support. The key to success in an NIV-naive patient is coaching, explanation, and reassurance.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)",
+          "protocolExcerpt": "Routine use of sedation is not recommended for treatment of anxiety in patients on NIV. Anxiety should be presumed due to hypoxia or inadequate minute ventilation and treated primarily with ventilatory support. The key to successful use of NIV in a patient who has not used it before is coaching and explanation of the process and reassurance of the patient."
+        },
+        {
+          "id": "monitor-for-deterioration-on-cpap",
+          "shortAction": "If he worsens on CPAP (mentation, rising EtCO2, vomiting) — remove it and escalate the airway",
+          "priority": "critical",
+          "rationale": "MATC Airway Management Patient Safety 10 — if the patient deteriorates on CPAP/BiPAP (worsened mental status, increasing EtCO2, vomiting), remove it and escalate airway management. CPAP is a bridge, not a destination, and this patient does not have a nitrate to fall back on.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)",
+          "protocolExcerpt": "If patient deteriorates on CPAP/BiPAP (e.g., worsened mental status, increasing EtCO2, vomiting), remove CPAP/BiPAP and escalate airway management options as above."
+        },
+        {
+          "id": "document-serial-exam",
+          "shortAction": "Document RR, SpO2, EtCO2/waveform, accessory muscle use, breath sounds before AND after each intervention",
+          "priority": "important",
+          "rationale": "MATC Respiratory Distress Key Documentation Elements — document the key exam findings at baseline and after each intervention. In a patient where the diagnosis itself was contested, the serial exam is the evidence that the crew's reasoning was correct.",
+          "protocolReference": "MATC: Respiratory Distress (includes Bronchospasm, Pulmonary Edema)",
+          "protocolExcerpt": "Document key aspects of the exam at baseline and after each intervention: Respiratory rate; Oxygen saturation; EtCO2/waveform shape; Use of accessory muscles; Breath sounds and quality; Mental status; Response to interventions."
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "improving-transport",
+          "if": "Improving on CPAP; transport upright",
+          "condition": "Patient continues to improve on CPAP with escalated PEEP. Crew maintains the mask seal, keeps him upright through the stair-chair extrication, and transports with advance notification of decompensated heart failure and a PDE5-inhibitor contraindication to nitrates.",
+          "conditionType": "action_taken",
+          "triggerActionIds": [
+            "escalate-peep",
+            "maintain-mask-seal"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "improving-transport",
+      "name": "Improving on CPAP; transport upright",
+      "description": "Sustained improvement on CPAP alone. SpO2 holds at 94%, respiratory rate has settled to 20, and the rales have receded to the bases. He is speaking in full sentences through the mask and the cyanosis is gone. The crew brings him down the narrow staircase in a stair chair, fully upright, with the mask seal intact — the single most likely place to lose this patient is on that landing with a broken seal and a supine board. Handoff includes the reasoning, not just the numbers: this presented as a wheezing COPD patient and was treated as acute decompensated heart failure on the strength of JVD, rales, peripheral edema, a square capnograph, and four albuterol puffs that did nothing. And the ED needs to hear the tadalafil loud and clear, because the receiving physician will reach for nitroglycerin the moment they see the blood pressure — and the 48-hour window is still open.",
+      "triggerCondition": "Sustained improvement on CPAP with stepped PEEP. Mask seal maintained. Patient extricated upright via stair chair with CPAP in place, transported with advance notification.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": {
+          "eye": 4,
+          "verbal": 5,
+          "motor": 6
+        },
+        "airway": "Patent, tolerating CPAP well",
+        "breathing": "RR 20; rales confined to the bases; wheeze essentially resolved; accessory muscle use gone",
+        "circulation": "Pulse 96; JVD less prominent; edema unchanged (that takes days, not minutes)",
+        "skin": {
+          "color": "pink",
+          "temperature": "warm",
+          "moisture": "dry"
+        },
+        "pupils": "Equal at 3 mm, reactive",
+        "motorFunction": "Intact",
+        "otherFindings": [
+          "SpO2 94% on CPAP; RR 20; rales receded to bases; wheeze resolved WITHOUT a single bronchodilator",
+          "The wheeze resolving on CPAP alone is retrospective proof it was never bronchospasm",
+          "Extricated UPRIGHT in a stair chair with the mask seal intact — never supine",
+          "BP still elevated at 162/94 — expected, because the crew correctly could not use nitrates",
+          "HANDOFF MUST LEAD WITH THE TADALAFIL — the ED will reach for nitro on sight of the BP",
+          "Advance notification: acute decompensated heart failure, CPAP-responsive, nitrates contraindicated ×48 hr"
+        ],
+        "patientSpeech": "(full sentences through the mask) I can breathe. First time in three hours. Thank you."
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Rhythm",
+        "ecgWaveform": 9,
+        "hr": 96,
+        "bpSys": 162,
+        "bpDia": 94,
+        "respRate": 20,
+        "spo2": 94,
+        "etco2": 38,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 15,
+        "glucose": 132,
+        "trendTimeSeconds": 50,
+        "visibility": {
+          "spo2Visible": true,
+          "spo2Attached": true,
+          "rrVisible": true,
+          "etco2Visible": true,
+          "cvpVisible": false
+        }
+      },
+      "expectedActions": [
+        {
+          "id": "handoff-pde5-contraindication",
+          "shortAction": "Handoff MUST lead with the tadalafil — the ED will reach for nitro when they see the BP",
+          "priority": "critical",
+          "rationale": "MATC Respiratory Distress Patient Safety 2 — the 48-hour nitrate exclusion window does not end at the ambulance doors. The receiving team inherits this contraindication, and the only way they learn about it is if the crew that dug it out says it first and says it clearly.",
+          "protocolReference": "MATC: Respiratory Distress (includes Bronchospasm, Pulmonary Edema)",
+          "protocolExcerpt": "Patient Safety Considerations: The use of nitrates should be avoided in any patient who has used a phosphodiesterase inhibitor within the past 48 hours. Examples are sildenafil, vardenafil and tadalafil, which are used for erectile dysfunction and pulmonary hypertension."
+        },
+        {
+          "id": "reassess-bp-on-nitrates-doc",
+          "shortAction": "Reassess and document blood pressure at every interval; trend RR, SpO2, EtCO2, breath sounds",
+          "priority": "important",
+          "rationale": "MATC Respiratory Distress Performance Measures and Key Documentation Elements — documentation of blood pressure reassessment is an explicit performance measure in patients receiving nitrates, and the protocol requires documenting the exam before and after each intervention. Here the documented BP trend is also what justifies the decision NOT to give a nitrate.",
+          "protocolReference": "MATC: Respiratory Distress (includes Bronchospasm, Pulmonary Edema)",
+          "protocolExcerpt": "Performance Measures: Documentation of blood pressure reassessment in patients receiving nitrates. Percentage of patients with abnormal pulse oximetry, respiratory rate, EtCO2 value with normalization on final set of vital signs. Time to initiation of non-invasive positive pressure ventilation. Number of CPAP/BiPAP patients who require intubation."
+        },
+        {
+          "id": "sustain-cpap-to-ed-stretcher",
+          "shortAction": "Keep CPAP running until the ED stretcher — hand off mask-to-mask, never seal-off",
+          "priority": "critical",
+          "rationale": "MATC Airway Management Patient Safety 9 — do not discontinue CPAP until the patient is on the ED stretcher with hospital CPAP immediately available, or a physician is at bedside requesting it be removed. The transfer of care is the moment the seal is most likely to be broken.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)",
+          "protocolExcerpt": "Once initiated and patient is tolerating mask, DO NOT discontinue CPAP/BiPAP until patient is on the emergency department stretcher and hospital CPAP/BiPAP is immediately available for patient to be switched over, or physician is at bedside and requesting CPAP/BiPAP be discontinued."
+        }
+      ]
+    },
+    {
+      "id": "branch-copd-path",
+      "name": "Treated as COPD; CPAP delayed",
+      "description": "The crew read the chart instead of the patient. COPD, asthma, audible wheeze, inhaler on the nightstand — so they ran the bronchospasm pathway: albuterol 5 mg nebulized, ipratropium, and a conversation about steroids while CPAP stayed in the bag. Two things now go wrong at once. The albuterol does nothing for the wheeze, because the wheeze was never bronchospasm — and MATC's own discriminator said so with the JVD, the rales, the peripheral edema, and the square capnograph. Worse, the beta-agonist is not inert: it drives the heart rate from 124 to 148 in a ventricle with an ejection fraction of 35%, increasing myocardial oxygen demand in a heart that is already failing under a pressure load of nearly 200 systolic. Meanwhile the alveoli keep filling. The patient goes quiet — and the quiet is not improvement, it is exhaustion. His EtCO2 is now climbing INTO the normal range while he is still tachypneic, which MATC names explicitly as an indicator of impending respiratory failure. He is minutes from needing a tube that CPAP would have prevented.",
+      "triggerCondition": "Crew anchored on the COPD/asthma history and treated the wheeze as bronchospasm — albuterol and ipratropium given, CPAP and nitrates delayed. Beta-agonist tachycardia is increasing myocardial demand while pulmonary edema progresses unopposed.",
+      "isDefault": false,
+      "clinicalPresentation": {
+        "avpu": "Verbal",
+        "gcs": {
+          "eye": 3,
+          "verbal": 4,
+          "motor": 6
+        },
+        "airway": "Patent but failing — he has stopped fighting for it",
+        "breathing": "RR 36 and shallow, then tiring; rales now to the apices; frank pink frothy sputum bubbling at the lips; wheeze UNCHANGED by two albuterol treatments",
+        "circulation": "Pulse 148 and thready — beta-agonist driven; JVD marked; skin cold",
+        "skin": {
+          "color": "grey, frankly cyanotic",
+          "temperature": "cold",
+          "moisture": "drenched"
+        },
+        "pupils": "Equal at 4 mm, sluggish",
+        "motorFunction": "Weak, no longer bracing himself; slumping",
+        "otherFindings": [
+          "TWO albuterol treatments — ZERO change in the wheeze. It was never bronchospasm.",
+          "HR driven 124 → 148 by the beta-agonist: increased myocardial O2 demand in an EF-35% ventricle",
+          "Rales have climbed from the bases to the APICES — the alveoli are filling",
+          "Frank pink frothy sputum now at the lips",
+          "EtCO2 has risen 32 → 44: 'normal' EtCO2 WITH tachypnea and distress = IMPENDING RESPIRATORY FAILURE (MATC Patient Safety 1)",
+          "He has gone quiet. Quiet is not improvement — it is exhaustion.",
+          "RESCUE: CPAP NOW, stop the albuterol, screen PDE5, escalate airway if he fails NIV"
+        ],
+        "patientSpeech": "(barely audible, eyes closing) …can't…"
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 148,
+        "bpSys": 92,
+        "bpDia": 58,
+        "respRate": 36,
+        "spo2": 74,
+        "etco2": 44,
+        "temp": 36.9,
+        "tempF": 98.4,
+        "obstruction": 80,
+        "glucose": 132,
+        "trendTimeSeconds": 40,
+        "visibility": {
+          "spo2Visible": true,
+          "spo2Attached": true,
+          "rrVisible": true,
+          "etco2Visible": true,
+          "cvpVisible": false
+        }
+      },
+      "expectedActions": [
+        {
+          "id": "rescue-recognize-impending-failure",
+          "shortAction": "Recognize impending respiratory failure — 'normal' EtCO2 with tachypnea and distress",
+          "priority": "critical",
+          "rationale": "MATC Respiratory Distress Patient Safety 1 — a normal EtCO2 (35–45) in a patient who is tachypneic and in respiratory distress is an indicator of IMPENDING RESPIRATORY FAILURE. His EtCO2 climbing from 32 to 44 while his rate stays at 36 is not reassuring; it is the number that says he is about to stop. Pertinent Assessment Finding 1 adds that severe distress manifests with hypoxia, altered mentation, and diaphoresis — all three are now present.",
+          "protocolReference": "MATC: Respiratory Distress (includes Bronchospasm, Pulmonary Edema)",
+          "protocolExcerpt": "Patient Safety Considerations: Normal EtCO2 (35–45 mmHg) with tachypnea and respiratory distress is an indicator of impending respiratory failure. Pertinent Assessment Findings: Severe respiratory distress may manifest with hypoxia, altered mentation, diaphoresis, or inability to speak more than 2–3 words."
+        },
+        {
+          "id": "rescue-cpap-now",
+          "shortAction": "CPAP NOW — oxygenation and ventilation must precede or accompany drug therapy",
+          "priority": "critical",
+          "rationale": "MATC Respiratory Distress Treatment 5a — in pulmonary edema from acute heart failure, restoration of adequate oxygenation and ventilation should PRECEDE or be accomplished simultaneously with medication therapy. The crew inverted this: they gave drugs and withheld ventilation. The correction is to restore the order.",
+          "protocolReference": "MATC: Respiratory Distress (includes Bronchospasm, Pulmonary Edema)",
+          "protocolExcerpt": "Adults with suspected pulmonary edema due to acute heart failure or fluid overload (such as dialysis noncompliance): Restoration of adequate oxygenation and ventilation should precede or be accomplished simultaneously with other medication therapies below: CPAP/BiPAP: See Airway Management Guideline for goals of care and escalation of interventions."
+        },
+        {
+          "id": "rescue-stop-albuterol",
+          "shortAction": "Stop the albuterol — it is not treating the wheeze and it IS driving the heart rate",
+          "priority": "critical",
+          "rationale": "MATC Respiratory Distress Pertinent Assessment Findings 4 — the discriminator was available from the first minute and pointed at fluid overload. Continuing a beta-agonist that has produced no bronchodilator effect while it produces a clear chronotropic one is treating the chart instead of the patient.",
+          "protocolReference": "MATC: Respiratory Distress (includes Bronchospasm, Pulmonary Edema)",
+          "protocolExcerpt": "Fluid overload etiology (e.g., CHF, pulmonary edema) is suggested by: Jugular venous distention; Rales on auscultation; Peripheral edema; History of CHF, diuretic therapy, dialysis noncompliance, hypertension. Patient Care Goals: Deliver appropriate therapy by differentiating likely cause of respiratory distress."
+        },
+        {
+          "id": "rescue-hypotensive-pulm-edema",
+          "shortAction": "SBP now 92 — this is the <100 bracket: 250–500 mL fluid bolus, consider norepinephrine 0.02–2 mcg/kg/min",
+          "priority": "critical",
+          "rationale": "MATC Respiratory Distress Treatment 5b — for pulmonary edema with SBP less than 100 mmHg, the protocol directs an IV fluid bolus of 250–500 mL and consideration of norepinephrine at 0.02–2 mcg/kg/min. The delay has moved him out of the hypertensive bracket he arrived in and into the hypotensive one, where nitrates are now doubly wrong. Educational Pearl 3 is blunt: patients with acute heart failure AND hypotension have high mortality.",
+          "protocolReference": "MATC: Respiratory Distress (includes Bronchospasm, Pulmonary Edema)",
+          "protocolExcerpt": "SBP less than 100 mmHg: IV fluid bolus 250–500 mL; Consider vasopressor: Norepinephrine 0.02–2 mcg/kg/min. Patient with acute heart failure and hypotension have high mortality."
+        },
+        {
+          "id": "rescue-escalate-airway",
+          "shortAction": "If he fails NIV — BVM with PEEP, then escalate; intubation only if less invasive methods fail",
+          "priority": "critical",
+          "rationale": "MATC Airway Management Treatment 4 and Patient Safety 4 — BVM with PEEP in respiratory failure, escalating in stepwise fashion, with endotracheal intubation reserved for when less invasive methods do not meet the care goals. MATC Airway Patient Safety 10 also directs removing NIV and escalating if the patient deteriorates on it.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)",
+          "protocolExcerpt": "Use bag-valve-mask (BVM) ventilation in the setting of respiratory failure or arrest. Two-person, two-thumbs-up BVM ventilation is preferred. PEEP should be used with BVM. Patient Safety Considerations: Endotracheal intubation should only be used if less invasive methods do not meet patient care goals. If patient deteriorates on CPAP/BiPAP (e.g., worsened mental status, increasing EtCO2, vomiting), remove CPAP/BiPAP and escalate airway management options as above."
+        }
+      ]
+    },
+    {
+      "id": "branch-nitro-no-pde5",
+      "name": "Nitro given without PDE5 screen",
+      "description": "The crew got the diagnosis right and the safety check wrong. They correctly identified cardiac pulmonary edema, correctly reached for high-dose nitroglycerin at a systolic of 196, and never asked the one question that would have stopped them. He takes tadalafil daily for his prostate — a fact his wife would have produced in ten seconds from the shoebox on the dresser, if anyone had asked. Twenty hours is well inside MATC's 48-hour exclusion window. Nitrates and phosphodiesterase inhibitors share a final common pathway, and giving them together does not produce additive vasodilation — it produces synergistic, profound, and poorly reversible vasodilation. Within four minutes his systolic falls from 196 to 74 and he loses consciousness. There is no antidote in the drug box. The management is now supportive: lay off the nitrate, run fluid, and reach for a vasopressor in a patient whose lungs are already full of water — the worst possible resuscitation to be forced into. The lesson is that a correct diagnosis does not exempt you from the contraindication check, and 'he didn't mention it' is not a defense when the protocol tells you to ask.",
+      "triggerCondition": "Nitroglycerin administered without screening for phosphodiesterase inhibitors. Patient took tadalafil approximately 20 hours ago — inside the 48-hour exclusion window. Synergistic vasodilation produces profound, refractory hypotension.",
+      "isDefault": false,
+      "clinicalPresentation": {
+        "avpu": "Verbal",
+        "gcs": {
+          "eye": 3,
+          "verbal": 3,
+          "motor": 5
+        },
+        "airway": "Patent but he is no longer maintaining his own posture",
+        "breathing": "RR 34, shallow; rales persist and are worsening — the edema did not improve, the pressure just fell out from under him",
+        "circulation": "Thready, barely palpable radial pulse at 138; cap refill 5 sec; profound hypotension",
+        "skin": {
+          "color": "ashen and grey",
+          "temperature": "cold",
+          "moisture": "drenched, clammy"
+        },
+        "pupils": "Equal at 5 mm, sluggish",
+        "motorFunction": "Weak, slumping, no longer able to hold himself upright",
+        "otherFindings": [
+          "SBP crashed 196 → 74 within about 4 MINUTES of the nitroglycerin",
+          "TADALAFIL 20 HOURS AGO — inside the 48-hour window. The bottle was in the shoebox the whole time.",
+          "Nitrate + PDE5 = SYNERGISTIC, not additive — the drop is steeper and far harder to reverse",
+          "There is NO antidote in the drug box. This is supportive care only.",
+          "He is now hypotensive AND in pulmonary edema — you must give fluid to lungs that are already wet",
+          "This is the <100 SBP bracket: 250–500 mL bolus, consider norepinephrine 0.02–2 mcg/kg/min",
+          "A correct diagnosis does not exempt you from the contraindication check"
+        ],
+        "patientSpeech": "(barely responsive) …dizzy… going out…"
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 138,
+        "bpSys": 74,
+        "bpDia": 42,
+        "respRate": 34,
+        "spo2": 78,
+        "etco2": 26,
+        "temp": 36.8,
+        "tempF": 98.2,
+        "obstruction": 60,
+        "glucose": 132,
+        "trendTimeSeconds": 20,
+        "visibility": {
+          "spo2Visible": true,
+          "spo2Attached": true,
+          "rrVisible": true,
+          "etco2Visible": true,
+          "cvpVisible": false
+        }
+      },
+      "expectedActions": [
+        {
+          "id": "rescue-stop-nitrates",
+          "shortAction": "STOP all nitrates — no further doses; there is no reversal agent",
+          "priority": "critical",
+          "rationale": "MATC Respiratory Distress Patient Safety 2 and Treatment 5c/5d — nitroglycerin repeat dosing is explicitly conditioned on SBP greater than 100 mmHg. At 74 systolic, every dosing pathway in the protocol is closed. The nitrate is the cause; the first intervention is to stop giving it.",
+          "protocolReference": "MATC: Respiratory Distress (includes Bronchospasm, Pulmonary Edema)",
+          "protocolExcerpt": "SBP >= 160 mmHg or MAP greater than 120: Nitroglycerin 0.8 mg SL, can repeat every 5 minutes for SBP greater than 100 mmHg. Patient Safety Considerations: The use of nitrates should be avoided in any patient who has used a phosphodiesterase inhibitor within the past 48 hours."
+        },
+        {
+          "id": "rescue-fluid-and-pressor",
+          "shortAction": "SBP <100: 250–500 mL IV fluid bolus; consider norepinephrine 0.02–2 mcg/kg/min",
+          "priority": "critical",
+          "rationale": "MATC Respiratory Distress Treatment 5b — for pulmonary edema with SBP under 100 mmHg the protocol directs a 250–500 mL fluid bolus and consideration of norepinephrine 0.02–2 mcg/kg/min. This is the cruelty of the error: the crew must now push fluid into a patient whose alveoli are already full, because the alternative is no perfusion at all.",
+          "protocolReference": "MATC: Respiratory Distress (includes Bronchospasm, Pulmonary Edema)",
+          "protocolExcerpt": "SBP less than 100 mmHg: IV fluid bolus 250–500 mL; Consider vasopressor: Norepinephrine 0.02–2 mcg/kg/min. Patient with acute heart failure and hypotension have high mortality."
+        },
+        {
+          "id": "rescue-cpap-support",
+          "shortAction": "CPAP for the edema — but watch that PEEP will further drop an already-collapsed preload",
+          "priority": "critical",
+          "rationale": "MATC Airway Management Treatment 4b — higher PEEP results in greater negative hemodynamic impact, and increased intrathoracic pressure progressively decreases cardiac output. The patient still needs positive pressure for the edema, but in a profoundly vasodilated, hypotensive patient every additional cmH2O costs preload. Use the lowest PEEP that works.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)",
+          "protocolExcerpt": "The goal is to reach the lowest PEEP needed to adequately ventilate the patient. Higher PEEP results in greater negative hemodynamic impact. Increased intrathoracic pressure can progressively decrease cardiac output and is most notable when PEEP is greater than 15 cmH2O. The higher the level of PEEP (over 5 cmH2O), the more likely the patient will experience a variety of adverse consequences, both ventilatory and hemodynamic."
+        },
+        {
+          "id": "rescue-document-med-history-failure",
+          "shortAction": "Document the PDE5 exposure and the timing; debrief the missed contraindication screen",
+          "priority": "important",
+          "rationale": "MATC Respiratory Distress Patient Safety 2 and Performance Measures — the 48-hour PDE5 window is a named safety consideration, and documentation of blood pressure reassessment in patients receiving nitrates is a named performance measure. The receiving ED must know a PDE5 inhibitor is on board so they do not compound the error, and the QI review exists so the next crew asks the question.",
+          "protocolReference": "MATC: Respiratory Distress (includes Bronchospasm, Pulmonary Edema)",
+          "protocolExcerpt": "Patient Safety Considerations: The use of nitrates should be avoided in any patient who has used a phosphodiesterase inhibitor within the past 48 hours. Examples are sildenafil, vardenafil and tadalafil, which are used for erectile dysfunction and pulmonary hypertension. Performance Measures: Documentation of blood pressure reassessment in patients receiving nitrates."
+        }
+      ]
+    }
+  ],
+  "realiti": {
+    "scenarioMonitorType": 2,
+    "scenarioDefaultEnergy": 200,
+    "scenarioDefaultPacerThreshold": 55
+  }
+}
