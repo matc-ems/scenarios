@@ -1,0 +1,450 @@
+{
+  "meta": {
+    "id": "trauma-peds-fall-compensated-shock-001",
+    "name": "Pediatric Fall from Height — The Quiet Child, Compensated Shock, and Scene-Time Discipline",
+    "version": 1,
+    "difficulty": "advanced",
+    "category": "Trauma",
+    "protocols": [
+      "trauma-general",
+      "trauma-spinal-care",
+      "trauma-head-injury"
+    ],
+    "totalTimeSeconds": 1200,
+    "createdAt": "2026-07-12T00:00:00Z",
+    "tags": [
+      "pediatric trauma",
+      "fall from height",
+      "compensated shock",
+      "quiet child",
+      "splenic injury",
+      "MARCH",
+      "scene time",
+      "20 mL/kg",
+      "TXA",
+      "field triage",
+      "advanced"
+    ]
+  },
+  "patient": {
+    "name": "Micah Toennies",
+    "age": 6,
+    "ageUnit": "years",
+    "sex": "male",
+    "weight": 20,
+    "weightLbs": 44,
+    "height": 118,
+    "chiefComplaint": "Fell approximately 10 feet from the top platform of a playground structure, landing on his left side. He is awake but is not crying and will not answer questions.",
+    "history": {
+      "hpi": "6-year-old boy who fell roughly 10 feet from the upper platform of a playground climbing structure onto packed dirt and wood chips, landing directly on his left side. The fall was witnessed by the playground supervisor. He did not lose consciousness — he sat up on his own — but he has not cried, has not called for anyone, and has not spoken since. He is sitting propped against the base of the structure, leaning back, staring at nothing. When the supervisor asked if he was okay he did not answer. He is guarding his left upper abdomen and pulls away when it is touched. The supervisor, who has run this playground for eleven years, says: 'They always cry. Every single one of them cries. He hasn't made a sound.' His skin is pale and cool. There is no external bleeding, no obvious deformity, and no head wound.",
+      "pastMedical": [
+        "No known past medical history",
+        "No prior surgeries",
+        "Fully immunized per parent report obtained by phone",
+        "No bleeding disorder"
+      ],
+      "medications": [
+        "None"
+      ],
+      "allergies": [
+        "No known drug allergies"
+      ],
+      "lastOralIntake": "Juice box and crackers about 90 minutes ago at the morning snack",
+      "events": "Witnessed fall of approximately 10 feet from the top platform of a playground structure, landing directly on the left side onto packed dirt. No loss of consciousness. He sat up on his own and has been silent and progressively less responsive since. Guarding the left upper quadrant. No crying, no complaints, no requests for his mother."
+    }
+  },
+  "scene": {
+    "dispatch": "Dispatch: 6-year-old male, fall from height at a park. Playground supervisor reports the child fell about 10 feet, is conscious but 'acting strange.' Single ALS unit responding.",
+    "location": "Remote community park at the end of a gravel access road. Approximately 20 minutes from the regional Level 1 Pediatric Trauma Center. A community hospital with no pediatric surgical capability is 5 minutes away. Playground structure with a high platform; packed dirt and wood chip ground cover.",
+    "time": "Thursday, 10:20, mid-morning in early autumn, 52°F and breezy",
+    "safety": "Scene safe. Ambient temperature is 52°F with a breeze — a 6-year-old in shock loses heat fast, and hypothermia is the 'H' in MARCH. Keep him covered from the first minute. Gravel access road will slow the departure; back the rig in.",
+    "bystanders": "Playground supervisor witnessed the fall and is a credible, calm historian: 10 feet, landed on his left side, no LOC, sat up on his own, has not made a sound since. She is emphatic and unprompted about the silence — 'they always cry.' Parents have been called and are 25 minutes out; the supervisor has consent-to-treat paperwork on file.",
+    "visualCues": [
+      "Small boy sitting propped against the base of the play structure, leaning back, STARING BLANKLY at nothing",
+      "HE IS NOT CRYING. A 6-year-old who has fallen 10 feet and does not cry is the single most alarming finding on this scene.",
+      "Skin is pale and cool; lips are dusky",
+      "Left arm held protectively across his upper abdomen; he pulls away when the left upper quadrant is palpated",
+      "No external bleeding, no deformity, no scalp wound, no obvious fracture",
+      "Breathing is fast and shallow — you can count it from across the playground",
+      "He does not ask for his mother. He does not ask for anything.",
+      "A backpack and a dropped water bottle where he was standing on the platform"
+    ]
+  },
+  "phases": [
+    {
+      "id": "initial-contact",
+      "name": "Initial Contact",
+      "description": "A 6-year-old, 20 kg, ten-foot fall onto his left side, and his blood pressure is 98/58 — which is NORMAL for his age. That number is the trap, and it will kill him if the crew believes it. MATC's pediatric hypotension threshold for a 6-year-old is 70 + (2 × 6) = 82 mmHg systolic. He is above it, and he is in profound shock anyway. Children are compensatory masters: they clamp down peripherally and run their heart rate up, holding a normal pressure until they have lost a devastating fraction of their blood volume, and then they do not fade — they fall off a cliff. MATC states this outright in the trauma guideline's safety considerations: patients with compensated shock may not manifest hypotension until severe blood loss has occurred. Everything else on this child is screaming. Heart rate 148. Capillary refill 4 seconds. Pale, cool skin. Left upper quadrant guarding after a direct left-side impact — a splenic injury until proven otherwise. And the silence. A 6-year-old who falls ten feet and does not cry is not brave and is not stoic; he is not perfusing his brain. The protocol answer is not complicated and it is not slow: MARCH, 20 mL/kg of crystalloid, scene time under ten minutes, and drive to the trauma center.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Verbal",
+        "gcs": {
+          "eye": 3,
+          "verbal": 4,
+          "motor": 6
+        },
+        "airway": "Patent — but he is not speaking, so it is untested. No stridor, no blood, no vomitus.",
+        "breathing": "RR 30, fast and shallow; chest wall moves symmetrically; breath sounds equal bilaterally; no tracheal deviation; no flail segment",
+        "circulation": "HR 148 — severe tachycardia for age. Radial pulse present but WEAK and thready. Capillary refill 4 SECONDS. Left upper quadrant tender with guarding.",
+        "skin": {
+          "color": "pale, dusky lips",
+          "temperature": "cool — and the ambient temperature is 52°F",
+          "moisture": "dry"
+        },
+        "pupils": "Equal at 4 mm, reactive",
+        "motorFunction": "Moves all four extremities; no lateralizing signs; guards the left upper quadrant with his arm",
+        "otherFindings": [
+          "BP 98/58 is NORMAL for age — MATC pediatric hypotension threshold for a 6-year-old is 70 + (2×6) = 82 mmHg",
+          "A NORMAL BP IN A TACHYCARDIC, POORLY PERFUSED CHILD IS NOT REASSURANCE. IT IS THE WARNING.",
+          "HR 148 + cap refill 4 sec + pale, cool skin = poor perfusion. That is the diagnosis, not the blood pressure.",
+          "THE QUIET IS THE FINDING. A 6-year-old who falls 10 feet and does not cry is not perfusing his brain.",
+          "Left-side impact + LUQ guarding = SPLENIC INJURY until proven otherwise",
+          "Fluid dose: 20 kg × 20 mL/kg = 400 mL crystalloid bolus",
+          "Fall >10 feet + abnormal mental status = spinal motion restriction indicated",
+          "52°F ambient — hypothermia is the 'H' in MARCH and it worsens coagulopathy",
+          "20 min to Level 1 Peds Trauma; 5 min to a community hospital with NO pediatric surgeon. Fluids are a bridge; surgery is the fix."
+        ],
+        "patientSpeech": "(says nothing — stares past you when you speak to him)"
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 148,
+        "bpSys": 98,
+        "bpDia": 58,
+        "respRate": 30,
+        "spo2": 95,
+        "etco2": 30,
+        "temp": 36.5,
+        "tempF": 97.7,
+        "obstruction": 0,
+        "glucose": 108,
+        "trendTimeSeconds": 0,
+        "visibility": {
+          "spo2Visible": true,
+          "spo2Attached": true,
+          "rrVisible": true,
+          "etco2Visible": true,
+          "cvpVisible": false
+        }
+      },
+      "expectedActions": [
+        {
+          "id": "march-primary-survey",
+          "shortAction": "MARCH primary survey: Massive hemorrhage, Airway, Respiratory, Circulation, Head/Hypothermia",
+          "priority": "critical",
+          "rationale": "MATC General Trauma Initial Assessment 1 and Key Consideration 1 — optimal trauma care requires a structured approach emphasizing first control of massive hemorrhage using MARCH. There is no external hemorrhage here, which is exactly why the crew must be disciplined about the rest of the sequence: his blood is going into his abdomen, where a tourniquet cannot reach it.",
+          "protocolReference": "MATC: General Trauma Management",
+          "protocolExcerpt": "Primary survey (Use \"MARCH\" algorithm): Massive Hemorrhage: Initial visual and body sweep to assess for penetrating wounds and severe life-threatening hemorrhage. Airway: Assess airway patency by asking the patient basic questions to assess for stridor and ease of air movement; Evaluate mental status for ability to protect airway. Respiratory/Breathing: Assess respiratory rate and pattern; Assess for tracheal deviation; Assess symmetry of chest wall movement; Listen bilaterally on lateral chest wall for breath sounds. Circulation: Assess blood pressure and heart rate. Head injury/Hypothermia: Perform initial neurologic status assessment of GCS/AVPU and pupillary size and responsiveness; Assess for gross motor movement of extremities; Prevent hypothermia."
+        },
+        {
+          "id": "recognize-compensated-shock",
+          "shortAction": "Recognize COMPENSATED shock — a normal BP does not exclude severe blood loss in a child",
+          "priority": "critical",
+          "rationale": "MATC General Trauma Patient Safety 2a — patients with compensated shock may not manifest hypotension until severe blood loss has occurred. This is the entire scenario in one sentence. The crew that waits for the blood pressure to fall before believing in the shock will be starting fluids on a child who is already decompensating.",
+          "protocolReference": "MATC: General Trauma Management",
+          "protocolExcerpt": "Patient Safety Considerations: Life-threatening injuries identified on primary survey should be mitigated immediately with rapid transport to a trauma center. Monitor patient for deterioration over time with serial vital signs (pulse, blood pressure, respiratory rate, neurologic status assessment) and repeat neurologic status assessment: Patients with compensated shock may not manifest hypotension until severe blood loss has occurred."
+        },
+        {
+          "id": "peds-fluid-bolus-400ml",
+          "shortAction": "400 mL crystalloid bolus IV/IO (20 kg × 20 mL/kg); reassess; repeat for persistent shock",
+          "priority": "critical",
+          "rationale": "MATC General Trauma Circulation 4c-ii — for a pediatric patient with tachycardia for age AND signs of poor perfusion (greater than 2-second capillary refill, altered mental status, weak pulses, pallor, or mottled/cool skin), give a 20 mL/kg crystalloid bolus and reassess, repeating as needed. He has tachycardia and FOUR of the listed perfusion signs. At 20 kg that is 400 mL. The trigger is the tachycardia and the perfusion, NOT the blood pressure — the protocol never asks you to wait for hypotension.",
+          "protocolReference": "MATC: General Trauma Management",
+          "protocolExcerpt": "Fluid resuscitation: Pediatrics: If patient demonstrates tachycardia for age with signs of poor perfusion (low BP, greater than 2-second capillary refill, altered mental status, hypoxia, weak pulses, pallor, or mottled/cool skin), give 20 mL/kg crystalloid bolus and reassess. Repeat as needed for persistent signs and symptoms of shock. If signs and symptoms of shock persist after a total of 60 mL/kg crystalloid bolus, contact online medical direction. Target normal BP for age."
+        },
+        {
+          "id": "scene-time-under-10",
+          "shortAction": "Scene time UNDER 10 MINUTES — he needs a surgeon, and you are not one",
+          "priority": "critical",
+          "rationale": "MATC General Trauma Note 6 and Key Consideration 2 — patients with major hemorrhage or hemodynamic instability often require rapid surgical intervention; minimize scene time with a goal under 10 minutes and initiate rapid transport to the highest level of care in the trauma system. The repeat primary and secondary surveys are explicitly to be conducted EN ROUTE. Every intervention that can be done in a moving ambulance must be.",
+          "protocolReference": "MATC: General Trauma Management",
+          "protocolExcerpt": "NOTE: Patients with major hemorrhage, hemodynamic instability, penetrating torso trauma, or signs of traumatic brain injury often require rapid surgical intervention. Minimize scene time (goal is under 10 minutes) and initiate rapid transport to the highest level of care within the trauma system. Repeat primary assessment or secondary assessment should be conducted en route to the trauma center. Key Considerations: Target scene time less than 10 minutes for unstable patients or those likely to need surgical intervention."
+        },
+        {
+          "id": "spinal-motion-restriction",
+          "shortAction": "Spinal motion restriction — fall >10 ft AND abnormal mental status both trigger it",
+          "priority": "critical",
+          "rationale": "MATC Spinal Care Treatment 1 — place the patient in a cervical collar and initiate spinal motion restriction for any abnormal mental status (including extreme agitation), and note that falls greater than 10 feet are a named higher-risk mechanism. He meets the criteria on mental status alone. Pediatric consideration: children have disproportionately larger heads, so pad under the shoulders to avoid cervical flexion.",
+          "protocolReference": "MATC: Spinal Care",
+          "protocolExcerpt": "Place patient in cervical collar and initiate spinal motion restriction in adults if there are any of the following: Patient complains of midline neck or spine pain; Any midline neck or spinal tenderness with palpation; Any abnormal mental status (including extreme agitation); Focal or neurologic deficit; Any evidence of alcohol or drug intoxication; Another severe or painful distracting injury. Mechanisms that have been associated with a higher risk of injury are: Motor vehicle crashes; Axial loading injuries to the spine; Falls greater than 10 feet."
+        },
+        {
+          "id": "oxygen-spo2-94",
+          "shortAction": "Supplemental oxygen to maintain SpO2 >94%; support ventilation if needed",
+          "priority": "critical",
+          "rationale": "MATC General Trauma Respiratory/Breathing 3c — monitor SpO2 and provide supplemental oxygen to maintain SpO2 greater than 94%, with respiratory support if needed. A shocked child has a shrinking oxygen delivery margin; do not spend any of it.",
+          "protocolReference": "MATC: General Trauma Management",
+          "protocolExcerpt": "Respiratory/Breathing: Monitor oxygen saturation (SpO2) and, if indicated, provide supplemental oxygen to maintain SPO2 greater than 94% and respiratory support if needed."
+        },
+        {
+          "id": "prevent-hypothermia",
+          "shortAction": "Prevent hypothermia — 52°F ambient, small child, shock; remove wet clothing and cover him",
+          "priority": "important",
+          "rationale": "MATC General Trauma Disability/Head/Hypothermia 5b — avoid and treat hypothermia by removing wet clothing and covering the patient. The 'H' in MARCH is not decorative: a cold, shocked, bleeding child becomes coagulopathic, and coagulopathy makes the bleeding he already has worse.",
+          "protocolReference": "MATC: General Trauma Management",
+          "protocolExcerpt": "Disability/Head/Hypothermia: Avoid/treat hypothermia: Remove wet clothing; Cover patient to warm and/or prevent further heat loss. Head injury/Hypothermia: Prevent hypothermia."
+        },
+        {
+          "id": "peds-sbp-target-head",
+          "shortAction": "Maintain SBP >82 mmHg (70 + 2×6 yrs) — prevent hypotension, do not wait for it",
+          "priority": "critical",
+          "rationale": "MATC Head Injury Treatment 3b-ii-c — for children aged 1–10 years, maintain SBP greater than 70 + (2 × age in years), which for this 6-year-old is 82 mmHg. Treatment 3c-i is explicit that fluid boluses are given to maintain SBP above threshold and that the crew should NOT wait until the patient is already hypotensive — prevent hypotension. His altered mentation may be hypoperfusion, head injury, or both; all three answers require the same thing.",
+          "protocolReference": "MATC: Head Injury",
+          "protocolExcerpt": "Moderate/severe closed head injury: Blood pressure: avoid hypotension: Pediatric: maintain SBP: Age less than 1 month: greater than 60 mmHg; Age 1–12 months: greater than 70 mmHg; Age 1–10 years: greater than 70 + 2x age in years. Closed head injury: Administer normal saline (NS)/lactated Ringer's (LR) fluid boluses to maintain SBP above threshold. Do not wait until after the patient is already hypotensive—prevent hypotension. Do not delay transport to initiate IV access."
+        },
+        {
+          "id": "txa-consideration",
+          "shortAction": "Consider TXA — within 3 hours of injury with signs of hemorrhagic shock",
+          "priority": "important",
+          "rationale": "MATC General Trauma Circulation 4e — tranexamic acid may be considered within three hours of injury in a patient with signs of hemorrhagic shock. This fall happened minutes ago and he is in compensated hemorrhagic shock; he is squarely inside the window.",
+          "protocolReference": "MATC: General Trauma Management",
+          "protocolExcerpt": "Blood product administration may be considered based on local availability and protocols. Tranexamic acid (TXA) administration may be considered within three hours of injury and signs of hemorrhagic shock."
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "load-and-go",
+          "if": "Load and go under 10 min; bolus en route",
+          "condition": "Crew recognizes compensated shock from the tachycardia and perfusion findings rather than waiting for hypotension, applies spinal motion restriction, packages the child, and is moving in under 10 minutes — running the 400 mL bolus and completing the secondary survey en route to the Level 1 pediatric trauma center.",
+          "conditionType": "action_taken",
+          "triggerActionIds": [
+            "recognize-compensated-shock",
+            "scene-time-under-10",
+            "peds-fluid-bolus-400ml"
+          ]
+        },
+        {
+          "targetPhaseId": "branch-stayed-on-scene",
+          "if": "Stayed on scene; reassured by normal BP",
+          "condition": "Crew is reassured by a blood pressure of 98/58 that is 'normal for age,' works the scene methodically — full secondary survey, multiple IV attempts, splinting, waiting for parents — and stays past the 10-minute mark. The child exhausts his compensatory reserve on the playground.",
+          "conditionType": "action_not_taken",
+          "triggerActionIds": [
+            "scene-time-under-10",
+            "recognize-compensated-shock"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "load-and-go",
+      "name": "Load and go; bolus en route",
+      "description": "Packaged and rolling in eight minutes. The 400 mL bolus is running through a line established in the back of a moving ambulance, because the protocol says explicitly not to delay transport to obtain IV access — and if the line had been difficult, the answer was an IO, not a longer scene time. He responds the way a compensating child responds: the heart rate comes down from 148 to 132, capillary refill improves to 3 seconds, and he mumbles a one-word answer when asked his name. That is real improvement, and it is also completely misleading. He is still bleeding into his abdomen. Crystalloid replaces volume; it does not replace blood, and it does not close a lacerated spleen. The destination decision is the one that matters now, and MATC does not leave it to taste: transport to the highest level of care within the trauma system, per the ACS-COT field triage guideline. The community hospital five minutes away has no pediatric surgeon. Twenty minutes to a Level 1 pediatric trauma center is the correct answer even though it is the longer drive, because the thing this child needs is an operating room, and only one of those two buildings has the right one.",
+      "triggerCondition": "Scene time under 10 minutes. Child packaged with spinal motion restriction, warmed, oxygenated, and transported. 400 mL crystalloid bolus running en route with reassessment.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Verbal",
+        "gcs": {
+          "eye": 4,
+          "verbal": 4,
+          "motor": 6
+        },
+        "airway": "Patent; now making sounds — a one-word answer to his name",
+        "breathing": "RR 28; symmetric; breath sounds remain equal bilaterally",
+        "circulation": "HR 132 (down from 148); radial pulse stronger; capillary refill 3 seconds (improved from 4); LUQ still guarded and tender",
+        "skin": {
+          "color": "pale but improving — lips less dusky",
+          "temperature": "warming under blankets",
+          "moisture": "dry"
+        },
+        "pupils": "Equal at 4 mm, reactive",
+        "motorFunction": "Moves all four; still guarding the left upper quadrant",
+        "otherFindings": [
+          "400 mL bolus in; HR 148 → 132; cap refill 4 sec → 3 sec; he said his name",
+          "THE IMPROVEMENT IS REAL AND IT IS MISLEADING — crystalloid replaces volume, not blood, and it does not close a spleen",
+          "Second 400 mL bolus is authorized for persistent signs of shock",
+          "At a TOTAL of 60 mL/kg (1200 mL for this 20 kg child) → CONTACT ONLINE MEDICAL DIRECTION",
+          "DESTINATION: Level 1 Pediatric Trauma Center (20 min), NOT the community hospital (5 min, no peds surgeon)",
+          "Protocol: do NOT delay transport to initiate IV access — the line goes in the moving truck, or you go IO",
+          "Repeat the primary survey en route; if mental status declines, reassess ABCs"
+        ],
+        "patientSpeech": "(one word, faint) …Micah."
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 132,
+        "bpSys": 100,
+        "bpDia": 60,
+        "respRate": 28,
+        "spo2": 98,
+        "etco2": 33,
+        "temp": 36.6,
+        "tempF": 97.9,
+        "obstruction": 0,
+        "glucose": 108,
+        "trendTimeSeconds": 45,
+        "visibility": {
+          "spo2Visible": true,
+          "spo2Attached": true,
+          "rrVisible": true,
+          "etco2Visible": true,
+          "cvpVisible": false
+        }
+      },
+      "expectedActions": [
+        {
+          "id": "destination-highest-level",
+          "shortAction": "Bypass the community hospital — transport to the highest level of trauma care per ACS-COT field triage",
+          "priority": "critical",
+          "rationale": "MATC General Trauma Note 6 and Note 8 — initiate rapid transport to the HIGHEST level of care within the trauma system, with destination decisions based on the ACS-COT 2022 National Guideline for the Field Triage of Injured Patients. MATC Spinal Care 6 repeats the same instruction. A 5-minute hospital that cannot operate on a child's spleen is not closer to definitive care; it is a detour.",
+          "protocolReference": "MATC: General Trauma Management",
+          "protocolExcerpt": "NOTE: Patients with major hemorrhage, hemodynamic instability, penetrating torso trauma, or signs of traumatic brain injury often require rapid surgical intervention. Minimize scene time (goal is under 10 minutes) and initiate rapid transport to the highest level of care within the trauma system. Decisions regarding transport destination should be based on the ACS-COT 2022 National Guideline for the Field Triage of Injured Patients."
+        },
+        {
+          "id": "repeat-bolus-and-60mlkg-threshold",
+          "shortAction": "Repeat 400 mL boluses for persistent shock; at 1200 mL total (60 mL/kg) contact medical direction",
+          "priority": "critical",
+          "rationale": "MATC General Trauma Circulation 4c-ii — repeat the 20 mL/kg bolus as needed for persistent signs and symptoms of shock, and if shock persists after a TOTAL of 60 mL/kg, contact online medical direction. For this 20 kg child that ceiling is 1200 mL. Knowing where the ceiling is — and that hitting it means picking up the radio rather than hanging another bag — is the point.",
+          "protocolReference": "MATC: General Trauma Management",
+          "protocolExcerpt": "Pediatrics: If patient demonstrates tachycardia for age with signs of poor perfusion, give 20 mL/kg crystalloid bolus and reassess. Repeat as needed for persistent signs and symptoms of shock. If signs and symptoms of shock persist after a total of 60 mL/kg crystalloid bolus, contact online medical direction. Target normal BP for age."
+        },
+        {
+          "id": "dont-delay-transport-for-iv",
+          "shortAction": "Never delay transport for IV access — establish it en route, or go IO",
+          "priority": "critical",
+          "rationale": "MATC Head Injury Treatment 3d — do not delay transport to initiate IV access. This single line resolves the entire false dilemma of standing on a playground trying to cannulate a shut-down 6-year-old. The truck is moving; the line goes in the truck.",
+          "protocolReference": "MATC: Head Injury",
+          "protocolExcerpt": "Circulation: Closed head injury: Administer normal saline (NS)/lactated Ringer's (LR) fluid boluses to maintain SBP above threshold. Do not wait until after the patient is already hypotensive—prevent hypotension. Do not delay transport to initiate IV access."
+        },
+        {
+          "id": "repeat-primary-survey-enroute",
+          "shortAction": "Repeat the primary survey en route; if mental status declines, reassess ABCs immediately",
+          "priority": "critical",
+          "rationale": "MATC General Trauma Note 7 and Key Consideration 4 — the repeat primary and secondary assessments are conducted EN ROUTE, and frequent reassessment is essential: if mental status declines, reassess airway, breathing, circulation and repeat the neurologic assessment. A child whose improvement reverses is a child whose bleeding has outrun the fluid.",
+          "protocolReference": "MATC: General Trauma Management",
+          "protocolExcerpt": "Repeat primary assessment or secondary assessment should be conducted en route to the trauma center. Key Considerations: Frequent reassessment of the patient is important: If patient develops difficulty with ventilation, reassess breath sounds for development of tension pneumothorax; If extremity hemorrhage is controlled with pressure dressing or tourniquet, reassess for evidence of continued hemorrhage; If mental status declines, reassess ABCs (Airway, Breathing, Circulation) and repeat neurologic status assessment."
+        },
+        {
+          "id": "secondary-survey-abdomen",
+          "shortAction": "Secondary survey en route — palpate the abdomen, check the back, look for what you missed",
+          "priority": "important",
+          "rationale": "MATC General Trauma Secondary Assessment 1b — a full head-to-toe including abdominal palpation for tenderness, pelvis, back, and extremities. He landed on his left side: the spleen is the headline, but the left ribs, left kidney, and pelvis all took the same energy and none of them have been examined yet.",
+          "protocolReference": "MATC: General Trauma Management",
+          "protocolExcerpt": "Secondary survey: Head to toe physical exam including re-assessment of interventions from primary survey: Abdomen: Palpate for tenderness; Inspect for penetrating or soft tissue injuries. Pelvis: Inspect for penetrating or soft tissue injuries; Palpate once for instability by applying medial pressure on the iliac crests bilaterally. Back: Maintain spinal alignment; Inspect for penetrating or soft tissue injuries."
+        },
+        {
+          "id": "at-mist-handoff",
+          "shortAction": "AT-MIST handoff: Age, Time, Mechanism, Injuries, Signs/Symptoms, Treatments",
+          "priority": "important",
+          "rationale": "MATC General Trauma Key Consideration 5 — use a structured communication tool for handoff to a higher level of care, such as AT-MIST. The trauma team needs the mechanism (10-foot fall, left-side impact), the trend (HR 148 → 132 after 400 mL), and the fact that he was never hypotensive — because that last detail tells them how much reserve he has already spent.",
+          "protocolReference": "MATC: General Trauma Management",
+          "protocolExcerpt": "Use structured communication tool for patient handoff to higher level care such as AT-MIST: Age; Time of incident or onset of symptoms; Mechanism; Injuries noted; Symptoms/Signs; Treatments provided."
+        }
+      ]
+    },
+    {
+      "id": "branch-stayed-on-scene",
+      "name": "Stayed on scene; reassured by normal BP",
+      "description": "The crew did a thorough job on that playground. A complete head-to-toe. Two careful IV attempts in a child with no visible veins. A splint for a wrist that was never broken. A conversation about whether to wait for the parents. Twelve minutes in, the blood pressure was still 'normal,' and that was the number they kept coming back to. At the ten-minute mark he stopped compensating. Children do not decline gradually — they hold the line, and hold it, and hold it, and then the line breaks all at once. His pressure fell from 98 to 66 systolic in under two minutes. Radial pulses are gone. His skin is mottled. His heart rate spiked to 172 and has now begun to FALL toward 44, which in a bleeding child is not a rhythm problem — it is the agonal bradycardia of a heart with nothing left to pump. He is minutes from a traumatic arrest on a playground twenty minutes from the only surgeon who could have saved him. The lesson is exactly the one the protocol wrote down: patients with compensated shock may not manifest hypotension until severe blood loss has occurred. The blood pressure was never a measure of how he was doing. It was a measure of how long he could keep pretending.",
+      "triggerCondition": "Crew remained on scene past 10 minutes, reassured by a blood pressure that was 'normal for age.' The child exhausted his compensatory reserve and decompensated abruptly into uncompensated hemorrhagic shock.",
+      "isDefault": false,
+      "clinicalPresentation": {
+        "avpu": "Unresponsive",
+        "gcs": {
+          "eye": 1,
+          "verbal": 2,
+          "motor": 3
+        },
+        "airway": "At risk — no gag, no protective reflexes; requires immediate management",
+        "breathing": "RR 6 and gasping — agonal pattern; poor chest rise",
+        "circulation": "NO RADIAL PULSES. Weak, thready central pulse. HR spiked to 172 and is now FALLING toward 44 — agonal bradycardia. Capillary refill greater than 5 seconds.",
+        "skin": {
+          "color": "MOTTLED — grey and blotchy across the trunk and knees",
+          "temperature": "cold",
+          "moisture": "clammy"
+        },
+        "pupils": "Dilated at 5 mm, sluggish",
+        "motorFunction": "Withdraws weakly to pain only; no purposeful movement",
+        "otherFindings": [
+          "DECOMPENSATED. Children do not fade — they hold, and hold, and then the line breaks all at once.",
+          "SBP fell 98 → 66 in under two minutes. The 'normal' BP was never a measure of how he was doing.",
+          "HR 172 → falling to 44: in a bleeding child, agonal bradycardia is a PERFUSION problem, not a rhythm problem",
+          "RADIAL PULSES LOST — MATC trauma resuscitation target is a palpable radial pulse",
+          "MOTTLED SKIN — the named perfusion sign in the pediatric fluid criteria",
+          "EtCO2 has crashed to 14 — profound hypoperfusion",
+          "He is minutes from traumatic arrest, 20 minutes from the only surgeon who could have fixed him",
+          "RESCUE: airway + ventilate at 20/min (age 2–14), 400 mL boluses, LOAD NOW, resuscitate en route"
+        ],
+        "patientSpeech": "(none — unresponsive, gasping)"
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Bradycardia",
+        "ecgWaveform": 9,
+        "hr": 44,
+        "bpSys": 66,
+        "bpDia": 30,
+        "respRate": 6,
+        "spo2": 74,
+        "etco2": 14,
+        "temp": 35.9,
+        "tempF": 96.6,
+        "obstruction": 0,
+        "glucose": 104,
+        "trendTimeSeconds": 20,
+        "visibility": {
+          "spo2Visible": true,
+          "spo2Attached": true,
+          "rrVisible": true,
+          "etco2Visible": true,
+          "cvpVisible": false
+        }
+      },
+      "expectedActions": [
+        {
+          "id": "rescue-airway-ventilate-peds",
+          "shortAction": "Manage the airway; BVM at 20 breaths/min (age 2–14) with gentle volumes — chest rise only",
+          "priority": "critical",
+          "rationale": "MATC Head Injury Treatment 2a — for patients who cannot maintain adequate oxygenation, BVM ventilation at 20 breaths per minute for the 2–14 year old, with gentle manual bagging. MATC Airway Management adds that ventilations should deliver only enough volume to achieve chest rise. He is gasping at 6; he needs the ventilations he cannot generate.",
+          "protocolReference": "MATC: Head Injury",
+          "protocolExcerpt": "Breathing: For patients who cannot maintain adequate oxygenation with HFO/NRB, BVM ventilation (15 years old or older: 10 breaths per minute; 2–14 years old: 20 breaths per minute; less than 2 years old: 25 breaths per minute) with gentle manual bagging. Consider flow-controlled bags and ventilation rate timers to help prevent hyper-/overventilation. Do not induce hypocapnia through hyper-/overventilation."
+        },
+        {
+          "id": "rescue-load-now",
+          "shortAction": "LOAD NOW and resuscitate en route — he needs an operating room, not a better playground",
+          "priority": "critical",
+          "rationale": "MATC General Trauma Note 6 and Patient Safety 1 — life-threatening injuries found on the primary survey are mitigated immediately WITH RAPID TRANSPORT to a trauma center, and repeat assessments happen en route. Every additional minute spent perfecting care on scene is a minute subtracted from the only intervention that can actually stop this bleeding.",
+          "protocolReference": "MATC: General Trauma Management",
+          "protocolExcerpt": "Patient Safety Considerations: Life-threatening injuries identified on primary survey should be mitigated immediately with rapid transport to a trauma center. NOTE: Patients with major hemorrhage, hemodynamic instability, penetrating torso trauma, or signs of traumatic brain injury often require rapid surgical intervention. Minimize scene time (goal is under 10 minutes) and initiate rapid transport to the highest level of care within the trauma system."
+        },
+        {
+          "id": "rescue-aggressive-fluid",
+          "shortAction": "400 mL boluses (20 mL/kg) repeated; target a palpable radial pulse; 1200 mL total → medical direction",
+          "priority": "critical",
+          "rationale": "MATC General Trauma Circulation 4c-ii — repeat 20 mL/kg boluses for persistent shock, contacting online medical direction after a total of 60 mL/kg (1200 mL here). The adult resuscitation target is a palpable radial pulse or alert mental status; he has lost both, which is exactly the endpoint the crew is now resuscitating back toward.",
+          "protocolReference": "MATC: General Trauma Management",
+          "protocolExcerpt": "Pediatrics: If patient demonstrates tachycardia for age with signs of poor perfusion (low BP, greater than 2-second capillary refill, altered mental status, hypoxia, weak pulses, pallor, or mottled/cool skin), give 20 mL/kg crystalloid bolus and reassess. Repeat as needed for persistent signs and symptoms of shock. If signs and symptoms of shock persist after a total of 60 mL/kg crystalloid bolus, contact online medical direction. Trauma resuscitation target SBP 90 mmHg (palpable radial pulse or alert mental status)."
+        },
+        {
+          "id": "rescue-io-access",
+          "shortAction": "IO access now — tibial site preferred in children; stop trying for a peripheral vein",
+          "priority": "critical",
+          "rationale": "MATC General Trauma Circulation 4b directs establishing IV access with large bore preferred, and MATC Cardiac Arrest Key Consideration 14a-iv establishes that the tibial site is preferred for infants and children when intraosseous access is required. A mottled, decompensated 6-year-old with no radial pulse does not have a peripheral vein to find, and the crew has already spent the time proving it.",
+          "protocolReference": "MATC: General Trauma Management",
+          "protocolExcerpt": "Circulation: If pelvis is unstable, place pelvic binder or sheet to stabilize pelvis. Establish IV access if needed (large bore preferred). Fluid resuscitation."
+        },
+        {
+          "id": "rescue-avoid-hypothermia",
+          "shortAction": "Aggressively warm him — cold + acidotic + bleeding is the coagulopathy spiral",
+          "priority": "important",
+          "rationale": "MATC General Trauma Disability/Head/Hypothermia 5b — remove wet clothing and cover the patient to prevent further heat loss. His temperature has already fallen to 35.9°C on a 52°F playground. Hypothermia in a bleeding trauma patient impairs clotting, which increases bleeding, which deepens the shock.",
+          "protocolReference": "MATC: General Trauma Management",
+          "protocolExcerpt": "Disability/Head/Hypothermia: Avoid/treat hypothermia: Remove wet clothing; Cover patient to warm and/or prevent further heat loss."
+        },
+        {
+          "id": "rescue-qi-scene-time",
+          "shortAction": "Debrief: a normal BP in a tachycardic, poorly perfused child is the WARNING, not the reassurance",
+          "priority": "important",
+          "rationale": "MATC General Trauma Patient Safety 2a and Performance Measures — the protocol names compensated shock without hypotension as a specific safety consideration, and it names monitoring scene time for unstable patients as a performance measure. Both were available before the child crashed. The QI point is not that the crew was careless; it is that they were careful about the wrong things.",
+          "protocolReference": "MATC: General Trauma Management",
+          "protocolExcerpt": "Patients with compensated shock may not manifest hypotension until severe blood loss has occurred. Performance Measures: Monitor scene time for unstable patients; Monitor appropriateness of procedures; Monitor appropriate airway management. Key Documentation Elements: Mechanism of injury; Primary and secondary survey; Serial vital signs including neurologic status assessments; Scene time; Procedures performed and patient response."
+        }
+      ]
+    }
+  ],
+  "realiti": {
+    "scenarioMonitorType": 2,
+    "scenarioDefaultEnergy": 200,
+    "scenarioDefaultPacerThreshold": 55
+  }
+}
