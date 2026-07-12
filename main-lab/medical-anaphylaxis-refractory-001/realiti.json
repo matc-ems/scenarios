@@ -1,0 +1,506 @@
+{
+  "scenarioId": "medical-anaphylaxis-refractory-001",
+  "scenarioName": "Refractory Anaphylaxis — Bee Sting, Biphasic Deterioration, Repeat Epinephrine and Difficult Airway",
+  "scenarioType": "Vital Signs",
+  "scenarioVersion": 2,
+  "scenarioTime": 1500,
+  "scenarioMonitorType": 2,
+  "scenarioDefaultEnergy": 200,
+  "scenarioDefaultPacerThreshold": 55,
+  "isDemo": false,
+  "isALSILegacy": false,
+  "scenarioStory": {
+    "history": "19-year-old male, previously healthy college student home for the summer, was pulling weeds along a hedge line in the backyard when he was stung on the left forearm by a bee. Within 3–4 minutes he began itching intensely at the sting site, then over the neck, chest, and both arms. Raised, blanching wheals appeared rapidly. He reports his throat feels 'tight, like it's closing up' and that it is getting harder to pull air in. He is anxious, restless, and repeatedly scratching at his neck. He has a documented severe reaction to a wasp sting two summers ago that was treated in an emergency department; he was discharged with an epinephrine auto-injector and told to carry it. The auto-injector is on the patio table, unused — his mother retrieved it but was afraid to give it and called 911 instead. No known food or drug allergies. Never intubated. No asthma, though he 'sometimes wheezes with a bad cold.' The stinger is still visible in the left forearm.",
+    "discussion": "",
+    "course": "Initial Contact: EMS finds a 19-year-old male roughly 6 minutes after a bee sting. He has urticaria over the neck, chest, and arms (skin/mucosal involvement) AND respiratory compromise — subjective throat tightness with mild bilateral expiratory wheeze and RR 24. That is two organ systems after exposure to a likely allergen, which meets the MATC definition of ANAPHYLAXIS, not a simple allergic reaction. Blood pressure is still normal and there is no stridor yet, which is exactly the trap: crews who wait for hypotension or stridor before giving epinephrine are waiting too long. The protocol threshold is the two-system rule, not the blood pressure. The stinger is still embedded in the left forearm and is still delivering venom. The prescribed auto-injector on the table has never been used. Teaching points for this phase: recognize anaphylaxis by criteria, give IM epinephrine as first-line therapy without delay, remove the stinger without squeezing the venom sac, oxygenate to 94–98%, and treat the wheeze — with antihistamines understood as adjuncts and never as a substitute for epinephrine. → First Epi given — transient improvement: Two to three minutes after IM epinephrine the patient looks better. The wheeze has largely cleared, he is speaking in full sentences again, SpO2 has come up on oxygen, and he says his throat feels 'more open.' He is tremulous, anxious, and palpitating — expected beta-1/beta-2 effects of epinephrine, NOT a new problem. The hives are still there but are no longer spreading. THIS IS THE MOST DANGEROUS PHASE OF THE SCENARIO. A single dose of IM epinephrine has a short duration of effect, the mast-cell mediator release is not finished, and the stinger delivered a full venom load. Crews routinely stand down here — they slow the transport decision, break down the airway kit, and stop reassessing. The protocol's answer to this phase is: transport as soon as possible, keep reassessing, and stay ready to repeat the dose at 5–15 minutes. The crew that packages and moves during this window is the crew that has an airway and a working line when the patient crashes. → Refractory anaphylaxis: Six to eight minutes after the first dose, the reaction breaks through. The patient's voice is hoarse, he has audible inspiratory stridor, and his lips and tongue are visibly swelling. He is air-hungry and gripping the stretcher rail. Blood pressure has collapsed to 84/50 with a heart rate of 138 — distributive (anaphylactic) shock. SpO2 is 87% despite oxygen and EtCO2 is climbing to 47, signaling ventilatory failure from upper-airway obstruction. This is refractory anaphylaxis, and the protocol has a specific, layered answer for it: a SECOND dose of IM epinephrine (the reaction is not controlled), NEBULIZED epinephrine because stridor is now present, and 20 mL/kg of isotonic fluid because there is hypoperfusion. Simultaneously this is now a predicted difficult airway — angioedema and upper-airway obstruction are named difficult-airway features in the MATC airway protocol — and the crew must be planning escalation with a smaller tube, a bougie, two experienced operators, and a surgical airway available BEFORE they are forced into it. Steroids are NOT the answer here; the protocol says outright there is no proven benefit. → Second Epi + fluids given: After the second IM dose, nebulized epinephrine, and the 1600 mL bolus, the patient turns the corner — but only partway. Blood pressure comes up to 98/62, SpO2 recovers to 93% on high-flow oxygen, and the stridor softens from loud and continuous to intermittent. The angioedema is still there; the airway is still swollen; the reaction is still live. This phase teaches restraint as much as action. The crew must reassess for a THIRD dose (the repeat interval is q5–15 min, with no fixed cap), but must NOT jump to an epinephrine IV drip: the protocol gates the drip behind cardiovascular collapse persisting despite repeated IM doses AND at least 60 mL/kg of isotonic fluid — which for this 80 kg patient is 4800 mL, and he has had 1600 mL. Antihistamines and steroids can be given now that the time-critical therapy is delivered. The disposition is rapid transport with the airway kit staged, because a patient who needed two doses can need a third en route."
+  },
+  "patientInformation": {
+    "patientName": "Tyler Brandt",
+    "patientCondition": "Stung by a bee on the left forearm about 6 minutes ago while pulling weeds; now itching all over, breaking out in hives, and says his throat feels like it is 'closing up.'",
+    "patientAge": 19,
+    "patientAgeUnit": "years",
+    "patientAgeCategory": 0,
+    "patientSex": 1,
+    "patientHeight": 180,
+    "patientWeight": 80,
+    "patientPhotoId": 23,
+    "patientAdmitted": 1
+  },
+  "labs": [],
+  "scenarioEvents": [
+    {
+      "type": "ScenarioEvent",
+      "name": "Initial Contact",
+      "description": "EMS finds a 19-year-old male roughly 6 minutes after a bee sting. He has urticaria over the neck, chest, and arms (skin/mucosal involvement) AND respiratory compromise — subjective throat tightness with mild bilateral expiratory wheeze and RR 24. That is two organ systems after exposure to a likely allergen, which meets the MATC definition of ANAPHYLAXIS, not a simple allergic reaction. Blood pressure is still normal and there is no stridor yet, which is exactly the trap: crews who wait for hypotension or stridor before giving epinephrine are waiting too long. The protocol threshold is the two-system rule, not the blood pressure. The stinger is still embedded in the left forearm and is still delivering venom. The prescribed auto-injector on the table has never been used. Teaching points for this phase: recognize anaphylaxis by criteria, give IM epinephrine as first-line therapy without delay, remove the stinger without squeezing the venom sac, oxygenate to 94–98%, and treat the wheeze — with antihistamines understood as adjuncts and never as a substitute for epinephrine.",
+      "monitorType": 0,
+      "trendTime": 0,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 116,
+        "bpSys": 124,
+        "bpDia": 76,
+        "respRate": 24,
+        "spo2": 94,
+        "etco2": 33,
+        "temp": 37.1,
+        "obstruction": 40,
+        "custMeasure1": 96,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Recognize anaphylaxis — skin (urticaria) + respiratory compromise = 2 systems",
+        "Epinephrine 0.3 mg IM anterolateral thigh, 1 mg/mL (adult ≥25 kg — pt 80 kg); vial or auto-injector",
+        "Inspect oropharynx for edema, auscultate for wheeze, assess perfusion — establish a baseline",
+        "Oxygen titrated to SpO2 94–98%; escalate NC → NRB as needed",
+        "Remove embedded stinger without squeezing the venom sac; NO tourniquet, NO ice, NO incision",
+        "Albuterol 2.5–5 mg nebulized for the wheeze (adjunct — does NOT replace IM epinephrine)",
+        "IV access — 2 attempts or 90 sec, then IO; cardiac monitor, continuous SpO2 + EtCO2",
+        "Diphenhydramine 50 mg IV/IM (80 kg × 1 mg/kg = 80 mg → cap at 50 mg max) for urticaria/pruritus"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "First Epi given — transient improvement",
+      "description": "Two to three minutes after IM epinephrine the patient looks better. The wheeze has largely cleared, he is speaking in full sentences again, SpO2 has come up on oxygen, and he says his throat feels 'more open.' He is tremulous, anxious, and palpitating — expected beta-1/beta-2 effects of epinephrine, NOT a new problem. The hives are still there but are no longer spreading. THIS IS THE MOST DANGEROUS PHASE OF THE SCENARIO. A single dose of IM epinephrine has a short duration of effect, the mast-cell mediator release is not finished, and the stinger delivered a full venom load. Crews routinely stand down here — they slow the transport decision, break down the airway kit, and stop reassessing. The protocol's answer to this phase is: transport as soon as possible, keep reassessing, and stay ready to repeat the dose at 5–15 minutes. The crew that packages and moves during this window is the crew that has an airway and a working line when the patient crashes.",
+      "monitorType": 0,
+      "trendTime": 40,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 104,
+        "bpSys": 118,
+        "bpDia": 72,
+        "respRate": 20,
+        "spo2": 97,
+        "etco2": 36,
+        "temp": 37.1,
+        "obstruction": 20,
+        "custMeasure1": 96,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Package and transport NOW — do not stand down during the improvement window",
+        "Reassess airway, lung sounds, and perfusion q3–5 min — watch for recurrence",
+        "Draw up the second 0.3 mg epinephrine dose now — repeatable at 5–15 min",
+        "Cardiac monitor on — patient is on track for multiple epinephrine doses",
+        "Document dose, concentration, route, and TIME of the first epinephrine"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Refractory anaphylaxis",
+      "description": "Six to eight minutes after the first dose, the reaction breaks through. The patient's voice is hoarse, he has audible inspiratory stridor, and his lips and tongue are visibly swelling. He is air-hungry and gripping the stretcher rail. Blood pressure has collapsed to 84/50 with a heart rate of 138 — distributive (anaphylactic) shock. SpO2 is 87% despite oxygen and EtCO2 is climbing to 47, signaling ventilatory failure from upper-airway obstruction. This is refractory anaphylaxis, and the protocol has a specific, layered answer for it: a SECOND dose of IM epinephrine (the reaction is not controlled), NEBULIZED epinephrine because stridor is now present, and 20 mL/kg of isotonic fluid because there is hypoperfusion. Simultaneously this is now a predicted difficult airway — angioedema and upper-airway obstruction are named difficult-airway features in the MATC airway protocol — and the crew must be planning escalation with a smaller tube, a bougie, two experienced operators, and a surgical airway available BEFORE they are forced into it. Steroids are NOT the answer here; the protocol says outright there is no proven benefit.",
+      "monitorType": 0,
+      "trendTime": 30,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 138,
+        "bpSys": 84,
+        "bpDia": 50,
+        "respRate": 32,
+        "spo2": 87,
+        "etco2": 47,
+        "temp": 37.2,
+        "obstruction": 70,
+        "custMeasure1": 98,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "REPEAT epinephrine 0.3 mg IM, 1 mg/mL (adult ≥25 kg) — anaphylaxis + hypoperfusion persist",
+        "Nebulized epinephrine 1 mg/mL, 5 mL — stridor is now present",
+        "1600 mL isotonic fluid IV/IO rapidly (80 kg × 20 mL/kg), over 15 min; repeat as needed",
+        "Declare a difficult airway: angioedema + obstruction; stage bougie, smaller ETT, 2 operators, surgical kit open",
+        "High-flow O2; two-person BVM with PEEP 5 cmH2O if ventilation becomes inadequate",
+        "If no line yet: IO after 2 attempts or 90 sec — fluid and drugs cannot wait",
+        "Steroids optional (methylprednisolone 80–125 mg / dexamethasone 8–16 mg) — no proven benefit, never before epi"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Second Epi + fluids given",
+      "description": "After the second IM dose, nebulized epinephrine, and the 1600 mL bolus, the patient turns the corner — but only partway. Blood pressure comes up to 98/62, SpO2 recovers to 93% on high-flow oxygen, and the stridor softens from loud and continuous to intermittent. The angioedema is still there; the airway is still swollen; the reaction is still live. This phase teaches restraint as much as action. The crew must reassess for a THIRD dose (the repeat interval is q5–15 min, with no fixed cap), but must NOT jump to an epinephrine IV drip: the protocol gates the drip behind cardiovascular collapse persisting despite repeated IM doses AND at least 60 mL/kg of isotonic fluid — which for this 80 kg patient is 4800 mL, and he has had 1600 mL. Antihistamines and steroids can be given now that the time-critical therapy is delivered. The disposition is rapid transport with the airway kit staged, because a patient who needed two doses can need a third en route.",
+      "monitorType": 0,
+      "trendTime": 50,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 128,
+        "bpSys": 98,
+        "bpDia": 62,
+        "respRate": 26,
+        "spo2": 93,
+        "etco2": 41,
+        "temp": 37.2,
+        "obstruction": 45,
+        "custMeasure1": 98,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Reassess q5 min for a THIRD epinephrine 0.3 mg IM — repeat interval has no fixed cap",
+        "Hold the epi drip (0.5 mcg/kg/min = 40 mcg/min) — needs collapse + ≥60 mL/kg (4800 mL); only 1600 mL in",
+        "Repeat 20 mL/kg (1600 mL) isotonic fluid if hypoperfusion returns; MAP goal 65",
+        "Diphenhydramine 50 mg IV (80 kg × 1 mg/kg = 80 mg → cap 50 mg) + famotidine 20 mg IV (80 kg × 0.5 mg/kg = 40 mg → cap 20 mg)",
+        "Keep difficult-airway kit staged en route; least-invasive method that meets the goals",
+        "Advance notify ED: refractory anaphylaxis, 2 doses IM epi, angioedema, difficult airway predicted"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Antihistamine only, IM Epi withheld",
+      "description": "The crew anchored on 'hives and itching,' called it an allergic reaction, and treated it like one — diphenhydramine and albuterol, no epinephrine, because 'his pressure is fine and he's not stridorous.' That reasoning inverts the protocol. Anaphylaxis is defined by TWO organ systems after allergen exposure, and this patient had two on first contact: skin and respiratory. Hypotension is a SUFFICIENT criterion, not a NECESSARY one. Ten minutes later the untreated reaction has done what untreated anaphylaxis does: BP 78/44, HR 134, SpO2 88%, worsening airway edema, cool and mottled skin. The antihistamine did exactly what antihistamines do — it took some of the itch away while the patient decompensated. The rescue is not complicated: give the epinephrine that was owed ten minutes ago, and give it now.",
+      "monitorType": 0,
+      "trendTime": 35,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 134,
+        "bpSys": 78,
+        "bpDia": 44,
+        "respRate": 30,
+        "spo2": 88,
+        "etco2": 28,
+        "temp": 37.2,
+        "obstruction": 65,
+        "custMeasure1": 98,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "RESCUE: Epinephrine 0.3 mg IM anterolateral thigh, 1 mg/mL — first-line, owed 10 minutes ago",
+        "Name the error: 2 systems = anaphylaxis; one-system rule only applies to a LOCALIZED reaction",
+        "1600 mL isotonic fluid IV/IO rapidly (80 kg × 20 mL/kg) for hypoperfusion; repeat as needed",
+        "Nebulized epinephrine 1 mg/mL, 5 mL for stridor; high-flow O2 to 94–98%",
+        "Transport immediately with difficult-airway kit open; anticipate angioedema obstruction"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Second Epi withheld",
+      "description": "The crew recognized the deterioration but never repeated the epinephrine — fixated on the airway bag, or unwilling to redose a patient already tachycardic at 138, or waiting out the far end of the 5–15 minute window. The airway did not wait. Edema progressed to complete upper-airway obstruction; the patient became silent (no stridor, because no air moves), hypoxic, then bradycardic, and arrested in PEA. This is the scenario's worst outcome and its sharpest lesson: a heart rate of 138 in anaphylaxis is not a contraindication to epinephrine — it is the shock state that epinephrine treats. Resuscitation here is not a standard medical code. This is an arrest of RESPIRATORY etiology, so the airway comes early and passive NRB oxygenation is explicitly not indicated. And the airway that caused the arrest is the same airway that will defeat intubation: when the crew cannot ventilate and cannot intubate through an obstructed glottis, the protocol's answer is a surgical airway.",
+      "monitorType": 0,
+      "trendTime": 20,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 32,
+        "bpSys": 0,
+        "bpDia": 0,
+        "respRate": 0,
+        "spo2": 0,
+        "etco2": 11,
+        "temp": 37.2,
+        "obstruction": 100,
+        "custMeasure1": 98,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": false,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "High-quality compressions: 100–120/min, 2–2.4 in depth, full recoil, minimal interruption",
+        "Manage the airway EARLY — respiratory-etiology arrest; passive NRB ventilation NOT indicated",
+        "Epinephrine 1 mg IV/IO during 1st or 2nd round — prioritize early epi for non-shockable rhythm",
+        "Cannot ventilate + cannot intubate through the edema → surgical airway",
+        "Treat the reversible cause: hypovolemia/distributive collapse — normal saline 2 L IV/IO",
+        "IO proximal humerus (preferred adult site) if no line; access without stopping compressions",
+        "EtCO2 to gauge compression quality — under 10 mmHg means improve compressions",
+        "Resuscitate on scene — compressions in a moving ambulance are less effective and unsafe"
+      ],
+      "relatedSounds": []
+    }
+  ],
+  "checklist": [
+    {
+      "title": "Recognize anaphylaxis — skin (urticaria) + respiratory compromise = 2 systems",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Epinephrine 0.3 mg IM anterolateral thigh, 1 mg/mL (adult ≥25 kg — pt 80 kg); vial or auto-injector",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Inspect oropharynx for edema, auscultate for wheeze, assess perfusion — establish a baseline",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Oxygen titrated to SpO2 94–98%; escalate NC → NRB as needed",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Remove embedded stinger without squeezing the venom sac; NO tourniquet, NO ice, NO incision",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Albuterol 2.5–5 mg nebulized for the wheeze (adjunct — does NOT replace IM epinephrine)",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "IV access — 2 attempts or 90 sec, then IO; cardiac monitor, continuous SpO2 + EtCO2",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Diphenhydramine 50 mg IV/IM (80 kg × 1 mg/kg = 80 mg → cap at 50 mg max) for urticaria/pruritus",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Package and transport NOW — do not stand down during the improvement window",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Reassess airway, lung sounds, and perfusion q3–5 min — watch for recurrence",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Draw up the second 0.3 mg epinephrine dose now — repeatable at 5–15 min",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Cardiac monitor on — patient is on track for multiple epinephrine doses",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Document dose, concentration, route, and TIME of the first epinephrine",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "REPEAT epinephrine 0.3 mg IM, 1 mg/mL (adult ≥25 kg) — anaphylaxis + hypoperfusion persist",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Nebulized epinephrine 1 mg/mL, 5 mL — stridor is now present",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "1600 mL isotonic fluid IV/IO rapidly (80 kg × 20 mL/kg), over 15 min; repeat as needed",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Declare a difficult airway: angioedema + obstruction; stage bougie, smaller ETT, 2 operators, surgical kit open",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "High-flow O2; two-person BVM with PEEP 5 cmH2O if ventilation becomes inadequate",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "If no line yet: IO after 2 attempts or 90 sec — fluid and drugs cannot wait",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Steroids optional (methylprednisolone 80–125 mg / dexamethasone 8–16 mg) — no proven benefit, never before epi",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Reassess q5 min for a THIRD epinephrine 0.3 mg IM — repeat interval has no fixed cap",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Hold the epi drip (0.5 mcg/kg/min = 40 mcg/min) — needs collapse + ≥60 mL/kg (4800 mL); only 1600 mL in",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Repeat 20 mL/kg (1600 mL) isotonic fluid if hypoperfusion returns; MAP goal 65",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Diphenhydramine 50 mg IV (80 kg × 1 mg/kg = 80 mg → cap 50 mg) + famotidine 20 mg IV (80 kg × 0.5 mg/kg = 40 mg → cap 20 mg)",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Keep difficult-airway kit staged en route; least-invasive method that meets the goals",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Advance notify ED: refractory anaphylaxis, 2 doses IM epi, angioedema, difficult airway predicted",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "RESCUE: Epinephrine 0.3 mg IM anterolateral thigh, 1 mg/mL — first-line, owed 10 minutes ago",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Name the error: 2 systems = anaphylaxis; one-system rule only applies to a LOCALIZED reaction",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "1600 mL isotonic fluid IV/IO rapidly (80 kg × 20 mL/kg) for hypoperfusion; repeat as needed",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Nebulized epinephrine 1 mg/mL, 5 mL for stridor; high-flow O2 to 94–98%",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Transport immediately with difficult-airway kit open; anticipate angioedema obstruction",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "High-quality compressions: 100–120/min, 2–2.4 in depth, full recoil, minimal interruption",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Manage the airway EARLY — respiratory-etiology arrest; passive NRB ventilation NOT indicated",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Epinephrine 1 mg IV/IO during 1st or 2nd round — prioritize early epi for non-shockable rhythm",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Cannot ventilate + cannot intubate through the edema → surgical airway",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Treat the reversible cause: hypovolemia/distributive collapse — normal saline 2 L IV/IO",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "IO proximal humerus (preferred adult site) if no line; access without stopping compressions",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "EtCO2 to gauge compression quality — under 10 mmHg means improve compressions",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Resuscitate on scene — compressions in a moving ambulance are less effective and unsafe",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    }
+  ],
+  "media": []
+}
