@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Syncope on Warfarin — Occult GI Hemorrhage and the High-Risk Refusal — Printable</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fff;--card:#fff;--card-border:#d6d3d1;--text:#1c1917;--text-secondary:#44403c;--text-muted:#78716c;--green:#166534;--red:#b91c1c;--red-light:#fef2f2;--red-border:#fecaca;--orange:#c2410c;--yellow:#a16207;--blue:#1e40af;--radius:8px;--radius-sm:6px}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'DM Sans','Helvetica Neue',Arial,sans-serif;background:#f5f5f4;color:var(--text);line-height:1.5;padding:24px;font-size:12pt}
+.sheet{max-width:800px;margin:0 auto;background:#fff;padding:28px 32px;box-shadow:0 1px 4px rgba(0,0,0,.08);border-radius:10px}
+.scenario-name{font-size:11pt;color:var(--text-secondary)}
+.card{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);margin-bottom:14px;overflow:hidden;break-inside:avoid}
+.card-title{font-size:9pt;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--text-muted);padding:10px 14px 6px;border-bottom:1px solid #f5f5f4}
+.card-content{padding:10px 14px 12px}
+.scene-row{padding:6px 0;border-bottom:1px solid #f5f5f4;display:grid;grid-template-columns:110px 1fr;gap:10px}
+.scene-row:last-child{border-bottom:none}
+.scene-label{font-family:'DM Mono',ui-monospace,monospace;font-size:8pt;font-weight:500;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted)}
+.scene-value{font-size:11pt;color:var(--text-secondary)}
+.cue-list{list-style:none;margin:0}
+.cue-list li{font-size:11pt;color:var(--text-secondary);padding:3px 0 3px 14px;position:relative}
+.cue-list li::before{content:'→';position:absolute;left:0;color:var(--text-muted);font-size:10pt}
+.sample-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:#e7e5e4}
+.sample-cell{background:#fff;padding:9px 12px}
+.sample-cell:nth-child(1),.sample-cell:nth-child(6){grid-column:1/-1}
+.sample-letter{font-family:'DM Mono',ui-monospace,monospace;font-size:11pt;font-weight:700;color:var(--green);margin-right:4px}
+.sample-name{font-size:8pt;font-weight:600;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted);margin-bottom:3px}
+.sample-text{font-size:10.5pt;color:var(--text-secondary);line-height:1.45}
+.patient-chips{display:flex;gap:8px;flex-wrap:wrap}
+.patient-chip{font-size:10pt;padding:4px 10px;background:#f5f5f4;border-radius:6px;color:var(--text-secondary)}
+.patient-chip strong{color:var(--text);font-weight:700}
+.phase-section{break-before:auto;page-break-before:auto;margin-top:12px}
+.phase-section .phase-card{break-after:avoid;page-break-after:avoid}
+.phase-card{border-left:4px solid var(--text)}
+.phase-card-branch{border-left-color:var(--red)}
+.branch-tag{display:inline-block;font-family:'DM Mono',ui-monospace,monospace;font-size:8pt;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--red);background:var(--red-light);padding:2px 8px;border-radius:4px;margin-bottom:6px}
+.phase-title{font-size:16pt;font-weight:700;margin-bottom:4px}
+.phase-trigger{font-family:'DM Mono',ui-monospace,monospace;font-size:9pt;color:var(--yellow);margin-bottom:6px}
+.phase-desc{font-size:11pt;color:var(--text-secondary);line-height:1.5}
+.ecg-label{font-family:'DM Mono',ui-monospace,monospace;font-size:10pt;color:var(--text-secondary);padding:8px 12px;background:#fafaf9;border-bottom:1px solid #f0efec}
+.vitals-grid{display:flex;flex-wrap:wrap;gap:4px 18px;padding:8px 14px}
+.vital-cell{background:transparent;padding:0;text-align:left;display:flex;align-items:baseline;gap:4px}
+.vital-cell.full-width{grid-column:auto}
+.vital-name{font-family:'DM Mono',ui-monospace,monospace;font-size:8pt;font-weight:600;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted)}
+.vital-val{font-family:'DM Mono',ui-monospace,monospace;font-size:11pt;font-weight:700;color:var(--text);line-height:1.1}
+.vital-unit{font-family:'DM Mono',ui-monospace,monospace;font-size:8pt;color:var(--text-muted)}
+.loc-block{margin-bottom:10px}
+.avpu-bar{display:flex;border:1px solid var(--card-border);border-radius:6px;overflow:hidden;margin-bottom:10px}
+.avpu-seg{flex:1;text-align:center;padding:6px 4px;font-family:'DM Mono',ui-monospace,monospace;font-size:10pt;font-weight:700;color:var(--text-muted);background:#fafaf9}
+.avpu-seg.sel-a{background:#ecfccb;color:var(--green)}
+.avpu-seg.sel-v{background:#fef3c7;color:var(--yellow)}
+.avpu-seg.sel-p{background:#ffedd5;color:var(--orange)}
+.avpu-seg.sel-u{background:var(--red-light);color:var(--red)}
+.gcs-detail{display:flex;flex-wrap:wrap;gap:6px 16px;padding:8px 14px;border:1px solid var(--card-border);border-radius:6px;margin-bottom:10px;align-items:baseline}
+.gcs-item{display:flex;align-items:baseline;gap:4px;padding:0;border:none}
+.gcs-item:last-of-type{border-bottom:none}
+.gcs-part{order:1;font-family:'DM Mono',ui-monospace,monospace;font-size:8pt;font-weight:600;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted)}
+.gcs-score{order:2;font-family:'DM Mono',ui-monospace,monospace;font-size:11pt;font-weight:700;color:var(--text)}
+.gcs-desc{order:3;font-size:9.5pt;color:var(--text-muted);font-style:italic}
+.gcs-desc::before{content:'('}
+.gcs-desc::after{content:')'}
+.gcs-total-row{display:flex;align-items:baseline;gap:4px;order:-1;padding:0;margin:0;border:none;font-family:'DM Mono',ui-monospace,monospace;font-size:8pt;font-weight:600;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted)}
+.gcs-total-row .gcs-total{font-family:'DM Mono',ui-monospace,monospace;font-size:12pt;font-weight:700;color:var(--text)}
+.finding-row{padding:6px 0;border-bottom:1px solid #f5f5f4;display:grid;grid-template-columns:100px 1fr;gap:10px}
+.finding-row:last-child{border-bottom:none}
+.finding-label{font-family:'DM Mono',ui-monospace,monospace;font-size:8pt;font-weight:500;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted)}
+.finding-value{font-size:10.5pt;color:var(--text-secondary)}
+.finding-speech{font-style:italic;color:var(--text-muted)}
+.findings-notes{list-style:none;margin:0}
+.findings-notes li{font-size:10pt;color:var(--text-secondary);padding:2px 0 2px 12px;position:relative}
+.findings-notes li::before{content:'·';position:absolute;left:2px;font-weight:700;color:var(--text-muted)}
+.action-row{display:flex;gap:10px;padding:10px 0;border-bottom:1px solid #f5f5f4;break-inside:avoid}
+.action-row:last-child{border-bottom:none}
+.action-box{width:14px;height:14px;border:1.5px solid var(--text-muted);border-radius:3px;flex-shrink:0;margin-top:3px}
+.action-body{flex:1;min-width:0}
+.action-head{display:flex;align-items:flex-start;gap:8px;margin-bottom:4px}
+.action-priority{display:inline-block;font-family:'DM Mono',ui-monospace,monospace;font-size:7.5pt;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:2px 6px;border-radius:3px;flex-shrink:0;margin-top:2px}
+.p-critical{background:var(--red-light);color:var(--red)}
+.p-important{background:#fff7ed;color:var(--orange)}
+.p-supp{background:#f5f5f4;color:var(--text-muted)}
+.action-text{font-size:11pt;font-weight:600;color:var(--text);line-height:1.35}
+.action-rationale{display:none}
+.action-excerpt{font-size:9.5pt;color:var(--text-secondary);line-height:1.5;font-style:italic;border-left:2px solid var(--card-border);padding:2px 0 2px 9px;margin:5px 0 4px 0}
+.action-ref{font-family:'DM Mono',ui-monospace,monospace;font-size:8pt;color:var(--text-muted);font-weight:600;text-transform:uppercase;letter-spacing:.5px;margin-top:2px}
+.action-head{margin-bottom:0}
+.action-row{padding:8px 0}
+@media print{
+  body{background:#fff;padding:0;font-size:10pt}
+  .sheet{box-shadow:none;max-width:none;padding:0.4in;border-radius:0}
+  .card{break-inside:avoid;margin-bottom:8px}
+  .card-title{padding:6px 10px 3px}
+  .card-content{padding:6px 10px 8px}
+}
+</style>
+</head>
+<body>
+<div class="sheet">
+  <div class="card"><div class="card-title">Scenario</div><div class="card-content"><div class="scenario-name">Syncope on Warfarin — Occult GI Hemorrhage and the High-Risk Refusal</div></div></div>
+  <div class="card"><div class="card-title">Patient</div><div class="card-content"><div class="patient-chips"><span class="patient-chip"><strong>Marjorie Halvorsen</strong></span><span class="patient-chip">72 years female</span><span class="patient-chip">137 lbs (62 kg)</span><span class="patient-chip">5'3"</span><span class="patient-chip">CC: Fainted during the hymn at church and went down in the pew. She is awake now, insists she is fine, and wants to go home.</span></div></div></div>
+  <div class="card"><div class="card-title">Scene</div><div class="card-content">
+    <div class="scene-row"><div class="scene-label">Dispatch</div><div class="scene-value">Dispatch: 72-year-old female, syncopal episode at a church. Caller reports she fainted during the service, is awake now but 'looks a bit pale.' Conscious and breathing.</div></div>
+    <div class="scene-row"><div class="scene-label">Location</div><div class="scene-value">Crowded church foyer. Patient has been helped to a folding chair near the coat racks. Service has let out and the foyer is full of people trying to help and getting in the way.</div></div>
+    <div class="scene-row"><div class="scene-label">Time</div><div class="scene-value">Sunday, 10:35, mid-morning</div></div>
+    <div class="scene-row"><div class="scene-label">Safety</div><div class="scene-value">Scene safe but crowded and noisy — a dozen well-meaning parishioners are pressing in, and a private history is nearly impossible in this foyer. Move her to the ambulance or a side room early; you will not get the melena out of her with fifteen neighbors listening.</div></div>
+    <div class="scene-row"><div class="scene-label">Bystanders</div><div class="scene-value">Several church members witnessed the event and confirm 15–20 seconds of unconsciousness, no shaking, no incontinence, and no head strike. A friend, Eleanor, mentions unprompted that Marjorie 'hasn't looked right all week' and 'didn't come to Thursday's coffee, which she never misses.' Her daughter is two hours away and reachable by phone.</div></div>
+  </div></div><div class="card"><div class="card-title">Visual Cues on Arrival</div><div class="card-content"><ul class="cue-list"><li>Elderly woman sitting upright in a folding chair, straightening her cardigan, visibly embarrassed</li><li>Skin is pale, cool, and dry — conjunctivae look washed-out when you pull the lower lid down</li><li>She is alert, articulate, and oriented ×4 — she will pass any capacity screen you give her</li><li>Right shoulder held stiffly from striking the pew arm; no head injury</li><li>Purse open on her lap with a warfarin bottle and a large bottle of ibuprofen sitting side by side</li><li>She keeps saying she is fine and glancing toward the parking lot and her car</li><li>Crowded, noisy foyer — no privacy for a history that involves her stool</li></ul></div></div>
+  <div class="card">
+    <div class="card-title">SAMPLE History</div>
+    <div class="card-content" style="padding:0">
+      <div class="sample-grid">
+        <div class="sample-cell"><div class="sample-name"><span class="sample-letter">S</span> Signs &amp; Symptoms</div><div class="sample-text">72-year-old woman with atrial fibrillation on warfarin who lost consciousness while standing for a hymn during the 10:00 service. Witnesses say she went pale, her knees buckled, and she went down into the pew — she was out for perhaps 15 to 20 seconds, with no shaking, no incontinence, and no confusion afterward. She struck her right shoulder on the pew arm on the way down but did not hit her head. She is now awake, fully oriented, embarrassed by the attention, and adamant that she just stood up too fast. What she does not volunteer, and what only emerges on direct questioning, is that she has had a dull, gnawing epigastric ache for two days, has felt 'wrung out and weak' since yesterday, and passed a black, tarry, foul-smelling stool this morning that she dismissed as 'my iron pills, or something I ate.' She has not taken iron in years. She has been taking ibuprofen two or three times a day for the past week and a half for a sore shoulder — on top of warfarin. She lives alone. Her husband died four years ago and her daughter is two hours away in Milwaukee.</div></div>
+        <div class="sample-cell"><div class="sample-name"><span class="sample-letter">A</span> Allergies</div><div class="sample-text">Sulfa drugs (rash)</div></div>
+        <div class="sample-cell"><div class="sample-name"><span class="sample-letter">M</span> Medications</div><div class="sample-text">Warfarin 5 mg PO daily — last INR check was 'a while ago, maybe two months?', Lisinopril 20 mg PO daily, Metoprolol 25 mg PO twice daily, Ibuprofen 400 mg PO 2–3 times daily for the past 10 days (self-medicating a sore shoulder) — NSAID on top of warfarin, Multivitamin daily, No iron supplement despite what she says</div></div>
+        <div class="sample-cell"><div class="sample-name"><span class="sample-letter">P</span> Past Medical</div><div class="sample-text">Atrial fibrillation — anticoagulated on warfarin for stroke prevention, Hypertension, Osteoarthritis, Prior peptic ulcer disease approximately 15 years ago, treated and resolved, No prior syncope, Lives alone; no cognitive impairment, fully independent</div></div>
+        <div class="sample-cell"><div class="sample-name"><span class="sample-letter">L</span> Last Intake</div><div class="sample-text">Tea and toast about 2 hours ago. Poor appetite for two days.</div></div>
+        <div class="sample-cell"><div class="sample-name"><span class="sample-letter">E</span> Events</div><div class="sample-text">Two days of dull epigastric ache and progressive weakness. One black, tarry stool this morning. Ten days of daily NSAID use while anticoagulated on warfarin. Syncope while standing for a hymn; 15–20 seconds of unconsciousness, witnessed, no seizure activity, no head strike. Awake and oriented on EMS arrival and actively refusing transport.</div></div>
+      </div>
+    </div>
+  </div>
+  <section class="phase-section">
+    <div class="card phase-card">
+      <div class="card-content">
+        
+        <div class="phase-title">Initial Contact</div>
+        
+        <div class="phase-desc">This is the most dangerous patient a crew will meet all shift, and she is going to smile at them and ask them to leave. She is A&amp;O×4, her vitals look unremarkable, and she has a perfectly plausible story — she stood up too fast during a hymn. Every instinct says vasovagal, sign the refusal, clear the call. Here is what MATC actually says. The Syncope guideline's Review of Systems has a line item for OCCULT BLOOD LOSS (GI/GU), and its list of high-risk causes of syncope names GI BLEED explicitly under hemorrhagic. Its Additional Evaluation is not optional: cardiac monitoring, SpO2, ongoing vitals, 12-lead EKG, and a blood glucose. And its Key Consideration 2 is the sentence that governs this whole call — decisions about delayed or non-transport are for patients where a LOWER-RISK etiology is suspected, and they are made in consultation with medical direction. Nothing about a 72-year-old anticoagulated woman who syncopes is low-risk. The crew's job in this phase is to do the workup the protocol demands and to ask the questions that make her stop being reassuring — because she will not offer the melena. Someone has to ask.</div>
+      </div>
+    </div>
+    <div class="card">
+    <div class="card-title">Vital Signs</div>
+    <div class="card-content" style="padding:0">
+      <div class="ecg-label">⏦ Atrial Fibrillation</div>
+      <div class="vitals-grid">
+        <div class="vital-cell"><div class="vital-name">HR</div><div class="vital-val">96</div><div class="vital-unit">bpm</div></div>
+        <div class="vital-cell"><div class="vital-name">BP</div><div class="vital-val">116/70</div><div class="vital-unit">mmHg</div></div>
+        <div class="vital-cell"><div class="vital-name">SpO₂</div><div class="vital-val">96%</div></div>
+        <div class="vital-cell"><div class="vital-name">RR</div><div class="vital-val">16</div><div class="vital-unit">/min</div></div>
+        <div class="vital-cell"><div class="vital-name">EtCO₂</div><div class="vital-val">36</div><div class="vital-unit">mmHg</div></div>
+        <div class="vital-cell"><div class="vital-name">Temp</div><div class="vital-val">98.1°</div><div class="vital-unit">F</div></div>
+        <div class="vital-cell full-width"><div class="vital-name">Glucose</div><div class="vital-val">102</div><div class="vital-unit">mg/dL</div></div>
+      </div>
+    </div>
+  </div>
+    <div class="card">
+    <div class="card-title">Clinical Findings</div>
+    <div class="card-content">
+      
+    <div class="loc-block">
+      <div class="avpu-bar"><div class="avpu-seg sel-a">A</div><div class="avpu-seg">V</div><div class="avpu-seg">P</div><div class="avpu-seg">U</div></div>
+      <div class="gcs-detail">
+    <div class="gcs-item"><span class="gcs-part">Eyes</span><span class="gcs-desc">Spontaneous</span><span class="gcs-score">4</span></div>
+    <div class="gcs-item"><span class="gcs-part">Verbal</span><span class="gcs-desc">Oriented</span><span class="gcs-score">5</span></div>
+    <div class="gcs-item"><span class="gcs-part">Motor</span><span class="gcs-desc">Obeys commands</span><span class="gcs-score">6</span></div>
+    <div class="gcs-total-row">Total GCS <span class="gcs-total">15</span></div>
+  </div>
+    </div>
+      <div class="finding-row"><div class="finding-label">Airway</div><div class="finding-value">Patent, speaking in full clear sentences</div></div><div class="finding-row"><div class="finding-label">Breathing</div><div class="finding-value">RR 16, unlabored; lungs clear bilaterally</div></div><div class="finding-row"><div class="finding-label">Circulation</div><div class="finding-value">Pulse 96 and IRREGULARLY IRREGULAR — she is in atrial fibrillation; radial pulse is present but soft; cap refill 3 sec</div></div><div class="finding-row"><div class="finding-label">Skin</div><div class="finding-value">pale — conjunctivae and nail beds notably washed out · cool · dry</div></div><div class="finding-row"><div class="finding-label">Pupils</div><div class="finding-value">Equal at 3 mm, briskly reactive</div></div><div class="finding-row"><div class="finding-label">Motor</div><div class="finding-value">Symmetric and intact; no focal deficit; stroke screen negative; right shoulder tender from the pew but neurovascularly intact</div></div><div class="finding-row"><div class="finding-label">Speech</div><div class="finding-value"><span class="finding-speech">"Oh, this is all so silly. I just got a little lightheaded when I stood up for the hymn. I'm fine now, really — I just want to go home. Please don't make a fuss."</span></div></div><div class="finding-row"><div class="finding-label">Other</div><div class="finding-value"><ul class="findings-notes"><li>SHE WILL PASS ANY CAPACITY SCREEN — A&amp;O×4, articulate, no cognitive impairment. That is not the same as being safe to leave.</li><li>Vitals look 'fine' — that is what COMPENSATED hemorrhagic shock looks like in a beta-blocked patient</li><li>She is on METOPROLOL — her heart rate CANNOT rise to compensate. The tachycardia you are waiting for may never come.</li><li>Pale + cool + washed-out conjunctivae + soft pulse = poor perfusion hiding behind a normal number</li><li>Rhythm is atrial fibrillation — the reason she is anticoagulated in the first place</li><li>MELENA WILL NOT BE VOLUNTEERED. You have to ask about stool, directly, in private.</li><li>Warfarin + 10 days of daily NSAIDs = a GI bleed engine</li><li>MATC Syncope names GI BLEED as a HIGH-RISK hemorrhagic cause of syncope</li></ul></div></div>
+    </div>
+  </div>
+    <div class="card">
+    <div class="card-title">Expected Actions</div>
+    <div class="card-content" style="padding:0 16px 12px"><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-critical">critical</span><div class="action-text">ASK about occult blood loss (GI/GU) directly and in private — she will not volunteer the melena</div></div>
+        <div class="action-excerpt">Review of Systems: Current medications (new medications, changes in doses); Fluid losses (nausea/vomiting/diarrhea) and fluid intake; Last menstrual period/pregnant; Occult blood loss (gastrointestinal (GI)/genitourinary (GU)); Palpitations; Unilateral Leg swelling, history of recent travel, prolonged immobilization, malignancy.</div>
+        <div class="action-ref">↳ MATC: Adult and Pediatric Syncope and Near Syncope</div>
+      </div>
+    </div><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-critical">critical</span><div class="action-text">Do the required syncope workup: cardiac monitor, SpO2, 12-lead EKG, BGL, ongoing vitals</div></div>
+        <div class="action-excerpt">Pertinent Physical Exam: Additional Evaluation: Cardiac monitoring; Oxygen saturation (SPO2); Ongoing vital signs; 12-lead EKG; Blood glucose level (BGL). Performance Measures: Acquisition of 12-lead EKG. Application of cardiac monitor.</div>
+        <div class="action-ref">↳ MATC: Adult and Pediatric Syncope and Near Syncope</div>
+      </div>
+    </div><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-critical">critical</span><div class="action-text">Evaluate for hemorrhage and treat for shock if indicated; establish IV access</div></div>
+        <div class="action-excerpt">Treatment and Interventions: Should be directed at abnormalities discovered in the physical exam or on additional examination and may include management of cardiac dysrhythmias, cardiac ischemia/infarct, hemorrhage, shock, etc.: Manage airway as indicated; Oxygen as appropriate; Evaluate for hemorrhage and treat for shock if indicated; Establish IV access; Fluid bolus if appropriate; Cardiac monitor; 12-lead EKG; Monitor for and treat arrhythmias.</div>
+        <div class="action-ref">↳ MATC: Adult and Pediatric Syncope and Near Syncope</div>
+      </div>
+    </div><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-critical">critical</span><div class="action-text">Recognize compensated shock behind 'normal' vitals — she is beta-blocked and cannot mount a tachycardia</div></div>
+        <div class="action-excerpt">Signs of poor perfusion (due to a medical cause) such as one or more of the following: Altered mental status; Delayed capillary refill (&gt; 3 seconds); Decreased urine output; Hypotension for age (lowest acceptable systolic blood pressure in mmHg): Greater than 10 years old: 90; Tachycardia or bradycardia for age; Weak, decreased or bounding pulses; Cool/mottled or flushed/ruddy skin. Hypotension indicates uncompensated shock, which may progress to cardiopulmonary failure within minutes.</div>
+        <div class="action-ref">↳ MATC: Shock</div>
+      </div>
+    </div><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-important">important</span><div class="action-text">Screen the fall for trauma — geriatric patients falling from standing sustain significant injury</div></div>
+        <div class="action-excerpt">Patient Safety Considerations: Patients suffering from syncope due to arrhythmia may experience recurrent arrhythmias and should therefore be placed on a cardiac monitor. Geriatric patients suffering falls from standing may sustain significant injury and should be diligently screened for trauma.</div>
+        <div class="action-ref">↳ MATC: Adult and Pediatric Syncope and Near Syncope</div>
+      </div>
+    </div><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-important">important</span><div class="action-text">Move her out of the crowded foyer — you will not get a stool history with 15 neighbors listening</div></div>
+        <div class="action-excerpt">Review of Systems: Occult blood loss (gastrointestinal (GI)/genitourinary (GU)). Pertinent Physical Exam: Attention to vital signs and evaluation for trauma. Note overall patient appearance, diaphoresis, pallor. Heart, lung, abdominal, and extremity exam.</div>
+        <div class="action-ref">↳ MATC: Adult and Pediatric Syncope and Near Syncope</div>
+      </div>
+    </div></div>
+  </div>
+  </section><section class="phase-section">
+    <div class="card phase-card">
+      <div class="card-content">
+        
+        <div class="phase-title">Melena revealed; she still refuses</div>
+        <div class="phase-trigger">Trigger: Direct questioning revealed melena this morning, two days of epigastric pain, progressive weakness, and 10 days of daily NSAID use on top of warfarin. Repeat vitals show a widening compensation gap. The patient continues to refuse transport.</div>
+        <div class="phase-desc">The crew asked, and the picture inverts. Two days of gnawing epigastric pain. Profound weakness since yesterday. A black, tarry, foul-smelling stool this morning that she rationalized as iron pills she does not take. And ten days of daily ibuprofen layered on top of warfarin — an NSAID stripping her gastric mucosa while an anticoagulant guarantees that whatever it opens will not close. This is an upper GI hemorrhage in a fully anticoagulated 72-year-old, and MATC's Abdominal Pain guideline flags it in one sentence: abdominal pain in older adults, patients with bleeding disorders, and patients on anticoagulation medications may be a harbinger for severe illness. Her repeat pressure has slipped and her pulse has climbed as far as a beta-blocked heart can take it. AND SHE STILL SAYS NO. She is competent, she understands the words, and she is still going to walk to her car. This is where the protocol stops being about medicine and becomes about disposition: MATC's Syncope guideline authorizes delayed or non-transport ONLY where a LOWER-RISK etiology is suspected, and ONLY in consultation with medical direction. GI bleed is on the protocol's high-risk list by name. The crew cannot make this decision alone, and the protocol never asked them to.</div>
+      </div>
+    </div>
+    <div class="card">
+    <div class="card-title">Vital Signs</div>
+    <div class="card-content" style="padding:0">
+      <div class="ecg-label">⏦ Atrial Fibrillation</div>
+      <div class="vitals-grid">
+        <div class="vital-cell"><div class="vital-name">HR</div><div class="vital-val">108</div><div class="vital-unit">bpm</div></div>
+        <div class="vital-cell"><div class="vital-name">BP</div><div class="vital-val">104/62</div><div class="vital-unit">mmHg</div></div>
+        <div class="vital-cell"><div class="vital-name">SpO₂</div><div class="vital-val">95%</div></div>
+        <div class="vital-cell"><div class="vital-name">RR</div><div class="vital-val">20</div><div class="vital-unit">/min</div></div>
+        <div class="vital-cell"><div class="vital-name">EtCO₂</div><div class="vital-val">32</div><div class="vital-unit">mmHg</div></div>
+        <div class="vital-cell"><div class="vital-name">Temp</div><div class="vital-val">97.9°</div><div class="vital-unit">F</div></div>
+        <div class="vital-cell full-width"><div class="vital-name">Glucose</div><div class="vital-val">102</div><div class="vital-unit">mg/dL</div></div>
+      </div>
+    </div>
+  </div>
+    <div class="card">
+    <div class="card-title">Clinical Findings</div>
+    <div class="card-content">
+      
+    <div class="loc-block">
+      <div class="avpu-bar"><div class="avpu-seg sel-a">A</div><div class="avpu-seg">V</div><div class="avpu-seg">P</div><div class="avpu-seg">U</div></div>
+      <div class="gcs-detail">
+    <div class="gcs-item"><span class="gcs-part">Eyes</span><span class="gcs-desc">Spontaneous</span><span class="gcs-score">4</span></div>
+    <div class="gcs-item"><span class="gcs-part">Verbal</span><span class="gcs-desc">Oriented</span><span class="gcs-score">5</span></div>
+    <div class="gcs-item"><span class="gcs-part">Motor</span><span class="gcs-desc">Obeys commands</span><span class="gcs-score">6</span></div>
+    <div class="gcs-total-row">Total GCS <span class="gcs-total">15</span></div>
+  </div>
+    </div>
+      <div class="finding-row"><div class="finding-label">Airway</div><div class="finding-value">Patent, still speaking clearly</div></div><div class="finding-row"><div class="finding-label">Breathing</div><div class="finding-value">RR 20, unlabored; lungs clear</div></div><div class="finding-row"><div class="finding-label">Circulation</div><div class="finding-value">Pulse 108, irregularly irregular; radial pulse softer than on arrival; cap refill 4 sec</div></div><div class="finding-row"><div class="finding-label">Skin</div><div class="finding-value">notably pale — conjunctival pallor now obvious · cool · dry, becoming slightly clammy</div></div><div class="finding-row"><div class="finding-label">Pupils</div><div class="finding-value">Equal at 3 mm, reactive</div></div><div class="finding-row"><div class="finding-label">Motor</div><div class="finding-value">Symmetric, but she is visibly weaker — needs help to stand and admits it</div></div><div class="finding-row"><div class="finding-label">Speech</div><div class="finding-value"><span class="finding-speech">"I've had that before, it's just my iron pills or something. I am not going to the hospital today. I've got a roast in the oven and I feel perfectly well enough to drive myself home."</span></div></div><div class="finding-row"><div class="finding-label">Other</div><div class="finding-value"><ul class="findings-notes"><li>MELENA this morning + 2 days epigastric pain + weakness = UPPER GI HEMORRHAGE</li><li>WARFARIN + 10 days of daily NSAIDs — the NSAID opens the ulcer, the warfarin keeps it open</li><li>MATC Abdominal Pain: anticoagulated older adults with abdominal pain = 'harbinger for severe illness'</li><li>MATC Syncope: GI BLEED is named on the HIGH-RISK hemorrhagic causes list</li><li>BP 104/62 (was 116/70); HR 108 (was 96); cap refill 4 sec — the compensation gap is widening</li><li>She is beta-blocked — her heart rate is near the ceiling of what it can do. Do not wait for 130.</li><li>SHE IS COMPETENT AND SHE IS STILL REFUSING — this is now a disposition problem, not a clinical one</li><li>MATC gates non-transport to LOWER-RISK etiologies AND consultation with medical direction. She is neither.</li></ul></div></div>
+    </div>
+  </div>
+    <div class="card">
+    <div class="card-title">Expected Actions</div>
+    <div class="card-content" style="padding:0 16px 12px"><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-critical">critical</span><div class="action-text">Name the risk: anticoagulated older adult with abdominal pain = harbinger of severe illness</div></div>
+        <div class="action-excerpt">Patient Safety Considerations: Abdominal pain in older adults, patients with bleeding disorders, patients on anticoagulation medications, children less than 2 years old and patients that are immunocompromised may be a harbinger for severe illness. Pertinent Assessment Findings: Rectal bleeding, hematemesis, vaginal bleeding.</div>
+        <div class="action-ref">↳ MATC: Abdominal Pain</div>
+      </div>
+    </div><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-critical">critical</span><div class="action-text">GI bleed is a named HIGH-RISK cause of syncope — this is not vasovagal</div></div>
+        <div class="action-excerpt">High-risk causes of syncope include, but are not limited to, the following: Cardiovascular: Myocardial infarction; Aortic stenosis; Hypertrophic cardiomyopathy; Pulmonary embolus; Aortic dissection; Dysrhythmia. Neurovascular: Intracranial hemorrhage; Transient ischemic attack or stroke. Hemorrhagic: Ruptured ectopic pregnancy; GI bleed; Aortic rupture.</div>
+        <div class="action-ref">↳ MATC: Adult and Pediatric Syncope and Near Syncope</div>
+      </div>
+    </div><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-critical">critical</span><div class="action-text">Contact online medical direction — non-transport requires consultation, and this is NOT low-risk</div></div>
+        <div class="action-excerpt">Key Considerations: By being most proximate to the scene and to the patient's presentation, EMS clinicians are commonly in a unique position to identify the cause of syncope. For patients where a lower risk etiology is suspected, e.g., vasovagal syncope, decisions regarding delayed or non-transport should be made in consultation with medical direction.</div>
+        <div class="action-ref">↳ MATC: Adult and Pediatric Syncope and Near Syncope</div>
+      </div>
+    </div><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-critical">critical</span><div class="action-text">IV access (2 attempts or 90 sec → IO); fluid bolus titrated to MAP 65; EtCO2 &lt;25 = poor perfusion</div></div>
+        <div class="action-excerpt">Pulse oximetry and EtCO2 (reading of less than 25 mmHg may be sign of poor perfusion). Establish IV access. If unable to obtain within two attempts or less than 90 seconds, place an IO needle. IV fluid volume goal attained by giving boluses that are pressure infused over less than 15 minutes each based on patient's condition and clinical impression. Adult: Physiologic target: MAP goal 65 mmHg. Fluid goal of up to 30 mL/kg of isotonic fluid by administering rapid, predetermined boluses (e.g., 500 mL) unless the MAP goal is achieved, or pulmonary edema develops.</div>
+        <div class="action-ref">↳ MATC: Shock</div>
+      </div>
+    </div><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-critical">critical</span><div class="action-text">Serial vitals q5 min and DOCUMENT the trend — the trend is the argument</div></div>
+        <div class="action-excerpt">Key Documentation Elements: Medications administered. Full vital signs (pulse, blood pressure, respiratory rate, neurologic status assessment) with reassessment q 15 minutes or more frequently as appropriate. Lactate level (if available). Neurologic status assessment. Amount of fluids given.</div>
+        <div class="action-ref">↳ MATC: Shock</div>
+      </div>
+    </div><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-important">important</span><div class="action-text">Advance notification: anticoagulated GI bleed with syncope — they will need reversal and endoscopy</div></div>
+        <div class="action-excerpt">Provide advanced notification to the hospital. Performance Measures: Percentage of patients with suspected shock for whom advanced notification to the hospital was provided. Mean time from abnormal vitals to initiation of a fluid bolus.</div>
+        <div class="action-ref">↳ MATC: Shock</div>
+      </div>
+    </div></div>
+  </div>
+  </section><section class="phase-section">
+    <div class="card phase-card">
+      <div class="card-content">
+        
+        <div class="phase-title">Med control consulted; transport accepted</div>
+        <div class="phase-trigger">Trigger: Online medical direction consulted; physician spoke directly with the patient. She consented to transport. IV access established, fluid resuscitation titrated to MAP 65, continuous monitoring and advance notification en route.</div>
+        <div class="phase-desc">The physician on the radio said the words the crew could not make land: you are bleeding internally, your blood thinner means it will not stop on its own, and if you go home you may not wake up. She agreed to go. She is on the monitor in atrial fibrillation, has two lines, and is receiving fluid titrated to a MAP of 65 while the crew watches her EtCO2 as a perfusion tracer. Note what actually saved this patient — not a drug, not a procedure. Someone asked about her stool. Someone did a 12-lead she said she did not need. Someone called a physician instead of accepting a signature. MATC's Syncope guideline says EMS clinicians, by being most proximate to the scene and the presentation, are commonly in a unique position to identify the cause of syncope. That is exactly what happened here, and it happened because the crew treated a well-appearing woman as a hemorrhage patient on the strength of one question.</div>
+      </div>
+    </div>
+    <div class="card">
+    <div class="card-title">Vital Signs</div>
+    <div class="card-content" style="padding:0">
+      <div class="ecg-label">⏦ Atrial Fibrillation</div>
+      <div class="vitals-grid">
+        <div class="vital-cell"><div class="vital-name">HR</div><div class="vital-val">100</div><div class="vital-unit">bpm</div></div>
+        <div class="vital-cell"><div class="vital-name">BP</div><div class="vital-val">112/68</div><div class="vital-unit">mmHg</div></div>
+        <div class="vital-cell"><div class="vital-name">SpO₂</div><div class="vital-val">97%</div></div>
+        <div class="vital-cell"><div class="vital-name">RR</div><div class="vital-val">18</div><div class="vital-unit">/min</div></div>
+        <div class="vital-cell"><div class="vital-name">EtCO₂</div><div class="vital-val">35</div><div class="vital-unit">mmHg</div></div>
+        <div class="vital-cell"><div class="vital-name">Temp</div><div class="vital-val">98.1°</div><div class="vital-unit">F</div></div>
+        <div class="vital-cell full-width"><div class="vital-name">Glucose</div><div class="vital-val">102</div><div class="vital-unit">mg/dL</div></div>
+      </div>
+    </div>
+  </div>
+    <div class="card">
+    <div class="card-title">Clinical Findings</div>
+    <div class="card-content">
+      
+    <div class="loc-block">
+      <div class="avpu-bar"><div class="avpu-seg sel-a">A</div><div class="avpu-seg">V</div><div class="avpu-seg">P</div><div class="avpu-seg">U</div></div>
+      <div class="gcs-detail">
+    <div class="gcs-item"><span class="gcs-part">Eyes</span><span class="gcs-desc">Spontaneous</span><span class="gcs-score">4</span></div>
+    <div class="gcs-item"><span class="gcs-part">Verbal</span><span class="gcs-desc">Oriented</span><span class="gcs-score">5</span></div>
+    <div class="gcs-item"><span class="gcs-part">Motor</span><span class="gcs-desc">Obeys commands</span><span class="gcs-score">6</span></div>
+    <div class="gcs-total-row">Total GCS <span class="gcs-total">15</span></div>
+  </div>
+    </div>
+      <div class="finding-row"><div class="finding-label">Airway</div><div class="finding-value">Patent</div></div><div class="finding-row"><div class="finding-label">Breathing</div><div class="finding-value">RR 18, unlabored; lungs clear</div></div><div class="finding-row"><div class="finding-label">Circulation</div><div class="finding-value">Pulse 100, irregularly irregular; radial pulse improving with fluid; cap refill 3 sec</div></div><div class="finding-row"><div class="finding-label">Skin</div><div class="finding-value">still pale but no longer worsening · warming · dry</div></div><div class="finding-row"><div class="finding-label">Pupils</div><div class="finding-value">Equal at 3 mm, reactive</div></div><div class="finding-row"><div class="finding-label">Motor</div><div class="finding-value">Intact</div></div><div class="finding-row"><div class="finding-label">Speech</div><div class="finding-value"><span class="finding-speech">"(quietly) The doctor said I could have bled to death in my sleep. I really didn't think it was anything. I just thought I stood up too fast."</span></div></div><div class="finding-row"><div class="finding-label">Other</div><div class="finding-value"><ul class="findings-notes"><li>Two large-bore IVs; isotonic fluid titrated to MAP 65 (not to a number she 'looks like' she needs)</li><li>EtCO2 back up to 35 with fluid — a useful perfusion tracer in occult hemorrhage</li><li>Continuous monitor: atrial fibrillation, rate-controlled, no new arrhythmia</li><li>Advance notification given: anticoagulated upper GI bleed with syncope — reversal agents and GI needed</li><li>WHAT SAVED HER: a question about her stool, a 12-lead she said she didn't need, and a phone call instead of a signature</li><li>She is still hemorrhaging. The fluid is a bridge; endoscopy and reversal are the fix.</li></ul></div></div>
+    </div>
+  </div>
+    <div class="card">
+    <div class="card-title">Expected Actions</div>
+    <div class="card-content" style="padding:0 16px 12px"><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-critical">critical</span><div class="action-text">Titrate isotonic fluid to MAP 65 — boluses pressure-infused over &lt;15 min, reassess after each</div></div>
+        <div class="action-excerpt">IV fluid volume goal attained by giving boluses that are pressure infused over less than 15 minutes each based on patient's condition and clinical impression. Fluid volume goal to achieve a mean arterial pressure (adults) or other targets (pediatrics). Mean Arterial Pressure is calculated: (MAP = [(2X diastolic) + (systolic]/3). Adult: Physiologic target: MAP goal 65 mmHg. Fluid goal of up to 30 mL/kg of isotonic fluid by administering rapid, predetermined boluses (e.g., 500 mL) unless the MAP goal is achieved.</div>
+        <div class="action-ref">↳ MATC: Shock</div>
+      </div>
+    </div><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-critical">critical</span><div class="action-text">Keep her on the monitor — recurrent arrhythmia is a live risk in syncope</div></div>
+        <div class="action-excerpt">Patient Safety Considerations: Patients suffering from syncope due to arrhythmia may experience recurrent arrhythmias and should therefore be placed on a cardiac monitor. Key Documentation Elements: Presenting cardiac rhythm. Cardiac rhythm present when patient is symptomatic. Any cardiac rhythm changes.</div>
+        <div class="action-ref">↳ MATC: Adult and Pediatric Syncope and Near Syncope</div>
+      </div>
+    </div><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-critical">critical</span><div class="action-text">Watch for decompensation — falling EtCO2, rising cap refill, mentation change</div></div>
+        <div class="action-excerpt">Hypotension indicates uncompensated shock, which may progress to cardiopulmonary failure within minutes. In most adults, tachycardia is the first sign of compensated shock, and may persist for hours. Pulse oximetry and EtCO2 (reading of less than 25 mmHg may be sign of poor perfusion).</div>
+        <div class="action-ref">↳ MATC: Shock</div>
+      </div>
+    </div><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-important">important</span><div class="action-text">Handoff: syncope + melena + warfarin + NSAIDs + trend — give them the reasoning, not just numbers</div></div>
+        <div class="action-excerpt">Key Documentation Elements: Presenting cardiac rhythm; Cardiac rhythm present when patient is symptomatic; Any cardiac rhythm changes; Blood pressure; Pulse; Blood glucose level (BGL); Symptoms immediately preceding event; Patient status on EMS arrival: recovered or still symptomatic.</div>
+        <div class="action-ref">↳ MATC: Adult and Pediatric Syncope and Near Syncope</div>
+      </div>
+    </div></div>
+  </div>
+  </section><section class="phase-section">
+    <div class="card phase-card phase-card-branch">
+      <div class="card-content">
+        <div class="branch-tag">Improper Care Branch</div>
+        <div class="phase-title">Refusal accepted; no workup, no med control</div>
+        <div class="phase-trigger">Trigger: Refusal accepted without the required syncope workup, without asking about occult blood loss, and without consulting medical direction. The patient syncopized again in the parking lot and struck her head while fully anticoagulated.</div>
+        <div class="phase-desc">The crew took the easy story. No 12-lead, no monitor, no question about her stool, no call to medical direction — just a signature on a refusal form and a well-appearing 72-year-old walking out to her car. She made it about forty feet across the parking lot before her second syncopal episode, and this time there was no pew to catch her. She struck the back of her head on the asphalt. She is now a fully anticoagulated patient with a head injury and an ongoing GI hemorrhage, which is roughly the worst combination in geriatric prehospital medicine: warfarin means an intracranial bleed does not tamponade, and the GI bleed means she has no reserve to lose. She is GCS 12 and dropping, hypotensive at 82/48, with a boggy occipital hematoma. Everything the crew skipped is now mandatory, and it is being done in a parking lot with a worse patient. Note the honest part of this failure: she had capacity. She could have refused even a perfect crew. But a perfect crew would have done the workup, found the melena, called a physician, and documented all of it — and the protocol says that is what non-transport requires.</div>
+      </div>
+    </div>
+    <div class="card">
+    <div class="card-title">Vital Signs</div>
+    <div class="card-content" style="padding:0">
+      <div class="ecg-label">⏦ Atrial Fibrillation</div>
+      <div class="vitals-grid">
+        <div class="vital-cell"><div class="vital-name">HR</div><div class="vital-val">118</div><div class="vital-unit">bpm</div></div>
+        <div class="vital-cell"><div class="vital-name">BP</div><div class="vital-val">82/48</div><div class="vital-unit">mmHg</div></div>
+        <div class="vital-cell"><div class="vital-name">SpO₂</div><div class="vital-val">92%</div></div>
+        <div class="vital-cell"><div class="vital-name">RR</div><div class="vital-val">22</div><div class="vital-unit">/min</div></div>
+        <div class="vital-cell"><div class="vital-name">EtCO₂</div><div class="vital-val">27</div><div class="vital-unit">mmHg</div></div>
+        <div class="vital-cell"><div class="vital-name">Temp</div><div class="vital-val">97.3°</div><div class="vital-unit">F</div></div>
+        <div class="vital-cell full-width"><div class="vital-name">Glucose</div><div class="vital-val">98</div><div class="vital-unit">mg/dL</div></div>
+      </div>
+    </div>
+  </div>
+    <div class="card">
+    <div class="card-title">Clinical Findings</div>
+    <div class="card-content">
+      
+    <div class="loc-block">
+      <div class="avpu-bar"><div class="avpu-seg">A</div><div class="avpu-seg sel-v">V</div><div class="avpu-seg">P</div><div class="avpu-seg">U</div></div>
+      <div class="gcs-detail">
+    <div class="gcs-item"><span class="gcs-part">Eyes</span><span class="gcs-desc">To speech</span><span class="gcs-score">3</span></div>
+    <div class="gcs-item"><span class="gcs-part">Verbal</span><span class="gcs-desc">Confused</span><span class="gcs-score">4</span></div>
+    <div class="gcs-item"><span class="gcs-part">Motor</span><span class="gcs-desc">Localizes pain</span><span class="gcs-score">5</span></div>
+    <div class="gcs-total-row">Total GCS <span class="gcs-total">12</span></div>
+  </div>
+    </div>
+      <div class="finding-row"><div class="finding-label">Airway</div><div class="finding-value">Patent but at risk — she is drowsy and her gag is sluggish</div></div><div class="finding-row"><div class="finding-label">Breathing</div><div class="finding-value">RR 22, shallow; lungs clear</div></div><div class="finding-row"><div class="finding-label">Circulation</div><div class="finding-value">Pulse 118, irregularly irregular, weak and thready; cap refill 5 sec</div></div><div class="finding-row"><div class="finding-label">Skin</div><div class="finding-value">ashen · cold · clammy</div></div><div class="finding-row"><div class="finding-label">Pupils</div><div class="finding-value">Equal at 3 mm but SLUGGISH — recheck them with any further decline</div></div><div class="finding-row"><div class="finding-label">Motor</div><div class="finding-value">Moves all four but weakly; no lateralizing signs YET</div></div><div class="finding-row"><div class="finding-label">Speech</div><div class="finding-value"><span class="finding-speech">"(drowsy, slurred) …hit my head… I'm so tired…"</span></div></div><div class="finding-row"><div class="finding-label">Other</div><div class="finding-value"><ul class="findings-notes"><li>SECOND SYNCOPE — head strike on asphalt, boggy occipital hematoma, no helmet of any kind</li><li>FULLY ANTICOAGULATED HEAD INJURY: warfarin means an intracranial bleed will not tamponade itself</li><li>PLUS an ongoing GI hemorrhage — she has no reserve to give to a second bleed</li><li>GCS 12 and drifting — MATC classifies GCS 9–13 as MODERATE head injury</li><li>SBP 82 — head injury target for an adult is SBP ≥ 110. She is 28 mmHg below it.</li><li>Hypotension after head injury is the single most preventable cause of secondary brain injury</li><li>She HAD capacity and could have refused a perfect crew — but a perfect crew would have done the workup, found the melena, and called a physician</li></ul></div></div>
+    </div>
+  </div>
+    <div class="card">
+    <div class="card-title">Expected Actions</div>
+    <div class="card-content" style="padding:0 16px 12px"><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-critical">critical</span><div class="action-text">Maintain SBP ≥110 — give fluid to PREVENT hypotension, do not wait until she is already hypotensive</div></div>
+        <div class="action-excerpt">Circulation: Moderate/severe closed head injury: Blood pressure: avoid hypotension: Adult (age greater than 10 years): maintain SBP greater than or equal to 110 mmHg. Closed head injury: Administer normal saline (NS)/lactated Ringer's (LR) fluid boluses to maintain SBP above threshold. Do not wait until after the patient is already hypotensive—prevent hypotension.</div>
+        <div class="action-ref">↳ MATC: Head Injury</div>
+      </div>
+    </div><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-critical">critical</span><div class="action-text">High-flow O2 via NRB as a precaution against unanticipated deterioration</div></div>
+        <div class="action-excerpt">Airway: Administer high-flow oxygen via NRB (non-rebreather) as a precaution against unanticipated deterioration. Patient Care Goals: Limit disability and mortality from head injury by limiting secondary brain injury through promoting adequate oxygenation and preoxygenating to protect against unanticipated deterioration; Promoting good cerebral perfusion and avoid hypotension; Preventing hypocapnia (by avoiding hyperventilation and overventilation).</div>
+        <div class="action-ref">↳ MATC: Head Injury</div>
+      </div>
+    </div><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-critical">critical</span><div class="action-text">Do NOT hyperventilate — maintain EtCO2 35–45; hypocapnia worsens secondary brain injury</div></div>
+        <div class="action-excerpt">Patient Safety Considerations: Do not hyperventilate patients: Maintain all patients in EtCO2 range of 35–45 mmHg. Assume concomitant cervical spine injury in patients with moderate/severe head injury. Key Considerations: Herniation is difficult to diagnose in the prehospital setting. Hyperventilation results in vasoconstriction which further decreases blood flow to the brain and worsens the secondary brain injury.</div>
+        <div class="action-ref">↳ MATC: Head Injury</div>
+      </div>
+    </div><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-critical">critical</span><div class="action-text">Assume c-spine injury — moderate head injury with altered mental status; collar her</div></div>
+        <div class="action-excerpt">Patient Safety Considerations: Assume concomitant cervical spine injury in patients with moderate/severe head injury. Assessment: Maintain cervical stabilization. Geriatric Consideration: Elderly patients with ankylosing spondylitis or severe kyphosis should be padded and immobilized in a position of comfort and may not tolerate a cervical collar.</div>
+        <div class="action-ref">↳ MATC: Head Injury</div>
+      </div>
+    </div><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-critical">critical</span><div class="action-text">Preferential transport to the highest level of trauma care — GCS 3–13 meets the criterion</div></div>
+        <div class="action-excerpt">Transport destination specific to head trauma: Preferential transport to highest level of care within trauma system: GCS 3–13, P (pain) or U (unresponsive) on AVPU scale; Penetrating head trauma; Open or depressed skull fracture.</div>
+        <div class="action-ref">↳ MATC: Head Injury</div>
+      </div>
+    </div><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-critical">critical</span><div class="action-text">Trend GCS and pupils — recheck pupils with ANY decrease in mentation</div></div>
+        <div class="action-excerpt">Perform and trend neurologic status assessment (GCS or AVPU scale): Early signs of deterioration: Confusion; Agitation; Drowsiness; Vomiting; Severe headache. Eyes: Evaluate pupil size and reaction to light to establish baseline; Reassess pupils if decrease in mentation.</div>
+        <div class="action-ref">↳ MATC: Head Injury</div>
+      </div>
+    </div><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-critical">critical</span><div class="action-text">Do not forget the GI bleed — she is hemorrhaging from two places now; fluid targets BOTH</div></div>
+        <div class="action-excerpt">IV fluid volume goal attained by giving boluses that are pressure infused over less than 15 minutes each based on patient's condition and clinical impression. Adult: Physiologic target: MAP goal 65 mmHg. Fluid goal of up to 30 mL/kg of isotonic fluid by administering rapid, predetermined boluses (e.g., 500 mL) unless the MAP goal is achieved, or pulmonary edema develops.</div>
+        <div class="action-ref">↳ MATC: Shock</div>
+      </div>
+    </div></div>
+  </div>
+  </section>
+</div>
+</body>
+</html>
