@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aortic Dissection — Sudden Tearing Chest Pain at the Bank, Bilateral BP Differential, ASA Withheld, Load-and-Go — Printable</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fff;--card:#fff;--card-border:#d6d3d1;--text:#1c1917;--text-secondary:#44403c;--text-muted:#78716c;--green:#166534;--red:#b91c1c;--red-light:#fef2f2;--red-border:#fecaca;--orange:#c2410c;--yellow:#a16207;--blue:#1e40af;--radius:8px;--radius-sm:6px}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'DM Sans','Helvetica Neue',Arial,sans-serif;background:#f5f5f4;color:var(--text);line-height:1.5;padding:24px;font-size:12pt}
+.sheet{max-width:800px;margin:0 auto;background:#fff;padding:28px 32px;box-shadow:0 1px 4px rgba(0,0,0,.08);border-radius:10px}
+.scenario-name{font-size:11pt;color:var(--text-secondary)}
+.card{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);margin-bottom:14px;overflow:hidden;break-inside:avoid}
+.card-title{font-size:9pt;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--text-muted);padding:10px 14px 6px;border-bottom:1px solid #f5f5f4}
+.card-content{padding:10px 14px 12px}
+.scene-row{padding:6px 0;border-bottom:1px solid #f5f5f4;display:grid;grid-template-columns:110px 1fr;gap:10px}
+.scene-row:last-child{border-bottom:none}
+.scene-label{font-family:'DM Mono',ui-monospace,monospace;font-size:8pt;font-weight:500;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted)}
+.scene-value{font-size:11pt;color:var(--text-secondary)}
+.cue-list{list-style:none;margin:0}
+.cue-list li{font-size:11pt;color:var(--text-secondary);padding:3px 0 3px 14px;position:relative}
+.cue-list li::before{content:'→';position:absolute;left:0;color:var(--text-muted);font-size:10pt}
+.sample-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:#e7e5e4}
+.sample-cell{background:#fff;padding:9px 12px}
+.sample-cell:nth-child(1),.sample-cell:nth-child(6){grid-column:1/-1}
+.sample-letter{font-family:'DM Mono',ui-monospace,monospace;font-size:11pt;font-weight:700;color:var(--green);margin-right:4px}
+.sample-name{font-size:8pt;font-weight:600;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted);margin-bottom:3px}
+.sample-text{font-size:10.5pt;color:var(--text-secondary);line-height:1.45}
+.patient-chips{display:flex;gap:8px;flex-wrap:wrap}
+.patient-chip{font-size:10pt;padding:4px 10px;background:#f5f5f4;border-radius:6px;color:var(--text-secondary)}
+.patient-chip strong{color:var(--text);font-weight:700}
+.phase-section{break-before:auto;page-break-before:auto;margin-top:12px}
+.phase-section .phase-card{break-after:avoid;page-break-after:avoid}
+.phase-card{border-left:4px solid var(--text)}
+.phase-card-branch{border-left-color:var(--red)}
+.branch-tag{display:inline-block;font-family:'DM Mono',ui-monospace,monospace;font-size:8pt;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--red);background:var(--red-light);padding:2px 8px;border-radius:4px;margin-bottom:6px}
+.phase-title{font-size:16pt;font-weight:700;margin-bottom:4px}
+.phase-trigger{font-family:'DM Mono',ui-monospace,monospace;font-size:9pt;color:var(--yellow);margin-bottom:6px}
+.phase-desc{font-size:11pt;color:var(--text-secondary);line-height:1.5}
+.ecg-label{font-family:'DM Mono',ui-monospace,monospace;font-size:10pt;color:var(--text-secondary);padding:8px 12px;background:#fafaf9;border-bottom:1px solid #f0efec}
+.vitals-grid{display:flex;flex-wrap:wrap;gap:4px 18px;padding:8px 14px}
+.vital-cell{background:transparent;padding:0;text-align:left;display:flex;align-items:baseline;gap:4px}
+.vital-cell.full-width{grid-column:auto}
+.vital-name{font-family:'DM Mono',ui-monospace,monospace;font-size:8pt;font-weight:600;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted)}
+.vital-val{font-family:'DM Mono',ui-monospace,monospace;font-size:11pt;font-weight:700;color:var(--text);line-height:1.1}
+.vital-unit{font-family:'DM Mono',ui-monospace,monospace;font-size:8pt;color:var(--text-muted)}
+.loc-block{margin-bottom:10px}
+.avpu-bar{display:flex;border:1px solid var(--card-border);border-radius:6px;overflow:hidden;margin-bottom:10px}
+.avpu-seg{flex:1;text-align:center;padding:6px 4px;font-family:'DM Mono',ui-monospace,monospace;font-size:10pt;font-weight:700;color:var(--text-muted);background:#fafaf9}
+.avpu-seg.sel-a{background:#ecfccb;color:var(--green)}
+.avpu-seg.sel-v{background:#fef3c7;color:var(--yellow)}
+.avpu-seg.sel-p{background:#ffedd5;color:var(--orange)}
+.avpu-seg.sel-u{background:var(--red-light);color:var(--red)}
+.gcs-detail{display:flex;flex-wrap:wrap;gap:6px 16px;padding:8px 14px;border:1px solid var(--card-border);border-radius:6px;margin-bottom:10px;align-items:baseline}
+.gcs-item{display:flex;align-items:baseline;gap:4px;padding:0;border:none}
+.gcs-item:last-of-type{border-bottom:none}
+.gcs-part{order:1;font-family:'DM Mono',ui-monospace,monospace;font-size:8pt;font-weight:600;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted)}
+.gcs-score{order:2;font-family:'DM Mono',ui-monospace,monospace;font-size:11pt;font-weight:700;color:var(--text)}
+.gcs-desc{order:3;font-size:9.5pt;color:var(--text-muted);font-style:italic}
+.gcs-desc::before{content:'('}
+.gcs-desc::after{content:')'}
+.gcs-total-row{display:flex;align-items:baseline;gap:4px;order:-1;padding:0;margin:0;border:none;font-family:'DM Mono',ui-monospace,monospace;font-size:8pt;font-weight:600;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted)}
+.gcs-total-row .gcs-total{font-family:'DM Mono',ui-monospace,monospace;font-size:12pt;font-weight:700;color:var(--text)}
+.finding-row{padding:6px 0;border-bottom:1px solid #f5f5f4;display:grid;grid-template-columns:100px 1fr;gap:10px}
+.finding-row:last-child{border-bottom:none}
+.finding-label{font-family:'DM Mono',ui-monospace,monospace;font-size:8pt;font-weight:500;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted)}
+.finding-value{font-size:10.5pt;color:var(--text-secondary)}
+.finding-speech{font-style:italic;color:var(--text-muted)}
+.findings-notes{list-style:none;margin:0}
+.findings-notes li{font-size:10pt;color:var(--text-secondary);padding:2px 0 2px 12px;position:relative}
+.findings-notes li::before{content:'·';position:absolute;left:2px;font-weight:700;color:var(--text-muted)}
+.action-row{display:flex;gap:10px;padding:10px 0;border-bottom:1px solid #f5f5f4;break-inside:avoid}
+.action-row:last-child{border-bottom:none}
+.action-box{width:14px;height:14px;border:1.5px solid var(--text-muted);border-radius:3px;flex-shrink:0;margin-top:3px}
+.action-body{flex:1;min-width:0}
+.action-head{display:flex;align-items:flex-start;gap:8px;margin-bottom:4px}
+.action-priority{display:inline-block;font-family:'DM Mono',ui-monospace,monospace;font-size:7.5pt;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:2px 6px;border-radius:3px;flex-shrink:0;margin-top:2px}
+.p-critical{background:var(--red-light);color:var(--red)}
+.p-important{background:#fff7ed;color:var(--orange)}
+.p-supp{background:#f5f5f4;color:var(--text-muted)}
+.action-text{font-size:11pt;font-weight:600;color:var(--text);line-height:1.35}
+.action-rationale{display:none}
+.action-excerpt{font-size:9.5pt;color:var(--text-secondary);line-height:1.5;font-style:italic;border-left:2px solid var(--card-border);padding:2px 0 2px 9px;margin:5px 0 4px 0}
+.action-ref{font-family:'DM Mono',ui-monospace,monospace;font-size:8pt;color:var(--text-muted);font-weight:600;text-transform:uppercase;letter-spacing:.5px;margin-top:2px}
+.action-head{margin-bottom:0}
+.action-row{padding:8px 0}
+@media print{
+  body{background:#fff;padding:0;font-size:10pt}
+  .sheet{box-shadow:none;max-width:none;padding:0.4in;border-radius:0}
+  .card{break-inside:avoid;margin-bottom:8px}
+  .card-title{padding:6px 10px 3px}
+  .card-content{padding:6px 10px 8px}
+}
+</style>
+</head>
+<body>
+<div class="sheet">
+  <div class="card"><div class="card-title">Scenario</div><div class="card-content"><div class="scenario-name">Aortic Dissection — Sudden Tearing Chest Pain at the Bank, Bilateral BP Differential, ASA Withheld, Load-and-Go</div></div></div>
+  <div class="card"><div class="card-title">Patient</div><div class="card-content"><div class="patient-chips"><span class="patient-chip"><strong>David Clark</strong></span><span class="patient-chip">58 years male</span><span class="patient-chip">203 lbs (92 kg)</span><span class="patient-chip">5'10"</span><span class="patient-chip">CC: Sudden 10/10 'tearing, ripping' chest pain that began instantaneously about 5 minutes before the 911 call while he was sitting at his desk, radiating from the center of his chest straight through to his back between the shoulder blades.</span></div></div></div>
+  <div class="card"><div class="card-title">Scene</div><div class="card-content">
+    <div class="scene-row"><div class="scene-label">Dispatch</div><div class="scene-value">Rescue 5, respond to City Financial Bank at 789 Commerce Street for a 58-year-old male with chest pain. Time out is 07:16.</div></div>
+    <div class="scene-row"><div class="scene-label">Location</div><div class="scene-value">Private office inside City Financial Bank, 789 Commerce Street — ground floor professional office suite. Patient is in his desk chair behind a large desk. Stretcher access is through the lobby and a carpeted hallway; the bank has not yet opened to the public.</div></div>
+    <div class="scene-row"><div class="scene-label">Time</div><div class="scene-value">Weekday morning, 07:16 dispatch; symptom onset approximately 07:10</div></div>
+    <div class="scene-row"><div class="scene-label">Safety</div><div class="scene-value">The scene is a professional office inside a bank. The scene is safe, and there are no immediate hazards. Standard BSI. A coworker ushers the crew into the office where the patient is located.</div></div>
+    <div class="scene-row"><div class="scene-label">Bystanders</div><div class="scene-value">The coworker who called 911 leads the crew in and reports the patient suddenly cried out about five minutes before the call and 'has not looked right since.' No family on scene; the coworker can relay very little medical history — the patient himself is the historian.</div></div>
+  </div></div><div class="card"><div class="card-title">Visual Cues on Arrival</div><div class="card-content"><ul class="cue-list"><li>Middle-aged man sitting in his desk chair, acutely ill in appearance</li><li>Pale and sweating profusely — visible beads on his forehead, shirt collar damp</li><li>Clutching the center of his chest with one hand</li><li>Restless — shifting constantly in the chair, unable to find a comfortable position</li><li>Speaking in short, pained sentences but fully oriented</li><li>No cyanosis, no obvious trauma, work environment orderly</li><li>A wastebasket, keyboard, and coffee cup undisturbed — this hit him out of nowhere mid-task</li></ul></div></div>
+  <div class="card">
+    <div class="card-title">SAMPLE History</div>
+    <div class="card-content" style="padding:0">
+      <div class="sample-grid">
+        <div class="sample-cell"><div class="sample-name"><span class="sample-letter">S</span> Signs &amp; Symptoms</div><div class="sample-text">58-year-old male was sitting at his desk typing when he was struck — with zero warning — by the worst pain of his life. Onset was instantaneous and abrupt: 'I was just sitting here, and BAM!' The quality is NOT pressure — he is emphatic that it is a tearing, ripping feeling unlike anything he has ever felt. It started in the middle of his chest and goes straight through to his back, right between the shoulder blades. Nothing he does makes it better; it hurts to even breathe. Severity is 10/10 — 'the absolute worst.' It started about 5 minutes before his coworker called 911 and has not changed at all since onset. His only medical history is hypertension, for which he takes lisinopril — but he ran out several days ago and has not taken it since. He is pale, sweating profusely, restless, and unable to find a comfortable position.</div></div>
+        <div class="sample-cell"><div class="sample-name"><span class="sample-letter">A</span> Allergies</div><div class="sample-text">None known — 'None that I know of' (NKDA)</div></div>
+        <div class="sample-cell"><div class="sample-name"><span class="sample-letter">M</span> Medications</div><div class="sample-text">Lisinopril PO daily for blood pressure — ran out; has not taken it in a few days</div></div>
+        <div class="sample-cell"><div class="sample-name"><span class="sample-letter">P</span> Past Medical</div><div class="sample-text">Hypertension ('just high blood pressure') — currently untreated because he ran out of his medication several days ago</div></div>
+        <div class="sample-cell"><div class="sample-name"><span class="sample-letter">L</span> Last Intake</div><div class="sample-text">Coffee and a donut about an hour ago</div></div>
+        <div class="sample-cell"><div class="sample-name"><span class="sample-letter">E</span> Events</div><div class="sample-text">He was just sitting at his desk, typing, with no warning at all. Instantaneous onset of tearing chest pain radiating through to the interscapular back about 5 minutes before his coworker called 911. No exertion, no trauma, no prodrome.</div></div>
+      </div>
+    </div>
+  </div>
+  <section class="phase-section">
+    <div class="card phase-card">
+      <div class="card-content">
+        
+        <div class="phase-title">Initial Contact</div>
+        
+        <div class="phase-desc">EMS finds a 58-year-old man in agonizing distress with the classic dissection story told almost word for word: instantaneous onset while at rest, a TEARING/RIPPING quality he insists is not pressure, radiation from mid-chest straight through to the interscapular back, 10/10 and unchanged, in a hypertensive patient who stopped his lisinopril days ago. He is A&amp;Ox4, patent airway, breathing fast but not labored, with bounding rapid pulses and pale, cool, clammy skin. The crew's exam is where this case is won or lost: blood pressure obtained in BOTH arms reveals 198/110 on the right versus 150/90 on the left — a 48 mmHg systolic differential — and the left radial pulse is palpably weaker than the bounding right. Under MATC guidance this presentation maps to the Back Pain guideline's life-threat screen for aortic dissection (chest pain with back pain, unequal pulses/perfusion) and to the ACS guideline's deferral clause for likely non-cardiac chest pain: aspirin and nitrates are withheld and pain is managed per the Pain Management guideline — at this crew's BLS scope, position of comfort and verbal reassurance, not analgesics. Definitive care is surgical — the correct posture is recognition, minimal scene time, and transport toward an appropriate facility with a specialty destination considered. Every additional minute on scene is myocardium-irrelevant and aorta-critical.</div>
+      </div>
+    </div>
+    <div class="card">
+    <div class="card-title">Vital Signs</div>
+    <div class="card-content" style="padding:0">
+      <div class="ecg-label">⏦ Sinus Tachycardia</div>
+      <div class="vitals-grid">
+        <div class="vital-cell"><div class="vital-name">HR</div><div class="vital-val">120</div><div class="vital-unit">bpm</div></div>
+        <div class="vital-cell"><div class="vital-name">BP</div><div class="vital-val">198/110</div><div class="vital-unit">mmHg</div></div>
+        <div class="vital-cell"><div class="vital-name">SpO₂</div><div class="vital-val">96%</div></div>
+        <div class="vital-cell"><div class="vital-name">RR</div><div class="vital-val">24</div><div class="vital-unit">/min</div></div>
+        <div class="vital-cell"><div class="vital-name">EtCO₂</div><div class="vital-val">33</div><div class="vital-unit">mmHg</div></div>
+        <div class="vital-cell"><div class="vital-name">Temp</div><div class="vital-val">97.9°</div><div class="vital-unit">F</div></div>
+        <div class="vital-cell full-width"><div class="vital-name">Glucose</div><div class="vital-val">118</div><div class="vital-unit">mg/dL</div></div>
+      </div>
+    </div>
+  </div>
+    <div class="card">
+    <div class="card-title">Clinical Findings</div>
+    <div class="card-content">
+      
+    <div class="loc-block">
+      <div class="avpu-bar"><div class="avpu-seg sel-a">A</div><div class="avpu-seg">V</div><div class="avpu-seg">P</div><div class="avpu-seg">U</div></div>
+      <div class="gcs-detail">
+    <div class="gcs-item"><span class="gcs-part">Eyes</span><span class="gcs-desc">Spontaneous</span><span class="gcs-score">4</span></div>
+    <div class="gcs-item"><span class="gcs-part">Verbal</span><span class="gcs-desc">Oriented</span><span class="gcs-score">5</span></div>
+    <div class="gcs-item"><span class="gcs-part">Motor</span><span class="gcs-desc">Obeys commands</span><span class="gcs-score">6</span></div>
+    <div class="gcs-total-row">Total GCS <span class="gcs-total">15</span></div>
+  </div>
+    </div>
+      <div class="finding-row"><div class="finding-label">Airway</div><div class="finding-value">Patent and self-maintained</div></div><div class="finding-row"><div class="finding-label">Breathing</div><div class="finding-value">RR 24 — respirations fast but not labored; lungs clear bilaterally; splints slightly with deep breaths ('it hurts to even breathe')</div></div><div class="finding-row"><div class="finding-label">Circulation</div><div class="finding-value">Central and peripheral pulses present, rapid, and strong/bounding on the right; LEFT radial present but noticeably weaker than the right; no obvious bleeding; skin pale, cool, and clammy</div></div><div class="finding-row"><div class="finding-label">Skin</div><div class="finding-value">pale · cool · clammy — sweating profusely</div></div><div class="finding-row"><div class="finding-label">Pupils</div><div class="finding-value">Equal at 3 mm, briskly reactive</div></div><div class="finding-row"><div class="finding-label">Motor</div><div class="finding-value">Moves all four extremities; no focal deficit; restless, constantly shifting position</div></div><div class="finding-row"><div class="finding-label">Speech</div><div class="finding-value"><span class="finding-speech">"(short, pained sentences) Oh, thank God... you have to help me... It's the worst pain of my life. It happened all at once... a few minutes ago... like something ripped right down my chest. It goes straight through to my back, right between my shoulder blades."</span></div></div><div class="finding-row"><div class="finding-label">Other</div><div class="finding-value"><ul class="findings-notes"><li>BP RIGHT arm 198/110; BP LEFT arm 150/90 — a 48 mmHg systolic differential, found ONLY if the crew assesses both arms</li><li>Right radial 120 and bounding; left radial 120 but distinctly weaker</li><li>Pain quality: tearing/ripping — 'It's not pressure' — radiating straight through to between the shoulder blades</li><li>Onset instantaneous at rest, 10/10, unchanged — not crescendo anginal pain</li><li>Risk factor: hypertension, unmedicated for days (ran out of lisinopril)</li><li>Under MATC this is 'likely non-cardiac chest pain' → DEFER aspirin and nitrates; comfort measures per Pain Management</li><li>SpO2 96% on room air — inside the 94–98% titration target; no routine high-flow oxygen owed</li><li>Definitive care is surgical — recognition and rapid transport are the interventions that matter</li></ul></div></div>
+    </div>
+  </div>
+    <div class="card">
+    <div class="card-title">Expected Actions</div>
+    <div class="card-content" style="padding:0 16px 12px"><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-critical">critical</span><div class="action-text">Full vitals; assess BP and pulses side-to-side — R 198/110 vs L 150/90</div></div>
+        <div class="action-excerpt">Assessment: Obtain vital signs including pulse, blood pressure, respiratory rate, neurologic status assessment, pulse oximetry, temperature. Key Documentation Elements: Assesses initial and changes in perfusion/pulses.</div>
+        <div class="action-ref">↳ MATC: Back Pain</div>
+      </div>
+    </div><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-critical">critical</span><div class="action-text">Screen for aortic emergency — tearing chest-to-back pain plus pulse inequality</div></div>
+        <div class="action-excerpt">Assess for life-threatening causes of back pain, which may include: Aortic dissection or ruptured abdominal aortic aneurysm: Unequal femoral or distal lower extremity pulses; &quot;Pulsatile&quot; abdominal mass; Associated abdominal pain and/or chest pain; Known history of abdominal aortic aneurysm or dissection. Performance Measures: Assessment for life-threatening etiology.</div>
+        <div class="action-ref">↳ MATC: Back Pain</div>
+      </div>
+    </div><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-critical">critical</span><div class="action-text">WITHHOLD aspirin — likely non-cardiac chest pain; comfort measures instead</div></div>
+        <div class="action-excerpt">Some patients will present with likely non-cardiac chest pain and otherwise have a low likelihood of ACS (e.g., blunt trauma to the chest of a child). For these patients, defer the administration of aspirin (ASA) and nitrates per the Pain Management Guideline.</div>
+        <div class="action-ref">↳ MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)</div>
+      </div>
+    </div><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-critical">critical</span><div class="action-text">Decide LOAD-AND-GO — appropriate facility; consider aortic specialty destination</div></div>
+        <div class="action-excerpt">Provide transport to an appropriate receiving facility. Consider specialty destination centers for conditions such as suspected aortic emergency. Key Considerations: Consider transport to appropriate specialty center if aortic emergency suspected.</div>
+        <div class="action-ref">↳ MATC: Back Pain</div>
+      </div>
+    </div><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-important">important</span><div class="action-text">AED at the patient's side, pads ready — watch for deterioration</div></div>
+        <div class="action-excerpt">Patient Safety Considerations: Observe for signs of clinical deterioration: dysrhythmias, chest pain, shortness of breath, decreased level of consciousness/syncope, or other signs of shock/hypotension. Consider placing defibrillator pads on high-risk patients.</div>
+        <div class="action-ref">↳ MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)</div>
+      </div>
+    </div><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-supp">supplemental</span><div class="action-text">Oxygen only as needed to SpO2 94–98% — he is 96% on room air</div></div>
+        <div class="action-excerpt">If the patient is dyspneic, hypoxemic, or has obvious signs of heart failure, EMS clinicians should administer oxygen as appropriate with a target of achieving 94–98% saturation.</div>
+        <div class="action-ref">↳ MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)</div>
+      </div>
+    </div></div>
+  </div>
+  </section><section class="phase-section">
+    <div class="card phase-card">
+      <div class="card-content">
+        
+        <div class="phase-title">ASA held; load-and-go</div>
+        <div class="phase-trigger">Trigger: The crew recognized tearing chest-to-back pain with a 48 mmHg systolic BP differential as a suspected aortic emergency, withheld aspirin and nitrates under the ACS guideline's likely non-cardiac clause, and committed to immediate transport. The patient is moved to the stretcher sitting up, quickly but carefully, with scene time under 10 minutes.</div>
+        <div class="phase-desc">The crew got the two decisions that matter right: no aspirin, no lingering. The patient is moved to the stretcher quickly but carefully, kept sitting up in his position of comfort, and wheeled straight through the lobby to the ambulance. What the crew still owes him under MATC at BLS scope is compassionate, non-pharmacologic pain care: position of comfort and verbal reassurance are named options in the Pain Management guideline, and a documented NRS baseline — 10/10 — starts the trend line the receiving team will need. As he settles onto the stretcher, stiller and coached through his breathing, the catecholamine surge eases fractionally and his pressure begins to drift down from its 198 systolic peak on the right. Early notification lets the receiving facility start assembling what this man actually needs — imaging and a surgical decision — before the ambulance is on the ramp.</div>
+      </div>
+    </div>
+    <div class="card">
+    <div class="card-title">Vital Signs</div>
+    <div class="card-content" style="padding:0">
+      <div class="ecg-label">⏦ Sinus Tachycardia</div>
+      <div class="vitals-grid">
+        <div class="vital-cell"><div class="vital-name">HR</div><div class="vital-val">112</div><div class="vital-unit">bpm</div></div>
+        <div class="vital-cell"><div class="vital-name">BP</div><div class="vital-val">188/106</div><div class="vital-unit">mmHg</div></div>
+        <div class="vital-cell"><div class="vital-name">SpO₂</div><div class="vital-val">96%</div></div>
+        <div class="vital-cell"><div class="vital-name">RR</div><div class="vital-val">22</div><div class="vital-unit">/min</div></div>
+        <div class="vital-cell"><div class="vital-name">EtCO₂</div><div class="vital-val">34</div><div class="vital-unit">mmHg</div></div>
+        <div class="vital-cell"><div class="vital-name">Temp</div><div class="vital-val">97.9°</div><div class="vital-unit">F</div></div>
+        <div class="vital-cell full-width"><div class="vital-name">Glucose</div><div class="vital-val">118</div><div class="vital-unit">mg/dL</div></div>
+      </div>
+    </div>
+  </div>
+    <div class="card">
+    <div class="card-title">Clinical Findings</div>
+    <div class="card-content">
+      
+    <div class="loc-block">
+      <div class="avpu-bar"><div class="avpu-seg sel-a">A</div><div class="avpu-seg">V</div><div class="avpu-seg">P</div><div class="avpu-seg">U</div></div>
+      <div class="gcs-detail">
+    <div class="gcs-item"><span class="gcs-part">Eyes</span><span class="gcs-desc">Spontaneous</span><span class="gcs-score">4</span></div>
+    <div class="gcs-item"><span class="gcs-part">Verbal</span><span class="gcs-desc">Oriented</span><span class="gcs-score">5</span></div>
+    <div class="gcs-item"><span class="gcs-part">Motor</span><span class="gcs-desc">Obeys commands</span><span class="gcs-score">6</span></div>
+    <div class="gcs-total-row">Total GCS <span class="gcs-total">15</span></div>
+  </div>
+    </div>
+      <div class="finding-row"><div class="finding-label">Airway</div><div class="finding-value">Patent and self-maintained</div></div><div class="finding-row"><div class="finding-label">Breathing</div><div class="finding-value">RR 22, fast but not labored; lungs remain clear</div></div><div class="finding-row"><div class="finding-label">Circulation</div><div class="finding-value">Right radial bounding at 112; left radial still present and weaker; skin pale, cool, clammy</div></div><div class="finding-row"><div class="finding-label">Skin</div><div class="finding-value">pale · cool · clammy</div></div><div class="finding-row"><div class="finding-label">Pupils</div><div class="finding-value">Equal at 3 mm, briskly reactive</div></div><div class="finding-row"><div class="finding-label">Motor</div><div class="finding-value">Moves all four; settling slightly now that he is on the stretcher, still restless</div></div><div class="finding-row"><div class="finding-label">Speech</div><div class="finding-value"><span class="finding-speech">"(gripping the stretcher rail) Please... just get me there. It hasn't let up... not even a little. Straight through to my back... it's still tearing."</span></div></div><div class="finding-row"><div class="finding-label">Other</div><div class="finding-value"><ul class="findings-notes"><li>BP RIGHT arm 188/106; BP LEFT arm 142/86 — differential persists (~46 mmHg systolic)</li><li>Pain still 10/10 — NRS score assessed and documented as the baseline</li><li>Position of comfort: sitting up on the stretcher, moved quickly but carefully; verbal reassurance to control anxiety</li><li>Scene interval running under 10 minutes; the clock is the co-intervention</li><li>Early notification: 'suspected aortic emergency, 48 mmHg arm-to-arm differential'</li></ul></div></div>
+    </div>
+  </div>
+    <div class="card">
+    <div class="card-title">Expected Actions</div>
+    <div class="card-content" style="padding:0 16px 12px"><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-critical">critical</span><div class="action-text">Stretcher in position of comfort (sitting up); verbal reassurance; move quickly but carefully</div></div>
+        <div class="action-excerpt">Non-pharmacologic pain management options include: Placement of the patient in a position of comfort. Verbal reassurance to control anxiety.</div>
+        <div class="action-ref">↳ MATC: Pain Management</div>
+      </div>
+    </div><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-important">important</span><div class="action-text">Pain score assessed and documented — NRS baseline 10/10</div></div>
+        <div class="action-excerpt">Determine patient's pain score assessment using standard pain scale. Greater than 12 years old: Self-report scale: Numeric Rating Scale (NRS). Key Documentation Elements: Documentation of initial patient pain scale assessment.</div>
+        <div class="action-ref">↳ MATC: Pain Management</div>
+      </div>
+    </div><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-critical">critical</span><div class="action-text">Minimize scene time — no further on-scene workup; everything else happens rolling</div></div>
+        <div class="action-excerpt">Key Considerations: Acute coronary syndrome may present with atypical pain, vague or only generalized complaints. Ischemic burden time is a risk for morbidity and mortality, EMS can help decrease first medical contact to intervention time/reflow by efficient scripting/training of safely minimizing scene time.</div>
+        <div class="action-ref">↳ MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)</div>
+      </div>
+    </div><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-critical">critical</span><div class="action-text">Early radio notification — suspected aortic emergency with BP differential</div></div>
+        <div class="action-excerpt">Early notification to receiving facility of any changes in patient condition or serial EKGs.</div>
+        <div class="action-ref">↳ MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)</div>
+      </div>
+    </div></div>
+  </div>
+  </section><section class="phase-section">
+    <div class="card phase-card">
+      <div class="card-content">
+        
+        <div class="phase-title">Packaged; en route</div>
+        <div class="phase-trigger">Trigger: Patient packaged sitting up in position of comfort and transport underway within 10 minutes of patient contact. With reassurance and stillness the catecholamine surge eases fractionally — right-arm systolic drifts to the 170s — while pain remains severe and the receiving facility is expecting a suspected aortic emergency.</div>
+        <div class="phase-desc">En route, non-pharmacologic care does what it can: sitting up in his position of comfort, coached breathing, and steady reassurance leave him calmer and stiller, and with the sympathetic surge fractionally blunted his right-arm pressure drifts down from 198 to 172 systolic. His pain remains severe — 9/10 — and the differential persists; it is a structural finding, and nothing in a BLS bag fixes it. The crew's job now is disciplined reassessment: vitals and response to interventions throughout transport, serial NRS pain scores recorded with repeat vitals, and eyes on him for any sign of deterioration — sudden pain change, syncope, signs of shock. Documentation closes the loop: symptom-onset time and — the line item this scenario exists to teach — the reason aspirin was NOT given. Per the source presentation, his condition remains critical but does not deteriorate during transport: the crew gave him the best possible chance by recognizing the emergency and moving.</div>
+      </div>
+    </div>
+    <div class="card">
+    <div class="card-title">Vital Signs</div>
+    <div class="card-content" style="padding:0">
+      <div class="ecg-label">⏦ Sinus Tachycardia</div>
+      <div class="vitals-grid">
+        <div class="vital-cell"><div class="vital-name">HR</div><div class="vital-val">104</div><div class="vital-unit">bpm</div></div>
+        <div class="vital-cell"><div class="vital-name">BP</div><div class="vital-val">172/96</div><div class="vital-unit">mmHg</div></div>
+        <div class="vital-cell"><div class="vital-name">SpO₂</div><div class="vital-val">97%</div></div>
+        <div class="vital-cell"><div class="vital-name">RR</div><div class="vital-val">18</div><div class="vital-unit">/min</div></div>
+        <div class="vital-cell"><div class="vital-name">EtCO₂</div><div class="vital-val">37</div><div class="vital-unit">mmHg</div></div>
+        <div class="vital-cell"><div class="vital-name">Temp</div><div class="vital-val">97.9°</div><div class="vital-unit">F</div></div>
+        <div class="vital-cell full-width"><div class="vital-name">Glucose</div><div class="vital-val">118</div><div class="vital-unit">mg/dL</div></div>
+      </div>
+    </div>
+  </div>
+    <div class="card">
+    <div class="card-title">Clinical Findings</div>
+    <div class="card-content">
+      
+    <div class="loc-block">
+      <div class="avpu-bar"><div class="avpu-seg sel-a">A</div><div class="avpu-seg">V</div><div class="avpu-seg">P</div><div class="avpu-seg">U</div></div>
+      <div class="gcs-detail">
+    <div class="gcs-item"><span class="gcs-part">Eyes</span><span class="gcs-desc">Spontaneous</span><span class="gcs-score">4</span></div>
+    <div class="gcs-item"><span class="gcs-part">Verbal</span><span class="gcs-desc">Oriented</span><span class="gcs-score">5</span></div>
+    <div class="gcs-item"><span class="gcs-part">Motor</span><span class="gcs-desc">Obeys commands</span><span class="gcs-score">6</span></div>
+    <div class="gcs-total-row">Total GCS <span class="gcs-total">15</span></div>
+  </div>
+    </div>
+      <div class="finding-row"><div class="finding-label">Airway</div><div class="finding-value">Patent</div></div><div class="finding-row"><div class="finding-label">Breathing</div><div class="finding-value">RR 18 — slower and more controlled with coaching; still splints with the deepest breaths; lungs clear</div></div><div class="finding-row"><div class="finding-label">Circulation</div><div class="finding-value">Right radial strong at 104; left radial unchanged — present, weaker; skin pale but no longer dripping</div></div><div class="finding-row"><div class="finding-label">Skin</div><div class="finding-value">pale · cool · drying</div></div><div class="finding-row"><div class="finding-label">Pupils</div><div class="finding-value">Equal at 3 mm, reactive</div></div><div class="finding-row"><div class="finding-label">Motor</div><div class="finding-value">Moves all four; calmer with reassurance, still guarding his chest</div></div><div class="finding-row"><div class="finding-label">Speech</div><div class="finding-value"><span class="finding-speech">"(quieter, still gripping the rail) Holding still helps... a little. It's still there — still tearing, straight through to my back. How much longer? Please tell them I'm coming."</span></div></div><div class="finding-row"><div class="finding-label">Other</div><div class="finding-value"><ul class="findings-notes"><li>Pain remains severe — 9/10; serial NRS scores documented with repeat vitals</li><li>BP RIGHT 172/96; BP LEFT 130/82 — differential persists (~42 mmHg systolic); it is structural</li><li>Position of comfort held; reassurance is the analgesia in scope — and it is helping him hold still</li><li>No new neuro deficit; mentation intact</li><li>Watching for deterioration: worsening pain, syncope, signs of shock</li><li>Documentation owed: symptom onset 07:10 and the REASON aspirin was not given</li></ul></div></div>
+    </div>
+  </div>
+    <div class="card">
+    <div class="card-title">Expected Actions</div>
+    <div class="card-content" style="padding:0 16px 12px"><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-critical">critical</span><div class="action-text">Reassess vitals and response to interventions throughout transport</div></div>
+        <div class="action-excerpt">Reassess vital signs and response to therapeutic interventions throughout transport.</div>
+        <div class="action-ref">↳ MATC: Back Pain</div>
+      </div>
+    </div><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-important">important</span><div class="action-text">Serial NRS pain scores documented with repeat vitals through transport</div></div>
+        <div class="action-excerpt">Key Documentation Elements: Documentation of patient reassessment with repeat vital signs and patient pain scale assessment.</div>
+        <div class="action-ref">↳ MATC: Pain Management</div>
+      </div>
+    </div><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-important">important</span><div class="action-text">Watch for deterioration — worsening pain, syncope, signs of shock</div></div>
+        <div class="action-excerpt">Patient Safety Considerations: Observe for signs of clinical deterioration: dysrhythmias, chest pain, shortness of breath, decreased level of consciousness/syncope, or other signs of shock/hypotension.</div>
+        <div class="action-ref">↳ MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)</div>
+      </div>
+    </div><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-important">important</span><div class="action-text">Document onset time and the reason aspirin was NOT given</div></div>
+        <div class="action-excerpt">Key Documentation Elements: The time of symptom onset. The time aspirin (ASA) administered, or reason why not given.</div>
+        <div class="action-ref">↳ MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)</div>
+      </div>
+    </div><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-supp">supplemental</span><div class="action-text">Transport in position of comfort; reassess pain on arrival at destination</div></div>
+        <div class="action-excerpt">Transport in position of comfort and reassess as indicated.</div>
+        <div class="action-ref">↳ MATC: Pain Management</div>
+      </div>
+    </div></div>
+  </div>
+  </section><section class="phase-section">
+    <div class="card phase-card phase-card-branch">
+      <div class="card-content">
+        <div class="branch-tag">Improper Care Branch</div>
+        <div class="phase-title">ASA given; scene prolonged</div>
+        <div class="phase-trigger">Trigger: Crew anchored on ACS: no bilateral BP comparison, a lengthy on-scene secondary assessment, and aspirin 324 mg PO administered. Shortly after the aspirin, the patient cries out — pain abruptly worsens, he becomes much more pale, and scene time passes 10 minutes.</div>
+        <div class="phase-desc">The crew read 'chest pain' and ran the ACS play from memory: a long on-scene secondary assessment, non-pertinent questions, no second-arm blood pressure — and 324 mg of chewed aspirin. Shortly after the aspirin goes in, the patient lets out a cry; his pain suddenly worsens and he goes much more pale. Scene time is past 10 minutes and the physiology is now moving: heart rate climbing through the 130s, right-arm systolic FALLING from 198 to 158 — a falling pressure in a hypertensive dissection patient is not improvement, it is leaking — and the left radial is now barely palpable. He says the words that should ice every spine in the room: 'I feel very dizzy...' This phase is the last exit. What MATC still offers at BLS scope: recognize the deterioration for what it is, assess for shock per the Back Pain guideline, get the AED pads on a patient who is about to arrest, and move NOW — abandon everything on scene that is not the stretcher. What no protocol offers: a way to take the aspirin back.</div>
+      </div>
+    </div>
+    <div class="card">
+    <div class="card-title">Vital Signs</div>
+    <div class="card-content" style="padding:0">
+      <div class="ecg-label">⏦ Sinus Tachycardia</div>
+      <div class="vitals-grid">
+        <div class="vital-cell"><div class="vital-name">HR</div><div class="vital-val">134</div><div class="vital-unit">bpm</div></div>
+        <div class="vital-cell"><div class="vital-name">BP</div><div class="vital-val">158/86</div><div class="vital-unit">mmHg</div></div>
+        <div class="vital-cell"><div class="vital-name">SpO₂</div><div class="vital-val">93%</div></div>
+        <div class="vital-cell"><div class="vital-name">RR</div><div class="vital-val">28</div><div class="vital-unit">/min</div></div>
+        <div class="vital-cell"><div class="vital-name">EtCO₂</div><div class="vital-val">28</div><div class="vital-unit">mmHg</div></div>
+        <div class="vital-cell"><div class="vital-name">Temp</div><div class="vital-val">97.7°</div><div class="vital-unit">F</div></div>
+        <div class="vital-cell full-width"><div class="vital-name">Glucose</div><div class="vital-val">118</div><div class="vital-unit">mg/dL</div></div>
+      </div>
+    </div>
+  </div>
+    <div class="card">
+    <div class="card-title">Clinical Findings</div>
+    <div class="card-content">
+      
+    <div class="loc-block">
+      <div class="avpu-bar"><div class="avpu-seg sel-a">A</div><div class="avpu-seg">V</div><div class="avpu-seg">P</div><div class="avpu-seg">U</div></div>
+      <div class="gcs-detail">
+    <div class="gcs-item"><span class="gcs-part">Eyes</span><span class="gcs-desc">Spontaneous</span><span class="gcs-score">4</span></div>
+    <div class="gcs-item"><span class="gcs-part">Verbal</span><span class="gcs-desc">Oriented</span><span class="gcs-score">5</span></div>
+    <div class="gcs-item"><span class="gcs-part">Motor</span><span class="gcs-desc">Obeys commands</span><span class="gcs-score">6</span></div>
+    <div class="gcs-total-row">Total GCS <span class="gcs-total">15</span></div>
+  </div>
+    </div>
+      <div class="finding-row"><div class="finding-label">Airway</div><div class="finding-value">Patent for now</div></div><div class="finding-row"><div class="finding-label">Breathing</div><div class="finding-value">RR 28 and shallowing; no longer just pain-splinting — he is air hungry</div></div><div class="finding-row"><div class="finding-label">Circulation</div><div class="finding-value">Right radial rapid and weakening from bounding; LEFT radial barely palpable; cap refill 3 sec; skin much more pale, cold, soaked</div></div><div class="finding-row"><div class="finding-label">Skin</div><div class="finding-value">much more pale — gray-white · cold · soaked in sweat</div></div><div class="finding-row"><div class="finding-label">Pupils</div><div class="finding-value">Equal at 3 mm, reactive; eyelids heavy</div></div><div class="finding-row"><div class="finding-label">Motor</div><div class="finding-value">Still moves all four but has stopped shifting — ominously still now</div></div><div class="finding-row"><div class="finding-label">Speech</div><div class="finding-value"><span class="finding-speech">"(a sharp cry as the pain surges) It's worse — something happened — oh God... I feel very dizzy..."</span></div></div><div class="finding-row"><div class="finding-label">Other</div><div class="finding-value"><ul class="findings-notes"><li>Aspirin 324 mg PO already chewed and swallowed — cannot be taken back</li><li>Immediately post-ASA: cried out, pain suddenly worse, much more pale</li><li>BP RIGHT falling: 198 → 158 systolic; LEFT arm 104/70 and barely obtainable — falling pressure here is LEAK, not improvement</li><li>HR climbing 120 → 134 — narrowing pulse pressure, rising rate = hemorrhagic trajectory</li><li>Patient states: 'I feel very dizzy...' — pre-syncope in this context is pre-arrest</li><li>Scene time now exceeds 10 minutes and definitive care is still an OR away</li><li>The only correct moves left: AED pads on, shock recognized, wheels moving</li></ul></div></div>
+    </div>
+  </div>
+    <div class="card">
+    <div class="card-title">Expected Actions</div>
+    <div class="card-content" style="padding:0 16px 12px"><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-critical">critical</span><div class="action-text">Recognize deterioration — sudden pain change, pallor, dizziness = evolving catastrophe</div></div>
+        <div class="action-excerpt">Patient Safety Considerations: Observe for signs of clinical deterioration: dysrhythmias, chest pain, shortness of breath, decreased level of consciousness/syncope, or other signs of shock/hypotension.</div>
+        <div class="action-ref">↳ MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)</div>
+      </div>
+    </div><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-critical">critical</span><div class="action-text">Assess for shock — falling BP, climbing HR, cold gray skin after sudden pain change</div></div>
+        <div class="action-excerpt">Assess for signs of shock. If shock is present, provide treatment per appropriate Shock Guideline.</div>
+        <div class="action-ref">↳ MATC: Back Pain</div>
+      </div>
+    </div><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-critical">critical</span><div class="action-text">AED pads ON now — this patient is peri-arrest</div></div>
+        <div class="action-excerpt">Patient Safety Considerations: Consider placing defibrillator pads on high-risk patients.</div>
+        <div class="action-ref">↳ MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)</div>
+      </div>
+    </div><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-critical">critical</span><div class="action-text">Abort on-scene care; move NOW — appropriate facility, notify en route</div></div>
+        <div class="action-excerpt">Provide transport to an appropriate receiving facility. Consider specialty destination centers for conditions such as suspected aortic emergency. Reassess vital signs and response to therapeutic interventions throughout transport.</div>
+        <div class="action-ref">↳ MATC: Back Pain</div>
+      </div>
+    </div></div>
+  </div>
+  </section><section class="phase-section">
+    <div class="card phase-card phase-card-branch">
+      <div class="card-content">
+        <div class="branch-tag">Improper Care Branch</div>
+        <div class="phase-title">Rupture — cardiac arrest</div>
+        <div class="phase-trigger">Trigger: The patient states 'I feel very dizzy...', his eyes roll back, and he becomes unresponsive. Carotid pulse is absent, BP is unobtainable, and agonal gasps fade to apnea — complete aortic rupture with cardiac arrest, an organized rhythm on the monitor with no pulse (PEA).</div>
+        <div class="phase-desc">His eyes roll back mid-sentence and he slumps in the chair. No carotid pulse. Blood pressure unobtainable. A few agonal gasps, then apnea. The AED goes on and analyzes: NO SHOCK ADVISED — organized complexes are marching along at 40 with no pulse: PEA, the rhythm of an empty heart. The aorta has completely ruptured; the delay on scene has produced the outcome the load-and-go pathway exists to prevent. The crew now runs the MATC Cardiac Arrest guideline at BLS scope with full understanding of what it can and cannot buy: immediate, minimally interrupted high-quality compressions with rescuers rotating before fatigue; the 2-minute cycle of compressions and rhythm analysis, with compressions continuing through AED analysis-to-charge gaps; an OPA and BVM ventilation delivered so that nothing about the airway interrupts compressions; and resuscitation where he lies, not in a moving ambulance. Debrief honestly: the arrest was not caused by the failure to resuscitate well — it was caused by the aspirin and the ten minutes.</div>
+      </div>
+    </div>
+    <div class="card">
+    <div class="card-title">Vital Signs</div>
+    <div class="card-content" style="padding:0">
+      <div class="ecg-label">⏦ Pulseless Electrical Activity (PEA)</div>
+      <div class="vitals-grid">
+        <div class="vital-cell"><div class="vital-name">HR</div><div class="vital-val">40</div><div class="vital-unit">bpm</div></div>
+        <div class="vital-cell"><div class="vital-name">BP</div><div class="vital-val">0/0</div><div class="vital-unit">mmHg</div></div>
+        <div class="vital-cell"><div class="vital-name">SpO₂</div><div class="vital-val">0%</div></div>
+        <div class="vital-cell"><div class="vital-name">RR</div><div class="vital-val">0</div><div class="vital-unit">/min</div></div>
+        <div class="vital-cell"><div class="vital-name">EtCO₂</div><div class="vital-val">12</div><div class="vital-unit">mmHg</div></div>
+        <div class="vital-cell"><div class="vital-name">Temp</div><div class="vital-val">97.5°</div><div class="vital-unit">F</div></div>
+        <div class="vital-cell full-width"><div class="vital-name">Glucose</div><div class="vital-val">118</div><div class="vital-unit">mg/dL</div></div>
+      </div>
+    </div>
+  </div>
+    <div class="card">
+    <div class="card-title">Clinical Findings</div>
+    <div class="card-content">
+      
+    <div class="loc-block">
+      <div class="avpu-bar"><div class="avpu-seg">A</div><div class="avpu-seg">V</div><div class="avpu-seg">P</div><div class="avpu-seg sel-u">U</div></div>
+      <div class="gcs-detail">
+    <div class="gcs-item"><span class="gcs-part">Eyes</span><span class="gcs-desc">No response</span><span class="gcs-score">1</span></div>
+    <div class="gcs-item"><span class="gcs-part">Verbal</span><span class="gcs-desc">No response</span><span class="gcs-score">1</span></div>
+    <div class="gcs-item"><span class="gcs-part">Motor</span><span class="gcs-desc">No response</span><span class="gcs-score">1</span></div>
+    <div class="gcs-total-row">Total GCS <span class="gcs-total">3</span></div>
+  </div>
+    </div>
+      <div class="finding-row"><div class="finding-label">Airway</div><div class="finding-value">Unprotected — no gag, no spontaneous effort; OPA accepted without response</div></div><div class="finding-row"><div class="finding-label">Breathing</div><div class="finding-value">A few agonal gasps immediately after collapse, now APNEIC; no chest rise without ventilation</div></div><div class="finding-row"><div class="finding-label">Circulation</div><div class="finding-value">NO carotid pulse; no radial pulses; BP unobtainable; skin gray-white, cold, wet</div></div><div class="finding-row"><div class="finding-label">Skin</div><div class="finding-value">gray-white, mottling beginning at the knees · cold · wet</div></div><div class="finding-row"><div class="finding-label">Pupils</div><div class="finding-value">Dilating to 5 mm, sluggish</div></div><div class="finding-row"><div class="finding-label">Motor</div><div class="finding-value">Flaccid — no movement, no response to pain</div></div><div class="finding-row"><div class="finding-label">Speech</div><div class="finding-value"><span class="finding-speech">"(none — unresponsive and pulseless)"</span></div></div><div class="finding-row"><div class="finding-label">Other</div><div class="finding-value"><ul class="findings-notes"><li>AED analysis: NO SHOCK ADVISED — organized complexes at ~40/min with NO pulse — PEA; NON-shockable</li><li>Witnessed arrest in front of EMS → immediate rhythm analysis, compressions without delay</li><li>Compression quality is the whole resuscitation: 100–120/min, 2–2.4 inches, full recoil, rotate rescuers every 2 minutes</li><li>Airway is secondary in adult arrest — OPA + BVM, and nothing about it may interrupt compressions</li><li>Resuscitate on scene — compressions in a moving ambulance are ineffective and unsafe</li><li>Debrief truth: the fatal decisions were the aspirin and the scene time, not the code performance</li></ul></div></div>
+    </div>
+  </div>
+    <div class="card">
+    <div class="card-title">Expected Actions</div>
+    <div class="card-content" style="padding:0 16px 12px"><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-critical">critical</span><div class="action-text">Immediate high-quality compressions — 100–120/min, 2–2.4 inches, full recoil, rotate q2min</div></div>
+        <div class="action-excerpt">Effective chest compressions and defibrillation are the most important therapies to the patient in cardiac arrest. Effective chest compressions are defined as: A rate of greater than 100 and less than 120 compressions/minute. Depth of at least 2 inches (5 cm) and less than 2.4 inches (6 cm) for adults and children or 1.5 inches (4 cm) for infants; adolescents who have entered puberty should receive the same depth of chest compressions as an adult. Allow for complete chest recoil (avoid leaning). Minimize interruptions in compressions. Avoid rescuer fatigue by rotating rescuers at least every 2 minutes.</div>
+        <div class="action-ref">↳ MATC: Cardiac Arrest (VF/VT/Asystole/PEA)</div>
+      </div>
+    </div><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-critical">critical</span><div class="action-text">Witnessed arrest: AED on, analyze immediately — no shock advised; 2-minute cycles</div></div>
+        <div class="action-excerpt">If adequate, uninterrupted bystander CPR has been performed or if the patient arrests in front of the EMS clinicians, immediately proceed with rhythm analysis and defibrillation, if appropriate. Continue the cycle of chest compressions for 2 minutes, followed by rhythm analysis and defibrillation of shockable rhythms. Continue chest compressions between completion of AED analysis and AED charging.</div>
+        <div class="action-ref">↳ MATC: Cardiac Arrest (VF/VT/Asystole/PEA)</div>
+      </div>
+    </div><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-important">important</span><div class="action-text">Airway without stopping compressions — OPA + BVM 30:2 or 10/min on the upstroke</div></div>
+        <div class="action-excerpt">The airway management strategy should not interrupt compressions. Options for airway management include: Passive ventilation: High flow oxygen is applied via a non-rebreather mask with an oropharyngeal airway. BVM ventilation at 10 breaths per minute (1 breath every 10 compressions), applied during the upstroke between compressions, without interrupting the compressions. BVM ventilation with 30:2 ventilation to compression ratio: Each 30 compressions, the compressions are paused briefly to allow 2 BVM ventilations, then compressions immediately resumed.</div>
+        <div class="action-ref">↳ MATC: Cardiac Arrest (VF/VT/Asystole/PEA)</div>
+      </div>
+    </div><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-important">important</span><div class="action-text">Work the arrest where he lies — no compressions in a moving ambulance</div></div>
+        <div class="action-excerpt">Performing manual chest compressions in a moving vehicle may pose a clinician safety concern. In addition, manual chest compressions during patient movement are less effective in regard to hands on time, depth, recoil and rate. Ideally, patients should be resuscitated as close to the scene as operationally possible.</div>
+        <div class="action-ref">↳ MATC: Cardiac Arrest (VF/VT/Asystole/PEA)</div>
+      </div>
+    </div></div>
+  </div>
+  </section>
+</div>
+</body>
+</html>
