@@ -1,0 +1,340 @@
+{
+  "scenarioId": "resp-chf-pulmonary-edema-cpap-001",
+  "scenarioName": "CHF Pulmonary Edema — CPAP First-Line, History From the Husband (Practice Summative 913.2)",
+  "scenarioType": "Vital Signs",
+  "scenarioVersion": 2,
+  "scenarioTime": 1200,
+  "scenarioMonitorType": 2,
+  "scenarioDefaultEnergy": 200,
+  "scenarioDefaultPacerThreshold": 55,
+  "isDemo": false,
+  "isALSILegacy": false,
+  "scenarioStory": {
+    "history": "72-year-old female with known congestive heart failure, hypertension, and atrial fibrillation who woke her husband about 30 minutes ago gasping for air. Her dyspnea is severe and progressive — 'it's just getting worse and worse' per the husband. She is too breathless to give her own history and answers only with nods or single words ('Yes,' 'Can't'), so the entire SAMPLE history must come from her husband, Robert. He reports she has had trouble sleeping lying flat for the past two nights, propping herself up with pillows (orthopnea), and that her ankles have been noticeably swollen for the past couple of days. Critically, she takes daily furosemide but he thinks she missed her dose yesterday. He adds, 'This is exactly what happened the last time she had to go to the hospital.' The triad of CHF history, a missed diuretic dose, and worsening orthopnea points squarely at an acute CHF exacerbation with pulmonary edema.",
+    "discussion": "",
+    "course": "Initial Contact: The crew finds a 72-year-old woman tripoding on the edge of her bed in obvious, severe respiratory distress: RR 34 and labored, SpO2 86% on room air, one-to-two-word dyspnea, accessory muscle use, and skin that is pale, cool, and diaphoretic. Auscultation reveals coarse crackles (rales) throughout all lung fields, most prominent at the bases, with NO wheeze. Both ankles show 2+ pitting edema. Her radial pulse is rapid and irregularly irregular — her known A-Fib — at 118, with a BP of 188/102. She is alert and oriented but physically cannot give a history — the whole story lives with her husband: CHF, hypertension, A-Fib, a missed furosemide dose yesterday, and two nights of worsening orthopnea. This is the assessment fork the scenario is built on. MATC's Respiratory Distress guideline distinguishes bronchospastic etiology (wheezing, asthma/COPD history) from fluid-overload etiology (rales, peripheral edema, CHF and diuretic history) — and every finding on this patient lands in the fluid-overload column. That pattern routes her to CPAP, NOT to a nebulizer, and NOT to a non-rebreather alone. A non-rebreather raises FiO2 but does nothing about the fluid-filled alveoli; positive pressure is the mechanical fix, and the protocol says NIV should be administered for severe respiratory distress. A teaching point rides along: the missed 'water pill' explains the mechanism, but replacing it is not field therapy — the protocol notes pulmonary edema is more commonly a volume-distribution problem, and diuretics like furosemide provide no immediate benefit and can cause significant harm. For this crew the treatment IS positioning, oxygen, and CPAP, with early transport and hospital notification carrying the rest. The clock starts now — she is working hard, and patients this age do not sustain a respiratory rate of 34 for long. → CPAP applied: The crew explains the mask to Mrs. Peters in a calm, confident voice — 'this is going to feel like sticking your head out a car window, but it will make breathing easier; breathe with it, not against it' — and holds it to her face before strapping it, letting her acclimate. CPAP starts at 5 cm H2O on high-flow oxygen and is stepped up 2–3 cm H2O at a time as tolerated, per the MATC PEEP titration ladder (goal: the lowest pressure that does the job; physician consultation for anything over 10–15). Her first instinct is to claw at the mask — that anxiety is presumed to be hypoxia and air hunger, and per protocol it is treated with ventilatory support and reassurance; there is no shortcut around a calm voice and a steady hand. Within a couple of minutes of a good seal her SpO2 begins to climb and the respiratory rate starts down. The discipline now is twofold: keep the seal — breaking the circuit dumps the airway pressure the crew just spent minutes building — and keep the reassessment cycle running, with RR, SpO2, work of breathing, breath sounds, mental status, and a fresh set of vitals after each titration step while the second provider readies the stretcher for an upright, mask-on transport. → Improving on CPAP: Five to ten minutes after application, the intervention is visibly working. Mrs. Peters is calmer, her work of breathing has significantly decreased, and she is no longer tripoding — she is sitting back against the raised head of the stretcher. She can speak in full sentences through the mask: 'Oh, thank you. That is so much better. I can finally catch my breath.' Vitals confirm what the eyes see: BP down to 164/92 as the positive pressure and easing work of breathing take the catecholamine strain off, heart rate 104 and still irregularly irregular, RR 22 and unlabored, SpO2 96% on CPAP. Skin is pink, warm, and less diaphoretic. The crew's job now is to not undo it: keep the mask sealed and the circuit intact — breaking the seal dumps airway pressure and invites abrupt decompensation via atelectasis — keep reassessing against the NIV goals of care (air hunger down, SpO2 at or above 94%, RR normalizing), and keep the serial vitals coming every 5 minutes. She still needs definitive care; improvement on CPAP is a reason to move, not a reason to stay and admire the numbers. Package her sitting up with CPAP in place and let the receiving hospital know what is coming. → Transported on CPAP: Mrs. Peters is transported sitting upright with CPAP in place, the circuit intact, and a fresh set of vitals every 5 minutes. She remains improved: RR 20, SpO2 97%, BP drifting down through the 150s. The two rules that govern this phase are both about the mask. First: the mask does NOT come off until she is on the emergency department stretcher with hospital CPAP immediately ready for the switchover (or a physician at the bedside directs otherwise) — the protocol is emphatic that breaking the seal drops airway pressure and can cause abrupt decompensation through atelectasis and alveolar collapse, and 'we're here' is not an indication to remove it. Second: the crew watches for deterioration ON the mask — worsening mental status, vomiting, climbing respiratory rate or falling saturation — because the protocol's answer to failing NIV is to remove it and escalate airway management (for this crew, BVM with adjuncts), not to hope. Early radio notification gives the emergency department time to have their own CPAP assembled at the bedside. Handoff includes the full arc: initial presentation, vitals trend, CPAP settings and titration steps, and the husband's history including the missed furosemide dose."
+  },
+  "patientInformation": {
+    "patientName": "Carol Peters",
+    "patientCondition": "Severe shortness of breath that woke her from sleep about 30 minutes ago and is worsening by the minute; she can speak only one or two words at a time. Per her husband, her chest feels 'very tight and heavy' and her ankles have been swollen for the past couple of days.",
+    "patientAge": 72,
+    "patientAgeUnit": "years",
+    "patientAgeCategory": 0,
+    "patientSex": 2,
+    "patientHeight": 160,
+    "patientWeight": 68,
+    "patientPhotoId": 87,
+    "patientAdmitted": 1
+  },
+  "labs": [],
+  "scenarioEvents": [
+    {
+      "type": "ScenarioEvent",
+      "name": "Initial Contact",
+      "description": "The crew finds a 72-year-old woman tripoding on the edge of her bed in obvious, severe respiratory distress: RR 34 and labored, SpO2 86% on room air, one-to-two-word dyspnea, accessory muscle use, and skin that is pale, cool, and diaphoretic. Auscultation reveals coarse crackles (rales) throughout all lung fields, most prominent at the bases, with NO wheeze. Both ankles show 2+ pitting edema. Her radial pulse is rapid and irregularly irregular — her known A-Fib — at 118, with a BP of 188/102. She is alert and oriented but physically cannot give a history — the whole story lives with her husband: CHF, hypertension, A-Fib, a missed furosemide dose yesterday, and two nights of worsening orthopnea. This is the assessment fork the scenario is built on. MATC's Respiratory Distress guideline distinguishes bronchospastic etiology (wheezing, asthma/COPD history) from fluid-overload etiology (rales, peripheral edema, CHF and diuretic history) — and every finding on this patient lands in the fluid-overload column. That pattern routes her to CPAP, NOT to a nebulizer, and NOT to a non-rebreather alone. A non-rebreather raises FiO2 but does nothing about the fluid-filled alveoli; positive pressure is the mechanical fix, and the protocol says NIV should be administered for severe respiratory distress. A teaching point rides along: the missed 'water pill' explains the mechanism, but replacing it is not field therapy — the protocol notes pulmonary edema is more commonly a volume-distribution problem, and diuretics like furosemide provide no immediate benefit and can cause significant harm. For this crew the treatment IS positioning, oxygen, and CPAP, with early transport and hospital notification carrying the rest. The clock starts now — she is working hard, and patients this age do not sustain a respiratory rate of 34 for long.",
+      "monitorType": 0,
+      "trendTime": 0,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 38,
+        "hr": 118,
+        "bpSys": 188,
+        "bpDia": 102,
+        "respRate": 34,
+        "spo2": 86,
+        "etco2": 30,
+        "temp": 36.8,
+        "obstruction": 0,
+        "custMeasure1": 130,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Rapid primary survey — recognize severe respiratory distress (hypoxia, retractions, 1–2 word speech)",
+        "Full set of vitals — pulse, BP, RR, neuro status, temperature, SpO2 (BGL 130 by glucometer)",
+        "Identify fluid-overload pattern (rales, pedal edema, CHF/diuretic history) — NOT bronchospasm",
+        "Obtain SAMPLE from the husband — onset, prior episodes, missed furosemide, hospitalizations",
+        "High-flow O2 immediately, then escalate to CPAP — target SpO2 94–98%",
+        "Keep her upright in position of comfort — do not lay her flat"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "CPAP applied",
+      "description": "The crew explains the mask to Mrs. Peters in a calm, confident voice — 'this is going to feel like sticking your head out a car window, but it will make breathing easier; breathe with it, not against it' — and holds it to her face before strapping it, letting her acclimate. CPAP starts at 5 cm H2O on high-flow oxygen and is stepped up 2–3 cm H2O at a time as tolerated, per the MATC PEEP titration ladder (goal: the lowest pressure that does the job; physician consultation for anything over 10–15). Her first instinct is to claw at the mask — that anxiety is presumed to be hypoxia and air hunger, and per protocol it is treated with ventilatory support and reassurance; there is no shortcut around a calm voice and a steady hand. Within a couple of minutes of a good seal her SpO2 begins to climb and the respiratory rate starts down. The discipline now is twofold: keep the seal — breaking the circuit dumps the airway pressure the crew just spent minutes building — and keep the reassessment cycle running, with RR, SpO2, work of breathing, breath sounds, mental status, and a fresh set of vitals after each titration step while the second provider readies the stretcher for an upright, mask-on transport.",
+      "monitorType": 0,
+      "trendTime": 30,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 38,
+        "hr": 112,
+        "bpSys": 176,
+        "bpDia": 96,
+        "respRate": 28,
+        "spo2": 91,
+        "etco2": 33,
+        "temp": 36.8,
+        "obstruction": 0,
+        "custMeasure1": 130,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Explain the mask, reassure, and coach her through the first minutes of CPAP",
+        "CPAP with PEEP 5 cm H2O initial; increase 2–3 cm H2O stepwise to lowest effective level",
+        "Reassess RR, SpO2, work of breathing, breath sounds, and mental status after each intervention"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Improving on CPAP",
+      "description": "Five to ten minutes after application, the intervention is visibly working. Mrs. Peters is calmer, her work of breathing has significantly decreased, and she is no longer tripoding — she is sitting back against the raised head of the stretcher. She can speak in full sentences through the mask: 'Oh, thank you. That is so much better. I can finally catch my breath.' Vitals confirm what the eyes see: BP down to 164/92 as the positive pressure and easing work of breathing take the catecholamine strain off, heart rate 104 and still irregularly irregular, RR 22 and unlabored, SpO2 96% on CPAP. Skin is pink, warm, and less diaphoretic. The crew's job now is to not undo it: keep the mask sealed and the circuit intact — breaking the seal dumps airway pressure and invites abrupt decompensation via atelectasis — keep reassessing against the NIV goals of care (air hunger down, SpO2 at or above 94%, RR normalizing), and keep the serial vitals coming every 5 minutes. She still needs definitive care; improvement on CPAP is a reason to move, not a reason to stay and admire the numbers. Package her sitting up with CPAP in place and let the receiving hospital know what is coming.",
+      "monitorType": 0,
+      "trendTime": 50,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 38,
+        "hr": 104,
+        "bpSys": 164,
+        "bpDia": 92,
+        "respRate": 22,
+        "spo2": 96,
+        "etco2": 36,
+        "temp": 36.8,
+        "obstruction": 0,
+        "custMeasure1": 130,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Maintain a continuous mask seal — never break the circuit once she is tolerating it",
+        "Reassess against NIV goals: air hunger down, SpO2 ≥ 94%, RR normalizing",
+        "Document the serial exam — RR, SpO2, breath sounds, mental status, response to each intervention"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Transported on CPAP",
+      "description": "Mrs. Peters is transported sitting upright with CPAP in place, the circuit intact, and a fresh set of vitals every 5 minutes. She remains improved: RR 20, SpO2 97%, BP drifting down through the 150s. The two rules that govern this phase are both about the mask. First: the mask does NOT come off until she is on the emergency department stretcher with hospital CPAP immediately ready for the switchover (or a physician at the bedside directs otherwise) — the protocol is emphatic that breaking the seal drops airway pressure and can cause abrupt decompensation through atelectasis and alveolar collapse, and 'we're here' is not an indication to remove it. Second: the crew watches for deterioration ON the mask — worsening mental status, vomiting, climbing respiratory rate or falling saturation — because the protocol's answer to failing NIV is to remove it and escalate airway management (for this crew, BVM with adjuncts), not to hope. Early radio notification gives the emergency department time to have their own CPAP assembled at the bedside. Handoff includes the full arc: initial presentation, vitals trend, CPAP settings and titration steps, and the husband's history including the missed furosemide dose.",
+      "monitorType": 0,
+      "trendTime": 40,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 38,
+        "hr": 98,
+        "bpSys": 156,
+        "bpDia": 88,
+        "respRate": 20,
+        "spo2": 97,
+        "etco2": 37,
+        "temp": 36.8,
+        "obstruction": 0,
+        "custMeasure1": 130,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Keep CPAP on until she is on the ED stretcher with hospital CPAP immediately ready",
+        "Watch for deterioration on CPAP (worse mentation, vomiting) — remove and escalate if it appears",
+        "Bedside handoff with vitals trend, CPAP titration steps, and the missed-furosemide history"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "CPAP delayed; NRB only",
+      "description": "The crew either never recognized the CPAP indication, delayed it too long, settled for a non-rebreather, or broke the seal after starting — and about ten minutes into the call, fatigue wins. The non-rebreather raised her FiO2, but oxygen cannot cross alveoli that are full of fluid; the mechanical problem was never addressed. Her respiratory effort weakens as she exhausts, breathing slows to 10 shallow breaths a minute bordering on agonal, and her level of consciousness falls — she now responds to verbal stimuli only with a moan, slumping back on the bed, no longer able to hold the tripod position that was keeping her alive. SpO2 is 75% ON the non-rebreather, BP has climbed to 205/112, and the heart rate is 130 and thready. This is decompensated respiratory failure progressing to respiratory arrest, and the window for CPAP has closed: NIV needs a patient who is awake, can follow commands, and can maintain her own airway — she can do none of the three. The MATC Airway Management pathway now governs: two-person BVM with PEEP supporting her spontaneous respirations at 10–12 breaths per minute, head elevated up to 30 degrees, an NPA while her gag is intact, suction staged at the head, an SGA if BVM with adjuncts cannot maintain oxygenation, and rapid transport for airway stabilization — requesting an ALS intercept en route if one is available, though ventilation cannot wait for it. Restoring oxygenation and ventilation is the whole job; there is no medication fix on this truck, and there was never one that mattered more than positive pressure.",
+      "monitorType": 0,
+      "trendTime": 55,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 38,
+        "hr": 130,
+        "bpSys": 205,
+        "bpDia": 112,
+        "respRate": 10,
+        "spo2": 75,
+        "etco2": 58,
+        "temp": 36.7,
+        "obstruction": 0,
+        "custMeasure1": 130,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Recognize respiratory failure — two-person BVM with PEEP now, head elevated up to 30°",
+        "Support her spontaneous breaths; ventilate 10–12/min with just enough volume for chest rise",
+        "Place an NPA (gag intact); OPA only if gag is lost; suction staged",
+        "If BVM with adjuncts cannot oxygenate — place an appropriately sized SGA",
+        "Rapid transport to the closest appropriate hospital for airway stabilization"
+      ],
+      "relatedSounds": []
+    }
+  ],
+  "checklist": [
+    {
+      "title": "Rapid primary survey — recognize severe respiratory distress (hypoxia, retractions, 1–2 word speech)",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Full set of vitals — pulse, BP, RR, neuro status, temperature, SpO2 (BGL 130 by glucometer)",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Identify fluid-overload pattern (rales, pedal edema, CHF/diuretic history) — NOT bronchospasm",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Obtain SAMPLE from the husband — onset, prior episodes, missed furosemide, hospitalizations",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "High-flow O2 immediately, then escalate to CPAP — target SpO2 94–98%",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Keep her upright in position of comfort — do not lay her flat",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Explain the mask, reassure, and coach her through the first minutes of CPAP",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "CPAP with PEEP 5 cm H2O initial; increase 2–3 cm H2O stepwise to lowest effective level",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Reassess RR, SpO2, work of breathing, breath sounds, and mental status after each intervention",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Maintain a continuous mask seal — never break the circuit once she is tolerating it",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Reassess against NIV goals: air hunger down, SpO2 ≥ 94%, RR normalizing",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Document the serial exam — RR, SpO2, breath sounds, mental status, response to each intervention",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Keep CPAP on until she is on the ED stretcher with hospital CPAP immediately ready",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Watch for deterioration on CPAP (worse mentation, vomiting) — remove and escalate if it appears",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Bedside handoff with vitals trend, CPAP titration steps, and the missed-furosemide history",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Recognize respiratory failure — two-person BVM with PEEP now, head elevated up to 30°",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Support her spontaneous breaths; ventilate 10–12/min with just enough volume for chest rise",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Place an NPA (gag intact); OPA only if gag is lost; suction staged",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "If BVM with adjuncts cannot oxygenate — place an appropriately sized SGA",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Rapid transport to the closest appropriate hospital for airway stabilization",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    }
+  ],
+  "media": []
+}
