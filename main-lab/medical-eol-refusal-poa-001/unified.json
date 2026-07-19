@@ -1,0 +1,657 @@
+{
+  "meta": {
+    "id": "medical-eol-refusal-poa-001",
+    "name": "End-of-Life Refusal — Valid DNR, Competent Patient vs. POA Son Demanding Transport",
+    "version": 2,
+    "difficulty": "advanced",
+    "category": "Medical",
+    "protocols": [
+      "resus-dnr-advance-directives",
+      "medical-end-of-life-hospice",
+      "resp-respiratory-distress"
+    ],
+    "totalTimeSeconds": 1200,
+    "createdAt": "2026-07-19T00:00:00Z",
+    "tags": [
+      "practice-summative-913.6",
+      "bls-scope",
+      "end-of-life",
+      "DNR",
+      "advance directives",
+      "power of attorney",
+      "refusal",
+      "patient autonomy",
+      "capacity",
+      "de-escalation",
+      "CHF",
+      "COPD",
+      "home oxygen",
+      "medical control",
+      "family conflict",
+      "advanced"
+    ]
+  },
+  "patient": {
+    "name": "Walter Brandt",
+    "age": 84,
+    "ageUnit": "years",
+    "sex": "male",
+    "weight": 75,
+    "weightLbs": 165,
+    "height": 173,
+    "chiefComplaint": "Mild shortness of breath and generalized fatigue in a man with end-stage CHF and COPD. His son called 911 because his father is 'having trouble breathing' and 'refusing to help himself.' The patient is calm, alert, wearing a valid DNR bracelet, and states plainly that he will not go back to the hospital.",
+    "history": {
+      "hpi": "84-year-old male with end-stage congestive heart failure and COPD, on 2 liters of home oxygen by nasal cannula around the clock. After his last long hospitalization he decided, together with his physician, to stop pursuing aggressive treatment — he wears a state-issued DNR bracelet and keeps his paperwork in the drawer of the side table. Today he is a bit more tired than usual and has been coughing intermittently, which he attributes to 'a bad day' of the kind he has had before. He finished tea and toast about an hour ago and was resting in his recliner when his son Greg stopped by to check on him, saw him coughing, panicked, and called 911. The patient is apologetic toward the crew and unambiguous about his wishes: he is comfortable, he understands his heart is failing, and he wants to stay in his own home. He is mildly dyspneic with activity but speaks in full sentences at rest.",
+      "pastMedical": [
+        "End-stage congestive heart failure (CHF) — followed by his physician, comfort-focused goals of care",
+        "Chronic obstructive pulmonary disease (COPD) — on 2 L/min home oxygen via concentrator"
+      ],
+      "medications": [
+        "Furosemide (Lasix) 40 mg PO daily",
+        "Lisinopril 10 mg PO daily",
+        "Albuterol 2.5 mg nebulized PRN (home nebulizer)"
+      ],
+      "allergies": [
+        "Sulfa drugs"
+      ],
+      "lastOralIntake": "Tea and toast approximately 1 hour ago (~1:30 PM)",
+      "events": "Son came over to check on him, saw him coughing, and 'panicked' — called 911 reporting his father was having trouble breathing and refusing to help himself. Son states on the phone that he holds Power of Attorney and wants his father taken to the hospital immediately. The patient did not want EMS called."
+    }
+  },
+  "scene": {
+    "dispatch": "Dispatch: 84-year-old male, difficulty breathing at a private residence. Caller is the patient's adult son, states his father is 'refusing to help himself.' Caller reports he holds power of attorney for the patient and is requesting transport. Caller sounds agitated.",
+    "location": "Living room of a small, tidy-but-crowded single-story home. The room is cluttered with medical supplies: an oxygen concentrator humming in the corner with tubing snaking across the carpet, a nebulizer machine and masks on the side table, pill organizers, and a walker beside the recliner where the patient sits.",
+    "time": "2:30 PM, weekday afternoon",
+    "safety": "No physical threats on arrival. Oxygen concentrator in use — no smoking/ignition sources. Oxygen tubing across the floor is a trip hazard. The primary scene-management problem is interpersonal: the son becomes progressively more agitated and confrontational as the encounter proceeds. MATC's end-of-life guidance is explicit that scene safety should be considered when deciding on management — position the crew so no one is between escalating family and the exit, and de-escalate early.",
+    "bystanders": "Greg Brandt, the patient's son (mid-50s), is on scene. He is anxious, pacing, and holding a manila folder of paperwork. He genuinely loves his father and is frightened — but he is convinced that his Power of Attorney paperwork makes him 'the decision-maker' and that the crew works for him. He will escalate from worried to demanding to shouting if not managed with empathy and clear education.",
+    "visualCues": [
+      "Frail but calm elderly man seated in a recliner, nasal cannula in place, speaking in full sentences with mild effort",
+      "Visible, intact DNR bracelet on the patient's left wrist",
+      "Oxygen concentrator running in the corner; 2 L/min flow set on the meter",
+      "Nebulizer machine and masks on the side table — evidence of home respiratory management",
+      "Plate with toast crusts and a teacup beside the recliner — recent oral intake",
+      "Pill organizers and home-health paperwork on the coffee table",
+      "Son pacing with a manila folder under his arm, repeatedly checking his phone",
+      "Patient greets the crew: 'I'm sorry my son called you. I'm just a bit tired today, but I am not going back to that hospital.'"
+    ]
+  },
+  "phases": [
+    {
+      "id": "initial-contact",
+      "name": "Initial Contact",
+      "description": "An 84-year-old man with end-stage CHF and COPD sits comfortably in his recliner on his home 2L oxygen, mildly dyspneic, wearing a valid DNR bracelet, and telling the crew — kindly, clearly, in full sentences — that he is not going to the hospital. Nothing about this scene is a resuscitation problem: he has a pulse, he is breathing, he is alert. MATC's DNR/advance-directives protocol says exactly what to do with that combination: verify the bracelet is a valid exclusion to resuscitation, and then provide standard appropriate treatment under existing protocols according to his condition — a DNR is not 'do not treat.' The respiratory distress protocol supplies the standard treatment at this crew's scope: full vitals with temperature and pulse oximetry, a respiratory history that captures his home O2 and nebulizer use and prior admissions, breath sounds to differentiate fluid-overload from bronchospastic etiology, and oxygen titrated to a 94–98% target (he is at 94% on his home 2L — at target). The end-of-life protocol adds the frame the whole scenario turns on: because this patient can communicate and has the capacity to make decisions, the crew consults directly with HIM about treatment and transport — not with the folder of paperwork his son is carrying. Everything he consents to, he gets. Nothing he refuses can be forced.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": {
+          "eye": 4,
+          "verbal": 5,
+          "motor": 6
+        },
+        "airway": "Patent, self-maintained; speaks in complete sentences with mild effort",
+        "breathing": "RR 20, slightly labored with occasional cough; scattered faint expiratory wheezes with fine bibasilar crackles; no accessory muscle use, no retractions; prolonged but comfortable expiratory phase consistent with his COPD baseline",
+        "circulation": "Radial pulse 76, regular and easily palpable; cap refill 2–3 sec (cool day, elderly); trace chronic bilateral ankle edema",
+        "skin": {
+          "color": "pale but perfused",
+          "temperature": "warm",
+          "moisture": "dry"
+        },
+        "pupils": "Equal at 3 mm, reactive; wears glasses",
+        "motorFunction": "Moves all four extremities; slow but purposeful; uses a walker at baseline",
+        "otherFindings": [
+          "VALID DNR BRACELET on left wrist — intact, displays the patient's name, state-conformant; paperwork available in the side-table drawer",
+          "Signs of life present (pulse and respirations) — the DNR protocol directs STANDARD appropriate treatment under existing protocols, not withholding of care",
+          "Alert and oriented ×4 — he can consult directly on treatment and transport decisions; the POA folder in the son's hands does not change that",
+          "SpO2 94% on his home 2 L/min NC — already within the protocol's 94–98% target; no escalation required",
+          "Mild wheeze + bibasilar crackles + CHF/diuretic history — mixed fluid-overload and bronchospastic picture, currently mild",
+          "Son hovering at the edge of the room, folder in hand, interjecting: 'Tell them how bad it's been, Dad. Tell them.'"
+        ],
+        "patientSpeech": "I'm sorry my son called you. I'm just a bit tired today, but I am not going back to that hospital. I've spent enough of what I have left in those places."
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Rhythm",
+        "ecgWaveform": 9,
+        "hr": 76,
+        "bpSys": 138,
+        "bpDia": 88,
+        "respRate": 20,
+        "spo2": 94,
+        "etco2": 45,
+        "temp": 36.8,
+        "tempF": 98.2,
+        "obstruction": 15,
+        "glucose": 112,
+        "trendTimeSeconds": 0,
+        "visibility": {
+          "spo2Visible": true,
+          "spo2Attached": true,
+          "rrVisible": true,
+          "etco2Visible": true,
+          "cvpVisible": false
+        }
+      },
+      "expectedActions": [
+        {
+          "id": "verify-dnr-bracelet",
+          "shortAction": "Identify the DNR bracelet and verify it is valid — intact, named, state-conformant",
+          "priority": "critical",
+          "rationale": "MATC DNR/Advance Directives Inclusion Criteria — an identification bracelet indicating wishes is an explicitly listed valid alternative to a written document, and the protocol gives a three-part validity check. The bracelet is the legal anchor for everything that follows; a crew that never examines it is guessing.",
+          "protocolReference": "MATC: Do Not Resuscitate Status/Advance Directives/Healthcare Power of Attorney (POA) Status",
+          "protocolExcerpt": "Inclusion/Exclusion Criteria: Patients must have one of the following documents or a valid alternative (such as identification bracelet indicating wishes) immediately available. One of the documents above is valid when it meets all the following criteria: Conforms to the state specifications for color and construction; Is intact: it has not been cut, broken or shows signs of being repaired; Displays the patient's name and, if required by state law or regulation, the physician's name."
+        },
+        {
+          "id": "signs-of-life-standard-care",
+          "shortAction": "Signs of life present — provide standard treatment per protocols; DNR is not 'do not treat'",
+          "priority": "critical",
+          "rationale": "MATC DNR/Advance Directives Treatment 1 and 2 — with a valid exclusion to resuscitation AND a pulse and respirations, the patient receives standard appropriate treatment under existing protocols, minus only what the directive specifically prohibits. Crews fail this scenario in both directions: forcing care he refuses, or withholding care he would accept because 'he's a DNR.'",
+          "protocolReference": "MATC: Do Not Resuscitate Status/Advance Directives/Healthcare Power of Attorney (POA) Status",
+          "protocolExcerpt": "Treatment and Interventions: If there is a valid exclusion to resuscitation and there are signs of life (pulse and respirations), EMS clinicians should provide standard appropriate treatment under existing protocols according to the patient's condition. The patient should receive full treatment per protocols with the exception of any intervention specifically prohibited in the patient's valid exclusion to resuscitation."
+        },
+        {
+          "id": "consult-patient-directly",
+          "shortAction": "Consult directly with the patient on treatment and transport — he can communicate and has capacity",
+          "priority": "critical",
+          "rationale": "MATC End-of-Life Care Assessment 3 — the protocol's decision tree starts with the patient, not the paperwork and not the family. Because Walter can communicate and has decision-making capacity, every treatment and transport question in this scenario runs through him directly. This single line is the legal spine of the entire encounter.",
+          "protocolReference": "MATC: End-of-Life Care/Hospice Care",
+          "protocolExcerpt": "Assessment, Treatment, and Interventions: If the patient can communicate and has the capacity to make decisions regarding treatment and transport, consult directly with the patient before treatment and/or transport."
+        },
+        {
+          "id": "full-vitals-monitoring",
+          "shortAction": "Full set of vitals with temperature and SpO2; keep pulse oximetry applied",
+          "priority": "critical",
+          "rationale": "MATC Respiratory Distress Assessment 2a — a complete set of vital signs including temperature and O2 saturation for any respiratory complaint, with the pulse oximeter left on as an ongoing monitor. The numbers document that he is mildly symptomatic and stable — which is exactly the evidence base for honoring his refusal later.",
+          "protocolReference": "MATC: Respiratory Distress (includes Bronchospasm, Pulmonary Edema)",
+          "protocolExcerpt": "Exam: Full set of vital signs (pulse, blood pressure, respiratory rate, neurologic status assessment), temperature, and O2 saturation."
+        },
+        {
+          "id": "resp-history",
+          "shortAction": "SAMPLE plus respiratory history — home O2/nebulizer use, prior admissions and intubations",
+          "priority": "important",
+          "rationale": "MATC Respiratory Distress Assessment 1e–1f — treatments prior to EMS (his home oxygen and PRN nebulizer) and his hospitalization history are named history elements. His answers ('I've been in the hospital three times this year; I'm done') are also the clearest window into how well he understands his own disease — which is capacity evidence.",
+          "protocolReference": "MATC: Respiratory Distress (includes Bronchospasm, Pulmonary Edema)",
+          "protocolExcerpt": "History: Treatments prior to EMS: Oxygen, inhaler, nebulizer, other treatments, chronic or recent steroids. Hospitalizations: Number of emergency department visits in the past year, number of hospital admissions in the past year, number of ICU admissions (ever), previously intubated (ever)."
+        },
+        {
+          "id": "lung-exam-etiology",
+          "shortAction": "Auscultate lungs; differentiate fluid-overload (CHF) from bronchospastic (COPD) etiology",
+          "priority": "important",
+          "rationale": "MATC Respiratory Distress Assessment 2c and Pertinent Assessment Findings 4 — breath sounds plus the fluid-overload markers (crackles, edema, CHF/diuretic history) versus bronchospastic markers (wheeze, COPD history). Walter has both diseases; the exam establishes that today's picture is his mild chronic baseline, not an acute decompensation.",
+          "protocolReference": "MATC: Respiratory Distress (includes Bronchospasm, Pulmonary Edema)",
+          "protocolExcerpt": "Breath sounds (wheezes, crackles, rales, rhonchi, diminished, clear). Fluid overload etiology (e.g., CHF, pulmonary edema) is suggested by: Jugular venous distention; Rales on auscultation; Peripheral edema; History of CHF, diuretic therapy, dialysis noncompliance, hypertension."
+        },
+        {
+          "id": "oxygen-target",
+          "shortAction": "Maintain O2 at 2 L/min NC — SpO2 94% is within the 94–98% target; no escalation needed",
+          "priority": "important",
+          "rationale": "MATC Respiratory Distress Treatment 1a — oxygen for dyspnea to a target of 94–98%, escalating from a nasal cannula only as needed to reach that goal. He is at 94% on his own home cannula: the protocol-correct move is to leave it alone and monitor, not to reflexively upgrade to a non-rebreather on a comfort-focused patient.",
+          "protocolReference": "MATC: Respiratory Distress (includes Bronchospasm, Pulmonary Edema)",
+          "protocolExcerpt": "Airway: Give supplemental oxygen for dyspnea to a target of 94–98% saturation. Escalate from a nasal cannula as needed to reach this goal."
+        },
+        {
+          "id": "thorough-assessment-eol",
+          "shortAction": "Screen for complaints UNRELATED to his terminal illness; deliver care with patience and compassion",
+          "priority": "important",
+          "rationale": "MATC End-of-Life Care Patient Safety 1 and 2 — the trap in end-of-life patients is attributing everything to the terminal diagnosis. A careful assessment confirms today's fatigue and mild dyspnea are his CHF/COPD, not an unrelated emergency (fall, infection, new focal deficit) that would change the conversation. And the protocol makes compassion itself a safety consideration, not a courtesy.",
+          "protocolReference": "MATC: End-of-Life Care/Hospice Care",
+          "protocolExcerpt": "Patient Safety Considerations: Careful and thorough assessments should be performed to identify complaints not related to the illness for which the patient is receiving hospice or end-of-life care. Care should be delivered with the utmost patience and compassion."
+        },
+        {
+          "id": "albuterol-neb-offered",
+          "shortAction": "Offer albuterol 2.5 mg nebulized for his mild wheeze — treatment he DOES accept, at home",
+          "priority": "supplemental",
+          "rationale": "MATC Respiratory Distress Treatment 4a — 2.5 mg nebulized albuterol is the protocol's answer for mild wheezing without clinical distress; the 5 mg dose is reserved for true respiratory distress with bronchospasm. Walter refuses transport, not treatment — he happily accepts a neb in his own chair, which demonstrates the DNR-protocol principle that he gets standard care he consents to.",
+          "protocolReference": "MATC: Respiratory Distress (includes Bronchospasm, Pulmonary Edema)",
+          "protocolExcerpt": "Inhaled Medications: While albuterol 2.5 mg nebulized is usually sufficient for mild wheezing without clinical distress, albuterol 5 mg nebulized (or 6 puffs metered dose inhaler) should be administered to all patients in respiratory distress with signs of bronchospasm (e.g., known asthmatics, quiet wheezers). Repeat at this dose with unlimited frequency for ongoing respiratory distress."
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "son-conflict",
+          "if": "Assessment done; son confronts with POA papers",
+          "condition": "As the crew completes the primary assessment, vitals, and SAMPLE history, the son re-enters the room holding a manila folder of Power of Attorney paperwork and demands transport, stating his father 'isn't thinking straight' and that he is 'the decision-maker.' This scripted escalation occurs regardless of crew performance approximately 5 minutes into the encounter.",
+          "conditionType": "time_elapsed",
+          "timeoutSeconds": 300
+        },
+        {
+          "targetPhaseId": "forced-transport",
+          "if": "Son's POA claim accepted; patient moved",
+          "condition": "The crew takes the son's Power of Attorney claim at face value from the outset and begins moving the patient toward the stretcher over his clearly stated verbal refusal — without verifying capacity, without consulting the patient directly, and without contacting medical direction. A competent patient is now being transported against his will.",
+          "conditionType": "action_taken"
+        }
+      ]
+    },
+    {
+      "id": "son-conflict",
+      "name": "Son demands transport",
+      "description": "Greg plants himself between the crew and the door, folder open: 'I have the POA papers right here. He isn't thinking straight. I am the decision-maker, and I am telling you to take him.' Meanwhile the patient in the recliner calmly states his name, where he is, the date, and exactly why his son is upset — and articulates the risk of staying home ('I know my heart could get worse tonight. I know that. This is where I want to be if it does.'). That is the whole legal question answered out loud: MATC's end-of-life protocol consults the POA/healthcare proxy ONLY when the patient LACKS the capacity to make decisions — and this patient demonstrably has it. The DNR protocol goes further: even where a healthcare POA does hold authority, it is authority to prescribe LIMITS of treatment, in the absence of formal written directions — not authority to compel transport over a competent patient's refusal, and this patient has both capacity and a valid written directive on his wrist. The crew's job in this phase is capacity confirmation plus therapeutic communication: validate Greg's fear, support him as the family of a dying man (an explicit MATC care goal), educate him on what his paperwork does and does not do, and keep scene safety in the calculus as his voice rises. The patient's vitals drift up with the tension in the room — BP 144/92, HR 82, RR 22 — stress, not decompensation.",
+      "triggerCondition": "Approximately 5 minutes into the encounter, after the initial assessment and history, the son re-enters holding his Power of Attorney paperwork and demands transport, claiming the patient 'isn't thinking straight' and that his POA status makes him the decision-maker. The patient remains alert, oriented ×4, and firm in his refusal; his vitals rise slightly with the emotional tension.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": {
+          "eye": 4,
+          "verbal": 5,
+          "motor": 6
+        },
+        "airway": "Patent; still speaking in full sentences",
+        "breathing": "RR 22, slightly labored — marginally faster with the stress of the argument; lung exam unchanged (faint scattered wheeze, fine bibasilar crackles)",
+        "circulation": "Radial pulse 82, regular; skin unchanged",
+        "skin": {
+          "color": "pale but perfused",
+          "temperature": "warm",
+          "moisture": "dry"
+        },
+        "pupils": "Equal at 3 mm, reactive",
+        "motorFunction": "Unchanged; seated, hands folded, notably calmer than his son",
+        "otherFindings": [
+          "CAPACITY ON DISPLAY: A&O ×4 — states his name, location, date, and exactly why his son is upset; articulates the risk of staying home (worsening CHF) and accepts it",
+          "MATC EOL protocol: the POA/healthcare proxy is consulted only IF the patient LACKS capacity — this patient has capacity, so the crew consults HIM",
+          "MATC DNR protocol: a healthcare POA may prescribe LIMITS of treatment, in the absence of formal written directions — it is not a transport-compulsion instrument, and this patient HAS a formal directive (valid DNR bracelet)",
+          "Son's quote: 'I have the POA papers right here. He isn't thinking straight. I am the decision-maker, and I am telling you to take him.'",
+          "Vital changes (BP 144/92, HR 82, RR 22, SpO2 93%) are stress-driven, not new decompensation — document them, don't overtreat them",
+          "Scene safety is now an active consideration: son is between the crew and the door, voice rising"
+        ],
+        "patientSpeech": "Greg. Greg — look at me. I know what day it is, I know what's wrong with me, and I know what could happen tonight. I'm not confused, son. I'm just done. (to the crew) I'm of sound mind, whatever that folder says. Ask me anything you like."
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Rhythm",
+        "ecgWaveform": 9,
+        "hr": 82,
+        "bpSys": 144,
+        "bpDia": 92,
+        "respRate": 22,
+        "spo2": 93,
+        "etco2": 46,
+        "temp": 36.8,
+        "tempF": 98.2,
+        "obstruction": 15,
+        "glucose": 112,
+        "trendTimeSeconds": 30,
+        "visibility": {
+          "spo2Visible": true,
+          "spo2Attached": true,
+          "rrVisible": true,
+          "etco2Visible": true,
+          "cvpVisible": false
+        }
+      },
+      "expectedActions": [
+        {
+          "id": "capacity-determination",
+          "shortAction": "Formally confirm capacity — A&O ×4, understands and accepts the risks of staying home",
+          "priority": "critical",
+          "rationale": "MATC End-of-Life Care Assessment 3 and 4 — the protocol is a two-branch tree: a patient WITH capacity is consulted directly; advance-care planning documents and the POA/proxy are identified only for the patient who LACKS capacity. Confirming capacity out loud, in front of the son, is what converts 'he isn't thinking straight' from an accusation into a testable claim — and Walter passes the test.",
+          "protocolReference": "MATC: End-of-Life Care/Hospice Care",
+          "protocolExcerpt": "If the patient can communicate and has the capacity to make decisions regarding treatment and transport, consult directly with the patient before treatment and/or transport. If the patient lacks the capacity to make decisions regarding treatment and/or transport, identify any advanced care planning in place for information relating to advanced care planning and consent for treatment: Advance directives; Medical/Physician Order for Life-Sustaining Treatment (MOLST/POLST) or similar directing forms; Guardian, power of attorney, or other accepted healthcare proxy."
+        },
+        {
+          "id": "explain-poa-limits",
+          "shortAction": "Educate the son: a healthcare POA may only prescribe LIMITS of treatment, and only absent the patient's own directive",
+          "priority": "critical",
+          "rationale": "MATC DNR/Advance Directives Inclusion Criteria 1d — the protocol's own description of a healthcare POA is narrow: in the ABSENCE of formal written directions, the proxy may prescribe LIMITS of treatment. It is a shield against unwanted intervention for an incapacitated patient — not a lever to force transport on a competent one who additionally carries a valid written directive. Explaining this, with empathy, is the scenario's central teaching point.",
+          "protocolReference": "MATC: Do Not Resuscitate Status/Advance Directives/Healthcare Power of Attorney (POA) Status",
+          "protocolExcerpt": "Inclusion/Exclusion Criteria: As specified from state to state, in the absence of formal written directions (MOLST, POLST, DNR, advanced directives), and in the presence of a person with power of attorney for healthcare or healthcare proxy, that person may prescribe limits of treatment."
+        },
+        {
+          "id": "deescalate-support-family",
+          "shortAction": "De-escalate with empathy — validate the son's fear and support him as family of a dying patient",
+          "priority": "critical",
+          "rationale": "MATC End-of-Life Care Patient Care Goals 1d and Key Considerations 1 — supporting the family through the illness and their own bereavement is a named care goal, and the protocol explicitly recognizes that social interactions with family affect end-of-life care. Greg is not an obstacle to be defeated; he is a second patient in the room. 'You clearly love your dad, and you did the right thing calling' opens the door that 'sir, you have no authority here' slams shut.",
+          "protocolReference": "MATC: End-of-Life Care/Hospice Care",
+          "protocolExcerpt": "Patient Care Goals: Offer a support system to help the family cope during the patient's illness and in their own bereavement. Key Considerations: Social interactions with family may affect end-of-life care."
+        },
+        {
+          "id": "scene-safety-management",
+          "shortAction": "Keep scene safety in the management calculus as the son escalates",
+          "priority": "important",
+          "rationale": "MATC End-of-Life Care Key Considerations 2 — scene safety is explicitly part of the management decision in end-of-life calls. The son is agitated, positioned between the crew and the exit, and getting louder. Reposition, keep the tone low, and recognize early whether this conflict is moving toward a threat rather than an argument.",
+          "protocolReference": "MATC: End-of-Life Care/Hospice Care",
+          "protocolExcerpt": "Key Considerations: Scene safety should be considered when deciding on management."
+        },
+        {
+          "id": "reassess-during-conflict",
+          "shortAction": "Reassess and document repeat vitals during the conflict — attribute changes correctly",
+          "priority": "important",
+          "rationale": "MATC Respiratory Distress Key Documentation Elements — key aspects of the exam are documented at baseline and after each intervention. The repeat set (144/92, 82, 22, 93%) shows a mild stress response, not decompensation — and documenting that trend is part of the record showing the patient remained stable and competent throughout the refusal.",
+          "protocolReference": "MATC: Respiratory Distress (includes Bronchospasm, Pulmonary Edema)",
+          "protocolExcerpt": "Key Documentation Elements: Document key aspects of the exam at baseline and after each intervention: Respiratory rate; Oxygen saturation; Use of accessory muscles; Breath sounds and quality; Mental status; Response to interventions."
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "capacity-deescalation",
+          "if": "Capacity confirmed; POA limits explained",
+          "condition": "The crew formally confirms the patient's decision-making capacity (A&O ×4, articulates and accepts the risks of remaining home), empathetically validates the son's concern, and explains that a healthcare Power of Attorney speaks for the patient only when the patient cannot speak for himself — and even then may only prescribe limits of treatment. The son is frustrated but begins to listen.",
+          "conditionType": "action_taken",
+          "triggerActionIds": [
+            "capacity-determination",
+            "explain-poa-limits",
+            "deescalate-support-family"
+          ]
+        },
+        {
+          "targetPhaseId": "forced-transport",
+          "if": "Crew yields to son; patient moved against will",
+          "condition": "The crew never formally confirms capacity or never explains the limits of the POA, accepts the son's 'I have the paperwork' assertion, and begins moving the patient to the stretcher over his explicit verbal refusal. A competent, decisionally-intact patient is being taken against his will.",
+          "conditionType": "action_not_taken",
+          "triggerActionIds": [
+            "capacity-determination",
+            "explain-poa-limits"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "capacity-deescalation",
+      "name": "Capacity confirmed; POA explained",
+      "description": "The temperature in the room comes down. The crew has confirmed — out loud, with the son listening — that Walter knows who he is, where he is, what day it is, what is wrong with him, and what refusing transport could mean tonight. They have explained that Greg's Power of Attorney would speak for his father only if his father could not speak for himself, and that even then it prescribes limits on treatment rather than compelling it. Greg is still unhappy, but he has stopped shouting and started listening; Walter thanks the crew for hearing him. Now the encounter has to be closed properly, and MATC's end-of-life protocol says exactly how: engage the patient's end-of-life care team or primary care physician if possible, and contact medical direction if that is not viable — and because non-transport is being considered, coordinate that decision with the POA/healthcare proxy in collaboration with that clinician. In this scenario that means a phone call: the base physician talks to the crew, confirms the competent patient's right to refuse, and — most powerfully — talks to Greg directly. The DNR protocol adds its own instruction to follow the directive as closely as possible with medical direction contacted as needed. Comfort-focused care continues in the meantime: the patient stays on his 2L, finishes his nebulizer, and the crew treats the dying process as what the protocol says it is — normal.",
+      "triggerCondition": "The crew formally confirmed the patient's decision-making capacity in front of the son, validated the son's concern with empathy, and explained that a healthcare POA activates only when the patient cannot make his own decisions — and even then only prescribes limits of treatment. The son is frustrated but de-escalating; the patient thanks the crew for listening. Vitals drift back toward baseline.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": {
+          "eye": 4,
+          "verbal": 5,
+          "motor": 6
+        },
+        "airway": "Patent; conversational",
+        "breathing": "RR 20, mildly labored at his baseline; wheeze slightly improved after his nebulizer; crackles unchanged",
+        "circulation": "Radial pulse 78, regular; well perfused for his baseline",
+        "skin": {
+          "color": "pale but perfused",
+          "temperature": "warm",
+          "moisture": "dry"
+        },
+        "pupils": "Equal at 3 mm, reactive",
+        "motorFunction": "Unchanged; relaxed posture, hands unclenched",
+        "otherFindings": [
+          "Son has lowered his voice and is asking real questions: 'So if he gets worse tonight… what am I supposed to do?' — an opening for the support-system conversation",
+          "Patient visibly relieved; thanks the crew for listening to him",
+          "MATC EOL protocol path to closure: engage his physician/EOL team if possible → medical direction if not viable → coordinate the non-transport decision WITH the POA in collaboration with that clinician",
+          "MATC DNR protocol: directives followed as closely as possible, medical direction contacted as needed",
+          "Comfort-focused care continues: home O2 at 2L, nebulizer completed, patient remains in his own chair",
+          "Vitals easing back toward baseline — the de-escalation is itself a therapeutic intervention"
+        ],
+        "patientSpeech": "Thank you for actually listening to me. Most people talk past me now, like I'm already gone. Greg's a good boy — he's just scared. If your doctor wants to talk to him, I think that would help him more than it helps me."
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Rhythm",
+        "ecgWaveform": 9,
+        "hr": 78,
+        "bpSys": 138,
+        "bpDia": 86,
+        "respRate": 20,
+        "spo2": 94,
+        "etco2": 45,
+        "temp": 36.8,
+        "tempF": 98.2,
+        "obstruction": 15,
+        "glucose": 112,
+        "trendTimeSeconds": 40,
+        "visibility": {
+          "spo2Visible": true,
+          "spo2Attached": true,
+          "rrVisible": true,
+          "etco2Visible": true,
+          "cvpVisible": false
+        }
+      },
+      "expectedActions": [
+        {
+          "id": "engage-pcp-medcontrol",
+          "shortAction": "Engage his physician/EOL team if possible; contact medical control if not — have the doctor speak with the son",
+          "priority": "critical",
+          "rationale": "MATC End-of-Life Care Assessment 2 — the protocol's stated order: the patient's own end-of-life care team or primary care physician first if viable, medical direction if not. At 2:30 PM on a weekday his physician's office may be reachable; if not, the base physician fills the role. Either way, a physician's voice confirming the competent patient's right to refuse — and speaking directly with Greg — is what converts a standoff into a closed call.",
+          "protocolReference": "MATC: End-of-Life Care/Hospice Care",
+          "protocolExcerpt": "Assessment, Treatment, and Interventions: Engage with the patient's hospice or end-of-life care team or their primary care physician if possible. If not a viable option, contact medical direction."
+        },
+        {
+          "id": "coordinate-nontransport-poa",
+          "shortAction": "Coordinate the non-transport decision with the son (POA) in collaboration with the clinician",
+          "priority": "critical",
+          "rationale": "MATC End-of-Life Care Assessment 11 — when non-transport is being considered, the protocol directs coordination with the guardian, power of attorney, or other accepted healthcare proxy in collaboration with the end-of-life clinician. This is the protocol's answer to 'what do we do about Greg': not overrule him and leave, but bring him into the plan — what to watch for tonight, who to call, what his father's wishes mean in practice.",
+          "protocolReference": "MATC: End-of-Life Care/Hospice Care",
+          "protocolExcerpt": "Assessment, Treatment, and Interventions: In collaboration with hospice or end-of-life care clinician, coordinate with guardian, power of attorney, or other accepted healthcare proxy if non-transport is considered."
+        },
+        {
+          "id": "follow-directive-med-direction",
+          "shortAction": "Follow the DNR directive as closely as possible; use medical direction for any directive questions",
+          "priority": "important",
+          "rationale": "MATC DNR/Advance Directives Treatment 1b — directives are followed as closely as possible with medical direction contacted as needed. If anything about the bracelet, the paperwork in the drawer, or the son's folder raised a genuine validity question, medical direction is the resource — the crew never has to adjudicate a legal dispute alone.",
+          "protocolReference": "MATC: Do Not Resuscitate Status/Advance Directives/Healthcare Power of Attorney (POA) Status",
+          "protocolExcerpt": "Treatment and Interventions: Directives should be followed as closely as possible and medical direction contacted as needed."
+        },
+        {
+          "id": "comfort-focused-care",
+          "shortAction": "Continue comfort-focused care — affirm dying as normal; address psychological and spiritual needs",
+          "priority": "important",
+          "rationale": "MATC End-of-Life Care Patient Care Goals 1a–1c — relief of distressing symptoms, affirming dying as a normal process, and integrating psychological and spiritual aspects of care. Concretely: he stays in his chair, on his oxygen, with his nebulizer available, and the crew talks to him about his life rather than around him about his death.",
+          "protocolReference": "MATC: End-of-Life Care/Hospice Care",
+          "protocolExcerpt": "Patient Care Goals: Provide relief from pain and other distressing symptoms; Affirm dying as a normal process; Integrate psychological and spiritual aspects of patient care."
+        },
+        {
+          "id": "reassess-post-deescalation",
+          "shortAction": "Repeat vitals after de-escalation and nebulizer; document the response",
+          "priority": "supplemental",
+          "rationale": "MATC Respiratory Distress Key Documentation Elements — exam findings documented at baseline and after each intervention, including response to interventions. The trend back toward baseline (78, 138/86, RR 20, 94%) is the objective record that the patient was stable when the crew honored his refusal.",
+          "protocolReference": "MATC: Respiratory Distress (includes Bronchospasm, Pulmonary Edema)",
+          "protocolExcerpt": "Key Documentation Elements: Document key aspects of the exam at baseline and after each intervention: Respiratory rate; Oxygen saturation; Use of accessory muscles; Breath sounds and quality; Mental status; Response to interventions."
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "refusal-completed",
+          "if": "Med control consulted; refusal honored",
+          "condition": "The crew engages the patient's physician or medical control by phone. The physician confirms the competent patient's right to refuse transport and speaks directly with the son, who begrudgingly accepts the decision. The non-transport plan is coordinated with the son as POA — warning signs, who to call, and his father's wishes — and the refusal is completed and documented.",
+          "conditionType": "action_taken",
+          "triggerActionIds": [
+            "engage-pcp-medcontrol",
+            "coordinate-nontransport-poa"
+          ]
+        },
+        {
+          "targetPhaseId": "forced-transport",
+          "if": "Crew caves to renewed pressure",
+          "condition": "The son makes a final emotional push — 'If he dies tonight, that's on YOU' — and the crew reverses course, abandoning the capacity determination they just made and moving the competent patient to the stretcher against his stated will to appease the family.",
+          "conditionType": "action_taken"
+        }
+      ]
+    },
+    {
+      "id": "refusal-completed",
+      "name": "Refusal honored with med control",
+      "description": "The call closes the way MATC's protocols draw it up. The base physician (or the patient's own doctor) has confirmed on a recorded line that a competent adult with a valid DNR directive has the right to decline transport, and has spoken with Greg directly — physician-to-family — which lands in a way the crew's explanation could not. Greg begrudgingly accepts the decision; the crew coordinates the plan with him as his father's future proxy: what worsening looks like, that he can call 911 again at any time, and what his father's directive means if the worst happens tonight. Walter remains in his recliner on his 2L, breathing at his baseline, grateful. What remains is the documentation that makes this defensible: the DNR protocol requires a detailed description of the valid exclusion to resuscitation used to guide care — the bracelet, its condition, the name on it — with a copy of the paperwork if possible, plus names and contact information for the significant bystander at the center of this call. The end-of-life protocol adds documentation of the interaction with the clinician and confirmation of the advance directive. The respiratory protocol closes its own loop: a final documented set of vitals and exam findings showing the patient stable at his baseline at the time the crew cleared. This chart is the difference between a well-run refusal and an indefensible one.",
+      "triggerCondition": "Medical control (or the patient's physician) was consulted, confirmed the competent patient's right to refuse transport, and spoke directly with the son, who begrudgingly accepts the decision. The non-transport plan has been coordinated with the son as POA. The patient remains stable at his baseline; the encounter moves to documentation and closure.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": {
+          "eye": 4,
+          "verbal": 5,
+          "motor": 6
+        },
+        "airway": "Patent; conversational",
+        "breathing": "RR 18 at his comfortable baseline; mild scattered wheeze, stable bibasilar crackles",
+        "circulation": "Radial pulse 74, regular; warm and perfused",
+        "skin": {
+          "color": "pale but perfused",
+          "temperature": "warm",
+          "moisture": "dry"
+        },
+        "pupils": "Equal at 3 mm, reactive",
+        "motorFunction": "Unchanged from baseline",
+        "otherFindings": [
+          "Physician spoke with the son directly; son begrudgingly accepts — quote: 'Fine. But I'm staying here tonight.' (which is, in fact, the ideal outcome — the patient is not alone)",
+          "DOCUMENTATION IS THE FINAL INTERVENTION: detailed description of the DNR bracelet (intact, name, state-conformant), copy of paperwork from the side-table drawer if possible",
+          "Names and contact information for the son recorded — he is the significant bystander AND the future healthcare proxy",
+          "Interaction with the physician/medical control documented, with the confirmation of the advance directive",
+          "Final vitals documented: patient at baseline, stable, on his home 2L — the objective record that the refusal was honored for a stable, competent patient",
+          "Son coordinated into the plan: warning signs, 911 re-contact anytime, what the directive means tonight"
+        ],
+        "patientSpeech": "You tell your doctor I said thank you. And thank you — both of you — for treating me like a man and not a problem. Greg's going to stay for supper. That's the best thing to come out of today."
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Rhythm",
+        "ecgWaveform": 9,
+        "hr": 74,
+        "bpSys": 134,
+        "bpDia": 84,
+        "respRate": 18,
+        "spo2": 95,
+        "etco2": 44,
+        "temp": 36.8,
+        "tempF": 98.2,
+        "obstruction": 15,
+        "glucose": 112,
+        "trendTimeSeconds": 40,
+        "visibility": {
+          "spo2Visible": true,
+          "spo2Attached": true,
+          "rrVisible": true,
+          "etco2Visible": true,
+          "cvpVisible": false
+        }
+      },
+      "expectedActions": [
+        {
+          "id": "document-dnr-details",
+          "shortAction": "Document the DNR bracelet in detail (copy paperwork if possible); record the son's name and contact info",
+          "priority": "critical",
+          "rationale": "MATC DNR/Advance Directives Key Documentation Elements — the protocol names exactly two documentation requirements, and this call needs both: a detailed description of the valid exclusion to resuscitation that guided the encounter (with a copy if possible), and names/contact information for significant bystanders — of whom Greg is the definition.",
+          "protocolReference": "MATC: Do Not Resuscitate Status/Advance Directives/Healthcare Power of Attorney (POA) Status",
+          "protocolExcerpt": "Key Documentation Elements: Detailed description of the valid exclusion to resuscitation documentation used to guide resuscitation including a copy of the document if possible. Names/contact information for significant bystanders."
+        },
+        {
+          "id": "document-eol-interactions",
+          "shortAction": "Document the medical control/physician interaction and confirmation of the advance directive",
+          "priority": "critical",
+          "rationale": "MATC End-of-Life Care Key Documentation Elements — the interaction with the end-of-life/medical-direction clinician and confirmation of the advance care documentation are the protocol's named record elements. The physician consult is only as defensible as its documentation: who was contacted, what was confirmed, and that the physician spoke with the son.",
+          "protocolReference": "MATC: End-of-Life Care/Hospice Care",
+          "protocolExcerpt": "Key Documentation Elements: Interaction with hospice or end-of-life care clinician. Confirmation of advanced directive or other advanced care documentation."
+        },
+        {
+          "id": "final-exam-documentation",
+          "shortAction": "Document a final exam set: RR, SpO2, breath sounds, mental status, response to care",
+          "priority": "important",
+          "rationale": "MATC Respiratory Distress Key Documentation Elements — the exam documented at baseline and after each intervention, ending with a final set showing the patient stable at his baseline on his home oxygen at the time the crew cleared. This is the clinical half of the refusal record: not just that he was competent, but that he was stable.",
+          "protocolReference": "MATC: Respiratory Distress (includes Bronchospasm, Pulmonary Edema)",
+          "protocolExcerpt": "Key Documentation Elements: Document key aspects of the exam at baseline and after each intervention: Respiratory rate; Oxygen saturation; Use of accessory muscles; Breath sounds and quality; Mental status; Response to interventions."
+        },
+        {
+          "id": "support-system-family",
+          "shortAction": "Leave the family supported — son staying the night, warning signs reviewed, 911 re-contact welcomed",
+          "priority": "supplemental",
+          "rationale": "MATC End-of-Life Care Patient Care Goals 1d — offering a support system to help the family cope during the illness and their own bereavement is a stated care goal, and it is the last thing the crew does before clearing: Greg stays, Greg knows what to watch for, and Greg knows calling again is always allowed.",
+          "protocolReference": "MATC: End-of-Life Care/Hospice Care",
+          "protocolExcerpt": "Patient Care Goals: Offer a support system to help the family cope during the patient's illness and in their own bereavement."
+        }
+      ],
+      "transitions": []
+    },
+    {
+      "id": "forced-transport",
+      "name": "Forced transport attempted",
+      "description": "The crew put their hands on a competent man who said no. The moment Walter is lifted toward the stretcher he becomes combative in the only way a frail 84-year-old can — twisting, gripping the recliner arm, yelling that he is being kidnapped in his own living room. Greg is still shouting too, because the shouting was never really about transport. The vitals tell the story of what the crew has done to their patient: BP 180/100, HR 110, RR 28 — a pure stress response manufactured by the intervention itself, in a man whose failing heart is the last place to send a catecholamine surge. Legally, the crew is now exposed: the source instructor notes name it plainly as battery and kidnapping territory, and nothing in MATC protocol authorizes any of it — the end-of-life protocol required consulting directly with a patient who has capacity, the DNR protocol's POA language grants a proxy authority only to prescribe LIMITS of treatment in the absence of formal written directions, and this patient had capacity AND a valid directive on his wrist. The recovery path is the same path that was available the whole time: stop, put him back in his chair, apologize, re-approach with the patience and compassion the protocol demands, and get a physician's voice on the phone. The instructor should let the crew feel how much harder every one of those steps is now than it would have been ten minutes ago.",
+      "triggerCondition": "The crew accepted the son's POA claim over the competent patient's explicit verbal refusal — at any point in the encounter — and began moving him to the stretcher against his will. The patient becomes combative, yelling that he is being kidnapped; the son is still shouting; the patient's vitals surge with stress (BP 180/100, HR 110, RR 28). The crew is now in legal jeopardy: no MATC protocol authorizes forced transport of a patient with decision-making capacity.",
+      "isDefault": false,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": {
+          "eye": 4,
+          "verbal": 5,
+          "motor": 6
+        },
+        "airway": "Patent — he is yelling, which proves it",
+        "breathing": "RR 28 and labored; wheeze more audible with the agitation and rapid airflow; nasal cannula half-dislodged in the struggle",
+        "circulation": "Radial pulse 110, regular but pounding; face flushed over baseline pallor",
+        "skin": {
+          "color": "flushed over baseline pallor",
+          "temperature": "warm",
+          "moisture": "clammy at the brow"
+        },
+        "pupils": "Equal at 3 mm, reactive",
+        "motorFunction": "Actively resisting — gripping the recliner arm, twisting away, pushing at hands; no focal deficit",
+        "otherFindings": [
+          "Patient yelling: 'Let go of me! You're kidnapping me! This is MY house!' — a fully oriented, competent man describing exactly what is happening to him",
+          "Vitals are IATROGENIC: 180/100, HR 110, RR 28 — a stress surge the crew created in an end-stage CHF patient with nothing to spare",
+          "NO PROTOCOL AUTHORITY: EOL protocol consults the patient who HAS capacity; DNR protocol's POA clause grants only the power to prescribe LIMITS of treatment, absent formal written directions — he has both capacity and a valid directive",
+          "Legal exposure per the source instructor notes: battery/kidnapping; every second of continued force deepens it",
+          "Son still shouting — forcing the patient did not resolve the family conflict, it validated the worst version of it",
+          "RECOVERY: stop, return him to his chair, restore the cannula, apologize, re-approach with patience and compassion, physician on the phone",
+          "Scene safety now genuinely degraded — two agitated people, a struggling patient, and a crew that has spent its credibility"
+        ],
+        "patientSpeech": "LET GO OF ME! You're kidnapping me — this is MY house! I told you NO! Greg — GREG — tell them to stop! I'm not confused, I'm not senile, I said NO!"
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 110,
+        "bpSys": 180,
+        "bpDia": 100,
+        "respRate": 28,
+        "spo2": 92,
+        "etco2": 33,
+        "temp": 36.8,
+        "tempF": 98.2,
+        "obstruction": 20,
+        "glucose": 112,
+        "trendTimeSeconds": 15,
+        "visibility": {
+          "spo2Visible": true,
+          "spo2Attached": true,
+          "rrVisible": true,
+          "etco2Visible": true,
+          "cvpVisible": false
+        }
+      },
+      "expectedActions": [
+        {
+          "id": "stop-recognize-capacity",
+          "shortAction": "STOP the move immediately — a patient with capacity decides treatment and transport, not the POA",
+          "priority": "critical",
+          "rationale": "MATC End-of-Life Care Assessment 3 and 4 — the protocol consults the patient directly when he can communicate and has capacity; the POA/proxy enters only when capacity is LACKING. The crew is executing the wrong branch of the tree on a man who is loudly, coherently demonstrating which branch he belongs on. The only defensible action is to stop.",
+          "protocolReference": "MATC: End-of-Life Care/Hospice Care",
+          "protocolExcerpt": "If the patient can communicate and has the capacity to make decisions regarding treatment and transport, consult directly with the patient before treatment and/or transport. If the patient lacks the capacity to make decisions regarding treatment and/or transport, identify any advanced care planning in place for information relating to advanced care planning and consent for treatment: Advance directives; Medical/Physician Order for Life-Sustaining Treatment (MOLST/POLST) or similar directing forms; Guardian, power of attorney, or other accepted healthcare proxy."
+        },
+        {
+          "id": "poa-no-authority",
+          "shortAction": "Recognize the POA cannot compel transport — it may only prescribe LIMITS, absent formal written directions",
+          "priority": "critical",
+          "rationale": "MATC DNR/Advance Directives Inclusion Criteria 1d — the protocol's entire grant of authority to a healthcare POA is the power to prescribe limits of treatment, and only in the absence of formal written directions. The son's folder never contained the authority the crew acted on: his father has a valid written directive and intact capacity. There was no protocol pathway to the stretcher.",
+          "protocolReference": "MATC: Do Not Resuscitate Status/Advance Directives/Healthcare Power of Attorney (POA) Status",
+          "protocolExcerpt": "Inclusion/Exclusion Criteria: As specified from state to state, in the absence of formal written directions (MOLST, POLST, DNR, advanced directives), and in the presence of a person with power of attorney for healthcare or healthcare proxy, that person may prescribe limits of treatment."
+        },
+        {
+          "id": "medcontrol-now",
+          "shortAction": "Get a physician on the phone now — engage his physician/EOL team or contact medical control",
+          "priority": "critical",
+          "rationale": "MATC End-of-Life Care Assessment 2 — the physician contact that should have anchored this refusal is now the fastest way out of the hole: medical direction confirms the competent patient's right to refuse, gives the crew an authoritative voice to stand behind, and can speak to the son directly. This call should have happened before anyone touched the patient.",
+          "protocolReference": "MATC: End-of-Life Care/Hospice Care",
+          "protocolExcerpt": "Assessment, Treatment, and Interventions: Engage with the patient's hospice or end-of-life care team or their primary care physician if possible. If not a viable option, contact medical direction."
+        },
+        {
+          "id": "re-deescalate-compassion",
+          "shortAction": "Return him to his chair, restore the cannula, apologize — re-approach with patience and compassion",
+          "priority": "important",
+          "rationale": "MATC End-of-Life Care Patient Safety 2 — care delivered with the utmost patience and compassion is a protocol requirement, not a nicety, and it is the only tool that can begin repairing what the forced move destroyed. The apology is clinical: it lowers the catecholamine surge currently loading a failing heart.",
+          "protocolReference": "MATC: End-of-Life Care/Hospice Care",
+          "protocolExcerpt": "Patient Safety Considerations: Careful and thorough assessments should be performed to identify complaints not related to the illness for which the patient is receiving hospice or end-of-life care. Care should be delivered with the utmost patience and compassion."
+        },
+        {
+          "id": "scene-safety-standoff",
+          "shortAction": "Reassess scene safety — struggling patient, shouting family, degraded crew credibility",
+          "priority": "important",
+          "rationale": "MATC End-of-Life Care Key Considerations 1 and 2 — social interactions with family affect end-of-life care, and scene safety is part of every management decision. The scene the crew inherited was safe; the scene they built is not. Recognizing that the danger is now of their own making is the debrief's hardest and most important point.",
+          "protocolReference": "MATC: End-of-Life Care/Hospice Care",
+          "protocolExcerpt": "Key Considerations: Social interactions with family may affect end-of-life care. Scene safety should be considered when deciding on management."
+        }
+      ],
+      "transitions": []
+    }
+  ],
+  "realiti": {
+    "scenarioMonitorType": 2,
+    "scenarioDefaultEnergy": 200,
+    "scenarioDefaultPacerThreshold": 55
+  }
+}

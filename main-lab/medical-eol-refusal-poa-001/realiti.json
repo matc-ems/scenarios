@@ -1,0 +1,396 @@
+{
+  "scenarioId": "medical-eol-refusal-poa-001",
+  "scenarioName": "End-of-Life Refusal — Valid DNR, Competent Patient vs. POA Son Demanding Transport",
+  "scenarioType": "Vital Signs",
+  "scenarioVersion": 2,
+  "scenarioTime": 1200,
+  "scenarioMonitorType": 2,
+  "scenarioDefaultEnergy": 200,
+  "scenarioDefaultPacerThreshold": 55,
+  "isDemo": false,
+  "isALSILegacy": false,
+  "scenarioStory": {
+    "history": "84-year-old male with end-stage congestive heart failure and COPD, on 2 liters of home oxygen by nasal cannula around the clock. After his last long hospitalization he decided, together with his physician, to stop pursuing aggressive treatment — he wears a state-issued DNR bracelet and keeps his paperwork in the drawer of the side table. Today he is a bit more tired than usual and has been coughing intermittently, which he attributes to 'a bad day' of the kind he has had before. He finished tea and toast about an hour ago and was resting in his recliner when his son Greg stopped by to check on him, saw him coughing, panicked, and called 911. The patient is apologetic toward the crew and unambiguous about his wishes: he is comfortable, he understands his heart is failing, and he wants to stay in his own home. He is mildly dyspneic with activity but speaks in full sentences at rest.",
+    "discussion": "",
+    "course": "Initial Contact: An 84-year-old man with end-stage CHF and COPD sits comfortably in his recliner on his home 2L oxygen, mildly dyspneic, wearing a valid DNR bracelet, and telling the crew — kindly, clearly, in full sentences — that he is not going to the hospital. Nothing about this scene is a resuscitation problem: he has a pulse, he is breathing, he is alert. MATC's DNR/advance-directives protocol says exactly what to do with that combination: verify the bracelet is a valid exclusion to resuscitation, and then provide standard appropriate treatment under existing protocols according to his condition — a DNR is not 'do not treat.' The respiratory distress protocol supplies the standard treatment at this crew's scope: full vitals with temperature and pulse oximetry, a respiratory history that captures his home O2 and nebulizer use and prior admissions, breath sounds to differentiate fluid-overload from bronchospastic etiology, and oxygen titrated to a 94–98% target (he is at 94% on his home 2L — at target). The end-of-life protocol adds the frame the whole scenario turns on: because this patient can communicate and has the capacity to make decisions, the crew consults directly with HIM about treatment and transport — not with the folder of paperwork his son is carrying. Everything he consents to, he gets. Nothing he refuses can be forced. → Son demands transport: Greg plants himself between the crew and the door, folder open: 'I have the POA papers right here. He isn't thinking straight. I am the decision-maker, and I am telling you to take him.' Meanwhile the patient in the recliner calmly states his name, where he is, the date, and exactly why his son is upset — and articulates the risk of staying home ('I know my heart could get worse tonight. I know that. This is where I want to be if it does.'). That is the whole legal question answered out loud: MATC's end-of-life protocol consults the POA/healthcare proxy ONLY when the patient LACKS the capacity to make decisions — and this patient demonstrably has it. The DNR protocol goes further: even where a healthcare POA does hold authority, it is authority to prescribe LIMITS of treatment, in the absence of formal written directions — not authority to compel transport over a competent patient's refusal, and this patient has both capacity and a valid written directive on his wrist. The crew's job in this phase is capacity confirmation plus therapeutic communication: validate Greg's fear, support him as the family of a dying man (an explicit MATC care goal), educate him on what his paperwork does and does not do, and keep scene safety in the calculus as his voice rises. The patient's vitals drift up with the tension in the room — BP 144/92, HR 82, RR 22 — stress, not decompensation. → Capacity confirmed; POA explained: The temperature in the room comes down. The crew has confirmed — out loud, with the son listening — that Walter knows who he is, where he is, what day it is, what is wrong with him, and what refusing transport could mean tonight. They have explained that Greg's Power of Attorney would speak for his father only if his father could not speak for himself, and that even then it prescribes limits on treatment rather than compelling it. Greg is still unhappy, but he has stopped shouting and started listening; Walter thanks the crew for hearing him. Now the encounter has to be closed properly, and MATC's end-of-life protocol says exactly how: engage the patient's end-of-life care team or primary care physician if possible, and contact medical direction if that is not viable — and because non-transport is being considered, coordinate that decision with the POA/healthcare proxy in collaboration with that clinician. In this scenario that means a phone call: the base physician talks to the crew, confirms the competent patient's right to refuse, and — most powerfully — talks to Greg directly. The DNR protocol adds its own instruction to follow the directive as closely as possible with medical direction contacted as needed. Comfort-focused care continues in the meantime: the patient stays on his 2L, finishes his nebulizer, and the crew treats the dying process as what the protocol says it is — normal. → Refusal honored with med control: The call closes the way MATC's protocols draw it up. The base physician (or the patient's own doctor) has confirmed on a recorded line that a competent adult with a valid DNR directive has the right to decline transport, and has spoken with Greg directly — physician-to-family — which lands in a way the crew's explanation could not. Greg begrudgingly accepts the decision; the crew coordinates the plan with him as his father's future proxy: what worsening looks like, that he can call 911 again at any time, and what his father's directive means if the worst happens tonight. Walter remains in his recliner on his 2L, breathing at his baseline, grateful. What remains is the documentation that makes this defensible: the DNR protocol requires a detailed description of the valid exclusion to resuscitation used to guide care — the bracelet, its condition, the name on it — with a copy of the paperwork if possible, plus names and contact information for the significant bystander at the center of this call. The end-of-life protocol adds documentation of the interaction with the clinician and confirmation of the advance directive. The respiratory protocol closes its own loop: a final documented set of vitals and exam findings showing the patient stable at his baseline at the time the crew cleared. This chart is the difference between a well-run refusal and an indefensible one."
+  },
+  "patientInformation": {
+    "patientName": "Walter Brandt",
+    "patientCondition": "Mild shortness of breath and generalized fatigue in a man with end-stage CHF and COPD. His son called 911 because his father is 'having trouble breathing' and 'refusing to help himself.' The patient is calm, alert, wearing a valid DNR bracelet, and states plainly that he will not go back to the hospital.",
+    "patientAge": 84,
+    "patientAgeUnit": "years",
+    "patientAgeCategory": 0,
+    "patientSex": 1,
+    "patientHeight": 173,
+    "patientWeight": 75,
+    "patientPhotoId": 100,
+    "patientAdmitted": 1
+  },
+  "labs": [],
+  "scenarioEvents": [
+    {
+      "type": "ScenarioEvent",
+      "name": "Initial Contact",
+      "description": "An 84-year-old man with end-stage CHF and COPD sits comfortably in his recliner on his home 2L oxygen, mildly dyspneic, wearing a valid DNR bracelet, and telling the crew — kindly, clearly, in full sentences — that he is not going to the hospital. Nothing about this scene is a resuscitation problem: he has a pulse, he is breathing, he is alert. MATC's DNR/advance-directives protocol says exactly what to do with that combination: verify the bracelet is a valid exclusion to resuscitation, and then provide standard appropriate treatment under existing protocols according to his condition — a DNR is not 'do not treat.' The respiratory distress protocol supplies the standard treatment at this crew's scope: full vitals with temperature and pulse oximetry, a respiratory history that captures his home O2 and nebulizer use and prior admissions, breath sounds to differentiate fluid-overload from bronchospastic etiology, and oxygen titrated to a 94–98% target (he is at 94% on his home 2L — at target). The end-of-life protocol adds the frame the whole scenario turns on: because this patient can communicate and has the capacity to make decisions, the crew consults directly with HIM about treatment and transport — not with the folder of paperwork his son is carrying. Everything he consents to, he gets. Nothing he refuses can be forced.",
+      "monitorType": 0,
+      "trendTime": 0,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 76,
+        "bpSys": 138,
+        "bpDia": 88,
+        "respRate": 20,
+        "spo2": 94,
+        "etco2": 45,
+        "temp": 36.8,
+        "obstruction": 15,
+        "custMeasure1": 112,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Identify the DNR bracelet and verify it is valid — intact, named, state-conformant",
+        "Signs of life present — provide standard treatment per protocols; DNR is not 'do not treat'",
+        "Consult directly with the patient on treatment and transport — he can communicate and has capacity",
+        "Full set of vitals with temperature and SpO2; keep pulse oximetry applied",
+        "SAMPLE plus respiratory history — home O2/nebulizer use, prior admissions and intubations",
+        "Auscultate lungs; differentiate fluid-overload (CHF) from bronchospastic (COPD) etiology",
+        "Maintain O2 at 2 L/min NC — SpO2 94% is within the 94–98% target; no escalation needed",
+        "Screen for complaints UNRELATED to his terminal illness; deliver care with patience and compassion",
+        "Offer albuterol 2.5 mg nebulized for his mild wheeze — treatment he DOES accept, at home"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Son demands transport",
+      "description": "Greg plants himself between the crew and the door, folder open: 'I have the POA papers right here. He isn't thinking straight. I am the decision-maker, and I am telling you to take him.' Meanwhile the patient in the recliner calmly states his name, where he is, the date, and exactly why his son is upset — and articulates the risk of staying home ('I know my heart could get worse tonight. I know that. This is where I want to be if it does.'). That is the whole legal question answered out loud: MATC's end-of-life protocol consults the POA/healthcare proxy ONLY when the patient LACKS the capacity to make decisions — and this patient demonstrably has it. The DNR protocol goes further: even where a healthcare POA does hold authority, it is authority to prescribe LIMITS of treatment, in the absence of formal written directions — not authority to compel transport over a competent patient's refusal, and this patient has both capacity and a valid written directive on his wrist. The crew's job in this phase is capacity confirmation plus therapeutic communication: validate Greg's fear, support him as the family of a dying man (an explicit MATC care goal), educate him on what his paperwork does and does not do, and keep scene safety in the calculus as his voice rises. The patient's vitals drift up with the tension in the room — BP 144/92, HR 82, RR 22 — stress, not decompensation.",
+      "monitorType": 0,
+      "trendTime": 30,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 82,
+        "bpSys": 144,
+        "bpDia": 92,
+        "respRate": 22,
+        "spo2": 93,
+        "etco2": 46,
+        "temp": 36.8,
+        "obstruction": 15,
+        "custMeasure1": 112,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Formally confirm capacity — A&O ×4, understands and accepts the risks of staying home",
+        "Educate the son: a healthcare POA may only prescribe LIMITS of treatment, and only absent the patient's own directive",
+        "De-escalate with empathy — validate the son's fear and support him as family of a dying patient",
+        "Keep scene safety in the management calculus as the son escalates",
+        "Reassess and document repeat vitals during the conflict — attribute changes correctly"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Capacity confirmed; POA explained",
+      "description": "The temperature in the room comes down. The crew has confirmed — out loud, with the son listening — that Walter knows who he is, where he is, what day it is, what is wrong with him, and what refusing transport could mean tonight. They have explained that Greg's Power of Attorney would speak for his father only if his father could not speak for himself, and that even then it prescribes limits on treatment rather than compelling it. Greg is still unhappy, but he has stopped shouting and started listening; Walter thanks the crew for hearing him. Now the encounter has to be closed properly, and MATC's end-of-life protocol says exactly how: engage the patient's end-of-life care team or primary care physician if possible, and contact medical direction if that is not viable — and because non-transport is being considered, coordinate that decision with the POA/healthcare proxy in collaboration with that clinician. In this scenario that means a phone call: the base physician talks to the crew, confirms the competent patient's right to refuse, and — most powerfully — talks to Greg directly. The DNR protocol adds its own instruction to follow the directive as closely as possible with medical direction contacted as needed. Comfort-focused care continues in the meantime: the patient stays on his 2L, finishes his nebulizer, and the crew treats the dying process as what the protocol says it is — normal.",
+      "monitorType": 0,
+      "trendTime": 40,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 78,
+        "bpSys": 138,
+        "bpDia": 86,
+        "respRate": 20,
+        "spo2": 94,
+        "etco2": 45,
+        "temp": 36.8,
+        "obstruction": 15,
+        "custMeasure1": 112,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Engage his physician/EOL team if possible; contact medical control if not — have the doctor speak with the son",
+        "Coordinate the non-transport decision with the son (POA) in collaboration with the clinician",
+        "Follow the DNR directive as closely as possible; use medical direction for any directive questions",
+        "Continue comfort-focused care — affirm dying as normal; address psychological and spiritual needs",
+        "Repeat vitals after de-escalation and nebulizer; document the response"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Refusal honored with med control",
+      "description": "The call closes the way MATC's protocols draw it up. The base physician (or the patient's own doctor) has confirmed on a recorded line that a competent adult with a valid DNR directive has the right to decline transport, and has spoken with Greg directly — physician-to-family — which lands in a way the crew's explanation could not. Greg begrudgingly accepts the decision; the crew coordinates the plan with him as his father's future proxy: what worsening looks like, that he can call 911 again at any time, and what his father's directive means if the worst happens tonight. Walter remains in his recliner on his 2L, breathing at his baseline, grateful. What remains is the documentation that makes this defensible: the DNR protocol requires a detailed description of the valid exclusion to resuscitation used to guide care — the bracelet, its condition, the name on it — with a copy of the paperwork if possible, plus names and contact information for the significant bystander at the center of this call. The end-of-life protocol adds documentation of the interaction with the clinician and confirmation of the advance directive. The respiratory protocol closes its own loop: a final documented set of vitals and exam findings showing the patient stable at his baseline at the time the crew cleared. This chart is the difference between a well-run refusal and an indefensible one.",
+      "monitorType": 0,
+      "trendTime": 40,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 74,
+        "bpSys": 134,
+        "bpDia": 84,
+        "respRate": 18,
+        "spo2": 95,
+        "etco2": 44,
+        "temp": 36.8,
+        "obstruction": 15,
+        "custMeasure1": 112,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Document the DNR bracelet in detail (copy paperwork if possible); record the son's name and contact info",
+        "Document the medical control/physician interaction and confirmation of the advance directive",
+        "Document a final exam set: RR, SpO2, breath sounds, mental status, response to care",
+        "Leave the family supported — son staying the night, warning signs reviewed, 911 re-contact welcomed"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Forced transport attempted",
+      "description": "The crew put their hands on a competent man who said no. The moment Walter is lifted toward the stretcher he becomes combative in the only way a frail 84-year-old can — twisting, gripping the recliner arm, yelling that he is being kidnapped in his own living room. Greg is still shouting too, because the shouting was never really about transport. The vitals tell the story of what the crew has done to their patient: BP 180/100, HR 110, RR 28 — a pure stress response manufactured by the intervention itself, in a man whose failing heart is the last place to send a catecholamine surge. Legally, the crew is now exposed: the source instructor notes name it plainly as battery and kidnapping territory, and nothing in MATC protocol authorizes any of it — the end-of-life protocol required consulting directly with a patient who has capacity, the DNR protocol's POA language grants a proxy authority only to prescribe LIMITS of treatment in the absence of formal written directions, and this patient had capacity AND a valid directive on his wrist. The recovery path is the same path that was available the whole time: stop, put him back in his chair, apologize, re-approach with the patience and compassion the protocol demands, and get a physician's voice on the phone. The instructor should let the crew feel how much harder every one of those steps is now than it would have been ten minutes ago.",
+      "monitorType": 0,
+      "trendTime": 15,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 110,
+        "bpSys": 180,
+        "bpDia": 100,
+        "respRate": 28,
+        "spo2": 92,
+        "etco2": 33,
+        "temp": 36.8,
+        "obstruction": 20,
+        "custMeasure1": 112,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "STOP the move immediately — a patient with capacity decides treatment and transport, not the POA",
+        "Recognize the POA cannot compel transport — it may only prescribe LIMITS, absent formal written directions",
+        "Get a physician on the phone now — engage his physician/EOL team or contact medical control",
+        "Return him to his chair, restore the cannula, apologize — re-approach with patience and compassion",
+        "Reassess scene safety — struggling patient, shouting family, degraded crew credibility"
+      ],
+      "relatedSounds": []
+    }
+  ],
+  "checklist": [
+    {
+      "title": "Identify the DNR bracelet and verify it is valid — intact, named, state-conformant",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Signs of life present — provide standard treatment per protocols; DNR is not 'do not treat'",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Consult directly with the patient on treatment and transport — he can communicate and has capacity",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Full set of vitals with temperature and SpO2; keep pulse oximetry applied",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "SAMPLE plus respiratory history — home O2/nebulizer use, prior admissions and intubations",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Auscultate lungs; differentiate fluid-overload (CHF) from bronchospastic (COPD) etiology",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Maintain O2 at 2 L/min NC — SpO2 94% is within the 94–98% target; no escalation needed",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Screen for complaints UNRELATED to his terminal illness; deliver care with patience and compassion",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Offer albuterol 2.5 mg nebulized for his mild wheeze — treatment he DOES accept, at home",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Formally confirm capacity — A&O ×4, understands and accepts the risks of staying home",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Educate the son: a healthcare POA may only prescribe LIMITS of treatment, and only absent the patient's own directive",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "De-escalate with empathy — validate the son's fear and support him as family of a dying patient",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Keep scene safety in the management calculus as the son escalates",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Reassess and document repeat vitals during the conflict — attribute changes correctly",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Engage his physician/EOL team if possible; contact medical control if not — have the doctor speak with the son",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Coordinate the non-transport decision with the son (POA) in collaboration with the clinician",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Follow the DNR directive as closely as possible; use medical direction for any directive questions",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Continue comfort-focused care — affirm dying as normal; address psychological and spiritual needs",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Repeat vitals after de-escalation and nebulizer; document the response",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Document the DNR bracelet in detail (copy paperwork if possible); record the son's name and contact info",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Document the medical control/physician interaction and confirmation of the advance directive",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Document a final exam set: RR, SpO2, breath sounds, mental status, response to care",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Leave the family supported — son staying the night, warning signs reviewed, 911 re-contact welcomed",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "STOP the move immediately — a patient with capacity decides treatment and transport, not the POA",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Recognize the POA cannot compel transport — it may only prescribe LIMITS, absent formal written directions",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Get a physician on the phone now — engage his physician/EOL team or contact medical control",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Return him to his chair, restore the cannula, apologize — re-approach with patience and compassion",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Reassess scene safety — struggling patient, shouting family, degraded crew credibility",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    }
+  ],
+  "media": []
+}
