@@ -1,0 +1,457 @@
+{
+  "scenarioId": "cardiac-arrest-dnr-unverified-001",
+  "scenarioName": "Cardiac Arrest with Unverified DNR — Verbal Claim Only, When in Doubt Resuscitate",
+  "scenarioType": "Vital Signs",
+  "scenarioVersion": 2,
+  "scenarioTime": 900,
+  "scenarioMonitorType": 2,
+  "scenarioDefaultEnergy": 200,
+  "scenarioDefaultPacerThreshold": 55,
+  "isDemo": false,
+  "isALSILegacy": false,
+  "scenarioStory": {
+    "history": "88-year-old male with end-stage congestive heart failure, found unresponsive in his home hospital bed this morning when his son came in with his morning pills at approximately 07:45. He was last seen awake and in his usual state of health at about 22:00 last night when his wife helped him settle for bed — downtime is therefore unknown and the arrest is unwitnessed. The son reports his father's health has been declining for months; he sleeps in a hospital bed in the back bedroom and needs help with most daily activities. The son states firmly that his father has a signed DNR — \"His doctor signed it. He wanted to pass peacefully\" — but when asked for the paperwork he says it must be with the lawyer or in a safe deposit box. No physical DNR, POLST, or advance directive document can be produced on scene, the patient wears no identification bracelet on either wrist, and no one on scene presents healthcare power of attorney documentation. No bystander CPR has been performed.",
+    "discussion": "",
+    "course": "Initial Contact: An 88-year-old man is pulseless and apneic in a hospital bed, and standing between the crew and the patient is a calm, sincere, grieving son saying the words that make this a summative: \"he has a DNR.\" Nobody on this scene is lying — the family is probably right that a document exists somewhere — but MATC's DNR/advance-directives protocol is unambiguous about what counts: the document (or a state-sanctioned identification bracelet) must be IMMEDIATELY AVAILABLE, and it is only valid if it conforms to state specifications, is intact, and displays the patient's name. A verbal report of a DNR in a safe deposit box meets none of that. The protocol also names the crew's move when validity is in question: proceed with the resuscitation until additional information clarifies the best course of action — and its Patient Safety Consideration says it even more plainly: when the appropriateness of withholding resuscitation is questioned, initiate CPR immediately and contact medical direction. Meanwhile the cardiac arrest protocol demands the assessment stay focused — just enough to reveal pulselessness — with all further history gathered from the family WHILE treatment is ongoing. One more protocol nuance the source material glosses over: MATC recognizes that, in the absence of written directions, a person holding healthcare power of attorney may prescribe limits of treatment as specified from state to state — so the crew should ask; here, no one on scene has POA documentation either. The crew that passes this scenario confirms the arrest in seconds, asks one clear question about paperwork, explains their obligation with empathy, and puts hands on the chest. → Resuscitation initiated: The crew has made the correct call: with no valid exclusion to resuscitation immediately available, this is a cardiac arrest like any other, and the cardiac arrest protocol takes over. One provider delivers continuous, high-quality compressions — 100 to 120 per minute, 2 to 2.4 inches, full recoil — while the other applies the AED pads and analyzes. The AED announces: \"No shock advised.\" That changes the emphasis, not the effort — asystole earns no shock and an immediate return to the chest, with analysis repeating every two minutes and compressions continuing right up to each analysis. The airway is managed in a way that never interrupts the chest: passive oxygenation by NRB over an OPA, or BVM ventilation timed to the compression rhythm. In-line capnography on the ventilation circuit gives the crew the protocol's objective measure of compression quality. The family is still in the room — the son repeating that the DNR is real, the wife quietly holding her husband's hand — and the crew keeps working while keeping them informed. History continues to be gathered from the family exactly as the protocol directs: while treatment is ongoing. → Engine crew delegated: \"Engine 4 is here.\" Four more sets of hands just walked into a small bedroom, and what happens next determines whether this becomes a high-performance resuscitation or a crowd. MATC's answer is the pit-crew model: two rescuers on opposite sides of the chest alternating compressions every 100 to avoid fatigue, dedicated hands on two-person BVM ventilation, a crew member supporting the family, and one clinician — the code leader — stepping back to oversee the entire response rather than performing tasks. The protocol also tells the crew what NOT to do yet: avoid advanced airway placement during the first four cycles (~10 minutes) — the OPA/BVM strategy continues — and do not package or move the patient, because compressions during movement lose depth, rate, and recoil; the resuscitation happens right here in the bedroom. The AED advises no shock at every 2-minute analysis. With the resuscitation now running itself, the DNR question is still open — and the code leader's next move is the one the protocol names explicitly: contact medical direction. Delegation is what buys the code leader the freedom to make that call. → Medical control contacted: The lead student delivers the report: 88-year-old male, unwitnessed arrest, no shock advised at every AED analysis, high-quality CPR with OPA and BVM ventilation in progress, family adamant that a physician-signed DNR exists but unable to produce any document, bracelet, or POA paperwork. Medical control answers: \"Medic 8, received. Continue with full resuscitation efforts. If the family happens to locate the valid, signed DNR order, you may cease efforts at that time. Otherwise, continue the code.\" That order maps exactly onto the protocols: resuscitation proceeds until additional information clarifies the picture, and both the DNR and Termination protocols pre-authorize the off-ramp — if CPR has been initiated and a valid exclusion is SUBSEQUENTLY verified, CPR may be discontinued with medical direction. The crew should also recognize where this code is heading if nothing changes: the Termination protocol permits ceasing efforts in asystole after 20 minutes without ROSC when EtCO2 is under 20 mmHg, with all clinicians in agreement and medical direction consulted — for this crew, that decision runs through medical control, not the field. And through all of it, the family remains part of the crew's patient load — kept informed of what is being done, offered support. The scenario ends here, after the medical control call, per the summative design. The documentation burden is real: the verbal DNR claim, who made it, the request for the document, and the medical control order all belong in the report."
+  },
+  "patientInformation": {
+    "patientName": "Henry Aldrich",
+    "patientCondition": "Found unresponsive, apneic, and pulseless in his hospital bed at home. Family states he has a DNR but cannot produce any document or bracelet.",
+    "patientAge": 88,
+    "patientAgeUnit": "years",
+    "patientAgeCategory": 0,
+    "patientSex": 1,
+    "patientHeight": 170,
+    "patientWeight": 64,
+    "patientPhotoId": 100,
+    "patientAdmitted": 1
+  },
+  "labs": [],
+  "scenarioEvents": [
+    {
+      "type": "ScenarioEvent",
+      "name": "Initial Contact",
+      "description": "An 88-year-old man is pulseless and apneic in a hospital bed, and standing between the crew and the patient is a calm, sincere, grieving son saying the words that make this a summative: \"he has a DNR.\" Nobody on this scene is lying — the family is probably right that a document exists somewhere — but MATC's DNR/advance-directives protocol is unambiguous about what counts: the document (or a state-sanctioned identification bracelet) must be IMMEDIATELY AVAILABLE, and it is only valid if it conforms to state specifications, is intact, and displays the patient's name. A verbal report of a DNR in a safe deposit box meets none of that. The protocol also names the crew's move when validity is in question: proceed with the resuscitation until additional information clarifies the best course of action — and its Patient Safety Consideration says it even more plainly: when the appropriateness of withholding resuscitation is questioned, initiate CPR immediately and contact medical direction. Meanwhile the cardiac arrest protocol demands the assessment stay focused — just enough to reveal pulselessness — with all further history gathered from the family WHILE treatment is ongoing. One more protocol nuance the source material glosses over: MATC recognizes that, in the absence of written directions, a person holding healthcare power of attorney may prescribe limits of treatment as specified from state to state — so the crew should ask; here, no one on scene has POA documentation either. The crew that passes this scenario confirms the arrest in seconds, asks one clear question about paperwork, explains their obligation with empathy, and puts hands on the chest.",
+      "monitorType": 0,
+      "trendTime": 0,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 3,
+        "hr": 0,
+        "bpSys": 0,
+        "bpDia": 0,
+        "respRate": 0,
+        "spo2": 0,
+        "etco2": 0,
+        "temp": 36.1,
+        "obstruction": 0,
+        "custMeasure1": 148,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": false,
+        "spo2Attached": false,
+        "rrVisible": false,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Focused assessment — confirm apnea and pulselessness in seconds, not minutes",
+        "Ask for the physical DNR document or identification bracelet — it must be immediately available",
+        "Ask whether anyone present holds healthcare power of attorney documentation",
+        "Know what a VALID order requires: state specifications, intact, patient's name displayed",
+        "No document produced — proceed with resuscitation until the question is clarified"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Resuscitation initiated",
+      "description": "The crew has made the correct call: with no valid exclusion to resuscitation immediately available, this is a cardiac arrest like any other, and the cardiac arrest protocol takes over. One provider delivers continuous, high-quality compressions — 100 to 120 per minute, 2 to 2.4 inches, full recoil — while the other applies the AED pads and analyzes. The AED announces: \"No shock advised.\" That changes the emphasis, not the effort — asystole earns no shock and an immediate return to the chest, with analysis repeating every two minutes and compressions continuing right up to each analysis. The airway is managed in a way that never interrupts the chest: passive oxygenation by NRB over an OPA, or BVM ventilation timed to the compression rhythm. In-line capnography on the ventilation circuit gives the crew the protocol's objective measure of compression quality. The family is still in the room — the son repeating that the DNR is real, the wife quietly holding her husband's hand — and the crew keeps working while keeping them informed. History continues to be gathered from the family exactly as the protocol directs: while treatment is ongoing.",
+      "monitorType": 0,
+      "trendTime": 15,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 3,
+        "hr": 0,
+        "bpSys": 0,
+        "bpDia": 0,
+        "respRate": 0,
+        "spo2": 0,
+        "etco2": 24,
+        "temp": 36.1,
+        "obstruction": 0,
+        "custMeasure1": 148,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": false,
+        "spo2Attached": true,
+        "rrVisible": false,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Begin chest compressions immediately while the second rescuer sets up the AED",
+        "Compressions 100–120/min, 2–2.4 inches deep, full recoil, minimal interruptions",
+        "Apply AED pads and analyze — no shock advised; resume 2-minute compression cycles",
+        "Manage airway without interrupting compressions — passive O2 via NRB/OPA or BVM per protocol options",
+        "Place an OPA (no gag reflex); provide maximal oxygen supplementation during CPR",
+        "Capnography in line on the BVM — improve compression quality if EtCO2 falls below 10 mmHg"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Engine crew delegated",
+      "description": "\"Engine 4 is here.\" Four more sets of hands just walked into a small bedroom, and what happens next determines whether this becomes a high-performance resuscitation or a crowd. MATC's answer is the pit-crew model: two rescuers on opposite sides of the chest alternating compressions every 100 to avoid fatigue, dedicated hands on two-person BVM ventilation, a crew member supporting the family, and one clinician — the code leader — stepping back to oversee the entire response rather than performing tasks. The protocol also tells the crew what NOT to do yet: avoid advanced airway placement during the first four cycles (~10 minutes) — the OPA/BVM strategy continues — and do not package or move the patient, because compressions during movement lose depth, rate, and recoil; the resuscitation happens right here in the bedroom. The AED advises no shock at every 2-minute analysis. With the resuscitation now running itself, the DNR question is still open — and the code leader's next move is the one the protocol names explicitly: contact medical direction. Delegation is what buys the code leader the freedom to make that call.",
+      "monitorType": 0,
+      "trendTime": 20,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 3,
+        "hr": 0,
+        "bpSys": 0,
+        "bpDia": 0,
+        "respRate": 0,
+        "spo2": 0,
+        "etco2": 26,
+        "temp": 36.1,
+        "obstruction": 0,
+        "custMeasure1": 148,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": false,
+        "spo2Attached": true,
+        "rrVisible": false,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Assign pit-crew roles: alternating compressors, ventilations, family support, code leader oversight",
+        "Rotate compressors at least every 2 minutes to prevent fatigue and quality decay",
+        "Continue 2-minute cycles; pause only for AED analysis — no shock advised persists",
+        "Two-person BVM with engine support — just enough volume for visible chest rise",
+        "Stay with OPA/BVM — avoid advanced airway placement during first four cycles (~10 min)",
+        "Resuscitate on scene — do not package or move the patient during the code",
+        "Code leader steps aside and contacts medical direction about the unverified DNR"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Medical control contacted",
+      "description": "The lead student delivers the report: 88-year-old male, unwitnessed arrest, no shock advised at every AED analysis, high-quality CPR with OPA and BVM ventilation in progress, family adamant that a physician-signed DNR exists but unable to produce any document, bracelet, or POA paperwork. Medical control answers: \"Medic 8, received. Continue with full resuscitation efforts. If the family happens to locate the valid, signed DNR order, you may cease efforts at that time. Otherwise, continue the code.\" That order maps exactly onto the protocols: resuscitation proceeds until additional information clarifies the picture, and both the DNR and Termination protocols pre-authorize the off-ramp — if CPR has been initiated and a valid exclusion is SUBSEQUENTLY verified, CPR may be discontinued with medical direction. The crew should also recognize where this code is heading if nothing changes: the Termination protocol permits ceasing efforts in asystole after 20 minutes without ROSC when EtCO2 is under 20 mmHg, with all clinicians in agreement and medical direction consulted — for this crew, that decision runs through medical control, not the field. And through all of it, the family remains part of the crew's patient load — kept informed of what is being done, offered support. The scenario ends here, after the medical control call, per the summative design. The documentation burden is real: the verbal DNR claim, who made it, the request for the document, and the medical control order all belong in the report.",
+      "monitorType": 0,
+      "trendTime": 30,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 3,
+        "hr": 0,
+        "bpSys": 0,
+        "bpDia": 0,
+        "respRate": 0,
+        "spo2": 0,
+        "etco2": 25,
+        "temp": 36.1,
+        "obstruction": 0,
+        "custMeasure1": 148,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": false,
+        "spo2Attached": true,
+        "rrVisible": false,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Continue full resuscitation per medical direction — no valid exclusion has been produced",
+        "If a valid signed DNR is later produced and verified, CPR may be discontinued",
+        "Recognize this as a Termination-protocol situation: resuscitation begun, DNR order alleged",
+        "Know termination criteria: asystole, no ROSC after 20 min AND EtCO2 <20 mmHg — via medical direction",
+        "Keep the family informed of what is being done; offer support resources",
+        "Document the DNR claim in detail plus names and contact info of family on scene"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "CPR withheld on verbal DNR",
+      "description": "The crew took the son's word for it. No compressions, no pads, no ventilations — two providers standing in a quiet bedroom while a potentially resuscitatable patient accumulates downtime, waiting for a document that is in a safe deposit box across town. This is the critical failure of the summative. The MATC DNR protocol never authorizes this: its entry requirement is a document or bracelet IMMEDIATELY AVAILABLE, its validity test requires an intact, state-conforming order displaying the patient's name, and its instruction for any case where validity is in question is to proceed with resuscitation. The cardiac arrest protocol's exclusion applies only to an IDENTIFIABLE DNR order — and nothing has been identified, only described. Every minute that passes unrepaired makes the physiologic hole deeper: EtCO2 will start lower, and the 20-minute termination clock will eventually be reached without the patient ever having received the resuscitation the protocol owed him — every element of it, compressions, AED analysis, and ventilations, currently owed and undelivered. The recovery move is available at any moment and is written verbatim in the protocol's Patient Safety Considerations: initiate CPR immediately and contact medical direction. The instructor should let the discomfort build — the silence in the room IS the lesson — and reward the student who breaks it by moving to the chest.",
+      "monitorType": 0,
+      "trendTime": 40,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 3,
+        "hr": 0,
+        "bpSys": 0,
+        "bpDia": 0,
+        "respRate": 0,
+        "spo2": 0,
+        "etco2": 0,
+        "temp": 36,
+        "obstruction": 0,
+        "custMeasure1": 148,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": false,
+        "spo2Attached": false,
+        "rrVisible": false,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Recognize the error — a verbal claim is not an immediately available document or bracelet",
+        "Cardiac arrest protocol excludes only IDENTIFIABLE DNR orders — none has been identified",
+        "Initiate CPR immediately and contact medical direction — the protocol's exact instruction"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Delayed CPR started",
+      "description": "The crew found their footing — \"I understand this is difficult. Without the signed order here, we are required to begin\" — and went to work. Everything the cardiac arrest protocol asks of this crew now happens, just late: compressions while the AED is applied, analysis returning \"No shock advised,\" and airway management — OPA, oxygen, BVM — that never interrupts the chest. The physiology keeps score of the delay: initial EtCO2 comes up to only 18 mmHg — a number that now sits below the 20 mmHg line the Termination protocol will use at the 20-minute mark — a concrete, protocol-anchored way for the debrief to show that minutes of hesitation cost real prognosis. Medical direction still needs to be contacted about the unverified DNR, and the delayed start itself now belongs in the documentation: MATC mandates a QI review of every patient who receives CPR, and time-to-first-CPR is one of the protocol's named performance measures. The scenario ends in this branch with the resuscitation running and an honest debrief ahead: the destination was always the same — the only thing the hesitation changed was how much of the patient's chance survived the trip.",
+      "monitorType": 0,
+      "trendTime": 15,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 3,
+        "hr": 0,
+        "bpSys": 0,
+        "bpDia": 0,
+        "respRate": 0,
+        "spo2": 0,
+        "etco2": 18,
+        "temp": 36,
+        "obstruction": 0,
+        "custMeasure1": 148,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": false,
+        "spo2Attached": true,
+        "rrVisible": false,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Begin compressions now while the second rescuer sets up the AED",
+        "Analyze with the AED — no shock advised; resume 2-minute compression cycles",
+        "OPA and ventilations without interrupting compressions — maximal oxygen during CPR",
+        "Contact medical direction about the unverified DNR while resuscitation continues",
+        "Document times precisely — QI review of every CPR case will examine time to first CPR"
+      ],
+      "relatedSounds": []
+    }
+  ],
+  "checklist": [
+    {
+      "title": "Focused assessment — confirm apnea and pulselessness in seconds, not minutes",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Ask for the physical DNR document or identification bracelet — it must be immediately available",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Ask whether anyone present holds healthcare power of attorney documentation",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Know what a VALID order requires: state specifications, intact, patient's name displayed",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "No document produced — proceed with resuscitation until the question is clarified",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Begin chest compressions immediately while the second rescuer sets up the AED",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Compressions 100–120/min, 2–2.4 inches deep, full recoil, minimal interruptions",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Apply AED pads and analyze — no shock advised; resume 2-minute compression cycles",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Manage airway without interrupting compressions — passive O2 via NRB/OPA or BVM per protocol options",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Place an OPA (no gag reflex); provide maximal oxygen supplementation during CPR",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Capnography in line on the BVM — improve compression quality if EtCO2 falls below 10 mmHg",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Assign pit-crew roles: alternating compressors, ventilations, family support, code leader oversight",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Rotate compressors at least every 2 minutes to prevent fatigue and quality decay",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Continue 2-minute cycles; pause only for AED analysis — no shock advised persists",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Two-person BVM with engine support — just enough volume for visible chest rise",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Stay with OPA/BVM — avoid advanced airway placement during first four cycles (~10 min)",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Resuscitate on scene — do not package or move the patient during the code",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Code leader steps aside and contacts medical direction about the unverified DNR",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Continue full resuscitation per medical direction — no valid exclusion has been produced",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "If a valid signed DNR is later produced and verified, CPR may be discontinued",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Recognize this as a Termination-protocol situation: resuscitation begun, DNR order alleged",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Know termination criteria: asystole, no ROSC after 20 min AND EtCO2 <20 mmHg — via medical direction",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Keep the family informed of what is being done; offer support resources",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Document the DNR claim in detail plus names and contact info of family on scene",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Recognize the error — a verbal claim is not an immediately available document or bracelet",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Cardiac arrest protocol excludes only IDENTIFIABLE DNR orders — none has been identified",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Initiate CPR immediately and contact medical direction — the protocol's exact instruction",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Begin compressions now while the second rescuer sets up the AED",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Analyze with the AED — no shock advised; resume 2-minute compression cycles",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "OPA and ventilations without interrupting compressions — maximal oxygen during CPR",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Contact medical direction about the unverified DNR while resuscitation continues",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Document times precisely — QI review of every CPR case will examine time to first CPR",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    }
+  ],
+  "media": []
+}

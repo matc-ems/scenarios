@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cardiac Arrest with Unverified DNR — Verbal Claim Only, When in Doubt Resuscitate — Printable</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fff;--card:#fff;--card-border:#d6d3d1;--text:#1c1917;--text-secondary:#44403c;--text-muted:#78716c;--green:#166534;--red:#b91c1c;--red-light:#fef2f2;--red-border:#fecaca;--orange:#c2410c;--yellow:#a16207;--blue:#1e40af;--radius:8px;--radius-sm:6px}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'DM Sans','Helvetica Neue',Arial,sans-serif;background:#f5f5f4;color:var(--text);line-height:1.5;padding:24px;font-size:12pt}
+.sheet{max-width:800px;margin:0 auto;background:#fff;padding:28px 32px;box-shadow:0 1px 4px rgba(0,0,0,.08);border-radius:10px}
+.scenario-name{font-size:11pt;color:var(--text-secondary)}
+.card{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);margin-bottom:14px;overflow:hidden;break-inside:avoid}
+.card-title{font-size:9pt;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--text-muted);padding:10px 14px 6px;border-bottom:1px solid #f5f5f4}
+.card-content{padding:10px 14px 12px}
+.scene-row{padding:6px 0;border-bottom:1px solid #f5f5f4;display:grid;grid-template-columns:110px 1fr;gap:10px}
+.scene-row:last-child{border-bottom:none}
+.scene-label{font-family:'DM Mono',ui-monospace,monospace;font-size:8pt;font-weight:500;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted)}
+.scene-value{font-size:11pt;color:var(--text-secondary)}
+.cue-list{list-style:none;margin:0}
+.cue-list li{font-size:11pt;color:var(--text-secondary);padding:3px 0 3px 14px;position:relative}
+.cue-list li::before{content:'→';position:absolute;left:0;color:var(--text-muted);font-size:10pt}
+.sample-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:#e7e5e4}
+.sample-cell{background:#fff;padding:9px 12px}
+.sample-cell:nth-child(1),.sample-cell:nth-child(6){grid-column:1/-1}
+.sample-letter{font-family:'DM Mono',ui-monospace,monospace;font-size:11pt;font-weight:700;color:var(--green);margin-right:4px}
+.sample-name{font-size:8pt;font-weight:600;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted);margin-bottom:3px}
+.sample-text{font-size:10.5pt;color:var(--text-secondary);line-height:1.45}
+.patient-chips{display:flex;gap:8px;flex-wrap:wrap}
+.patient-chip{font-size:10pt;padding:4px 10px;background:#f5f5f4;border-radius:6px;color:var(--text-secondary)}
+.patient-chip strong{color:var(--text);font-weight:700}
+.phase-section{break-before:auto;page-break-before:auto;margin-top:12px}
+.phase-section .phase-card{break-after:avoid;page-break-after:avoid}
+.phase-card{border-left:4px solid var(--text)}
+.phase-card-branch{border-left-color:var(--red)}
+.branch-tag{display:inline-block;font-family:'DM Mono',ui-monospace,monospace;font-size:8pt;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--red);background:var(--red-light);padding:2px 8px;border-radius:4px;margin-bottom:6px}
+.phase-title{font-size:16pt;font-weight:700;margin-bottom:4px}
+.phase-trigger{font-family:'DM Mono',ui-monospace,monospace;font-size:9pt;color:var(--yellow);margin-bottom:6px}
+.phase-desc{font-size:11pt;color:var(--text-secondary);line-height:1.5}
+.ecg-label{font-family:'DM Mono',ui-monospace,monospace;font-size:10pt;color:var(--text-secondary);padding:8px 12px;background:#fafaf9;border-bottom:1px solid #f0efec}
+.vitals-grid{display:flex;flex-wrap:wrap;gap:4px 18px;padding:8px 14px}
+.vital-cell{background:transparent;padding:0;text-align:left;display:flex;align-items:baseline;gap:4px}
+.vital-cell.full-width{grid-column:auto}
+.vital-name{font-family:'DM Mono',ui-monospace,monospace;font-size:8pt;font-weight:600;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted)}
+.vital-val{font-family:'DM Mono',ui-monospace,monospace;font-size:11pt;font-weight:700;color:var(--text);line-height:1.1}
+.vital-unit{font-family:'DM Mono',ui-monospace,monospace;font-size:8pt;color:var(--text-muted)}
+.loc-block{margin-bottom:10px}
+.avpu-bar{display:flex;border:1px solid var(--card-border);border-radius:6px;overflow:hidden;margin-bottom:10px}
+.avpu-seg{flex:1;text-align:center;padding:6px 4px;font-family:'DM Mono',ui-monospace,monospace;font-size:10pt;font-weight:700;color:var(--text-muted);background:#fafaf9}
+.avpu-seg.sel-a{background:#ecfccb;color:var(--green)}
+.avpu-seg.sel-v{background:#fef3c7;color:var(--yellow)}
+.avpu-seg.sel-p{background:#ffedd5;color:var(--orange)}
+.avpu-seg.sel-u{background:var(--red-light);color:var(--red)}
+.gcs-detail{display:flex;flex-wrap:wrap;gap:6px 16px;padding:8px 14px;border:1px solid var(--card-border);border-radius:6px;margin-bottom:10px;align-items:baseline}
+.gcs-item{display:flex;align-items:baseline;gap:4px;padding:0;border:none}
+.gcs-item:last-of-type{border-bottom:none}
+.gcs-part{order:1;font-family:'DM Mono',ui-monospace,monospace;font-size:8pt;font-weight:600;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted)}
+.gcs-score{order:2;font-family:'DM Mono',ui-monospace,monospace;font-size:11pt;font-weight:700;color:var(--text)}
+.gcs-desc{order:3;font-size:9.5pt;color:var(--text-muted);font-style:italic}
+.gcs-desc::before{content:'('}
+.gcs-desc::after{content:')'}
+.gcs-total-row{display:flex;align-items:baseline;gap:4px;order:-1;padding:0;margin:0;border:none;font-family:'DM Mono',ui-monospace,monospace;font-size:8pt;font-weight:600;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted)}
+.gcs-total-row .gcs-total{font-family:'DM Mono',ui-monospace,monospace;font-size:12pt;font-weight:700;color:var(--text)}
+.finding-row{padding:6px 0;border-bottom:1px solid #f5f5f4;display:grid;grid-template-columns:100px 1fr;gap:10px}
+.finding-row:last-child{border-bottom:none}
+.finding-label{font-family:'DM Mono',ui-monospace,monospace;font-size:8pt;font-weight:500;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted)}
+.finding-value{font-size:10.5pt;color:var(--text-secondary)}
+.finding-speech{font-style:italic;color:var(--text-muted)}
+.findings-notes{list-style:none;margin:0}
+.findings-notes li{font-size:10pt;color:var(--text-secondary);padding:2px 0 2px 12px;position:relative}
+.findings-notes li::before{content:'·';position:absolute;left:2px;font-weight:700;color:var(--text-muted)}
+.action-row{display:flex;gap:10px;padding:10px 0;border-bottom:1px solid #f5f5f4;break-inside:avoid}
+.action-row:last-child{border-bottom:none}
+.action-box{width:14px;height:14px;border:1.5px solid var(--text-muted);border-radius:3px;flex-shrink:0;margin-top:3px}
+.action-body{flex:1;min-width:0}
+.action-head{display:flex;align-items:flex-start;gap:8px;margin-bottom:4px}
+.action-priority{display:inline-block;font-family:'DM Mono',ui-monospace,monospace;font-size:7.5pt;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:2px 6px;border-radius:3px;flex-shrink:0;margin-top:2px}
+.p-critical{background:var(--red-light);color:var(--red)}
+.p-important{background:#fff7ed;color:var(--orange)}
+.p-supp{background:#f5f5f4;color:var(--text-muted)}
+.action-text{font-size:11pt;font-weight:600;color:var(--text);line-height:1.35}
+.action-rationale{display:none}
+.action-excerpt{font-size:9.5pt;color:var(--text-secondary);line-height:1.5;font-style:italic;border-left:2px solid var(--card-border);padding:2px 0 2px 9px;margin:5px 0 4px 0}
+.action-ref{font-family:'DM Mono',ui-monospace,monospace;font-size:8pt;color:var(--text-muted);font-weight:600;text-transform:uppercase;letter-spacing:.5px;margin-top:2px}
+.action-head{margin-bottom:0}
+.action-row{padding:8px 0}
+@media print{
+  body{background:#fff;padding:0;font-size:10pt}
+  .sheet{box-shadow:none;max-width:none;padding:0.4in;border-radius:0}
+  .card{break-inside:avoid;margin-bottom:8px}
+  .card-title{padding:6px 10px 3px}
+  .card-content{padding:6px 10px 8px}
+}
+</style>
+</head>
+<body>
+<div class="sheet">
+  <div class="card"><div class="card-title">Scenario</div><div class="card-content"><div class="scenario-name">Cardiac Arrest with Unverified DNR — Verbal Claim Only, When in Doubt Resuscitate</div></div></div>
+  <div class="card"><div class="card-title">Patient</div><div class="card-content"><div class="patient-chips"><span class="patient-chip"><strong>Henry Aldrich</strong></span><span class="patient-chip">88 years male</span><span class="patient-chip">141 lbs (64 kg)</span><span class="patient-chip">5'7"</span><span class="patient-chip">CC: Found unresponsive, apneic, and pulseless in his hospital bed at home. Family states he has a DNR but cannot produce any document or bracelet.</span></div></div></div>
+  <div class="card"><div class="card-title">Scene</div><div class="card-content">
+    <div class="scene-row"><div class="scene-label">Dispatch</div><div class="scene-value">Medic 8, respond to 333 Serenity Lane for an 88-year-old male, unresponsive. The caller states they cannot wake the patient. Time out is 07:51.</div></div>
+    <div class="scene-row"><div class="scene-label">Location</div><div class="scene-value">Well-kept single-family home. The patient is in a back bedroom, lying supine in a hospital bed. Home oxygen concentrator in the corner (nasal cannula draped on the headboard, not on the patient), pill organizer and water glass on the nightstand. The room is quiet and calm.</div></div>
+    <div class="scene-row"><div class="scene-label">Time</div><div class="scene-value">Weekday morning; dispatched 07:51, on scene approximately 07:58</div></div>
+    <div class="scene-row"><div class="scene-label">Safety</div><div class="scene-value">No physical hazards. The scene is emotionally charged rather than dangerous: the family is calm, somber, and firmly opposed to resuscitation. The challenge is managing the family's wishes and the crew's legal duty at the same time — expect resistance to be verbal and grief-driven, not violent.</div></div>
+    <div class="scene-row"><div class="scene-label">Bystanders</div><div class="scene-value">The patient's son, a man in his 50s, meets the crew at the front door — calm but somber: &quot;Thank you for coming so quickly. That's my father, Henry. We tried to wake him for his morning pills, and he's completely unresponsive. I don't think he's breathing. Before you go in, you need to know he has a DNR. He would not want you to do anything.&quot; When asked for the paperwork or a bracelet: &quot;Well, I don't have it in my hand. It must be with his lawyer or in their safe deposit box. But I am telling you, he has one. His doctor signed it. He wanted to pass peacefully.&quot; The patient's wife, also elderly, sits in a chair at the bedside holding her husband's hand and says softly: &quot;Please... no heroics. It's not what he wanted.&quot;</div></div>
+  </div></div><div class="card"><div class="card-title">Visual Cues on Arrival</div><div class="card-content"><ul class="cue-list"><li>Elderly male lying supine in a hospital bed, completely still — no chest rise</li><li>Skin pale with cyanosis around the lips</li><li>No identification bracelet on either wrist; nothing posted on the wall, refrigerator, or nightstand</li><li>No DNR, POLST, or advance directive paperwork anywhere in view</li><li>No rigor, no dependent lividity — obvious-death criteria are NOT met</li><li>Home oxygen concentrator, hospital bed, pill organizer — a chronically ill patient cared for at home</li><li>Wife seated at the bedside holding the patient's hand; son standing in the doorway</li><li>Warm indoor environment — no reason to suspect hypothermia</li></ul></div></div>
+  <div class="card">
+    <div class="card-title">SAMPLE History</div>
+    <div class="card-content" style="padding:0">
+      <div class="sample-grid">
+        <div class="sample-cell"><div class="sample-name"><span class="sample-letter">S</span> Signs &amp; Symptoms</div><div class="sample-text">88-year-old male with end-stage congestive heart failure, found unresponsive in his home hospital bed this morning when his son came in with his morning pills at approximately 07:45. He was last seen awake and in his usual state of health at about 22:00 last night when his wife helped him settle for bed — downtime is therefore unknown and the arrest is unwitnessed. The son reports his father's health has been declining for months; he sleeps in a hospital bed in the back bedroom and needs help with most daily activities. The son states firmly that his father has a signed DNR — &quot;His doctor signed it. He wanted to pass peacefully&quot; — but when asked for the paperwork he says it must be with the lawyer or in a safe deposit box. No physical DNR, POLST, or advance directive document can be produced on scene, the patient wears no identification bracelet on either wrist, and no one on scene presents healthcare power of attorney documentation. No bystander CPR has been performed.</div></div>
+        <div class="sample-cell"><div class="sample-name"><span class="sample-letter">A</span> Allergies</div><div class="sample-text">NKDA</div></div>
+        <div class="sample-cell"><div class="sample-name"><span class="sample-letter">M</span> Medications</div><div class="sample-text">Furosemide 40 mg PO daily, Carvedilol 12.5 mg PO twice daily, Lisinopril 10 mg PO daily, Tiotropium inhaler daily, Aspirin 81 mg PO daily</div></div>
+        <div class="sample-cell"><div class="sample-name"><span class="sample-letter">P</span> Past Medical</div><div class="sample-text">End-stage congestive heart failure (per family, ejection fraction &quot;very low&quot;), Coronary artery disease — myocardial infarction approximately 10 years ago, COPD, on home oxygen at night, Chronic kidney disease, Osteoarthritis; largely bed-bound for the past two months</div></div>
+        <div class="sample-cell"><div class="sample-name"><span class="sample-letter">L</span> Last Intake</div><div class="sample-text">Small dinner around 18:00 last night; nothing since. He was found before taking his morning pills.</div></div>
+        <div class="sample-cell"><div class="sample-name"><span class="sample-letter">E</span> Events</div><div class="sample-text">Wife helped him to bed around 22:00 last night — his usual baseline. Son entered the bedroom at approximately 07:45 with his morning pills and could not wake him, saw no breathing, and called 911. No bystander CPR initiated. Family met the crew at the door stating he has a DNR and &quot;would not want you to do anything.&quot;</div></div>
+      </div>
+    </div>
+  </div>
+  <section class="phase-section">
+    <div class="card phase-card">
+      <div class="card-content">
+        
+        <div class="phase-title">Initial Contact</div>
+        
+        <div class="phase-desc">An 88-year-old man is pulseless and apneic in a hospital bed, and standing between the crew and the patient is a calm, sincere, grieving son saying the words that make this a summative: &quot;he has a DNR.&quot; Nobody on this scene is lying — the family is probably right that a document exists somewhere — but MATC's DNR/advance-directives protocol is unambiguous about what counts: the document (or a state-sanctioned identification bracelet) must be IMMEDIATELY AVAILABLE, and it is only valid if it conforms to state specifications, is intact, and displays the patient's name. A verbal report of a DNR in a safe deposit box meets none of that. The protocol also names the crew's move when validity is in question: proceed with the resuscitation until additional information clarifies the best course of action — and its Patient Safety Consideration says it even more plainly: when the appropriateness of withholding resuscitation is questioned, initiate CPR immediately and contact medical direction. Meanwhile the cardiac arrest protocol demands the assessment stay focused — just enough to reveal pulselessness — with all further history gathered from the family WHILE treatment is ongoing. One more protocol nuance the source material glosses over: MATC recognizes that, in the absence of written directions, a person holding healthcare power of attorney may prescribe limits of treatment as specified from state to state — so the crew should ask; here, no one on scene has POA documentation either. The crew that passes this scenario confirms the arrest in seconds, asks one clear question about paperwork, explains their obligation with empathy, and puts hands on the chest.</div>
+      </div>
+    </div>
+    <div class="card">
+    <div class="card-title">Vital Signs</div>
+    <div class="card-content" style="padding:0">
+      <div class="ecg-label">⏦ Asystole</div>
+      <div class="vitals-grid">
+        <div class="vital-cell"><div class="vital-name">HR</div><div class="vital-val">0</div><div class="vital-unit">bpm</div></div>
+        <div class="vital-cell"><div class="vital-name">BP</div><div class="vital-val">0/0</div><div class="vital-unit">mmHg</div></div>
+        <div class="vital-cell"><div class="vital-name">SpO₂</div><div class="vital-val">0%</div></div>
+        <div class="vital-cell"><div class="vital-name">RR</div><div class="vital-val">0</div><div class="vital-unit">/min</div></div>
+        <div class="vital-cell"><div class="vital-name">EtCO₂</div><div class="vital-val">0</div><div class="vital-unit">mmHg</div></div>
+        <div class="vital-cell"><div class="vital-name">Temp</div><div class="vital-val">97°</div><div class="vital-unit">F</div></div>
+        <div class="vital-cell full-width"><div class="vital-name">Glucose</div><div class="vital-val">148</div><div class="vital-unit">mg/dL</div></div>
+      </div>
+    </div>
+  </div>
+    <div class="card">
+    <div class="card-title">Clinical Findings</div>
+    <div class="card-content">
+      
+    <div class="loc-block">
+      <div class="avpu-bar"><div class="avpu-seg">A</div><div class="avpu-seg">V</div><div class="avpu-seg">P</div><div class="avpu-seg sel-u">U</div></div>
+      <div class="gcs-detail">
+    <div class="gcs-item"><span class="gcs-part">Eyes</span><span class="gcs-desc">No response</span><span class="gcs-score">1</span></div>
+    <div class="gcs-item"><span class="gcs-part">Verbal</span><span class="gcs-desc">No response</span><span class="gcs-score">1</span></div>
+    <div class="gcs-item"><span class="gcs-part">Motor</span><span class="gcs-desc">No response</span><span class="gcs-score">1</span></div>
+    <div class="gcs-total-row">Total GCS <span class="gcs-total">3</span></div>
+  </div>
+    </div>
+      <div class="finding-row"><div class="finding-label">Airway</div><div class="finding-value">Open when positioned; no secretions, no obstruction visible; no spontaneous respirations</div></div><div class="finding-row"><div class="finding-label">Breathing</div><div class="finding-value">APNEIC — no chest rise or fall observed; no breath sounds on auscultation</div></div><div class="finding-row"><div class="finding-label">Circulation</div><div class="finding-value">No carotid pulse palpable on a deliberate 10-second check; skin pale, cyanosis around the lips</div></div><div class="finding-row"><div class="finding-label">Skin</div><div class="finding-value">pale with circumoral cyanosis · cool · dry</div></div><div class="finding-row"><div class="finding-label">Pupils</div><div class="finding-value">Dilated at 5 mm, non-reactive bilaterally</div></div><div class="finding-row"><div class="finding-label">Motor</div><div class="finding-value">Flaccid; no spontaneous movement; no response to painful stimulus</div></div><div class="finding-row"><div class="finding-label">Speech</div><div class="finding-value"><span class="finding-speech">"(none — unresponsive, apneic, and pulseless)"</span></div></div><div class="finding-row"><div class="finding-label">Other</div><div class="finding-value"><ul class="findings-notes"><li>Unwitnessed arrest — last seen at baseline ~22:00 last night; downtime unknown</li><li>No bystander CPR prior to arrival</li><li>No DNR/POLST document, no identification bracelet on either wrist, no POA paperwork on scene</li><li>No rigor, no lividity — this is a workable arrest, not an obvious death</li><li>Son at the doorway: &quot;I am telling you, he has one. His doctor signed it.&quot;</li><li>Wife at the bedside, softly: &quot;Please... no heroics. It's not what he wanted.&quot;</li><li>Warm indoor environment — no evidence or suspicion of hypothermia</li></ul></div></div>
+    </div>
+  </div>
+    <div class="card">
+    <div class="card-title">Expected Actions</div>
+    <div class="card-content" style="padding:0 16px 12px"><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-critical">critical</span><div class="action-text">Focused assessment — confirm apnea and pulselessness in seconds, not minutes</div></div>
+        <div class="action-excerpt">Assessment: The patient in cardiac arrest requires a prompt balance of treatment and assessment. In cases of cardiac arrest, assessments should be focused and limited to obtaining enough information to reveal the patient is pulseless. Once pulselessness is discovered, treatment should be initiated immediately, and any further history must be obtained by bystanders while treatment is ongoing.</div>
+        <div class="action-ref">↳ MATC: Cardiac Arrest (VF/VT/Asystole/PEA)</div>
+      </div>
+    </div><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-critical">critical</span><div class="action-text">Ask for the physical DNR document or identification bracelet — it must be immediately available</div></div>
+        <div class="action-excerpt">Inclusion/Exclusion Criteria: Patients must have one of the following documents or a valid alternative (such as identification bracelet indicating wishes) immediately available. Note that some specifics can vary widely from state to state: Do Not Resuscitate (DNR) order – identifies that CPR and intubation are not to be initiated if the patient is in arrest or peri-arrest. The interventions covered by this order and the details around when to implement them can vary widely.</div>
+        <div class="action-ref">↳ MATC: Do Not Resuscitate Status/Advance Directives/Healthcare Power of Attorney (POA) Status</div>
+      </div>
+    </div><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-important">important</span><div class="action-text">Ask whether anyone present holds healthcare power of attorney documentation</div></div>
+        <div class="action-excerpt">As specified from state to state, in the absence of formal written directions (MOLST, POLST, DNR, advanced directives), and in the presence of a person with power of attorney for healthcare or healthcare proxy, that person may prescribe limits of treatment.</div>
+        <div class="action-ref">↳ MATC: Do Not Resuscitate Status/Advance Directives/Healthcare Power of Attorney (POA) Status</div>
+      </div>
+    </div><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-important">important</span><div class="action-text">Know what a VALID order requires: state specifications, intact, patient's name displayed</div></div>
+        <div class="action-excerpt">One of the documents above is valid when it meets all the following criteria: Conforms to the state specifications for color and construction; Is intact: it has not been cut, broken or shows signs of being repaired; Displays the patient's name and, if required by state law or regulation, the physician's name.</div>
+        <div class="action-ref">↳ MATC: Do Not Resuscitate Status/Advance Directives/Healthcare Power of Attorney (POA) Status</div>
+      </div>
+    </div><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-critical">critical</span><div class="action-text">No document produced — proceed with resuscitation until the question is clarified</div></div>
+        <div class="action-excerpt">If there is question about the validity of the form/instrument, the best course of action is to proceed with the resuscitation until additional information can be obtained to clarify the best course of action. Patient Safety Considerations: In cases where the patient's status is unclear and the appropriateness of withholding resuscitation efforts is questioned, EMS personnel should initiate CPR immediately and contact medical direction.</div>
+        <div class="action-ref">↳ MATC: Do Not Resuscitate Status/Advance Directives/Healthcare Power of Attorney (POA) Status</div>
+      </div>
+    </div></div>
+  </div>
+  </section><section class="phase-section">
+    <div class="card phase-card">
+      <div class="card-content">
+        
+        <div class="phase-title">Resuscitation initiated</div>
+        <div class="phase-trigger">Trigger: No valid DNR document, bracelet, or POA documentation could be produced. The crew explained their obligation to the family, began high-quality chest compressions, and applied the AED — rhythm analysis returns &quot;No shock advised.&quot;</div>
+        <div class="phase-desc">The crew has made the correct call: with no valid exclusion to resuscitation immediately available, this is a cardiac arrest like any other, and the cardiac arrest protocol takes over. One provider delivers continuous, high-quality compressions — 100 to 120 per minute, 2 to 2.4 inches, full recoil — while the other applies the AED pads and analyzes. The AED announces: &quot;No shock advised.&quot; That changes the emphasis, not the effort — asystole earns no shock and an immediate return to the chest, with analysis repeating every two minutes and compressions continuing right up to each analysis. The airway is managed in a way that never interrupts the chest: passive oxygenation by NRB over an OPA, or BVM ventilation timed to the compression rhythm. In-line capnography on the ventilation circuit gives the crew the protocol's objective measure of compression quality. The family is still in the room — the son repeating that the DNR is real, the wife quietly holding her husband's hand — and the crew keeps working while keeping them informed. History continues to be gathered from the family exactly as the protocol directs: while treatment is ongoing.</div>
+      </div>
+    </div>
+    <div class="card">
+    <div class="card-title">Vital Signs</div>
+    <div class="card-content" style="padding:0">
+      <div class="ecg-label">⏦ Asystole</div>
+      <div class="vitals-grid">
+        <div class="vital-cell"><div class="vital-name">HR</div><div class="vital-val">0</div><div class="vital-unit">bpm</div></div>
+        <div class="vital-cell"><div class="vital-name">BP</div><div class="vital-val">0/0</div><div class="vital-unit">mmHg</div></div>
+        <div class="vital-cell"><div class="vital-name">SpO₂</div><div class="vital-val">0%</div></div>
+        <div class="vital-cell"><div class="vital-name">RR</div><div class="vital-val">0</div><div class="vital-unit">/min</div></div>
+        <div class="vital-cell"><div class="vital-name">EtCO₂</div><div class="vital-val">24</div><div class="vital-unit">mmHg</div></div>
+        <div class="vital-cell"><div class="vital-name">Temp</div><div class="vital-val">97°</div><div class="vital-unit">F</div></div>
+        <div class="vital-cell full-width"><div class="vital-name">Glucose</div><div class="vital-val">148</div><div class="vital-unit">mg/dL</div></div>
+      </div>
+    </div>
+  </div>
+    <div class="card">
+    <div class="card-title">Clinical Findings</div>
+    <div class="card-content">
+      
+    <div class="loc-block">
+      <div class="avpu-bar"><div class="avpu-seg">A</div><div class="avpu-seg">V</div><div class="avpu-seg">P</div><div class="avpu-seg sel-u">U</div></div>
+      <div class="gcs-detail">
+    <div class="gcs-item"><span class="gcs-part">Eyes</span><span class="gcs-desc">No response</span><span class="gcs-score">1</span></div>
+    <div class="gcs-item"><span class="gcs-part">Verbal</span><span class="gcs-desc">No response</span><span class="gcs-score">1</span></div>
+    <div class="gcs-item"><span class="gcs-part">Motor</span><span class="gcs-desc">No response</span><span class="gcs-score">1</span></div>
+    <div class="gcs-total-row">Total GCS <span class="gcs-total">3</span></div>
+  </div>
+    </div>
+      <div class="finding-row"><div class="finding-label">Airway</div><div class="finding-value">OPA in place, no gag reflex; airway patent with adjunct</div></div><div class="finding-row"><div class="finding-label">Breathing</div><div class="finding-value">Apneic — ventilations provided by crew without interrupting compressions</div></div><div class="finding-row"><div class="finding-label">Circulation</div><div class="finding-value">No spontaneous pulse; compressions produce a palpable femoral pulsation; EtCO2 24 mmHg with good compressions</div></div><div class="finding-row"><div class="finding-label">Skin</div><div class="finding-value">pale with circumoral cyanosis · cool · dry</div></div><div class="finding-row"><div class="finding-label">Pupils</div><div class="finding-value">Dilated at 5 mm, non-reactive bilaterally</div></div><div class="finding-row"><div class="finding-label">Motor</div><div class="finding-value">Flaccid; no spontaneous movement</div></div><div class="finding-row"><div class="finding-label">Speech</div><div class="finding-value"><span class="finding-speech">"(none — arrest in progress)"</span></div></div><div class="finding-row"><div class="finding-label">Other</div><div class="finding-value"><ul class="findings-notes"><li>AED analysis: &quot;No shock advised&quot; — compressions resumed immediately</li><li>EtCO2 24 mmHg — compressions are effective (protocol floor is 10 mmHg)</li><li>Son, from the doorway: &quot;He didn't want this. I told you he has a DNR.&quot; — crew acknowledges and continues</li><li>Additional history gathered from family WHILE treatment is ongoing, per protocol</li><li>No evidence or suspicion of hypothermia — house is warm</li><li>Engine 4 has been dispatched and is minutes out</li></ul></div></div>
+    </div>
+  </div>
+    <div class="card">
+    <div class="card-title">Expected Actions</div>
+    <div class="card-content" style="padding:0 16px 12px"><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-critical">critical</span><div class="action-text">Begin chest compressions immediately while the second rescuer sets up the AED</div></div>
+        <div class="action-excerpt">Initiate chest compressions in cases with no bystander chest compressions or take over compressions from bystanders while a second rescuer is setting up the AED or defibrillator. For adults and children with unwitnessed cardiac arrest or for whom an AED is not immediately available, it is reasonable that CPR be initiated while the defibrillator equipment is being retrieved and applied and that defibrillation, if indicated, be attempted as soon as the device is ready for use.</div>
+        <div class="action-ref">↳ MATC: Cardiac Arrest (VF/VT/Asystole/PEA)</div>
+      </div>
+    </div><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-critical">critical</span><div class="action-text">Compressions 100–120/min, 2–2.4 inches deep, full recoil, minimal interruptions</div></div>
+        <div class="action-excerpt">Effective chest compressions are defined as: A rate of greater than 100 and less than 120 compressions/minute; Depth of at least 2 inches (5 cm) and less than 2.4 inches (6 cm) for adults and children; Allow for complete chest recoil (avoid leaning); Minimize interruptions in compressions; Avoid rescuer fatigue by rotating rescuers at least every 2 minutes.</div>
+        <div class="action-ref">↳ MATC: Cardiac Arrest (VF/VT/Asystole/PEA)</div>
+      </div>
+    </div><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-critical">critical</span><div class="action-text">Apply AED pads and analyze — no shock advised; resume 2-minute compression cycles</div></div>
+        <div class="action-excerpt">Continue the cycle of chest compressions for 2 minutes, followed by rhythm analysis and defibrillation of shockable rhythms. Continue chest compressions between completion of AED analysis and AED charging.</div>
+        <div class="action-ref">↳ MATC: Cardiac Arrest (VF/VT/Asystole/PEA)</div>
+      </div>
+    </div><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-critical">critical</span><div class="action-text">Manage airway without interrupting compressions — passive O2 via NRB/OPA or BVM per protocol options</div></div>
+        <div class="action-excerpt">The airway management strategy should not interrupt compressions. Passive ventilation: High flow oxygen is applied via a non-rebreather mask with an oropharyngeal airway. This may be applied for the first 3–4 compression cycles (6–8 minutes). BVM ventilation at 10 breaths per minute (1 breath every 10 compressions), applied during the upstroke between compressions, without interrupting the compressions. BVM ventilation with 30:2 ventilation to compression ratio.</div>
+        <div class="action-ref">↳ MATC: Cardiac Arrest (VF/VT/Asystole/PEA)</div>
+      </div>
+    </div><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-important">important</span><div class="action-text">Place an OPA (no gag reflex); provide maximal oxygen supplementation during CPR</div></div>
+        <div class="action-excerpt">During CPR, maximal oxygen supplementation should be provided. Oropharyngeal airways (OPA) or nasopharyngeal airways (NPA) can be placed if needed to maintain a patent airway and make BVM ventilation more effective: OPA are used for patients without gag reflex; NPA are used for patients with gag reflex.</div>
+        <div class="action-ref">↳ MATC: Airway Management (Includes RSI)</div>
+      </div>
+    </div><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-important">important</span><div class="action-text">Capnography in line on the BVM — improve compression quality if EtCO2 falls below 10 mmHg</div></div>
+        <div class="action-excerpt">Quantitative end-tidal capnography (EtCO2) should be used to monitor effectiveness of chest compressions: If EtCO2 less than 10 mmHg during the initial phases of resuscitation, attempt to improve chest compression quality.</div>
+        <div class="action-ref">↳ MATC: Cardiac Arrest (VF/VT/Asystole/PEA)</div>
+      </div>
+    </div></div>
+  </div>
+  </section><section class="phase-section">
+    <div class="card phase-card">
+      <div class="card-content">
+        
+        <div class="phase-title">Engine crew delegated</div>
+        <div class="phase-trigger">Trigger: Engine 4 arrives immediately after compressions are underway and pads are placed. The lead student assigns pit-crew roles: two engine firefighters alternate compressions, one manages two-person BVM ventilations with the partner, one supports the family, and the lead student assumes code leader.</div>
+        <div class="phase-desc">&quot;Engine 4 is here.&quot; Four more sets of hands just walked into a small bedroom, and what happens next determines whether this becomes a high-performance resuscitation or a crowd. MATC's answer is the pit-crew model: two rescuers on opposite sides of the chest alternating compressions every 100 to avoid fatigue, dedicated hands on two-person BVM ventilation, a crew member supporting the family, and one clinician — the code leader — stepping back to oversee the entire response rather than performing tasks. The protocol also tells the crew what NOT to do yet: avoid advanced airway placement during the first four cycles (~10 minutes) — the OPA/BVM strategy continues — and do not package or move the patient, because compressions during movement lose depth, rate, and recoil; the resuscitation happens right here in the bedroom. The AED advises no shock at every 2-minute analysis. With the resuscitation now running itself, the DNR question is still open — and the code leader's next move is the one the protocol names explicitly: contact medical direction. Delegation is what buys the code leader the freedom to make that call.</div>
+      </div>
+    </div>
+    <div class="card">
+    <div class="card-title">Vital Signs</div>
+    <div class="card-content" style="padding:0">
+      <div class="ecg-label">⏦ Asystole</div>
+      <div class="vitals-grid">
+        <div class="vital-cell"><div class="vital-name">HR</div><div class="vital-val">0</div><div class="vital-unit">bpm</div></div>
+        <div class="vital-cell"><div class="vital-name">BP</div><div class="vital-val">0/0</div><div class="vital-unit">mmHg</div></div>
+        <div class="vital-cell"><div class="vital-name">SpO₂</div><div class="vital-val">0%</div></div>
+        <div class="vital-cell"><div class="vital-name">RR</div><div class="vital-val">0</div><div class="vital-unit">/min</div></div>
+        <div class="vital-cell"><div class="vital-name">EtCO₂</div><div class="vital-val">26</div><div class="vital-unit">mmHg</div></div>
+        <div class="vital-cell"><div class="vital-name">Temp</div><div class="vital-val">97°</div><div class="vital-unit">F</div></div>
+        <div class="vital-cell full-width"><div class="vital-name">Glucose</div><div class="vital-val">148</div><div class="vital-unit">mg/dL</div></div>
+      </div>
+    </div>
+  </div>
+    <div class="card">
+    <div class="card-title">Clinical Findings</div>
+    <div class="card-content">
+      
+    <div class="loc-block">
+      <div class="avpu-bar"><div class="avpu-seg">A</div><div class="avpu-seg">V</div><div class="avpu-seg">P</div><div class="avpu-seg sel-u">U</div></div>
+      <div class="gcs-detail">
+    <div class="gcs-item"><span class="gcs-part">Eyes</span><span class="gcs-desc">No response</span><span class="gcs-score">1</span></div>
+    <div class="gcs-item"><span class="gcs-part">Verbal</span><span class="gcs-desc">No response</span><span class="gcs-score">1</span></div>
+    <div class="gcs-item"><span class="gcs-part">Motor</span><span class="gcs-desc">No response</span><span class="gcs-score">1</span></div>
+    <div class="gcs-total-row">Total GCS <span class="gcs-total">3</span></div>
+  </div>
+    </div>
+      <div class="finding-row"><div class="finding-label">Airway</div><div class="finding-value">OPA in place; BVM ventilation coordinated with compressions, no interruptions</div></div><div class="finding-row"><div class="finding-label">Breathing</div><div class="finding-value">Apneic — ventilated by crew; equal chest rise with BVM</div></div><div class="finding-row"><div class="finding-label">Circulation</div><div class="finding-value">No spontaneous pulse; continuous compressions with rescuers alternating every 100 compressions; EtCO2 26 mmHg</div></div><div class="finding-row"><div class="finding-label">Skin</div><div class="finding-value">pale with circumoral cyanosis · cool · dry</div></div><div class="finding-row"><div class="finding-label">Pupils</div><div class="finding-value">Dilated at 5 mm, non-reactive bilaterally</div></div><div class="finding-row"><div class="finding-label">Motor</div><div class="finding-value">Flaccid; no spontaneous movement</div></div><div class="finding-row"><div class="finding-label">Speech</div><div class="finding-value"><span class="finding-speech">"(none — arrest in progress)"</span></div></div><div class="finding-row"><div class="finding-label">Other</div><div class="finding-value"><ul class="findings-notes"><li>AED analysis at each 2-minute cycle: &quot;No shock advised&quot; every time</li><li>EtCO2 26 mmHg with rotated, fresh compressors</li><li>Two-person BVM ventilation with engine crew — equal chest rise, no interruption to compressions</li><li>Roles assigned and verbalized — no duplicated or missed tasks</li><li>Patient remains where found — no packaging or movement during resuscitation</li><li>Son has stepped into the hallway with a firefighter, on the phone trying to reach the father's lawyer about the DNR</li><li>Wife remains seated, holding the patient's hand; a crew member keeps her informed</li></ul></div></div>
+    </div>
+  </div>
+    <div class="card">
+    <div class="card-title">Expected Actions</div>
+    <div class="card-content" style="padding:0 16px 12px"><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-critical">critical</span><div class="action-text">Assign pit-crew roles: alternating compressors, ventilations, family support, code leader oversight</div></div>
+        <div class="action-excerpt">Ideally, clinicians in each EMS agency will use a &quot;pit crew&quot; approach when using this protocol to ensure the most effective and efficient cardiac arrest care. Rescuer 1 and 2 set up on opposite sides of patient's chest and perform continuous chest compressions, alternating after every 100 compressions to avoid fatigue. One responding clinician assumes code leader position overseeing the entire response. Use a CPR checklist to ensure that all best practices are followed during CPR.</div>
+        <div class="action-ref">↳ MATC: Cardiac Arrest (VF/VT/Asystole/PEA)</div>
+      </div>
+    </div><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-important">important</span><div class="action-text">Rotate compressors at least every 2 minutes to prevent fatigue and quality decay</div></div>
+        <div class="action-excerpt">Avoid rescuer fatigue by rotating rescuers at least every 2 minutes. Some EMS pit crew approaches use a clinician on either side of the chest, alternating compressions every minute or every 100 compressions to avoid fatigue.</div>
+        <div class="action-ref">↳ MATC: Cardiac Arrest (VF/VT/Asystole/PEA)</div>
+      </div>
+    </div><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-critical">critical</span><div class="action-text">Continue 2-minute cycles; pause only for AED analysis — no shock advised persists</div></div>
+        <div class="action-excerpt">Continue the cycle of chest compressions for 2 minutes, followed by rhythm analysis and defibrillation of shockable rhythms. Chest compressions are only interrupted during rhythm check (AED analysis or manual) and defibrillation shocks – Continue compressions when AED/defibrillator is charging.</div>
+        <div class="action-ref">↳ MATC: Cardiac Arrest (VF/VT/Asystole/PEA)</div>
+      </div>
+    </div><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-important">important</span><div class="action-text">Two-person BVM with engine support — just enough volume for visible chest rise</div></div>
+        <div class="action-excerpt">Use bag-valve-mask (BVM) ventilation in the setting of respiratory failure or arrest. Two-person, two-thumbs-up BVM ventilation is preferred. Ventilate with just enough volume to see chest rise, approximately 6–8 mL/kg ideal body weight.</div>
+        <div class="action-ref">↳ MATC: Airway Management (Includes RSI)</div>
+      </div>
+    </div><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-important">important</span><div class="action-text">Stay with OPA/BVM — avoid advanced airway placement during first four cycles (~10 min)</div></div>
+        <div class="action-excerpt">During the first four cycles of compressions/defibrillation (approximately 10 minutes) avoid advanced airway placement.</div>
+        <div class="action-ref">↳ MATC: Cardiac Arrest (VF/VT/Asystole/PEA)</div>
+      </div>
+    </div><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-important">important</span><div class="action-text">Resuscitate on scene — do not package or move the patient during the code</div></div>
+        <div class="action-excerpt">Performing manual chest compressions in a moving vehicle may pose a clinician safety concern. In addition, manual chest compressions during patient movement are less effective in regard to hands on time, depth, recoil and rate. Ideally, patients should be resuscitated as close to the scene as operationally possible.</div>
+        <div class="action-ref">↳ MATC: Cardiac Arrest (VF/VT/Asystole/PEA)</div>
+      </div>
+    </div><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-critical">critical</span><div class="action-text">Code leader steps aside and contacts medical direction about the unverified DNR</div></div>
+        <div class="action-excerpt">Patient Safety Considerations: In cases where the patient's status is unclear and the appropriateness of withholding resuscitation efforts is questioned, EMS personnel should initiate CPR immediately and contact medical direction.</div>
+        <div class="action-ref">↳ MATC: Do Not Resuscitate Status/Advance Directives/Healthcare Power of Attorney (POA) Status</div>
+      </div>
+    </div></div>
+  </div>
+  </section><section class="phase-section">
+    <div class="card phase-card">
+      <div class="card-content">
+        
+        <div class="phase-title">Medical control contacted</div>
+        <div class="phase-trigger">Trigger: The lead student contacts medical control with a clear, concise report. Medical control responds: &quot;Medic 8, received. Continue with full resuscitation efforts. If the family happens to locate the valid, signed DNR order, you may cease efforts at that time. Otherwise, continue the code.&quot;</div>
+        <div class="phase-desc">The lead student delivers the report: 88-year-old male, unwitnessed arrest, no shock advised at every AED analysis, high-quality CPR with OPA and BVM ventilation in progress, family adamant that a physician-signed DNR exists but unable to produce any document, bracelet, or POA paperwork. Medical control answers: &quot;Medic 8, received. Continue with full resuscitation efforts. If the family happens to locate the valid, signed DNR order, you may cease efforts at that time. Otherwise, continue the code.&quot; That order maps exactly onto the protocols: resuscitation proceeds until additional information clarifies the picture, and both the DNR and Termination protocols pre-authorize the off-ramp — if CPR has been initiated and a valid exclusion is SUBSEQUENTLY verified, CPR may be discontinued with medical direction. The crew should also recognize where this code is heading if nothing changes: the Termination protocol permits ceasing efforts in asystole after 20 minutes without ROSC when EtCO2 is under 20 mmHg, with all clinicians in agreement and medical direction consulted — for this crew, that decision runs through medical control, not the field. And through all of it, the family remains part of the crew's patient load — kept informed of what is being done, offered support. The scenario ends here, after the medical control call, per the summative design. The documentation burden is real: the verbal DNR claim, who made it, the request for the document, and the medical control order all belong in the report.</div>
+      </div>
+    </div>
+    <div class="card">
+    <div class="card-title">Vital Signs</div>
+    <div class="card-content" style="padding:0">
+      <div class="ecg-label">⏦ Asystole</div>
+      <div class="vitals-grid">
+        <div class="vital-cell"><div class="vital-name">HR</div><div class="vital-val">0</div><div class="vital-unit">bpm</div></div>
+        <div class="vital-cell"><div class="vital-name">BP</div><div class="vital-val">0/0</div><div class="vital-unit">mmHg</div></div>
+        <div class="vital-cell"><div class="vital-name">SpO₂</div><div class="vital-val">0%</div></div>
+        <div class="vital-cell"><div class="vital-name">RR</div><div class="vital-val">0</div><div class="vital-unit">/min</div></div>
+        <div class="vital-cell"><div class="vital-name">EtCO₂</div><div class="vital-val">25</div><div class="vital-unit">mmHg</div></div>
+        <div class="vital-cell"><div class="vital-name">Temp</div><div class="vital-val">97°</div><div class="vital-unit">F</div></div>
+        <div class="vital-cell full-width"><div class="vital-name">Glucose</div><div class="vital-val">148</div><div class="vital-unit">mg/dL</div></div>
+      </div>
+    </div>
+  </div>
+    <div class="card">
+    <div class="card-title">Clinical Findings</div>
+    <div class="card-content">
+      
+    <div class="loc-block">
+      <div class="avpu-bar"><div class="avpu-seg">A</div><div class="avpu-seg">V</div><div class="avpu-seg">P</div><div class="avpu-seg sel-u">U</div></div>
+      <div class="gcs-detail">
+    <div class="gcs-item"><span class="gcs-part">Eyes</span><span class="gcs-desc">No response</span><span class="gcs-score">1</span></div>
+    <div class="gcs-item"><span class="gcs-part">Verbal</span><span class="gcs-desc">No response</span><span class="gcs-score">1</span></div>
+    <div class="gcs-item"><span class="gcs-part">Motor</span><span class="gcs-desc">No response</span><span class="gcs-score">1</span></div>
+    <div class="gcs-total-row">Total GCS <span class="gcs-total">3</span></div>
+  </div>
+    </div>
+      <div class="finding-row"><div class="finding-label">Airway</div><div class="finding-value">OPA in place; BVM ventilation continues without interrupting compressions</div></div><div class="finding-row"><div class="finding-label">Breathing</div><div class="finding-value">Apneic — ventilated by crew</div></div><div class="finding-row"><div class="finding-label">Circulation</div><div class="finding-value">No spontaneous pulse; high-quality compressions ongoing with rotating compressors; EtCO2 25 mmHg</div></div><div class="finding-row"><div class="finding-label">Skin</div><div class="finding-value">pale with circumoral cyanosis · cool · dry</div></div><div class="finding-row"><div class="finding-label">Pupils</div><div class="finding-value">Dilated at 5 mm, non-reactive bilaterally</div></div><div class="finding-row"><div class="finding-label">Motor</div><div class="finding-value">Flaccid; no spontaneous movement</div></div><div class="finding-row"><div class="finding-label">Speech</div><div class="finding-value"><span class="finding-speech">"(none — arrest in progress)"</span></div></div><div class="finding-row"><div class="finding-label">Other</div><div class="finding-value"><ul class="findings-notes"><li>Medical control order received and repeated back: continue full resuscitation; cease only if valid signed DNR produced</li><li>AED continues to advise no shock at each analysis; no ROSC</li><li>Son still attempting to reach the lawyer's office; no document has surfaced</li><li>Crew member remains with the wife, explaining what is being done</li><li>Crew aware of termination criteria should efforts remain ineffective: asystole, 20 minutes, EtCO2 less than 20 mmHg, crew consensus, medical direction</li><li>SCENARIO ENDS after the medical control call — proceed to debrief</li></ul></div></div>
+    </div>
+  </div>
+    <div class="card">
+    <div class="card-title">Expected Actions</div>
+    <div class="card-content" style="padding:0 16px 12px"><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-critical">critical</span><div class="action-text">Continue full resuscitation per medical direction — no valid exclusion has been produced</div></div>
+        <div class="action-excerpt">If there is question about the validity of the form/instrument, the best course of action is to proceed with the resuscitation until additional information can be obtained to clarify the best course of action.</div>
+        <div class="action-ref">↳ MATC: Do Not Resuscitate Status/Advance Directives/Healthcare Power of Attorney (POA) Status</div>
+      </div>
+    </div><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-critical">critical</span><div class="action-text">If a valid signed DNR is later produced and verified, CPR may be discontinued</div></div>
+        <div class="action-excerpt">If CPR has been initiated and a valid exclusion to resuscitation has been subsequently verified, CPR may be discontinued, and medical direction contacted as needed.</div>
+        <div class="action-ref">↳ MATC: Do Not Resuscitate Status/Advance Directives/Healthcare Power of Attorney (POA) Status</div>
+      </div>
+    </div><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-important">important</span><div class="action-text">Recognize this as a Termination-protocol situation: resuscitation begun, DNR order alleged</div></div>
+        <div class="action-excerpt">Inclusion Criteria: When resuscitation has begun and it is found that the patient has a DNR order or other actionable medical order (e.g., POLST/MOLST form).</div>
+        <div class="action-ref">↳ MATC: Termination of Resuscitative Efforts</div>
+      </div>
+    </div><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-important">important</span><div class="action-text">Know termination criteria: asystole, no ROSC after 20 min AND EtCO2 &lt;20 mmHg — via medical direction</div></div>
+        <div class="action-excerpt">Resuscitation may be terminated in asystole and slow wide complex PEA if there is No return of spontaneous circulation after 20 minutes in the absence of hypothermia AND The EtCO2 is less than 20 mmHg. All EMS clinicians involved in the patient's care agree that discontinuation of the resuscitation is appropriate. Consider contacting medical direction before termination of resuscitative efforts.</div>
+        <div class="action-ref">↳ MATC: Termination of Resuscitative Efforts</div>
+      </div>
+    </div><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-important">important</span><div class="action-text">Keep the family informed of what is being done; offer support resources</div></div>
+        <div class="action-excerpt">Focus attention on the family and/or bystanders. Explain the rationale for termination. Consider support for family members such as other family, friends, clergy, faith leaders, or chaplains.</div>
+        <div class="action-ref">↳ MATC: Termination of Resuscitative Efforts</div>
+      </div>
+    </div><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-important">important</span><div class="action-text">Document the DNR claim in detail plus names and contact info of family on scene</div></div>
+        <div class="action-excerpt">Key Documentation Elements: Detailed description of the valid exclusion to resuscitation documentation used to guide resuscitation including a copy of the document if possible. Names/contact information for significant bystanders.</div>
+        <div class="action-ref">↳ MATC: Do Not Resuscitate Status/Advance Directives/Healthcare Power of Attorney (POA) Status</div>
+      </div>
+    </div></div>
+  </div>
+  </section><section class="phase-section">
+    <div class="card phase-card phase-card-branch">
+      <div class="card-content">
+        <div class="branch-tag">Improper Care Branch</div>
+        <div class="phase-title">CPR withheld on verbal DNR</div>
+        <div class="phase-trigger">Trigger: The crew withheld CPR based solely on the family's verbal statement that a DNR exists. No physical order, bracelet, or POA documentation was ever produced or examined. The crew stands by while no resuscitation occurs and downtime accumulates.</div>
+        <div class="phase-desc">The crew took the son's word for it. No compressions, no pads, no ventilations — two providers standing in a quiet bedroom while a potentially resuscitatable patient accumulates downtime, waiting for a document that is in a safe deposit box across town. This is the critical failure of the summative. The MATC DNR protocol never authorizes this: its entry requirement is a document or bracelet IMMEDIATELY AVAILABLE, its validity test requires an intact, state-conforming order displaying the patient's name, and its instruction for any case where validity is in question is to proceed with resuscitation. The cardiac arrest protocol's exclusion applies only to an IDENTIFIABLE DNR order — and nothing has been identified, only described. Every minute that passes unrepaired makes the physiologic hole deeper: EtCO2 will start lower, and the 20-minute termination clock will eventually be reached without the patient ever having received the resuscitation the protocol owed him — every element of it, compressions, AED analysis, and ventilations, currently owed and undelivered. The recovery move is available at any moment and is written verbatim in the protocol's Patient Safety Considerations: initiate CPR immediately and contact medical direction. The instructor should let the discomfort build — the silence in the room IS the lesson — and reward the student who breaks it by moving to the chest.</div>
+      </div>
+    </div>
+    <div class="card">
+    <div class="card-title">Vital Signs</div>
+    <div class="card-content" style="padding:0">
+      <div class="ecg-label">⏦ Asystole</div>
+      <div class="vitals-grid">
+        <div class="vital-cell"><div class="vital-name">HR</div><div class="vital-val">0</div><div class="vital-unit">bpm</div></div>
+        <div class="vital-cell"><div class="vital-name">BP</div><div class="vital-val">0/0</div><div class="vital-unit">mmHg</div></div>
+        <div class="vital-cell"><div class="vital-name">SpO₂</div><div class="vital-val">0%</div></div>
+        <div class="vital-cell"><div class="vital-name">RR</div><div class="vital-val">0</div><div class="vital-unit">/min</div></div>
+        <div class="vital-cell"><div class="vital-name">EtCO₂</div><div class="vital-val">0</div><div class="vital-unit">mmHg</div></div>
+        <div class="vital-cell"><div class="vital-name">Temp</div><div class="vital-val">96.8°</div><div class="vital-unit">F</div></div>
+        <div class="vital-cell full-width"><div class="vital-name">Glucose</div><div class="vital-val">148</div><div class="vital-unit">mg/dL</div></div>
+      </div>
+    </div>
+  </div>
+    <div class="card">
+    <div class="card-title">Clinical Findings</div>
+    <div class="card-content">
+      
+    <div class="loc-block">
+      <div class="avpu-bar"><div class="avpu-seg">A</div><div class="avpu-seg">V</div><div class="avpu-seg">P</div><div class="avpu-seg sel-u">U</div></div>
+      <div class="gcs-detail">
+    <div class="gcs-item"><span class="gcs-part">Eyes</span><span class="gcs-desc">No response</span><span class="gcs-score">1</span></div>
+    <div class="gcs-item"><span class="gcs-part">Verbal</span><span class="gcs-desc">No response</span><span class="gcs-score">1</span></div>
+    <div class="gcs-item"><span class="gcs-part">Motor</span><span class="gcs-desc">No response</span><span class="gcs-score">1</span></div>
+    <div class="gcs-total-row">Total GCS <span class="gcs-total">3</span></div>
+  </div>
+    </div>
+      <div class="finding-row"><div class="finding-label">Airway</div><div class="finding-value">No spontaneous respirations; no adjunct placed; no intervention performed</div></div><div class="finding-row"><div class="finding-label">Breathing</div><div class="finding-value">Apneic — no ventilations being provided</div></div><div class="finding-row"><div class="finding-label">Circulation</div><div class="finding-value">Pulseless — no compressions being performed; cyanosis deepening</div></div><div class="finding-row"><div class="finding-label">Skin</div><div class="finding-value">pale, cyanosis spreading beyond the lips · cool · dry</div></div><div class="finding-row"><div class="finding-label">Pupils</div><div class="finding-value">Dilated at 5 mm, non-reactive bilaterally</div></div><div class="finding-row"><div class="finding-label">Motor</div><div class="finding-value">Flaccid; no spontaneous movement</div></div><div class="finding-row"><div class="finding-label">Speech</div><div class="finding-value"><span class="finding-speech">"(none — unresponsive, apneic, and pulseless)"</span></div></div><div class="finding-row"><div class="finding-label">Other</div><div class="finding-value"><ul class="findings-notes"><li>NO resuscitation in progress — downtime now extending minutes past patient contact</li><li>No document, bracelet, or POA paperwork has been produced or examined</li><li>Son repeats: &quot;His doctor signed it. He wanted to pass peacefully.&quot; — sincere, and still not a medical order</li><li>The DNR protocol's requirement — document or bracelet IMMEDIATELY AVAILABLE — has not been met</li><li>Cardiac arrest protocol excludes only patients with an IDENTIFIABLE DNR order; none identified</li><li>Recovery is one decision away: initiate CPR immediately and contact medical direction</li></ul></div></div>
+    </div>
+  </div>
+    <div class="card">
+    <div class="card-title">Expected Actions</div>
+    <div class="card-content" style="padding:0 16px 12px"><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-critical">critical</span><div class="action-text">Recognize the error — a verbal claim is not an immediately available document or bracelet</div></div>
+        <div class="action-excerpt">Patients must have one of the following documents or a valid alternative (such as identification bracelet indicating wishes) immediately available.</div>
+        <div class="action-ref">↳ MATC: Do Not Resuscitate Status/Advance Directives/Healthcare Power of Attorney (POA) Status</div>
+      </div>
+    </div><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-critical">critical</span><div class="action-text">Cardiac arrest protocol excludes only IDENTIFIABLE DNR orders — none has been identified</div></div>
+        <div class="action-excerpt">Exclusion Criteria: Patients with identifiable Do Not Resuscitate (or equivalent such as POLST) order.</div>
+        <div class="action-ref">↳ MATC: Cardiac Arrest (VF/VT/Asystole/PEA)</div>
+      </div>
+    </div><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-critical">critical</span><div class="action-text">Initiate CPR immediately and contact medical direction — the protocol's exact instruction</div></div>
+        <div class="action-excerpt">Patient Safety Considerations: In cases where the patient's status is unclear and the appropriateness of withholding resuscitation efforts is questioned, EMS personnel should initiate CPR immediately and contact medical direction.</div>
+        <div class="action-ref">↳ MATC: Do Not Resuscitate Status/Advance Directives/Healthcare Power of Attorney (POA) Status</div>
+      </div>
+    </div></div>
+  </div>
+  </section><section class="phase-section">
+    <div class="card phase-card phase-card-branch">
+      <div class="card-content">
+        <div class="branch-tag">Improper Care Branch</div>
+        <div class="phase-title">Delayed CPR started</div>
+        <div class="phase-trigger">Trigger: After minutes of standing by, the crew recognizes that no valid exclusion exists, explains their duty to the family with empathy, and initiates full resuscitation — delayed. Initial EtCO2 reflects the accumulated downtime.</div>
+        <div class="phase-desc">The crew found their footing — &quot;I understand this is difficult. Without the signed order here, we are required to begin&quot; — and went to work. Everything the cardiac arrest protocol asks of this crew now happens, just late: compressions while the AED is applied, analysis returning &quot;No shock advised,&quot; and airway management — OPA, oxygen, BVM — that never interrupts the chest. The physiology keeps score of the delay: initial EtCO2 comes up to only 18 mmHg — a number that now sits below the 20 mmHg line the Termination protocol will use at the 20-minute mark — a concrete, protocol-anchored way for the debrief to show that minutes of hesitation cost real prognosis. Medical direction still needs to be contacted about the unverified DNR, and the delayed start itself now belongs in the documentation: MATC mandates a QI review of every patient who receives CPR, and time-to-first-CPR is one of the protocol's named performance measures. The scenario ends in this branch with the resuscitation running and an honest debrief ahead: the destination was always the same — the only thing the hesitation changed was how much of the patient's chance survived the trip.</div>
+      </div>
+    </div>
+    <div class="card">
+    <div class="card-title">Vital Signs</div>
+    <div class="card-content" style="padding:0">
+      <div class="ecg-label">⏦ Asystole</div>
+      <div class="vitals-grid">
+        <div class="vital-cell"><div class="vital-name">HR</div><div class="vital-val">0</div><div class="vital-unit">bpm</div></div>
+        <div class="vital-cell"><div class="vital-name">BP</div><div class="vital-val">0/0</div><div class="vital-unit">mmHg</div></div>
+        <div class="vital-cell"><div class="vital-name">SpO₂</div><div class="vital-val">0%</div></div>
+        <div class="vital-cell"><div class="vital-name">RR</div><div class="vital-val">0</div><div class="vital-unit">/min</div></div>
+        <div class="vital-cell"><div class="vital-name">EtCO₂</div><div class="vital-val">18</div><div class="vital-unit">mmHg</div></div>
+        <div class="vital-cell"><div class="vital-name">Temp</div><div class="vital-val">96.8°</div><div class="vital-unit">F</div></div>
+        <div class="vital-cell full-width"><div class="vital-name">Glucose</div><div class="vital-val">148</div><div class="vital-unit">mg/dL</div></div>
+      </div>
+    </div>
+  </div>
+    <div class="card">
+    <div class="card-title">Clinical Findings</div>
+    <div class="card-content">
+      
+    <div class="loc-block">
+      <div class="avpu-bar"><div class="avpu-seg">A</div><div class="avpu-seg">V</div><div class="avpu-seg">P</div><div class="avpu-seg sel-u">U</div></div>
+      <div class="gcs-detail">
+    <div class="gcs-item"><span class="gcs-part">Eyes</span><span class="gcs-desc">No response</span><span class="gcs-score">1</span></div>
+    <div class="gcs-item"><span class="gcs-part">Verbal</span><span class="gcs-desc">No response</span><span class="gcs-score">1</span></div>
+    <div class="gcs-item"><span class="gcs-part">Motor</span><span class="gcs-desc">No response</span><span class="gcs-score">1</span></div>
+    <div class="gcs-total-row">Total GCS <span class="gcs-total">3</span></div>
+  </div>
+    </div>
+      <div class="finding-row"><div class="finding-label">Airway</div><div class="finding-value">OPA placed (no gag reflex); airway patent with adjunct</div></div><div class="finding-row"><div class="finding-label">Breathing</div><div class="finding-value">Apneic — ventilations now provided without interrupting compressions</div></div><div class="finding-row"><div class="finding-label">Circulation</div><div class="finding-value">No spontaneous pulse; compressions now in progress; EtCO2 only 18 mmHg after the delayed start</div></div><div class="finding-row"><div class="finding-label">Skin</div><div class="finding-value">pale, deeper cyanosis than at first contact · cool · dry</div></div><div class="finding-row"><div class="finding-label">Pupils</div><div class="finding-value">Dilated at 5 mm, non-reactive bilaterally</div></div><div class="finding-row"><div class="finding-label">Motor</div><div class="finding-value">Flaccid; no spontaneous movement</div></div><div class="finding-row"><div class="finding-label">Speech</div><div class="finding-value"><span class="finding-speech">"(none — arrest in progress)"</span></div></div><div class="finding-row"><div class="finding-label">Other</div><div class="finding-value"><ul class="findings-notes"><li>AED: &quot;No shock advised&quot; — compressions resumed immediately after analysis</li><li>EtCO2 18 mmHg — below the 20 mmHg threshold the Termination protocol applies at the 20-minute mark</li><li>Delay of several minutes between confirming pulselessness and first compression — document times precisely</li><li>Medical direction contact still required regarding the unverified DNR claim</li><li>Time to first CPR is a named MATC performance measure and will drive the QI review</li><li>Engine 4 arriving; delegate roles on arrival per pit-crew model</li></ul></div></div>
+    </div>
+  </div>
+    <div class="card">
+    <div class="card-title">Expected Actions</div>
+    <div class="card-content" style="padding:0 16px 12px"><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-critical">critical</span><div class="action-text">Begin compressions now while the second rescuer sets up the AED</div></div>
+        <div class="action-excerpt">Initiate chest compressions in cases with no bystander chest compressions or take over compressions from bystanders while a second rescuer is setting up the AED or defibrillator. For adults and children with unwitnessed cardiac arrest or for whom an AED is not immediately available, it is reasonable that CPR be initiated while the defibrillator equipment is being retrieved and applied and that defibrillation, if indicated, be attempted as soon as the device is ready for use.</div>
+        <div class="action-ref">↳ MATC: Cardiac Arrest (VF/VT/Asystole/PEA)</div>
+      </div>
+    </div><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-critical">critical</span><div class="action-text">Analyze with the AED — no shock advised; resume 2-minute compression cycles</div></div>
+        <div class="action-excerpt">Continue the cycle of chest compressions for 2 minutes, followed by rhythm analysis and defibrillation of shockable rhythms.</div>
+        <div class="action-ref">↳ MATC: Cardiac Arrest (VF/VT/Asystole/PEA)</div>
+      </div>
+    </div><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-important">important</span><div class="action-text">OPA and ventilations without interrupting compressions — maximal oxygen during CPR</div></div>
+        <div class="action-excerpt">The airway management strategy should not interrupt compressions. During CPR, maximal oxygen supplementation should be provided.</div>
+        <div class="action-ref">↳ MATC: Cardiac Arrest (VF/VT/Asystole/PEA)</div>
+      </div>
+    </div><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-critical">critical</span><div class="action-text">Contact medical direction about the unverified DNR while resuscitation continues</div></div>
+        <div class="action-excerpt">Patient Safety Considerations: In cases where the patient's status is unclear and the appropriateness of withholding resuscitation efforts is questioned, EMS personnel should initiate CPR immediately and contact medical direction.</div>
+        <div class="action-ref">↳ MATC: Do Not Resuscitate Status/Advance Directives/Healthcare Power of Attorney (POA) Status</div>
+      </div>
+    </div><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-supp">supplemental</span><div class="action-text">Document times precisely — QI review of every CPR case will examine time to first CPR</div></div>
+        <div class="action-excerpt">The EMS agency must perform a Quality Improvement (QI) review of care and outcome, overseen by the agency medical director, for every patient that receives CPR. Performance Measures: Time to scene. Time to patient. Time to first CPR.</div>
+        <div class="action-ref">↳ MATC: Cardiac Arrest (VF/VT/Asystole/PEA)</div>
+      </div>
+    </div></div>
+  </div>
+  </section>
+</div>
+</body>
+</html>
