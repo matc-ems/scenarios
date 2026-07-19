@@ -1,0 +1,347 @@
+{
+  "scenarioId": "medical-sepsis-cellulitis-refusal-001",
+  "scenarioName": "Cellulitis to Sepsis — The Welfare Check Where Talking Is the Treatment",
+  "scenarioType": "Vital Signs",
+  "scenarioVersion": 2,
+  "scenarioTime": 1200,
+  "scenarioMonitorType": 2,
+  "scenarioDefaultEnergy": 200,
+  "scenarioDefaultPacerThreshold": 55,
+  "isDemo": false,
+  "isALSILegacy": false,
+  "scenarioStory": {
+    "history": "78-year-old male who scraped his left lateral ankle on a rose bush while gardening four or five days ago. He put some peroxide on it and considered the matter closed. Per his roommate Sarah, the leg has 'just gotten angrier and angrier' since — progressively more red, swollen, and painful. This morning he feels really hot, isn't making much sense, and could not get up to use the bathroom without her help, which is why she called 911 for a welfare check. On EMS arrival he is sitting in a recliner with the left leg propped on an ottoman, visibly annoyed by the presence of EMS. With coaxing he admits: 'I just feel... tired. Worn out. The ankle hurts, yeah. I scraped it on a rose bush maybe... four or five days ago? I put some peroxide on it. It'll be fine. I don't need a fuss.' He denies any other complaints and downplays his fatigue. He is alert and oriented ×4 on exam, but his insight into how sick he is does not match his numbers — and Sarah's report of confusion this morning is a change from his baseline.",
+    "discussion": "",
+    "course": "Initial Contact: As the crew approaches, Frank waves a hand dismissively: 'I don't know why she bothered you folks. I'm fine. It's just a bum ankle. I don't need a hospital.' The trap on this call is taking him at his word. He is alert and oriented ×4, his SBP is over 90, and he will happily sign whatever ends the visit — but the assessment tells a different story. A local infection (the red, hot, edematous leg with a crusted rose-bush abrasion at the ankle) plus systemic signs (temp 101.8 °F, HR 116, RR 22, flushed hot dry skin) is cellulitis progressing to sepsis. MATC's Shock guideline needs only ONE sign of poor perfusion for inclusion, and he has several: respiratory rate greater than 20, tachycardia out of proportion to temperature, and flushed/ruddy skin. His SBP of 108 is not reassurance — it is compensation, and in adults the tachycardia phase of compensated shock can quietly persist for hours before it collapses in minutes. The clinical work in this phase — full vitals WITH a temperature, exposing and comparing both legs, taking Sarah's change-from-baseline report seriously — is not busywork alongside the persuasion problem. It IS the persuasion problem: every protocol-directed finding the crew gathers becomes a piece of evidence they can put in front of a proud man who lacks insight into how sick he is. No hands-on treatment can begin until he consents. The conversation is the first intervention, and it is built out of the assessment. → Consent gained: 'Alright, alright, you've made your point. If you really think it's that bad... let's go.' The persuasion worked because the crew treated their assessment as evidence and Frank as an adult — they showed him the thermometer, let him feel how fast his own pulse was, told him plainly what a leg infection does when it reaches the bloodstream of a 78-year-old, and let Sarah's worry carry the weight it deserved. Now the consent has to be converted into motion, and quickly, because his numbers have drifted while everyone talked: BP 104/58, HR 118. The BLS work of this phase is deliberately unglamorous: confirm the oxygen picture (he is holding 95% on room air against the protocol's 94–98% target — watch it, don't reflexively mask him), check a blood glucose (138 mg/dL — stress hyperglycemia; the protocol corrects only below 60, so it gets documentation, not sugar), package him with assistance because a man who could not walk to the bathroom does not walk to the stretcher, and get wheels rolling. The treatments the Shock guideline calls essential in suspected septic shock — early, aggressive IV fluids — are exactly the ones this unit cannot start, which is why the early ALS intercept request and a short scene time ARE the sepsis care a BLS crew delivers. One more thing the crew must protect: the consent itself. It is fragile. Keep narrating each step, keep him a participant, and get moving — this patient agreed to go, not to watch the crew relitigate the decision. → Transport begun: Frank is on the stretcher, grumbling but cooperative, and the ambulance is moving. With the decision made, the left leg elevated, and his oxygen holding, his numbers have eased a touch — BP 112/64, heart rate down to 108, RR 20. Do not mistake the drift for recovery: nothing that happened on scene treated the infection, and compensated sepsis can look deceptively stable for hours before it collapses in minutes. The work now is disciplined reassessment, not celebration. The Shock guideline requires full serial vitals with reassessment every 15 minutes or more frequently as appropriate — in this patient, more frequently — with temperature and O2 saturation in the documented set and neurologic status watched line by line, because altered mental status leads the protocol's own poor-perfusion list. Advance notification matters more in sepsis than almost any other medical complaint: the ED's clock on cultures, lactate, and antibiotics starts when they hear the story, and the protocol makes hospital notification a named treatment step and performance measure. If the ALS intercept is coming, the same radio report organizes that hand-off — the fluid resuscitation the protocol calls essential begins the moment a medic or the ED takes the patient. Document everything: the wound timeline, Sarah's account of the confusion, the temperature, the initial reluctance and the education that turned it, his consent, and every set of vitals."
+  },
+  "patientInformation": {
+    "patientName": "Frank Miller",
+    "patientCondition": "Welfare check — unable to walk on his own this morning. Left lower leg is red and swollen from the knee down, he is hot to the touch, and per his roommate he 'isn't making much sense.' He insists he is fine and does not want a hospital.",
+    "patientAge": 78,
+    "patientAgeUnit": "years",
+    "patientAgeCategory": 0,
+    "patientSex": 1,
+    "patientHeight": 175,
+    "patientWeight": 80,
+    "patientPhotoId": 94,
+    "patientAdmitted": 1
+  },
+  "labs": [],
+  "scenarioEvents": [
+    {
+      "type": "ScenarioEvent",
+      "name": "Initial Contact",
+      "description": "As the crew approaches, Frank waves a hand dismissively: 'I don't know why she bothered you folks. I'm fine. It's just a bum ankle. I don't need a hospital.' The trap on this call is taking him at his word. He is alert and oriented ×4, his SBP is over 90, and he will happily sign whatever ends the visit — but the assessment tells a different story. A local infection (the red, hot, edematous leg with a crusted rose-bush abrasion at the ankle) plus systemic signs (temp 101.8 °F, HR 116, RR 22, flushed hot dry skin) is cellulitis progressing to sepsis. MATC's Shock guideline needs only ONE sign of poor perfusion for inclusion, and he has several: respiratory rate greater than 20, tachycardia out of proportion to temperature, and flushed/ruddy skin. His SBP of 108 is not reassurance — it is compensation, and in adults the tachycardia phase of compensated shock can quietly persist for hours before it collapses in minutes. The clinical work in this phase — full vitals WITH a temperature, exposing and comparing both legs, taking Sarah's change-from-baseline report seriously — is not busywork alongside the persuasion problem. It IS the persuasion problem: every protocol-directed finding the crew gathers becomes a piece of evidence they can put in front of a proud man who lacks insight into how sick he is. No hands-on treatment can begin until he consents. The conversation is the first intervention, and it is built out of the assessment.",
+      "monitorType": 0,
+      "trendTime": 0,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 116,
+        "bpSys": 108,
+        "bpDia": 60,
+        "respRate": 22,
+        "spo2": 95,
+        "etco2": 31,
+        "temp": 38.8,
+        "obstruction": 0,
+        "custMeasure1": 138,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Full vital signs INCLUDING a temperature — 101.8 °F turns a sore leg into sepsis",
+        "Recognize sepsis physiology — RR 22, HR 116, and flushed hot skin meet shock inclusion criteria",
+        "Expose and compare both legs — red, hot, firm swelling with a crusted abrasion is the infection source",
+        "Classify the shock: distributive (septic) — local cellulitis plus systemic signs",
+        "Take Sarah's history seriously — 'isn't making much sense' is a change from baseline",
+        "Targeted shock history: fever course, oral intake, urine output, infection risk factors"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Consent gained",
+      "description": "'Alright, alright, you've made your point. If you really think it's that bad... let's go.' The persuasion worked because the crew treated their assessment as evidence and Frank as an adult — they showed him the thermometer, let him feel how fast his own pulse was, told him plainly what a leg infection does when it reaches the bloodstream of a 78-year-old, and let Sarah's worry carry the weight it deserved. Now the consent has to be converted into motion, and quickly, because his numbers have drifted while everyone talked: BP 104/58, HR 118. The BLS work of this phase is deliberately unglamorous: confirm the oxygen picture (he is holding 95% on room air against the protocol's 94–98% target — watch it, don't reflexively mask him), check a blood glucose (138 mg/dL — stress hyperglycemia; the protocol corrects only below 60, so it gets documentation, not sugar), package him with assistance because a man who could not walk to the bathroom does not walk to the stretcher, and get wheels rolling. The treatments the Shock guideline calls essential in suspected septic shock — early, aggressive IV fluids — are exactly the ones this unit cannot start, which is why the early ALS intercept request and a short scene time ARE the sepsis care a BLS crew delivers. One more thing the crew must protect: the consent itself. It is fragile. Keep narrating each step, keep him a participant, and get moving — this patient agreed to go, not to watch the crew relitigate the decision.",
+      "monitorType": 0,
+      "trendTime": 40,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 118,
+        "bpSys": 104,
+        "bpDia": 58,
+        "respRate": 22,
+        "spo2": 95,
+        "etco2": 30,
+        "temp": 38.8,
+        "obstruction": 0,
+        "custMeasure1": 138,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Oxygen only as needed to hold SpO2 94–98% — he is at 95% on room air",
+        "Check blood glucose — 138 mg/dL is stress hyperglycemia; correct only if under 60",
+        "Request ALS intercept early — the protocol's essential sepsis treatment is beyond BLS scope",
+        "Package with assistance — do not walk him — and begin rapid transport"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Transport begun",
+      "description": "Frank is on the stretcher, grumbling but cooperative, and the ambulance is moving. With the decision made, the left leg elevated, and his oxygen holding, his numbers have eased a touch — BP 112/64, heart rate down to 108, RR 20. Do not mistake the drift for recovery: nothing that happened on scene treated the infection, and compensated sepsis can look deceptively stable for hours before it collapses in minutes. The work now is disciplined reassessment, not celebration. The Shock guideline requires full serial vitals with reassessment every 15 minutes or more frequently as appropriate — in this patient, more frequently — with temperature and O2 saturation in the documented set and neurologic status watched line by line, because altered mental status leads the protocol's own poor-perfusion list. Advance notification matters more in sepsis than almost any other medical complaint: the ED's clock on cultures, lactate, and antibiotics starts when they hear the story, and the protocol makes hospital notification a named treatment step and performance measure. If the ALS intercept is coming, the same radio report organizes that hand-off — the fluid resuscitation the protocol calls essential begins the moment a medic or the ED takes the patient. Document everything: the wound timeline, Sarah's account of the confusion, the temperature, the initial reluctance and the education that turned it, his consent, and every set of vitals.",
+      "monitorType": 0,
+      "trendTime": 50,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 108,
+        "bpSys": 112,
+        "bpDia": 64,
+        "respRate": 20,
+        "spo2": 96,
+        "etco2": 33,
+        "temp": 38.6,
+        "obstruction": 0,
+        "custMeasure1": 138,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Serial full vitals with temperature and SpO2 — reassess q15 min or more frequently",
+        "Advance notification: suspected sepsis from leg cellulitis, fever 101.8 °F, en route",
+        "Document the change from baseline, the temperature taken, and the refusal-to-consent conversation"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Refusal hardened",
+      "description": "The crew pushed instead of persuaded — lectured him, talked over him, went straight to 'you have to go' without ever showing him why, or simply shrugged at the first 'no' and reached for the refusal form. Frank's dismissiveness has hardened into anger: 'I told you I'm not going! Get out of my house before I call the police!' Sarah is near tears in the doorway. Understand what just happened: the clinical facts never changed — only the approach failed. He is still alert and oriented ×4, which means he can still lawfully refuse, and no one is going to drag a competent 78-year-old out of his recliner. What the crew can still do is protocol work. Keep reassessing — the Shock guideline's reassessment requirement does not pause for an argument, and the worsening trend (HR creeping to 122, BP slipping to 102/56) is now the most persuasive exhibit the crew owns. Keep the stakes in view: the protocol says adult tachycardia is compensated shock that may persist for hours, and that hypotension, when it arrives, is uncompensated shock that can progress to cardiopulmonary failure within minutes — and the elderly are on the protocol's own list of patients predisposed to shock. And reset the human approach: lower the temperature, apologize if needed, and work through Sarah — the caregiver history the AMS guideline names is also the relationship that can reopen this conversation. Every minute of stalemate delays the early, aggressive fluid resuscitation the Shock protocol calls essential — definitive care that is waiting at the hospital he keeps refusing.",
+      "monitorType": 0,
+      "trendTime": 30,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 122,
+        "bpSys": 102,
+        "bpDia": 56,
+        "respRate": 24,
+        "spo2": 94,
+        "etco2": 29,
+        "temp": 38.8,
+        "obstruction": 0,
+        "custMeasure1": 142,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Do not walk away from the vitals — keep reassessing; the worsening trend is your last persuasive tool",
+        "Recognize the clock: compensated tachycardia can collapse to uncompensated shock within minutes",
+        "Reset the approach — de-escalate and re-engage through Sarah, the caregiver he trusts"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Decompensated septic shock",
+      "description": "The compensation ran out in the middle of the argument. Frank's color grayed, his sentences stopped tracking, and he slumped sideways in the recliner — GCS 12, SBP 78/44, HR 132, RR 26 and shallow, SpO2 91%. This is the Shock guideline's warning made flesh: hypotension is uncompensated shock, and it can progress to cardiopulmonary failure within minutes. The legal landscape changed with the physiology — a man who is confused and disoriented no longer has decision-making capacity, the Altered Mental Status guideline's inclusion criterion is met, and care proceeds under implied consent without the refusal he can no longer maintain. The rescue is BLS discipline done fast: position him and keep the airway patent with suction at hand, oxygen up — 91% is below the protocol's 94–98% target — with the BVM out and ready the moment his breathing becomes inadequate, load without another word of debate, advance notification to the hospital, and the ALS intercept for the fluid resuscitation the protocol calls essential and this unit cannot start. The debrief writes itself: this is the same BLS care and transport the successful crew delivered in phase two, started twenty minutes later, on a patient who may not survive the difference. The persuasion was never a soft skill running alongside the medicine. It was the thing holding the door open between a septic man and his protocol.",
+      "monitorType": 0,
+      "trendTime": 45,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 132,
+        "bpSys": 78,
+        "bpDia": 44,
+        "respRate": 26,
+        "spo2": 91,
+        "etco2": 24,
+        "temp": 38.9,
+        "obstruction": 0,
+        "custMeasure1": 146,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Recognize impaired decision-making capacity — AMS criteria met; sepsis is the cause of his hypotension",
+        "Position to keep the airway patent, suction ready — BVM the moment ventilation becomes inadequate",
+        "Oxygen now — SpO2 91% is below the protocol's 94–98% target; titrate up",
+        "Confirm or request ALS intercept — the essential fluid resuscitation is beyond BLS scope",
+        "Load and go with advance notification — decompensated septic shock, hypotensive, BLS en route"
+      ],
+      "relatedSounds": []
+    }
+  ],
+  "checklist": [
+    {
+      "title": "Full vital signs INCLUDING a temperature — 101.8 °F turns a sore leg into sepsis",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Recognize sepsis physiology — RR 22, HR 116, and flushed hot skin meet shock inclusion criteria",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Expose and compare both legs — red, hot, firm swelling with a crusted abrasion is the infection source",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Classify the shock: distributive (septic) — local cellulitis plus systemic signs",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Take Sarah's history seriously — 'isn't making much sense' is a change from baseline",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Targeted shock history: fever course, oral intake, urine output, infection risk factors",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Oxygen only as needed to hold SpO2 94–98% — he is at 95% on room air",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Check blood glucose — 138 mg/dL is stress hyperglycemia; correct only if under 60",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Request ALS intercept early — the protocol's essential sepsis treatment is beyond BLS scope",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Package with assistance — do not walk him — and begin rapid transport",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Serial full vitals with temperature and SpO2 — reassess q15 min or more frequently",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Advance notification: suspected sepsis from leg cellulitis, fever 101.8 °F, en route",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Document the change from baseline, the temperature taken, and the refusal-to-consent conversation",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Do not walk away from the vitals — keep reassessing; the worsening trend is your last persuasive tool",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Recognize the clock: compensated tachycardia can collapse to uncompensated shock within minutes",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Reset the approach — de-escalate and re-engage through Sarah, the caregiver he trusts",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Recognize impaired decision-making capacity — AMS criteria met; sepsis is the cause of his hypotension",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Position to keep the airway patent, suction ready — BVM the moment ventilation becomes inadequate",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Oxygen now — SpO2 91% is below the protocol's 94–98% target; titrate up",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Confirm or request ALS intercept — the essential fluid resuscitation is beyond BLS scope",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Load and go with advance notification — decompensated septic shock, hypotensive, BLS en route",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    }
+  ],
+  "media": []
+}
