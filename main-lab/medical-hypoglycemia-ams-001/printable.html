@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hypoglycemic Altered Mental Status — 'He Just Isn't Acting Right': BLS Scope — Oral Glucose Withheld, Glucagon 1 mg IM — Printable</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fff;--card:#fff;--card-border:#d6d3d1;--text:#1c1917;--text-secondary:#44403c;--text-muted:#78716c;--green:#166534;--red:#b91c1c;--red-light:#fef2f2;--red-border:#fecaca;--orange:#c2410c;--yellow:#a16207;--blue:#1e40af;--radius:8px;--radius-sm:6px}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'DM Sans','Helvetica Neue',Arial,sans-serif;background:#f5f5f4;color:var(--text);line-height:1.5;padding:24px;font-size:12pt}
+.sheet{max-width:800px;margin:0 auto;background:#fff;padding:28px 32px;box-shadow:0 1px 4px rgba(0,0,0,.08);border-radius:10px}
+.scenario-name{font-size:11pt;color:var(--text-secondary)}
+.card{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);margin-bottom:14px;overflow:hidden;break-inside:avoid}
+.card-title{font-size:9pt;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--text-muted);padding:10px 14px 6px;border-bottom:1px solid #f5f5f4}
+.card-content{padding:10px 14px 12px}
+.scene-row{padding:6px 0;border-bottom:1px solid #f5f5f4;display:grid;grid-template-columns:110px 1fr;gap:10px}
+.scene-row:last-child{border-bottom:none}
+.scene-label{font-family:'DM Mono',ui-monospace,monospace;font-size:8pt;font-weight:500;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted)}
+.scene-value{font-size:11pt;color:var(--text-secondary)}
+.cue-list{list-style:none;margin:0}
+.cue-list li{font-size:11pt;color:var(--text-secondary);padding:3px 0 3px 14px;position:relative}
+.cue-list li::before{content:'→';position:absolute;left:0;color:var(--text-muted);font-size:10pt}
+.sample-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:#e7e5e4}
+.sample-cell{background:#fff;padding:9px 12px}
+.sample-cell:nth-child(1),.sample-cell:nth-child(6){grid-column:1/-1}
+.sample-letter{font-family:'DM Mono',ui-monospace,monospace;font-size:11pt;font-weight:700;color:var(--green);margin-right:4px}
+.sample-name{font-size:8pt;font-weight:600;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted);margin-bottom:3px}
+.sample-text{font-size:10.5pt;color:var(--text-secondary);line-height:1.45}
+.patient-chips{display:flex;gap:8px;flex-wrap:wrap}
+.patient-chip{font-size:10pt;padding:4px 10px;background:#f5f5f4;border-radius:6px;color:var(--text-secondary)}
+.patient-chip strong{color:var(--text);font-weight:700}
+.phase-section{break-before:auto;page-break-before:auto;margin-top:12px}
+.phase-section .phase-card{break-after:avoid;page-break-after:avoid}
+.phase-card{border-left:4px solid var(--text)}
+.phase-card-branch{border-left-color:var(--red)}
+.branch-tag{display:inline-block;font-family:'DM Mono',ui-monospace,monospace;font-size:8pt;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--red);background:var(--red-light);padding:2px 8px;border-radius:4px;margin-bottom:6px}
+.phase-title{font-size:16pt;font-weight:700;margin-bottom:4px}
+.phase-trigger{font-family:'DM Mono',ui-monospace,monospace;font-size:9pt;color:var(--yellow);margin-bottom:6px}
+.phase-desc{font-size:11pt;color:var(--text-secondary);line-height:1.5}
+.ecg-label{font-family:'DM Mono',ui-monospace,monospace;font-size:10pt;color:var(--text-secondary);padding:8px 12px;background:#fafaf9;border-bottom:1px solid #f0efec}
+.vitals-grid{display:flex;flex-wrap:wrap;gap:4px 18px;padding:8px 14px}
+.vital-cell{background:transparent;padding:0;text-align:left;display:flex;align-items:baseline;gap:4px}
+.vital-cell.full-width{grid-column:auto}
+.vital-name{font-family:'DM Mono',ui-monospace,monospace;font-size:8pt;font-weight:600;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted)}
+.vital-val{font-family:'DM Mono',ui-monospace,monospace;font-size:11pt;font-weight:700;color:var(--text);line-height:1.1}
+.vital-unit{font-family:'DM Mono',ui-monospace,monospace;font-size:8pt;color:var(--text-muted)}
+.loc-block{margin-bottom:10px}
+.avpu-bar{display:flex;border:1px solid var(--card-border);border-radius:6px;overflow:hidden;margin-bottom:10px}
+.avpu-seg{flex:1;text-align:center;padding:6px 4px;font-family:'DM Mono',ui-monospace,monospace;font-size:10pt;font-weight:700;color:var(--text-muted);background:#fafaf9}
+.avpu-seg.sel-a{background:#ecfccb;color:var(--green)}
+.avpu-seg.sel-v{background:#fef3c7;color:var(--yellow)}
+.avpu-seg.sel-p{background:#ffedd5;color:var(--orange)}
+.avpu-seg.sel-u{background:var(--red-light);color:var(--red)}
+.gcs-detail{display:flex;flex-wrap:wrap;gap:6px 16px;padding:8px 14px;border:1px solid var(--card-border);border-radius:6px;margin-bottom:10px;align-items:baseline}
+.gcs-item{display:flex;align-items:baseline;gap:4px;padding:0;border:none}
+.gcs-item:last-of-type{border-bottom:none}
+.gcs-part{order:1;font-family:'DM Mono',ui-monospace,monospace;font-size:8pt;font-weight:600;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted)}
+.gcs-score{order:2;font-family:'DM Mono',ui-monospace,monospace;font-size:11pt;font-weight:700;color:var(--text)}
+.gcs-desc{order:3;font-size:9.5pt;color:var(--text-muted);font-style:italic}
+.gcs-desc::before{content:'('}
+.gcs-desc::after{content:')'}
+.gcs-total-row{display:flex;align-items:baseline;gap:4px;order:-1;padding:0;margin:0;border:none;font-family:'DM Mono',ui-monospace,monospace;font-size:8pt;font-weight:600;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted)}
+.gcs-total-row .gcs-total{font-family:'DM Mono',ui-monospace,monospace;font-size:12pt;font-weight:700;color:var(--text)}
+.finding-row{padding:6px 0;border-bottom:1px solid #f5f5f4;display:grid;grid-template-columns:100px 1fr;gap:10px}
+.finding-row:last-child{border-bottom:none}
+.finding-label{font-family:'DM Mono',ui-monospace,monospace;font-size:8pt;font-weight:500;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted)}
+.finding-value{font-size:10.5pt;color:var(--text-secondary)}
+.finding-speech{font-style:italic;color:var(--text-muted)}
+.findings-notes{list-style:none;margin:0}
+.findings-notes li{font-size:10pt;color:var(--text-secondary);padding:2px 0 2px 12px;position:relative}
+.findings-notes li::before{content:'·';position:absolute;left:2px;font-weight:700;color:var(--text-muted)}
+.action-row{display:flex;gap:10px;padding:10px 0;border-bottom:1px solid #f5f5f4;break-inside:avoid}
+.action-row:last-child{border-bottom:none}
+.action-box{width:14px;height:14px;border:1.5px solid var(--text-muted);border-radius:3px;flex-shrink:0;margin-top:3px}
+.action-body{flex:1;min-width:0}
+.action-head{display:flex;align-items:flex-start;gap:8px;margin-bottom:4px}
+.action-priority{display:inline-block;font-family:'DM Mono',ui-monospace,monospace;font-size:7.5pt;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:2px 6px;border-radius:3px;flex-shrink:0;margin-top:2px}
+.p-critical{background:var(--red-light);color:var(--red)}
+.p-important{background:#fff7ed;color:var(--orange)}
+.p-supp{background:#f5f5f4;color:var(--text-muted)}
+.action-text{font-size:11pt;font-weight:600;color:var(--text);line-height:1.35}
+.action-rationale{display:none}
+.action-excerpt{font-size:9.5pt;color:var(--text-secondary);line-height:1.5;font-style:italic;border-left:2px solid var(--card-border);padding:2px 0 2px 9px;margin:5px 0 4px 0}
+.action-ref{font-family:'DM Mono',ui-monospace,monospace;font-size:8pt;color:var(--text-muted);font-weight:600;text-transform:uppercase;letter-spacing:.5px;margin-top:2px}
+.action-head{margin-bottom:0}
+.action-row{padding:8px 0}
+@media print{
+  body{background:#fff;padding:0;font-size:10pt}
+  .sheet{box-shadow:none;max-width:none;padding:0.4in;border-radius:0}
+  .card{break-inside:avoid;margin-bottom:8px}
+  .card-title{padding:6px 10px 3px}
+  .card-content{padding:6px 10px 8px}
+}
+</style>
+</head>
+<body>
+<div class="sheet">
+  <div class="card"><div class="card-title">Scenario</div><div class="card-content"><div class="scenario-name">Hypoglycemic Altered Mental Status — 'He Just Isn't Acting Right': BLS Scope — Oral Glucose Withheld, Glucagon 1 mg IM</div></div></div>
+  <div class="card"><div class="card-title">Patient</div><div class="card-content"><div class="patient-chips"><span class="patient-chip"><strong>John Harris</strong></span><span class="patient-chip">68 years male</span><span class="patient-chip">185 lbs (84 kg)</span><span class="patient-chip">5'9"</span><span class="patient-chip">CC: Confused and 'not acting right' for the past hour per his wife — mumbling incoherently, pale and sweaty, unable to answer questions.</span></div></div></div>
+  <div class="card"><div class="card-title">Scene</div><div class="card-content">
+    <div class="scene-row"><div class="scene-label">Dispatch</div><div class="scene-value">Medic 1, respond to 123 Maple Street for a 68-year-old male, reported to be 'acting strangely.' The patient's wife is on scene. Time out is 14:32.</div></div>
+    <div class="scene-row"><div class="scene-label">Location</div><div class="scene-value">Living room of a clean, well-kept single-family home at 123 Maple Street. The patient is sitting slumped in a recliner.</div></div>
+    <div class="scene-row"><div class="scene-label">Time</div><div class="scene-value">Mid-afternoon; dispatch time 14:32.</div></div>
+    <div class="scene-row"><div class="scene-label">Safety</div><div class="scene-value">Scene is a clean, well-kept single-family home with no immediate hazards. Standard BSI. An anxious woman in her 60s meets the crew at the door and leads them to the living room.</div></div>
+    <div class="scene-row"><div class="scene-label">Bystanders</div><div class="scene-value">Wife, Mary — the primary and ONLY reliable historian; the patient cannot answer questions reliably. She reports: 'Thank you for coming so quickly! It's my husband, John. He just isn't acting right. He was fine this morning, but for the last hour, he's been confused and just isn't making any sense. I can't get him to answer me.'</div></div>
+  </div></div><div class="card"><div class="card-title">Visual Cues on Arrival</div><div class="card-content"><ul class="cue-list"><li>Elderly male sitting slumped in a recliner, eyes open but gaze unfocused — does not track the crew</li><li>Pale and sweaty, mumbling incoherently</li><li>Anxious, very worried wife standing next to the recliner</li><li>Clean, tidy living room — no pill bottles, alcohol, or paraphernalia in view, no signs of trauma</li></ul></div></div>
+  <div class="card">
+    <div class="card-title">SAMPLE History</div>
+    <div class="card-content" style="padding:0">
+      <div class="sample-grid">
+        <div class="sample-cell"><div class="sample-name"><span class="sample-letter">S</span> Signs &amp; Symptoms</div><div class="sample-text">68-year-old male with Type 2 diabetes and hypertension. He was fine this morning and ate breakfast around 08:00. He took his morning medications as always and spent the day working in the garage, completely skipping lunch. About an hour ago (~14:00) he came inside looking pale and sweaty, confused, and 'just not making any sense.' His wife has not been able to get him to answer her since. It is now almost 15:00. His long-acting Lantus insulin is taken every night before bed; his oral metformin was taken this morning. No trauma, no witnessed seizure activity, no complaints voiced before the confusion began.</div></div>
+        <div class="sample-cell"><div class="sample-name"><span class="sample-letter">A</span> Allergies</div><div class="sample-text">NKDA</div></div>
+        <div class="sample-cell"><div class="sample-name"><span class="sample-letter">M</span> Medications</div><div class="sample-text">Metformin (oral, for diabetes) — taken this morning, Lisinopril (for blood pressure) — taken this morning, Lantus (insulin glargine, long-acting) — one shot every night before bed</div></div>
+        <div class="sample-cell"><div class="sample-name"><span class="sample-letter">P</span> Past Medical</div><div class="sample-text">Type 2 diabetes mellitus, Hypertension</div></div>
+        <div class="sample-cell"><div class="sample-name"><span class="sample-letter">L</span> Last Intake</div><div class="sample-text">Breakfast around 8 AM. He completely skipped lunch while working in the garage — it is now almost 3 PM.</div></div>
+        <div class="sample-cell"><div class="sample-name"><span class="sample-letter">E</span> Events</div><div class="sample-text">Nothing unusual per his wife: 'He took his morning medications as always. He was working in the garage and just came inside about an hour ago looking like this.' She could not get him to answer her and called 911.</div></div>
+      </div>
+    </div>
+  </div>
+  <section class="phase-section">
+    <div class="card phase-card">
+      <div class="card-content">
+        
+        <div class="phase-title">Initial Contact</div>
+        
+        <div class="phase-desc">A 68-year-old diabetic on nightly Lantus and morning metformin skipped lunch and has been 'not acting right' for an hour. He mumbles incoherently, does not track the providers, is A&amp;Ox0, and will not follow commands — but his airway is patent, his breathing adequate, and his radial pulse strong. The wife is the entire history: the patient cannot give one, and her SAMPLE points straight at the answer — insulin plus metformin plus a skipped meal. The single scenario-defining action is putting a glucometer on him: BGL is 45 mg/dL. From there the BLS treatment decision is the teaching point. Oral glucose is out — MATC reserves it for a conscious patient with a patent airway, and a man who cannot follow commands cannot safely swallow; putting gel in his mouth is a safety failure, not a treatment. IV dextrose — MATC's definitive therapy for the patient who cannot protect his own airway — is not available to this crew: they have not taken pharmacology and cannot establish IV access. The protocol's own language resolves the impasse: glucagon IM/IN is 'an option for patients for whom IV access cannot be established,' which is definitionally true of a BLS crew. Adult dose is a fixed 1 mg IM/IN. The pale, cool, diaphoretic skin is the protocol's own pertinent finding — diaphoresis may be associated with hypoglycemia — and the heart rate of 112 is the catecholamine response to a starving brain.</div>
+      </div>
+    </div>
+    <div class="card">
+    <div class="card-title">Vital Signs</div>
+    <div class="card-content" style="padding:0">
+      <div class="ecg-label">⏦ Sinus Tachycardia</div>
+      <div class="vitals-grid">
+        <div class="vital-cell"><div class="vital-name">HR</div><div class="vital-val">112</div><div class="vital-unit">bpm</div></div>
+        <div class="vital-cell"><div class="vital-name">BP</div><div class="vital-val">116/72</div><div class="vital-unit">mmHg</div></div>
+        <div class="vital-cell"><div class="vital-name">SpO₂</div><div class="vital-val">98%</div></div>
+        <div class="vital-cell"><div class="vital-name">RR</div><div class="vital-val">20</div><div class="vital-unit">/min</div></div>
+        <div class="vital-cell"><div class="vital-name">EtCO₂</div><div class="vital-val">37</div><div class="vital-unit">mmHg</div></div>
+        <div class="vital-cell"><div class="vital-name">Temp</div><div class="vital-val">98.2°</div><div class="vital-unit">F</div></div>
+        <div class="vital-cell full-width"><div class="vital-name">Glucose</div><div class="vital-val">45</div><div class="vital-unit">mg/dL</div></div>
+      </div>
+    </div>
+  </div>
+    <div class="card">
+    <div class="card-title">Clinical Findings</div>
+    <div class="card-content">
+      
+    <div class="loc-block">
+      <div class="avpu-bar"><div class="avpu-seg">A</div><div class="avpu-seg sel-v">V</div><div class="avpu-seg">P</div><div class="avpu-seg">U</div></div>
+      <div class="gcs-detail">
+    <div class="gcs-item"><span class="gcs-part">Eyes</span><span class="gcs-desc">Spontaneous</span><span class="gcs-score">4</span></div>
+    <div class="gcs-item"><span class="gcs-part">Verbal</span><span class="gcs-desc">Incomprehensible sounds</span><span class="gcs-score">2</span></div>
+    <div class="gcs-item"><span class="gcs-part">Motor</span><span class="gcs-desc">Localizes pain</span><span class="gcs-score">5</span></div>
+    <div class="gcs-total-row">Total GCS <span class="gcs-total">11</span></div>
+  </div>
+    </div>
+      <div class="finding-row"><div class="finding-label">Airway</div><div class="finding-value">Patent and self-maintained. No audible stridor or gurgling — but he will not follow commands and cannot safely swallow; oral glucose is not an option</div></div><div class="finding-row"><div class="finding-label">Breathing</div><div class="finding-value">Respirations slightly fast (RR 20) but of adequate depth, unlabored; lungs clear bilaterally</div></div><div class="finding-row"><div class="finding-label">Circulation</div><div class="finding-value">Radial pulse present, rapid, and strong at 112; no obvious major bleeding; skin pale, cool, and diaphoretic (clammy)</div></div><div class="finding-row"><div class="finding-label">Skin</div><div class="finding-value">pale · cool · diaphoretic (clammy)</div></div><div class="finding-row"><div class="finding-label">Pupils</div><div class="finding-value">4 mm, PERRL (equal, round, reactive to light)</div></div><div class="finding-row"><div class="finding-label">Motor</div><div class="finding-value">Does not follow commands; moves all four extremities spontaneously; localizes; no focal deficit appreciated</div></div><div class="finding-row"><div class="finding-label">Speech</div><div class="finding-value"><span class="finding-speech">"(incomprehensible mumbling — does not answer questions, does not track the providers)"</span></div></div><div class="finding-row"><div class="finding-label">Other</div><div class="finding-value"><ul class="findings-notes"><li>BLOOD GLUCOSE 45 mg/dL — but ONLY if the crew thinks to check it</li><li>A&amp;Ox0 — responds to verbal stimuli with incomprehensible mumbling; does not track providers with his eyes</li><li>Diabetic on insulin (nightly Lantus) + metformin who SKIPPED LUNCH — the wife's SAMPLE history is the whole mechanism</li><li>MATC: diaphoresis may be associated with hypoglycemia — the pale, cool, clammy skin is a protocol-listed finding</li><li>Cannot follow commands = cannot safely swallow = oral glucose is contraindicated</li><li>IV dextrose is the definitive ALS therapy but this BLS crew cannot establish IV access — MATC's glucagon clause ('for patients for whom IV access cannot be established') therefore applies: glucagon 1 mg IM/IN</li><li>No insulin pump present — Lantus is given by nightly injection</li></ul></div></div>
+    </div>
+  </div>
+    <div class="card">
+    <div class="card-title">Expected Actions</div>
+    <div class="card-content" style="padding:0 16px 12px"><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-critical">critical</span><div class="action-text">Primary survey — with depressed mental status, airway protection and ventilation come first</div></div>
+        <div class="action-excerpt">Patient Safety Considerations: With depressed mental status, initial focus is on airway protection, oxygenation, ventilation, and perfusion.</div>
+        <div class="action-ref">↳ MATC: Altered Mental Status</div>
+      </div>
+    </div><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-critical">critical</span><div class="action-text">Take the SAMPLE history from the wife — the patient cannot give one</div></div>
+        <div class="action-excerpt">Key Considerations: History from bystanders and caregivers. Key Documentation Elements: Baseline developmental status and change from baseline.</div>
+        <div class="action-ref">↳ MATC: Altered Mental Status</div>
+      </div>
+    </div><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-critical">critical</span><div class="action-text">CHECK BLOOD GLUCOSE — AMS + diabetic history makes the glucometer mandatory</div></div>
+        <div class="action-excerpt">Inclusion Criteria: Patients with altered level of consciousness. Patients with history of diabetes and other medical symptoms. Assessment: Monitoring: Check blood glucose level. Performance Measures: When in scope of practice, blood glucose is checked for all patients with symptoms of altered level of consciousness, seizure, stroke, or hypoglycemia.</div>
+        <div class="action-ref">↳ MATC: Hypoglycemia</div>
+      </div>
+    </div><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-important">important</span><div class="action-text">Run the AEIOU-TIPS differential — 'I' for Insulin fits the history</div></div>
+        <div class="action-excerpt">Consider the following differential using the mnemonic AEIOU-TIPS: A – Alcohol, Abuse, Atypical migraine; E – Epilepsy, Electrolytes; I – Insulin (hypoglycemia); O – Oxygen, Overdose; U – Uremia (kidney failure); T – Trauma, Tumor; I – Infection; P – Psych, Poisoning; S – Seizure, Subarachnoid hemorrhage, Sepsis.</div>
+        <div class="action-ref">↳ MATC: Altered Mental Status</div>
+      </div>
+    </div><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-important">important</span><div class="action-text">Full AMS workup: GCS, pupils, stroke screen, SpO2, skin temperature, environment sweep</div></div>
+        <div class="action-excerpt">Look for treatable causes of altered mental status (AMS): Airway: Make sure airway remains patent; reposition patient as needed. Breathing: Look for respiratory depression; check SPO2, EtCO2, and CO detector readings. Circulation: Look for signs of poor perfusion. Glasgow Coma Score and/or AVPU. Pupils. Stroke assessment tool including focal neurologic findings. Blood glucose level. Extremities/skin: Track marks, hydration, edema, dialysis shunt, temperature to touch (or if able, use a thermometer), signs of trauma. Environment: Survey for pills, paraphernalia, substance use, medication patches, medical devices.</div>
+        <div class="action-ref">↳ MATC: Altered Mental Status</div>
+      </div>
+    </div><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-critical">critical</span><div class="action-text">WITHHOLD oral glucose — reserved for a conscious patient with a patent airway; he cannot safely swallow</div></div>
+        <div class="action-excerpt">If blood glucose is 60 mg/dL or less administer one of the following: Conscious patient with a patent airway: Glucose, oral (in form of glucose tablets, glucose gel, tube of cake icing, etc.): Adult Dosing: 25 g; Pediatric Dosing: 0.5–1 g/kg.</div>
+        <div class="action-ref">↳ MATC: Hypoglycemia</div>
+      </div>
+    </div><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-critical">critical</span><div class="action-text">Glucagon 1 mg IM/IN (adult fixed dose) — a BLS crew cannot establish IV access</div></div>
+        <div class="action-excerpt">If blood glucose is 60 mg/dL or less administer one of the following: Unconscious patient, or patients who are unable to protect their own airway: Glucagon IM/IN – an option for patients for whom IV access cannot be established: Adult dosing: 1 mg IM/IN (or prefilled 3 mg dry powder IN or prefilled IM autoinjector).</div>
+        <div class="action-ref">↳ MATC: Hypoglycemia</div>
+      </div>
+    </div><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-supp">supplemental</span><div class="action-text">Secondary survey: confirm no insulin pump; note metformin's possible contribution</div></div>
+        <div class="action-excerpt">Secondary survey pertinent to altered blood glucose level: Evaluate for presence of an automated external insulin delivery device (insulin pump). Constitutional: assess for tachycardia and hypotension. Neurologic: Assess GCS and mental status. Assess for focal neurologic deficit: motor and sensory. Key Considerations: Consider contribution of oral diabetic medications to hypoglycemia.</div>
+        <div class="action-ref">↳ MATC: Hypoglycemia</div>
+      </div>
+    </div></div>
+  </div>
+  </section><section class="phase-section">
+    <div class="card phase-card">
+      <div class="card-content">
+        
+        <div class="phase-title">Glucagon given</div>
+        <div class="phase-trigger">Trigger: Blood glucose 45 mg/dL identified, oral glucose correctly withheld, and glucagon 1 mg IM/IN administered under the protocol's no-IV-access clause. Glucagon mobilizes hepatic glycogen, so the response is slower than IV dextrose: over ~15 minutes mental status returns to Alert and Oriented ×4; repeat glucose 110 mg/dL.</div>
+        <div class="phase-desc">Glucagon works the way its mechanism promises — slowly. It does not deliver glucose; it asks the liver to release stored glycogen, so the first minutes after the injection change nothing, and the airway watch continues: a hypoglycemic patient who has not yet turned the corner can still lose his airway, and oral glucose remains contraindicated until he can follow commands. Then the mumbling organizes into words; he begins looking at the providers and can state his name. Within 15 minutes he is Alert and Oriented ×4, asking 'Wow, I feel a little shaky. What happened?' Repeat glucose during the recovery reads 110 mg/dL; the skin turns pink, warm, and dry; and the heart rate settles to 88. Two protocol details matter here. First, reassessment is a named protocol step, not a courtesy: vitals, mental status, and — because his mentation had not yet normalized when it was drawn — the repeat glucose. Once his mental status has returned to normal, the protocol is equally explicit that further glucose checks are NOT required. Second, what glucagon spent cannot be spent twice: his hepatic glycogen stores are now partly emptied, and the nightly basal Lantus dose is still ahead of him — facts that belong in the disposition conversation coming next. Document what was found, what was given, and what changed.</div>
+      </div>
+    </div>
+    <div class="card">
+    <div class="card-title">Vital Signs</div>
+    <div class="card-content" style="padding:0">
+      <div class="ecg-label">⏦ Sinus Rhythm</div>
+      <div class="vitals-grid">
+        <div class="vital-cell"><div class="vital-name">HR</div><div class="vital-val">88</div><div class="vital-unit">bpm</div></div>
+        <div class="vital-cell"><div class="vital-name">BP</div><div class="vital-val">128/80</div><div class="vital-unit">mmHg</div></div>
+        <div class="vital-cell"><div class="vital-name">SpO₂</div><div class="vital-val">98%</div></div>
+        <div class="vital-cell"><div class="vital-name">RR</div><div class="vital-val">16</div><div class="vital-unit">/min</div></div>
+        <div class="vital-cell"><div class="vital-name">EtCO₂</div><div class="vital-val">38</div><div class="vital-unit">mmHg</div></div>
+        <div class="vital-cell"><div class="vital-name">Temp</div><div class="vital-val">98.4°</div><div class="vital-unit">F</div></div>
+        <div class="vital-cell full-width"><div class="vital-name">Glucose</div><div class="vital-val">110</div><div class="vital-unit">mg/dL</div></div>
+      </div>
+    </div>
+  </div>
+    <div class="card">
+    <div class="card-title">Clinical Findings</div>
+    <div class="card-content">
+      
+    <div class="loc-block">
+      <div class="avpu-bar"><div class="avpu-seg sel-a">A</div><div class="avpu-seg">V</div><div class="avpu-seg">P</div><div class="avpu-seg">U</div></div>
+      <div class="gcs-detail">
+    <div class="gcs-item"><span class="gcs-part">Eyes</span><span class="gcs-desc">Spontaneous</span><span class="gcs-score">4</span></div>
+    <div class="gcs-item"><span class="gcs-part">Verbal</span><span class="gcs-desc">Oriented</span><span class="gcs-score">5</span></div>
+    <div class="gcs-item"><span class="gcs-part">Motor</span><span class="gcs-desc">Obeys commands</span><span class="gcs-score">6</span></div>
+    <div class="gcs-total-row">Total GCS <span class="gcs-total">15</span></div>
+  </div>
+    </div>
+      <div class="finding-row"><div class="finding-label">Airway</div><div class="finding-value">Patent and self-maintained; speech clear and appropriate</div></div><div class="finding-row"><div class="finding-label">Breathing</div><div class="finding-value">RR 16, unlabored; lungs clear bilaterally</div></div><div class="finding-row"><div class="finding-label">Circulation</div><div class="finding-value">Radial pulse strong and regular at 88; skin pink, warm, and dry</div></div><div class="finding-row"><div class="finding-label">Skin</div><div class="finding-value">pink · warm · dry</div></div><div class="finding-row"><div class="finding-label">Pupils</div><div class="finding-value">4 mm, PERRL</div></div><div class="finding-row"><div class="finding-label">Motor</div><div class="finding-value">Follows commands; moves all four extremities purposefully; no focal deficit</div></div><div class="finding-row"><div class="finding-label">Speech</div><div class="finding-value"><span class="finding-speech">"Wow, I feel a little shaky. What happened?"</span></div></div><div class="finding-row"><div class="finding-label">Other</div><div class="finding-value"><ul class="findings-notes"><li>Alert and Oriented ×4 within 15 minutes of glucagon — can state his name, location, date, and events</li><li>Repeat glucose 110 mg/dL — drawn during recovery, before mentation fully normalized</li><li>Protocol: once mental status has returned to normal, further repeat glucose checks are NOT necessary</li><li>Glucagon mobilized hepatic glycogen rather than delivering glucose — the recovery was slower than IV dextrose, and those stores are now partly spent</li><li>He is now a competent adult — the disposition conversation is coming, and MATC answers it with an 8-item checklist</li></ul></div></div>
+    </div>
+  </div>
+    <div class="card">
+    <div class="card-title">Expected Actions</div>
+    <div class="card-content" style="padding:0 16px 12px"><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-critical">critical</span><div class="action-text">Guard the airway while glucagon takes effect — position, suction staged, continuous watch</div></div>
+        <div class="action-excerpt">Patient Safety Considerations: With depressed mental status, initial focus is on airway protection, oxygenation, ventilation, and perfusion.</div>
+        <div class="action-ref">↳ MATC: Altered Mental Status</div>
+      </div>
+    </div><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-critical">critical</span><div class="action-text">Reassess vitals and mental status; repeat BGL only while mentation is not yet normal</div></div>
+        <div class="action-excerpt">Reassess patient: Reassess vital signs (pulse, blood pressure, respiratory rate, neurologic status assessment) and mental status. Repeat check of blood glucose level if previous hypoglycemia and mental status has not returned to normal. It is not necessary to repeat check of blood glucose level blood sugar if mental status has returned to normal.</div>
+        <div class="action-ref">↳ MATC: Hypoglycemia</div>
+      </div>
+    </div><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-important">important</span><div class="action-text">Document the POC glucose values and the reassessment after glucagon</div></div>
+        <div class="action-excerpt">Key Documentation Elements: Document reassessment of vital signs and mental status after administration of glucose/dextrose/glucagon. Document point of care glucose level (if in scope of practice) when indicated.</div>
+        <div class="action-ref">↳ MATC: Hypoglycemia</div>
+      </div>
+    </div></div>
+  </div>
+  </section><section class="phase-section">
+    <div class="card phase-card">
+      <div class="card-content">
+        
+        <div class="phase-title">Recovery confirmed</div>
+        <div class="phase-trigger">Trigger: Reassessment confirms sustained recovery: A&amp;Ox4, stable vitals, repeat glucose 110 mg/dL. The patient is again a competent adult, and the crew must resolve disposition per the MATC release-without-transport criteria.</div>
+        <div class="phase-desc">John is fully recovered, mildly embarrassed, and hungry. Mary offers to make him a peanut butter and jelly sandwich, and he asks whether he really has to go to the hospital. MATC does not leave this to gut feel — it gives an 8-item checklist, release without transport only if ALL are true. Walk it literally: (i) repeat glucose 110 is greater than 80 — pass. (ii) He takes insulin and metformin and does NOT take long-acting oral sulfonylureas — read the words carefully: the criterion excludes glipizide/glyburide-class agents, not long-acting insulin, so Lantus PASSES this criterion as written. (iii) Normal mental status, no focal deficits — pass. (iv) He can promptly obtain and will eat a carbohydrate meal — the PB&amp;J, pass. (vi) A reliable adult (Mary) will stay with him — pass. (vii) No major co-morbid symptoms — no chest pain, dyspnea, seizure, or intoxication — pass. (viii) Clear cause identified — a missed meal, the protocol's own example — pass. Everything therefore hinges on (v): the patient must REFUSE transport AND the EMS clinicians must AGREE transport is not indicated. Offer transport first. If he accepts, he goes. If he refuses, the protocol permits release — and criterion (v) is exactly where the crew's judgment belongs: this recovery was bought with glucagon, which spent hepatic glycogen stores he cannot instantly replace, and the nightly basal Lantus dose is still ahead of him. The source curriculum is explicit that he should be strongly encouraged to accept transport because the glucagon may wear off. Whatever is decided, the performance measure is blunt: if released at scene, the criteria are documented.</div>
+      </div>
+    </div>
+    <div class="card">
+    <div class="card-title">Vital Signs</div>
+    <div class="card-content" style="padding:0">
+      <div class="ecg-label">⏦ Sinus Rhythm</div>
+      <div class="vitals-grid">
+        <div class="vital-cell"><div class="vital-name">HR</div><div class="vital-val">84</div><div class="vital-unit">bpm</div></div>
+        <div class="vital-cell"><div class="vital-name">BP</div><div class="vital-val">126/78</div><div class="vital-unit">mmHg</div></div>
+        <div class="vital-cell"><div class="vital-name">SpO₂</div><div class="vital-val">98%</div></div>
+        <div class="vital-cell"><div class="vital-name">RR</div><div class="vital-val">14</div><div class="vital-unit">/min</div></div>
+        <div class="vital-cell"><div class="vital-name">EtCO₂</div><div class="vital-val">38</div><div class="vital-unit">mmHg</div></div>
+        <div class="vital-cell"><div class="vital-name">Temp</div><div class="vital-val">98.4°</div><div class="vital-unit">F</div></div>
+        <div class="vital-cell full-width"><div class="vital-name">Glucose</div><div class="vital-val">110</div><div class="vital-unit">mg/dL</div></div>
+      </div>
+    </div>
+  </div>
+    <div class="card">
+    <div class="card-title">Clinical Findings</div>
+    <div class="card-content">
+      
+    <div class="loc-block">
+      <div class="avpu-bar"><div class="avpu-seg sel-a">A</div><div class="avpu-seg">V</div><div class="avpu-seg">P</div><div class="avpu-seg">U</div></div>
+      <div class="gcs-detail">
+    <div class="gcs-item"><span class="gcs-part">Eyes</span><span class="gcs-desc">Spontaneous</span><span class="gcs-score">4</span></div>
+    <div class="gcs-item"><span class="gcs-part">Verbal</span><span class="gcs-desc">Oriented</span><span class="gcs-score">5</span></div>
+    <div class="gcs-item"><span class="gcs-part">Motor</span><span class="gcs-desc">Obeys commands</span><span class="gcs-score">6</span></div>
+    <div class="gcs-total-row">Total GCS <span class="gcs-total">15</span></div>
+  </div>
+    </div>
+      <div class="finding-row"><div class="finding-label">Airway</div><div class="finding-value">Patent and self-maintained; speaking in full sentences</div></div><div class="finding-row"><div class="finding-label">Breathing</div><div class="finding-value">RR 14, unlabored; lungs clear bilaterally</div></div><div class="finding-row"><div class="finding-label">Circulation</div><div class="finding-value">Radial pulse strong and regular at 84; skin pink, warm, and dry</div></div><div class="finding-row"><div class="finding-label">Skin</div><div class="finding-value">pink · warm · dry</div></div><div class="finding-row"><div class="finding-label">Pupils</div><div class="finding-value">4 mm, PERRL</div></div><div class="finding-row"><div class="finding-label">Motor</div><div class="finding-value">Normal; follows all commands; steady when repositioned; no focal deficit</div></div><div class="finding-row"><div class="finding-label">Speech</div><div class="finding-value"><span class="finding-speech">"Honestly, I feel fine now — just a little shaky. Mary's making me a sandwich. Do I really need to go in?"</span></div></div><div class="finding-row"><div class="finding-label">Other</div><div class="finding-value"><ul class="findings-notes"><li>RELEASE CHECKLIST, applied literally: passes (i) glucose 110 &gt; 80; (ii) insulin + metformin, NO oral sulfonylureas; (iii) normal mentation, no deficits; (iv) will eat a carb meal; (vi) reliable adult staying; (vii) no major co-morbid symptoms; (viii) clear cause — missed meal</li><li>Criterion (ii) excludes long-acting ORAL SULFONYLUREAS — Lantus is long-acting INSULIN and passes the criterion as written</li><li>The entire disposition hinges on criterion (v): patient refuses transport AND EMS clinicians agree transport not indicated</li><li>Offer transport first — if he accepts, he goes; refusal is his to make, not Mary's</li><li>Crew judgment inside 'EMS clinicians agree': glucagon spent his glycogen stores, its effect may wear off, and tonight's basal Lantus dose is still ahead of him — strong grounds to encourage transport</li><li>Performance measure: if released at scene, criteria documented for safe release</li></ul></div></div>
+    </div>
+  </div>
+    <div class="card">
+    <div class="card-title">Expected Actions</div>
+    <div class="card-content" style="padding:0 16px 12px"><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-critical">critical</span><div class="action-text">Walk ALL 8 release criteria literally — he passes i–iv and vi–viii; everything hinges on v</div></div>
+        <div class="action-excerpt">If symptoms of hypoglycemia resolve after treatment, release without transport should only be considered if all the following are true: Repeat glucose is greater than 80 mg/dL; Patient takes insulin or metformin to control diabetes and does not take long-acting oral sulphunylurea agents (e.g., glipizide, glyburide, or others); Patient returns to normal mental status, with no focal neurologic signs/symptoms after receiving glucose/dextrose; Patient can promptly obtain and will eat a carbohydrate meal; Patient or legal guardian refuses transport and EMS clinicians agree transport not indicated; A reliable adult will be staying with patient; No major co-morbid symptoms exist, like chest pain, shortness of breath, seizures, intoxication; A clear cause of the hypoglycemia is identified (e.g., missed meal).</div>
+        <div class="action-ref">↳ MATC: Hypoglycemia</div>
+      </div>
+    </div><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-critical">critical</span><div class="action-text">Have him promptly eat a carbohydrate meal (the PB&amp;J) — a required release criterion</div></div>
+        <div class="action-excerpt">Release without transport should only be considered if all the following are true: Patient can promptly obtain and will eat a carbohydrate meal. A clear cause of the hypoglycemia is identified (e.g., missed meal).</div>
+        <div class="action-ref">↳ MATC: Hypoglycemia</div>
+      </div>
+    </div><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-critical">critical</span><div class="action-text">Offer transport — release requires HIS refusal plus crew agreement; if he accepts, he goes</div></div>
+        <div class="action-excerpt">Release without transport should only be considered if all the following are true: Patient or legal guardian refuses transport and EMS clinicians agree transport not indicated. Disposition: If hypoglycemia with continued symptoms, transport to closest appropriate receiving facility.</div>
+        <div class="action-ref">↳ MATC: Hypoglycemia</div>
+      </div>
+    </div><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-important">important</span><div class="action-text">Document every release criterion if he stays; document the reassessment either way</div></div>
+        <div class="action-excerpt">Performance Measures: If patient released at scene, criteria documented for safe release. Key Documentation Elements: Document reassessment of vital signs and mental status after administration of glucose/dextrose/glucagon. Document point of care glucose level (if in scope of practice) when indicated.</div>
+        <div class="action-ref">↳ MATC: Hypoglycemia</div>
+      </div>
+    </div></div>
+  </div>
+  </section><section class="phase-section">
+    <div class="card phase-card phase-card-branch">
+      <div class="card-content">
+        <div class="branch-tag">Improper Care Branch</div>
+        <div class="phase-title">BGL never checked</div>
+        <div class="phase-trigger">Trigger: Blood glucose was never checked and no glucose was given (or oral glucose was inappropriately attempted). Approximately 10 minutes after initial contact the untreated hypoglycemia deepens: he stops mumbling, responds only to painful stimuli with a groan, respirations slow to 10 and shallow, and he is at high risk for seizure.</div>
+        <div class="phase-desc">The crew never put a glucometer on him — or worse, tried to force oral glucose into a confused man who cannot swallow. Ten minutes later the mumbling has stopped, and not because he improved: he now responds only to a sternal rub with a groan. The untreated sugar has fallen to 30 mg/dL, his respirations have slowed to 10 and gone shallow, his pressure is drifting down at 102/64, and the pulse is 124 and thready. He is at high risk for a seizure, and the quiet patient is the emergency the loud one never was. The rescue now runs through the MATC airway ladder BEFORE the sugar — and every rung of it is BLS: open and maintain the airway with positioning, suction ready, an adjunct sized to his reflexes (NPA while a gag persists, OPA if it is gone), oxygen titrated to 94–98%, and BVM support of his inadequate spontaneous respirations at the protocol's adult rate. Only with the airway and ventilation held does the crew get the glucose it owed him ten minutes ago: check the BGL (30 mg/dL) and give glucagon 1 mg IM/IN — oral glucose is absolutely contraindicated at this level of consciousness, and IV dextrose is out of reach at BLS scope. This patient is critical and transports emergently; dextrose remains the definitive therapy he will get from an intercepting ALS unit or the emergency department. The debrief writes itself: 'not acting right' = check the sugar, and a BGL is a vital sign in every AMS patient.</div>
+      </div>
+    </div>
+    <div class="card">
+    <div class="card-title">Vital Signs</div>
+    <div class="card-content" style="padding:0">
+      <div class="ecg-label">⏦ Sinus Tachycardia</div>
+      <div class="vitals-grid">
+        <div class="vital-cell"><div class="vital-name">HR</div><div class="vital-val">124</div><div class="vital-unit">bpm</div></div>
+        <div class="vital-cell"><div class="vital-name">BP</div><div class="vital-val">102/64</div><div class="vital-unit">mmHg</div></div>
+        <div class="vital-cell"><div class="vital-name">SpO₂</div><div class="vital-val">91%</div></div>
+        <div class="vital-cell"><div class="vital-name">RR</div><div class="vital-val">10</div><div class="vital-unit">/min</div></div>
+        <div class="vital-cell"><div class="vital-name">EtCO₂</div><div class="vital-val">52</div><div class="vital-unit">mmHg</div></div>
+        <div class="vital-cell"><div class="vital-name">Temp</div><div class="vital-val">97.7°</div><div class="vital-unit">F</div></div>
+        <div class="vital-cell full-width"><div class="vital-name">Glucose</div><div class="vital-val">30</div><div class="vital-unit">mg/dL</div></div>
+      </div>
+    </div>
+  </div>
+    <div class="card">
+    <div class="card-title">Clinical Findings</div>
+    <div class="card-content">
+      
+    <div class="loc-block">
+      <div class="avpu-bar"><div class="avpu-seg">A</div><div class="avpu-seg">V</div><div class="avpu-seg sel-p">P</div><div class="avpu-seg">U</div></div>
+      <div class="gcs-detail">
+    <div class="gcs-item"><span class="gcs-part">Eyes</span><span class="gcs-desc">To pain</span><span class="gcs-score">2</span></div>
+    <div class="gcs-item"><span class="gcs-part">Verbal</span><span class="gcs-desc">Incomprehensible sounds</span><span class="gcs-score">2</span></div>
+    <div class="gcs-item"><span class="gcs-part">Motor</span><span class="gcs-desc">Withdraws from pain</span><span class="gcs-score">4</span></div>
+    <div class="gcs-total-row">Total GCS <span class="gcs-total">8</span></div>
+  </div>
+    </div>
+      <div class="finding-row"><div class="finding-label">Airway</div><div class="finding-value">At risk — decreasing muscle tone, sonorous respirations developing when his head lolls back; no active vomiting; suction must be staged</div></div><div class="finding-row"><div class="finding-label">Breathing</div><div class="finding-value">RR 10 and SHALLOW — inadequate minute ventilation; SpO2 drifting down, EtCO2 rising</div></div><div class="finding-row"><div class="finding-label">Circulation</div><div class="finding-value">Pulse 124 and THREADY; BP drifting down at 102/64; skin increasingly pale and very clammy</div></div><div class="finding-row"><div class="finding-label">Skin</div><div class="finding-value">increasingly pale · cool · very clammy</div></div><div class="finding-row"><div class="finding-label">Pupils</div><div class="finding-value">4 mm, equal, sluggish</div></div><div class="finding-row"><div class="finding-label">Motor</div><div class="finding-value">Responds to sternal rub with a groan and withdrawal; no purposeful movement; no longer mumbling</div></div><div class="finding-row"><div class="finding-label">Speech</div><div class="finding-value"><span class="finding-speech">"(none — groans to sternal rub only)"</span></div></div><div class="finding-row"><div class="finding-label">Other</div><div class="finding-value"><ul class="findings-notes"><li>GLUCOSE 30 mg/dL — the number nobody looked for</li><li>The mumbling stopping was NOT improvement — it was deterioration</li><li>High risk for seizure — untreated hypoglycemic decompensation</li><li>RR 10 and shallow = hypoventilation: support spontaneous respirations with BVM per MATC airway protocol</li><li>RESCUE ORDER: airway and ventilation FIRST, then BGL, then glucagon 1 mg IM/IN — no IV rescue exists at BLS scope</li><li>Oral glucose is absolutely contraindicated — he is responsive to pain only</li><li>This patient is now critical: rapid transport to prevent permanent brain injury or death</li></ul></div></div>
+    </div>
+  </div>
+    <div class="card">
+    <div class="card-title">Expected Actions</div>
+    <div class="card-content" style="padding:0 16px 12px"><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-critical">critical</span><div class="action-text">Open and maintain the airway — position, suction ready, NPA/OPA as tolerated</div></div>
+        <div class="action-excerpt">Open and maintain patent airway. If needed, Provide head tilt/chin lift, or jaw thrust if concern for potential spinal injury. Suction airway. Oropharyngeal airways (OPA) or nasopharyngeal airways (NPA) can be placed if needed to maintain a patent airway and make BVM ventilation more effective: OPA are used for patients without gag reflex; NPA are used for patients with gag reflex.</div>
+        <div class="action-ref">↳ MATC: Airway Management (Includes RSI)</div>
+      </div>
+    </div><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-critical">critical</span><div class="action-text">BVM-assist his spontaneous respirations — RR 10 and shallow is hypoventilation</div></div>
+        <div class="action-excerpt">Use bag-valve-mask (BVM) ventilation in the setting of respiratory failure or arrest. Two-person, two-thumbs-up BVM ventilation is preferred. Rate: Adult: 10–12 breaths/minute. Ventilation rate — Adult: Support spontaneous respirations if the patient is hypoventilating.</div>
+        <div class="action-ref">↳ MATC: Airway Management (Includes RSI)</div>
+      </div>
+    </div><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-important">important</span><div class="action-text">Oxygen titrated to SpO2 94–98% with continuous pulse oximetry</div></div>
+        <div class="action-excerpt">Administer oxygen if needed for air hunger or respiratory distress and titrate to a target SPO2 of 94–98%. Depending on patient presentation, this may be accomplished with nasal cannula, nonrebreather, BVM, NIV. Pulse oximetry is indicated to assess oxygenation.</div>
+        <div class="action-ref">↳ MATC: Airway Management (Includes RSI)</div>
+      </div>
+    </div><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-critical">critical</span><div class="action-text">Check the blood glucose NOW — the vital sign owed 10 minutes ago (reads 30 mg/dL)</div></div>
+        <div class="action-excerpt">Look for treatable causes of altered mental status (AMS): Blood glucose level. Performance Measures: Hypoglycemia considered and treated appropriately - Blood glucose level obtained.</div>
+        <div class="action-ref">↳ MATC: Altered Mental Status</div>
+      </div>
+    </div><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-critical">critical</span><div class="action-text">Glucagon 1 mg IM/IN — pain-responsive, cannot swallow; no IV option at BLS scope</div></div>
+        <div class="action-excerpt">If blood glucose is 60 mg/dL or less administer one of the following: Unconscious patient, or patients who are unable to protect their own airway: Glucagon IM/IN – an option for patients for whom IV access cannot be established: Adult dosing: 1 mg IM/IN (or prefilled 3 mg dry powder IN or prefilled IM autoinjector).</div>
+        <div class="action-ref">↳ MATC: Hypoglycemia</div>
+      </div>
+    </div><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-critical">critical</span><div class="action-text">Reassess and transport emergently — this patient is critical and is not a release candidate</div></div>
+        <div class="action-excerpt">Reassess patient: Reassess vital signs (pulse, blood pressure, respiratory rate, neurologic status assessment) and mental status. Repeat check of blood glucose level if previous hypoglycemia and mental status has not returned to normal. Disposition: If hypoglycemia with continued symptoms, transport to closest appropriate receiving facility.</div>
+        <div class="action-ref">↳ MATC: Hypoglycemia</div>
+      </div>
+    </div></div>
+  </div>
+  </section>
+</div>
+</body>
+</html>
