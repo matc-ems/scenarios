@@ -1,0 +1,293 @@
+{
+  "meta": {
+    "id": "915d-01-copd-exacerbation",
+    "name": "Severe COPD Exacerbation with CO2 Retention",
+    "version": 1,
+    "difficulty": "advanced",
+    "category": "Respiratory",
+    "protocols": ["resp-respiratory-distress", "resp-airway-management"],
+    "totalTimeSeconds": 900,
+    "tags": ["COPD", "CPAP", "CO2 retention", "duoneb", "915"]
+  },
+  "patient": {
+    "name": "Walter Nash",
+    "age": 72,
+    "ageUnit": "years",
+    "sex": "male",
+    "weight": 80,
+    "weightLbs": 176,
+    "height": 175,
+    "chiefComplaint": "Severe shortness of breath, worsening over 2 days",
+    "history": {
+      "hpi": "Wife reports increasing shortness of breath over the past two days, now with much more labored breathing and increasing drowsiness over the last hour. He has been using his home nebulizer more frequently without relief.",
+      "pastMedical": ["Severe COPD (home O2 2L NC baseline)", "Hypertension", "40 pack-year smoking history"],
+      "medications": ["Tiotropium inhaler daily", "Albuterol/ipratropium nebulizer PRN", "Home oxygen 2L NC", "Lisinopril 10 mg PO daily"],
+      "allergies": ["NKDA"],
+      "lastOralIntake": "Sips of water, last meal yesterday evening"
+      ,
+      "events": "Wife called 911 after noting increasing drowsiness and labored breathing despite home nebulizer treatments"
+    }
+  },
+  "scene": {
+    "dispatch": "72-year-old male, difficulty breathing, residence",
+    "location": "Single-story home, living room recliner, home oxygen concentrator running nearby",
+    "time": "9:50 PM, weekday",
+    "safety": "No hazards to crew noted",
+    "bystanders": "Wife present, providing history, appears anxious",
+    "visualCues": [
+      "Patient in tripod position in recliner, home O2 nasal cannula in place",
+      "Pursed-lip breathing, visible accessory muscle use",
+      "Barrel chest, prolonged expiratory phase audible without stethoscope",
+      "Increasingly drowsy, slow to respond to questions",
+      "Home nebulizer machine on side table, recently used"
+    ]
+  },
+  "phases": [
+    {
+      "id": "initial",
+      "name": "Initial Contact",
+      "description": "Crew finds a 72-year-old male with severe COPD in tripod position, using accessory muscles, with a prolonged expiratory phase and increasing drowsiness suggestive of developing CO2 retention/narcosis.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 4, "motor": 6 },
+        "airway": "Patent, prolonged expiratory phase, pursed-lip breathing",
+        "breathing": "Labored, accessory muscle use, tripod positioning",
+        "circulation": "Radial pulses present, tachycardic",
+        "skin": { "color": "dusky", "temperature": "warm", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Moves all extremities, increasingly slow to respond",
+        "otherFindings": [
+          "Increasing drowsiness over the past hour per wife",
+          "Diminished breath sounds bilaterally, prolonged expiratory phase",
+          "Home nebulizer used multiple times without relief",
+          "Barrel chest consistent with chronic COPD"
+        ],
+        "patientSpeech": "Speaks in 2-3 word phrases, slow to answer questions"
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 112,
+        "bpSys": 148,
+        "bpDia": 88,
+        "respRate": 28,
+        "spo2": 88,
+        "etco2": 58,
+        "temp": 37.1,
+        "tempF": 98.8,
+        "obstruction": 50,
+        "glucose": 110,
+        "customMeasures": [],
+        "trendTimeSeconds": 0,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
+      },
+      "expectedActions": [],
+      "transitions": [
+        {
+          "targetPhaseId": "cpap-duoneb-started",
+          "if": "CPAP and in-line duoneb started",
+          "condition": "Crew recognizes severe respiratory distress with early CO2 retention and initiates CPAP with in-line albuterol/ipratropium, titrating oxygen to a permissive-hypoxia target appropriate for chronic COPD.",
+          "conditionType": "action_taken"
+        },
+        {
+          "targetPhaseId": "co2-narcosis-worsens",
+          "if": "CPAP delayed, CO2 narcosis worsens",
+          "condition": "Crew delays escalation to CPAP, continuing only low-flow oxygen and standard nebulizer treatment while the patient's mental status and EtCO2 continue to deteriorate.",
+          "conditionType": "action_not_taken"
+        }
+      ]
+    },
+    {
+      "id": "cpap-duoneb-started",
+      "name": "CPAP and in-line duoneb started",
+      "description": "Crew initiates CPAP with in-line albuterol/ipratropium nebulizer via a T-connector, titrating supplemental oxygen to a permissive-hypoxia target appropriate for this patient's chronic COPD rather than chasing a normal saturation.",
+      "triggerCondition": "Severe respiratory distress with early CO2 retention meets criteria for non-invasive ventilation; crew escalates promptly to CPAP with in-line bronchodilator therapy rather than continuing standard nebulizer alone.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 4, "motor": 6 },
+        "airway": "Patent, tolerating CPAP mask with coaching",
+        "breathing": "Improved work of breathing, still using some accessory muscles",
+        "circulation": "Radial pulses present, tachycardic",
+        "skin": { "color": "improving, less dusky", "temperature": "warm", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "More alert, answering questions more readily",
+        "otherFindings": [
+          "CPAP mask sealed and tolerated with coaching",
+          "In-line duoneb administered via CPAP circuit",
+          "Oxygen titrated toward SpO2 ~90%, not chasing 98%",
+          "Mental status improving as EtCO2 begins trending down"
+        ],
+        "patientSpeech": "Speaking in fuller sentences, more alert"
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 102,
+        "bpSys": 142,
+        "bpDia": 84,
+        "respRate": 22,
+        "spo2": 90,
+        "etco2": 52,
+        "temp": 37.1,
+        "tempF": 98.8,
+        "obstruction": 25,
+        "glucose": 110,
+        "customMeasures": [],
+        "trendTimeSeconds": 30,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a1-cpap",
+          "shortAction": "Initiate CPAP for severe respiratory distress with developing CO2 retention",
+          "protocolExcerpt": "Non-invasive ventilation (NIV) should be administered for severe respiratory distress via BVM, continuous positive airway pressure (CPAP) or bi-level positive airway pressure (BiPAP)",
+          "priority": "critical",
+          "rationale": "Early NIV addresses both hypoxia and hypercapnia in severe COPD exacerbation before respiratory failure develops.",
+          "protocolReference": "MATC: Respiratory Distress (includes Bronchospasm, Pulmonary Edema)"
+        },
+        {
+          "id": "a2-inline-duoneb",
+          "shortAction": "Administer albuterol/ipratropium nebulizer in-line with CPAP via T-connector",
+          "protocolExcerpt": "If indicated, bronchodilators should be administered in line with NIV. Nebulized medications may be administered through a CPAP or BiPAP mask. A specialized T-connector with a spring valve assembly is required to allow maintenance of positive airway pressure",
+          "priority": "critical",
+          "rationale": "In-line nebulization allows bronchodilator delivery without breaking the CPAP seal.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        },
+        {
+          "id": "a3-permissive-hypoxia",
+          "shortAction": "Titrate oxygen to a permissive-hypoxia target of SpO2 ≥ 90%, not a normal saturation",
+          "protocolExcerpt": "Permissive hypoxia (SPO2 ≥ 90%) may be appropriate in patients with COPD or other complex respiratory pathology. Chronic COPD patients tolerate hypoxia better, and an SPO2 of 90% may relieve their symptoms and be adequate",
+          "priority": "important",
+          "rationale": "Over-oxygenating chronic COPD patients can blunt hypoxic respiratory drive and worsen hypercapnia.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        },
+        {
+          "id": "a4-etco2-trend",
+          "shortAction": "Monitor EtCO2 trend for downward direction rather than expecting full normalization",
+          "protocolExcerpt": "Normalization of EtCO2. This means a downward trend in a patient with increased EtCO2. Patients who have end stage COPD may have chronically elevated EtCO2 as high as 50s-60s, and thus tolerate elevated EtCO2 better so normalization may not be a good target",
+          "priority": "important",
+          "rationale": "Chronic CO2 retainers have a different EtCO2 baseline; a downward trend indicates improvement even without normalization.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "improved-transport",
+          "if": "CPAP seal maintained, improved and transported",
+          "condition": "Mental status and EtCO2 continue improving on CPAP with in-line duoneb; crew maintains a continuous seal for transport.",
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a1-cpap", "a2-inline-duoneb"]
+        }
+      ]
+    },
+    {
+      "id": "improved-transport",
+      "name": "CPAP seal maintained, improved and transported",
+      "description": "The patient's mental status and work of breathing continue to improve on CPAP with in-line bronchodilator therapy. Crew maintains a continuous CPAP seal throughout transport per protocol, avoiding any interruption.",
+      "triggerCondition": "With continued CPAP and in-line duoneb, the patient's mental status, EtCO2, and work of breathing have all trended in the right direction; crew prepares for transport while maintaining the mask seal.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent, CPAP seal maintained",
+        "breathing": "Improved work of breathing, minimal accessory muscle use",
+        "circulation": "Radial pulses present, rate improving",
+        "skin": { "color": "pink", "temperature": "warm", "moisture": "dry" },
+        "pupils": "PERRL",
+        "motorFunction": "Alert and appropriate",
+        "otherFindings": [
+          "CPAP seal maintained continuously since initiation",
+          "Speaking in full sentences again",
+          "No further nebulizer needed beyond in-line duoneb dose"
+        ],
+        "patientSpeech": "\"I can breathe a little easier now.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Rhythm",
+        "ecgWaveform": 9,
+        "hr": 92,
+        "bpSys": 138,
+        "bpDia": 82,
+        "respRate": 18,
+        "spo2": 91,
+        "etco2": 47,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 15,
+        "glucose": 110,
+        "customMeasures": [],
+        "trendTimeSeconds": 40,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a5-maintain-seal",
+          "shortAction": "Maintain continuous CPAP mask seal throughout transport until hospital CPAP is ready to take over",
+          "protocolExcerpt": "Once initiated and patient is tolerating mask, DO NOT discontinue CPAP/BiPAP until patient is on the emergency department stretcher and hospital CPAP/BiPAP is immediately available for patient to be switched over, or physician is at bedside and requesting CPAP/BiPAP be discontinued. Breaking the mask seal causes a significant decrease in airway pressures and may lead to abrupt decompensation due to atelectasis and alveolar collapse",
+          "priority": "critical",
+          "rationale": "Breaking the CPAP seal, even briefly, can cause rapid decompensation and lose the gains made in oxygenation and ventilation.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        }
+      ],
+      "transitions": []
+    },
+    {
+      "id": "co2-narcosis-worsens",
+      "name": "CPAP delayed, CO2 narcosis worsens",
+      "description": "Crew continues only low-flow oxygen and standard nebulizer without escalating to CPAP. The patient's mental status continues to deteriorate as EtCO2 climbs, consistent with worsening CO2 narcosis and impending respiratory failure.",
+      "triggerCondition": "Without escalation to non-invasive ventilation, the patient's hypercapnia worsens; increasing drowsiness and rising EtCO2 indicate progression toward respiratory failure.",
+      "isDefault": false,
+      "clinicalPresentation": {
+        "avpu": "Verbal",
+        "gcs": { "eye": 3, "verbal": 3, "motor": 5 },
+        "airway": "Patent but increasingly at risk as mental status declines",
+        "breathing": "Labored, now with decreasing respiratory effort as the patient tires",
+        "circulation": "Radial pulses present, tachycardic",
+        "skin": { "color": "dusky, worsening", "temperature": "warm", "moisture": "diaphoretic" },
+        "pupils": "PERRL, sluggish",
+        "motorFunction": "Responds only to voice, slow and confused",
+        "otherFindings": [
+          "Increasing somnolence, difficult to keep aroused",
+          "EtCO2 climbing despite ongoing standard nebulizer treatment",
+          "Decreasing respiratory rate as fatigue sets in — an ominous sign"
+        ],
+        "patientSpeech": "Mumbled, incoherent responses"
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 122,
+        "bpSys": 152,
+        "bpDia": 90,
+        "respRate": 14,
+        "spo2": 82,
+        "etco2": 76,
+        "temp": 37.1,
+        "tempF": 98.8,
+        "obstruction": 60,
+        "glucose": 110,
+        "customMeasures": [],
+        "trendTimeSeconds": 50,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a6-recognize-narcosis",
+          "shortAction": "Recognize CO2 narcosis (worsening somnolence, rising EtCO2, falling RR); initiate CPAP with in-line duoneb immediately",
+          "protocolExcerpt": "Non-invasive ventilation (NIV) should be administered for severe respiratory distress via BVM, continuous positive airway pressure (CPAP) or bi-level positive airway pressure (BiPAP). If indicated, bronchodilators should be administered in line with NIV",
+          "priority": "critical",
+          "rationale": "Delayed NIV allows progressive CO2 narcosis and respiratory failure; this must be escalated immediately once recognized.",
+          "protocolReference": "MATC: Respiratory Distress (includes Bronchospasm, Pulmonary Edema)"
+        }
+      ],
+      "transitions": []
+    }
+  ],
+  "realiti": {
+    "scenarioMonitorType": 2,
+    "scenarioDefaultEnergy": 200,
+    "scenarioDefaultPacerThreshold": 55
+  }
+}

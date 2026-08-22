@@ -1,0 +1,460 @@
+{
+  "meta": {
+    "id": "915c-05-smoke-inhalation",
+    "name": "Smoke Inhalation — Early Intubation Before Airway Closure",
+    "version": 1,
+    "difficulty": "advanced",
+    "category": "Respiratory",
+    "protocols": [
+      "tox-carbon-monoxide-smoke-inhalation",
+      "resp-airway-management",
+      "tox-cyanide-exposure"
+    ],
+    "totalTimeSeconds": 900,
+    "tags": ["ALS", "toxicology", "airway", "RSI", "burns", "smoke inhalation", "915"]
+  },
+  "patient": {
+    "name": "Marcus Delaney",
+    "age": 40,
+    "ageUnit": "years",
+    "sex": "male",
+    "weight": 90,
+    "weightLbs": 198,
+    "height": 178,
+    "chiefComplaint": "Difficulty breathing and hoarse voice after house fire",
+    "history": {
+      "hpi": "Patient was inside a single-family home when a kitchen fire spread rapidly; he was trapped in a smoke-filled hallway for an estimated 5-8 minutes before self-extricating out a rear door. Reports his voice \"feels tight\" and swallowing is uncomfortable. Denies loss of consciousness. Firefighters on scene report heavy black smoke with synthetic furniture and carpet involved.",
+      "pastMedical": ["Hypertension"],
+      "medications": ["Lisinopril 20 mg PO daily"],
+      "allergies": ["NKDA"],
+      "lastOralIntake": "Dinner approximately 2 hours prior to the fire",
+      "events": "Neighbors called 911 after seeing smoke; patient self-extricated and was found sitting on the curb by first-arriving engine company"
+    }
+  },
+  "scene": {
+    "dispatch": "40-year-old male, structure fire, patient out of the building, difficulty breathing",
+    "location": "Residential street, patient seated on curb approximately 30 feet from a single-family home with heavy smoke showing from the roofline",
+    "time": "1:15 AM, overnight",
+    "safety": "Active structure fire with fire suppression in progress; scene secured by fire command outside the hot zone; patient already extricated",
+    "bystanders": "Neighbor who called 911 present; reports patient was inside for several minutes before getting out on his own",
+    "visualCues": [
+      "Soot around the nares and mouth",
+      "Singed nasal hairs and eyebrows",
+      "Hoarse, raspy voice when speaking",
+      "Carbonaceous (black-flecked) sputum with coughing",
+      "Mild inspiratory stridor audible without a stethoscope",
+      "Heavy smoke and fire activity visible in the background"
+    ]
+  },
+  "phases": [
+    {
+      "id": "initial",
+      "name": "Initial Contact",
+      "description": "Crew finds a 40-year-old male seated on the curb, anxious and coughing, with visible soot around his nose and mouth and a hoarse voice. He self-extricated from a smoke-filled structure fire minutes ago.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent but hoarse voice, soot around nares/mouth, singed nasal hairs, mild audible inspiratory stridor",
+        "breathing": "Tachypneic, mild accessory muscle use, occasional cough productive of carbonaceous sputum",
+        "circulation": "Radial pulses present bilaterally, strong and rapid, skin warm and diaphoretic",
+        "skin": { "color": "flushed", "temperature": "warm", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Strength intact in all extremities",
+        "otherFindings": [
+          "Anxious and coughing frequently",
+          "Reports throat feels \"tight\"",
+          "Uncomfortable swallowing",
+          "Denies chest or abdominal pain"
+        ],
+        "patientSpeech": "\"My throat feels really tight... it's getting harder to talk.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 118,
+        "bpSys": 138,
+        "bpDia": 86,
+        "respRate": 24,
+        "spo2": 97,
+        "etco2": 0,
+        "temp": 37.1,
+        "tempF": 98.8,
+        "obstruction": 15,
+        "glucose": 102,
+        "customMeasures": [],
+        "trendTimeSeconds": 0,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [],
+      "transitions": [
+        {
+          "targetPhaseId": "o2-monitoring",
+          "if": "High-flow O2 and monitoring started",
+          "condition": "Crew places the patient on 100% oxygen and attaches cardiac monitor, pulse oximetry, and capnography while obtaining a focused exposure history.",
+          "conditionType": "action_taken"
+        }
+      ]
+    },
+    {
+      "id": "o2-monitoring",
+      "name": "High-flow O2 and monitoring started",
+      "description": "Patient placed on 100% oxygen via non-rebreather with continuous monitoring. The crew recognizes that pulse oximetry may be falsely reassuring given probable carbon monoxide exposure, and continues serial airway reassessment given the risk of progressive swelling.",
+      "triggerCondition": "After removal from the toxic environment, the crew immediately initiates 100% oxygen and full monitoring per the Carbon Monoxide/Smoke Inhalation guideline, understanding that pulse oximetry does not reliably reflect tissue oxygenation in this setting.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Hoarseness worsening compared to initial contact, stridor slightly more pronounced",
+        "breathing": "Tachypneic, 100% oxygen via non-rebreather in place",
+        "circulation": "Radial pulses present, strong and rapid",
+        "skin": { "color": "flushed", "temperature": "warm", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Strength intact in all extremities",
+        "otherFindings": [
+          "Voice noticeably more hoarse than 2 minutes ago",
+          "Increasing effort with each cough",
+          "No cyanosis noted"
+        ],
+        "patientSpeech": "\"It's... getting harder... to talk.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 114,
+        "bpSys": 136,
+        "bpDia": 84,
+        "respRate": 22,
+        "spo2": 98,
+        "etco2": 36,
+        "temp": 37.1,
+        "tempF": 98.8,
+        "obstruction": 25,
+        "glucose": 102,
+        "customMeasures": [],
+        "trendTimeSeconds": 30,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a1-o2",
+          "shortAction": "100% oxygen via non-rebreather mask immediately",
+          "protocolExcerpt": "100% oxygen via non-rebreather mask or high flow oxygen by nasal cannula (HFNC) or CPAP or bag valve mask or advanced airway as indicated",
+          "priority": "critical",
+          "rationale": "Carbon monoxide has high affinity for hemoglobin; high-flow oxygen accelerates its displacement even when pulse oximetry appears normal.",
+          "protocolReference": "MATC: Carbon Monoxide/Smoke Inhalation"
+        },
+        {
+          "id": "a2-monitor",
+          "shortAction": "Apply cardiac monitor, pulse oximetry, and EtCO2; check blood glucose",
+          "protocolExcerpt": "Vital signs (pulse, blood pressure, respiratory rate, neurologic status assessment) temperature, and O2 saturation, and EtCO2 if available. Apply a cardiac monitor, examine rhythm strip for arrhythmias, and obtain a 12-lead EKG if available. Check blood glucose level",
+          "priority": "important",
+          "rationale": "Establishes baseline monitoring and rules out other contributing causes of altered vitals.",
+          "protocolReference": "MATC: Carbon Monoxide/Smoke Inhalation"
+        },
+        {
+          "id": "a3-pulseox-caveat",
+          "shortAction": "Do not rely on normal SpO2 to exclude significant CO or cyanide toxicity",
+          "protocolExcerpt": "Pulse oximetry is inaccurate due to the carbon monoxide binding with hemoglobin",
+          "priority": "important",
+          "rationale": "A reassuring SpO2 can mask severe hypoxic injury from CO/cyanide binding rather than true oxygen desaturation.",
+          "protocolReference": "MATC: Carbon Monoxide/Smoke Inhalation"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "rsi-performed",
+          "if": "Early RSI performed for impending obstruction",
+          "condition": "Worsening hoarseness, increasing stridor, and visible soot/carbonaceous sputum in the oropharynx are recognized as signs of impending airway obstruction, prompting early RSI before the airway swells shut.",
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a1-o2", "a2-monitor"]
+        },
+        {
+          "targetPhaseId": "airway-closes",
+          "if": "Intubation delayed despite worsening stridor",
+          "condition": "Crew defers airway management, waiting for further deterioration instead of intubating early; stridor and hoarseness progress toward near-complete obstruction.",
+          "conditionType": "action_not_taken"
+        },
+        {
+          "targetPhaseId": "cyanide-suspected",
+          "if": "Sudden hypotension/AMS raises cyanide concern",
+          "condition": "Patient develops sudden hypotension and worsening mental status out of proportion to visible burn severity, raising concern for concurrent cyanide toxicity from combustion of synthetic materials.",
+          "conditionType": "vital_threshold"
+        }
+      ]
+    },
+    {
+      "id": "rsi-performed",
+      "name": "Early RSI performed for impending obstruction",
+      "description": "Recognizing progressive hoarseness, stridor, and airway soot as signs of impending obstruction from inhalation injury, the crew performs RSI before the airway swells further, securing a definitive airway while it is still possible to visualize the cords.",
+      "triggerCondition": "Worsening hoarseness, increasing inspiratory stridor, and visible airway soiling are recognized as an evolving inhalation injury with impending airway obstruction, meeting the protocol's indication for early intubation before complete closure occurs.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Marked hoarseness, audible stridor, oropharynx visibly sooty; preparing for RSI while cords still visualizable",
+        "breathing": "Labored, accessory muscle use increasing",
+        "circulation": "Radial pulses present, strong and rapid",
+        "skin": { "color": "flushed", "temperature": "warm", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Strength intact in all extremities",
+        "otherFindings": [
+          "Two experienced airway practitioners at bedside",
+          "Preoxygenation and positioning underway",
+          "Suction staged given soot/secretions"
+        ],
+        "patientSpeech": "\"I can barely... get air...\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 124,
+        "bpSys": 140,
+        "bpDia": 88,
+        "respRate": 26,
+        "spo2": 97,
+        "etco2": 40,
+        "temp": 37.2,
+        "tempF": 99.0,
+        "obstruction": 40,
+        "glucose": 102,
+        "customMeasures": [],
+        "trendTimeSeconds": 30,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a4-preox",
+          "shortAction": "Preoxygenate with high-flow O2 and positive pressure for 2 minutes before RSI",
+          "protocolExcerpt": "Patient should be pre-oxygenated with high flow oxygen, and positive pressure ventilation for a minimum of two minutes prior to the procedure",
+          "priority": "critical",
+          "rationale": "Maximizes oxygen reserve before apnea during induction and paralysis.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        },
+        {
+          "id": "a5-suction",
+          "shortAction": "Suction soot/secretions from oropharynx before laryngoscopy",
+          "protocolExcerpt": "Prompt suctioning of soiled airways before intubation attempt may improve first pass success and limit morbidity and mortality",
+          "priority": "important",
+          "rationale": "Carbonaceous debris in the airway can obscure the glottic view and increase aspiration risk.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        },
+        {
+          "id": "a6-premed",
+          "shortAction": "Fentanyl 90 mcg IV premedication (90 kg × 1 mcg/kg), 2-3 min before intubation",
+          "protocolExcerpt": "Consider pre-medication with Fentanyl, 1 mcg/kg, 2-3 minutes prior to intubation attempt",
+          "priority": "important",
+          "rationale": "Blunts the sympathetic response to laryngoscopy.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        },
+        {
+          "id": "a7-induction",
+          "shortAction": "Etomidate 27 mg IV push (90 kg × 0.3 mg/kg)",
+          "protocolExcerpt": "Administer induction sedative agent: Etomidate IV push, 0.2-0.3 mg/kg",
+          "priority": "critical",
+          "rationale": "Provides rapid sedation with minimal hemodynamic effect prior to paralysis.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        },
+        {
+          "id": "a8-paralytic",
+          "shortAction": "Rocuronium 90 mg IV push (90 kg × 1 mg/kg)",
+          "protocolExcerpt": "Administer paralytic agent: Rocuronium IV push, 1 mg/kg",
+          "priority": "critical",
+          "rationale": "Achieves complete paralysis for optimal first-pass intubation conditions.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        },
+        {
+          "id": "a9-intubate",
+          "shortAction": "Intubate with 8.0 mm ETT (adult male), limit attempt to 15 seconds or SpO2 <90%",
+          "protocolExcerpt": "Absent significant airway swelling or underlying anatomic abnormalities, initial tube size (internal diameter in millimeters) for adult females should be 7.5, adult males 8.0. Attempt intubation, limiting attempts to 15 seconds, or a desaturation below 90%, whichever occurs first",
+          "priority": "critical",
+          "rationale": "Secures the airway before further swelling makes glottic visualization impossible.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "secured-transport",
+          "if": "Tube confirmed and secured",
+          "condition": "Successful first-pass intubation is confirmed with waveform capnography, bilateral breath sounds, and absent gastric sounds; tube is secured and ventilation begins.",
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a9-intubate"]
+        }
+      ]
+    },
+    {
+      "id": "secured-transport",
+      "name": "Tube confirmed and secured, transport initiated",
+      "description": "The endotracheal tube is confirmed with waveform capnography, secured, and the patient is ventilated and transported. Given the severity of exposure, the crew considers a facility with hyperbaric oxygen capability.",
+      "triggerCondition": "After successful intubation, tube placement is confirmed and secured, and the patient is transported with continuous capnography monitoring.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Unresponsive",
+        "gcs": { "eye": 1, "verbal": 1, "motor": 1 },
+        "airway": "Secured with endotracheal tube, confirmed placement, bilateral breath sounds equal",
+        "breathing": "Ventilated via BVM/mechanical ventilator, 10-12 breaths/min",
+        "circulation": "Radial and pedal pulses present, skin warm",
+        "skin": { "color": "pink", "temperature": "warm", "moisture": "dry" },
+        "pupils": "PERRL",
+        "motorFunction": "Sedated, no purposeful movement",
+        "otherFindings": [
+          "ETT secured at appropriate depth, tube position reassessed after each movement",
+          "Continuous waveform capnography confirming placement",
+          "Considering hyperbaric-capable facility given severity of exposure"
+        ],
+        "patientSpeech": ""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Rhythm",
+        "ecgWaveform": 9,
+        "hr": 98,
+        "bpSys": 132,
+        "bpDia": 82,
+        "respRate": 12,
+        "spo2": 99,
+        "etco2": 38,
+        "temp": 37.2,
+        "tempF": 99.0,
+        "obstruction": 0,
+        "glucose": 102,
+        "customMeasures": [],
+        "trendTimeSeconds": 40,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a10-confirm",
+          "shortAction": "Confirm tube placement with waveform capnography, secure tube, reassess after each movement",
+          "protocolExcerpt": "Confirm placement of advanced airway (endotracheal tube, SGA) with waveform capnography (most reliable), absent gastric sounds, and bilateral breath sounds. Secure tube manually. Once proper position is confirmed, secure the tube with tape, twill, or commercial device",
+          "priority": "critical",
+          "rationale": "Waveform capnography is the most reliable confirmation method and must be continuously monitored for displacement.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        },
+        {
+          "id": "a11-hyperbaric",
+          "shortAction": "Consider direct transport to a hyperbaric-capable facility given severe CO exposure",
+          "protocolExcerpt": "Consider transporting patients with severe carbon monoxide poisoning directly to a facility with hyperbaric oxygen capabilities if feasible and patient does not meet criteria for other specialty care (e.g., trauma or burn)",
+          "priority": "important",
+          "rationale": "Hyperbaric oxygen therapy reduces the risk of delayed neurologic sequelae from significant CO exposure.",
+          "protocolReference": "MATC: Carbon Monoxide/Smoke Inhalation"
+        }
+      ],
+      "transitions": []
+    },
+    {
+      "id": "airway-closes",
+      "name": "Intubation delayed despite worsening stridor",
+      "description": "The crew waits for further deterioration instead of intubating while the airway is still manageable. Stridor becomes severe, the glottic opening becomes difficult to visualize due to progressive swelling, and oxygenation begins to fail.",
+      "triggerCondition": "Airway management is deferred despite worsening hoarseness and stridor; progressive edema narrows the airway to the point that intubation becomes difficult or impossible, and a surgical airway may be required.",
+      "isDefault": false,
+      "clinicalPresentation": {
+        "avpu": "Verbal",
+        "gcs": { "eye": 3, "verbal": 4, "motor": 6 },
+        "airway": "Severe stridor, minimal air movement, oropharyngeal swelling now obscures the glottic opening",
+        "breathing": "Marked accessory muscle use, paradoxical chest movement, weak respiratory effort",
+        "circulation": "Radial pulses present but thready, tachycardic",
+        "skin": { "color": "cyanotic", "temperature": "cool", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Restless, decreasing responsiveness",
+        "otherFindings": [
+          "Unable to speak now, only whispering",
+          "SpO2 falling despite 100% oxygen",
+          "Glottic structures no longer clearly visualized on attempted laryngoscopy"
+        ],
+        "patientSpeech": "(unable to speak, gestures at throat)"
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 132,
+        "bpSys": 128,
+        "bpDia": 80,
+        "respRate": 30,
+        "spo2": 82,
+        "etco2": 28,
+        "temp": 37.3,
+        "tempF": 99.1,
+        "obstruction": 85,
+        "glucose": 102,
+        "customMeasures": [],
+        "trendTimeSeconds": 50,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a12-surgical-airway",
+          "shortAction": "Prepare for surgical airway; oxygenation/ventilation cannot be achieved by less invasive means",
+          "protocolExcerpt": "When patients cannot be oxygenated/ventilated effectively using the above interventions, or when conventional airway approaches are impossible, surgical airway management is a reasonable option if the clinician has competency in the procedure and risk of death for not escalating airway management seems to outweigh the risk of a procedural complication",
+          "priority": "critical",
+          "rationale": "Delayed recognition of impending obstruction can progress to a can't-intubate, can't-oxygenate emergency requiring surgical airway rescue.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        }
+      ],
+      "transitions": []
+    },
+    {
+      "id": "cyanide-suspected",
+      "name": "Hydroxocobalamin given for suspected cyanide toxicity",
+      "description": "The patient develops sudden hypotension and worsening mental status disproportionate to the visible burn severity. Given the fire involved synthetic materials, concurrent cyanide toxicity is suspected and empiric treatment is initiated.",
+      "triggerCondition": "Sudden hypotension and rapidly worsening mental status, out of proportion to visible injury, in a patient exposed to combustion of synthetic materials raises concern for concurrent cyanide toxicity requiring empiric antidote treatment.",
+      "isDefault": false,
+      "clinicalPresentation": {
+        "avpu": "Verbal",
+        "gcs": { "eye": 3, "verbal": 4, "motor": 5 },
+        "airway": "Patent, hoarse",
+        "breathing": "Tachypneic, shallow",
+        "circulation": "Weak, thready pulses; hypotensive",
+        "skin": { "color": "pale", "temperature": "cool", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Weak, minimal purposeful movement",
+        "otherFindings": [
+          "Rapid decline in mental status disproportionate to apparent burn severity",
+          "Hypotension not explained by visible blood loss",
+          "Fire involved significant synthetic furniture/carpet combustion per fire crew report"
+        ],
+        "patientSpeech": "(mumbling, difficult to understand)"
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 130,
+        "bpSys": 78,
+        "bpDia": 48,
+        "respRate": 28,
+        "spo2": 95,
+        "etco2": 30,
+        "temp": 37.2,
+        "tempF": 99.0,
+        "obstruction": 20,
+        "glucose": 100,
+        "customMeasures": [],
+        "trendTimeSeconds": 40,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a13-hydroxocobalamin",
+          "shortAction": "Hydroxocobalamin 5 g IV over 15 minutes for suspected cyanide toxicity",
+          "protocolExcerpt": "Administer hydroxocobalamin: Initial dose is 5 g administered over 15 minutes slow IV. Each 5 g vial of hydroxocobalamin for injection is to be reconstituted with 200 mL of LR, NS, or D5W (25 mg/mL) and administered at 10-15 mL/minute",
+          "priority": "critical",
+          "rationale": "Fire smoke from synthetic materials can generate cyanide; treatment decisions are made clinically since rapid confirmatory testing is unavailable.",
+          "protocolReference": "MATC: Cyanide Exposure"
+        },
+        {
+          "id": "a14-continue-o2",
+          "shortAction": "Continue 100% oxygen via non-rebreather, CPAP, or BVM as tolerated",
+          "protocolExcerpt": "100% oxygen via non-rebreather mask, CPAP, or bag valve mask",
+          "priority": "critical",
+          "rationale": "High-flow oxygen remains essential supportive therapy alongside antidote administration.",
+          "protocolReference": "MATC: Cyanide Exposure"
+        }
+      ],
+      "transitions": []
+    }
+  ],
+  "realiti": {
+    "scenarioMonitorType": 2,
+    "scenarioDefaultEnergy": 200,
+    "scenarioDefaultPacerThreshold": 55
+  }
+}

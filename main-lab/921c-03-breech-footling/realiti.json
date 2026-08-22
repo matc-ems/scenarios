@@ -1,0 +1,255 @@
+{
+  "scenarioId": "921c-03-breech-footling",
+  "scenarioName": "Footling Breech Delivery — Crowning on Arrival",
+  "scenarioType": "Vital Signs",
+  "scenarioVersion": 2,
+  "scenarioTime": 600,
+  "scenarioMonitorType": 2,
+  "scenarioDefaultEnergy": 200,
+  "scenarioDefaultPacerThreshold": 55,
+  "isDemo": false,
+  "isALSILegacy": false,
+  "scenarioStory": {
+    "history": "24-year-old G2P1 at 37 weeks gestation called 911 after a sudden urge to push at home. Contractions have been roughly 2 minutes apart for the last 20 minutes. On exam, a single fetal foot is visible at the vaginal opening rather than the head.",
+    "discussion": "",
+    "course": "Initial Contact: Crew arrives to find a 24-year-old female in active labor with a single fetal foot presenting at the vaginal opening — a footling breech — with strong contractions every 2 minutes. → Hands-off breech technique used: The crew allows the buttocks, feet, and trunk to deliver spontaneously without pulling, continuously checking for a prolapsed cord and supporting the fetal body to prevent hyperextension of the head. → Head delivered with jaw-flexion technique: The fetal head fails to deliver spontaneously after the trunk. The crew creates an airway with a gloved hand and flexes the head using the jaw-flexion (Mauriceau-style) maneuver described in protocol. → Newborn dried, warmed, APGAR scored: The newborn is delivered, dried, warmed, and placed on the maternal chest. APGAR scores are recorded and the crew prepares mother and newborn for transport, notifying medical direction of the breech presentation."
+  },
+  "patientInformation": {
+    "patientName": "Emily Cortez",
+    "patientCondition": "Active labor, 37 weeks, footling breech presentation, already crowning",
+    "patientAge": 24,
+    "patientAgeUnit": "years",
+    "patientAgeCategory": 0,
+    "patientSex": 2,
+    "patientHeight": 165,
+    "patientWeight": 65,
+    "patientPhotoId": 29,
+    "patientAdmitted": 1
+  },
+  "labs": [],
+  "scenarioEvents": [
+    {
+      "type": "ScenarioEvent",
+      "name": "Initial Contact",
+      "description": "Crew arrives to find a 24-year-old female in active labor with a single fetal foot presenting at the vaginal opening — a footling breech — with strong contractions every 2 minutes.",
+      "monitorType": 0,
+      "trendTime": 0,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 108,
+        "bpSys": 128,
+        "bpDia": 78,
+        "respRate": 22,
+        "spo2": 98,
+        "etco2": 0,
+        "temp": 37,
+        "obstruction": 0,
+        "custMeasure1": 90,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Hands-off breech technique used",
+      "description": "The crew allows the buttocks, feet, and trunk to deliver spontaneously without pulling, continuously checking for a prolapsed cord and supporting the fetal body to prevent hyperextension of the head.",
+      "monitorType": 0,
+      "trendTime": 20,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 112,
+        "bpSys": 126,
+        "bpDia": 76,
+        "respRate": 24,
+        "spo2": 98,
+        "etco2": 0,
+        "temp": 37,
+        "obstruction": 0,
+        "custMeasure1": 90,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Position mother supine; allow buttocks, feet, and trunk to deliver spontaneously without traction",
+        "Assess for prolapsed cord as the trunk delivers; treat immediately if present",
+        "Support fetal body without pulling; keep fetus elevated off the umbilical cord"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Head delivered with jaw-flexion technique",
+      "description": "The fetal head fails to deliver spontaneously after the trunk. The crew creates an airway with a gloved hand and flexes the head using the jaw-flexion (Mauriceau-style) maneuver described in protocol.",
+      "monitorType": 0,
+      "trendTime": 30,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 104,
+        "bpSys": 122,
+        "bpDia": 74,
+        "respRate": 20,
+        "spo2": 99,
+        "etco2": 0,
+        "temp": 37,
+        "obstruction": 0,
+        "custMeasure1": 90,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Insert gloved hand, form a 'V' with index/ring fingers on infant's cheeks, flex chin to chest to create an airway and deliver the head"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Newborn dried, warmed, APGAR scored",
+      "description": "The newborn is delivered, dried, warmed, and placed on the maternal chest. APGAR scores are recorded and the crew prepares mother and newborn for transport, notifying medical direction of the breech presentation.",
+      "monitorType": 0,
+      "trendTime": 40,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 92,
+        "bpSys": 118,
+        "bpDia": 72,
+        "respRate": 18,
+        "spo2": 99,
+        "etco2": 0,
+        "temp": 37,
+        "obstruction": 0,
+        "custMeasure1": 90,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Dry, warm, and stimulate newborn; wrap in towel and place on maternal chest",
+        "Record APGAR score at 1 and 5 minutes once neonate is stabilized",
+        "Notify medical direction/receiving facility of the breech presentation prior to arrival"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Traction applied on fetal body",
+      "description": "The crew pulls on the fetal trunk attempting to hasten delivery instead of allowing spontaneous descent, creating risk of nuchal arm entrapment or cervical spine injury to the fetus.",
+      "monitorType": 0,
+      "trendTime": 20,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 124,
+        "bpSys": 134,
+        "bpDia": 82,
+        "respRate": 26,
+        "spo2": 97,
+        "etco2": 0,
+        "temp": 37,
+        "obstruction": 0,
+        "custMeasure1": 90,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Recognize impaired progress; stop traction and revert to a hands-off, support-only technique"
+      ],
+      "relatedSounds": []
+    }
+  ],
+  "checklist": [
+    {
+      "title": "Position mother supine; allow buttocks, feet, and trunk to deliver spontaneously without traction",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Assess for prolapsed cord as the trunk delivers; treat immediately if present",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Support fetal body without pulling; keep fetus elevated off the umbilical cord",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Insert gloved hand, form a 'V' with index/ring fingers on infant's cheeks, flex chin to chest to create an airway and deliver the head",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Dry, warm, and stimulate newborn; wrap in towel and place on maternal chest",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Record APGAR score at 1 and 5 minutes once neonate is stabilized",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Notify medical direction/receiving facility of the breech presentation prior to arrival",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Recognize impaired progress; stop traction and revert to a hands-off, support-only technique",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    }
+  ],
+  "media": []
+}

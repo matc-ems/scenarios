@@ -1,0 +1,248 @@
+{
+  "scenarioId": "921b-03-cerebral-palsy-special-needs",
+  "scenarioName": "Special Needs — Cerebral Palsy Patient with Subtle Baseline Change",
+  "scenarioType": "Vital Signs",
+  "scenarioVersion": 2,
+  "scenarioTime": 900,
+  "scenarioMonitorType": 2,
+  "scenarioDefaultEnergy": 200,
+  "scenarioDefaultPacerThreshold": 55,
+  "isDemo": false,
+  "isALSILegacy": false,
+  "scenarioStory": {
+    "history": "Home health aide called 911 after noting the patient, who has spastic quadriplegic cerebral palsy and is nonverbal at baseline, seemed less responsive than usual this afternoon, was warm to the touch, and took very little from his morning feed. The aide reports his urine (via intermittent catheterization) has looked darker and more concentrated over the past day. No witnessed seizure activity, no vomiting, no rash noted.",
+    "discussion": "",
+    "course": "Initial Contact: Crew arrives to find a 24-year-old male with cerebral palsy, nonverbal at baseline, who the caregiver reports is less responsive and warmer than usual. He is arousable to voice but not tracking or vocalizing as he typically does. → Caregiver history and baseline obtained: Crew interviews the home health aide to establish the patient's normal functional and communication baseline, compares it to today's presentation, and works through the AEIOU-TIPS differential — identifying fever, tachycardia, and a likely catheter-associated urinary source as the cause of his altered mentation. → IV fluids and antipyretic given: Crew establishes IV access, gives an isotonic fluid bolus toward the MAP goal, administers weight-based acetaminophen for fever, and provides advance notification to the receiving hospital of a likely septic source given the recent catheterization. → Perfusion improves, transport initiated: Heart rate and mentation trend toward the patient's caregiver-confirmed baseline following fluid resuscitation and antipyretic therapy. Crew continues serial reassessment en route to a facility that can manage suspected catheter-associated sepsis."
+  },
+  "patientInformation": {
+    "patientName": "Marcus Whitfield",
+    "patientCondition": "Caregiver reports patient is 'not himself' today",
+    "patientAge": 24,
+    "patientAgeUnit": "years",
+    "patientAgeCategory": 0,
+    "patientSex": 1,
+    "patientHeight": 160,
+    "patientWeight": 58,
+    "patientPhotoId": 29,
+    "patientAdmitted": 1
+  },
+  "labs": [],
+  "scenarioEvents": [
+    {
+      "type": "ScenarioEvent",
+      "name": "Initial Contact",
+      "description": "Crew arrives to find a 24-year-old male with cerebral palsy, nonverbal at baseline, who the caregiver reports is less responsive and warmer than usual. He is arousable to voice but not tracking or vocalizing as he typically does.",
+      "monitorType": 0,
+      "trendTime": 0,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 112,
+        "bpSys": 108,
+        "bpDia": 68,
+        "respRate": 22,
+        "spo2": 96,
+        "etco2": 0,
+        "temp": 38.9,
+        "obstruction": 0,
+        "custMeasure1": 96,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Caregiver history and baseline obtained",
+      "description": "Crew interviews the home health aide to establish the patient's normal functional and communication baseline, compares it to today's presentation, and works through the AEIOU-TIPS differential — identifying fever, tachycardia, and a likely catheter-associated urinary source as the cause of his altered mentation.",
+      "monitorType": 0,
+      "trendTime": 30,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 114,
+        "bpSys": 106,
+        "bpDia": 66,
+        "respRate": 20,
+        "spo2": 96,
+        "etco2": 0,
+        "temp": 39,
+        "obstruction": 0,
+        "custMeasure1": 96,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Obtain detailed caregiver history establishing patient's baseline function and today's change",
+        "Work through AEIOU-TIPS differential: check glucose, look for signs of infection and other treatable causes"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "IV fluids and antipyretic given",
+      "description": "Crew establishes IV access, gives an isotonic fluid bolus toward the MAP goal, administers weight-based acetaminophen for fever, and provides advance notification to the receiving hospital of a likely septic source given the recent catheterization.",
+      "monitorType": 0,
+      "trendTime": 40,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 104,
+        "bpSys": 112,
+        "bpDia": 70,
+        "respRate": 18,
+        "spo2": 97,
+        "etco2": 0,
+        "temp": 38.6,
+        "obstruction": 0,
+        "custMeasure1": 96,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "IV access established; 500 mL isotonic fluid bolus pressure-infused over <15 min toward MAP goal",
+        "Acetaminophen 870 mg IV/PO (58 kg × 15 mg/kg = 870 mg; max 1000 mg)",
+        "Provide advance notification to receiving hospital of suspected septic source"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Perfusion improves, transport initiated",
+      "description": "Heart rate and mentation trend toward the patient's caregiver-confirmed baseline following fluid resuscitation and antipyretic therapy. Crew continues serial reassessment en route to a facility that can manage suspected catheter-associated sepsis.",
+      "monitorType": 0,
+      "trendTime": 50,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 96,
+        "bpSys": 114,
+        "bpDia": 72,
+        "respRate": 16,
+        "spo2": 98,
+        "etco2": 0,
+        "temp": 38.2,
+        "obstruction": 0,
+        "custMeasure1": 96,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Reassess full vital signs and mental status serially en route, comparing to caregiver-confirmed baseline"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Baseline history not obtained",
+      "description": "Crew attributes the patient's decreased responsiveness to his known cerebral palsy without asking the caregiver what is normal for him. Fever and tachycardia go unaddressed, and the underlying infectious process progresses toward decompensated shock.",
+      "monitorType": 0,
+      "trendTime": 50,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 128,
+        "bpSys": 88,
+        "bpDia": 54,
+        "respRate": 26,
+        "spo2": 94,
+        "etco2": 0,
+        "temp": 39.4,
+        "obstruction": 0,
+        "custMeasure1": 94,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Recognize uncompensated shock (SBP <90); initiate IV fluid bolus and advance hospital notification"
+      ],
+      "relatedSounds": []
+    }
+  ],
+  "checklist": [
+    {
+      "title": "Obtain detailed caregiver history establishing patient's baseline function and today's change",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Work through AEIOU-TIPS differential: check glucose, look for signs of infection and other treatable causes",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "IV access established; 500 mL isotonic fluid bolus pressure-infused over <15 min toward MAP goal",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Acetaminophen 870 mg IV/PO (58 kg × 15 mg/kg = 870 mg; max 1000 mg)",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Provide advance notification to receiving hospital of suspected septic source",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Reassess full vital signs and mental status serially en route, comparing to caregiver-confirmed baseline",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Recognize uncompensated shock (SBP <90); initiate IV fluid bolus and advance hospital notification",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    }
+  ],
+  "media": []
+}

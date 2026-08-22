@@ -1,0 +1,222 @@
+{
+  "scenarioId": "919a-06-gi-bleed",
+  "scenarioName": "GI Bleed — Hemorrhagic Shock from Upper GI Hemorrhage",
+  "scenarioType": "Vital Signs",
+  "scenarioVersion": 2,
+  "scenarioTime": 900,
+  "scenarioMonitorType": 2,
+  "scenarioDefaultEnergy": 200,
+  "scenarioDefaultPacerThreshold": 55,
+  "isDemo": false,
+  "isALSILegacy": false,
+  "scenarioStory": {
+    "history": "Patient reports several episodes of vomiting bright red blood mixed with dark, coffee-ground material over the past two hours, along with black, tarry stools since yesterday. Reports progressive weakness, dizziness when standing, and lightheadedness. Denies abdominal trauma, denies chest pain.",
+    "discussion": "",
+    "course": "Initial Contact: Crew arrives to find a 68-year-old male seated on the bathroom floor, pale and diaphoretic, with visible hematemesis in the toilet. He reports black tarry stools since yesterday and progressive weakness. → IV access and fluid bolus started: Crew establishes IV access, obtains a blood glucose and full vital signs, applies cardiac monitoring, and begins rapid isotonic fluid resuscitation targeting a MAP of 65 mmHg for suspected hemorrhagic shock. → MAP improves, perfusion stabilizes: Blood pressure trends upward following fluid resuscitation, heart rate begins to slow, and the patient remains alert. Crew provides advance notification to the receiving facility and prepares for transport with ongoing reassessment."
+  },
+  "patientInformation": {
+    "patientName": "Walter Higgins",
+    "patientCondition": "Vomiting blood, feeling weak and dizzy",
+    "patientAge": 68,
+    "patientAgeUnit": "years",
+    "patientAgeCategory": 0,
+    "patientSex": 1,
+    "patientHeight": 175,
+    "patientWeight": 82,
+    "patientPhotoId": 82,
+    "patientAdmitted": 1
+  },
+  "labs": [],
+  "scenarioEvents": [
+    {
+      "type": "ScenarioEvent",
+      "name": "Initial Contact",
+      "description": "Crew arrives to find a 68-year-old male seated on the bathroom floor, pale and diaphoretic, with visible hematemesis in the toilet. He reports black tarry stools since yesterday and progressive weakness.",
+      "monitorType": 0,
+      "trendTime": 0,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 122,
+        "bpSys": 86,
+        "bpDia": 56,
+        "respRate": 22,
+        "spo2": 95,
+        "etco2": 0,
+        "temp": 36.4,
+        "obstruction": 0,
+        "custMeasure1": 98,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "IV access and fluid bolus started",
+      "description": "Crew establishes IV access, obtains a blood glucose and full vital signs, applies cardiac monitoring, and begins rapid isotonic fluid resuscitation targeting a MAP of 65 mmHg for suspected hemorrhagic shock.",
+      "monitorType": 0,
+      "trendTime": 30,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 116,
+        "bpSys": 90,
+        "bpDia": 58,
+        "respRate": 20,
+        "spo2": 96,
+        "etco2": 0,
+        "temp": 36.4,
+        "obstruction": 0,
+        "custMeasure1": 98,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Establish IV access (18-gauge preferred); place IO if unsuccessful within 2 attempts/90 sec",
+        "Check blood glucose; correct if less than 60 mg/dL",
+        "Apply cardiac monitor and pulse oximetry; obtain EtCO2",
+        "Give 500 mL isotonic fluid bolus, pressure-infused, targeting MAP 65 mmHg",
+        "Identify hematemesis and melena as the bleeding source driving hypovolemic shock"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "MAP improves, perfusion stabilizes",
+      "description": "Blood pressure trends upward following fluid resuscitation, heart rate begins to slow, and the patient remains alert. Crew provides advance notification to the receiving facility and prepares for transport with ongoing reassessment.",
+      "monitorType": 0,
+      "trendTime": 45,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 104,
+        "bpSys": 104,
+        "bpDia": 66,
+        "respRate": 18,
+        "spo2": 97,
+        "etco2": 0,
+        "temp": 36.5,
+        "obstruction": 0,
+        "custMeasure1": 98,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Provide advance notification to receiving facility for suspected active GI hemorrhage",
+        "Reassess vital signs and response to fluid therapy throughout transport"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Fluid resuscitation delayed or inadequate",
+      "description": "IV access is delayed or fluid boluses are not repeated despite persistent hypotension, allowing ongoing occult hemorrhage to progress toward decompensated shock with worsening mentation and vital signs.",
+      "monitorType": 0,
+      "trendTime": 50,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 138,
+        "bpSys": 74,
+        "bpDia": 48,
+        "respRate": 26,
+        "spo2": 92,
+        "etco2": 0,
+        "temp": 36.2,
+        "obstruction": 0,
+        "custMeasure1": 96,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Recognize decompensated hemorrhagic shock; give repeat fluid bolus and expedite transport"
+      ],
+      "relatedSounds": []
+    }
+  ],
+  "checklist": [
+    {
+      "title": "Establish IV access (18-gauge preferred); place IO if unsuccessful within 2 attempts/90 sec",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Check blood glucose; correct if less than 60 mg/dL",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Apply cardiac monitor and pulse oximetry; obtain EtCO2",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Give 500 mL isotonic fluid bolus, pressure-infused, targeting MAP 65 mmHg",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Identify hematemesis and melena as the bleeding source driving hypovolemic shock",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Provide advance notification to receiving facility for suspected active GI hemorrhage",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Reassess vital signs and response to fluid therapy throughout transport",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Recognize decompensated hemorrhagic shock; give repeat fluid bolus and expedite transport",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    }
+  ],
+  "media": []
+}

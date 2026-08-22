@@ -1,0 +1,367 @@
+{
+  "meta": {
+    "id": "915b-05-alcohol-rsi",
+    "name": "Alcohol Intoxication with Vomiting — RSI for Airway Protection",
+    "version": 1,
+    "difficulty": "advanced",
+    "category": "Respiratory",
+    "protocols": ["resp-airway-management", "tox-poisoning-overdose-universal"],
+    "totalTimeSeconds": 900,
+    "tags": ["RSI", "toxicology", "alcohol", "airway", "915"]
+  },
+  "patient": {
+    "name": "Derek Alvarado",
+    "age": 29,
+    "ageUnit": "years",
+    "sex": "male",
+    "weight": 82,
+    "weightLbs": 181,
+    "height": 178,
+    "chiefComplaint": "Found down, unresponsive, vomiting",
+    "history": {
+      "hpi": "Friends report patient was drinking heavily at a party and became progressively less responsive over the last hour. He vomited twice on the couch and is now not rousing to voice, only moaning to sternal rub. No witnessed trauma, no known drug use, friends deny any pills taken.",
+      "pastMedical": [],
+      "medications": [],
+      "allergies": ["NKDA"],
+      "lastOralIntake": "Alcohol (large quantity, unknown type) over the past 4-5 hours; last food unknown",
+      "events": "Friends called 911 when they could not wake him and he vomited a second time"
+    }
+  },
+  "scene": {
+    "dispatch": "29-year-old male, unresponsive, residence, party in progress",
+    "location": "Living room of a house, patient supine on a couch with vomitus on the cushions and floor",
+    "time": "1:15 AM, weekend",
+    "safety": "No hazards to crew; several intoxicated bystanders present but cooperative",
+    "bystanders": "Two friends present, report heavy drinking over several hours, deny witnessed trauma or other drug use",
+    "visualCues": [
+      "Vomitus on couch cushions and floor near patient's head",
+      "Empty liquor bottles on coffee table",
+      "Patient supine, moaning only to sternal rub",
+      "Slow, shallow breathing pattern",
+      "Strong odor of alcohol"
+    ]
+  },
+  "phases": [
+    {
+      "id": "initial",
+      "name": "Initial Contact",
+      "description": "Crew finds a 29-year-old male supine on a couch, minimally responsive to painful stimuli, with vomitus visible near his head and slow, shallow respirations.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Pain",
+        "gcs": { "eye": 2, "verbal": 2, "motor": 4 },
+        "airway": "Partially obstructed by pooling secretions/vomitus, audible gurgling",
+        "breathing": "Shallow, slow, 10/min, snoring quality",
+        "circulation": "Radial pulses present, skin cool and clammy",
+        "skin": { "color": "pale", "temperature": "cool", "moisture": "diaphoretic" },
+        "pupils": "Sluggish, equal",
+        "motorFunction": "Withdraws to pain only, no purposeful movement",
+        "otherFindings": [
+          "Vomitus visible in and around mouth",
+          "Strong odor of alcohol on breath",
+          "Gurgling respirations",
+          "No response to verbal stimuli"
+        ],
+        "patientSpeech": "(moans incomprehensibly to sternal rub, no words)"
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 118,
+        "bpSys": 108,
+        "bpDia": 64,
+        "respRate": 10,
+        "spo2": 89,
+        "etco2": 0,
+        "temp": 36.2,
+        "tempF": 97.2,
+        "obstruction": 20,
+        "glucose": 96,
+        "customMeasures": [],
+        "trendTimeSeconds": 0,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [],
+      "transitions": [
+        {
+          "targetPhaseId": "airway-protection",
+          "if": "Positioned and suctioned for airway protection",
+          "condition": "Crew immediately positions the patient in the recovery position, applies suction to clear vomitus, and attaches monitoring while assessing for a toxidrome.",
+          "conditionType": "action_taken"
+        }
+      ]
+    },
+    {
+      "id": "airway-protection",
+      "name": "Positioned and suctioned for airway protection",
+      "description": "The patient is positioned to protect against aspiration, suctioned, placed on oxygen, and monitored while the crew recognizes a sedative-hypnotic toxidrome consistent with severe alcohol intoxication.",
+      "triggerCondition": "After the primary survey identifies airway compromise from pooling secretions and depressed mental status, the crew repositions the patient, suctions the airway, and applies continuous pulse oximetry and capnography monitoring while obtaining IV access.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Pain",
+        "gcs": { "eye": 2, "verbal": 2, "motor": 4 },
+        "airway": "Improved with suction and positioning, intermittent gurgling recurs",
+        "breathing": "Shallow, 11/min",
+        "circulation": "Radial pulses present, skin cool",
+        "skin": { "color": "pale", "temperature": "cool", "moisture": "diaphoretic" },
+        "pupils": "Sluggish, equal",
+        "motorFunction": "Withdraws to pain only",
+        "otherFindings": [
+          "IV access obtained left AC",
+          "Continues to have episodic emesis despite positioning",
+          "No purposeful protective airway response noted"
+        ],
+        "patientSpeech": "(moans, no words)"
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 112,
+        "bpSys": 106,
+        "bpDia": 62,
+        "respRate": 11,
+        "spo2": 93,
+        "etco2": 0,
+        "temp": 36.2,
+        "tempF": 97.2,
+        "obstruction": 20,
+        "glucose": 96,
+        "customMeasures": [],
+        "trendTimeSeconds": 30,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a1-position-suction",
+          "shortAction": "Position in recovery position, suction airway to clear vomitus",
+          "protocolExcerpt": "Patient positioning can significantly impact respiratory mechanics... This can both improve the ability to ventilate and limit aspiration. Suction airway: for significantly contaminated airways, consider utilizing a suction assisted laryngeal airway decontamination (SALAD) technique",
+          "priority": "critical",
+          "rationale": "Active vomiting with depressed mental status is a high aspiration risk that must be addressed before further airway management.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        },
+        {
+          "id": "a2-monitor",
+          "shortAction": "Apply continuous pulse oximetry and waveform capnography monitoring",
+          "protocolExcerpt": "Patients with significant respiratory distress should have continuous pulse oximetry and waveform capnography monitoring for both assessment and for guiding therapy",
+          "priority": "important",
+          "rationale": "Establishes a baseline and trend for detecting respiratory decompensation.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        },
+        {
+          "id": "a3-toxidrome-iv",
+          "shortAction": "Recognize sedative-hypnotic toxidrome; obtain IV access, check BGL",
+          "protocolExcerpt": "Sedative Hypnotic: Central nervous system depression, Ataxia (unstable gait or balance), Slurred speech, Normal or depressed vital signs. Initiate IV access for infusion of treatment medication",
+          "priority": "important",
+          "rationale": "Confirms the intoxication etiology and rules out hypoglycemia as a contributor to altered mental status.",
+          "protocolReference": "MATC: Poisoning/Overdose Universal Care"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "rsi-performed",
+          "if": "RSI performed for airway protection",
+          "condition": "Despite positioning and suction, the patient continues to vomit with no protective airway reflexes and GCS remains critically low; the crew proceeds to RSI to secure a definitive airway.",
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a1-position-suction"]
+        },
+        {
+          "targetPhaseId": "aspiration-event",
+          "if": "Intubation attempted without suction ready",
+          "condition": "The crew proceeds directly to intubation without having suction immediately available at the head of the bed, and the patient vomits during laryngoscopy.",
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["a1-position-suction"]
+        }
+      ]
+    },
+    {
+      "id": "rsi-performed",
+      "name": "RSI performed for airway protection",
+      "description": "With protective airway reflexes lost and ongoing emesis risk, the crew performs rapid sequence intubation to secure a definitive airway.",
+      "triggerCondition": "The patient remains unresponsive with no gag or cough response and continued risk of aspiration; two airway-trained providers proceed with RSI per protocol after adequate preoxygenation.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Unresponsive",
+        "gcs": { "eye": 1, "verbal": 1, "motor": 4 },
+        "airway": "Secured with endotracheal tube after RSI",
+        "breathing": "Ventilated via BVM, 10-12/min",
+        "circulation": "Radial pulses present, skin warming",
+        "skin": { "color": "pale", "temperature": "cool", "moisture": "diaphoretic" },
+        "pupils": "Sluggish, equal",
+        "motorFunction": "Paralyzed, no spontaneous movement",
+        "otherFindings": [
+          "Suction immediately available and used during laryngoscopy",
+          "ET tube placement confirmed with waveform capnography, bilateral breath sounds",
+          "Tube secured, depth noted at teeth"
+        ],
+        "patientSpeech": "(intubated, sedated)"
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 104,
+        "bpSys": 110,
+        "bpDia": 66,
+        "respRate": 11,
+        "spo2": 98,
+        "etco2": 38,
+        "temp": 36.2,
+        "tempF": 97.2,
+        "obstruction": 0,
+        "glucose": 96,
+        "customMeasures": [],
+        "trendTimeSeconds": 40,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a4-preoxygenate",
+          "shortAction": "Preoxygenate with high-flow O2 and positive pressure ventilation for ≥2 minutes before RSI",
+          "protocolExcerpt": "Patient should be pre-oxygenated with high flow oxygen, and positive pressure ventilation for a minimum of two minutes prior to the procedure",
+          "priority": "critical",
+          "rationale": "Adequate preoxygenation delays desaturation during the apneic period of RSI.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        },
+        {
+          "id": "a5-etomidate",
+          "shortAction": "Etomidate 20.5 mg IV (82 kg × 0.25 mg/kg = 20.5 mg) for induction",
+          "protocolExcerpt": "Administer induction sedative agent: Etomidate IV push, 0.2-0.3 mg/kg",
+          "priority": "critical",
+          "rationale": "Induces sedation to permit safe intubation.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        },
+        {
+          "id": "a6-rocuronium",
+          "shortAction": "Rocuronium 82 mg IV (82 kg × 1 mg/kg = 82 mg) for paralysis",
+          "protocolExcerpt": "Administer paralytic agent: Rocuronium IV push, 1 mg/kg",
+          "priority": "critical",
+          "rationale": "Provides paralysis needed to optimize first-pass intubation success.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        },
+        {
+          "id": "a7-confirm-secure",
+          "shortAction": "Confirm tube placement with waveform capnography and bilateral breath sounds; secure tube",
+          "protocolExcerpt": "Confirm placement of advanced airway (endotracheal tube, SGA) with waveform capnography (most reliable), absent gastric sounds, and bilateral breath sounds. Secure tube manually",
+          "priority": "critical",
+          "rationale": "Waveform capnography is the most reliable confirmation of correct tube placement.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "stable-transport",
+          "if": "Ventilation and monitoring maintained",
+          "condition": "The airway is secured and confirmed; the crew maintains lung-protective ventilation and continuous capnography en route to the hospital.",
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a7-confirm-secure"]
+        }
+      ]
+    },
+    {
+      "id": "stable-transport",
+      "name": "Ventilation and monitoring maintained",
+      "description": "The patient is intubated, sedated, and ventilated at an appropriate rate and volume, with continuous waveform capnography confirming ongoing correct tube placement en route.",
+      "triggerCondition": "After confirmed tube placement, the crew secures the airway and maintains protocol-directed ventilation with ongoing monitoring during transport.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Unresponsive",
+        "gcs": { "eye": 1, "verbal": 1, "motor": 4 },
+        "airway": "Secured, ET tube in place",
+        "breathing": "Ventilated, 10-12/min, adequate chest rise",
+        "circulation": "Radial pulses present, skin warm",
+        "skin": { "color": "pink", "temperature": "warm", "moisture": "dry" },
+        "pupils": "Sluggish, equal",
+        "motorFunction": "Sedated, no spontaneous movement",
+        "otherFindings": [
+          "EtCO2 waveform continuously monitored",
+          "No signs of tube displacement with movement",
+          "Hemodynamically stable"
+        ],
+        "patientSpeech": "(intubated, sedated)"
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Rhythm",
+        "ecgWaveform": 9,
+        "hr": 92,
+        "bpSys": 116,
+        "bpDia": 70,
+        "respRate": 11,
+        "spo2": 100,
+        "etco2": 40,
+        "temp": 36.3,
+        "tempF": 97.3,
+        "obstruction": 0,
+        "glucose": 96,
+        "customMeasures": [],
+        "trendTimeSeconds": 40,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a8-maintain-vent",
+          "shortAction": "Ventilate 10-12 breaths/min, 6-8 mL/kg tidal volume, target EtCO2 35-45 mmHg",
+          "protocolExcerpt": "Adult: 10–12 breaths/minute... Ventilate with just enough volume to see chest rise, approximately 6–8 mL/kg ideal body weight... maintain EtCO2 of no less than 35 and up to 40 mmHg",
+          "priority": "important",
+          "rationale": "Lung-protective ventilation avoids barotrauma and hyperventilation-related complications.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        }
+      ],
+      "transitions": []
+    },
+    {
+      "id": "aspiration-event",
+      "name": "Intubation attempted without suction ready",
+      "description": "The crew proceeds to laryngoscopy without suction immediately available; the patient vomits during the attempt, and gastric contents are aspirated before the airway can be cleared.",
+      "triggerCondition": "Suction was not staged at the head of the bed before airway attempts; when the patient vomits mid-procedure, contents are aspirated into the airway, causing acute desaturation.",
+      "isDefault": false,
+      "clinicalPresentation": {
+        "avpu": "Unresponsive",
+        "gcs": { "eye": 1, "verbal": 1, "motor": 3 },
+        "airway": "Contaminated with vomitus, gurgling",
+        "breathing": "Labored, rhonchi bilaterally",
+        "circulation": "Radial pulses present, skin cool",
+        "skin": { "color": "cyanotic", "temperature": "cool", "moisture": "diaphoretic" },
+        "pupils": "Sluggish, equal",
+        "motorFunction": "Withdraws to pain",
+        "otherFindings": [
+          "Visible vomitus in oropharynx during attempt",
+          "Desaturation noted on monitor",
+          "Coarse breath sounds bilaterally after event"
+        ],
+        "patientSpeech": "(unresponsive)"
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 128,
+        "bpSys": 100,
+        "bpDia": 58,
+        "respRate": 8,
+        "spo2": 82,
+        "etco2": 0,
+        "temp": 36.2,
+        "tempF": 97.2,
+        "obstruction": 40,
+        "glucose": 96,
+        "customMeasures": [],
+        "trendTimeSeconds": 20,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a9-emergency-suction",
+          "shortAction": "Immediately suction airway, consider SALAD technique, reoxygenate before re-attempting",
+          "protocolExcerpt": "Suctioning to limit aspiration is a priority, since it is associated with development of hospital acquired pneumonia and related increases in ICU stay and mortality. Suction airway: for significantly contaminated airways, consider utilizing a suction assisted laryngeal airway decontamination (SALAD) technique",
+          "priority": "critical",
+          "rationale": "Immediate suctioning and reoxygenation are required to recover from an aspiration event before further airway attempts.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        }
+      ],
+      "transitions": []
+    }
+  ],
+  "realiti": {
+    "scenarioMonitorType": 2,
+    "scenarioDefaultEnergy": 200,
+    "scenarioDefaultPacerThreshold": 55
+  }
+}

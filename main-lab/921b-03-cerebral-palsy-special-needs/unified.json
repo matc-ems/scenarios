@@ -1,0 +1,346 @@
+{
+  "meta": {
+    "id": "921b-03-cerebral-palsy-special-needs",
+    "name": "Special Needs — Cerebral Palsy Patient with Subtle Baseline Change",
+    "version": 1,
+    "difficulty": "intermediate",
+    "category": "Medical",
+    "protocols": ["medical-altered-mental-status", "medical-shock"],
+    "totalTimeSeconds": 900,
+    "tags": ["special needs", "cerebral palsy", "nonverbal", "caregiver history", "sepsis", "921"]
+  },
+  "patient": {
+    "name": "Marcus Whitfield",
+    "age": 24,
+    "ageUnit": "years",
+    "sex": "male",
+    "weight": 58,
+    "weightLbs": 128,
+    "height": 160,
+    "chiefComplaint": "Caregiver reports patient is 'not himself' today",
+    "history": {
+      "hpi": "Home health aide called 911 after noting the patient, who has spastic quadriplegic cerebral palsy and is nonverbal at baseline, seemed less responsive than usual this afternoon, was warm to the touch, and took very little from his morning feed. The aide reports his urine (via intermittent catheterization) has looked darker and more concentrated over the past day. No witnessed seizure activity, no vomiting, no rash noted.",
+      "pastMedical": ["Spastic quadriplegic cerebral palsy", "Neurogenic bladder managed with intermittent catheterization", "GERD", "Well-controlled seizure disorder", "Baseline nonverbal, uses vocalizations and facial expression to communicate"],
+      "medications": ["Baclofen 10 mg PO TID", "Levetiracetam 500 mg PO BID", "Omeprazole 20 mg PO daily"],
+      "allergies": ["NKDA"],
+      "lastOralIntake": "Small amount of pureed breakfast this morning; refused most of his midday feed",
+      "events": "Home health aide noticed decreased responsiveness, warmth to touch, and darker urine output over the course of the day and called 911"
+    }
+  },
+  "scene": {
+    "dispatch": "24-year-old male, altered mental status, residence",
+    "location": "Group home bedroom, patient in a specialized wheelchair at bedside, home health aide present",
+    "time": "3:15 PM, weekday",
+    "safety": "No hazards to crew; durable medical equipment (wheelchair, feeding supplies, catheter kit) present in room",
+    "bystanders": "Home health aide present, knows patient's baseline well and called 911; group home staff available by phone for additional history",
+    "visualCues": [
+      "Patient seated in a molded wheelchair with visible bilateral lower extremity contractures",
+      "Intermittent catheterization supplies on the bedside table",
+      "Feeding journal showing reduced intake today",
+      "Patient appears flushed and diaphoretic",
+      "Communication board within reach, unused today"
+    ]
+  },
+  "phases": [
+    {
+      "id": "initial",
+      "name": "Initial Contact",
+      "description": "Crew arrives to find a 24-year-old male with cerebral palsy, nonverbal at baseline, who the caregiver reports is less responsive and warmer than usual. He is arousable to voice but not tracking or vocalizing as he typically does.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Verbal",
+        "gcs": { "eye": 3, "verbal": 2, "motor": 5 },
+        "airway": "Patent, mild oral secretions managed at baseline",
+        "breathing": "Mildly tachypneic, no accessory muscle use",
+        "circulation": "Radial pulses present, rapid, skin flushed and warm",
+        "skin": { "color": "flushed", "temperature": "warm", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Baseline spasticity and bilateral lower extremity contractures; no new focal deficit apparent, but difficult to fully assess against an unfamiliar baseline",
+        "otherFindings": [
+          "Nonverbal at baseline per caregiver; today less responsive to name and voice than usual",
+          "Foley/intermittent catheterization site without obvious redness or discharge on brief look",
+          "Caregiver states patient normally tracks people entering the room and vocalizes in greeting — not doing so today"
+        ],
+        "patientSpeech": "Nonverbal at baseline; today making only faint, distressed vocalizations, no purposeful communication"
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 112,
+        "bpSys": 108,
+        "bpDia": 68,
+        "respRate": 22,
+        "spo2": 96,
+        "etco2": 0,
+        "temp": 38.9,
+        "tempF": 102.0,
+        "obstruction": 0,
+        "glucose": 96,
+        "customMeasures": [],
+        "trendTimeSeconds": 0,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [],
+      "transitions": [
+        {
+          "targetPhaseId": "baseline-history-obtained",
+          "if": "Caregiver history and baseline obtained",
+          "condition": "Crew takes a thorough history from the home health aide, establishing the patient's neurologic and functional baseline, and identifies today's change from that baseline along with fever and a possible catheter-associated infection source.",
+          "conditionType": "action_taken"
+        },
+        {
+          "targetPhaseId": "baseline-history-skipped",
+          "if": "Baseline history not obtained",
+          "condition": "Crew treats the patient's presentation as consistent with his usual cerebral palsy baseline without asking the caregiver what is normal for him, missing the fever and the change in responsiveness.",
+          "conditionType": "action_not_taken"
+        }
+      ]
+    },
+    {
+      "id": "baseline-history-obtained",
+      "name": "Caregiver history and baseline obtained",
+      "description": "Crew interviews the home health aide to establish the patient's normal functional and communication baseline, compares it to today's presentation, and works through the AEIOU-TIPS differential — identifying fever, tachycardia, and a likely catheter-associated urinary source as the cause of his altered mentation.",
+      "triggerCondition": "After a structured history from the caregiver establishing baseline function and today's deviation from it, the crew recognizes fever and a probable infectious source (recent catheterization) rather than assuming the presentation is simply his usual cerebral palsy baseline.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Verbal",
+        "gcs": { "eye": 3, "verbal": 2, "motor": 5 },
+        "airway": "Patent",
+        "breathing": "Mildly tachypneic, 20/min",
+        "circulation": "Radial pulses rapid, skin warm and flushed",
+        "skin": { "color": "flushed", "temperature": "warm", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Unchanged from initial contact; no new focal deficit identified once baseline is established",
+        "otherFindings": [
+          "Caregiver confirms patient is normally alert to voice and interactive — today's decreased responsiveness is a true change from baseline",
+          "Blood glucose checked and normal",
+          "Fever and recent catheterization identified as a likely infectious source"
+        ],
+        "patientSpeech": "Faint distressed vocalizations, no words at baseline or now"
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 114,
+        "bpSys": 106,
+        "bpDia": 66,
+        "respRate": 20,
+        "spo2": 96,
+        "etco2": 0,
+        "temp": 39.0,
+        "tempF": 102.2,
+        "obstruction": 0,
+        "glucose": 96,
+        "customMeasures": [],
+        "trendTimeSeconds": 30,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a1-caregiver-history",
+          "shortAction": "Obtain detailed caregiver history establishing patient's baseline function and today's change",
+          "protocolExcerpt": "History from bystanders and caregivers. Age of the patient. Development age and baseline functional status.",
+          "priority": "critical",
+          "rationale": "In a nonverbal patient with a chronic baseline condition, the caregiver is the only source for identifying a true change from baseline.",
+          "protocolReference": "MATC: Altered Mental Status"
+        },
+        {
+          "id": "a2-aeiou-tips-workup",
+          "shortAction": "Work through AEIOU-TIPS differential: check glucose, look for signs of infection and other treatable causes",
+          "protocolExcerpt": "Blood glucose level. Signs of infection: Fever, cough, skin changes, dysuria.",
+          "priority": "critical",
+          "rationale": "A systematic differential prevents anchoring on the patient's chronic diagnosis and missing a treatable acute cause.",
+          "protocolReference": "MATC: Altered Mental Status"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "fluids-antipyretic-given",
+          "if": "IV fluids and antipyretic given",
+          "condition": "Crew establishes IV access, administers an isotonic fluid bolus toward the MAP goal, and gives weight-based acetaminophen for fever, then provides advance notification to the hospital of suspected sepsis.",
+          "conditionType": "action_taken"
+        }
+      ]
+    },
+    {
+      "id": "fluids-antipyretic-given",
+      "name": "IV fluids and antipyretic given",
+      "description": "Crew establishes IV access, gives an isotonic fluid bolus toward the MAP goal, administers weight-based acetaminophen for fever, and provides advance notification to the receiving hospital of a likely septic source given the recent catheterization.",
+      "triggerCondition": "Once fever and a probable urinary source are recognized, the crew initiates fluid resuscitation and antipyretic therapy per the Shock guideline and prepares the hospital for a suspected sepsis presentation.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Verbal",
+        "gcs": { "eye": 3, "verbal": 2, "motor": 5 },
+        "airway": "Patent",
+        "breathing": "18/min, nonlabored",
+        "circulation": "Radial pulses stronger, skin still warm but less flushed",
+        "skin": { "color": "pink", "temperature": "warm", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Unchanged from baseline",
+        "otherFindings": [
+          "IV access established, fluid bolus infusing",
+          "Acetaminophen given for fever",
+          "Hospital given advance notification of suspected catheter-associated sepsis"
+        ],
+        "patientSpeech": "Faint vocalizations, slightly more responsive to voice than on arrival"
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 104,
+        "bpSys": 112,
+        "bpDia": 70,
+        "respRate": 18,
+        "spo2": 97,
+        "etco2": 0,
+        "temp": 38.6,
+        "tempF": 101.5,
+        "obstruction": 0,
+        "glucose": 96,
+        "customMeasures": [],
+        "trendTimeSeconds": 40,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a3-iv-fluid-bolus",
+          "shortAction": "IV access established; 500 mL isotonic fluid bolus pressure-infused over <15 min toward MAP goal",
+          "protocolExcerpt": "Establish IV access. If unable to obtain within two attempts or less than 90 seconds, place an IO needle. IV fluid volume goal attained by giving boluses that are pressure infused over less than 15 minutes each... Fluid goal of up to 30 mL/kg of isotonic fluid by administering rapid, predetermined boluses (e.g., 500 mL) unless the MAP goal is achieved, or pulmonary edema develops.",
+          "priority": "critical",
+          "rationale": "Early fluid resuscitation is the primary treatment for suspected septic (distributive) shock.",
+          "protocolReference": "MATC: Shock"
+        },
+        {
+          "id": "a4-acetaminophen",
+          "shortAction": "Acetaminophen 870 mg IV/PO (58 kg × 15 mg/kg = 870 mg; max 1000 mg)",
+          "protocolExcerpt": "Antipyretics for fever – nonsteroidal anti-inflammatory agents are contraindicated in infants less than 6 months of age. Acetaminophen (15 mg/kg; maximum dose of 1000 mg).",
+          "priority": "important",
+          "rationale": "Fever control supports comfort and reduces metabolic demand in a septic patient.",
+          "protocolReference": "MATC: Shock"
+        },
+        {
+          "id": "a5-hospital-notification",
+          "shortAction": "Provide advance notification to receiving hospital of suspected septic source",
+          "protocolExcerpt": "Provide advanced notification to the hospital.",
+          "priority": "important",
+          "rationale": "Early notification allows the receiving facility to prepare sepsis-pathway resources before arrival.",
+          "protocolReference": "MATC: Shock"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "perfusion-improves-transport",
+          "if": "Perfusion improves, transport initiated",
+          "condition": "Heart rate trends down and mentation trends back toward the caregiver-confirmed baseline as fluids and antipyretic take effect; patient is transported with serial reassessment.",
+          "conditionType": "action_taken"
+        }
+      ]
+    },
+    {
+      "id": "perfusion-improves-transport",
+      "name": "Perfusion improves, transport initiated",
+      "description": "Heart rate and mentation trend toward the patient's caregiver-confirmed baseline following fluid resuscitation and antipyretic therapy. Crew continues serial reassessment en route to a facility that can manage suspected catheter-associated sepsis.",
+      "triggerCondition": "After the fluid bolus and antipyretic take effect, perfusion and mentation improve toward baseline, and the crew transports with ongoing reassessment.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Verbal",
+        "gcs": { "eye": 3, "verbal": 2, "motor": 5 },
+        "airway": "Patent",
+        "breathing": "16/min, nonlabored",
+        "circulation": "Radial pulses strong and regular",
+        "skin": { "color": "pink", "temperature": "warm", "moisture": "dry" },
+        "pupils": "PERRL",
+        "motorFunction": "At caregiver-confirmed baseline",
+        "otherFindings": [
+          "Caregiver confirms responsiveness is trending back toward normal for this patient",
+          "Vitals reassessed and trending toward normal"
+        ],
+        "patientSpeech": "Vocalizing more actively, consistent with caregiver-described baseline"
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Rhythm",
+        "ecgWaveform": 9,
+        "hr": 96,
+        "bpSys": 114,
+        "bpDia": 72,
+        "respRate": 16,
+        "spo2": 98,
+        "etco2": 0,
+        "temp": 38.2,
+        "tempF": 100.8,
+        "obstruction": 0,
+        "glucose": 96,
+        "customMeasures": [],
+        "trendTimeSeconds": 50,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a6-serial-reassessment",
+          "shortAction": "Reassess full vital signs and mental status serially en route, comparing to caregiver-confirmed baseline",
+          "protocolExcerpt": "Full vital signs (pulse, blood pressure, respiratory rate, neurologic status assessment) with reassessment q 15 minutes or more frequently as appropriate.",
+          "priority": "important",
+          "rationale": "Serial reassessment against a caregiver-established baseline confirms the trend toward improvement rather than assuming resolution.",
+          "protocolReference": "MATC: Shock"
+        }
+      ],
+      "transitions": []
+    },
+    {
+      "id": "baseline-history-skipped",
+      "name": "Baseline history not obtained",
+      "description": "Crew attributes the patient's decreased responsiveness to his known cerebral palsy without asking the caregiver what is normal for him. Fever and tachycardia go unaddressed, and the underlying infectious process progresses toward decompensated shock.",
+      "triggerCondition": "Crew assumes the presentation is consistent with the patient's chronic baseline without obtaining caregiver history, missing the fever and the true change from baseline; treatment is delayed while perfusion worsens.",
+      "isDefault": false,
+      "clinicalPresentation": {
+        "avpu": "Pain",
+        "gcs": { "eye": 2, "verbal": 2, "motor": 4 },
+        "airway": "Patent, increased oral secretions",
+        "breathing": "Tachypneic, 26/min",
+        "circulation": "Radial pulses weak and rapid, skin becoming mottled",
+        "skin": { "color": "mottled", "temperature": "warm", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Decreased response to painful stimuli compared to initial contact",
+        "otherFindings": [
+          "No caregiver history obtained; baseline never established",
+          "Fever untreated and rising",
+          "Decreasing systolic blood pressure indicating progression to uncompensated shock"
+        ],
+        "patientSpeech": "No vocalizations, decreased responsiveness from initial presentation"
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 128,
+        "bpSys": 88,
+        "bpDia": 54,
+        "respRate": 26,
+        "spo2": 94,
+        "etco2": 0,
+        "temp": 39.4,
+        "tempF": 102.9,
+        "obstruction": 0,
+        "glucose": 94,
+        "customMeasures": [],
+        "trendTimeSeconds": 50,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a7-recognize-decompensation",
+          "shortAction": "Recognize uncompensated shock (SBP <90); initiate IV fluid bolus and advance hospital notification",
+          "protocolExcerpt": "Hypotension for age (lowest acceptable systolic blood pressure in mmHg): Greater than 10 years old: 90. Establish IV access... IV fluid volume goal attained by giving boluses that are pressure infused over less than 15 minutes each.",
+          "priority": "critical",
+          "rationale": "Once hypotension develops, the patient has progressed from compensated to uncompensated shock and requires immediate fluid resuscitation.",
+          "protocolReference": "MATC: Shock"
+        }
+      ],
+      "transitions": []
+    }
+  ],
+  "realiti": {
+    "scenarioMonitorType": 2,
+    "scenarioDefaultEnergy": 200,
+    "scenarioDefaultPacerThreshold": 55
+  }
+}

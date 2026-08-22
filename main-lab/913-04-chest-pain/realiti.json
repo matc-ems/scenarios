@@ -1,0 +1,208 @@
+{
+  "scenarioId": "913-04-chest-pain",
+  "scenarioName": "Chest Pain — Atypical ACS Presentation ('Indigestion')",
+  "scenarioType": "Vital Signs",
+  "scenarioVersion": 2,
+  "scenarioTime": 780,
+  "scenarioMonitorType": 2,
+  "scenarioDefaultEnergy": 200,
+  "scenarioDefaultPacerThreshold": 55,
+  "isDemo": false,
+  "isALSILegacy": false,
+  "scenarioStory": {
+    "history": "Patient was working on his car in the garage when he developed a burning, pressure-like sensation in his chest and upper abdomen roughly 45 minutes ago. He initially attributed it to indigestion and took two antacid tablets without relief. He now reports the discomfort radiating faintly into his left arm, associated with nausea and sweating. Denies prior episodes like this. Denies shortness of breath at rest but notes he felt winded walking in from the driveway.",
+    "discussion": "",
+    "course": "Initial Contact: Crew arrives to find a 59-year-old male seated in his garage, pale and diaphoretic, reporting persistent 'indigestion' that has not improved with antacids. He denies a prior cardiac history but has hypertension and is a current smoker. → OPQRST completed; O2 and ASA given: Crew performs a focused history and full set of vital signs, recognizes the atypical presentation as concerning for ACS, applies supplemental oxygen, and administers chewable aspirin per protocol. → Prepared for prompt transport: Patient is packaged and transported with serial vital sign reassessment, minimizing scene time given the suspicion for ACS."
+  },
+  "patientInformation": {
+    "patientName": "Gary Meissner",
+    "patientCondition": "Chest/epigastric discomfort described as 'indigestion that won't go away'",
+    "patientAge": 59,
+    "patientAgeUnit": "years",
+    "patientAgeCategory": 0,
+    "patientSex": 1,
+    "patientHeight": 178,
+    "patientWeight": 90,
+    "patientPhotoId": 71,
+    "patientAdmitted": 1
+  },
+  "labs": [],
+  "scenarioEvents": [
+    {
+      "type": "ScenarioEvent",
+      "name": "Initial Contact",
+      "description": "Crew arrives to find a 59-year-old male seated in his garage, pale and diaphoretic, reporting persistent 'indigestion' that has not improved with antacids. He denies a prior cardiac history but has hypertension and is a current smoker.",
+      "monitorType": 0,
+      "trendTime": 0,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 108,
+        "bpSys": 144,
+        "bpDia": 92,
+        "respRate": 20,
+        "spo2": 93,
+        "etco2": 0,
+        "temp": 36.8,
+        "obstruction": 0,
+        "custMeasure1": 118,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "OPQRST completed; O2 and ASA given",
+      "description": "Crew performs a focused history and full set of vital signs, recognizes the atypical presentation as concerning for ACS, applies supplemental oxygen, and administers chewable aspirin per protocol.",
+      "monitorType": 0,
+      "trendTime": 30,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 102,
+        "bpSys": 140,
+        "bpDia": 88,
+        "respRate": 18,
+        "spo2": 97,
+        "etco2": 0,
+        "temp": 36.8,
+        "obstruction": 0,
+        "custMeasure1": 118,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Obtain focused OPQRST history and full vital signs; recognize possible ACS despite 'indigestion' framing",
+        "Apply supplemental oxygen, titrate to target SpO2 94-98%",
+        "Administer aspirin 324 mg PO, chewable non-enteric-coated"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Prepared for prompt transport",
+      "description": "Patient is packaged and transported with serial vital sign reassessment, minimizing scene time given the suspicion for ACS.",
+      "monitorType": 0,
+      "trendTime": 40,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 94,
+        "bpSys": 134,
+        "bpDia": 84,
+        "respRate": 16,
+        "spo2": 98,
+        "etco2": 0,
+        "temp": 36.8,
+        "obstruction": 0,
+        "custMeasure1": 118,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Reassess vital signs and pain level serially en route; observe for deterioration",
+        "Transport promptly, minimizing scene time; base destination on local system of care"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "ASA withheld; symptoms progress",
+      "description": "The crew treats the presentation as simple indigestion and does not administer aspirin or recognize the ACS risk. The patient's discomfort worsens and early signs of hemodynamic compromise develop.",
+      "monitorType": 0,
+      "trendTime": 20,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 126,
+        "bpSys": 96,
+        "bpDia": 60,
+        "respRate": 24,
+        "spo2": 90,
+        "etco2": 0,
+        "temp": 36.8,
+        "obstruction": 0,
+        "custMeasure1": 118,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Recognize worsening presentation as ACS; give aspirin 324 mg PO chewable and apply oxygen now"
+      ],
+      "relatedSounds": []
+    }
+  ],
+  "checklist": [
+    {
+      "title": "Obtain focused OPQRST history and full vital signs; recognize possible ACS despite 'indigestion' framing",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Apply supplemental oxygen, titrate to target SpO2 94-98%",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Administer aspirin 324 mg PO, chewable non-enteric-coated",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Reassess vital signs and pain level serially en route; observe for deterioration",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Transport promptly, minimizing scene time; base destination on local system of care",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Recognize worsening presentation as ACS; give aspirin 324 mg PO chewable and apply oxygen now",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    }
+  ],
+  "media": []
+}

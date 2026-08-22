@@ -1,0 +1,323 @@
+{
+  "scenarioId": "916b-06-third-degree-block",
+  "scenarioName": "Unstable Bradycardia with High-Grade Block",
+  "scenarioType": "Vital Signs",
+  "scenarioVersion": 2,
+  "scenarioTime": 900,
+  "scenarioMonitorType": 2,
+  "scenarioDefaultEnergy": 200,
+  "scenarioDefaultPacerThreshold": 55,
+  "isDemo": false,
+  "isALSILegacy": false,
+  "scenarioStory": {
+    "history": "79-year-old female stood up from the breakfast table, reported feeling suddenly dizzy and lightheaded, and briefly lost consciousness. Husband caught her partially before she slid to the kitchen floor. She regained consciousness within approximately 20 seconds without any postictal confusion. She now complains of persistent dizziness, weakness, and mild nausea; denies chest pain, denies head strike, denies tongue biting or incontinence.",
+    "discussion": "",
+    "course": "Initial Contact: Crew arrives to find a 79-year-old female seated in a kitchen chair, pale and diaphoretic, alert but reporting dizziness and weakness following a brief syncopal episode. Radial pulse is slow and regular. 12-lead EKG is indicated given her age, cardiac history risk factors, and syncope presentation. → Instability recognized: 12-lead confirms complete (third-degree) AV block with a ventricular escape rate of 32. Blood pressure has dropped further and the patient is becoming more fatigued with recurrent lightheadedness, consistent with ongoing hemodynamic instability. → Atropine ineffective: Atropine produces no meaningful change in heart rate or blood pressure, as expected with third-degree AV block. The crew moves directly to transcutaneous pacing with appropriate sedation/analgesia. → Paced and stabilized: Transcutaneous pacing achieves reliable electrical and mechanical capture at a rate of 70. Perfusion and mentation improve. Patient is prepared for transport with continuous monitoring."
+  },
+  "patientInformation": {
+    "patientName": "Eleanor Voss",
+    "patientCondition": "Syncope, generalized weakness",
+    "patientAge": 79,
+    "patientAgeUnit": "years",
+    "patientAgeCategory": 0,
+    "patientSex": 2,
+    "patientHeight": 163,
+    "patientWeight": 65,
+    "patientPhotoId": 95,
+    "patientAdmitted": 1
+  },
+  "labs": [],
+  "scenarioEvents": [
+    {
+      "type": "ScenarioEvent",
+      "name": "Initial Contact",
+      "description": "Crew arrives to find a 79-year-old female seated in a kitchen chair, pale and diaphoretic, alert but reporting dizziness and weakness following a brief syncopal episode. Radial pulse is slow and regular. 12-lead EKG is indicated given her age, cardiac history risk factors, and syncope presentation.",
+      "monitorType": 0,
+      "trendTime": 0,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 100,
+        "hr": 34,
+        "bpSys": 82,
+        "bpDia": 54,
+        "respRate": 18,
+        "spo2": 93,
+        "etco2": 36,
+        "temp": 36.7,
+        "obstruction": 0,
+        "custMeasure1": 104,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Manage airway as necessary; position patient of comfort",
+        "Administer oxygen titrated to 94-98% SpO2",
+        "Initiate cardiac monitoring and acquire 12-lead EKG",
+        "Establish IV access",
+        "Check blood glucose level",
+        "Screen geriatric fall patient for occult trauma from the fall"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Instability recognized",
+      "description": "12-lead confirms complete (third-degree) AV block with a ventricular escape rate of 32. Blood pressure has dropped further and the patient is becoming more fatigued with recurrent lightheadedness, consistent with ongoing hemodynamic instability.",
+      "monitorType": 0,
+      "trendTime": 30,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 100,
+        "hr": 32,
+        "bpSys": 78,
+        "bpDia": 50,
+        "respRate": 20,
+        "spo2": 93,
+        "etco2": 37,
+        "temp": 36.7,
+        "obstruction": 0,
+        "custMeasure1": 104,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Recognize symptomatic bradycardia with hemodynamic instability (HR 32, BP 78/50, recurrent near-syncope)",
+        "Atropine 1 mg IV push (fixed dose; may repeat q3-5 min, max total 3 mg)",
+        "Reassess vital signs closely following atropine administration"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Atropine ineffective",
+      "description": "Atropine produces no meaningful change in heart rate or blood pressure, as expected with third-degree AV block. The crew moves directly to transcutaneous pacing with appropriate sedation/analgesia.",
+      "monitorType": 0,
+      "trendTime": 40,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 100,
+        "hr": 33,
+        "bpSys": 76,
+        "bpDia": 48,
+        "respRate": 20,
+        "spo2": 92,
+        "etco2": 38,
+        "temp": 36.6,
+        "obstruction": 0,
+        "custMeasure1": 104,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Recognize third-degree block unlikely to respond to atropine; proceed to TCP without delay",
+        "Initiate transcutaneous pacing",
+        "Provide sedation/analgesia with pacing for patient comfort"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Paced and stabilized",
+      "description": "Transcutaneous pacing achieves reliable electrical and mechanical capture at a rate of 70. Perfusion and mentation improve. Patient is prepared for transport with continuous monitoring.",
+      "monitorType": 0,
+      "trendTime": 30,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 100,
+        "hr": 70,
+        "bpSys": 96,
+        "bpDia": 60,
+        "respRate": 16,
+        "spo2": 96,
+        "etco2": 34,
+        "temp": 36.7,
+        "obstruction": 0,
+        "custMeasure1": 104,
+        "custMeasureLabel1": "mg/dL",
+        "custMeasure2": 70,
+        "custMeasureLabel2": "Pacer Rate",
+        "custMeasure3": 70,
+        "custMeasureLabel3": "Pacer Output (mA)",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Confirm mechanical and electrical capture; titrate pacer output/rate for adequate perfusion",
+        "Reassess vital signs and mental status after capture achieved",
+        "Transport with continuous cardiac monitoring for further evaluation"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Pacing delayed",
+      "description": "Transcutaneous pacing is delayed after atropine fails, allowing the patient to continue decompensating. Heart rate and blood pressure fall further, and mental status deteriorates toward unresponsiveness.",
+      "monitorType": 0,
+      "trendTime": 50,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 100,
+        "hr": 18,
+        "bpSys": 58,
+        "bpDia": 30,
+        "respRate": 8,
+        "spo2": 85,
+        "etco2": 25,
+        "temp": 36.5,
+        "obstruction": 0,
+        "custMeasure1": 104,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Recognize impending hemodynamic collapse; proceed directly to TCP without further delay",
+        "Recognize decreasing level of consciousness and worsening shock as signs of critical hypoperfusion"
+      ],
+      "relatedSounds": []
+    }
+  ],
+  "checklist": [
+    {
+      "title": "Manage airway as necessary; position patient of comfort",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Administer oxygen titrated to 94-98% SpO2",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Initiate cardiac monitoring and acquire 12-lead EKG",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Establish IV access",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Check blood glucose level",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Screen geriatric fall patient for occult trauma from the fall",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Recognize symptomatic bradycardia with hemodynamic instability (HR 32, BP 78/50, recurrent near-syncope)",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Atropine 1 mg IV push (fixed dose; may repeat q3-5 min, max total 3 mg)",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Reassess vital signs closely following atropine administration",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Recognize third-degree block unlikely to respond to atropine; proceed to TCP without delay",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Initiate transcutaneous pacing",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Provide sedation/analgesia with pacing for patient comfort",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Confirm mechanical and electrical capture; titrate pacer output/rate for adequate perfusion",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Reassess vital signs and mental status after capture achieved",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Transport with continuous cardiac monitoring for further evaluation",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Recognize impending hemodynamic collapse; proceed directly to TCP without further delay",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Recognize decreasing level of consciousness and worsening shock as signs of critical hypoperfusion",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    }
+  ],
+  "media": []
+}

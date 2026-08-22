@@ -1,0 +1,447 @@
+{
+  "meta": {
+    "id": "915b-01-tbi-rsi",
+    "name": "Assault with Severe TBI — RSI for Airway Protection",
+    "version": 1,
+    "difficulty": "advanced",
+    "category": "Trauma",
+    "protocols": ["resp-airway-management", "trauma-head-injury"],
+    "totalTimeSeconds": 1200,
+    "tags": ["RSI", "TBI", "head injury", "airway", "trauma", "915"]
+  },
+  "patient": {
+    "name": "Marcus Deline",
+    "age": 28,
+    "ageUnit": "years",
+    "sex": "male",
+    "weight": 85,
+    "weightLbs": 187,
+    "height": 178,
+    "chiefComplaint": "Decreased level of consciousness after assault",
+    "history": {
+      "hpi": "Bystanders report the patient was struck multiple times in the head and face during an altercation outside a bar, with a brief loss of consciousness. He regained some responsiveness, vomited twice, and has become progressively less responsive and unable to protect his airway since police arrived.",
+      "pastMedical": [],
+      "medications": [],
+      "allergies": ["NKDA"],
+      "lastOralIntake": "Alcohol and bar food approximately 2 hours prior to the assault",
+      "events": "Struck multiple times during a physical altercation outside a bar; bystanders called 911 and police secured the scene before EMS arrival"
+    }
+  },
+  "scene": {
+    "dispatch": "28-year-old male, assault victim, decreased level of consciousness, outside a bar",
+    "location": "Sidewalk outside a bar, patient supine near the entrance",
+    "time": "12:48 AM, weekend night",
+    "safety": "Scene secured by police; assailant left prior to EMS arrival",
+    "bystanders": "Bar patrons and a bouncer report he was struck several times in the head and face, briefly lost consciousness, then vomited twice before becoming less responsive",
+    "visualCues": [
+      "Laceration and rising hematoma over the right temporal/parietal scalp",
+      "Blood-tinged emesis pooled near the mouth",
+      "Empty beer bottles and a overturned bar stool nearby",
+      "Police maintaining scene perimeter",
+      "Patient not following commands, moaning to painful stimuli"
+    ]
+  },
+  "phases": [
+    {
+      "id": "initial",
+      "name": "Initial Contact",
+      "description": "Crew arrives to find a 28-year-old male supine outside a bar with visible head trauma, decreased level of consciousness, and blood-tinged emesis in the oropharynx. He is moaning and withdrawing to pain but not following commands or protecting his airway.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Pain",
+        "gcs": { "eye": 2, "verbal": 2, "motor": 3 },
+        "airway": "Vomiting, poor secretion control, gurgling respirations, blood-tinged emesis in oropharynx",
+        "breathing": "Irregular, 24/min, snoring quality",
+        "circulation": "Radial pulses strong and rapid",
+        "skin": { "color": "pale", "temperature": "warm", "moisture": "diaphoretic" },
+        "pupils": "Left pupil 5mm sluggish, right pupil 3mm reactive",
+        "motorFunction": "Withdraws and localizes to painful stimuli; no purposeful movement to command",
+        "otherFindings": [
+          "Rising hematoma and laceration over right temporal/parietal scalp",
+          "Blood-tinged emesis in oropharynx, active gurgling",
+          "Does not follow commands",
+          "No spontaneous eye opening"
+        ],
+        "patientSpeech": "Moans to painful stimuli; no verbal output"
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 118,
+        "bpSys": 148,
+        "bpDia": 92,
+        "respRate": 24,
+        "spo2": 93,
+        "etco2": 0,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 0,
+        "glucose": 104,
+        "customMeasures": [],
+        "trendTimeSeconds": 0,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [],
+      "transitions": [
+        {
+          "targetPhaseId": "preox-rsi-prep",
+          "if": "Primary survey and preoxygenation started",
+          "condition": "Crew performs a primary survey, recognizes GCS 7 with inadequate airway protection and active vomiting meeting RSI criteria, and begins high-flow oxygenation and C-spine stabilization in preparation for drug-assisted airway management.",
+          "conditionType": "action_taken"
+        }
+      ]
+    },
+    {
+      "id": "preox-rsi-prep",
+      "name": "Preoxygenated for RSI",
+      "description": "Crew suctions the airway, applies high-flow oxygen via non-rebreather, maintains cervical spine stabilization, and preoxygenates with positive pressure ventilation for at least two minutes while confirming blood pressure is adequate before proceeding to drug-assisted intubation.",
+      "triggerCondition": "After the primary survey and C-spine stabilization, the crew recognizes GCS 7 with inadequate airway protection and active vomiting, meeting criteria for RSI. The patient is preoxygenated for at least two minutes and blood pressure is checked prior to any sedative or paralytic administration.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Pain",
+        "gcs": { "eye": 2, "verbal": 2, "motor": 3 },
+        "airway": "Suctioned clear of blood and emesis, NRB in place",
+        "breathing": "Assisted with BVM, 24/min supported",
+        "circulation": "Radial pulses strong and rapid",
+        "skin": { "color": "pale", "temperature": "warm", "moisture": "diaphoretic" },
+        "pupils": "Left pupil 5mm sluggish, right pupil 3mm reactive",
+        "motorFunction": "Withdraws and localizes to painful stimuli",
+        "otherFindings": [
+          "Cervical collar applied, manual stabilization maintained",
+          "Two minutes of high-flow preoxygenation completed",
+          "Repeat BP confirms SBP above 110 mmHg threshold"
+        ],
+        "patientSpeech": "Moans to painful stimuli; no verbal output"
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 114,
+        "bpSys": 144,
+        "bpDia": 90,
+        "respRate": 24,
+        "spo2": 98,
+        "etco2": 0,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 0,
+        "glucose": 104,
+        "customMeasures": [],
+        "trendTimeSeconds": 30,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a1-o2-suction",
+          "shortAction": "Apply high-flow O2 via NRB; suction blood/emesis from oropharynx",
+          "protocolExcerpt": "Administer high-flow oxygen via NRB (non-rebreather) as a precaution against unanticipated deterioration.",
+          "priority": "critical",
+          "rationale": "Prevents hypoxia and aspiration prior to advanced airway management.",
+          "protocolReference": "MATC: Head Injury"
+        },
+        {
+          "id": "a2-cspine",
+          "shortAction": "Maintain cervical spine stabilization; assume concomitant C-spine injury",
+          "protocolExcerpt": "Assume concomitant cervical spine injury in patients with moderate/severe head injury",
+          "priority": "critical",
+          "rationale": "Blunt head trauma with altered mentation carries high risk of concurrent cervical injury.",
+          "protocolReference": "MATC: Head Injury"
+        },
+        {
+          "id": "a3-preox",
+          "shortAction": "Preoxygenate with high-flow O2 + PPV for at least 2 minutes before RSI attempt",
+          "protocolExcerpt": "Patient should be pre-oxygenated with high flow oxygen, and positive pressure ventilation for a minimum of two minutes prior to the procedure.",
+          "priority": "critical",
+          "rationale": "Extends the safe apnea window during the intubation attempt and prevents peri-intubation hypoxia.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        },
+        {
+          "id": "a4-sbp-check",
+          "shortAction": "Reassess BP before sedative/paralytic; treat to maintain SBP ≥110 mmHg",
+          "protocolExcerpt": "Assess the patient's blood pressure prior to the administration of any medication that may cause hypotension. Adult (age greater than 10 years): maintain SBP greater than or equal to 110 mmHg",
+          "priority": "critical",
+          "rationale": "Hypotension worsens cerebral perfusion and secondary brain injury in TBI.",
+          "protocolReference": "MATC: Head Injury"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "rsi-performed",
+          "if": "RSI performed after adequate preoxygenation",
+          "condition": "After confirming two minutes of preoxygenation and an adequate blood pressure, the crew proceeds with premedication, induction, and paralysis for RSI.",
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a3-preox"]
+        },
+        {
+          "targetPhaseId": "rsi-without-preox",
+          "if": "RSI attempted without adequate preoxygenation",
+          "condition": "Crew proceeds directly to sedative/paralytic administration without completing the required two-minute high-flow preoxygenation period.",
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["a3-preox"]
+        }
+      ]
+    },
+    {
+      "id": "rsi-performed",
+      "name": "RSI performed, tube confirmed",
+      "description": "Crew administers fentanyl premedication, etomidate for induction, and rocuronium for paralysis, then successfully intubates and confirms tube placement with waveform capnography and bilateral breath sounds.",
+      "triggerCondition": "After adequate preoxygenation and blood pressure optimization, the crew proceeds with drug-assisted intubation: fentanyl premedication, etomidate induction, rocuronium paralysis, followed by laryngoscopy and endotracheal intubation confirmed by waveform capnography.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Unresponsive",
+        "gcs": { "eye": 1, "verbal": 1, "motor": 1 },
+        "airway": "Endotracheal tube in place, confirmed by waveform capnography and bilateral breath sounds",
+        "breathing": "Ventilated via BVM at 10 breaths/min",
+        "circulation": "Radial pulses strong",
+        "skin": { "color": "pink", "temperature": "warm", "moisture": "dry" },
+        "pupils": "Left pupil 5mm sluggish, right pupil 3mm reactive",
+        "motorFunction": "Paralyzed, no spontaneous movement",
+        "otherFindings": [
+          "ETT secured at appropriate depth",
+          "Waveform capnography confirms placement",
+          "No gastric sounds on auscultation"
+        ],
+        "patientSpeech": "None — sedated and paralyzed"
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 108,
+        "bpSys": 130,
+        "bpDia": 82,
+        "respRate": 10,
+        "spo2": 98,
+        "etco2": 40,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 0,
+        "glucose": 104,
+        "customMeasures": [],
+        "trendTimeSeconds": 30,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a5-fentanyl",
+          "shortAction": "Fentanyl 85 mcg IV premedication (85 kg × 1 mcg/kg), 2–3 min prior to intubation",
+          "protocolExcerpt": "Consider pre-medication with Fentanyl, 1 mcg/kg, 2-3 minutes prior to intubation attempt.",
+          "priority": "important",
+          "rationale": "Blunts the sympathetic/ICP response to laryngoscopy.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        },
+        {
+          "id": "a6-etomidate",
+          "shortAction": "Etomidate 25 mg IV push induction (85 kg × 0.3 mg/kg = 25.5 mg)",
+          "protocolExcerpt": "Administer induction sedative agent: Etomidate IV push, 0.2-0.3 mg/kg",
+          "priority": "critical",
+          "rationale": "Hemodynamically neutral induction agent appropriate for a TBI patient.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        },
+        {
+          "id": "a7-rocuronium",
+          "shortAction": "Rocuronium 85 mg IV push paralytic (85 kg × 1 mg/kg)",
+          "protocolExcerpt": "Administer paralytic agent: Succinylcholine IV push, 1-2 mg/kg OR Rocuronium IV push, 1 mg/kg OR Vecuronium IV push, 0.1 mg/kg",
+          "priority": "critical",
+          "rationale": "Provides paralysis for first-pass intubation success.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        },
+        {
+          "id": "a8-intubate-confirm",
+          "shortAction": "Intubate; confirm placement with waveform capnography and bilateral breath sounds",
+          "protocolExcerpt": "Confirm placement of advanced airway (endotracheal tube, SGA) with waveform capnography (most reliable), absent gastric sounds, and bilateral breath sounds",
+          "priority": "critical",
+          "rationale": "Waveform capnography is the most reliable confirmation of correct tube placement.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        },
+        {
+          "id": "a9-etco2-target",
+          "shortAction": "Ventilate at 10 breaths/min; target EtCO2 35–45 mmHg, avoid hyperventilation",
+          "protocolExcerpt": "Do not induce hypocapnia through hyper-/overventilation. Maintain all patients in EtCO2 range of 35–45 mmHg",
+          "priority": "critical",
+          "rationale": "Hyperventilation causes cerebral vasoconstriction and worsens secondary brain injury.",
+          "protocolReference": "MATC: Head Injury"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "post-intubation-transport",
+          "if": "Ventilation rate controlled to target",
+          "condition": "Ventilation rate is maintained at 10 breaths/min with EtCO2 held in the 35-45 mmHg range; patient is packaged for transport.",
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a9-etco2-target"]
+        },
+        {
+          "targetPhaseId": "overventilation-herniation",
+          "if": "Hyperventilation drives EtCO2 low",
+          "condition": "Crew ventilates faster than the protocol-directed rate, driving EtCO2 below 30 mmHg and risking cerebral vasoconstriction.",
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["a9-etco2-target"]
+        }
+      ]
+    },
+    {
+      "id": "post-intubation-transport",
+      "name": "Ventilation controlled, transport",
+      "description": "Tube is secured, sedation is maintained, ventilation rate is controlled to keep EtCO2 in the target range, and the patient is transported to a trauma center capable of managing severe TBI.",
+      "triggerCondition": "Tube secured, sedation maintained, and ventilation rate controlled to EtCO2 35-45 mmHg; patient transported to the highest level of trauma care available.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Unresponsive",
+        "gcs": { "eye": 1, "verbal": 1, "motor": 1 },
+        "airway": "ETT secured, confirmed patent",
+        "breathing": "Ventilated at 10 breaths/min, EtCO2 40",
+        "circulation": "Radial pulses strong",
+        "skin": { "color": "pink", "temperature": "warm", "moisture": "dry" },
+        "pupils": "Left pupil 5mm sluggish, right pupil 3mm reactive, trended and documented",
+        "motorFunction": "Sedated, no spontaneous movement",
+        "otherFindings": [
+          "Head of stretcher elevated 30 degrees",
+          "SBP maintained above 110 mmHg",
+          "Continuous waveform capnography monitored"
+        ],
+        "patientSpeech": "None — sedated"
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Rhythm",
+        "ecgWaveform": 9,
+        "hr": 96,
+        "bpSys": 128,
+        "bpDia": 80,
+        "respRate": 10,
+        "spo2": 98,
+        "etco2": 40,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 0,
+        "glucose": 104,
+        "customMeasures": [],
+        "trendTimeSeconds": 40,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a10-sedation",
+          "shortAction": "Maintain post-intubation sedation; reassess RASS/comfort en route",
+          "protocolExcerpt": "Intubated patients should be provided appropriate sedation with sedative or opioid medications, and sedation titrated to an appropriate target level using RASS score or similar scale",
+          "priority": "important",
+          "rationale": "Prevents patient agitation, tube displacement, and rises in ICP.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        },
+        {
+          "id": "a11-transport",
+          "shortAction": "Transport to highest level trauma center per GCS 3–13 criteria",
+          "protocolExcerpt": "Preferential transport to highest level of care within trauma system: GCS 3–13, P (pain) or U (unresponsive) on AVPU scale",
+          "priority": "important",
+          "rationale": "Severe TBI requires definitive neurosurgical capability.",
+          "protocolReference": "MATC: Head Injury"
+        }
+      ],
+      "transitions": []
+    },
+    {
+      "id": "rsi-without-preox",
+      "name": "RSI attempted without adequate preoxygenation",
+      "description": "Crew skips the required two-minute preoxygenation period and proceeds directly to sedation and paralysis. SpO2 falls rapidly during the intubation attempt.",
+      "triggerCondition": "Crew proceeds directly to sedative/paralytic administration without the required two-minute high-flow preoxygenation period; SpO2 falls rapidly during the intubation attempt.",
+      "isDefault": false,
+      "clinicalPresentation": {
+        "avpu": "Unresponsive",
+        "gcs": { "eye": 1, "verbal": 1, "motor": 1 },
+        "airway": "Laryngoscope in place, tube not yet passed",
+        "breathing": "Apneic during attempt",
+        "circulation": "Radial pulses rapid",
+        "skin": { "color": "cyanotic", "temperature": "warm", "moisture": "diaphoretic" },
+        "pupils": "Left pupil 5mm sluggish, right pupil 3mm reactive",
+        "motorFunction": "Paralyzed",
+        "otherFindings": [
+          "SpO2 falling rapidly during the attempt",
+          "No prior 2-minute preoxygenation period completed"
+        ],
+        "patientSpeech": "None — paralyzed and apneic"
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 132,
+        "bpSys": 138,
+        "bpDia": 86,
+        "respRate": 0,
+        "spo2": 82,
+        "etco2": 0,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 0,
+        "glucose": 104,
+        "customMeasures": [],
+        "trendTimeSeconds": 20,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a12-abort-reoxygenate",
+          "shortAction": "Abort attempt at SpO2 <90%; resume BVM with PEEP to reoxygenate",
+          "protocolExcerpt": "Attempt intubation, limiting attempts to 15 seconds, or a desaturation below 90%, whichever occurs first.",
+          "priority": "critical",
+          "rationale": "Prevents hypoxic secondary brain injury and hypoxic cardiac arrest.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        }
+      ],
+      "transitions": []
+    },
+    {
+      "id": "overventilation-herniation",
+      "name": "Hyperventilation drives EtCO2 low",
+      "description": "Ventilation rate exceeds the protocol-directed target after intubation, driving EtCO2 below 30 mmHg and risking cerebral vasoconstriction that worsens secondary brain injury.",
+      "triggerCondition": "Ventilation rate exceeds protocol targets after intubation; EtCO2 drifts below 30 mmHg, risking cerebral vasoconstriction and worsened secondary brain injury.",
+      "isDefault": false,
+      "clinicalPresentation": {
+        "avpu": "Unresponsive",
+        "gcs": { "eye": 1, "verbal": 1, "motor": 1 },
+        "airway": "ETT secured, confirmed patent",
+        "breathing": "Ventilated at an excessive rate, approximately 20/min",
+        "circulation": "Radial pulses present",
+        "skin": { "color": "pale", "temperature": "warm", "moisture": "dry" },
+        "pupils": "Left pupil now 6mm and minimally reactive, right pupil 3mm reactive",
+        "motorFunction": "Sedated, no spontaneous movement",
+        "otherFindings": [
+          "EtCO2 trending down to 24 mmHg",
+          "Left pupil dilation progressing — early herniation concern"
+        ],
+        "patientSpeech": "None — sedated"
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Rhythm",
+        "ecgWaveform": 9,
+        "hr": 90,
+        "bpSys": 124,
+        "bpDia": 78,
+        "respRate": 20,
+        "spo2": 97,
+        "etco2": 24,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 0,
+        "glucose": 104,
+        "customMeasures": [],
+        "trendTimeSeconds": 30,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a13-correct-rate",
+          "shortAction": "Reduce ventilation rate to 10/min; retarget EtCO2 to 35–45 mmHg",
+          "protocolExcerpt": "Do not induce hypocapnia through hyper-/overventilation. Hyperventilation results in vasoconstriction which further decreases blood flow to the brain and worsens the secondary brain injury.",
+          "priority": "critical",
+          "rationale": "Correcting the ventilation rate reverses iatrogenic cerebral vasoconstriction.",
+          "protocolReference": "MATC: Head Injury"
+        }
+      ],
+      "transitions": []
+    }
+  ],
+  "realiti": {
+    "scenarioMonitorType": 2,
+    "scenarioDefaultEnergy": 200,
+    "scenarioDefaultPacerThreshold": 55
+  }
+}

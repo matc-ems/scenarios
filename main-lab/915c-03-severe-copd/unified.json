@@ -1,0 +1,391 @@
+{
+  "meta": {
+    "id": "915c-03-severe-copd",
+    "name": "Severe COPD Exacerbation — Failing CPAP with CO2 Narcosis",
+    "version": 1,
+    "difficulty": "advanced",
+    "category": "Respiratory",
+    "protocols": ["resp-respiratory-distress", "resp-airway-management"],
+    "totalTimeSeconds": 1080,
+    "tags": ["COPD", "CPAP failure", "CO2 narcosis", "RSI", "advanced", "915"]
+  },
+  "patient": {
+    "name": "Walter Grunsky",
+    "age": 69,
+    "ageUnit": "years",
+    "sex": "male",
+    "weight": 78,
+    "weightLbs": 172,
+    "height": 175,
+    "chiefComplaint": "Severe shortness of breath, worsening despite home nebulizer treatments",
+    "history": {
+      "hpi": "Wife called 911 after patient's breathing worsened over several hours despite using his home nebulizer twice. On EMS arrival he is tripoding, using accessory muscles, and speaking only 1-2 words at a time. He has a known history of end-stage COPD with two prior ICU admissions and one prior intubation. Wife reports he seemed 'more confused than usual' in the last 15 minutes.",
+      "pastMedical": ["End-stage COPD (2L home O2)", "Prior ICU admission x2 for COPD exacerbation", "Prior intubation 3 years ago", "Hypertension", "40 pack-year smoking history, quit 2 years ago"],
+      "medications": ["Tiotropium inhaler", "Albuterol/ipratropium nebulizer PRN", "Home oxygen 2L NC", "Lisinopril 10 mg PO daily"],
+      "allergies": ["NKDA"],
+      "lastOralIntake": "Sips of water this morning, no solid food",
+      "events": "Progressive dyspnea over several hours, worsened despite two home nebulizer treatments; wife called 911 when he became difficult to arouse"
+    }
+  },
+  "scene": {
+    "dispatch": "69-year-old male, difficulty breathing, residence",
+    "location": "Single-story home, patient seated in recliner in living room, home O2 concentrator running nearby",
+    "time": "3:15 AM",
+    "safety": "No hazards to crew; home oxygen concentrator in use, no open flame nearby",
+    "bystanders": "Wife present, states he has been getting worse over the last several hours and is now harder to wake up",
+    "visualCues": [
+      "Patient tripoding in recliner, visible accessory muscle use and intercostal retractions",
+      "Home nebulizer mask on floor next to chair",
+      "Barrel chest, pursed-lip breathing pattern",
+      "Home oxygen concentrator tubing connected to nasal cannula at 2L",
+      "Multiple inhalers and a hospital discharge folder on end table"
+    ]
+  },
+  "phases": [
+    {
+      "id": "initial",
+      "name": "Initial Contact",
+      "description": "Crew finds a 69-year-old male with known end-stage COPD in severe respiratory distress, tripoding with accessory muscle use, speaking only 1-2 words at a time. He is increasingly difficult to arouse per his wife.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Verbal",
+        "gcs": { "eye": 3, "verbal": 4, "motor": 6 },
+        "airway": "Patent but severely labored, audible expiratory wheeze",
+        "breathing": "Severe accessory muscle use, intercostal retractions, prolonged expiratory phase, speaking 1-2 words per breath",
+        "circulation": "Radial pulses present, bounding, skin diaphoretic",
+        "skin": { "color": "dusky", "temperature": "warm", "moisture": "diaphoretic" },
+        "pupils": "PERRL, sluggish",
+        "motorFunction": "Follows simple commands slowly, intact strength in all extremities",
+        "otherFindings": [
+          "Tripod positioning, pursed-lip breathing",
+          "Diffuse expiratory wheezing, diminished breath sounds at bases",
+          "Barrel chest, use of sternocleidomastoid muscles",
+          "Wife reports increasing difficulty arousing him over last 15 minutes"
+        ],
+        "patientSpeech": "\"Can't... breathe...\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 122,
+        "bpSys": 156,
+        "bpDia": 94,
+        "respRate": 32,
+        "spo2": 87,
+        "etco2": 68,
+        "temp": 37.1,
+        "tempF": 98.8,
+        "obstruction": 55,
+        "glucose": 118,
+        "customMeasures": [],
+        "trendTimeSeconds": 0,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
+      },
+      "expectedActions": [],
+      "transitions": [
+        {
+          "targetPhaseId": "cpap-started",
+          "if": "CPAP with in-line duoneb started",
+          "condition": "Crew recognizes severe respiratory distress with impending failure and initiates CPAP with nebulized bronchodilator administered in-line, coaching the patient through mask application.",
+          "conditionType": "action_taken"
+        }
+      ]
+    },
+    {
+      "id": "cpap-started",
+      "name": "CPAP with in-line duoneb started",
+      "description": "CPAP is applied with albuterol/ipratropium nebulized in-line through a T-connector. The patient initially tolerates the mask with coaching, and permissive hypoxia (SpO2 goal ≥90%, higher COPD tolerance) is accepted rather than chasing a normal saturation.",
+      "triggerCondition": "After recognizing severe respiratory distress with an elevated EtCO2 and diminishing mental status, the crew initiates non-invasive ventilation early per protocol, with nebulized bronchodilator delivered in-line through a CPAP-compatible T-connector.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Verbal",
+        "gcs": { "eye": 3, "verbal": 4, "motor": 6 },
+        "airway": "CPAP mask sealed, tolerating with coaching",
+        "breathing": "Still labored but slightly less retractions, RR 28",
+        "circulation": "Radial pulses present, skin diaphoretic",
+        "skin": { "color": "dusky", "temperature": "warm", "moisture": "diaphoretic" },
+        "pupils": "PERRL, sluggish",
+        "motorFunction": "Follows simple commands, intact strength",
+        "otherFindings": [
+          "CPAP mask seal maintained continuously",
+          "Nebulizer running in-line via T-connector",
+          "Wife coached to help maintain reassurance"
+        ],
+        "patientSpeech": "(muffled through mask) \"Still... hard...\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 118,
+        "bpSys": 152,
+        "bpDia": 92,
+        "respRate": 28,
+        "spo2": 90,
+        "etco2": 66,
+        "temp": 37.1,
+        "tempF": 98.8,
+        "obstruction": 50,
+        "glucose": 118,
+        "customMeasures": [],
+        "trendTimeSeconds": 30,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a1-niv",
+          "shortAction": "Initiate CPAP with in-line nebulized bronchodilator; coach patient through mask seal",
+          "protocolExcerpt": "Non-invasive ventilation (NIV) should be considered early for severe respiratory distress or impending respiratory failure. NIV options include continuous positive airway pressure (CPAP), bilevel positive airway pressure (BiPAP)... Nebulized medications may be administered through a CPAP or BiPAP mask. A specialized T-connector with a spring valve assembly is required to allow maintenance of positive airway pressure.",
+          "priority": "critical",
+          "rationale": "Early NIV with bronchodilator is the first-line escalation for severe COPD-related bronchospasm and impending failure.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        },
+        {
+          "id": "a2-permissive-hypoxia",
+          "shortAction": "Accept SpO2 ≥90% rather than titrating to normal saturation; monitor EtCO2 trend, not absolute normalization",
+          "protocolExcerpt": "Permissive hypoxia (SPO2 ≥ 90%) may be appropriate in patients with COPD or other complex respiratory pathology... Patients who have end stage COPD may have chronically elevated EtCO2 as high as 50s–60s, and thus tolerate elevated EtCO2 better so normalization may not be a good target.",
+          "priority": "important",
+          "rationale": "Chasing a normal SpO2/EtCO2 in a chronic CO2-retainer can worsen outcomes; the trend matters more than the absolute number.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        },
+        {
+          "id": "a3-continuous-monitor",
+          "shortAction": "Maintain continuous waveform capnography and pulse oximetry throughout NIV trial",
+          "protocolExcerpt": "Patients with significant respiratory distress should have continuous pulse oximetry and waveform capnography monitoring for both assessment and for guiding therapy.",
+          "priority": "important",
+          "rationale": "Continuous capnography is the earliest objective sign of CPAP failure and progressing CO2 narcosis.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "cpap-failure-rsi",
+          "if": "CPAP failure recognized, RSI performed",
+          "condition": "Despite a well-sealed CPAP trial with bronchodilator, the patient's EtCO2 continues climbing and mental status worsens; crew recognizes CPAP failure per protocol and removes CPAP to proceed with RSI.",
+          "conditionType": "vital_threshold",
+          "triggerActionIds": ["a3-continuous-monitor"]
+        },
+        {
+          "targetPhaseId": "cpap-continued-deterioration",
+          "if": "CPAP continued despite worsening mental status",
+          "condition": "Crew continues CPAP without reassessing for failure criteria despite objective signs of deterioration (rising EtCO2, worsening mental status), delaying necessary escalation to airway management.",
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["a3-continuous-monitor"]
+        }
+      ]
+    },
+    {
+      "id": "cpap-failure-rsi",
+      "name": "CPAP failure recognized, RSI performed",
+      "description": "The patient's EtCO2 continues to rise and mental status deteriorates despite an adequate CPAP trial, meeting CPAP-failure criteria. The crew removes CPAP, preoxygenates, and proceeds with RSI, selecting ketamine for its bronchodilatory properties given the underlying severe bronchospasm.",
+      "triggerCondition": "After a full CPAP trial with in-line bronchodilator fails to reverse the trend — EtCO2 continues rising and mental status worsens toward unresponsiveness — the crew recognizes CPAP failure per protocol, discontinues CPAP, and proceeds directly to RSI rather than continuing a failing non-invasive strategy.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Pain",
+        "gcs": { "eye": 2, "verbal": 3, "motor": 5 },
+        "airway": "CPAP removed, BVM-assisted with OPA in place during RSI setup",
+        "breathing": "Shallow, minimal air movement, RR 10 and irregular",
+        "circulation": "Radial pulses present, skin diaphoretic and cool",
+        "skin": { "color": "dusky", "temperature": "cool", "moisture": "diaphoretic" },
+        "pupils": "PERRL, sluggish",
+        "motorFunction": "Withdraws to pain only",
+        "otherFindings": [
+          "CPAP removed after failure criteria met",
+          "EtCO2 rising further despite treatment, consistent with CO2 narcosis",
+          "Two experienced airway practitioners at bedside for RSI"
+        ],
+        "patientSpeech": "Moans only, no words"
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 128,
+        "bpSys": 148,
+        "bpDia": 90,
+        "respRate": 10,
+        "spo2": 84,
+        "etco2": 78,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 55,
+        "glucose": 116,
+        "customMeasures": [],
+        "trendTimeSeconds": 40,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a4-recognize-failure",
+          "shortAction": "Recognize CPAP failure (worsened mental status, rising EtCO2); remove CPAP and escalate",
+          "protocolExcerpt": "If patient deteriorates on CPAP/BiPAP (e.g., worsened mental status, increasing EtCO2, vomiting), remove CPAP/BiPAP and escalate airway management options as above.",
+          "priority": "critical",
+          "rationale": "Recognizing CPAP failure promptly prevents progression to respiratory arrest.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        },
+        {
+          "id": "a5-preox",
+          "shortAction": "Preoxygenate with high-flow O2 and positive pressure ventilation for at least 2 minutes before RSI",
+          "protocolExcerpt": "Patient should be pre-oxygenated with high flow oxygen, and positive pressure ventilation for a minimum of two minutes prior to the procedure.",
+          "priority": "critical",
+          "rationale": "Adequate preoxygenation reduces the risk of peri-intubation hypoxia and hypoxic cardiac arrest.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        },
+        {
+          "id": "a6-fentanyl",
+          "shortAction": "Fentanyl 78 mcg IV push (78 kg × 1 mcg/kg) 2-3 minutes prior to intubation attempt",
+          "protocolExcerpt": "Consider pre-medication with Fentanyl, 1 mcg/kg, 2-3 minutes prior to intubation attempt.",
+          "priority": "important",
+          "rationale": "Blunts the sympathetic/hemodynamic response to laryngoscopy.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        },
+        {
+          "id": "a7-ketamine",
+          "shortAction": "Ketamine 117 mg IV push (78 kg × 1.5 mg/kg) as induction agent",
+          "protocolExcerpt": "Administer induction sedative agent: Etomidate IV push, 0.2-0.3 mg/kg OR Ketamine IV push, 1-2 mg/kg OR Midazolam IV push, 0.05-0.10 mg/kg.",
+          "priority": "critical",
+          "rationale": "Ketamine provides bronchodilation in addition to sedation, favorable in a patient with severe bronchospasm.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        },
+        {
+          "id": "a8-rocuronium",
+          "shortAction": "Rocuronium 78 mg IV push (78 kg × 1 mg/kg) as paralytic",
+          "protocolExcerpt": "Administer paralytic agent: Succinylcholine IV push, 1-2 mg/kg OR Rocuronium IV push, 1 mg/kg OR Vecuronium IV push, 0.1 mg/kg.",
+          "priority": "critical",
+          "rationale": "Provides complete paralysis to optimize first-pass intubation success.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "tube-confirmed-transport",
+          "if": "Tube confirmed, ventilated for permissive hypercapnia",
+          "condition": "Endotracheal tube placement is confirmed with waveform capnography and bilateral breath sounds; patient is secured and mechanically ventilated with a target EtCO2 appropriate for a chronic CO2 retainer rather than normalization.",
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a7-ketamine", "a8-rocuronium"]
+        }
+      ]
+    },
+    {
+      "id": "tube-confirmed-transport",
+      "name": "Tube confirmed, ventilated for permissive hypercapnia",
+      "description": "The endotracheal tube is confirmed with waveform capnography and secured. Ventilation is titrated to gradually decrease the patient's chronically elevated EtCO2 rather than aggressively normalizing it, avoiding the hemodynamic and cerebral perfusion risks of rapid correction.",
+      "triggerCondition": "After successful RSI and tube placement, capnography confirms correct position; the crew secures the tube and titrates ventilation to a gradual EtCO2 reduction appropriate for a chronic hypercapnic patient.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Unresponsive",
+        "gcs": { "eye": 1, "verbal": 1, "motor": 4 },
+        "airway": "Secured with endotracheal tube, confirmed placement",
+        "breathing": "Mechanically ventilated, 10-12 breaths/min, 6-8 mL/kg tidal volume",
+        "circulation": "Radial pulses present, skin warming slightly",
+        "skin": { "color": "pink", "temperature": "warm", "moisture": "diaphoretic" },
+        "pupils": "PERRL, sluggish",
+        "motorFunction": "Sedated, no purposeful movement",
+        "otherFindings": [
+          "ETT secured at appropriate depth, confirmed with continuous waveform capnography",
+          "Bilateral breath sounds present, no gastric sounds",
+          "Sedation initiated post-intubation"
+        ],
+        "patientSpeech": "None (sedated, intubated)"
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 110,
+        "bpSys": 138,
+        "bpDia": 84,
+        "respRate": 11,
+        "spo2": 95,
+        "etco2": 70,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 45,
+        "glucose": 114,
+        "customMeasures": [],
+        "trendTimeSeconds": 45,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a9-confirm",
+          "shortAction": "Confirm tube placement with waveform capnography, bilateral breath sounds, absent gastric sounds",
+          "protocolExcerpt": "Confirm placement of advanced airway (endotracheal tube, SGA) with waveform capnography (most reliable), absent gastric sounds, and bilateral breath sounds.",
+          "priority": "critical",
+          "rationale": "Waveform capnography is the most reliable confirmation method and must be used before trusting tube placement.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        },
+        {
+          "id": "a10-gradual-etco2",
+          "shortAction": "Titrate ventilation to gradually decrease EtCO2 rather than rapid normalization",
+          "protocolExcerpt": "to gradually decrease EtCO2 in chronically and acutely severely hypercarbic patients including post-arrest.",
+          "priority": "important",
+          "rationale": "Rapid correction of chronic hypercapnia can precipitate dangerous alkalosis and hemodynamic instability.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        },
+        {
+          "id": "a11-sedation",
+          "shortAction": "Provide post-intubation sedation with fentanyl and midazolam or ketamine per protocol",
+          "protocolExcerpt": "Intubated patients should be provided appropriate sedation with sedative or opioid medications, and sedation titrated to an appropriate target level using RASS score or similar scale.",
+          "priority": "important",
+          "rationale": "Adequate sedation prevents patient-ventilator dyssynchrony and reduces physiologic stress response.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        }
+      ],
+      "transitions": []
+    },
+    {
+      "id": "cpap-continued-deterioration",
+      "name": "CPAP continued despite worsening mental status",
+      "description": "The crew continues CPAP without reassessing for failure, despite the patient's mental status continuing to decline and EtCO2 continuing to climb. The patient progresses toward respiratory arrest as CO2 narcosis worsens under the mask.",
+      "triggerCondition": "Crew does not reassess for CPAP failure criteria despite objective signs (rising EtCO2, worsening mental status) and continues the mask trial, allowing CO2 narcosis to progress toward respiratory arrest.",
+      "isDefault": false,
+      "clinicalPresentation": {
+        "avpu": "Unresponsive",
+        "gcs": { "eye": 1, "verbal": 1, "motor": 4 },
+        "airway": "CPAP mask still in place, minimal spontaneous effort visible",
+        "breathing": "Agonal, RR 6, minimal chest rise under the mask",
+        "circulation": "Radial pulses weak, skin cyanotic",
+        "skin": { "color": "cyanotic", "temperature": "cool", "moisture": "diaphoretic" },
+        "pupils": "Sluggish, mid-position",
+        "motorFunction": "No purposeful movement, minimal response to pain",
+        "otherFindings": [
+          "CPAP mask never removed despite worsening mental status",
+          "EtCO2 continues climbing under the mask",
+          "Patient now unresponsive"
+        ],
+        "patientSpeech": "None"
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 134,
+        "bpSys": 100,
+        "bpDia": 62,
+        "respRate": 6,
+        "spo2": 74,
+        "etco2": 92,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 60,
+        "glucose": 116,
+        "customMeasures": [],
+        "trendTimeSeconds": 50,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a12-rescue",
+          "shortAction": "Remove CPAP immediately, begin BVM ventilation, prepare emergent RSI",
+          "protocolExcerpt": "If patient deteriorates on CPAP/BiPAP (e.g., worsened mental status, increasing EtCO2, vomiting), remove CPAP/BiPAP and escalate airway management options as above.",
+          "priority": "critical",
+          "rationale": "Delayed recognition of CPAP failure has allowed progression to near-respiratory-arrest; immediate rescue ventilation is required before RSI can even be safely attempted.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        }
+      ],
+      "transitions": []
+    }
+  ],
+  "realiti": {
+    "scenarioMonitorType": 2,
+    "scenarioDefaultEnergy": 200,
+    "scenarioDefaultPacerThreshold": 55
+  }
+}

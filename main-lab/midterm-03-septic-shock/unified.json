@@ -1,0 +1,361 @@
+{
+  "meta": {
+    "id": "midterm-03-septic-shock",
+    "name": "Septic Shock — Nursing Home Fever with Altered Mental Status",
+    "version": 1,
+    "difficulty": "advanced",
+    "category": "Medical",
+    "protocols": ["medical-shock", "medical-altered-mental-status"],
+    "totalTimeSeconds": 900,
+    "tags": ["ALS", "sepsis", "shock", "geriatric", "midterm", "vasopressor"]
+  },
+  "patient": {
+    "name": "Walter Simmons",
+    "age": 75,
+    "ageUnit": "years",
+    "sex": "male",
+    "weight": 78,
+    "weightLbs": 172,
+    "height": 175,
+    "chiefComplaint": "Altered mental status and fever, reported by nursing home staff",
+    "history": {
+      "hpi": "Nursing home staff report the patient has been increasingly confused and lethargic over the past 24 hours, with poor oral intake. Found this morning with a fever of 102.9°F, low blood pressure on facility vitals, and new urinary incontinence. No witnessed trauma or fall.",
+      "pastMedical": ["Type 2 diabetes mellitus", "Chronic kidney disease stage 3", "Benign prostatic hyperplasia", "Mild baseline dementia"],
+      "medications": ["Metformin 500 mg PO BID", "Lisinopril 10 mg PO daily", "Tamsulosin 0.4 mg PO daily", "Donepezil 10 mg PO daily"],
+      "allergies": ["NKDA"],
+      "lastOralIntake": "Poor oral intake over the past 24 hours; sips of water this morning",
+      "events": "Facility nurse noted new confusion and fever on morning rounds, obtained vitals showing hypotension, and called 911"
+    }
+  },
+  "scene": {
+    "dispatch": "75-year-old male, altered mental status, skilled nursing facility",
+    "location": "Skilled nursing facility, private resident room, patient in bed",
+    "time": "9:15 AM, weekday",
+    "safety": "No hazards to crew; standard PPE for facility environment",
+    "bystanders": "Charge nurse present with facility vitals sheet and medication list",
+    "visualCues": [
+      "Patient appears flushed and diaphoretic",
+      "Foley catheter in place with cloudy, dark urine",
+      "Facility vitals sheet showing temp 102.9°F and BP 84/50 at 0800",
+      "Patient mumbling, not oriented to person, place, or time"
+    ]
+  },
+  "phases": [
+    {
+      "id": "initial",
+      "name": "Initial Contact",
+      "description": "Crew finds a 75-year-old male nursing home resident in bed, flushed, diaphoretic, and confused. Facility staff report new fever and hypotension over the past several hours.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Verbal",
+        "gcs": { "eye": 3, "verbal": 4, "motor": 6 },
+        "airway": "Patent, mumbling incoherently",
+        "breathing": "Tachypneic, nonlabored, 24/min",
+        "circulation": "Radial pulses present but weak and rapid, warm flushed skin",
+        "skin": { "color": "flushed", "temperature": "warm", "moisture": "diaphoretic" },
+        "pupils": "PERRL, sluggish",
+        "motorFunction": "Moves all extremities spontaneously, follows simple commands inconsistently",
+        "otherFindings": [
+          "Fever, skin hot to touch",
+          "Foley catheter draining cloudy, dark urine",
+          "New confusion per staff, not baseline"
+        ],
+        "patientSpeech": "\"...cold... where's... my wife...\" (disoriented, intermittently responsive to voice)"
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 118,
+        "bpSys": 82,
+        "bpDia": 48,
+        "respRate": 24,
+        "spo2": 93,
+        "etco2": 28,
+        "temp": 39.4,
+        "tempF": 103.0,
+        "obstruction": 0,
+        "glucose": 112,
+        "customMeasures": [],
+        "trendTimeSeconds": 0,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [],
+      "transitions": [
+        {
+          "targetPhaseId": "fluids-started",
+          "if": "IV/IO access and fluids started promptly",
+          "condition": "Crew rapidly recognizes signs of septic shock (fever, hypotension, altered mental status) and initiates full vital signs, monitoring, glucose check, IV/IO access, and fluid resuscitation without delay.",
+          "conditionType": "action_taken"
+        },
+        {
+          "targetPhaseId": "shock-worsens",
+          "if": "IV access and fluids delayed",
+          "condition": "Crew is slow to obtain vascular access or begin fluid resuscitation despite clear signs of septic shock; perfusion continues to deteriorate.",
+          "conditionType": "action_not_taken"
+        }
+      ]
+    },
+    {
+      "id": "fluids-started",
+      "name": "IV/IO access and fluids started promptly",
+      "description": "Crew obtains full vital signs and monitoring, checks blood glucose, establishes IV/IO access, and begins rapid isotonic fluid boluses toward a MAP goal while notifying the receiving hospital.",
+      "triggerCondition": "After recognizing fever, hypotension, and altered mental status as signs of septic shock, the crew moves quickly to monitor, access, and begin fluid resuscitation.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Verbal",
+        "gcs": { "eye": 3, "verbal": 4, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "Tachypneic, 22/min",
+        "circulation": "Radial pulses weak, rapid; warm flushed skin",
+        "skin": { "color": "flushed", "temperature": "warm", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Moves all extremities, intermittently follows commands",
+        "otherFindings": [
+          "IO placed after difficult peripheral attempt in an elderly patient with fragile veins",
+          "First 500 mL bolus infusing",
+          "Blood glucose 112 mg/dL, no correction needed"
+        ],
+        "patientSpeech": "\"...I don't feel right...\" (still disoriented)"
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 114,
+        "bpSys": 86,
+        "bpDia": 50,
+        "respRate": 22,
+        "spo2": 95,
+        "etco2": 30,
+        "temp": 39.3,
+        "tempF": 102.7,
+        "obstruction": 0,
+        "glucose": 112,
+        "customMeasures": [],
+        "trendTimeSeconds": 30,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a1-monitor",
+          "shortAction": "Obtain full vital signs, cardiac monitor, pulse oximetry, and EtCO2",
+          "protocolExcerpt": "Check vital signs. Administer oxygen as appropriate with a target of achieving 94–98% saturation. Cardiac monitor. Pulse oximetry and EtCO2 (reading of less than 25 mmHg may be sign of poor perfusion)",
+          "priority": "critical",
+          "rationale": "Establishes baseline severity and monitors for worsening perfusion.",
+          "protocolReference": "MATC: Shock"
+        },
+        {
+          "id": "a2-glucose",
+          "shortAction": "Check blood glucose; correct only if less than 60 mg/dL",
+          "protocolExcerpt": "Check blood sugar, and correct if less than 60 mg/dL",
+          "priority": "important",
+          "rationale": "Hypoglycemia is a treatable cause of AMS that must be ruled out even when sepsis is suspected.",
+          "protocolReference": "MATC: Shock"
+        },
+        {
+          "id": "a3-access",
+          "shortAction": "Establish IV access; place IO if unsuccessful within 2 attempts or 90 seconds",
+          "protocolExcerpt": "Establish IV access. If unable to obtain within two attempts or less than 90 seconds, place an IO needle",
+          "priority": "critical",
+          "rationale": "Fragile geriatric veins and time-critical fluid resuscitation favor early IO if peripheral access fails.",
+          "protocolReference": "MATC: Shock"
+        },
+        {
+          "id": "a4-fluid-bolus",
+          "shortAction": "IV/IO fluid bolus 500 mL NS pressure-infused <15 min; repeat toward 78 kg × 30 mL/kg = 2,340 mL goal or MAP 65",
+          "protocolExcerpt": "IV fluid volume goal attained by giving boluses that are pressure infused over less than 15 minutes each based on patient's condition and clinical impression. Fluid volume goal to achieve a mean arterial pressure (adults)... Physiologic target: MAP goal 65 mmHg. Fluid goal of up to 30 mL/kg of isotonic fluid by administering rapid, predetermined boluses (e.g., 500 mL) unless the MAP goal is achieved, or pulmonary edema develops.",
+          "priority": "critical",
+          "rationale": "Early aggressive fluid resuscitation is the cornerstone of septic shock treatment.",
+          "protocolReference": "MATC: Shock"
+        },
+        {
+          "id": "a5-notify",
+          "shortAction": "Provide advance notification to receiving hospital of suspected septic shock",
+          "protocolExcerpt": "Provide advanced notification to the hospital",
+          "priority": "important",
+          "rationale": "Allows the receiving facility to prepare sepsis-pathway resources ahead of arrival.",
+          "protocolReference": "MATC: Shock"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "pressor-started",
+          "if": "MAP remains below 65 after fluids",
+          "condition": "Despite pressure-infused isotonic fluid boluses, the patient's mean arterial pressure remains below the 65 mmHg goal, indicating fluid-refractory septic shock requiring vasopressor support.",
+          "conditionType": "vital_threshold",
+          "triggerActionIds": ["a4-fluid-bolus"]
+        }
+      ]
+    },
+    {
+      "id": "pressor-started",
+      "name": "MAP remains below 65 after fluids",
+      "description": "Fluid-refractory septic shock is recognized. Crew starts a norepinephrine infusion titrated to a MAP goal of 65 mmHg while continuing reassessment.",
+      "triggerCondition": "After appropriate fluid resuscitation, the patient's MAP remains below the 65 mmHg goal, indicating fluid-refractory distributive (septic) shock that requires vasopressor support.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Verbal",
+        "gcs": { "eye": 3, "verbal": 4, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "20/min, nonlabored",
+        "circulation": "Radial pulses palpable, improving strength",
+        "skin": { "color": "flushed", "temperature": "warm", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Moves all extremities, more consistently follows commands",
+        "otherFindings": [
+          "Norepinephrine infusion running via IO",
+          "Continuous reassessment of vitals and mental status"
+        ],
+        "patientSpeech": "\"Where am I?\" (slightly more coherent)"
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 108,
+        "bpSys": 96,
+        "bpDia": 58,
+        "respRate": 20,
+        "spo2": 96,
+        "etco2": 33,
+        "temp": 39.1,
+        "tempF": 102.4,
+        "obstruction": 0,
+        "glucose": 110,
+        "customMeasures": [],
+        "trendTimeSeconds": 40,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a6-norepi",
+          "shortAction": "Norepinephrine infusion 8 mcg/min IV (78 kg × 0.1 mcg/kg/min), titrate to MAP ≥65 mmHg",
+          "protocolExcerpt": "Vasopressors (shock unresponsive to IV fluids) titrated to physiologic targets. Cardiogenic, hypovolemic, obstructive shock and distributive shock: Norepinephrine 0.05–0.5 mcg/kg/minute. Preference in both neurogenic and infectious (sepsis) causes of distributive shock",
+          "priority": "critical",
+          "rationale": "Norepinephrine is the preferred first-line vasopressor for fluid-refractory septic shock.",
+          "protocolReference": "MATC: Shock"
+        },
+        {
+          "id": "a7-reassess",
+          "shortAction": "Reassess full vital signs and mental status at least every 15 minutes",
+          "protocolExcerpt": "Full vital signs (pulse, blood pressure, respiratory rate, neurologic status assessment) with reassessment q 15 minutes or more frequently as appropriate",
+          "priority": "supplemental",
+          "rationale": "Frequent reassessment detects response to vasopressor titration and further deterioration.",
+          "protocolReference": "MATC: Shock"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "improved-transport",
+          "if": "MAP improves, patient more alert",
+          "condition": "Vasopressor titration achieves the MAP goal; mental status begins improving as perfusion recovers, and the patient is packaged for transport.",
+          "conditionType": "vital_threshold",
+          "triggerActionIds": ["a6-norepi"]
+        }
+      ]
+    },
+    {
+      "id": "improved-transport",
+      "name": "MAP improves, patient more alert",
+      "description": "Perfusion and mental status are trending in the right direction with fluids and titrated norepinephrine. Patient is packaged, monitored, and transported to an appropriate facility with continued sepsis-pathway notification.",
+      "triggerCondition": "Vasopressor titration achieves the MAP goal while mental status improves; the patient is packaged for transport with ongoing reassessment.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 4, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "18/min, nonlabored",
+        "circulation": "Radial pulses stronger, regular",
+        "skin": { "color": "pink", "temperature": "warm", "moisture": "mildly diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Moves all extremities normally",
+        "otherFindings": [
+          "More oriented to person and place",
+          "Norepinephrine infusion continuing, titrated down slightly"
+        ],
+        "patientSpeech": "\"I think I'm feeling a little better.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Rhythm",
+        "ecgWaveform": 9,
+        "hr": 98,
+        "bpSys": 104,
+        "bpDia": 62,
+        "respRate": 18,
+        "spo2": 97,
+        "etco2": 36,
+        "temp": 38.8,
+        "tempF": 101.8,
+        "obstruction": 0,
+        "glucose": 108,
+        "customMeasures": [],
+        "trendTimeSeconds": 45,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a8-transport",
+          "shortAction": "Continue reassessment and transport with advance notification to sepsis-capable facility",
+          "protocolExcerpt": "Full vital signs (pulse, blood pressure, respiratory rate, neurologic status assessment) with reassessment q 15 minutes or more frequently as appropriate",
+          "priority": "important",
+          "rationale": "Ongoing monitoring during transport detects recurrence of hypotension or deterioration.",
+          "protocolReference": "MATC: Shock"
+        }
+      ],
+      "transitions": []
+    },
+    {
+      "id": "shock-worsens",
+      "name": "IV access and fluids delayed",
+      "description": "Vascular access and fluid resuscitation are delayed despite obvious signs of septic shock. Perfusion continues to deteriorate: mental status worsens, blood pressure drops further, and skin signs begin transitioning toward late-stage shock.",
+      "triggerCondition": "Crew is slow to obtain IV/IO access or begin fluid boluses despite fever, hypotension, and altered mental status; the patient progresses toward decompensated septic shock.",
+      "isDefault": false,
+      "clinicalPresentation": {
+        "avpu": "Pain",
+        "gcs": { "eye": 2, "verbal": 3, "motor": 5 },
+        "airway": "Patent but diminished response",
+        "breathing": "Rapid, shallow, 30/min",
+        "circulation": "Radial pulses absent, only carotid palpable; skin now cool and mottled at extremities",
+        "skin": { "color": "mottled", "temperature": "cool", "moisture": "diaphoretic" },
+        "pupils": "PERRL, sluggish",
+        "motorFunction": "Withdraws to painful stimuli only",
+        "otherFindings": [
+          "No vascular access yet obtained",
+          "Rapidly worsening perfusion, transition toward decompensated shock"
+        ],
+        "patientSpeech": "Moaning, no longer forming words"
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 132,
+        "bpSys": 68,
+        "bpDia": 40,
+        "respRate": 30,
+        "spo2": 88,
+        "etco2": 20,
+        "temp": 39.6,
+        "tempF": 103.3,
+        "obstruction": 0,
+        "glucose": 112,
+        "customMeasures": [],
+        "trendTimeSeconds": 50,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a9-recover-access",
+          "shortAction": "Recognize decompensated shock; immediately obtain IV/IO access and begin rapid fluid resuscitation",
+          "protocolExcerpt": "Establish IV access. If unable to obtain within two attempts or less than 90 seconds, place an IO needle. IV fluid volume goal attained by giving boluses that are pressure infused over less than 15 minutes each",
+          "priority": "critical",
+          "rationale": "Delayed resuscitation allows compensated shock to progress to decompensated shock, which can rapidly become irreversible.",
+          "protocolReference": "MATC: Shock"
+        }
+      ],
+      "transitions": []
+    }
+  ],
+  "realiti": {
+    "scenarioMonitorType": 2,
+    "scenarioDefaultEnergy": 200,
+    "scenarioDefaultPacerThreshold": 55
+  }
+}

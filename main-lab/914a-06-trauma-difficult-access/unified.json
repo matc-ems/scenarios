@@ -1,0 +1,299 @@
+{
+  "meta": {
+    "id": "914a-06-trauma-difficult-access",
+    "name": "Trauma — Difficult Vascular Access with Hypotension",
+    "version": 1,
+    "difficulty": "intermediate",
+    "category": "Trauma",
+    "protocols": ["trauma-general", "medical-shock"],
+    "totalTimeSeconds": 900,
+    "tags": ["ALS", "trauma", "vascular access", "IO", "shock", "914a"]
+  },
+  "patient": {
+    "name": "Marcus Delgado",
+    "age": 28,
+    "ageUnit": "years",
+    "sex": "male",
+    "weight": 82,
+    "weightLbs": 181,
+    "height": 178,
+    "chiefComplaint": "Motor vehicle collision with abdominal pain and lightheadedness",
+    "history": {
+      "hpi": "Restrained driver in a single-vehicle collision, moderate front-end intrusion, airbag deployed. Patient is alert but reports diffuse abdominal pain and lightheadedness when the stretcher head is raised. No loss of consciousness reported. Denies chest pain or shortness of breath.",
+      "pastMedical": [],
+      "medications": [],
+      "allergies": ["NKDA"],
+      "lastOralIntake": "Lunch approximately 3 hours prior",
+      "events": "Vehicle struck a guardrail after swerving to avoid debris; bystanders called 911 immediately, patient was found still restrained in the driver's seat"
+    }
+  },
+  "scene": {
+    "dispatch": "28-year-old male, single-vehicle motor vehicle collision, patient conscious, guardrail involved",
+    "location": "Two-lane rural highway shoulder, vehicle with moderate front-end damage against a guardrail",
+    "time": "3:15 PM, weekday afternoon",
+    "safety": "Vehicle stable, engine off, traffic control established by law enforcement on scene",
+    "bystanders": "Passing motorist stopped and called 911, did not witness the moment of impact",
+    "visualCues": [
+      "Moderate front-end vehicle damage with deployed airbag",
+      "Patient pale and diaphoretic, restrained in driver's seat",
+      "Steering wheel deformity consistent with abdominal contact",
+      "No visible external hemorrhage",
+      "Patient's arms show faint, thready peripheral veins on visual inspection"
+    ]
+  },
+  "phases": [
+    {
+      "id": "initial",
+      "name": "Initial Contact",
+      "description": "Crew arrives to find a 28-year-old male restrained in the driver's seat, alert but pale and diaphoretic, reporting diffuse abdominal pain. Vital signs reveal early compensated shock from suspected intra-abdominal hemorrhage.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent, speaking full sentences",
+        "breathing": "Nonlabored, symmetric chest rise, 22/min",
+        "circulation": "Radial pulses weak and thready bilaterally, skin pale and cool",
+        "skin": { "color": "pale", "temperature": "cool", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Strength intact in all four extremities",
+        "otherFindings": [
+          "Diffuse abdominal tenderness, worse in the left upper quadrant",
+          "Steering wheel-pattern contusion across the abdomen",
+          "Lightheadedness when stretcher head is elevated",
+          "Peripheral veins visibly constricted and difficult to palpate on both forearms"
+        ],
+        "patientSpeech": "\"My stomach really hurts... I feel kind of dizzy.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 112,
+        "bpSys": 88,
+        "bpDia": 58,
+        "respRate": 22,
+        "spo2": 95,
+        "etco2": 0,
+        "temp": 36.7,
+        "tempF": 98.1,
+        "obstruction": 0,
+        "glucose": 98,
+        "customMeasures": [],
+        "trendTimeSeconds": 0,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [],
+      "transitions": [
+        {
+          "targetPhaseId": "io-access-fluids",
+          "if": "IO placed after failed IV attempts",
+          "condition": "Crew performs the MARCH primary survey, recognizes signs of hemorrhagic shock, attempts peripheral IV access twice without success on vasoconstricted veins, and transitions to IO access within the protocol's 90-second/two-attempt threshold.",
+          "conditionType": "action_taken"
+        },
+        {
+          "targetPhaseId": "access-delayed",
+          "if": "Peripheral attempts continue past threshold",
+          "condition": "Crew continues attempting peripheral IV access beyond two attempts or 90 seconds instead of transitioning to IO, delaying fluid resuscitation while the patient's shock progresses.",
+          "conditionType": "time_elapsed"
+        }
+      ]
+    },
+    {
+      "id": "io-access-fluids",
+      "name": "IO placed after failed IV attempts",
+      "description": "After two unsuccessful peripheral IV attempts on severely vasoconstricted veins, the crew places a humeral IO and begins fluid resuscitation while continuing serial reassessment for occult hemorrhage.",
+      "triggerCondition": "After two peripheral IV attempts fail within roughly 90 seconds due to vasoconstriction from compensated shock, the crew recognizes further peripheral attempts are unlikely to succeed and places an IO needle per the shock protocol's access threshold.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "Nonlabored, 20/min",
+        "circulation": "IO catheter secured in proximal humerus, flushing without infiltration",
+        "skin": { "color": "pale", "temperature": "cool", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Strength intact in all four extremities",
+        "otherFindings": [
+          "IO successfully placed after two failed peripheral attempts",
+          "500 mL isotonic fluid bolus infusing under pressure",
+          "Abdominal tenderness unchanged, no new findings"
+        ],
+        "patientSpeech": "\"That pinch in my arm... okay, that's a little better now.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 104,
+        "bpSys": 96,
+        "bpDia": 62,
+        "respRate": 20,
+        "spo2": 96,
+        "etco2": 0,
+        "temp": 36.7,
+        "tempF": 98.1,
+        "obstruction": 0,
+        "glucose": 98,
+        "customMeasures": [],
+        "trendTimeSeconds": 30,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a1-march",
+          "shortAction": "Perform MARCH primary survey: hemorrhage, airway, breathing, circulation, head/hypothermia",
+          "protocolExcerpt": "Primary survey (Use \"MARCH\" algorithm)",
+          "priority": "critical",
+          "rationale": "Identifies life threats and directs the crew toward recognizing occult hemorrhagic shock.",
+          "protocolReference": "MATC: General Trauma Management"
+        },
+        {
+          "id": "a2-io-access",
+          "shortAction": "Place IO after 2 failed peripheral IV attempts (or >90 sec) on vasoconstricted veins",
+          "protocolExcerpt": "Establish IV access. If unable to obtain within two attempts or less than 90 seconds, place an IO needle",
+          "priority": "critical",
+          "rationale": "Compensated shock causes peripheral vasoconstriction that makes standard IV access unreliable; IO gives immediate reliable access.",
+          "protocolReference": "MATC: Shock"
+        },
+        {
+          "id": "a3-fluid-bolus",
+          "shortAction": "Give 500 mL isotonic fluid bolus via IO for SBP <90 mmHg with HR >100",
+          "protocolExcerpt": "If SBP less than 90 mmHg or HR greater than 120 BPM, initiate resuscitation: ... consider 500 mL bolus of IV fluid, repeat as needed for persistent signs and symptoms of shock",
+          "priority": "critical",
+          "rationale": "Restores perfusion toward the trauma resuscitation target while definitive hemorrhage control is arranged.",
+          "protocolReference": "MATC: General Trauma Management"
+        },
+        {
+          "id": "a4-reassess-sbp",
+          "shortAction": "Reassess SBP and mental status after fluid bolus",
+          "protocolExcerpt": "Reassess SBP after bolus given",
+          "priority": "important",
+          "rationale": "Confirms response to fluids and guides whether additional boluses are needed.",
+          "protocolReference": "MATC: General Trauma Management"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "transport",
+          "if": "Packaged for rapid transport",
+          "condition": "IO access secured, fluid resuscitation underway, and patient is packaged with continued serial reassessment for rapid transport to an appropriate trauma center.",
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a2-io-access", "a3-fluid-bolus"]
+        }
+      ]
+    },
+    {
+      "id": "transport",
+      "name": "Packaged for rapid transport",
+      "description": "With IO access established and fluid resuscitation underway, the patient is packaged and rapidly transported to an appropriate trauma center, with ongoing serial vital sign reassessment for evolving hemorrhagic shock.",
+      "triggerCondition": "After IO placement and initial fluid bolus improve perfusion, the crew minimizes scene time and initiates rapid transport given the suspected intra-abdominal hemorrhage.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "Nonlabored, 18/min",
+        "circulation": "IO patent, fluids infusing, distal pulses improving",
+        "skin": { "color": "pink", "temperature": "cool", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Strength intact in all four extremities",
+        "otherFindings": [
+          "Abdominal tenderness persistent, unchanged in distribution",
+          "Lightheadedness resolved with head of stretcher flat",
+          "Patient packaged and secured for transport"
+        ],
+        "patientSpeech": "\"I still feel it in my stomach, but I'm not as dizzy anymore.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Rhythm",
+        "ecgWaveform": 9,
+        "hr": 100,
+        "bpSys": 102,
+        "bpDia": 66,
+        "respRate": 18,
+        "spo2": 97,
+        "etco2": 0,
+        "temp": 36.7,
+        "tempF": 98.1,
+        "obstruction": 0,
+        "glucose": 98,
+        "customMeasures": [],
+        "trendTimeSeconds": 40,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a5-serial-reassess",
+          "shortAction": "Reassess vitals and neuro status serially en route; monitor for occult hemorrhage",
+          "protocolExcerpt": "Monitor patient for deterioration over time with serial vital signs (pulse, blood pressure, respiratory rate, neurologic status assessment) and repeat neurologic status assessment. Patients with compensated shock may not manifest hypotension until severe blood loss has occurred",
+          "priority": "critical",
+          "rationale": "Compensated shock can mask ongoing intra-abdominal hemorrhage until decompensation occurs suddenly.",
+          "protocolReference": "MATC: General Trauma Management"
+        },
+        {
+          "id": "a6-minimize-scene-transport",
+          "shortAction": "Minimize scene time (<10 min) and transport to appropriate trauma center per field triage guideline",
+          "protocolExcerpt": "Target scene time less than 10 minutes for unstable patients or those likely to need surgical intervention. Decisions regarding transport destination should be based on the ACS-COT 2022 National Guideline for the Field Triage of Injured Patients",
+          "priority": "critical",
+          "rationale": "Suspected intra-abdominal hemorrhage requires rapid surgical evaluation at an appropriate trauma center.",
+          "protocolReference": "MATC: General Trauma Management"
+        }
+      ],
+      "transitions": []
+    },
+    {
+      "id": "access-delayed",
+      "name": "Peripheral attempts continue past threshold",
+      "description": "The crew continues attempting peripheral IV access beyond the two-attempt/90-second threshold instead of transitioning to IO. Fluid resuscitation is delayed and the patient's compensated shock begins to decompensate.",
+      "triggerCondition": "Crew persists with additional peripheral IV attempts on severely vasoconstricted veins well past the protocol's threshold, delaying any fluid administration while perfusion continues to worsen.",
+      "isDefault": false,
+      "clinicalPresentation": {
+        "avpu": "Verbal",
+        "gcs": { "eye": 3, "verbal": 4, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "Nonlabored, 26/min",
+        "circulation": "Radial pulses now absent, palpable only at carotid/femoral",
+        "skin": { "color": "pale", "temperature": "cool", "moisture": "diaphoretic" },
+        "pupils": "PERRL, sluggish",
+        "motorFunction": "Strength intact but patient increasingly lethargic",
+        "otherFindings": [
+          "No vascular access obtained after repeated peripheral attempts",
+          "Increasing lethargy and slowed responses",
+          "Abdominal distension now more apparent"
+        ],
+        "patientSpeech": "\"I feel... really tired...\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 132,
+        "bpSys": 74,
+        "bpDia": 48,
+        "respRate": 26,
+        "spo2": 92,
+        "etco2": 0,
+        "temp": 36.5,
+        "tempF": 97.7,
+        "obstruction": 0,
+        "glucose": 98,
+        "customMeasures": [],
+        "trendTimeSeconds": 50,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a7-recover-io",
+          "shortAction": "Stop peripheral attempts now; place IO immediately and begin fluid bolus",
+          "protocolExcerpt": "Establish IV access. If unable to obtain within two attempts or less than 90 seconds, place an IO needle",
+          "priority": "critical",
+          "rationale": "Continued delay in obtaining access allows uncompensated shock to progress; IO must be placed without further delay.",
+          "protocolReference": "MATC: Shock"
+        }
+      ],
+      "transitions": []
+    }
+  ],
+  "realiti": {
+    "scenarioMonitorType": 2,
+    "scenarioDefaultEnergy": 200,
+    "scenarioDefaultPacerThreshold": 55
+  }
+}

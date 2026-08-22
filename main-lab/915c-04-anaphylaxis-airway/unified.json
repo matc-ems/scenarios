@@ -1,0 +1,297 @@
+{
+  "meta": {
+    "id": "915c-04-anaphylaxis-airway",
+    "name": "Anaphylaxis with Airway Involvement — Bee Sting",
+    "version": 1,
+    "difficulty": "advanced",
+    "category": "Respiratory",
+    "protocols": ["medical-anaphylaxis-allergic-reaction", "resp-airway-management"],
+    "totalTimeSeconds": 900,
+    "tags": ["ALS", "anaphylaxis", "airway", "difficult airway", "915C"]
+  },
+  "patient": {
+    "name": "Maya Ostrowski",
+    "age": 25,
+    "ageUnit": "years",
+    "sex": "female",
+    "weight": 65,
+    "weightLbs": 143,
+    "height": 165,
+    "chiefComplaint": "Difficulty breathing and throat tightness after a bee sting",
+    "history": {
+      "hpi": "Stung by a bee on the right forearm approximately 10 minutes prior to EMS arrival while gardening. Within minutes developed diffuse hives, lip and tongue swelling, and progressively hoarse voice with difficulty breathing. No known prior severe reaction to bee stings.",
+      "pastMedical": ["Seasonal allergies"],
+      "medications": ["Loratadine 10 mg PO daily PRN"],
+      "allergies": ["Bee stings (suspected new severe reaction)"],
+      "lastOralIntake": "Light breakfast approximately 2 hours prior to onset",
+      "events": "Patient was gardening when stung on the right forearm; stinger still visible. Spouse called 911 when swelling and breathing difficulty developed; no epinephrine auto-injector available in the home."
+    }
+  },
+  "scene": {
+    "dispatch": "25-year-old female, difficulty breathing, residence",
+    "location": "Suburban home, back porch steps adjacent to garden",
+    "time": "2:15 PM, weekday",
+    "safety": "No hazards to crew; bee/wasp activity noted in the garden area, exercise caution",
+    "bystanders": "Spouse present, called 911, reports no epinephrine auto-injector available in the home",
+    "visualCues": [
+      "Visible stinger embedded in right forearm with surrounding erythema and swelling",
+      "Diffuse urticaria across torso and arms",
+      "Visible lip and tongue swelling",
+      "Patient sitting forward, drooling, anxious and wide-eyed"
+    ]
+  },
+  "phases": [
+    {
+      "id": "initial",
+      "name": "Initial Contact",
+      "description": "Crew arrives to find a 25-year-old female in obvious distress approximately 10 minutes after a bee sting, with audible stridor, facial/tongue angioedema, diffuse urticaria, and a muffled voice.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Audible inspiratory stridor, visible tongue and lip swelling, patient drooling and leaning forward",
+        "breathing": "Tachypneic at 28/min, poor air movement, using accessory muscles",
+        "circulation": "Radial pulses weak and thready, skin flushed",
+        "skin": { "color": "flushed", "temperature": "warm", "moisture": "moist" },
+        "pupils": "PERRL",
+        "motorFunction": "Strength intact in all extremities",
+        "otherFindings": [
+          "Diffuse urticaria across torso and arms",
+          "Visible stinger in right forearm with surrounding swelling",
+          "Muffled, hoarse voice"
+        ],
+        "patientSpeech": "\"My throat... feels like it's closing...\" (muffled, effortful)"
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 128,
+        "bpSys": 84,
+        "bpDia": 50,
+        "respRate": 28,
+        "spo2": 89,
+        "etco2": 0,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 60,
+        "glucose": 95,
+        "customMeasures": [],
+        "trendTimeSeconds": 0,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [],
+      "transitions": [
+        {
+          "targetPhaseId": "epi-and-fluids-given",
+          "if": "IM and nebulized epi given, fluids started",
+          "condition": "Crew recognizes anaphylaxis with airway compromise and hypoperfusion, administering IM epinephrine, nebulized epinephrine for stridor, and an IV fluid bolus while preparing for a potentially difficult airway.",
+          "conditionType": "action_taken"
+        }
+      ]
+    },
+    {
+      "id": "epi-and-fluids-given",
+      "name": "IM and nebulized epi given, fluids started",
+      "description": "Crew administers IM epinephrine and nebulized epinephrine for stridor, starts an IV fluid bolus for hypoperfusion, and prepares difficult-airway equipment in anticipation of rapidly progressing angioedema.",
+      "triggerCondition": "The crew recognizes anaphylaxis with airway compromise (stridor, angioedema) and hypoperfusion (hypotension, weak pulses), administering epinephrine 0.3 mg IM in the anterolateral thigh, followed by nebulized epinephrine for stridor and an IV fluid bolus, while staging equipment for a potentially difficult advanced airway.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Stridor improved but still present; angioedema stable, not worsening",
+        "breathing": "RR 22, improved air movement",
+        "circulation": "Pulses stronger, skin still flushed",
+        "skin": { "color": "flushed", "temperature": "warm", "moisture": "moist" },
+        "pupils": "PERRL",
+        "motorFunction": "Strength intact in all extremities",
+        "otherFindings": [
+          "IM epinephrine administered to right anterolateral thigh",
+          "Nebulized epinephrine in progress",
+          "IV normal saline bolus running"
+        ],
+        "patientSpeech": "\"I can breathe a little better now.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 110,
+        "bpSys": 100,
+        "bpDia": 64,
+        "respRate": 22,
+        "spo2": 93,
+        "etco2": 34,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 40,
+        "glucose": 95,
+        "customMeasures": [],
+        "trendTimeSeconds": 30,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a1-im-epi",
+          "shortAction": "Epinephrine 0.3 mg IM in anterolateral thigh (adult fixed dose; may repeat q5–15 min)",
+          "protocolExcerpt": "Epinephrine administration is the primary treatment for anaphylaxis. If signs of anaphylaxis, administer epinephrine 1 mg/mL at the following dose and route: Adult (25 kg or more) 0.3 mg IM in the anterolateral thigh",
+          "priority": "critical",
+          "rationale": "Epinephrine is first-line therapy for anaphylaxis and must not be delayed for a patient with airway compromise.",
+          "protocolReference": "MATC: Anaphylaxis and Allergic Reaction"
+        },
+        {
+          "id": "a2-neb-epi",
+          "shortAction": "Nebulized epinephrine 5 mL (1 mg/mL) for audible stridor",
+          "protocolExcerpt": "If stridor is present, consider administering epinephrine 1 mg/mL, 5 mL nebulized",
+          "priority": "critical",
+          "rationale": "Nebulized epinephrine directly targets upper airway edema causing the stridor.",
+          "protocolReference": "MATC: Anaphylaxis and Allergic Reaction"
+        },
+        {
+          "id": "a3-fluid-bolus",
+          "shortAction": "IV normal saline bolus 1,300 mL (65 kg × 20 mL/kg) rapidly over 15 min for hypoperfusion",
+          "protocolExcerpt": "For signs of hypoperfusion, also administer 20 mL/kg isotonic fluid (normal saline or lactated Ringer's) rapidly (over 15 minutes) via IV or IO, and repeat as needed for ongoing hypoperfusion",
+          "priority": "critical",
+          "rationale": "Corrects distributive hypotension from anaphylaxis alongside epinephrine.",
+          "protocolReference": "MATC: Anaphylaxis and Allergic Reaction"
+        },
+        {
+          "id": "a4-airway-prep",
+          "shortAction": "Continuously monitor airway; stage video laryngoscopy/SGA for an anticipated difficult airway",
+          "protocolExcerpt": "Anticipate, identify, and plan for a potentially difficult airway. Optimize the patient for any advanced airway attempts",
+          "priority": "important",
+          "rationale": "Progressive angioedema can obstruct the airway quickly; early preparation avoids a crisis intubation.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "stable-transport",
+          "if": "Airway remains patent, patient improves",
+          "condition": "With epinephrine, nebulized epinephrine, and IV fluids on board, stridor resolves, oxygenation normalizes, and perfusion improves.",
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a1-im-epi", "a2-neb-epi", "a3-fluid-bolus"]
+        },
+        {
+          "targetPhaseId": "airway-lost",
+          "if": "Airway management delayed",
+          "condition": "Crew delays repeat epinephrine and advanced airway preparation; as the initial epinephrine effect wanes, laryngeal edema progresses toward near-complete obstruction.",
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["a4-airway-prep"]
+        }
+      ]
+    },
+    {
+      "id": "stable-transport",
+      "name": "Airway remains patent, patient improves",
+      "description": "Stridor resolves and oxygenation normalizes following epinephrine, nebulized epinephrine, and IV fluids. Crew continues close monitoring en route given the risk of a biphasic reaction.",
+      "triggerCondition": "With epinephrine, nebulized epinephrine, and IV fluids on board, the patient's stridor resolves, oxygenation normalizes, and perfusion improves; the crew continues close airway monitoring en route given the risk of a biphasic reaction.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent, no stridor",
+        "breathing": "RR 18, clear and equal, good air movement",
+        "circulation": "Strong radial pulses bilaterally",
+        "skin": { "color": "pink", "temperature": "warm", "moisture": "dry" },
+        "pupils": "PERRL",
+        "motorFunction": "Strength intact in all extremities",
+        "otherFindings": [
+          "Urticaria fading",
+          "Facial and tongue swelling receding",
+          "Monitored closely for biphasic reaction"
+        ],
+        "patientSpeech": "\"I feel like I can breathe again.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Rhythm",
+        "ecgWaveform": 9,
+        "hr": 92,
+        "bpSys": 112,
+        "bpDia": 70,
+        "respRate": 18,
+        "spo2": 97,
+        "etco2": 38,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 15,
+        "glucose": 95,
+        "customMeasures": [],
+        "trendTimeSeconds": 40,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a5-monitor-transport",
+          "shortAction": "Continue cardiac/airway monitoring en route; transport promptly given biphasic-reaction risk",
+          "protocolExcerpt": "Transport as soon as possible, and perform ongoing assessment as indicated. Cardiac monitoring is not required, but should be considered for those with known heart problems or who received multiple doses of epinephrine",
+          "priority": "important",
+          "rationale": "Anaphylaxis can recur hours after apparent resolution; continued monitoring during transport catches a biphasic reaction early.",
+          "protocolReference": "MATC: Anaphylaxis and Allergic Reaction"
+        }
+      ],
+      "transitions": []
+    },
+    {
+      "id": "airway-lost",
+      "name": "Airway management delayed",
+      "description": "As the initial epinephrine effect wanes without repeat dosing or advanced airway preparation, laryngeal edema progresses rapidly toward near-complete upper airway obstruction.",
+      "triggerCondition": "Despite the initial epinephrine dose, the crew delays repeat epinephrine and advanced airway preparation. As epinephrine's effect wanes, laryngeal edema progresses rapidly toward near-complete upper airway obstruction, producing severe stridor, retractions, and desaturation despite supplemental oxygen.",
+      "isDefault": false,
+      "clinicalPresentation": {
+        "avpu": "Verbal",
+        "gcs": { "eye": 3, "verbal": 4, "motor": 6 },
+        "airway": "Severe stridor, minimal air movement, worsening tongue and lip swelling",
+        "breathing": "RR 34, marked accessory muscle use, see-saw chest movement",
+        "circulation": "Pulses weak and thready",
+        "skin": { "color": "cyanotic (perioral)", "temperature": "cool", "moisture": "diaphoretic" },
+        "pupils": "PERRL, sluggish",
+        "motorFunction": "Strength intact but patient increasingly lethargic",
+        "otherFindings": [
+          "Repeat epinephrine now indicated",
+          "Difficult airway anticipated — swelling obscuring normal landmarks"
+        ],
+        "patientSpeech": "Barely audible whisper, unable to speak in full words"
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 130,
+        "bpSys": 82,
+        "bpDia": 48,
+        "respRate": 34,
+        "spo2": 82,
+        "etco2": 0,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 85,
+        "glucose": 95,
+        "customMeasures": [],
+        "trendTimeSeconds": 50,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a6-repeat-epi",
+          "shortAction": "Repeat epinephrine 0.3 mg IM (adult fixed dose, q5–15 min for persistent anaphylaxis)",
+          "protocolExcerpt": "If signs of anaphylaxis and hypoperfusion persist following the first dose of epinephrine, additional IM epinephrine can be repeated q5–15 minutes at above noted doses",
+          "priority": "critical",
+          "rationale": "Ongoing anaphylaxis with airway compromise requires repeat dosing rather than watching and waiting.",
+          "protocolReference": "MATC: Anaphylaxis and Allergic Reaction"
+        },
+        {
+          "id": "a7-surgical-airway",
+          "shortAction": "Attempt SGA/advanced airway; escalate to surgical airway if unable to oxygenate/ventilate",
+          "protocolExcerpt": "When patients cannot be oxygenated/ventilated effectively using the above interventions, or when conventional airway approaches are impossible, surgical airway management is a reasonable option if the clinician has competency in the procedure and risk of death for not escalating airway management seems to outweigh the risk of a procedural complication",
+          "priority": "critical",
+          "rationale": "Near-complete obstruction from angioedema may not be resolvable with standard intubation, requiring escalation to a surgical airway.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        }
+      ],
+      "transitions": []
+    }
+  ],
+  "realiti": {
+    "scenarioMonitorType": 2,
+    "scenarioDefaultEnergy": 200,
+    "scenarioDefaultPacerThreshold": 55
+  }
+}

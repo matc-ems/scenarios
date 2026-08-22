@@ -1,0 +1,312 @@
+{
+  "scenarioId": "913-01-difficulty-breathing",
+  "scenarioName": "Difficulty Breathing – COPD Exacerbation with Missed Medications",
+  "scenarioType": "Vital Signs",
+  "scenarioVersion": 2,
+  "scenarioTime": 900,
+  "scenarioMonitorType": 2,
+  "scenarioDefaultEnergy": 200,
+  "scenarioDefaultPacerThreshold": 55,
+  "isDemo": false,
+  "isALSILegacy": false,
+  "scenarioStory": {
+    "history": "Home health aide arrived for a scheduled visit and found the patient seated in tripod position at the kitchen table with audible expiratory wheezing and pursed-lip breathing. The aide reports the patient's oxygen concentrator was unplugged and his nasal cannula was off. She also observed the patient using his rescue inhaler incorrectly earlier in the week — not exhaling fully before actuating and no breath-hold afterward — and states he has missed both morning and evening doses of his maintenance inhaler for the past 2 days after running low on refills. Patient reports gradually worsening shortness of breath since waking this morning, worse with any exertion, denies chest pain, fever, or recent illness.",
+    "discussion": "",
+    "course": "Initial Contact: 68-year-old male, COPD on home O2, found tripod with audible expiratory wheezing and pursed-lip breathing. Oxygen concentrator unplugged and nasal cannula off; missed maintenance inhaler doses x2 days with reported poor inhaler technique. → O2 and positioning given: Supplemental oxygen and position of comfort applied. Work of breathing and oxygenation begin to improve as the patient is reassessed. → Reassessment performed: Patient continues to improve with ongoing oxygen therapy and monitoring; prepared for transport with mild residual wheeze."
+  },
+  "patientInformation": {
+    "patientName": "Robert Hendricks",
+    "patientCondition": "Difficulty breathing",
+    "patientAge": 68,
+    "patientAgeUnit": "years",
+    "patientAgeCategory": 0,
+    "patientSex": 1,
+    "patientHeight": 178,
+    "patientWeight": 86,
+    "patientPhotoId": 82,
+    "patientAdmitted": 1
+  },
+  "labs": [],
+  "scenarioEvents": [
+    {
+      "type": "ScenarioEvent",
+      "name": "Initial Contact",
+      "description": "68-year-old male, COPD on home O2, found tripod with audible expiratory wheezing and pursed-lip breathing. Oxygen concentrator unplugged and nasal cannula off; missed maintenance inhaler doses x2 days with reported poor inhaler technique.",
+      "monitorType": 0,
+      "trendTime": 0,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 108,
+        "bpSys": 148,
+        "bpDia": 86,
+        "respRate": 28,
+        "spo2": 89,
+        "etco2": 42,
+        "temp": 37,
+        "obstruction": 50,
+        "custMeasure1": 110,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Obtain focused history: symptom onset, triggers, medication compliance, prior hospitalizations/ICU stays",
+        "Perform full physical exam: vital signs, breath sounds, accessory muscle use, mental status",
+        "Recognize signs of significant respiratory distress (retractions, inability to speak full sentences)",
+        "Allow/maintain position of comfort (tripod); elevate head/pad shoulders to ease breathing",
+        "Apply supplemental oxygen via nasal cannula, escalate as needed toward SpO2 94-98%",
+        "Apply continuous pulse oximetry monitoring"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "O2 and positioning given",
+      "description": "Supplemental oxygen and position of comfort applied. Work of breathing and oxygenation begin to improve as the patient is reassessed.",
+      "monitorType": 0,
+      "trendTime": 30,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 96,
+        "bpSys": 138,
+        "bpDia": 82,
+        "respRate": 22,
+        "spo2": 95,
+        "etco2": 38,
+        "temp": 37,
+        "obstruction": 35,
+        "custMeasure1": 108,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Reassess vital signs and breath sounds after oxygen therapy; document response to treatment",
+        "Continue titrating oxygen to maintain SpO2 94-98%; reassess frequently",
+        "Maintain continuous pulse oximetry monitoring for ongoing assessment and to guide therapy"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Reassessment performed",
+      "description": "Patient continues to improve with ongoing oxygen therapy and monitoring; prepared for transport with mild residual wheeze.",
+      "monitorType": 0,
+      "trendTime": 40,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 88,
+        "bpSys": 132,
+        "bpDia": 80,
+        "respRate": 18,
+        "spo2": 97,
+        "etco2": 36,
+        "temp": 37,
+        "obstruction": 20,
+        "custMeasure1": 106,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Continue reassessment of mental status and response to interventions during transport"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "O2/positioning delayed",
+      "description": "Oxygen and positioning were delayed; the patient progressively fatigues and tips into impending respiratory failure with worsening hypoxia and diminishing air movement.",
+      "monitorType": 0,
+      "trendTime": 20,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 128,
+        "bpSys": 100,
+        "bpDia": 60,
+        "respRate": 34,
+        "spo2": 78,
+        "etco2": 50,
+        "temp": 37,
+        "obstruction": 70,
+        "custMeasure1": 112,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Recognize impending respiratory failure from rising EtCO2 with tachypnea and fatigue",
+        "Open/reposition airway (head-tilt chin-lift or jaw thrust); suction as needed",
+        "Insert OPA/NPA as needed to maintain a patent airway and aid BVM ventilation",
+        "Begin two-person BVM ventilation with high-flow O2, adult rate 10-12/min, PEEP as tolerated"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "O2 removed prematurely",
+      "description": "Supplemental oxygen was discontinued and monitoring lapsed after early improvement; the patient's distress and hypoxia recur.",
+      "monitorType": 0,
+      "trendTime": 30,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 114,
+        "bpSys": 130,
+        "bpDia": 78,
+        "respRate": 30,
+        "spo2": 85,
+        "etco2": 44,
+        "temp": 37,
+        "obstruction": 45,
+        "custMeasure1": 108,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Recognize relapse of hypoxia/distress; reapply oxygen immediately and retitrate to 94-98%",
+        "Return patient to position of comfort; reassess vital signs and breath sounds"
+      ],
+      "relatedSounds": []
+    }
+  ],
+  "checklist": [
+    {
+      "title": "Obtain focused history: symptom onset, triggers, medication compliance, prior hospitalizations/ICU stays",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Perform full physical exam: vital signs, breath sounds, accessory muscle use, mental status",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Recognize signs of significant respiratory distress (retractions, inability to speak full sentences)",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Allow/maintain position of comfort (tripod); elevate head/pad shoulders to ease breathing",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Apply supplemental oxygen via nasal cannula, escalate as needed toward SpO2 94-98%",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Apply continuous pulse oximetry monitoring",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Reassess vital signs and breath sounds after oxygen therapy; document response to treatment",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Continue titrating oxygen to maintain SpO2 94-98%; reassess frequently",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Maintain continuous pulse oximetry monitoring for ongoing assessment and to guide therapy",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Continue reassessment of mental status and response to interventions during transport",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Recognize impending respiratory failure from rising EtCO2 with tachypnea and fatigue",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Open/reposition airway (head-tilt chin-lift or jaw thrust); suction as needed",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Insert OPA/NPA as needed to maintain a patent airway and aid BVM ventilation",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Begin two-person BVM ventilation with high-flow O2, adult rate 10-12/min, PEEP as tolerated",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Recognize relapse of hypoxia/distress; reapply oxygen immediately and retitrate to 94-98%",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Return patient to position of comfort; reassess vital signs and breath sounds",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    }
+  ],
+  "media": []
+}

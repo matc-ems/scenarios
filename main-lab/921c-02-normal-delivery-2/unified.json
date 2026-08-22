@@ -1,0 +1,490 @@
+{
+  "meta": {
+    "id": "921c-02-normal-delivery-2",
+    "name": "Normal Delivery #2 — En Route Delivery with Shoulder Dystocia",
+    "version": 1,
+    "difficulty": "intermediate",
+    "category": "OB/GYN",
+    "protocols": ["obgyn-childbirth"],
+    "totalTimeSeconds": 900,
+    "tags": ["OB", "delivery", "shoulder dystocia", "en route delivery", "921"]
+  },
+  "patient": {
+    "name": "Marisol Vega",
+    "age": 35,
+    "ageUnit": "years",
+    "sex": "female",
+    "weight": 78,
+    "weightLbs": 172,
+    "height": 165,
+    "chiefComplaint": "Lower back pain, thought to be muscular strain",
+    "history": {
+      "hpi": "G4P3 patient at 38 weeks gestation reports lower back pain for the past hour that she attributes to helping move boxes earlier in the day. Denies 'contractions' in her own words, but on direct questioning describes cyclical tightening across her lower abdomen roughly every 6-8 minutes. Each of her three prior pregnancies progressed from first noticeable contraction to delivery in under 90 minutes. Denies rupture of membranes or bloody show at this time. Denies urge to push.",
+      "pastMedical": ["Three prior spontaneous vaginal deliveries, all uncomplicated and rapid", "Gestational hypertension during second pregnancy, resolved postpartum"],
+      "medications": ["Prenatal vitamin, daily"],
+      "allergies": ["NKDA"],
+      "lastOralIntake": "Dinner approximately 2 hours prior",
+      "events": "Patient called EMS for worsening back pain; declined to have her husband drive her given how quickly her prior labors progressed"
+    }
+  },
+  "scene": {
+    "dispatch": "35-year-old female, back pain, private residence",
+    "location": "Two-story home, main-floor living room; patient slowly pacing, one hand braced on the small of her back",
+    "time": "9:14 PM, weekday",
+    "safety": "No hazards to crew noted",
+    "bystanders": "Husband present; will follow behind in the family vehicle",
+    "visualCues": [
+      "Patient pacing slowly, periodically pausing and breathing through discomfort",
+      "No visible perineal bulging or crowning on initial exam",
+      "A packed overnight bag labeled 'hospital bag' sits by the front door",
+      "Patient declines to lie supine on the stretcher, prefers side-lying"
+    ]
+  },
+  "phases": [
+    {
+      "id": "initial",
+      "name": "Initial Contact",
+      "description": "Crew arrives to find a 35-year-old G4P3 female at 38 weeks gestation, ambulatory and uncomfortable with lower back pain she attributes to lifting earlier in the day. She denies contractions by name but describes a cyclical tightening pattern when questioned directly.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent, speaking in full sentences",
+        "breathing": "Nonlabored, 18/min",
+        "circulation": "Radial pulses strong and regular",
+        "skin": { "color": "pink", "temperature": "warm", "moisture": "dry" },
+        "pupils": "PERRL",
+        "motorFunction": "Grossly intact throughout",
+        "otherFindings": [
+          "Lower back pain 5/10, cyclical, waxing and waning",
+          "No vaginal bleeding or fluid noted",
+          "Fundal height consistent with late third trimester"
+        ],
+        "patientSpeech": "\"It's probably just my back from moving boxes earlier — I don't think this is labor, but with my other three it went fast.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Rhythm",
+        "ecgWaveform": 9,
+        "hr": 88,
+        "bpSys": 122,
+        "bpDia": 78,
+        "respRate": 18,
+        "spo2": 99,
+        "etco2": 0,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 0,
+        "glucose": 92,
+        "customMeasures": [],
+        "trendTimeSeconds": 0,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [],
+      "transitions": [
+        {
+          "targetPhaseId": "ob-history-transport",
+          "if": "OB history obtained, transport initiated",
+          "condition": "Crew obtains a focused OB history (gravida/para, gestational age, contraction pattern, membrane/bleeding status) and finds no signs of imminent delivery, beginning non-emergent transport per protocol.",
+          "conditionType": "action_taken"
+        }
+      ]
+    },
+    {
+      "id": "ob-history-transport",
+      "name": "OB history obtained, transport initiated",
+      "description": "Crew completes a focused OB assessment. Contractions are present but irregular in the patient's perception; there is no crowning, urge to push, or bloody show. Per protocol, the crew begins transport toward the receiving facility rather than delaying on scene.",
+      "triggerCondition": "After the focused OB history confirms active labor without signs of imminent delivery, the crew loads the patient and begins transport, continuing periodic reassessment en route.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "Nonlabored, 18/min",
+        "circulation": "Radial pulses strong and regular",
+        "skin": { "color": "pink", "temperature": "warm", "moisture": "dry" },
+        "pupils": "PERRL",
+        "motorFunction": "Grossly intact throughout",
+        "otherFindings": [
+          "Contractions now timed at roughly 5 minutes apart, 40-50 seconds duration",
+          "No crowning on brief visual exam",
+          "Patient positioned left-lateral on the stretcher for comfort"
+        ],
+        "patientSpeech": "\"Okay, these are closer together than I thought. Let's just get going.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Rhythm",
+        "ecgWaveform": 9,
+        "hr": 92,
+        "bpSys": 120,
+        "bpDia": 76,
+        "respRate": 18,
+        "spo2": 99,
+        "etco2": 0,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 0,
+        "glucose": 92,
+        "customMeasures": [],
+        "trendTimeSeconds": 30,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a1",
+          "shortAction": "Obtain focused OB history: gravida/para, gestational age, contraction pattern, membrane/bleeding status",
+          "protocolExcerpt": "OB assessment: Length of pregnancy Number of pregnancies Number of viable births Number of non-viable births Due date (calculate gestational age in weeks) Signs of imminent delivery (e.g., crowning, urge to push, urge to move bowels, mother feels delivery is imminent)",
+          "priority": "critical",
+          "rationale": "A rapid multiparous history with no imminent-delivery signs guides the on-scene-versus-transport decision.",
+          "protocolReference": "MATC: OB/GYN Childbirth"
+        },
+        {
+          "id": "a2",
+          "shortAction": "No crowning or urge to push present; begin transport to the receiving facility",
+          "protocolExcerpt": "If patient in labor but no signs of imminent delivery, transport to appropriate receiving facility",
+          "priority": "important",
+          "rationale": "Given her history of rapid prior labors, prompt transport reduces the risk of delivering without hospital resources available.",
+          "protocolReference": "MATC: OB/GYN Childbirth"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "crowning-en-route",
+          "if": "Crowning discovered en route",
+          "condition": "Partway through transport, the patient suddenly reports an overwhelming urge to push; reassessment reveals crowning, indicating imminent delivery inside the moving ambulance.",
+          "conditionType": "time_elapsed",
+          "timeoutSeconds": 300
+        }
+      ]
+    },
+    {
+      "id": "crowning-en-route",
+      "name": "Crowning discovered en route",
+      "description": "Mid-transport, the patient reports a sudden, overwhelming urge to push. Reassessment in the moving compartment reveals crowning — delivery is now imminent and will not wait for hospital arrival.",
+      "triggerCondition": "The patient's contractions intensify rapidly during transport; on reassessment she is crowning, consistent with her history of very short labors, forcing the crew to prepare for delivery inside the moving ambulance rather than continuing to the hospital.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent, vocalizing loudly with contractions",
+        "breathing": "22/min, breath-holding with pushing urges",
+        "circulation": "Radial pulses strong, slightly tachycardic",
+        "skin": { "color": "pink", "temperature": "warm", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Grossly intact throughout",
+        "otherFindings": [
+          "Crowning visible with contractions",
+          "Strong involuntary urge to push",
+          "Contractions now less than 2 minutes apart"
+        ],
+        "patientSpeech": "\"It's coming right now, I can't stop it — the baby's coming!\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 108,
+        "bpSys": 128,
+        "bpDia": 80,
+        "respRate": 22,
+        "spo2": 98,
+        "etco2": 0,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 0,
+        "glucose": 92,
+        "customMeasures": [],
+        "trendTimeSeconds": 20,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a3",
+          "shortAction": "Recognize crowning and urge to push; commit to delivering in the moving ambulance",
+          "protocolExcerpt": "Signs of imminent delivery: Crowning or other presentation in vaginal opening Urge to push Urge to move bowels Mother's sense of imminent delivery",
+          "priority": "critical",
+          "rationale": "Delivery cannot be delayed once crowning and pushing urge are present; committing early avoids an unassisted, unprepared birth.",
+          "protocolReference": "MATC: OB/GYN Childbirth"
+        },
+        {
+          "id": "a4",
+          "shortAction": "Open the delivery kit and support the infant's head with gentle counterpressure as it emerges",
+          "protocolExcerpt": "Delivery should be controlled to allow a slow controlled delivery of infant – This will prevent injury to mother. Support the infant's head as needed and apply gentle counterpressure to help prevent the head from suddenly popping out",
+          "priority": "critical",
+          "rationale": "Preparing the kit and controlling head delivery in a moving compartment prevents rapid, uncontrolled expulsion.",
+          "protocolReference": "MATC: OB/GYN Childbirth"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "controlled-delivery-dystocia",
+          "if": "Delivery prepared, controlled technique used",
+          "condition": "The crew prepares the delivery kit and supports the head with counterpressure as it delivers, maintaining a controlled technique despite the moving compartment.",
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a3", "a4"]
+        },
+        {
+          "targetPhaseId": "delivery-not-braced",
+          "if": "Delivery attempted without preparation",
+          "condition": "The crew continues driving at normal speed and does not open the delivery kit or brace for delivery; the infant begins to deliver suddenly and unassisted.",
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["a4"]
+        }
+      ]
+    },
+    {
+      "id": "controlled-delivery-dystocia",
+      "name": "Delivery prepared, controlled technique used",
+      "description": "The head delivers under controlled technique, but the anterior shoulder fails to descend with gentle downward guidance — shoulder dystocia is recognized and managed in the confined ambulance compartment.",
+      "triggerCondition": "The head delivers with controlled counterpressure, but after restitution the anterior shoulder does not deliver with gentle traction. Shoulder dystocia is recognized, requiring immediate maneuvers.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent, vocalizing with strong contractions",
+        "breathing": "24/min, breath-holding with active pushing",
+        "circulation": "Radial pulses strong, tachycardic",
+        "skin": { "color": "pink", "temperature": "warm", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Grossly intact throughout",
+        "otherFindings": [
+          "Fetal head delivered and restituted, but anterior shoulder does not descend with gentle traction ('turtle sign')",
+          "No nuchal cord identified",
+          "Crew repositioning mother in the confined ambulance compartment"
+        ],
+        "patientSpeech": "\"Something's wrong, why isn't it coming?\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 116,
+        "bpSys": 130,
+        "bpDia": 82,
+        "respRate": 24,
+        "spo2": 97,
+        "etco2": 0,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 0,
+        "glucose": 92,
+        "customMeasures": [],
+        "trendTimeSeconds": 15,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a5",
+          "shortAction": "Check for nuchal cord after head delivers; slip over head if present",
+          "protocolExcerpt": "Check for nuchal cord (i.e., around the baby's neck) If present, slip it over the head If unable to free the cord from the neck, double clamp the cord and cut between the clamps",
+          "priority": "important",
+          "rationale": "Nuchal cord must be ruled out or managed before proceeding with shoulder delivery.",
+          "protocolReference": "MATC: OB/GYN Childbirth"
+        },
+        {
+          "id": "a6",
+          "shortAction": "Recognize shoulder dystocia; perform McRoberts maneuver, hyperflexing maternal hips",
+          "protocolExcerpt": "If delivery fails to progress after head delivers, quickly attempt the following: Hyperflex mother's hips to severe supine knee-chest position (i.e., McRoberts' maneuver)",
+          "priority": "critical",
+          "rationale": "McRoberts positioning is the first-line maneuver to resolve shoulder dystocia and should be attempted immediately.",
+          "protocolReference": "MATC: OB/GYN Childbirth"
+        },
+        {
+          "id": "a7",
+          "shortAction": "Apply firm suprapubic pressure with a second crew member to dislodge the shoulder",
+          "protocolExcerpt": "Apply firm suprapubic pressure to attempt to dislodge shoulder. This often requires two EMS clinicians to perform and allows for delivery in up to 75% of cases",
+          "priority": "critical",
+          "rationale": "Suprapubic pressure combined with McRoberts resolves the majority of shoulder dystocia cases in the field.",
+          "protocolReference": "MATC: OB/GYN Childbirth"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "newborn-stabilized",
+          "if": "Shoulder delivered, newborn emerges",
+          "condition": "McRoberts positioning and suprapubic pressure successfully dislodge the anterior shoulder, and delivery completes without further complication.",
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a6", "a7"]
+        },
+        {
+          "targetPhaseId": "dystocia-mismanaged",
+          "if": "Head pulled instead of McRoberts",
+          "condition": "Instead of performing McRoberts and suprapubic pressure, the crew applies direct axial traction on the fetal head in an attempt to free the shoulder.",
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["a6"]
+        }
+      ]
+    },
+    {
+      "id": "newborn-stabilized",
+      "name": "Shoulder delivered, newborn emerges",
+      "description": "The shoulder dystocia resolves with McRoberts positioning and suprapubic pressure; the newborn delivers, is dried and warmed, and the crew continues transport while completing postpartum care for both patients.",
+      "triggerCondition": "After the anterior shoulder is delivered, the remainder of the newborn delivers without further complication. The newborn is dried, warmed, and stimulated while the crew continues toward the hospital.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "18/min, settling",
+        "circulation": "Radial pulses strong, rate normalizing",
+        "skin": { "color": "pink", "temperature": "warm", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Grossly intact throughout",
+        "otherFindings": [
+          "Newborn delivered, vigorous cry, pink centrally with acrocyanosis",
+          "APGAR 8 at 1 minute, improving",
+          "Placenta not yet delivered; fundus being monitored"
+        ],
+        "patientSpeech": "\"Oh thank god, is she okay? Is she crying, that's good right?\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Rhythm",
+        "ecgWaveform": 9,
+        "hr": 96,
+        "bpSys": 118,
+        "bpDia": 74,
+        "respRate": 18,
+        "spo2": 99,
+        "etco2": 0,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 0,
+        "glucose": 92,
+        "customMeasures": [],
+        "trendTimeSeconds": 45,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a8",
+          "shortAction": "Clamp cord after 1 minute, cutting between two clamps 5-6 inches from the abdomen",
+          "protocolExcerpt": "After 1 minute, clamp cord about 5–6 inches from the abdomen with two clamps; cut the cord between the clamps",
+          "priority": "important",
+          "rationale": "Delayed cord clamping for one minute benefits the newborn before cutting.",
+          "protocolReference": "MATC: OB/GYN Childbirth"
+        },
+        {
+          "id": "a9",
+          "shortAction": "Dry, warm, and stimulate newborn; record APGAR scores at 1 and 5 minutes",
+          "protocolExcerpt": "Dry, warm, and stimulate infant, wrap in towel and place on maternal chest unless resuscitation needed. Record APGAR scores at 1 and 5 minutes once neonate is stabilized",
+          "priority": "critical",
+          "rationale": "Warming and stimulation prevent neonatal hypothermia while APGAR scoring tracks transition to extrauterine life.",
+          "protocolReference": "MATC: OB/GYN Childbirth"
+        },
+        {
+          "id": "a10",
+          "shortAction": "Massage uterine fundus after placenta delivers to promote contraction and control bleeding",
+          "protocolExcerpt": "After delivery, massaging the uterus (should be located at about the umbilicus) and allowing the infant to nurse will promote uterine contraction and help control bleeding",
+          "priority": "important",
+          "rationale": "Fundal massage reduces postpartum hemorrhage risk after a dystocia-complicated delivery.",
+          "protocolReference": "MATC: OB/GYN Childbirth"
+        }
+      ],
+      "transitions": []
+    },
+    {
+      "id": "delivery-not-braced",
+      "name": "Delivery attempted without preparation",
+      "description": "The crew continues driving at normal speed without opening the delivery kit or bracing for an in-compartment birth. The infant begins to deliver suddenly and unassisted, creating a risk of dropping the newborn in the moving vehicle.",
+      "triggerCondition": "Because the crew did not prepare for delivery after crowning was identified, the infant begins delivering rapidly and unassisted while the ambulance is still moving, with no towel or hands positioned to receive the newborn.",
+      "isDefault": false,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent, vocalizing loudly",
+        "breathing": "22/min",
+        "circulation": "Radial pulses strong, tachycardic",
+        "skin": { "color": "pink", "temperature": "warm", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Grossly intact throughout",
+        "otherFindings": [
+          "Infant delivering rapidly with no towel or supportive hands positioned",
+          "Crew scrambling to reach gloves and delivery kit mid-delivery",
+          "High risk of dropping the slippery newborn in the moving compartment"
+        ],
+        "patientSpeech": "\"It's coming, it's coming right now — catch her!\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 112,
+        "bpSys": 126,
+        "bpDia": 80,
+        "respRate": 22,
+        "spo2": 97,
+        "etco2": 0,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 0,
+        "glucose": 92,
+        "customMeasures": [],
+        "trendTimeSeconds": 20,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a11",
+          "shortAction": "Recognize the drop risk; immediately secure the newborn with both hands and a towel",
+          "protocolExcerpt": "Newborns are very slippery, take care not to drop the infant",
+          "priority": "critical",
+          "rationale": "An unprepared, unbraced delivery in a moving vehicle sharply increases the risk of dropping a slippery newborn.",
+          "protocolReference": "MATC: OB/GYN Childbirth"
+        }
+      ],
+      "transitions": []
+    },
+    {
+      "id": "dystocia-mismanaged",
+      "name": "Head pulled instead of McRoberts",
+      "description": "Rather than performing McRoberts positioning and suprapubic pressure, the crew applies direct traction on the fetal head in an attempt to free the shoulder, risking brachial plexus injury to the newborn.",
+      "triggerCondition": "When the anterior shoulder fails to deliver, the crew pulls axially on the fetal head instead of repositioning the mother and applying suprapubic pressure, directly contradicting the protocol's explicit warning against traction.",
+      "isDefault": false,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent, vocalizing loudly",
+        "breathing": "24/min",
+        "circulation": "Radial pulses strong, tachycardic",
+        "skin": { "color": "pink", "temperature": "warm", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Grossly intact throughout",
+        "otherFindings": [
+          "Traction applied directly to fetal head with the shoulder still impacted",
+          "No improvement in shoulder descent with traction alone",
+          "Risk of brachial plexus/clavicular injury to the newborn rising with continued pulling"
+        ],
+        "patientSpeech": "\"You're hurting her, please stop pulling!\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 122,
+        "bpSys": 132,
+        "bpDia": 84,
+        "respRate": 24,
+        "spo2": 96,
+        "etco2": 0,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 0,
+        "glucose": 92,
+        "customMeasures": [],
+        "trendTimeSeconds": 15,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a12",
+          "shortAction": "Stop traction on the head immediately; reposition to McRoberts and apply suprapubic pressure",
+          "protocolExcerpt": "Attempt to angle baby's head as posteriorly as possible but NEVER pull",
+          "priority": "critical",
+          "rationale": "Traction on the head during shoulder dystocia risks brachial plexus injury and must stop immediately in favor of McRoberts and suprapubic pressure.",
+          "protocolReference": "MATC: OB/GYN Childbirth"
+        }
+      ],
+      "transitions": []
+    }
+  ],
+  "realiti": {
+    "scenarioMonitorType": 2,
+    "scenarioDefaultEnergy": 200,
+    "scenarioDefaultPacerThreshold": 55
+  }
+}

@@ -1,0 +1,262 @@
+{
+  "scenarioId": "914a-05-dialysis-picc",
+  "scenarioName": "Missed Dialysis — Weakness with PICC Access, AV Fistula Off-Limits",
+  "scenarioType": "Vital Signs",
+  "scenarioVersion": 2,
+  "scenarioTime": 900,
+  "scenarioMonitorType": 2,
+  "scenarioDefaultEnergy": 200,
+  "scenarioDefaultPacerThreshold": 55,
+  "isDemo": false,
+  "isALSILegacy": false,
+  "scenarioStory": {
+    "history": "Patient has end-stage renal disease on hemodialysis Monday/Wednesday/Friday and missed her Wednesday session two days ago due to a transportation issue. Since this morning she has felt progressively weaker and more fatigued, with mild nausea but no vomiting. Daughter arrived for a visit and found her unable to stand from the recliner, prompting the 911 call.",
+    "discussion": "",
+    "course": "Initial Contact: Crew arrives to find a 63-year-old female with ESRD, alert but visibly weak and pale, unable to stand on her own. She has a left forearm AV fistula (do-not-use site) and an existing right upper arm PICC line. → PICC access obtained, fistula avoided: Crew accesses the patient's right-arm PICC line for vascular access, avoiding the left AV fistula, checks glucose, applies the monitor, and administers a cautious fluid bolus while reassessing lung sounds given her renal status. → Stable after access and fluids: Patient's vitals trend toward baseline after PICC access and a cautious fluid bolus. Crew prepares for transport to a facility with dialysis capability, continuing serial reassessment."
+  },
+  "patientInformation": {
+    "patientName": "Carol Jennings",
+    "patientCondition": "Generalized weakness, unable to stand",
+    "patientAge": 63,
+    "patientAgeUnit": "years",
+    "patientAgeCategory": 0,
+    "patientSex": 2,
+    "patientHeight": 165,
+    "patientWeight": 70,
+    "patientPhotoId": 76,
+    "patientAdmitted": 1
+  },
+  "labs": [],
+  "scenarioEvents": [
+    {
+      "type": "ScenarioEvent",
+      "name": "Initial Contact",
+      "description": "Crew arrives to find a 63-year-old female with ESRD, alert but visibly weak and pale, unable to stand on her own. She has a left forearm AV fistula (do-not-use site) and an existing right upper arm PICC line.",
+      "monitorType": 0,
+      "trendTime": 0,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 108,
+        "bpSys": 100,
+        "bpDia": 62,
+        "respRate": 18,
+        "spo2": 97,
+        "etco2": 0,
+        "temp": 36.7,
+        "obstruction": 0,
+        "custMeasure1": 168,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "PICC access obtained, fistula avoided",
+      "description": "Crew accesses the patient's right-arm PICC line for vascular access, avoiding the left AV fistula, checks glucose, applies the monitor, and administers a cautious fluid bolus while reassessing lung sounds given her renal status.",
+      "monitorType": 0,
+      "trendTime": 30,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 102,
+        "bpSys": 104,
+        "bpDia": 64,
+        "respRate": 16,
+        "spo2": 98,
+        "etco2": 0,
+        "temp": 36.7,
+        "obstruction": 0,
+        "custMeasure1": 168,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Establish vascular access via right-arm PICC line using sterile technique; avoid left AV fistula",
+        "Check blood glucose; treat if less than 60 mg/dL",
+        "Apply cardiac monitor and obtain 12-lead ECG, watching for hyperkalemic changes",
+        "Administer a cautious isotonic fluid bolus via PICC line; reassess lung sounds for pulmonary edema"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Stable after access and fluids",
+      "description": "Patient's vitals trend toward baseline after PICC access and a cautious fluid bolus. Crew prepares for transport to a facility with dialysis capability, continuing serial reassessment.",
+      "monitorType": 0,
+      "trendTime": 30,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 92,
+        "bpSys": 112,
+        "bpDia": 68,
+        "respRate": 16,
+        "spo2": 99,
+        "etco2": 0,
+        "temp": 36.8,
+        "obstruction": 0,
+        "custMeasure1": 162,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Reassess vital signs and perfusion en route; transport to a facility with dialysis capability"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Fistula accessed instead of PICC",
+      "description": "Crew attempts venipuncture directly on the palpable left forearm AV fistula instead of using the marked PICC line, causing brisk bleeding from the puncture site and placing the patient's dialysis access at risk.",
+      "monitorType": 0,
+      "trendTime": 20,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 116,
+        "bpSys": 96,
+        "bpDia": 58,
+        "respRate": 20,
+        "spo2": 97,
+        "etco2": 0,
+        "temp": 36.7,
+        "obstruction": 0,
+        "custMeasure1": 168,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Apply direct pressure and a pressure dressing to the fistula puncture site; do not place a BP cuff or tourniquet on that arm"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Vascular access delayed",
+      "description": "With access and fluid/electrolyte correction delayed beyond 10 minutes, the patient becomes more lethargic and diaphoretic as her missed dialysis progresses toward symptomatic hyperkalemia, producing wide-complex bradycardia on the monitor.",
+      "monitorType": 0,
+      "trendTime": 40,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 20,
+        "hr": 45,
+        "bpSys": 88,
+        "bpDia": 56,
+        "respRate": 22,
+        "spo2": 95,
+        "etco2": 0,
+        "temp": 36.6,
+        "obstruction": 0,
+        "custMeasure1": 170,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Recognize hyperkalemia-pattern ECG changes as the cause of the wide-complex bradycardia",
+        "Establish IV access immediately (right PICC line or alternate site) now that deterioration is evident",
+        "Prepare transcutaneous pacer in case of further hemodynamic instability"
+      ],
+      "relatedSounds": []
+    }
+  ],
+  "checklist": [
+    {
+      "title": "Establish vascular access via right-arm PICC line using sterile technique; avoid left AV fistula",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Check blood glucose; treat if less than 60 mg/dL",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Apply cardiac monitor and obtain 12-lead ECG, watching for hyperkalemic changes",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Administer a cautious isotonic fluid bolus via PICC line; reassess lung sounds for pulmonary edema",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Reassess vital signs and perfusion en route; transport to a facility with dialysis capability",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Apply direct pressure and a pressure dressing to the fistula puncture site; do not place a BP cuff or tourniquet on that arm",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Recognize hyperkalemia-pattern ECG changes as the cause of the wide-complex bradycardia",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Establish IV access immediately (right PICC line or alternate site) now that deterioration is evident",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Prepare transcutaneous pacer in case of further hemodynamic instability",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    }
+  ],
+  "media": []
+}

@@ -1,0 +1,483 @@
+{
+  "meta": {
+    "id": "916b-03-lateral-stemi",
+    "name": "Lateral STEMI with Atypical Jaw Pain Presentation",
+    "version": 1,
+    "difficulty": "intermediate",
+    "category": "Cardiac",
+    "protocols": ["cv-chest-pain-acs-stemi", "medical-pain-management", "medical-shock"],
+    "totalTimeSeconds": 900,
+    "createdAt": "2026-08-22T00:00:00Z",
+    "tags": ["STEMI", "12-lead", "lateral MI", "atypical presentation", "geriatric", "jaw pain"]
+  },
+  "patient": {
+    "name": "Dorothy Hensley",
+    "age": 71,
+    "ageUnit": "years",
+    "sex": "female",
+    "weight": 70,
+    "weightLbs": 154,
+    "height": 163,
+    "chiefComplaint": "Jaw pain and nausea",
+    "history": {
+      "hpi": "Onset approximately 45 minutes ago while sitting at the kitchen table; describes dull, aching left jaw pain radiating to the ear, associated with nausea and diaphoresis. Denies chest pain when asked directly, but reports feeling 'winded' when she stood up to answer the door for EMS.",
+      "pastMedical": ["Type 2 diabetes mellitus", "Hypertension", "Hyperlipidemia"],
+      "medications": ["Metformin 1000 mg PO BID", "Lisinopril 20 mg PO daily", "Atorvastatin 40 mg PO nightly"],
+      "allergies": ["NKDA"],
+      "lastOralIntake": "Toast and coffee approximately 2 hours prior to onset",
+      "events": "Daughter found her sitting at the kitchen table holding her jaw, diaphoretic and quiet; daughter called 911 out of concern despite patient insisting it was 'just a toothache'"
+    }
+  },
+  "scene": {
+    "dispatch": "71-year-old female, jaw pain and nausea, possible dental issue",
+    "location": "Single-story home, kitchen table, daughter present at bedside",
+    "time": "Weekday morning, approximately 0915",
+    "safety": "No hazards noted; small dog contained by daughter in another room",
+    "bystanders": "Daughter present, reports mother has been unusually quiet and sweaty for the past hour and initially refused to call EMS",
+    "visualCues": [
+      "Patient diaphoretic and pale, seated at kitchen table",
+      "Holding left jaw with hand",
+      "Half-eaten breakfast (toast, coffee) on the table",
+      "Home glucometer and test strips on counter from routine morning check"
+    ]
+  },
+  "phases": [
+    {
+      "id": "initial",
+      "name": "Initial Contact",
+      "description": "Crew arrives to find a 71-year-old diabetic female with isolated jaw pain, nausea, and diaphoresis. She denies chest pain and initially attributes her symptoms to a dental problem.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent, speaking in full sentences",
+        "breathing": "Non-labored, RR 18, equal bilateral breath sounds",
+        "circulation": "Radial pulses present, strong and regular; skin diaphoretic and pale",
+        "skin": { "color": "pale", "temperature": "cool", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "No focal deficits, moves all extremities equally",
+        "otherFindings": [
+          "Denies chest pain when asked directly",
+          "Reports dull left jaw pain radiating to the ear, 6/10",
+          "Mild nausea, no vomiting",
+          "Diabetic, on home metformin"
+        ],
+        "patientSpeech": "\"It's just my jaw, I think I need to see the dentist... I feel kind of sick to my stomach.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 102,
+        "bpSys": 148,
+        "bpDia": 86,
+        "respRate": 18,
+        "spo2": 96,
+        "etco2": 0,
+        "temp": 36.8,
+        "tempF": 98.2,
+        "obstruction": 0,
+        "glucose": 118,
+        "customMeasures": [],
+        "trendTimeSeconds": 0,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a1",
+          "shortAction": "Recognize atypical ACS presentation (isolated jaw pain, nausea, diaphoresis in an elderly diabetic female)",
+          "protocolExcerpt": "Inclusion Criteria: Chest pain or discomfort in other areas of the body (e.g., arm, jaw, epigastrium) of suspected cardiac origin, shortness of breath, associated or unexplained sweating, nausea, vomiting, or dizziness. Atypical or unusual symptoms are more common in women, the elderly, and diabetic patients.",
+          "priority": "critical",
+          "rationale": "Elderly diabetic women commonly present with atypical ACS symptoms; missing this delays STEMI recognition.",
+          "protocolReference": "MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)"
+        },
+        {
+          "id": "a2",
+          "shortAction": "Acquire 12-lead EKG within 10 minutes of patient contact",
+          "protocolExcerpt": "The 12-lead EKG is the primary diagnostic tool that identifies a STEMI; it is imperative that EMS clinicians routinely acquire a 12-lead EKG within 10 minutes for all patients exhibiting signs and symptoms of ACS.",
+          "priority": "critical",
+          "rationale": "Early 12-lead acquisition drives STEMI activation and reduces door-to-balloon time.",
+          "protocolReference": "MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)"
+        },
+        {
+          "id": "a3",
+          "shortAction": "Aspirin 324 mg PO, chewed, non-enteric-coated",
+          "protocolExcerpt": "Administer aspirin; chewable, non-enteric-coated aspirin preferred (162–325 mg).",
+          "priority": "critical",
+          "rationale": "Chewed ASA provides rapid antiplatelet effect for suspected ACS.",
+          "protocolReference": "MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)"
+        },
+        {
+          "id": "a4",
+          "shortAction": "Establish IV access",
+          "protocolExcerpt": "Establish IV access.",
+          "priority": "important",
+          "rationale": "IV access needed for nitrates, opioids, and fluid resuscitation if hypotension develops.",
+          "protocolReference": "MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)"
+        },
+        {
+          "id": "a5",
+          "shortAction": "Assess SpO2; withhold supplemental O2 since saturation is 96% (target 94–98%, not hypoxemic)",
+          "protocolExcerpt": "If the patient is dyspneic, hypoxemic, or has obvious signs of heart failure, EMS clinicians should administer oxygen as appropriate with a target of achieving 94–98% saturation.",
+          "priority": "supplemental",
+          "rationale": "Routine high-flow O2 in normoxic ACS patients is not indicated.",
+          "protocolReference": "MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "stemi-recognized",
+          "if": "12-lead acquired within 10 minutes",
+          "condition": "Crew acquires a 12-lead EKG within 10 minutes of patient contact, revealing ST-segment elevation in leads I, aVL, V5, and V6 consistent with lateral STEMI.",
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a2"]
+        },
+        {
+          "targetPhaseId": "12-lead-delayed",
+          "if": "12-lead delayed beyond 10 minutes",
+          "condition": "Crew does not acquire a 12-lead EKG within 10 minutes of patient contact; STEMI diagnosis is delayed while ischemia progresses.",
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["a2"]
+        }
+      ]
+    },
+    {
+      "id": "stemi-recognized",
+      "name": "STEMI recognized",
+      "description": "Crew identifies a lateral wall STEMI on the 12-lead EKG. Patient remains hemodynamically stable with persistent jaw pain and diaphoresis.",
+      "triggerCondition": "12-lead EKG obtained within 10 minutes reveals ST-segment elevation in leads I, aVL, V5, and V6, with reciprocal depression in III and aVF, consistent with a lateral wall STEMI.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent, speaking in full sentences",
+        "breathing": "Non-labored, RR 18",
+        "circulation": "Radial pulses strong and regular; skin remains diaphoretic and pale",
+        "skin": { "color": "pale", "temperature": "cool", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "No focal deficits",
+        "otherFindings": [
+          "12-lead shows ST elevation in I, aVL, V5-V6 with reciprocal ST depression in III, aVF",
+          "Jaw pain persists at 6/10",
+          "No PDE5 inhibitor use reported"
+        ],
+        "patientSpeech": "\"My jaw still hurts and I feel kind of sick.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "STEMI Lateral",
+        "ecgWaveform": 25,
+        "hr": 104,
+        "bpSys": 142,
+        "bpDia": 84,
+        "respRate": 18,
+        "spo2": 96,
+        "etco2": 0,
+        "temp": 36.8,
+        "tempF": 98.2,
+        "obstruction": 0,
+        "glucose": 118,
+        "customMeasures": [],
+        "trendTimeSeconds": 20,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "b1",
+          "shortAction": "Recognize lateral STEMI on 12-lead (ST elevation I, aVL, V5-V6)",
+          "protocolExcerpt": "The 12-lead EKG is the primary diagnostic tool that identifies a STEMI... The EKG may be transmitted for remote interpretation by a physician or screened for STEMI by properly trained EMS clinicians or other healthcare providers with or without the assistance of computer-interpretation.",
+          "priority": "critical",
+          "rationale": "Accurate 12-lead interpretation is the core skill being assessed in this scenario.",
+          "protocolReference": "MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)"
+        },
+        {
+          "id": "b2",
+          "shortAction": "Transmit 12-lead and provide advance STEMI notification to receiving PCI-capable hospital",
+          "protocolExcerpt": "Advance notification should be provided to the receiving hospital for patients identified as having a STEMI.",
+          "priority": "critical",
+          "rationale": "Early activation shortens door-to-balloon time.",
+          "protocolReference": "MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)"
+        },
+        {
+          "id": "b3",
+          "shortAction": "Screen for PDE5 inhibitor use and assess for marginal blood pressure before nitroglycerin",
+          "protocolExcerpt": "The use of nitrates should be avoided in any patient who has used a phosphodiesterase inhibitor within the past 48 hours... Care should always be taken when giving nitroglycerin when the patient's blood pressure is marginal.",
+          "priority": "critical",
+          "rationale": "PDE5 inhibitors potentiate nitrate-induced hypotension; screening prevents a preventable complication.",
+          "protocolReference": "MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)"
+        },
+        {
+          "id": "b4",
+          "shortAction": "Nitroglycerin 0.4 mg SL (SBP 142, no PDE5 use reported); may repeat q3-5min if SBP >100",
+          "protocolExcerpt": "Nitroglycerin 0.4 mg sublingual (SL), can repeat q (quaque, every) 3–5 minutes if SBP greater than 100 mmHg.",
+          "priority": "critical",
+          "rationale": "Fixed-dose nitrate for suspected ischemic chest/jaw pain with adequate SBP.",
+          "protocolReference": "MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)"
+        },
+        {
+          "id": "b5",
+          "shortAction": "Perform serial 12-lead EKGs and monitor for dysrhythmia or clinical deterioration",
+          "protocolExcerpt": "Perform serial 12-lead EKGs (especially if clinical changes are noted). Observe for signs of clinical deterioration: dysrhythmias, chest pain, shortness of breath, decreased level of consciousness/syncope, or other signs of shock/hypotension.",
+          "priority": "important",
+          "rationale": "Lateral STEMI can evolve rapidly; serial EKGs catch extension or new dysrhythmia.",
+          "protocolReference": "MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "ntg-given",
+          "if": "NTG given after PDE5 screen negative, SBP >100",
+          "condition": "Crew screens for PDE5 inhibitor use, confirms none, and administers nitroglycerin 0.4 mg SL with SBP >100 mmHg.",
+          "conditionType": "action_taken",
+          "triggerActionIds": ["b3", "b4"]
+        },
+        {
+          "targetPhaseId": "hypotension-shock",
+          "if": "NTG given without PDE5 screen",
+          "condition": "Crew administers nitroglycerin without screening for PDE5 inhibitor use or without adequately weighing the patient's marginal blood pressure, precipitating profound hypotension.",
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["b3"]
+        }
+      ]
+    },
+    {
+      "id": "ntg-given",
+      "name": "NTG given, pain improved",
+      "description": "Patient's jaw pain decreases from 6/10 to 3/10 after nitroglycerin. Vital signs remain stable with the mild expected reduction in blood pressure.",
+      "triggerCondition": "Nitroglycerin administered after a negative PDE5 screen with SBP >100 mmHg; jaw pain begins to improve within a few minutes.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "Non-labored, RR 16",
+        "circulation": "Radial pulses strong and regular; skin still diaphoretic but improving color",
+        "skin": { "color": "slightly pale", "temperature": "cool", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "No focal deficits",
+        "otherFindings": ["Pain reduced from 6/10 to 3/10 after NTG", "Tolerating position of comfort"],
+        "patientSpeech": "\"That helped some, my jaw doesn't hurt quite as bad now.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "STEMI Lateral",
+        "ecgWaveform": 25,
+        "hr": 96,
+        "bpSys": 128,
+        "bpDia": 78,
+        "respRate": 16,
+        "spo2": 97,
+        "etco2": 0,
+        "temp": 36.8,
+        "tempF": 98.2,
+        "obstruction": 0,
+        "glucose": 118,
+        "customMeasures": [],
+        "trendTimeSeconds": 30,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "c1",
+          "shortAction": "Reassess pain score and vital signs after nitroglycerin administration",
+          "protocolExcerpt": "Pain severity scores should be recorded before and after analgesic medication administration and upon arrival at destination.",
+          "priority": "important",
+          "rationale": "Confirms therapeutic response and screens for evolving hypotension.",
+          "protocolReference": "MATC: Pain Management"
+        },
+        {
+          "id": "c2",
+          "shortAction": "If pain remains unresponsive to nitrates, Morphine 7 mg IV (70 kg × 0.1 mg/kg = 7 mg; max initial dose 10 mg)",
+          "protocolExcerpt": "If the pain is unresponsive to nitrates, opiates are an acceptable alternative. Morphine should be used with caution in unstable angina (UA)/non-STEMI due to an association with increased mortality.",
+          "priority": "supplemental",
+          "rationale": "Reserve opioids for pain not controlled by nitrates given the mortality signal in ACS.",
+          "protocolReference": "MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)"
+        },
+        {
+          "id": "c3",
+          "shortAction": "Provide advance notification of any change in condition or serial EKG findings to receiving facility",
+          "protocolExcerpt": "Early notification to receiving facility of any changes in patient condition or serial EKGs.",
+          "priority": "important",
+          "rationale": "Keeps the STEMI team updated as the patient's status evolves en route.",
+          "protocolReference": "MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "transport-pci",
+          "if": "Pain improved, stable, prepared for transport",
+          "condition": "Pain decreases to 3/10, vital signs remain stable, and the crew prepares the patient for transport to a PCI-capable facility with continued monitoring.",
+          "conditionType": "action_taken",
+          "triggerActionIds": ["c1"]
+        }
+      ]
+    },
+    {
+      "id": "transport-pci",
+      "name": "Transport to PCI center",
+      "description": "En route to the cardiac catheterization lab. Patient remains stable; repeat 12-lead shows persistent lateral ST elevation.",
+      "triggerCondition": "Patient packaged and transport initiated to the nearest PCI-capable facility with continued cardiac monitoring en route.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "Non-labored, RR 16",
+        "circulation": "Radial pulses strong and regular",
+        "skin": { "color": "pink", "temperature": "warm", "moisture": "slightly diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "No focal deficits",
+        "otherFindings": ["Repeat 12-lead confirms persistent lateral ST elevation, unchanged", "Daughter following in a personal vehicle"],
+        "patientSpeech": "\"I just want this pain to go away.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "STEMI Lateral",
+        "ecgWaveform": 25,
+        "hr": 92,
+        "bpSys": 130,
+        "bpDia": 80,
+        "respRate": 16,
+        "spo2": 97,
+        "etco2": 0,
+        "temp": 36.8,
+        "tempF": 98.2,
+        "obstruction": 0,
+        "glucose": 118,
+        "customMeasures": [],
+        "trendTimeSeconds": 40,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "d1",
+          "shortAction": "Transport to PCI-capable facility; reassess vitals and rhythm en route",
+          "protocolExcerpt": "Transport and destination decisions should be based on local resources and system of care.",
+          "priority": "critical",
+          "rationale": "Time-critical transport decision drives outcome in STEMI.",
+          "protocolReference": "MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)"
+        },
+        {
+          "id": "d2",
+          "shortAction": "Repeat 12-lead EKG en route and provide serial updates to receiving hospital",
+          "protocolExcerpt": "Performance of serial EKGs is encouraged for symptomatic patients with EKGs initially non-diagnostic for STEMI. Early notification to receiving facility of any changes in patient condition or serial EKGs.",
+          "priority": "important",
+          "rationale": "Serial EKGs document evolution and support continuity of care at the receiving facility.",
+          "protocolReference": "MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)"
+        }
+      ],
+      "transitions": []
+    },
+    {
+      "id": "12-lead-delayed",
+      "name": "12-lead delayed",
+      "description": "STEMI diagnosis is delayed. Patient becomes increasingly diaphoretic and anxious while blood pressure begins to drift as the ischemic burden increases and oxygenation worsens.",
+      "triggerCondition": "12-lead EKG is not obtained within 10 minutes of patient contact; jaw pain and diaphoresis worsen while the diagnosis remains unrecognized.",
+      "isDefault": false,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "Mildly labored, RR 22",
+        "circulation": "Radial pulses present but thready; skin increasingly diaphoretic",
+        "skin": { "color": "pale", "temperature": "cool", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "No focal deficits",
+        "otherFindings": ["Jaw pain now 8/10", "Increasingly anxious", "STEMI still unrecognized due to no 12-lead acquired"],
+        "patientSpeech": "\"I really don't feel right, this jaw pain is getting worse.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 116,
+        "bpSys": 128,
+        "bpDia": 82,
+        "respRate": 22,
+        "spo2": 94,
+        "etco2": 0,
+        "temp": 36.9,
+        "tempF": 98.4,
+        "obstruction": 0,
+        "glucose": 118,
+        "customMeasures": [],
+        "trendTimeSeconds": 50,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "e1",
+          "shortAction": "Recognize delayed STEMI diagnosis; immediately acquire 12-lead EKG",
+          "protocolExcerpt": "it is imperative that EMS clinicians routinely acquire a 12-lead EKG within 10 minutes for all patients exhibiting signs and symptoms of ACS.",
+          "priority": "critical",
+          "rationale": "Delay in 12-lead acquisition delays STEMI activation and lengthens time to reperfusion.",
+          "protocolReference": "MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)"
+        }
+      ],
+      "transitions": []
+    },
+    {
+      "id": "hypotension-shock",
+      "name": "Hypotension after NTG",
+      "description": "Following nitroglycerin, the patient becomes lightheaded and hypotensive with cool, clammy skin, consistent with cardiogenic shock physiology precipitated by preload-sensitive lateral wall involvement.",
+      "triggerCondition": "Nitroglycerin administered without adequately screening for PDE5 inhibitor use or weighing the patient's marginal blood pressure; patient develops sudden hypotension.",
+      "isDefault": false,
+      "clinicalPresentation": {
+        "avpu": "Verbal",
+        "gcs": { "eye": 3, "verbal": 4, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "Mildly labored, RR 22",
+        "circulation": "Radial pulses weak and thready; skin cool, pale, and diaphoretic",
+        "skin": { "color": "pale", "temperature": "cool", "moisture": "diaphoretic" },
+        "pupils": "PERRL, sluggish",
+        "motorFunction": "No focal deficits",
+        "otherFindings": ["Sudden onset lightheadedness after NTG", "Delayed capillary refill >3 seconds", "Weak, thready peripheral pulses"],
+        "patientSpeech": "\"I feel really dizzy...\" (trails off)"
+      },
+      "monitorState": {
+        "ecgRhythm": "STEMI Lateral",
+        "ecgWaveform": 25,
+        "hr": 118,
+        "bpSys": 78,
+        "bpDia": 50,
+        "respRate": 22,
+        "spo2": 92,
+        "etco2": 0,
+        "temp": 36.8,
+        "tempF": 98.2,
+        "obstruction": 0,
+        "glucose": 118,
+        "customMeasures": [],
+        "trendTimeSeconds": 15,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "f1",
+          "shortAction": "Recognize hypotension/shock following NTG; position supine and withhold further nitrates",
+          "protocolExcerpt": "Signs of poor perfusion (due to a medical cause) such as one or more of the following: Altered mental status Hypotension for age (lowest acceptable systolic blood pressure in mmHg): Greater than 10 years old: 90 Cool/mottled or flushed/ruddy skin",
+          "priority": "critical",
+          "rationale": "Recognizing NTG-induced hypotension and stopping further nitrates prevents worsening hypoperfusion.",
+          "protocolReference": "MATC: Shock"
+        },
+        {
+          "id": "f2",
+          "shortAction": "500 mL NS IV bolus, pressure-infused over <15 min, reassess (fluid goal up to 30 mL/kg ≈ 2100 mL)",
+          "protocolExcerpt": "IV fluid volume goal attained by giving boluses that are pressure infused over less than 15 minutes each based on patient's condition and clinical impression. Fluid goal of up to 30 mL/kg of isotonic fluid by administering rapid, predetermined boluses (e.g., 500 mL) unless the MAP goal is achieved, or pulmonary edema develops.",
+          "priority": "critical",
+          "rationale": "Fluid bolus is first-line for hypotension unless pulmonary edema develops; reassess frequently in a cardiac patient.",
+          "protocolReference": "MATC: Shock"
+        },
+        {
+          "id": "f3",
+          "shortAction": "Provide advance notification to receiving hospital of clinical deterioration",
+          "protocolExcerpt": "Provide advanced notification to the hospital.",
+          "priority": "important",
+          "rationale": "Receiving facility needs advance warning of hemodynamic instability in a STEMI patient.",
+          "protocolReference": "MATC: Shock"
+        }
+      ],
+      "transitions": []
+    }
+  ],
+  "realiti": {
+    "scenarioMonitorType": 2,
+    "scenarioDefaultEnergy": 200,
+    "scenarioDefaultPacerThreshold": 55
+  }
+}

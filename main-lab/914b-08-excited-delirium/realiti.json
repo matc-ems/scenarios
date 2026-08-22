@@ -1,0 +1,236 @@
+{
+  "scenarioId": "914b-08-excited-delirium",
+  "scenarioName": "Agitated / Excited Delirium — Stimulant-Induced with Ketamine Sedation Dosing",
+  "scenarioType": "Vital Signs",
+  "scenarioVersion": 2,
+  "scenarioTime": 600,
+  "scenarioMonitorType": 2,
+  "scenarioDefaultEnergy": 200,
+  "scenarioDefaultPacerThreshold": 55,
+  "isDemo": false,
+  "isALSILegacy": false,
+  "scenarioStory": {
+    "history": "Police were called to a convenience store parking lot for a shirtless man yelling incoherently and pounding on parked cars. Officers restrained him with soft cuffs prior to EMS arrival. He remains combative, shouting, and profusely diaphoretic with dilated pupils. An empty small plastic baggie was found near him.",
+    "discussion": "",
+    "course": "Initial Contact: Crew arrives to find a 32-year-old male in police soft restraints, shouting, thrashing, and diaphoretic with dilated pupils. Vitals show marked tachycardia, hypertension, tachypnea, and hyperthermia consistent with stimulant toxicity and severe agitation. → Sedation dose ketamine given: Crew attempts brief verbal de-escalation, risk-stratifies the patient as high violence risk, ensures police restraints do not restrict chest wall movement, and administers ketamine 4 mg/kg IM for chemical restraint. A cardiac monitor and capnography are applied, and external cooling is started for suspected hyperthermia. → Cooling and monitoring maintained: The patient is adequately sedated, no longer combative, and cooling has begun reducing his temperature. Crew maintains continuous respiratory and cardiac monitoring en route given the risk of delayed hypoventilation after ketamine sedation."
+  },
+  "patientInformation": {
+    "patientName": "Derek Munoz",
+    "patientCondition": "Combative, agitated behavior, suspected stimulant use",
+    "patientAge": 32,
+    "patientAgeUnit": "years",
+    "patientAgeCategory": 0,
+    "patientSex": 1,
+    "patientHeight": 178,
+    "patientWeight": 85,
+    "patientPhotoId": 39,
+    "patientAdmitted": 1
+  },
+  "labs": [],
+  "scenarioEvents": [
+    {
+      "type": "ScenarioEvent",
+      "name": "Initial Contact",
+      "description": "Crew arrives to find a 32-year-old male in police soft restraints, shouting, thrashing, and diaphoretic with dilated pupils. Vitals show marked tachycardia, hypertension, tachypnea, and hyperthermia consistent with stimulant toxicity and severe agitation.",
+      "monitorType": 0,
+      "trendTime": 0,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 132,
+        "bpSys": 162,
+        "bpDia": 98,
+        "respRate": 26,
+        "spo2": 95,
+        "etco2": 0,
+        "temp": 39.4,
+        "obstruction": 0,
+        "custMeasure1": 98,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Sedation dose ketamine given",
+      "description": "Crew attempts brief verbal de-escalation, risk-stratifies the patient as high violence risk, ensures police restraints do not restrict chest wall movement, and administers ketamine 4 mg/kg IM for chemical restraint. A cardiac monitor and capnography are applied, and external cooling is started for suspected hyperthermia.",
+      "monitorType": 0,
+      "trendTime": 30,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 118,
+        "bpSys": 148,
+        "bpDia": 90,
+        "respRate": 20,
+        "spo2": 97,
+        "etco2": 38,
+        "temp": 39,
+        "obstruction": 0,
+        "custMeasure1": 98,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Attempt brief verbal reassurance/de-escalation before pharmacologic or physical management",
+        "Use a validated risk tool (RASS/AMSS/BARS) to risk-stratify the patient as high violence risk",
+        "Secure all four extremities to the stationary stretcher frame without restricting chest wall motion",
+        "Ketamine 340 mg IM (85 kg × 4 mg/kg) for chemical restraint of high-violence-risk agitation",
+        "Apply cardiac monitor and capnography; watch closely for hypoventilation/oversedation after ketamine",
+        "Begin external cooling with cold/ice packs to axilla and groin for suspected hyperthermia"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Cooling and monitoring maintained",
+      "description": "The patient is adequately sedated, no longer combative, and cooling has begun reducing his temperature. Crew maintains continuous respiratory and cardiac monitoring en route given the risk of delayed hypoventilation after ketamine sedation.",
+      "monitorType": 0,
+      "trendTime": 45,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 104,
+        "bpSys": 136,
+        "bpDia": 84,
+        "respRate": 16,
+        "spo2": 98,
+        "etco2": 36,
+        "temp": 37.8,
+        "obstruction": 0,
+        "custMeasure1": 98,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Continuously monitor airway patency, respiratory status, SpO2/EtCO2, and cardiac status en route",
+        "Reassess and document mental status trend and circulatory status serially en route"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Sub-therapeutic ketamine dose given",
+      "description": "Ketamine was dosed at the lower analgesic range (0.25 mg/kg IM) rather than the sedation range (4 mg/kg IM). The patient remains combative and hyperthermic, continuing to struggle against restraints with ongoing risk for delirium-associated cardiac arrest and positional asphyxia.",
+      "monitorType": 0,
+      "trendTime": 20,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 145,
+        "bpSys": 170,
+        "bpDia": 102,
+        "respRate": 30,
+        "spo2": 93,
+        "etco2": 30,
+        "temp": 40,
+        "obstruction": 0,
+        "custMeasure1": 98,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Recognize 21 mg IM (85 kg × 0.25 mg/kg) is an analgesic dose only, inadequate for chemical restraint of this agitation",
+        "Redose ketamine to reach 340 mg IM total (85 kg × 4 mg/kg sedation dose) for adequate chemical restraint"
+      ],
+      "relatedSounds": []
+    }
+  ],
+  "checklist": [
+    {
+      "title": "Attempt brief verbal reassurance/de-escalation before pharmacologic or physical management",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Use a validated risk tool (RASS/AMSS/BARS) to risk-stratify the patient as high violence risk",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Secure all four extremities to the stationary stretcher frame without restricting chest wall motion",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Ketamine 340 mg IM (85 kg × 4 mg/kg) for chemical restraint of high-violence-risk agitation",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Apply cardiac monitor and capnography; watch closely for hypoventilation/oversedation after ketamine",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Begin external cooling with cold/ice packs to axilla and groin for suspected hyperthermia",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Continuously monitor airway patency, respiratory status, SpO2/EtCO2, and cardiac status en route",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Reassess and document mental status trend and circulatory status serially en route",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Recognize 21 mg IM (85 kg × 0.25 mg/kg) is an analgesic dose only, inadequate for chemical restraint of this agitation",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Redose ketamine to reach 340 mg IM total (85 kg × 4 mg/kg sedation dose) for adequate chemical restraint",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    }
+  ],
+  "media": []
+}

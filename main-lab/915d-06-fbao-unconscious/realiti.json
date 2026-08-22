@@ -1,0 +1,222 @@
+{
+  "scenarioId": "915d-06-fbao-unconscious",
+  "scenarioName": "Witnessed Choking — Cardiac Arrest from Foreign Body Airway Obstruction",
+  "scenarioType": "Vital Signs",
+  "scenarioVersion": 2,
+  "scenarioTime": 900,
+  "scenarioMonitorType": 2,
+  "scenarioDefaultEnergy": 200,
+  "scenarioDefaultPacerThreshold": 55,
+  "isDemo": false,
+  "isALSILegacy": false,
+  "scenarioStory": {
+    "history": "Patient was eating a steak dinner with a coworker when he suddenly stood up, grabbed his throat, and could not speak or cough. He collapsed within about a minute. The coworker attempted abdominal thrusts without success before the patient became unresponsive and stopped breathing; 911 was called immediately.",
+    "discussion": "",
+    "course": "Initial Contact: Crew arrives to find a 58-year-old male supine and unresponsive on the restaurant floor following a witnessed choking event. He is apneic with no palpable pulse and visible food debris at the mouth. → CPR started, airway obstruction cleared: Crew initiates immediate high-quality chest compressions while simultaneously managing the obstructed airway: direct laryngoscopy visualizes the food bolus, which is suctioned/cleared, allowing effective two-person BVM ventilation with continuous waveform capnography in place. → ROSC achieved after airway cleared: Following successful clearance of the airway obstruction and effective CPR, the patient achieves return of spontaneous circulation. Crew transitions to post-ROSC care, securing the airway, avoiding hyperventilation, and closely monitoring for re-arrest."
+  },
+  "patientInformation": {
+    "patientName": "Gregory Halvorsen",
+    "patientCondition": "Unresponsive, witnessed choking during a meal",
+    "patientAge": 58,
+    "patientAgeUnit": "years",
+    "patientAgeCategory": 0,
+    "patientSex": 1,
+    "patientHeight": 178,
+    "patientWeight": 88,
+    "patientPhotoId": 70,
+    "patientAdmitted": 1
+  },
+  "labs": [],
+  "scenarioEvents": [
+    {
+      "type": "ScenarioEvent",
+      "name": "Initial Contact",
+      "description": "Crew arrives to find a 58-year-old male supine and unresponsive on the restaurant floor following a witnessed choking event. He is apneic with no palpable pulse and visible food debris at the mouth.",
+      "monitorType": 0,
+      "trendTime": 0,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 32,
+        "bpSys": 0,
+        "bpDia": 0,
+        "respRate": 0,
+        "spo2": 0,
+        "etco2": 0,
+        "temp": 37,
+        "obstruction": 100,
+        "custMeasure1": 118,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": false,
+        "spo2Attached": false,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "CPR started, airway obstruction cleared",
+      "description": "Crew initiates immediate high-quality chest compressions while simultaneously managing the obstructed airway: direct laryngoscopy visualizes the food bolus, which is suctioned/cleared, allowing effective two-person BVM ventilation with continuous waveform capnography in place.",
+      "monitorType": 0,
+      "trendTime": 20,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 45,
+        "bpSys": 0,
+        "bpDia": 0,
+        "respRate": 10,
+        "spo2": 0,
+        "etco2": 14,
+        "temp": 37,
+        "obstruction": 10,
+        "custMeasure1": 118,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": false,
+        "spo2Attached": false,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Begin immediate high-quality chest compressions, minimally interrupted",
+        "Perform direct laryngoscopy to visualize the oropharynx; suction and clear the obstructing food bolus (SALAD technique)",
+        "Provide two-person, two-thumbs-up BVM ventilation once the airway is cleared, with PEEP",
+        "Apply continuous waveform capnography to monitor CPR quality and detect ROSC"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "ROSC achieved after airway cleared",
+      "description": "Following successful clearance of the airway obstruction and effective CPR, the patient achieves return of spontaneous circulation. Crew transitions to post-ROSC care, securing the airway, avoiding hyperventilation, and closely monitoring for re-arrest.",
+      "monitorType": 0,
+      "trendTime": 30,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 118,
+        "bpSys": 96,
+        "bpDia": 58,
+        "respRate": 8,
+        "spo2": 92,
+        "etco2": 38,
+        "temp": 37,
+        "obstruction": 0,
+        "custMeasure1": 118,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Secure the airway and support ventilation, avoiding hyperoxygenation (target SpO2 94-98%)",
+        "Ventilate at 8-10 breaths/minute, targeting EtCO2 35-45 mmHg; avoid hyperventilation",
+        "Monitor closely for recurrence of cardiac arrest using cardiac and EtCO2 monitoring and signs of perfusion"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Airway obstruction not cleared",
+      "description": "Crew attempts bag-valve-mask ventilation without first visualizing and clearing the obstructing food bolus. No chest rise is achieved despite repeated ventilation attempts, and the patient's rhythm deteriorates toward asystole as hypoxia persists.",
+      "monitorType": 0,
+      "trendTime": 20,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 3,
+        "hr": 0,
+        "bpSys": 0,
+        "bpDia": 0,
+        "respRate": 0,
+        "spo2": 0,
+        "etco2": 6,
+        "temp": 37,
+        "obstruction": 100,
+        "custMeasure1": 118,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": false,
+        "spo2Attached": false,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Recognize failed ventilation (no chest rise); reassess airway, perform direct laryngoscopy and suction to clear obstruction"
+      ],
+      "relatedSounds": []
+    }
+  ],
+  "checklist": [
+    {
+      "title": "Begin immediate high-quality chest compressions, minimally interrupted",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Perform direct laryngoscopy to visualize the oropharynx; suction and clear the obstructing food bolus (SALAD technique)",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Provide two-person, two-thumbs-up BVM ventilation once the airway is cleared, with PEEP",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Apply continuous waveform capnography to monitor CPR quality and detect ROSC",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Secure the airway and support ventilation, avoiding hyperoxygenation (target SpO2 94-98%)",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Ventilate at 8-10 breaths/minute, targeting EtCO2 35-45 mmHg; avoid hyperventilation",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Monitor closely for recurrence of cardiac arrest using cardiac and EtCO2 monitoring and signs of perfusion",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Recognize failed ventilation (no chest rise); reassess airway, perform direct laryngoscopy and suction to clear obstruction",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    }
+  ],
+  "media": []
+}

@@ -1,0 +1,222 @@
+{
+  "scenarioId": "914b-12-crush-injury",
+  "scenarioName": "Crush Injury — Pre-Extrication Fluid Resuscitation and Pain Management",
+  "scenarioType": "Vital Signs",
+  "scenarioVersion": 2,
+  "scenarioTime": 1200,
+  "scenarioMonitorType": 2,
+  "scenarioDefaultEnergy": 200,
+  "scenarioDefaultPacerThreshold": 55,
+  "isDemo": false,
+  "isALSILegacy": false,
+  "scenarioStory": {
+    "history": "Patient was working on a loading dock when a pallet jack loaded with heavy equipment rolled and pinned his left lower leg against a steel post. Coworkers were unable to free him; fire department is using airbags and cribbing for extrication. He has been pinned for approximately 20 minutes and reports 10/10 pain in the leg, denies loss of consciousness, denies other injuries.",
+    "discussion": "",
+    "course": "Initial Contact: Crew arrives to find a 38-year-old male with his left lower leg pinned under a pallet jack for approximately 20 minutes. He is alert, in severe pain, with fire crew preparing for extrication. → IV fluids and pain control given before release: Crew establishes IV access, administers a normal saline bolus, attaches the cardiac monitor to watch for hyperkalemic changes, and provides weight-based morphine for pain while fire crew completes extrication preparations. Sodium bicarbonate is considered given the prolonged entrapment time. → Limb released after adequate pre-treatment: The limb is released with fluids, monitoring, and analgesia already in place. Crew continues resuscitation with ongoing normal saline and closely watches the cardiac monitor for delayed hyperkalemic changes en route to a trauma center."
+  },
+  "patientInformation": {
+    "patientName": "Darnell Ostrowski",
+    "patientCondition": "Leg pinned under industrial equipment, severe pain",
+    "patientAge": 38,
+    "patientAgeUnit": "years",
+    "patientAgeCategory": 0,
+    "patientSex": 1,
+    "patientHeight": 178,
+    "patientWeight": 80,
+    "patientPhotoId": 46,
+    "patientAdmitted": 1
+  },
+  "labs": [],
+  "scenarioEvents": [
+    {
+      "type": "ScenarioEvent",
+      "name": "Initial Contact",
+      "description": "Crew arrives to find a 38-year-old male with his left lower leg pinned under a pallet jack for approximately 20 minutes. He is alert, in severe pain, with fire crew preparing for extrication.",
+      "monitorType": 0,
+      "trendTime": 0,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 116,
+        "bpSys": 148,
+        "bpDia": 92,
+        "respRate": 22,
+        "spo2": 97,
+        "etco2": 0,
+        "temp": 37,
+        "obstruction": 0,
+        "custMeasure1": 98,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "IV fluids and pain control given before release",
+      "description": "Crew establishes IV access, administers a normal saline bolus, attaches the cardiac monitor to watch for hyperkalemic changes, and provides weight-based morphine for pain while fire crew completes extrication preparations. Sodium bicarbonate is considered given the prolonged entrapment time.",
+      "monitorType": 0,
+      "trendTime": 40,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 104,
+        "bpSys": 128,
+        "bpDia": 80,
+        "respRate": 18,
+        "spo2": 98,
+        "etco2": 0,
+        "temp": 37,
+        "obstruction": 0,
+        "custMeasure1": 98,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Establish IV access; administer 1000 mL normal saline bolus before limb release",
+        "Attach cardiac monitor; watch for hyperkalemia changes before and after release",
+        "Morphine 8 mg IV (80 kg × 0.1 mg/kg = 8 mg; max initial dose 10 mg); reassess BP after dosing",
+        "Consider sodium bicarbonate 50 mEq IV over 5 min (80 kg × 1 mEq/kg = 80 mEq → cap at 50 mEq max)"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Limb released after adequate pre-treatment",
+      "description": "The limb is released with fluids, monitoring, and analgesia already in place. Crew continues resuscitation with ongoing normal saline and closely watches the cardiac monitor for delayed hyperkalemic changes en route to a trauma center.",
+      "monitorType": 0,
+      "trendTime": 30,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 92,
+        "bpSys": 118,
+        "bpDia": 74,
+        "respRate": 16,
+        "spo2": 98,
+        "etco2": 0,
+        "temp": 37,
+        "obstruction": 0,
+        "custMeasure1": 98,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Continue normal saline at 500–1000 mL/hr post extrication; reassess pain and repeat morphine if indicated after 5 minutes",
+        "Transport in position of comfort; reassess pain scale and vital signs en route"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Limb released before fluids given",
+      "description": "The limb was released before IV fluids and monitoring were established. Reperfusion floods the circulation with potassium and acidic byproducts, producing peaked T waves, a widening QRS, and hypotension.",
+      "monitorType": 0,
+      "trendTime": 15,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 20,
+        "hr": 132,
+        "bpSys": 84,
+        "bpDia": 52,
+        "respRate": 26,
+        "spo2": 94,
+        "etco2": 0,
+        "temp": 37.1,
+        "obstruction": 0,
+        "custMeasure1": 96,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Calcium chloride 1 g IV/IO over 5 min (ensure IV patency, do not exceed 1 mL/min) for hyperkalemic ECG changes",
+        "Sodium bicarbonate 50 mEq IV over 5 min (80 kg × 1 mEq/kg = 80 mEq → cap at 50 mEq max) for hyperkalemic changes"
+      ],
+      "relatedSounds": []
+    }
+  ],
+  "checklist": [
+    {
+      "title": "Establish IV access; administer 1000 mL normal saline bolus before limb release",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Attach cardiac monitor; watch for hyperkalemia changes before and after release",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Morphine 8 mg IV (80 kg × 0.1 mg/kg = 8 mg; max initial dose 10 mg); reassess BP after dosing",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Consider sodium bicarbonate 50 mEq IV over 5 min (80 kg × 1 mEq/kg = 80 mEq → cap at 50 mEq max)",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Continue normal saline at 500–1000 mL/hr post extrication; reassess pain and repeat morphine if indicated after 5 minutes",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Transport in position of comfort; reassess pain scale and vital signs en route",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Calcium chloride 1 g IV/IO over 5 min (ensure IV patency, do not exceed 1 mL/min) for hyperkalemic ECG changes",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Sodium bicarbonate 50 mEq IV over 5 min (80 kg × 1 mEq/kg = 80 mEq → cap at 50 mEq max) for hyperkalemic changes",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    }
+  ],
+  "media": []
+}

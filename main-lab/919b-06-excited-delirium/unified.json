@@ -1,0 +1,347 @@
+{
+  "meta": {
+    "id": "919b-06-excited-delirium",
+    "name": "Excited Delirium — Hyperthermia with Sudden-Arrest Risk",
+    "version": 1,
+    "difficulty": "advanced",
+    "category": "Medical",
+    "protocols": ["medical-agitated-violent-behavioral", "env-hyperthermia-heat-exposure"],
+    "totalTimeSeconds": 780,
+    "tags": ["excited delirium", "stimulant", "hyperthermia", "restraint safety", "sudden death", "919"]
+  },
+  "patient": {
+    "name": "Unknown Male (later identified as Marcus Boyd)",
+    "age": 29,
+    "ageUnit": "years",
+    "sex": "male",
+    "weight": 80,
+    "weightLbs": 176,
+    "height": 180,
+    "chiefComplaint": "Combative, agitated male, bystanders report bizarre behavior and disrobing in public",
+    "history": {
+      "hpi": "Police were called after bystanders reported a man running through traffic, yelling incoherently, and tearing off his clothes. On EMS arrival, law enforcement has him in handcuffs; he continues to struggle violently, is drenched in sweat, and is not answering questions coherently. Bystanders report he appeared to be using drugs earlier at a nearby party.",
+      "pastMedical": ["Unknown, no ID on patient"],
+      "medications": ["Unknown"],
+      "allergies": ["Unknown"],
+      "lastOralIntake": "Unknown",
+      "events": "Bystanders called 911 for a man behaving erratically in traffic; police arrived first and have him restrained"
+    }
+  },
+  "scene": {
+    "dispatch": "Adult male, combative, bizarre behavior, possible drug use, roadway",
+    "location": "Public roadway near a large outdoor gathering, patient on the ground with police present",
+    "time": "1:15 AM, weekend",
+    "safety": "Law enforcement on scene and has patient in handcuffs; patient remains combative and requires careful approach; PPE recommended",
+    "bystanders": "Multiple bystanders from a nearby party, report the patient appeared to be using drugs earlier in the evening",
+    "visualCues": [
+      "Patient shirtless, drenched in sweat, skin flushed",
+      "Handcuffed by police, actively struggling and yelling incoherently",
+      "Superhuman-seeming strength noted by officers",
+      "No ID or medical information available"
+    ]
+  },
+  "phases": [
+    {
+      "id": "initial",
+      "name": "Initial Contact",
+      "description": "Crew arrives to find a 29-year-old male in police custody, combative, hyperthermic, diaphoretic, and incoherent, consistent with excited delirium likely from stimulant intoxication.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Pain",
+        "gcs": { "eye": 3, "verbal": 3, "motor": 5 },
+        "airway": "Patent, yelling",
+        "breathing": "Rapid, 32/min",
+        "circulation": "Radial pulses rapid, bounding",
+        "skin": { "color": "flushed", "temperature": "hot", "moisture": "profusely diaphoretic" },
+        "pupils": "Dilated bilaterally",
+        "motorFunction": "Violently struggling against restraints, unusual strength noted",
+        "otherFindings": [
+          "Incoherent yelling, not answering questions",
+          "No focal weakness noted",
+          "Handcuffed by law enforcement, continuing to struggle"
+        ],
+        "patientSpeech": "(Yelling incoherently, no discernible words)"
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 158,
+        "bpSys": 168,
+        "bpDia": 96,
+        "respRate": 32,
+        "spo2": 93,
+        "etco2": 22,
+        "temp": 40.6,
+        "tempF": 105.1,
+        "obstruction": 0,
+        "glucose": 128,
+        "customMeasures": [],
+        "trendTimeSeconds": 0,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
+      },
+      "expectedActions": [],
+      "transitions": [
+        {
+          "targetPhaseId": "sedation-restraint-appropriate",
+          "if": "Sedation given, safe restraint applied",
+          "condition": "Crew administers pharmacologic sedation, applies safe physical restraint (never prone, never hobbled), and places the patient on a cardiac monitor immediately given the risk of sudden cardiopulmonary arrest.",
+          "conditionType": "action_taken"
+        }
+      ]
+    },
+    {
+      "id": "sedation-restraint-appropriate",
+      "name": "Sedation given, safe restraint applied",
+      "description": "Crew administers ketamine for rapid sedation, ensures the patient is restrained safely (supine or lateral, never prone or hobbled, chest wall unrestricted), and immediately places a cardiac monitor given the known risk of sudden arrest in excited delirium.",
+      "triggerCondition": "Given the high violence risk and danger to self/others, the crew administers IM ketamine for rapid sedation, secures the patient safely without prone positioning or hobbling, and applies a cardiac monitor immediately per the sudden-arrest risk warning.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Verbal",
+        "gcs": { "eye": 3, "verbal": 3, "motor": 5 },
+        "airway": "Patent",
+        "breathing": "28/min, improving",
+        "circulation": "Radial pulses rapid, bounding",
+        "skin": { "color": "flushed", "temperature": "hot", "moisture": "profusely diaphoretic" },
+        "pupils": "Dilated bilaterally",
+        "motorFunction": "Struggling less, sedation taking effect",
+        "otherFindings": [
+          "Restrained supine with extremities individually secured, chest wall unrestricted",
+          "Cardiac monitor applied",
+          "Ketamine administered IM"
+        ],
+        "patientSpeech": "(Mumbling, less agitated)"
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 148,
+        "bpSys": 160,
+        "bpDia": 92,
+        "respRate": 28,
+        "spo2": 94,
+        "etco2": 24,
+        "temp": 40.5,
+        "tempF": 104.9,
+        "obstruction": 0,
+        "glucose": 126,
+        "customMeasures": [],
+        "trendTimeSeconds": 30,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a1-ketamine",
+          "shortAction": "Ketamine 320 mg IM (80 kg × 4 mg/kg), 3-5 minute onset expected",
+          "protocolExcerpt": "Dissociative Agents (provide sedation and anesthesia) — Ketamine (option for high violence risk) — Adults: ... 4 mg/kg IM; 3–5 minute onset of action",
+          "priority": "critical",
+          "rationale": "Ketamine provides rapid, reliable sedation for high-violence-risk excited delirium.",
+          "protocolReference": "MATC: Agitated or Violent Patient/Behavioral Emergency"
+        },
+        {
+          "id": "a2-safe-restraint",
+          "shortAction": "Restrain supine with extremities individually secured to the stretcher frame; never prone, never hobbled, chest wall unrestricted",
+          "protocolExcerpt": "The following techniques should be expressly prohibited for use by EMS clinicians: Secure or transport in a prone position with or without hands and feet behind the back (hobbling or \"hog-tying\"). Physical management devices, including stretcher straps, should never restrict the patient's chest wall motion",
+          "priority": "critical",
+          "rationale": "Prone/hobbled restraint and chest wall restriction are directly linked to positional asphyxia and sudden death in this population.",
+          "protocolReference": "MATC: Agitated or Violent Patient/Behavioral Emergency"
+        },
+        {
+          "id": "a3-monitor-immediately",
+          "shortAction": "Apply cardiac monitor immediately given known risk of sudden cardiopulmonary arrest",
+          "protocolExcerpt": "Apply a cardiac monitor as soon as possible, particularly when pharmacologic management medications have been administered. Uncontrolled or poorly controlled patient agitation and physical violence can place the patient at risk for sudden cardiopulmonary arrest",
+          "priority": "critical",
+          "rationale": "Excited delirium carries a real risk of sudden arrest even with appropriate management; continuous monitoring is essential.",
+          "protocolReference": "MATC: Agitated or Violent Patient/Behavioral Emergency"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "active-cooling",
+          "if": "Active cooling initiated for hyperthermia",
+          "condition": "With the patient sedated and safely restrained, the crew recognizes the core temperature above 104°F and begins active cooling measures alongside cool IV fluids.",
+          "conditionType": "action_taken"
+        },
+        {
+          "targetPhaseId": "prone-restraint-used",
+          "if": "Prone or hobbled restraint used",
+          "condition": "Under pressure to control the violently combative patient, the crew (or law enforcement, uncorrected by the crew) restrains the patient prone with hands and feet secured behind the back.",
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["a2-safe-restraint"]
+        }
+      ]
+    },
+    {
+      "id": "active-cooling",
+      "name": "Active cooling initiated for hyperthermia",
+      "description": "With the patient sedated and monitored, the crew initiates active cooling for the core temperature above 104°F and establishes IV access for cool fluid boluses, prioritizing cooling given the risk of severe heat-related organ injury.",
+      "triggerCondition": "The core temperature exceeds 104°F with altered mental status, meeting criteria for active cooling; the crew begins evaporative cooling and establishes IV access for cool fluid boluses.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Verbal",
+        "gcs": { "eye": 3, "verbal": 4, "motor": 5 },
+        "airway": "Patent",
+        "breathing": "22/min",
+        "circulation": "Radial pulses rapid",
+        "skin": { "color": "flushed", "temperature": "hot", "moisture": "diaphoretic" },
+        "pupils": "Dilated bilaterally, less pronounced",
+        "motorFunction": "Minimal movement, sedated",
+        "otherFindings": [
+          "Evaporative cooling in progress (wet skin exposed to moving air, avoiding wet cloths)",
+          "Cool IV fluid bolus infusing",
+          "Continuous temperature monitoring"
+        ],
+        "patientSpeech": "(Sedated, minimal response)"
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 134,
+        "bpSys": 148,
+        "bpDia": 86,
+        "respRate": 22,
+        "spo2": 96,
+        "etco2": 30,
+        "temp": 39.8,
+        "tempF": 103.6,
+        "obstruction": 0,
+        "glucose": 122,
+        "customMeasures": [],
+        "trendTimeSeconds": 40,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a4-active-cooling",
+          "shortAction": "Begin active cooling (evaporative/tarp-assisted) — avoid wet cloths, continue until temp under 102.2°F or mental status improves",
+          "protocolExcerpt": "If core temperature is greater than 104°F (40°C) or if altered mental status is present, begin active cooling by: ... DO NOT apply wet cloths or wet clothing, as they may trap heat and prevent evaporative cooling. Cooling efforts should continue until the patient's temperature is less than 102.2°F (39°C) or ... until the patient demonstrates improvement in mental status",
+          "priority": "critical",
+          "rationale": "Untreated severe hyperthermia causes rapid, life-threatening organ injury and worsens the sudden-arrest risk.",
+          "protocolReference": "MATC: Hyperthermia/Heat Exposure"
+        },
+        {
+          "id": "a5-cool-fluids",
+          "shortAction": "Establish IV access; give cool isotonic fluid bolus 1600 mL (80 kg × 20 mL/kg)",
+          "protocolExcerpt": "Establish IV access for patients suffering from heat stroke — give cool fluids at 20 mL/kg boluses and reduce to 10 mL/kg/hr boluses when vitals are stable",
+          "priority": "critical",
+          "rationale": "Cool IV fluids support both cooling and circulatory resuscitation.",
+          "protocolReference": "MATC: Hyperthermia/Heat Exposure"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "transport-monitored",
+          "if": "Improving, monitored closely for transport",
+          "condition": "With cooling and fluids in progress, the patient's temperature and vital signs trend toward normal; crew continues close cardiac monitoring throughout transport given the ongoing sudden-arrest risk.",
+          "conditionType": "action_taken"
+        }
+      ]
+    },
+    {
+      "id": "transport-monitored",
+      "name": "Improving, monitored closely for transport",
+      "description": "With active cooling, fluids, and sedation on board, the patient's vital signs trend toward normal. The crew maintains continuous cardiac monitoring throughout transport, remaining alert for sudden deterioration.",
+      "triggerCondition": "After active cooling and fluid resuscitation, temperature and heart rate begin trending down; crew continues close monitoring for the duration of transport given the known sudden-death risk in this population.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Verbal",
+        "gcs": { "eye": 3, "verbal": 4, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "18/min",
+        "circulation": "Radial pulses stronger",
+        "skin": { "color": "pink", "temperature": "warm", "moisture": "diaphoretic" },
+        "pupils": "Reactive, less dilated",
+        "motorFunction": "Minimal movement, sedated",
+        "otherFindings": [
+          "Temperature trending down toward goal",
+          "Continuous cardiac and respiratory monitoring maintained",
+          "Extremity perfusion checked given physical restraints in place"
+        ],
+        "patientSpeech": "(Sedated)"
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 116,
+        "bpSys": 132,
+        "bpDia": 78,
+        "respRate": 18,
+        "spo2": 98,
+        "etco2": 35,
+        "temp": 38.6,
+        "tempF": 101.5,
+        "obstruction": 0,
+        "glucose": 116,
+        "customMeasures": [],
+        "trendTimeSeconds": 50,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a6-ongoing-monitoring",
+          "shortAction": "Continuously reassess airway, breathing, circulation, and extremity perfusion in restraints throughout transport",
+          "protocolExcerpt": "Continuous monitoring of: Airway patency, Respiratory status with pulse oximetry and/or capnography, Circulatory status with frequent blood pressure measurements ... Extremity perfusion with capillary refill in patients in physical management device",
+          "priority": "important",
+          "rationale": "Sedated, restrained patients require close ongoing monitoring for both cardiorespiratory deterioration and restraint-related complications.",
+          "protocolReference": "MATC: Agitated or Violent Patient/Behavioral Emergency"
+        }
+      ],
+      "transitions": []
+    },
+    {
+      "id": "prone-restraint-used",
+      "name": "Prone or hobbled restraint used",
+      "description": "The patient is restrained prone with hands and feet secured behind the back. Combined with his hyperthermia and physical exhaustion, this significantly increases his risk of positional asphyxia and sudden cardiopulmonary arrest.",
+      "triggerCondition": "The patient is secured prone with wrists and ankles bound together (hobbled), an explicitly prohibited technique that risks positional asphyxia in an already high-risk excited delirium patient.",
+      "isDefault": false,
+      "clinicalPresentation": {
+        "avpu": "Pain",
+        "gcs": { "eye": 2, "verbal": 2, "motor": 5 },
+        "airway": "Compromised by positioning",
+        "breathing": "Shallow, labored, 10/min",
+        "circulation": "Radial pulses weak, thready",
+        "skin": { "color": "cyanotic", "temperature": "hot", "moisture": "diaphoretic" },
+        "pupils": "Dilated, sluggish",
+        "motorFunction": "Minimal movement, exhausted",
+        "otherFindings": [
+          "Prone position with wrists and ankles bound together",
+          "SpO2 falling",
+          "Decreasing responsiveness"
+        ],
+        "patientSpeech": "(No longer yelling, minimal response)"
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 168,
+        "bpSys": 96,
+        "bpDia": 58,
+        "respRate": 10,
+        "spo2": 82,
+        "etco2": 50,
+        "temp": 40.8,
+        "tempF": 105.4,
+        "obstruction": 0,
+        "glucose": 122,
+        "customMeasures": [],
+        "trendTimeSeconds": 20,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a7-correct-positioning",
+          "shortAction": "Immediately reposition supine or lateral, remove hobble restraint, reassess airway and breathing",
+          "protocolExcerpt": "Positional asphyxia: Sudden death from restriction of chest wall movement and/or obstruction of the airway secondary to restricted head or neck positioning resulting in hypercarbia and/or hypoxia. The following techniques should be expressly prohibited for use by EMS clinicians: Secure or transport in a prone position with or without hands and feet behind the back (hobbling or \"hog-tying\")",
+          "priority": "critical",
+          "rationale": "Prone/hobbled positioning is a direct, recognized cause of sudden death in agitated patients and must be corrected immediately.",
+          "protocolReference": "MATC: Agitated or Violent Patient/Behavioral Emergency"
+        }
+      ],
+      "transitions": []
+    }
+  ],
+  "realiti": {
+    "scenarioMonitorType": 2,
+    "scenarioDefaultEnergy": 200,
+    "scenarioDefaultPacerThreshold": 55
+  }
+}

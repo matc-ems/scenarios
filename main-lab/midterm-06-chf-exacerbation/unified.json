@@ -1,0 +1,410 @@
+{
+  "meta": {
+    "id": "midterm-06-chf-exacerbation",
+    "name": "CHF Exacerbation — Nitro-Induced Hypotension in the Elderly",
+    "version": 1,
+    "difficulty": "advanced",
+    "category": "Cardiac",
+    "protocols": [
+      "resp-respiratory-distress",
+      "resp-airway-management"
+    ],
+    "totalTimeSeconds": 900,
+    "tags": ["ALS", "CHF", "pulmonary edema", "nitroglycerin", "hypotension", "geriatric", "CPAP", "midterm"]
+  },
+  "patient": {
+    "name": "Dorothy Vance",
+    "age": 81,
+    "ageUnit": "years",
+    "sex": "female",
+    "weight": 62,
+    "weightLbs": 137,
+    "height": 157,
+    "chiefComplaint": "Severe shortness of breath, unable to lie flat",
+    "history": {
+      "hpi": "Husband reports increasing shortness of breath and orthopnea over the past 6 hours, now unable to lie flat or speak in full sentences. Productive cough with pink, frothy sputum since roughly 3 AM. Husband states she missed her furosemide dose yesterday.",
+      "pastMedical": ["Congestive heart failure (reduced ejection fraction)", "Hypertension", "Chronic kidney disease, stage 3", "Atrial fibrillation"],
+      "medications": ["Furosemide 40 mg PO daily", "Lisinopril 20 mg PO daily", "Metoprolol succinate 25 mg PO daily", "Apixaban 5 mg PO BID"],
+      "allergies": ["NKDA"],
+      "lastOralIntake": "Sip of water around 9 PM; no food since dinner",
+      "events": "Husband called 911 after her breathing worsened and she began coughing up pink sputum around 3 AM"
+    }
+  },
+  "scene": {
+    "dispatch": "81-year-old female, difficulty breathing, residence",
+    "location": "Single-story home, patient found sitting upright in a recliner in the living room, unable to lie flat",
+    "time": "3:15 AM, weekday",
+    "safety": "No hazards to crew noted",
+    "bystanders": "Husband present, called 911 after her breathing worsened overnight",
+    "visualCues": [
+      "Patient tripod-sitting in recliner, using accessory muscles",
+      "Pink, frothy sputum at corners of mouth",
+      "Bilateral pedal and ankle edema",
+      "Home oxygen concentrator and nebulizer present but unused tonight",
+      "Diaphoretic, pale, visibly anxious"
+    ]
+  },
+  "phases": [
+    {
+      "id": "initial",
+      "name": "Initial Contact",
+      "description": "Crew arrives to find an 81-year-old female in severe respiratory distress, tripod-sitting, with audible rales and pink frothy sputum. She is hypertensive and tachycardic, consistent with acute decompensated heart failure.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent, speaking in 2-3 word sentences",
+        "breathing": "Labored, accessory muscle use, bilateral rales to mid-lung fields",
+        "circulation": "Radial pulses present, bounding, skin pale and diaphoretic",
+        "skin": { "color": "pale", "temperature": "cool", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Strength intact in all extremities",
+        "otherFindings": [
+          "Bilateral pedal edema",
+          "Jugular venous distention noted",
+          "Productive cough with pink frothy sputum",
+          "Unable to tolerate supine positioning"
+        ],
+        "patientSpeech": "\"Can't... breathe... help me.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 122,
+        "bpSys": 212,
+        "bpDia": 104,
+        "respRate": 34,
+        "spo2": 84,
+        "etco2": 0,
+        "temp": 36.8,
+        "tempF": 98.2,
+        "obstruction": 0,
+        "glucose": 118,
+        "customMeasures": [],
+        "trendTimeSeconds": 0,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [],
+      "transitions": [
+        {
+          "targetPhaseId": "cpap-nitro",
+          "if": "CPAP and high-dose nitro started",
+          "condition": "Crew applies CPAP for severe respiratory distress with hypoxia and administers nitroglycerin 0.8 mg SL per the SBP ≥160 mmHg / MAP >120 dosing tier.",
+          "conditionType": "action_taken"
+        }
+      ]
+    },
+    {
+      "id": "cpap-nitro",
+      "name": "CPAP and high-dose nitro started",
+      "description": "CPAP is applied and coached, and high-dose nitroglycerin is given for the severely hypertensive presentation. Initial response is favorable — oxygenation and work of breathing improve.",
+      "triggerCondition": "After CPAP is applied and the patient is coached through the mask seal, nitroglycerin 0.8 mg SL is given per the SBP ≥160 mmHg / MAP >120 tier, repeatable every 5 minutes if SBP remains above 100 mmHg.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent, tolerating CPAP mask",
+        "breathing": "Improved, less accessory muscle use, rales persist but decreasing",
+        "circulation": "Radial pulses present, skin still diaphoretic but color improving",
+        "skin": { "color": "pale", "temperature": "cool", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Strength intact in all extremities",
+        "otherFindings": [
+          "CPAP mask seal maintained",
+          "Sputum production decreasing",
+          "Patient able to speak short sentences between breaths"
+        ],
+        "patientSpeech": "\"That's... a little easier.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 108,
+        "bpSys": 186,
+        "bpDia": 98,
+        "respRate": 26,
+        "spo2": 93,
+        "etco2": 0,
+        "temp": 36.8,
+        "tempF": 98.2,
+        "obstruction": 0,
+        "glucose": 118,
+        "customMeasures": [],
+        "trendTimeSeconds": 30,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a1-cpap",
+          "shortAction": "Apply CPAP for severe respiratory distress with hypoxia; coach patient through mask seal",
+          "protocolExcerpt": "Non-invasive ventilation (NIV) should be considered early for severe respiratory distress or impending respiratory failure The key to successful use of NIV in a patient who has not used it before is coaching and explanation of the process and reassurance of the patient",
+          "priority": "critical",
+          "rationale": "Early NIV restores oxygenation and reduces work of breathing in cardiogenic pulmonary edema.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        },
+        {
+          "id": "a2-nitro",
+          "shortAction": "Nitroglycerin 0.8 mg SL for SBP ≥160/MAP >120; may repeat every 5 min if SBP remains >100 mmHg",
+          "protocolExcerpt": "SBP >= 160 mmHg or MAP greater than 120: Nitroglycerin 0.8 mg SL, can repeat every 5 minutes for SBP greater than 100 mmHg",
+          "priority": "critical",
+          "rationale": "High-dose nitrates reduce preload and afterload, improving pulmonary edema in severely hypertensive CHF.",
+          "protocolReference": "MATC: Respiratory Distress (includes Bronchospasm, Pulmonary Edema)"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "nitro-hypotension",
+          "if": "SBP reassessed before repeat nitro",
+          "condition": "Crew rechecks blood pressure before the next scheduled nitroglycerin dose, as required by the repeat-dosing threshold, and finds the patient has become hypotensive.",
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a2-nitro"]
+        },
+        {
+          "targetPhaseId": "nitro-no-recheck",
+          "if": "Nitro repeated without BP recheck",
+          "condition": "Crew repeats the nitroglycerin dose on the 5-minute timer without first rechecking blood pressure, missing the SBP >100 mmHg requirement for repeat dosing.",
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["a2-nitro"]
+        }
+      ]
+    },
+    {
+      "id": "nitro-hypotension",
+      "name": "SBP reassessed before repeat nitro",
+      "description": "Reassessment before the scheduled repeat nitroglycerin dose reveals the patient has become hypotensive — a known risk in this volume-depleted, diuretic-treated elderly patient. Further nitroglycerin is appropriately withheld.",
+      "triggerCondition": "Blood pressure reassessment ahead of the next nitroglycerin dose shows SBP has fallen to 92 mmHg, below the SBP >100 mmHg threshold required to repeat dosing, in a patient who is volume-depleted from chronic diuretic therapy and a missed furosemide dose.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Verbal",
+        "gcs": { "eye": 3, "verbal": 4, "motor": 6 },
+        "airway": "Patent, tolerating CPAP mask",
+        "breathing": "Improved on CPAP, RR decreasing",
+        "circulation": "Radial pulses weaker, skin pale and diaphoretic",
+        "skin": { "color": "pale", "temperature": "cool", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Strength intact, slightly slower to respond",
+        "otherFindings": [
+          "SBP now below the repeat-dosing threshold",
+          "Patient reports feeling lightheaded",
+          "No further nitroglycerin given"
+        ],
+        "patientSpeech": "\"I feel... dizzy now.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 128,
+        "bpSys": 92,
+        "bpDia": 58,
+        "respRate": 24,
+        "spo2": 95,
+        "etco2": 0,
+        "temp": 36.8,
+        "tempF": 98.2,
+        "obstruction": 0,
+        "glucose": 118,
+        "customMeasures": [],
+        "trendTimeSeconds": 30,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a3-hold-nitro",
+          "shortAction": "Hold further nitroglycerin; SBP 92 mmHg is below the >100 mmHg threshold required to repeat",
+          "protocolExcerpt": "Nitroglycerin 0.8 mg SL, can repeat every 5 minutes for SBP greater than 100 mmHg",
+          "priority": "critical",
+          "rationale": "Repeating nitroglycerin below the SBP threshold would worsen hypotension in a preload-dependent, volume-depleted patient.",
+          "protocolReference": "MATC: Respiratory Distress (includes Bronchospasm, Pulmonary Edema)"
+        },
+        {
+          "id": "a4-fluid-bolus",
+          "shortAction": "IV fluid bolus 250-500 mL for SBP <100 mmHg",
+          "protocolExcerpt": "SBP less than 100 mmHg: IV fluid bolus 250–500 mL",
+          "priority": "critical",
+          "rationale": "The protocol directs a fluid bolus for hypotensive pulmonary edema patients regardless of underlying cause, since preload augmentation is needed once nitrate-driven venodilation causes hypotension.",
+          "protocolReference": "MATC: Respiratory Distress (includes Bronchospasm, Pulmonary Edema)"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "stabilized",
+          "if": "Fluid bolus given for hypotension",
+          "condition": "A 250-500 mL IV fluid bolus is administered per the SBP <100 mmHg guidance, and perfusion improves while CPAP is maintained.",
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a4-fluid-bolus"]
+        },
+        {
+          "targetPhaseId": "bolus-withheld",
+          "if": "Fluid bolus withheld",
+          "condition": "The crew recognizes the hypotension but does not administer the indicated fluid bolus, allowing perfusion to continue deteriorating.",
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["a4-fluid-bolus"]
+        }
+      ]
+    },
+    {
+      "id": "stabilized",
+      "name": "Fluid bolus given for hypotension",
+      "description": "Following the fluid bolus, blood pressure recovers while CPAP and oxygenation are maintained. Patient is packaged for transport with continuous reassessment.",
+      "triggerCondition": "After the 250-500 mL fluid bolus, SBP recovers above 100 mmHg with the CPAP seal maintained throughout and oxygenation continuing to improve.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 5 },
+        "airway": "Patent, tolerating CPAP mask",
+        "breathing": "Much improved, minimal accessory muscle use",
+        "circulation": "Radial pulses strong, skin warming, diaphoresis resolving",
+        "skin": { "color": "pink", "temperature": "warm", "moisture": "dry" },
+        "pupils": "PERRL",
+        "motorFunction": "Strength intact in all extremities",
+        "otherFindings": [
+          "CPAP seal maintained continuously since application",
+          "Sputum production minimal",
+          "Patient conversant, no further lightheadedness"
+        ],
+        "patientSpeech": "\"I can breathe so much better now, thank you.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 104,
+        "bpSys": 118,
+        "bpDia": 72,
+        "respRate": 20,
+        "spo2": 97,
+        "etco2": 0,
+        "temp": 36.9,
+        "tempF": 98.4,
+        "obstruction": 0,
+        "glucose": 118,
+        "customMeasures": [],
+        "trendTimeSeconds": 40,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a5-maintain-seal",
+          "shortAction": "Maintain continuous CPAP mask seal through transport; do not break seal until ED handoff",
+          "protocolExcerpt": "DO NOT discontinue CPAP/BiPAP until patient is on the emergency department stretcher and hospital CPAP/BiPAP is immediately available for patient to be switched over, or physician is at bedside and requesting CPAP/BiPAP be discontinued. Breaking the mask seal causes a significant decrease in airway pressures and may lead to abrupt decompensation due to atelectasis and alveolar collapse.",
+          "priority": "critical",
+          "rationale": "Breaking the CPAP seal, even briefly, risks abrupt decompensation from atelectasis.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        },
+        {
+          "id": "a6-serial-vitals",
+          "shortAction": "Reassess full vital signs and mental status serially en route",
+          "protocolExcerpt": "Full set of vital signs (pulse, blood pressure, respiratory rate, neurologic status assessment), temperature, and O2 saturation",
+          "priority": "important",
+          "rationale": "Serial reassessment catches recurrent hypotension or re-accumulating pulmonary edema before it becomes critical.",
+          "protocolReference": "MATC: Respiratory Distress (includes Bronchospasm, Pulmonary Edema)"
+        }
+      ],
+      "transitions": []
+    },
+    {
+      "id": "nitro-no-recheck",
+      "name": "Nitro repeated without BP recheck",
+      "description": "The crew repeats the nitroglycerin dose purely on the 5-minute timer without rechecking blood pressure first. Hypotension develops unrecognized and progresses further than it should have.",
+      "triggerCondition": "Nitroglycerin is redosed at the 5-minute mark without a blood pressure recheck, missing the SBP >100 mmHg requirement for repeat dosing; the patient becomes progressively more hypotensive before the crew notices.",
+      "isDefault": false,
+      "clinicalPresentation": {
+        "avpu": "Pain",
+        "gcs": { "eye": 3, "verbal": 3, "motor": 5 },
+        "airway": "Patent, tolerating CPAP mask",
+        "breathing": "Shallow, tachypneic",
+        "circulation": "Radial pulses weak and thready, skin pale and diaphoretic",
+        "skin": { "color": "pale", "temperature": "cool", "moisture": "diaphoretic" },
+        "pupils": "PERRL, sluggish",
+        "motorFunction": "Responds to painful stimuli only",
+        "otherFindings": [
+          "Hypotension unrecognized until mental status declined",
+          "No fluid bolus or nitro hold in place"
+        ],
+        "patientSpeech": "Minimal verbal response, moaning"
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 136,
+        "bpSys": 74,
+        "bpDia": 46,
+        "respRate": 26,
+        "spo2": 91,
+        "etco2": 0,
+        "temp": 36.7,
+        "tempF": 98.1,
+        "obstruction": 0,
+        "glucose": 118,
+        "customMeasures": [],
+        "trendTimeSeconds": 20,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a7-rescue-pressor",
+          "shortAction": "Norepinephrine 1.2 mcg/min IV (62 kg × 0.02 mcg/kg/min), titrate to SBP >90 mmHg",
+          "protocolExcerpt": "Consider vasopressor: Norepinephrine 0.02–2 mcg/kg/min",
+          "priority": "critical",
+          "rationale": "Unrecognized, worsening nitro-induced hypotension now requires pressor support after fluid alone is unlikely to be sufficient given the delay.",
+          "protocolReference": "MATC: Respiratory Distress (includes Bronchospasm, Pulmonary Edema)"
+        }
+      ],
+      "transitions": []
+    },
+    {
+      "id": "bolus-withheld",
+      "name": "Fluid bolus withheld",
+      "description": "The crew recognizes the hypotension but does not give the indicated fluid bolus. Perfusion continues to deteriorate.",
+      "triggerCondition": "Hypotension is identified but the indicated 250-500 mL fluid bolus is not administered, allowing perfusion to worsen further.",
+      "isDefault": false,
+      "clinicalPresentation": {
+        "avpu": "Verbal",
+        "gcs": { "eye": 3, "verbal": 4, "motor": 5 },
+        "airway": "Patent, tolerating CPAP mask",
+        "breathing": "Improved on CPAP but patient increasingly lethargic",
+        "circulation": "Radial pulses weak, skin pale and diaphoretic",
+        "skin": { "color": "pale", "temperature": "cool", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Slow to respond to voice",
+        "otherFindings": [
+          "SBP continuing to trend downward without intervention",
+          "Increasing lethargy"
+        ],
+        "patientSpeech": "\"So... tired...\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 132,
+        "bpSys": 80,
+        "bpDia": 50,
+        "respRate": 24,
+        "spo2": 94,
+        "etco2": 0,
+        "temp": 36.8,
+        "tempF": 98.2,
+        "obstruction": 0,
+        "glucose": 118,
+        "customMeasures": [],
+        "trendTimeSeconds": 30,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a8-delayed-bolus",
+          "shortAction": "IV fluid bolus 250-500 mL now indicated for worsening SBP <100 mmHg",
+          "protocolExcerpt": "SBP less than 100 mmHg: IV fluid bolus 250–500 mL",
+          "priority": "critical",
+          "rationale": "Delayed correction of nitrate-induced hypotension allows preventable hypoperfusion to worsen.",
+          "protocolReference": "MATC: Respiratory Distress (includes Bronchospasm, Pulmonary Edema)"
+        }
+      ],
+      "transitions": []
+    }
+  ],
+  "realiti": {
+    "scenarioMonitorType": 2,
+    "scenarioDefaultEnergy": 200,
+    "scenarioDefaultPacerThreshold": 55
+  }
+}

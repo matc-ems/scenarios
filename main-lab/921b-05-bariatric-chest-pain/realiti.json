@@ -1,0 +1,247 @@
+{
+  "scenarioId": "921b-05-bariatric-chest-pain",
+  "scenarioName": "Bariatric Patient — Chest Pain with Assessment/Extrication Challenges",
+  "scenarioType": "Vital Signs",
+  "scenarioVersion": 2,
+  "scenarioTime": 1080,
+  "scenarioMonitorType": 2,
+  "scenarioDefaultEnergy": 200,
+  "scenarioDefaultPacerThreshold": 55,
+  "isDemo": false,
+  "isALSILegacy": false,
+  "scenarioStory": {
+    "history": "Patient reports substernal chest pressure that started about 40 minutes ago while resting on the couch, radiating to the left arm, associated with diaphoresis and nausea. He was unable to stand on his own after the pain started and has remained on the couch since. Wife called 911.",
+    "discussion": "",
+    "course": "Initial Contact: Crew arrives to find a 650 lb male seated on his couch, diaphoretic and in visible distress with substernal chest pressure radiating to the left arm. His size limits standard equipment and will require additional resources to safely assess, treat, and extricate. → 12-lead and ASA obtained despite challenges: Crew obtains a diagnostic-quality 12-lead EKG using a modified electrode arrangement around the pannus, applies a properly sized cuff for accurate blood pressure, establishes IV access, administers supplemental oxygen and aspirin, and requests a bariatric stretcher and additional personnel for extrication. → PDE5 screen done, nitro given: With systolic blood pressure confirmed above 100 mmHg and no recent PDE5 inhibitor use, the crew administers sublingual nitroglycerin. The patient's pain begins to improve. → Bariatric resources arrive, extrication coordinated: With the bariatric stretcher and additional personnel on scene, the crew safely extricates the patient with minimal exertion, continues serial vital sign reassessment, and transports with early notification to the receiving facility."
+  },
+  "patientInformation": {
+    "patientName": "Gerald Wick",
+    "patientCondition": "Chest pain and shortness of breath",
+    "patientAge": 54,
+    "patientAgeUnit": "years",
+    "patientAgeCategory": 0,
+    "patientSex": 1,
+    "patientHeight": 178,
+    "patientWeight": 295,
+    "patientPhotoId": 65,
+    "patientAdmitted": 1
+  },
+  "labs": [],
+  "scenarioEvents": [
+    {
+      "type": "ScenarioEvent",
+      "name": "Initial Contact",
+      "description": "Crew arrives to find a 650 lb male seated on his couch, diaphoretic and in visible distress with substernal chest pressure radiating to the left arm. His size limits standard equipment and will require additional resources to safely assess, treat, and extricate.",
+      "monitorType": 0,
+      "trendTime": 0,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 112,
+        "bpSys": 162,
+        "bpDia": 96,
+        "respRate": 22,
+        "spo2": 93,
+        "etco2": 0,
+        "temp": 37,
+        "obstruction": 0,
+        "custMeasure1": 138,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "12-lead and ASA obtained despite challenges",
+      "description": "Crew obtains a diagnostic-quality 12-lead EKG using a modified electrode arrangement around the pannus, applies a properly sized cuff for accurate blood pressure, establishes IV access, administers supplemental oxygen and aspirin, and requests a bariatric stretcher and additional personnel for extrication.",
+      "monitorType": 0,
+      "trendTime": 30,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 108,
+        "bpSys": 156,
+        "bpDia": 92,
+        "respRate": 20,
+        "spo2": 95,
+        "etco2": 0,
+        "temp": 37,
+        "obstruction": 0,
+        "custMeasure1": 138,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Obtain diagnostic-quality 12-lead EKG within 10 minutes despite body habitus",
+        "Administer aspirin 324 mg chewable, non-enteric-coated PO",
+        "Establish IV access",
+        "Administer supplemental O2 titrated to 94–98% saturation"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "PDE5 screen done, nitro given",
+      "description": "With systolic blood pressure confirmed above 100 mmHg and no recent PDE5 inhibitor use, the crew administers sublingual nitroglycerin. The patient's pain begins to improve.",
+      "monitorType": 0,
+      "trendTime": 30,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 102,
+        "bpSys": 144,
+        "bpDia": 86,
+        "respRate": 18,
+        "spo2": 96,
+        "etco2": 0,
+        "temp": 37,
+        "obstruction": 0,
+        "custMeasure1": 138,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Screen for PDE5 inhibitor use (sildenafil, vardenafil, tadalafil) before nitro",
+        "Nitroglycerin 0.4 mg SL; may repeat q3–5 min if SBP > 100 mmHg"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Bariatric resources arrive, extrication coordinated",
+      "description": "With the bariatric stretcher and additional personnel on scene, the crew safely extricates the patient with minimal exertion, continues serial vital sign reassessment, and transports with early notification to the receiving facility.",
+      "monitorType": 0,
+      "trendTime": 40,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 88,
+        "bpSys": 136,
+        "bpDia": 82,
+        "respRate": 16,
+        "spo2": 98,
+        "etco2": 0,
+        "temp": 37,
+        "obstruction": 0,
+        "custMeasure1": 138,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Transport to appropriate facility with early notification of EKG findings"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Extrication attempted without bariatric resources",
+      "description": "The crew attempts to move the patient onto the standard cot without a bariatric stretcher or additional personnel. The extended physical exertion required increases myocardial oxygen demand, worsening his chest pain and vital signs.",
+      "monitorType": 0,
+      "trendTime": 20,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 126,
+        "bpSys": 176,
+        "bpDia": 102,
+        "respRate": 26,
+        "spo2": 90,
+        "etco2": 0,
+        "temp": 37,
+        "obstruction": 0,
+        "custMeasure1": 138,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [],
+      "relatedSounds": []
+    }
+  ],
+  "checklist": [
+    {
+      "title": "Obtain diagnostic-quality 12-lead EKG within 10 minutes despite body habitus",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Administer aspirin 324 mg chewable, non-enteric-coated PO",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Establish IV access",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Administer supplemental O2 titrated to 94–98% saturation",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Screen for PDE5 inhibitor use (sildenafil, vardenafil, tadalafil) before nitro",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Nitroglycerin 0.4 mg SL; may repeat q3–5 min if SBP > 100 mmHg",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Transport to appropriate facility with early notification of EKG findings",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    }
+  ],
+  "media": []
+}

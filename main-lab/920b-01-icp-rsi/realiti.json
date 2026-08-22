@@ -1,0 +1,330 @@
+{
+  "scenarioId": "920b-01-icp-rsi",
+  "scenarioName": "Isolated Severe TBI — RSI with Neuroprotective Management",
+  "scenarioType": "Vital Signs",
+  "scenarioVersion": 2,
+  "scenarioTime": 900,
+  "scenarioMonitorType": 2,
+  "scenarioDefaultEnergy": 200,
+  "scenarioDefaultPacerThreshold": 55,
+  "isDemo": false,
+  "isALSILegacy": false,
+  "scenarioStory": {
+    "history": "Coworkers report the patient fell approximately 12 feet from scaffolding at a construction site, striking his head on a concrete pad. He was initially moving and moaning immediately after the fall but has progressively become less responsive over the several minutes since. No other injuries are apparent; he was wearing a hard hat that came off on impact.",
+    "discussion": "",
+    "course": "Initial Contact: Crew arrives to find a 35-year-old male supine on concrete, unresponsive to voice, with a small scalp laceration and no other visible trauma. Isolated severe head injury is suspected from the witnessed 12-foot fall. → Preoxygenation and C-spine maintained: Crew maintains cervical stabilization, applies high-flow oxygen, elevates the head of the bed, and prepares equipment and medications for RSI given the patient's inability to protect his airway (GCS 6). → Preoxygenated, RSI performed: With adequate preoxygenation complete, the crew performs RSI using premedication, an induction sedative, and a paralytic, dosed by the patient's weight. → Tube confirmed, EtCO2 targeted: The tube is confirmed and secured, ventilation is titrated to a normal EtCO2 target, SBP is maintained above threshold, and the patient is transported to the highest level of trauma care."
+  },
+  "patientInformation": {
+    "patientName": "Marcus Whitfield",
+    "patientCondition": "Fall with head injury, decreased level of consciousness",
+    "patientAge": 35,
+    "patientAgeUnit": "years",
+    "patientAgeCategory": 0,
+    "patientSex": 1,
+    "patientHeight": 178,
+    "patientWeight": 85,
+    "patientPhotoId": 42,
+    "patientAdmitted": 1
+  },
+  "labs": [],
+  "scenarioEvents": [
+    {
+      "type": "ScenarioEvent",
+      "name": "Initial Contact",
+      "description": "Crew arrives to find a 35-year-old male supine on concrete, unresponsive to voice, with a small scalp laceration and no other visible trauma. Isolated severe head injury is suspected from the witnessed 12-foot fall.",
+      "monitorType": 0,
+      "trendTime": 0,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 104,
+        "bpSys": 148,
+        "bpDia": 88,
+        "respRate": 22,
+        "spo2": 93,
+        "etco2": 0,
+        "temp": 36.8,
+        "obstruction": 15,
+        "custMeasure1": 98,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Preoxygenation and C-spine maintained",
+      "description": "Crew maintains cervical stabilization, applies high-flow oxygen, elevates the head of the bed, and prepares equipment and medications for RSI given the patient's inability to protect his airway (GCS 6).",
+      "monitorType": 0,
+      "trendTime": 30,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 102,
+        "bpSys": 150,
+        "bpDia": 90,
+        "respRate": 20,
+        "spo2": 97,
+        "etco2": 0,
+        "temp": 36.8,
+        "obstruction": 10,
+        "custMeasure1": 98,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "High-flow oxygen via NRB; head of board elevated 30 degrees",
+        "Maintain manual cervical stabilization throughout airway management",
+        "Check blood glucose to rule out hypoglycemia as contributing cause of AMS",
+        "Preoxygenate with high-flow O2 and positive-pressure ventilation for at least 2 minutes before RSI"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Preoxygenated, RSI performed",
+      "description": "With adequate preoxygenation complete, the crew performs RSI using premedication, an induction sedative, and a paralytic, dosed by the patient's weight.",
+      "monitorType": 0,
+      "trendTime": 30,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 102,
+        "bpSys": 146,
+        "bpDia": 86,
+        "respRate": 12,
+        "spo2": 98,
+        "etco2": 0,
+        "temp": 36.8,
+        "obstruction": 5,
+        "custMeasure1": 98,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Fentanyl 85 mcg IV premedication (85 kg × 1 mcg/kg), 2-3 min prior to intubation",
+        "Etomidate 25 mg IV push induction (85 kg × 0.3 mg/kg = 25.5 mg)",
+        "Rocuronium 85 mg IV push paralytic (85 kg × 1 mg/kg)",
+        "Administer NS/LR bolus proactively to maintain SBP ≥ 110 mmHg; do not wait for hypotension"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Tube confirmed, EtCO2 targeted",
+      "description": "The tube is confirmed and secured, ventilation is titrated to a normal EtCO2 target, SBP is maintained above threshold, and the patient is transported to the highest level of trauma care.",
+      "monitorType": 0,
+      "trendTime": 40,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 88,
+        "bpSys": 132,
+        "bpDia": 80,
+        "respRate": 12,
+        "spo2": 99,
+        "etco2": 40,
+        "temp": 36.8,
+        "obstruction": 0,
+        "custMeasure1": 98,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Confirm tube placement with waveform capnography, bilateral breath sounds, absent gastric sounds",
+        "Ventilate to EtCO2 35-45 mmHg (target 40); avoid hyperventilation",
+        "Transport to highest level of trauma care available"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "RSI without adequate pre-oxygenation",
+      "description": "The crew pushes induction and paralytic agents without completing the required preoxygenation period. SpO2 falls during the attempt, and the Cushing response becomes more pronounced as hypoxia compounds the rising intracranial pressure.",
+      "monitorType": 0,
+      "trendTime": 20,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 52,
+        "bpSys": 190,
+        "bpDia": 70,
+        "respRate": 0,
+        "spo2": 84,
+        "etco2": 0,
+        "temp": 36.8,
+        "obstruction": 20,
+        "custMeasure1": 98,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Abort attempt, resume BVM with high-flow O2 and PEEP, re-preoxygenate before re-attempting"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Herniation signs develop en route",
+      "description": "En route, the left pupil becomes fixed and dilated and the patient develops decerebrate posturing, signaling herniation. Per protocol, brief modest hyperventilation is permitted while other measures are optimized.",
+      "monitorType": 0,
+      "trendTime": 40,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 58,
+        "bpSys": 200,
+        "bpDia": 60,
+        "respRate": 12,
+        "spo2": 97,
+        "etco2": 42,
+        "temp": 36.8,
+        "obstruction": 0,
+        "custMeasure1": 98,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Recognize herniation signs: new unilateral fixed/dilated pupil and decerebrate posturing",
+        "Adjust ventilation to brief modest hyperventilation, EtCO2 target no lower than 30 mmHg"
+      ],
+      "relatedSounds": []
+    }
+  ],
+  "checklist": [
+    {
+      "title": "High-flow oxygen via NRB; head of board elevated 30 degrees",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Maintain manual cervical stabilization throughout airway management",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Check blood glucose to rule out hypoglycemia as contributing cause of AMS",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Preoxygenate with high-flow O2 and positive-pressure ventilation for at least 2 minutes before RSI",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Fentanyl 85 mcg IV premedication (85 kg × 1 mcg/kg), 2-3 min prior to intubation",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Etomidate 25 mg IV push induction (85 kg × 0.3 mg/kg = 25.5 mg)",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Rocuronium 85 mg IV push paralytic (85 kg × 1 mg/kg)",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Administer NS/LR bolus proactively to maintain SBP ≥ 110 mmHg; do not wait for hypotension",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Confirm tube placement with waveform capnography, bilateral breath sounds, absent gastric sounds",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Ventilate to EtCO2 35-45 mmHg (target 40); avoid hyperventilation",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Transport to highest level of trauma care available",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Abort attempt, resume BVM with high-flow O2 and PEEP, re-preoxygenate before re-attempting",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Recognize herniation signs: new unilateral fixed/dilated pupil and decerebrate posturing",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Adjust ventilation to brief modest hyperventilation, EtCO2 target no lower than 30 mmHg",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    }
+  ],
+  "media": []
+}

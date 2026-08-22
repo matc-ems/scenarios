@@ -1,0 +1,299 @@
+{
+  "meta": {
+    "id": "916c-04-chf-exacerbation",
+    "name": "CHF Exacerbation — Hypertensive Pulmonary Edema with Nitrate-PDE5i Interaction",
+    "version": 1,
+    "difficulty": "advanced",
+    "category": "Cardiac",
+    "protocols": ["resp-respiratory-distress", "resp-airway-management", "medical-shock"],
+    "totalTimeSeconds": 900,
+    "tags": ["ALS", "CHF", "pulmonary edema", "hypertensive emergency", "CPAP", "nitrate interaction", "916C"]
+  },
+  "patient": {
+    "name": "Eleanor Voss",
+    "age": 76,
+    "ageUnit": "years",
+    "sex": "female",
+    "weight": 68,
+    "weightLbs": 150,
+    "height": 160,
+    "chiefComplaint": "Severe shortness of breath with pink frothy sputum",
+    "history": {
+      "hpi": "Daughter reports the patient became acutely short of breath over the last hour while resting in her recliner, with pink frothy sputum and increasing anxiety. No chest pain reported, denies fever or recent illness. Patient has a history of pulmonary arterial hypertension managed with sildenafil.",
+      "pastMedical": ["Pulmonary arterial hypertension", "Hypertension", "Osteoarthritis"],
+      "medications": ["Sildenafil 20 mg PO three times daily (for pulmonary hypertension)", "Amlodipine 10 mg PO daily", "Furosemide 40 mg PO daily"],
+      "allergies": ["NKDA"],
+      "lastOralIntake": "Dinner approximately 3 hours prior to onset",
+      "events": "Daughter called 911 after finding the patient acutely dyspneic, unable to speak in full sentences"
+    }
+  },
+  "scene": {
+    "dispatch": "76-year-old female, difficulty breathing, residence",
+    "location": "Single-story home, patient found tripoding in a recliner in the living room",
+    "time": "9:15 PM, weekday",
+    "safety": "No hazards to crew noted",
+    "bystanders": "Daughter present, provides medication list and timeline",
+    "visualCues": [
+      "Patient tripoding in recliner, using accessory muscles",
+      "Pink frothy sputum at the corners of the mouth",
+      "Visible jugular venous distention",
+      "Bilateral pitting edema to the shins",
+      "Home oxygen concentrator present in the corner, not in use"
+    ]
+  },
+  "phases": [
+    {
+      "id": "initial",
+      "name": "Initial Contact",
+      "description": "Crew arrives to find a 76-year-old female in severe respiratory distress, tripoding, with pink frothy sputum, JVD, and diffuse bilateral rales. She is hypertensive and tachypneic, speaking only single words.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent, but only able to speak single words",
+        "breathing": "Severe accessory muscle use, diffuse bilateral rales to the apices, pink frothy sputum at the lips",
+        "circulation": "Radial pulses bounding, skin pale and diaphoretic",
+        "skin": { "color": "pale", "temperature": "diaphoretic", "moisture": "wet" },
+        "pupils": "PERRL",
+        "motorFunction": "Strength intact in all extremities",
+        "otherFindings": [
+          "Jugular venous distention",
+          "Bilateral 2+ pitting edema to the shins",
+          "Unable to lie flat, insists on sitting upright"
+        ],
+        "patientSpeech": "\"Can't... breathe...\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 124,
+        "bpSys": 224,
+        "bpDia": 118,
+        "respRate": 32,
+        "spo2": 84,
+        "etco2": 0,
+        "temp": 36.8,
+        "tempF": 98.2,
+        "obstruction": 0,
+        "glucose": 118,
+        "customMeasures": [],
+        "trendTimeSeconds": 0,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [],
+      "transitions": [
+        {
+          "targetPhaseId": "cpap-nitro-started",
+          "if": "CPAP applied and med list screened",
+          "condition": "Crew recognizes severe hypertensive pulmonary edema, applies CPAP with PEEP, and screens the medication list for nitrate contraindications before starting high-dose nitroglycerin.",
+          "conditionType": "action_taken"
+        }
+      ]
+    },
+    {
+      "id": "cpap-nitro-started",
+      "name": "CPAP applied and med list screened",
+      "description": "Crew applies CPAP with PEEP, obtains a full medication history including the patient's sildenafil use for pulmonary hypertension, and titrates high-dose sublingual nitroglycerin per the severe-hypertension dosing tier.",
+      "triggerCondition": "After the primary assessment confirms severe pulmonary edema with SBP 224/118, the crew initiates CPAP and specifically screens for phosphodiesterase-inhibitor or IV pulmonary-hypertension therapy use before starting high-dose sublingual nitroglycerin.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent, CPAP mask in place with good seal",
+        "breathing": "Accessory muscle use decreasing, air movement improved on CPAP",
+        "circulation": "Radial pulses bounding, skin still diaphoretic",
+        "skin": { "color": "pink", "temperature": "diaphoretic", "moisture": "wet" },
+        "pupils": "PERRL",
+        "motorFunction": "Strength intact in all extremities",
+        "otherFindings": [
+          "CPAP mask sealed, tolerating well after coaching",
+          "Daughter confirms sildenafil 20 mg three times daily for pulmonary hypertension",
+          "Sputum less frothy"
+        ],
+        "patientSpeech": "\"A little... easier now.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 116,
+        "bpSys": 208,
+        "bpDia": 108,
+        "respRate": 26,
+        "spo2": 90,
+        "etco2": 38,
+        "temp": 36.8,
+        "tempF": 98.2,
+        "obstruction": 0,
+        "glucose": 118,
+        "customMeasures": [],
+        "trendTimeSeconds": 30,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a1-cpap",
+          "shortAction": "Apply CPAP with PEEP 5 cmH2O, coach patient, titrate for air hunger and SpO2 ≥94%",
+          "protocolExcerpt": "Restoration of adequate oxygenation and ventilation should precede or be accomplished simultaneously with other medication therapies below. CPAP/BiPAP: See Airway Management Guideline for goals of care and escalation of interventions",
+          "priority": "critical",
+          "rationale": "Non-invasive ventilation is first-line for hypertensive pulmonary edema and improves oxygenation before or alongside nitrate therapy.",
+          "protocolReference": "MATC: Respiratory Distress (includes Bronchospasm, Pulmonary Edema)"
+        },
+        {
+          "id": "a2-med-screen",
+          "shortAction": "Screen medication list for PDE5 inhibitor or IV pulmonary-hypertension therapy before giving nitroglycerin",
+          "protocolExcerpt": "The use of nitrates should be avoided in any patient who has used a phosphodiesterase inhibitor within the past 48 hours. Examples are sildenafil, vardenafil and tadalafil, which are used for erectile dysfunction and pulmonary hypertension. Also avoid use in patients receiving intravenous epoprostenol or treporstenil which are used for pulmonary hypertension",
+          "priority": "critical",
+          "rationale": "Sildenafil combined with nitrates causes profound, refractory vasodilatory hypotension.",
+          "protocolReference": "MATC: Respiratory Distress (includes Bronchospasm, Pulmonary Edema)"
+        },
+        {
+          "id": "a3-nitro-highdose",
+          "shortAction": "Nitroglycerin 0.8 mg SL for SBP ≥160 mmHg; may repeat every 5 min while SBP >100",
+          "protocolExcerpt": "SBP >= 160 mmHg or MAP greater than 120: Nitroglycerin 0.8 mg SL, can repeat every 5 minutes for SBP greater than 100 mmHg. Consider IV nitroglycerin infusion titrated to blood pressure",
+          "priority": "critical",
+          "rationale": "High-dose nitrates reduce preload and afterload rapidly in hypertensive pulmonary edema once the PDE5-inhibitor screen is clear.",
+          "protocolReference": "MATC: Respiratory Distress (includes Bronchospasm, Pulmonary Edema)"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "stable-transport",
+          "if": "Med screen clear, nitro tolerated",
+          "condition": "Medication screen confirms no recent PDE5-inhibitor or IV pulmonary-hypertension therapy use; nitroglycerin and CPAP are continued with improving vitals.",
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a2-med-screen", "a3-nitro-highdose"]
+        },
+        {
+          "targetPhaseId": "nitro-crash",
+          "if": "Nitro given without med screen",
+          "condition": "Crew administers high-dose sublingual nitroglycerin without asking about PDE5-inhibitor or IV pulmonary-hypertension therapy use; the patient's home sildenafil, taken that afternoon, potentiates the nitrate's vasodilatory effect.",
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["a2-med-screen"]
+        }
+      ]
+    },
+    {
+      "id": "stable-transport",
+      "name": "Med screen clear, nitro tolerated",
+      "description": "With the medication screen clear, CPAP and titrated nitroglycerin steadily improve oxygenation and reduce blood pressure without the vasodilatory crash risked by a nitrate-PDE5i interaction. Mask seal is maintained continuously through transport.",
+      "triggerCondition": "After the med screen confirms no PDE5-inhibitor use, nitroglycerin is repeated per the SBP tier and CPAP is maintained without interruption; oxygenation and blood pressure trend toward goal.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent, CPAP seal maintained continuously",
+        "breathing": "Minimal accessory muscle use, air entry improved bilaterally",
+        "circulation": "Radial pulses strong, skin drying",
+        "skin": { "color": "pink", "temperature": "warm", "moisture": "dry" },
+        "pupils": "PERRL",
+        "motorFunction": "Strength intact in all extremities",
+        "otherFindings": [
+          "Sputum clear, no longer frothy",
+          "Speaking in short phrases",
+          "CPAP mask seal maintained without interruption"
+        ],
+        "patientSpeech": "\"Much better, thank you.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Rhythm",
+        "ecgWaveform": 9,
+        "hr": 98,
+        "bpSys": 168,
+        "bpDia": 92,
+        "respRate": 20,
+        "spo2": 96,
+        "etco2": 40,
+        "temp": 36.8,
+        "tempF": 98.2,
+        "obstruction": 0,
+        "glucose": 118,
+        "customMeasures": [],
+        "trendTimeSeconds": 45,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a4-maintain-seal",
+          "shortAction": "Maintain continuous CPAP mask seal through transport; do not break seal until ED handoff",
+          "protocolExcerpt": "Once initiated and patient is tolerating mask, DO NOT discontinue CPAP/BiPAP until patient is on the emergency department stretcher and hospital CPAP/BiPAP is immediately available for patient to be switched over, or physician is at bedside and requesting CPAP/BiPAP be discontinued. Breaking the mask seal causes a significant decrease in airway pressures and may lead to abrupt decompensation due to atelectasis and alveolar collapse.",
+          "priority": "critical",
+          "rationale": "Breaking the CPAP seal en route risks rapid decompensation back into overt pulmonary edema.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        },
+        {
+          "id": "a5-reassess",
+          "shortAction": "Continuously monitor pulse oximetry and waveform capnography to guide ongoing therapy",
+          "protocolExcerpt": "Patients with significant respiratory distress should have continuous pulse oximetry and waveform capnography monitoring for both assessment and for guiding therapy",
+          "priority": "important",
+          "rationale": "Serial monitoring confirms the nitrate/CPAP combination is working and flags early deterioration.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        }
+      ],
+      "transitions": []
+    },
+    {
+      "id": "nitro-crash",
+      "name": "Nitro given without med screen",
+      "description": "Nitroglycerin was given without screening for PDE5-inhibitor use. The patient's home sildenafil potentiates the nitrate's vasodilatory effect, producing profound, refractory hypotension superimposed on her pulmonary edema.",
+      "triggerCondition": "Crew administers repeated high-dose sublingual nitroglycerin without asking about PDE5-inhibitor or IV pulmonary-hypertension therapy use; the sildenafil-nitrate interaction produces a sudden, severe drop in blood pressure.",
+      "isDefault": false,
+      "clinicalPresentation": {
+        "avpu": "Verbal",
+        "gcs": { "eye": 3, "verbal": 4, "motor": 6 },
+        "airway": "Patent, CPAP mask still in place",
+        "breathing": "Rapid, shallow",
+        "circulation": "Radial pulses weak and thready, skin pale and cool",
+        "skin": { "color": "pale", "temperature": "cool", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Follows commands sluggishly",
+        "otherFindings": [
+          "Sudden onset of dizziness and diaphoresis after third nitroglycerin dose",
+          "Rales persist despite falling blood pressure",
+          "Daughter now recalls the sildenafil use when directly asked again"
+        ],
+        "patientSpeech": "\"I feel... so dizzy...\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 132,
+        "bpSys": 68,
+        "bpDia": 40,
+        "respRate": 28,
+        "spo2": 88,
+        "etco2": 30,
+        "temp": 36.8,
+        "tempF": 98.2,
+        "obstruction": 0,
+        "glucose": 118,
+        "customMeasures": [],
+        "trendTimeSeconds": 15,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a6-fluid-bolus",
+          "shortAction": "500 mL NS pressure-infused bolus for nitrate-induced hypotension; stop if pulmonary edema worsens",
+          "protocolExcerpt": "IV fluid volume goal attained by giving boluses that are pressure infused over less than 15 minutes each based on patient's condition and clinical impression. Fluid goal of up to 30 mL/kg of isotonic fluid by administering rapid, predetermined boluses (e.g., 500 mL) unless the MAP goal is achieved, or pulmonary edema develops",
+          "priority": "critical",
+          "rationale": "A cautious fluid bolus addresses the vasodilatory hypotension while watching closely for worsening pulmonary edema.",
+          "protocolReference": "MATC: Shock"
+        },
+        {
+          "id": "a7-norepi",
+          "shortAction": "Norepinephrine infusion 3.4 mcg/min IV (68 kg × 0.05 mcg/kg/min), titrate up to 34 mcg/min to MAP ≥65 if hypotension persists",
+          "protocolExcerpt": "Vasopressors (shock unresponsive to IV fluids) titrated to physiologic targets. Cardiogenic, hypovolemic, obstructive shock and distributive shock: Norepinephrine 0.05–0.5 mcg/kg/minute",
+          "priority": "critical",
+          "rationale": "Refractory nitrate-induced hypotension unresponsive to a cautious fluid bolus requires a vasopressor to restore perfusion.",
+          "protocolReference": "MATC: Shock"
+        }
+      ],
+      "transitions": []
+    }
+  ],
+  "realiti": {
+    "scenarioMonitorType": 2,
+    "scenarioDefaultEnergy": 200,
+    "scenarioDefaultPacerThreshold": 55
+  }
+}

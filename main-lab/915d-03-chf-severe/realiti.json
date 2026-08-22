@@ -1,0 +1,201 @@
+{
+  "scenarioId": "915d-03-chf-severe",
+  "scenarioName": "Severe CHF Exacerbation — Hypertensive Pulmonary Edema",
+  "scenarioType": "Vital Signs",
+  "scenarioVersion": 2,
+  "scenarioTime": 900,
+  "scenarioMonitorType": 2,
+  "scenarioDefaultEnergy": 200,
+  "scenarioDefaultPacerThreshold": 55,
+  "isDemo": false,
+  "isALSILegacy": false,
+  "scenarioStory": {
+    "history": "Daughter reports the patient woke up gasping for air about 20 minutes ago, much worse than her usual mild ankle swelling. She has been coughing up pink, frothy sputum. No chest pain reported.",
+    "discussion": "",
+    "course": "Initial Contact: Crew finds an 81-year-old female in severe respiratory distress with pink frothy sputum, JVD, and profound hypertension, consistent with acute hypertensive pulmonary edema. → CPAP and high-dose nitro started: Crew initiates CPAP for oxygenation while simultaneously screening for phosphodiesterase inhibitor use and administering high-dose sublingual nitroglycerin given the severely elevated blood pressure, considering an IV nitroglycerin infusion for continued titration. → CPAP seal maintained, BP improving, transport: With continued CPAP and titrated nitroglycerin, blood pressure and oxygenation trend toward goal. Crew maintains the CPAP mask seal continuously throughout transport per protocol."
+  },
+  "patientInformation": {
+    "patientName": "Eleanor Papadakis",
+    "patientCondition": "Severe shortness of breath, sudden onset",
+    "patientAge": 81,
+    "patientAgeUnit": "years",
+    "patientAgeCategory": 0,
+    "patientSex": 2,
+    "patientHeight": 158,
+    "patientWeight": 65,
+    "patientPhotoId": 98,
+    "patientAdmitted": 1
+  },
+  "labs": [],
+  "scenarioEvents": [
+    {
+      "type": "ScenarioEvent",
+      "name": "Initial Contact",
+      "description": "Crew finds an 81-year-old female in severe respiratory distress with pink frothy sputum, JVD, and profound hypertension, consistent with acute hypertensive pulmonary edema.",
+      "monitorType": 0,
+      "trendTime": 0,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 128,
+        "bpSys": 214,
+        "bpDia": 112,
+        "respRate": 34,
+        "spo2": 78,
+        "etco2": 22,
+        "temp": 36.9,
+        "obstruction": 0,
+        "custMeasure1": 116,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "CPAP and high-dose nitro started",
+      "description": "Crew initiates CPAP for oxygenation while simultaneously screening for phosphodiesterase inhibitor use and administering high-dose sublingual nitroglycerin given the severely elevated blood pressure, considering an IV nitroglycerin infusion for continued titration.",
+      "monitorType": 0,
+      "trendTime": 30,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 112,
+        "bpSys": 178,
+        "bpDia": 96,
+        "respRate": 26,
+        "spo2": 90,
+        "etco2": 30,
+        "temp": 36.9,
+        "obstruction": 0,
+        "custMeasure1": 116,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Initiate CPAP for severe pulmonary edema, before or simultaneous with medication therapy",
+        "Screen for phosphodiesterase-5 inhibitor use (sildenafil, vardenafil, tadalafil) within the past 48 hours before giving nitrates",
+        "Nitroglycerin 0.8 mg SL (SBP ≥160), may repeat every 5 minutes while SBP >100; consider IV nitro infusion"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "CPAP seal maintained, BP improving, transport",
+      "description": "With continued CPAP and titrated nitroglycerin, blood pressure and oxygenation trend toward goal. Crew maintains the CPAP mask seal continuously throughout transport per protocol.",
+      "monitorType": 0,
+      "trendTime": 40,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 92,
+        "bpSys": 148,
+        "bpDia": 84,
+        "respRate": 20,
+        "spo2": 95,
+        "etco2": 36,
+        "temp": 36.8,
+        "obstruction": 0,
+        "custMeasure1": 116,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Maintain continuous CPAP mask seal throughout transport until hospital CPAP is ready to take over"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Nitro delayed despite severe hypertension",
+      "description": "Crew initiates CPAP but delays nitroglycerin administration. Without afterload reduction, blood pressure remains severely elevated and pulmonary edema continues to worsen despite oxygen support.",
+      "monitorType": 0,
+      "trendTime": 40,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 134,
+        "bpSys": 218,
+        "bpDia": 114,
+        "respRate": 36,
+        "spo2": 82,
+        "etco2": 20,
+        "temp": 36.9,
+        "obstruction": 0,
+        "custMeasure1": 116,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Recognize CPAP alone is insufficient; screen for PDE5 use and give high-dose nitroglycerin 0.8 mg SL immediately"
+      ],
+      "relatedSounds": []
+    }
+  ],
+  "checklist": [
+    {
+      "title": "Initiate CPAP for severe pulmonary edema, before or simultaneous with medication therapy",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Screen for phosphodiesterase-5 inhibitor use (sildenafil, vardenafil, tadalafil) within the past 48 hours before giving nitrates",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Nitroglycerin 0.8 mg SL (SBP ≥160), may repeat every 5 minutes while SBP >100; consider IV nitro infusion",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Maintain continuous CPAP mask seal throughout transport until hospital CPAP is ready to take over",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Recognize CPAP alone is insufficient; screen for PDE5 use and give high-dose nitroglycerin 0.8 mg SL immediately",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    }
+  ],
+  "media": []
+}

@@ -1,0 +1,308 @@
+{
+  "meta": {
+    "id": "920a-12-traumatic-arrest",
+    "name": "Traumatic Cardiac Arrest — MVC with Witnessed Arrest",
+    "version": 1,
+    "difficulty": "advanced",
+    "category": "Trauma",
+    "protocols": ["resus-traumatic-cardiac-arrest", "trauma-general"],
+    "totalTimeSeconds": 900,
+    "tags": ["ALS", "trauma", "cardiac arrest", "MVC", "920"]
+  },
+  "patient": {
+    "name": "Dominic Ruiz",
+    "age": 28,
+    "ageUnit": "years",
+    "sex": "male",
+    "weight": 85,
+    "weightLbs": 187,
+    "height": 178,
+    "chiefComplaint": "Unresponsive, not breathing after high-speed single-vehicle MVC",
+    "history": {
+      "hpi": "28-year-old male involved in a high-speed single-vehicle collision into a fixed tree. A bystander witnessed brief spontaneous movement and vocalization immediately after impact, followed by rapid loss of responsiveness and cessation of breathing approximately 4 minutes prior to EMS arrival — meeting criteria for a witnessed traumatic cardiac arrest with recent signs of life.",
+      "pastMedical": ["Unknown — unresponsive patient, no bystander history available"],
+      "medications": ["Unknown"],
+      "allergies": ["Unknown"],
+      "lastOralIntake": "Unknown",
+      "events": "High-speed single-vehicle MVC into a fixed tree; bystander witnessed brief movement/vocalization followed by cardiac arrest approximately 4 minutes prior to EMS arrival"
+    }
+  },
+  "scene": {
+    "dispatch": "28-year-old male, motor vehicle collision, unknown status, single vehicle off roadway",
+    "location": "Rural two-lane highway, single vehicle struck a tree at high speed; patient found partially ejected onto the shoulder",
+    "time": "11:47 PM, weekday night",
+    "safety": "Vehicle stable off roadway, no active fire, fuel leak controlled by fire crew, scene lighting limited",
+    "bystanders": "A passing motorist stopped after witnessing the crash and reports the patient was moving and moaning immediately after impact but became still and stopped breathing before EMS arrival, approximately 4 minutes ago",
+    "visualCues": [
+      "Severe front-end vehicle deformation with steering wheel deformity",
+      "Patient supine on shoulder, pale, no visible chest rise",
+      "Bruising across both sides of the anterior chest wall",
+      "Pelvis appears grossly unstable on visual inspection",
+      "No major external hemorrhage visible"
+    ]
+  },
+  "phases": [
+    {
+      "id": "initial",
+      "name": "Initial Contact",
+      "description": "Crew arrives to find a 28-year-old male supine on the roadway shoulder following a high-speed MVC. He is unresponsive, apneic, and pulseless. A bystander confirms brief movement and vocalization immediately post-crash before he went still — a witnessed arrest with recent signs of life, meeting criteria for traumatic cardiac arrest management.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Unresponsive",
+        "gcs": { "eye": 1, "verbal": 1, "motor": 1 },
+        "airway": "Patent but no spontaneous respiratory effort",
+        "breathing": "Apneic, no chest rise, breath sounds not yet assessed",
+        "circulation": "No palpable central or peripheral pulses",
+        "skin": { "color": "pale", "temperature": "cool", "moisture": "dry" },
+        "pupils": "Fixed and dilated bilaterally",
+        "motorFunction": "No spontaneous movement",
+        "otherFindings": [
+          "Bilateral anterior chest wall bruising consistent with steering wheel impact",
+          "Pelvis unstable on visual inspection",
+          "No major external hemorrhage visible",
+          "Bystander confirms brief movement/vocalization immediately post-crash"
+        ],
+        "patientSpeech": "None — unresponsive"
+      },
+      "monitorState": {
+        "ecgRhythm": "Pulseless Electrical Activity (PEA)",
+        "ecgWaveform": 9,
+        "hr": 42,
+        "bpSys": 0,
+        "bpDia": 0,
+        "respRate": 0,
+        "spo2": 0,
+        "etco2": 0,
+        "temp": 36.5,
+        "tempF": 97.7,
+        "obstruction": 0,
+        "glucose": 95,
+        "customMeasures": [],
+        "trendTimeSeconds": 0,
+        "visibility": { "spo2Visible": false, "spo2Attached": false, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [],
+      "transitions": [
+        {
+          "targetPhaseId": "hemorrhage-airway-decompression",
+          "if": "Primary survey and bilateral decompression performed",
+          "condition": "Crew performs a rapid primary survey targeting reversible causes: hemorrhage control, airway management, bilateral needle chest decompression for suspected tension pneumothorax, and IV/IO access with volume resuscitation.",
+          "conditionType": "action_taken"
+        },
+        {
+          "targetPhaseId": "decompression-delayed",
+          "if": "Bilateral decompression delayed or skipped",
+          "condition": "Crew focuses on CPR and standard resuscitation without performing bilateral needle chest decompression despite absent breath sounds and chest trauma, missing the reversible cause of the arrest.",
+          "conditionType": "action_not_taken"
+        }
+      ]
+    },
+    {
+      "id": "hemorrhage-airway-decompression",
+      "name": "Primary survey and bilateral decompression performed",
+      "description": "Crew works through the traumatic arrest reversible-causes sequence: hemorrhage control, pelvic binder placement, bilateral rapid needle chest decompression, and IV/IO access with volume resuscitation. Rush of air is noted bilaterally on decompression.",
+      "triggerCondition": "After recognizing a witnessed traumatic arrest with recent signs of life, the crew proceeds directly to reversible-cause management rather than standard ACLS: hemorrhage control, pelvic binder, bilateral needle decompression, and IV/IO access with fluids.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Unresponsive",
+        "gcs": { "eye": 1, "verbal": 1, "motor": 1 },
+        "airway": "Managed with BVM, adjunct in place",
+        "breathing": "Bilateral breath sounds now audible after decompression, chest rise with BVM ventilation",
+        "circulation": "Still no palpable pulses",
+        "skin": { "color": "pale", "temperature": "cool", "moisture": "dry" },
+        "pupils": "Fixed and dilated bilaterally",
+        "motorFunction": "No spontaneous movement",
+        "otherFindings": [
+          "Bilateral needle decompression performed, rush of air noted on both sides",
+          "Pelvic binder applied for unstable pelvis",
+          "IO access established, crystalloid bolus running",
+          "No further external hemorrhage identified"
+        ],
+        "patientSpeech": "None — unresponsive"
+      },
+      "monitorState": {
+        "ecgRhythm": "Pulseless Electrical Activity (PEA)",
+        "ecgWaveform": 9,
+        "hr": 46,
+        "bpSys": 0,
+        "bpDia": 0,
+        "respRate": 0,
+        "spo2": 0,
+        "etco2": 12,
+        "temp": 36.4,
+        "tempF": 97.5,
+        "obstruction": 0,
+        "glucose": 95,
+        "customMeasures": [],
+        "trendTimeSeconds": 30,
+        "visibility": { "spo2Visible": false, "spo2Attached": false, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a1-signs-of-life",
+          "shortAction": "Assess for signs of life: pulses, respiratory effort, other signs",
+          "protocolExcerpt": "Assess for signs of life, including pulses, respiratory effort, and evaluation of other signs of life",
+          "priority": "critical",
+          "rationale": "Confirms arrest status and distinguishes traumatic arrest from a patient with pulses who instead needs General Trauma Management.",
+          "protocolReference": "MATC: Resuscitation in Traumatic Cardiac Arrest"
+        },
+        {
+          "id": "a2-hemorrhage-control",
+          "shortAction": "Control any external hemorrhage with tourniquet or hemostatic wound packing",
+          "protocolExcerpt": "Place tourniquets for wounds amenable to tourniquet placement",
+          "priority": "critical",
+          "rationale": "Massive hemorrhage is a leading reversible cause of traumatic arrest and must be addressed first.",
+          "protocolReference": "MATC: Resuscitation in Traumatic Cardiac Arrest"
+        },
+        {
+          "id": "a3-pelvic-binder",
+          "shortAction": "Apply pelvic binder for the grossly unstable pelvis",
+          "protocolExcerpt": "Place a pelvic binder on all patients with blunt or blast trauma suffering traumatic arrest",
+          "priority": "critical",
+          "rationale": "An unstable pelvis is a major internal hemorrhage source that a binder can control noninvasively.",
+          "protocolReference": "MATC: Resuscitation in Traumatic Cardiac Arrest"
+        },
+        {
+          "id": "a4-bilateral-decompression",
+          "shortAction": "Perform bilateral rapid needle chest decompression",
+          "protocolExcerpt": "Perform bilateral, rapid chest decompression",
+          "priority": "critical",
+          "rationale": "Absent breath sounds and blunt chest trauma raise concern for bilateral tension pneumothorax, a rapidly reversible cause of PEA arrest.",
+          "protocolReference": "MATC: Resuscitation in Traumatic Cardiac Arrest"
+        },
+        {
+          "id": "a5-iv-io-access",
+          "shortAction": "Establish IV or IO access",
+          "protocolExcerpt": "Establish intravenous access",
+          "priority": "critical",
+          "rationale": "Vascular access is required for volume resuscitation targeting hypovolemia as a reversible cause.",
+          "protocolReference": "MATC: Resuscitation in Traumatic Cardiac Arrest"
+        },
+        {
+          "id": "a6-volume-resuscitation",
+          "shortAction": "Initiate 500 mL crystalloid bolus, reassess and repeat as needed",
+          "protocolExcerpt": "If SBP less than 90 mmHg or HR greater than 120 BPM, initiate resuscitation: ... consider 500 mL bolus of IV fluid, repeat as needed for persistent signs and symptoms of shock",
+          "priority": "critical",
+          "rationale": "Volume resuscitation addresses hypovolemia while blood products are unavailable in the field.",
+          "protocolReference": "MATC: General Trauma Management"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "rosc-achieved",
+          "if": "Reversible causes addressed, pulses return",
+          "condition": "After hemorrhage control, pelvic binder, bilateral decompression, and IV/IO fluid resuscitation, the rhythm organizes and a palpable pulse returns.",
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a4-bilateral-decompression", "a6-volume-resuscitation"]
+        }
+      ]
+    },
+    {
+      "id": "rosc-achieved",
+      "name": "Reversible causes addressed, pulses return",
+      "description": "Following bilateral decompression and volume resuscitation, the patient regains a palpable pulse with an organized tachycardic rhythm. He remains unresponsive and ventilator-dependent but is now perfusing. Crew prepares for rapid transport.",
+      "triggerCondition": "After bilateral needle decompression relieves tension physiology and volume resuscitation restores circulating volume, spontaneous circulation returns with a palpable radial pulse and measurable blood pressure.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Unresponsive",
+        "gcs": { "eye": 1, "verbal": 1, "motor": 2 },
+        "airway": "Managed with BVM, adjunct in place",
+        "breathing": "Assisted ventilation, bilateral breath sounds equal",
+        "circulation": "Palpable radial pulse present",
+        "skin": { "color": "pale", "temperature": "cool", "moisture": "dry" },
+        "pupils": "Sluggish, no longer fixed",
+        "motorFunction": "No purposeful movement",
+        "otherFindings": [
+          "Palpable radial pulse restored",
+          "Pelvic binder and decompression sites stable",
+          "Prepared for rapid transport to trauma center"
+        ],
+        "patientSpeech": "None — unresponsive"
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 128,
+        "bpSys": 84,
+        "bpDia": 54,
+        "respRate": 12,
+        "spo2": 90,
+        "etco2": 30,
+        "temp": 36.2,
+        "tempF": 97.2,
+        "obstruction": 0,
+        "glucose": 92,
+        "customMeasures": [],
+        "trendTimeSeconds": 20,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a7-rapid-transport",
+          "shortAction": "Minimize scene time, transport rapidly to the highest-level trauma center",
+          "protocolExcerpt": "Patients with major hemorrhage, hemodynamic instability, penetrating torso trauma, or signs of traumatic brain injury often require rapid surgical intervention. Minimize scene time (goal is under 10 minutes) and initiate rapid transport to the highest level of care within the trauma system",
+          "priority": "critical",
+          "rationale": "Post-ROSC traumatic arrest patients need definitive surgical hemorrhage control that only a trauma center can provide.",
+          "protocolReference": "MATC: General Trauma Management"
+        }
+      ],
+      "transitions": []
+    },
+    {
+      "id": "decompression-delayed",
+      "name": "Bilateral decompression delayed or skipped",
+      "description": "The crew performs CPR and standard resuscitation measures but does not perform bilateral needle chest decompression despite absent breath sounds and significant chest trauma. Tension physiology continues to worsen and the rhythm deteriorates.",
+      "triggerCondition": "Crew delays or omits bilateral needle chest decompression despite absent breath sounds and blunt chest trauma; the unrelieved tension physiology prevents any return of circulation, and the rhythm deteriorates from PEA to asystole.",
+      "isDefault": false,
+      "clinicalPresentation": {
+        "avpu": "Unresponsive",
+        "gcs": { "eye": 1, "verbal": 1, "motor": 1 },
+        "airway": "Managed with BVM, adjunct in place",
+        "breathing": "No chest rise on the affected side despite BVM ventilation",
+        "circulation": "No palpable pulses despite ongoing CPR",
+        "skin": { "color": "pale", "temperature": "cool", "moisture": "dry" },
+        "pupils": "Fixed and dilated bilaterally",
+        "motorFunction": "No spontaneous movement",
+        "otherFindings": [
+          "Absent breath sounds bilaterally, unaddressed",
+          "Increasing resistance to BVM ventilation",
+          "No decompression performed"
+        ],
+        "patientSpeech": "None — unresponsive"
+      },
+      "monitorState": {
+        "ecgRhythm": "Asystole",
+        "ecgWaveform": 3,
+        "hr": 0,
+        "bpSys": 0,
+        "bpDia": 0,
+        "respRate": 0,
+        "spo2": 0,
+        "etco2": 8,
+        "temp": 36.0,
+        "tempF": 96.8,
+        "obstruction": 0,
+        "glucose": 95,
+        "customMeasures": [],
+        "trendTimeSeconds": 40,
+        "visibility": { "spo2Visible": false, "spo2Attached": false, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a8-recognize-tension-physiology",
+          "shortAction": "Recognize unrelieved tension physiology; perform bilateral needle decompression immediately",
+          "protocolExcerpt": "If absent or diminished breath sounds in a hypotensive trauma patient, especially those with chest trauma and/or tracheal deviation, consider tension pneumothorax and perform needle decompression of side without breath sounds or side opposite tracheal deviation; may need second or third needle decompression on same side if there is a rush of air but patient again has symptoms",
+          "priority": "critical",
+          "rationale": "Persistent absent breath sounds with worsening arrest physiology signals an unaddressed reversible cause that must be corrected immediately.",
+          "protocolReference": "MATC: General Trauma Management"
+        }
+      ],
+      "transitions": []
+    }
+  ],
+  "realiti": {
+    "scenarioMonitorType": 2,
+    "scenarioDefaultEnergy": 200,
+    "scenarioDefaultPacerThreshold": 55
+  }
+}

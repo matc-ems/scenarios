@@ -1,0 +1,310 @@
+{
+  "meta": {
+    "id": "916c-06-aortic-dissection",
+    "name": "Aortic Dissection — Tearing Chest Pain with Pulse Differential",
+    "version": 1,
+    "difficulty": "advanced",
+    "category": "Cardiac",
+    "protocols": ["medical-back-pain", "medical-pain-management", "medical-shock"],
+    "totalTimeSeconds": 900,
+    "tags": ["cardiac", "aortic dissection", "chest pain", "back pain", "916", "vascular emergency"]
+  },
+  "patient": {
+    "name": "Robert Aldana",
+    "age": 65,
+    "ageUnit": "years",
+    "sex": "male",
+    "weight": 85,
+    "weightLbs": 187,
+    "height": 178,
+    "chiefComplaint": "Sudden tearing chest pain radiating to the back",
+    "history": {
+      "hpi": "Patient was watching television when he developed sudden, severe 'tearing' chest pain that immediately radiated straight through to his upper back between the shoulder blades. Pain has remained constant at 10/10 since onset roughly 20 minutes ago, not positional, not reproducible with palpation. Denies exertion or trauma preceding the pain.",
+      "pastMedical": ["Hypertension, poorly controlled", "Hyperlipidemia", "Former smoker, quit 5 years ago"],
+      "medications": ["Lisinopril 20 mg PO daily (admits frequent missed doses)", "Atorvastatin 40 mg PO daily"],
+      "allergies": ["NKDA"],
+      "lastOralIntake": "Dinner approximately 2 hours prior to symptom onset",
+      "events": "Sudden onset while resting; wife called 911 immediately when he described the pain as 'ripping'"
+    }
+  },
+  "scene": {
+    "dispatch": "65-year-old male, chest pain radiating to back, conscious and breathing, residence",
+    "location": "Single-family home living room, patient found seated in a recliner, leaning forward and clutching his chest",
+    "time": "8:15 PM, weekday",
+    "safety": "No hazards to crew",
+    "bystanders": "Wife present, witnessed sudden onset, called 911 immediately",
+    "visualCues": [
+      "Patient pale, diaphoretic, visibly uncomfortable, guarding his chest",
+      "Leaning forward in the recliner, reluctant to move",
+      "Empty antihypertensive medication bottle visible on side table with several days' doses remaining unused",
+      "Wife pacing nearby, anxious"
+    ]
+  },
+  "phases": [
+    {
+      "id": "initial",
+      "name": "Initial Contact",
+      "description": "Crew arrives to find a 65-year-old male with sudden-onset severe tearing chest pain radiating to the back, pale and diaphoretic, with a markedly elevated and asymmetric blood pressure between arms.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent, speaking full sentences despite distress",
+        "breathing": "Nonlabored, symmetric chest rise, 22/min",
+        "circulation": "Right radial pulse bounding, left radial pulse notably weaker; skin pale, cool, diaphoretic",
+        "skin": { "color": "pale", "temperature": "cool", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Strength intact in all extremities",
+        "otherFindings": [
+          "10/10 tearing chest pain radiating straight through to the upper back",
+          "Blood pressure differs substantially between the right and left arms",
+          "Pain onset sudden and maximal at outset, not gradual",
+          "No chest wall tenderness to palpation"
+        ],
+        "patientSpeech": "\"It feels like something's tearing inside my chest — it went straight through to my back.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 112,
+        "bpSys": 198,
+        "bpDia": 108,
+        "respRate": 22,
+        "spo2": 96,
+        "etco2": 0,
+        "temp": 36.8,
+        "tempF": 98.2,
+        "obstruction": 0,
+        "glucose": 118,
+        "customMeasures": [
+          { "label": "Left arm BP", "value": 152 },
+          { "label": "Right arm BP", "value": 198 }
+        ],
+        "trendTimeSeconds": 0,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [],
+      "transitions": [
+        {
+          "targetPhaseId": "dissection-recognized",
+          "if": "Pulse/BP differential assessed and red flags recognized",
+          "condition": "Crew obtains bilateral blood pressures and pulses, recognizes the asymmetry along with the sudden tearing chest-to-back pain as red flags for a possible aortic emergency, and proceeds with cautious management rather than treating as routine musculoskeletal pain.",
+          "conditionType": "action_taken"
+        }
+      ]
+    },
+    {
+      "id": "dissection-recognized",
+      "name": "Pulse/BP differential assessed and red flags recognized",
+      "description": "Crew performs a full assessment including bilateral pulses and blood pressures, identifies the asymmetry and tearing chest-to-back pain as concerning for aortic dissection, provides cautious analgesia, and prepares for gentle transport to an appropriate specialty center.",
+      "triggerCondition": "After assessing bilateral pulses and blood pressures and finding a significant right-left differential in a patient with sudden tearing chest pain radiating to the back, the crew recognizes this presentation as a possible life-threatening aortic emergency rather than routine chest or back pain.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "Nonlabored, 20/min",
+        "circulation": "Persistent right-left pulse and BP asymmetry confirmed on repeat exam; skin pale, cool, diaphoretic",
+        "skin": { "color": "pale", "temperature": "cool", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Strength intact in all extremities",
+        "otherFindings": [
+          "Pain still 8/10 after initial analgesia, improved from 10/10",
+          "IV access established",
+          "No new neurologic deficits"
+        ],
+        "patientSpeech": "\"It still hurts, but a little less than before.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 106,
+        "bpSys": 190,
+        "bpDia": 104,
+        "respRate": 20,
+        "spo2": 97,
+        "etco2": 0,
+        "temp": 36.8,
+        "tempF": 98.2,
+        "obstruction": 0,
+        "glucose": 118,
+        "customMeasures": [
+          { "label": "Left arm BP", "value": 148 },
+          { "label": "Right arm BP", "value": 190 }
+        ],
+        "trendTimeSeconds": 30,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a1-pulses",
+          "shortAction": "Assess bilateral pulses and blood pressures for asymmetry; recognize as a red flag for aortic emergency",
+          "protocolExcerpt": "Aortic dissection or ruptured abdominal aortic aneurysm: Unequal femoral or distal lower extremity pulses. \"Pulsatile\" abdominal mass. Associated abdominal pain and/or chest pain. Known history of abdominal aortic aneurysm or dissection",
+          "priority": "critical",
+          "rationale": "Pulse or blood pressure asymmetry combined with tearing chest-to-back pain is a classic red flag for aortic dissection and changes destination and handling.",
+          "protocolReference": "MATC: Back Pain"
+        },
+        {
+          "id": "a2-iv",
+          "shortAction": "Obtain vascular access to allow analgesia administration",
+          "protocolExcerpt": "Obtain vascular access as necessary to provide analgesia and/or fluid resuscitation",
+          "priority": "important",
+          "rationale": "IV access is needed before administering parenteral analgesia.",
+          "protocolReference": "MATC: Back Pain"
+        },
+        {
+          "id": "a3-fentanyl",
+          "shortAction": "Fentanyl 85 mcg IV (85 kg x 1 mcg/kg = 85 mcg; max initial 100 mcg)",
+          "protocolExcerpt": "For Moderate to Severe pain, analgesics include: Fentanyl: 1 mcg/kg IN, IM, IV or IO (maximum initial dose of 100 mcg)",
+          "priority": "critical",
+          "rationale": "Adequate analgesia reduces sympathetic surge and further blood pressure elevation, which is important in a suspected dissection.",
+          "protocolReference": "MATC: Pain Management"
+        },
+        {
+          "id": "a4-position",
+          "shortAction": "Position of comfort; minimize exertion and handle gently to avoid further BP spikes",
+          "protocolExcerpt": "Non-pharmacologic pain management options include: Placement of the patient in a position of comfort. Verbal reassurance to control anxiety",
+          "priority": "important",
+          "rationale": "Gentle handling and reduced anxiety help limit further hemodynamic stress on a potentially fragile aortic wall.",
+          "protocolReference": "MATC: Pain Management"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "transport",
+          "if": "Specialty transport initiated with gentle handling",
+          "condition": "With analgesia on board and red flags recognized, the crew transports gently and with minimal scene time to an appropriate specialty destination capable of managing a suspected aortic emergency.",
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a3-fentanyl", "a4-position"]
+        },
+        {
+          "targetPhaseId": "rupture-shock",
+          "if": "Deterioration into hypotension and shock",
+          "condition": "Despite recognition and gentle handling, the patient develops sudden hypotension and tachycardia en route consistent with aortic rupture or tamponade, requiring shock management per the Shock Guideline.",
+          "conditionType": "time_elapsed"
+        }
+      ]
+    },
+    {
+      "id": "transport",
+      "name": "Specialty transport initiated with gentle handling",
+      "description": "Patient is packaged and transported gently to a facility capable of managing a suspected aortic emergency, with ongoing reassessment of pain, pulses, and vital signs throughout transport.",
+      "triggerCondition": "After analgesia and recognition of the aortic red flags, the patient is transported with minimized scene time, gentle handling, and continuous reassessment toward a specialty destination.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "Nonlabored, 18/min",
+        "circulation": "Persistent pulse/BP asymmetry, unchanged; skin remains pale and diaphoretic but no worsening",
+        "skin": { "color": "pale", "temperature": "cool", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Strength intact in all extremities",
+        "otherFindings": [
+          "Pain controlled at 5/10",
+          "No new neurologic deficits",
+          "Reassessed vitals stable, no further BP escalation"
+        ],
+        "patientSpeech": "\"That's more tolerable, thank you.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 102,
+        "bpSys": 178,
+        "bpDia": 98,
+        "respRate": 18,
+        "spo2": 98,
+        "etco2": 0,
+        "temp": 36.8,
+        "tempF": 98.2,
+        "obstruction": 0,
+        "glucose": 118,
+        "customMeasures": [
+          { "label": "Left arm BP", "value": 140 },
+          { "label": "Right arm BP", "value": 178 }
+        ],
+        "trendTimeSeconds": 40,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a5-transport",
+          "shortAction": "Transport to a specialty destination center for suspected aortic emergency; minimize scene time",
+          "protocolExcerpt": "Provide transport to an appropriate receiving facility. Consider specialty destination centers for conditions such as suspected aortic emergency",
+          "priority": "critical",
+          "rationale": "Aortic dissection requires definitive surgical or specialty vascular care not available at all receiving facilities.",
+          "protocolReference": "MATC: Back Pain"
+        },
+        {
+          "id": "a6-reassess",
+          "shortAction": "Reassess vital signs and response to analgesia throughout transport",
+          "protocolExcerpt": "Reassess vital signs and response to therapeutic interventions throughout transport",
+          "priority": "important",
+          "rationale": "Ongoing reassessment detects early deterioration such as rupture or progression of the dissection.",
+          "protocolReference": "MATC: Back Pain"
+        }
+      ],
+      "transitions": []
+    },
+    {
+      "id": "rupture-shock",
+      "name": "Deterioration into hypotension and shock",
+      "description": "The patient suddenly develops hypotension and worsening tachycardia en route, consistent with rupture or cardiac tamponade from the dissection. Crew must recognize and manage evolving shock per the Shock Guideline.",
+      "triggerCondition": "En route, the patient's blood pressure suddenly drops and heart rate rises with worsening pallor and diaphoresis, consistent with rupture or tamponade complicating the aortic dissection.",
+      "isDefault": false,
+      "clinicalPresentation": {
+        "avpu": "Verbal",
+        "gcs": { "eye": 3, "verbal": 4, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "Labored, 26/min, shallow",
+        "circulation": "Radial pulses now thready and difficult to palpate bilaterally; skin ashen, cool, diaphoretic",
+        "skin": { "color": "ashen", "temperature": "cool", "moisture": "diaphoretic" },
+        "pupils": "PERRL, sluggish",
+        "motorFunction": "Strength intact but patient increasingly lethargic",
+        "otherFindings": [
+          "Sudden drop in blood pressure with rising heart rate",
+          "Increasing diaphoresis and pallor",
+          "Patient now confused, slow to respond"
+        ],
+        "patientSpeech": "\"I feel... really dizzy now...\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 134,
+        "bpSys": 78,
+        "bpDia": 52,
+        "respRate": 26,
+        "spo2": 91,
+        "etco2": 0,
+        "temp": 36.6,
+        "tempF": 97.9,
+        "obstruction": 0,
+        "glucose": 116,
+        "customMeasures": [
+          { "label": "Left arm BP", "value": 62 },
+          { "label": "Right arm BP", "value": 78 }
+        ],
+        "trendTimeSeconds": 20,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a7-shock",
+          "shortAction": "Recognize shock and initiate treatment per the Shock Guideline; cautious fluids, prepare for rapid transport",
+          "protocolExcerpt": "Assess for signs of shock. If shock is present, provide treatment per appropriate Shock Guideline",
+          "priority": "critical",
+          "rationale": "Sudden hypotension in a dissection patient suggests rupture or tamponade and is immediately life-threatening, requiring shock management and expedited transport.",
+          "protocolReference": "MATC: Back Pain"
+        }
+      ],
+      "transitions": []
+    }
+  ],
+  "realiti": {
+    "scenarioMonitorType": 2,
+    "scenarioDefaultEnergy": 200,
+    "scenarioDefaultPacerThreshold": 55
+  }
+}

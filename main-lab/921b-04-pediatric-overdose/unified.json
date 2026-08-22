@@ -1,0 +1,422 @@
+{
+  "meta": {
+    "id": "921b-04-pediatric-overdose",
+    "name": "Pediatric Unknown Ingestion — Calcium Channel Blocker Toxicity",
+    "version": 1,
+    "difficulty": "advanced",
+    "category": "Toxicology",
+    "protocols": ["tox-poisoning-overdose-universal", "tox-calcium-channel-blocker-poisoning-overdose"],
+    "totalTimeSeconds": 900,
+    "tags": ["pediatric", "toxicology", "overdose", "calcium channel blocker", "921", "special populations"]
+  },
+  "patient": {
+    "name": "Liam Castillo",
+    "age": 3,
+    "ageUnit": "years",
+    "sex": "male",
+    "weight": 14,
+    "weightLbs": 31,
+    "height": 95,
+    "chiefComplaint": "Unknown ingestion, found with grandmother's pill bottle",
+    "history": {
+      "hpi": "Grandmother was babysitting and stepped out of the room for approximately 10-15 minutes. She returned to find her grandson sitting on the bathroom floor with her diltiazem bottle open and several loose pills scattered on the floor; she cannot say how many, if any, he actually swallowed. She called 911 immediately. Time since possible ingestion is uncertain, estimated 15-45 minutes.",
+      "pastMedical": [],
+      "medications": [],
+      "allergies": ["NKDA"],
+      "lastOralIntake": "Snack and juice approximately 1 hour prior to the incident",
+      "events": "Grandmother found child with her open diltiazem ER 240mg bottle; unknown quantity missing; called 911 immediately"
+    }
+  },
+  "scene": {
+    "dispatch": "3-year-old male, possible ingestion, conscious and breathing, residence",
+    "location": "Grandmother's home, upstairs bathroom, child found sitting on floor near an open medication bottle",
+    "time": "2:15 PM, weekday afternoon",
+    "safety": "No hazards to crew; scene calm, grandmother distraught",
+    "bystanders": "Grandmother present, called 911 immediately, brought the pill bottle to hand to EMS",
+    "visualCues": [
+      "Open bottle labeled diltiazem ER 240mg, prescribed to grandmother",
+      "Several loose pills scattered on the bathroom floor near the child",
+      "Child appears alert and playful at this time",
+      "No vomiting or oral burns visible"
+    ]
+  },
+  "phases": [
+    {
+      "id": "initial",
+      "name": "Initial Contact",
+      "description": "Crew arrives to find a 3-year-old male who appears alert and playful, sitting near his grandmother's open diltiazem bottle with several pills unaccounted for. Vital signs are currently near normal for age, but the exact quantity and timing of ingestion are unknown.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent, crying and talking",
+        "breathing": "Nonlabored, symmetric chest rise, 24/min",
+        "circulation": "Radial and pedal pulses present, skin warm and pink",
+        "skin": { "color": "pink", "temperature": "warm", "moisture": "dry" },
+        "pupils": "PERRL",
+        "motorFunction": "Moving all extremities spontaneously, age-appropriate activity",
+        "otherFindings": [
+          "No oral burns or excessive salivation noted",
+          "No vomiting at this time",
+          "Grandmother unable to confirm how many pills, if any, were swallowed",
+          "Diltiazem ER 240mg bottle brought to EMS, partially full"
+        ],
+        "patientSpeech": "\"I wanna go outside and play!\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Rhythm",
+        "ecgWaveform": 9,
+        "hr": 108,
+        "bpSys": 98,
+        "bpDia": 62,
+        "respRate": 24,
+        "spo2": 99,
+        "etco2": 0,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 0,
+        "glucose": 96,
+        "customMeasures": [],
+        "trendTimeSeconds": 0,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [],
+      "transitions": [
+        {
+          "targetPhaseId": "charcoal-iv",
+          "if": "History obtained, charcoal and IV access initiated",
+          "condition": "Crew obtains an accurate ingestion history, identifies the specific agent as a calcium channel blocker, confirms the child is protecting his airway and within the first hour of possible ingestion, and proceeds with activated charcoal and IV access while attaching monitoring.",
+          "conditionType": "action_taken"
+        }
+      ]
+    },
+    {
+      "id": "charcoal-iv",
+      "name": "History obtained, charcoal and IV access initiated",
+      "description": "Crew confirms the ingestion history and timing, identifies the medication as a calcium channel blocker (diltiazem), and since the child remains alert and within the first hour of possible ingestion, administers weight-based activated charcoal and establishes IV access while placing continuous cardiac and pulse oximetry monitoring.",
+      "triggerCondition": "After obtaining an accurate exposure history and confirming the child is alert with an intact airway and within the first hour of possible ingestion, the crew proceeds with activated charcoal, IV access, and continuous monitoring per the universal poisoning and CCB overdose guidelines.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "Nonlabored, 22/min",
+        "circulation": "Radial pulses present, skin warm and pink",
+        "skin": { "color": "pink", "temperature": "warm", "moisture": "dry" },
+        "pupils": "PERRL",
+        "motorFunction": "Moving all extremities spontaneously",
+        "otherFindings": [
+          "Activated charcoal 14 g PO given and tolerated",
+          "IV access obtained, continuous cardiac monitoring attached",
+          "Pill bottle and remaining tablets counted and brought to hospital"
+        ],
+        "patientSpeech": "\"That drink tastes yucky.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Rhythm",
+        "ecgWaveform": 9,
+        "hr": 104,
+        "bpSys": 96,
+        "bpDia": 60,
+        "respRate": 22,
+        "spo2": 99,
+        "etco2": 0,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 0,
+        "glucose": 94,
+        "customMeasures": [],
+        "trendTimeSeconds": 30,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a1-history",
+          "shortAction": "Obtain ingestion history: agent, quantity, timing; bring bottle/pills to ED",
+          "protocolExcerpt": "When indicated, identify specific medication taken (including immediate release vs sustained release), time of ingestion, dose, and quantity. When appropriate, bring all medications (prescribed and not prescribed) found in the environment",
+          "priority": "critical",
+          "rationale": "Identifying the specific agent and formulation (extended-release) directly changes risk stratification and treatment.",
+          "protocolReference": "MATC: Poisoning/Overdose Universal Care"
+        },
+        {
+          "id": "a2-charcoal",
+          "shortAction": "Activated charcoal 14 g PO (14 kg x 1 g/kg), given within first hour, airway protected",
+          "protocolExcerpt": "Consider activated charcoal without sorbitol (1 g/kg) PO only if within the first hour of ingestion, if indicated per the time of ingestion. If risk of rapid decreasing mental status, do not administer oral agent without adequately protecting the airway",
+          "priority": "important",
+          "rationale": "Reduces further GI absorption of the extended-release calcium channel blocker while the child is still protecting his own airway.",
+          "protocolReference": "MATC: Calcium Channel Blocker Poisoning/Overdose"
+        },
+        {
+          "id": "a3-monitor",
+          "shortAction": "Attach continuous cardiac monitor and pulse oximetry; establish IV access",
+          "protocolExcerpt": "Apply a cardiac monitor, examine rhythm strip for arrhythmias, and consider obtaining a 12-lead EKG. ... Monitor pulse oximetry and EtCO2 for respiratory decompensation",
+          "priority": "critical",
+          "rationale": "CCB toxicity can cause delayed-onset bradycardia and hypotension, especially with extended-release formulations.",
+          "protocolReference": "MATC: Calcium Channel Blocker Poisoning/Overdose"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "bradycardia-calcium",
+          "if": "Bradycardia and hypotension develop, calcium given",
+          "condition": "Approximately 20 minutes later, the child develops symptomatic bradycardia and hypotension consistent with delayed-onset extended-release CCB toxicity; the crew recognizes this and administers weight-based calcium gluconate.",
+          "conditionType": "time_elapsed"
+        },
+        {
+          "targetPhaseId": "charcoal-airway-not-protected",
+          "if": "Charcoal given despite declining mental status",
+          "condition": "Crew administers activated charcoal even as the child's mental status begins to decline, without first protecting the airway, risking aspiration.",
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["a2-charcoal"]
+        }
+      ]
+    },
+    {
+      "id": "bradycardia-calcium",
+      "name": "Bradycardia and hypotension develop, calcium given",
+      "description": "As predicted for a sustained-release calcium channel blocker ingestion, the child develops delayed-onset symptomatic bradycardia and hypotension. The crew recognizes this, considers atropine per protocol sequence, and administers weight-based calcium gluconate.",
+      "triggerCondition": "Approximately 20 minutes after the initial contact, the child's heart rate and blood pressure begin to fall, consistent with delayed absorption from an extended-release calcium channel blocker; the crew recognizes symptomatic bradycardia and proceeds with calcium gluconate per protocol.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "Nonlabored, 20/min",
+        "circulation": "Radial pulses weak, skin pale and cool",
+        "skin": { "color": "pale", "temperature": "cool", "moisture": "dry" },
+        "pupils": "PERRL",
+        "motorFunction": "Moving all extremities, less active than before",
+        "otherFindings": [
+          "Child now quieter and less interactive than on initial contact",
+          "Calcium gluconate 840 mg IV given over 10 minutes (14 kg x 60 mg/kg)",
+          "Atropine trialed first per protocol sequence with minimal effect"
+        ],
+        "patientSpeech": "\"I feel sleepy...\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Bradycardia",
+        "ecgWaveform": 9,
+        "hr": 58,
+        "bpSys": 78,
+        "bpDia": 48,
+        "respRate": 20,
+        "spo2": 97,
+        "etco2": 0,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 0,
+        "glucose": 110,
+        "customMeasures": [],
+        "trendTimeSeconds": 40,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a4-atropine",
+          "shortAction": "Atropine 0.28 mg IV (14 kg x 0.02 mg/kg; max 0.5 mg), q5min to total 1 mg",
+          "protocolExcerpt": "Consider atropine sulfate for symptomatic bradycardia. Pediatric: atropine 0.02 mg/kg (0.5 mg maximum) q 5 minutes, maximum total dose 1 mg",
+          "priority": "important",
+          "rationale": "First-line per the escalation sequence, though it may have little effect in CCB toxicity.",
+          "protocolReference": "MATC: Calcium Channel Blocker Poisoning/Overdose"
+        },
+        {
+          "id": "a5-calcium",
+          "shortAction": "Calcium gluconate 840 mg IV over 10 min (14 kg x 60 mg/kg)",
+          "protocolExcerpt": "Calcium gluconate. Pediatric: Calcium gluconate 60 mg/kg IVP over 10 minutes",
+          "priority": "critical",
+          "rationale": "Directly counteracts the calcium-channel blockade causing the bradycardia and hypotension.",
+          "protocolReference": "MATC: Calcium Channel Blocker Poisoning/Overdose"
+        },
+        {
+          "id": "a6-fluids",
+          "shortAction": "IV fluid bolus 280 mL NS (14 kg x 20 mL/kg) for hypoperfusion",
+          "protocolExcerpt": "Consider IV fluid bolus (normal saline or lactated Ringer's) 20 mL/kg up to 2 liters",
+          "priority": "important",
+          "rationale": "Supports perfusion while calcium and atropine take effect.",
+          "protocolReference": "MATC: Calcium Channel Blocker Poisoning/Overdose"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "improved-transport",
+          "if": "Heart rate and perfusion improve, transport",
+          "condition": "Following calcium gluconate and a fluid bolus, the child's heart rate and blood pressure trend toward normal, and he is transported with continuous monitoring for further deterioration.",
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a5-calcium", "a6-fluids"]
+        },
+        {
+          "targetPhaseId": "calcium-withheld",
+          "if": "Calcium withheld despite worsening bradycardia",
+          "condition": "Crew continues supportive care only without administering calcium gluconate despite persistent symptomatic bradycardia and hypotension, allowing progression toward refractory shock.",
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["a5-calcium"]
+        }
+      ]
+    },
+    {
+      "id": "improved-transport",
+      "name": "Heart rate and perfusion improve, transport",
+      "description": "The child's heart rate and blood pressure improve following calcium gluconate and a fluid bolus. He is packaged and transported to a pediatric-capable facility with continuous monitoring, as delayed re-deterioration remains possible with extended-release agents.",
+      "triggerCondition": "After calcium gluconate and a fluid bolus, heart rate and perfusion trend toward normal; the crew initiates transport while continuing to monitor closely for rebound toxicity.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "Nonlabored, 22/min",
+        "circulation": "Radial pulses stronger, skin warming",
+        "skin": { "color": "pink", "temperature": "warm", "moisture": "dry" },
+        "pupils": "PERRL",
+        "motorFunction": "Moving all extremities, more interactive",
+        "otherFindings": [
+          "Child more alert and interactive again",
+          "Continuous ECG and vital sign monitoring maintained en route",
+          "Grandmother accompanying in the ambulance with medication bottle for the ED"
+        ],
+        "patientSpeech": "\"Can I have my toy back?\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Rhythm",
+        "ecgWaveform": 9,
+        "hr": 92,
+        "bpSys": 92,
+        "bpDia": 58,
+        "respRate": 22,
+        "spo2": 99,
+        "etco2": 0,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 0,
+        "glucose": 104,
+        "customMeasures": [],
+        "trendTimeSeconds": 40,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a7-reassess",
+          "shortAction": "Repeat vital signs and ECG frequently en route for delayed re-deterioration",
+          "protocolExcerpt": "Repeat evaluation and documentation of signs and symptoms as patient clinical conditions may deteriorate rapidly. ... Serial frequent assessments are essential as these patients often have rapid deterioration with profound hypotension",
+          "priority": "critical",
+          "rationale": "Extended-release CCB ingestions can have delayed and prolonged toxicity requiring vigilant reassessment.",
+          "protocolReference": "MATC: Calcium Channel Blocker Poisoning/Overdose"
+        },
+        {
+          "id": "a8-poison-control",
+          "shortAction": "Contact poison control / medical control for ongoing guidance",
+          "protocolExcerpt": "The regional poison center should be engaged as early as reasonably possible to aid in appropriate therapy and to track patient outcomes to improve knowledge of toxic effects",
+          "priority": "important",
+          "rationale": "Poison control can help estimate ingested dose and anticipate the expected clinical course.",
+          "protocolReference": "MATC: Poisoning/Overdose Universal Care"
+        }
+      ],
+      "transitions": []
+    },
+    {
+      "id": "charcoal-airway-not-protected",
+      "name": "Charcoal given despite declining mental status",
+      "description": "The crew administers activated charcoal after the child's mental status has already begun to decline, without first protecting the airway. The child vomits and aspirates a portion of the charcoal, causing acute desaturation and coughing.",
+      "triggerCondition": "Crew gives activated charcoal despite the child's declining alertness and without airway protection, against the protocol's explicit caution, resulting in vomiting and aspiration.",
+      "isDefault": false,
+      "clinicalPresentation": {
+        "avpu": "Verbal",
+        "gcs": { "eye": 3, "verbal": 4, "motor": 6 },
+        "airway": "Coughing, charcoal-stained emesis in oropharynx",
+        "breathing": "Labored, coarse breath sounds, 30/min",
+        "circulation": "Radial pulses present, skin pale",
+        "skin": { "color": "pale", "temperature": "cool", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Less responsive, coughing intermittently",
+        "otherFindings": [
+          "Charcoal-stained vomitus visible in the airway",
+          "New coarse breath sounds bilaterally",
+          "SpO2 trending down"
+        ],
+        "patientSpeech": "\"*coughing*\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 132,
+        "bpSys": 94,
+        "bpDia": 60,
+        "respRate": 30,
+        "spo2": 89,
+        "etco2": 0,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 15,
+        "glucose": 98,
+        "customMeasures": [],
+        "trendTimeSeconds": 20,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a9-suction-rescue",
+          "shortAction": "Suction airway, position for airway protection, support oxygenation",
+          "protocolExcerpt": "If risk of rapid decreasing mental status, do not administer oral agent without adequately protecting the airway",
+          "priority": "critical",
+          "rationale": "Rescue airway management is needed after aspiration from an unindicated oral intervention.",
+          "protocolReference": "MATC: Calcium Channel Blocker Poisoning/Overdose"
+        }
+      ],
+      "transitions": []
+    },
+    {
+      "id": "calcium-withheld",
+      "name": "Calcium withheld despite worsening bradycardia",
+      "description": "Without calcium gluconate, the child's bradycardia and hypotension worsen progressively, moving toward refractory shock that will require glucagon and transcutaneous pacing as rescue measures.",
+      "triggerCondition": "Crew withholds calcium gluconate despite persistent symptomatic bradycardia and hypotension; perfusion continues to deteriorate.",
+      "isDefault": false,
+      "clinicalPresentation": {
+        "avpu": "Verbal",
+        "gcs": { "eye": 3, "verbal": 4, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "Nonlabored but shallow, 18/min",
+        "circulation": "Radial pulses weak and thready, skin mottled",
+        "skin": { "color": "mottled", "temperature": "cool", "moisture": "clammy" },
+        "pupils": "PERRL",
+        "motorFunction": "Lethargic, minimal spontaneous movement",
+        "otherFindings": [
+          "Perfusion continuing to worsen without calcium administration",
+          "Grandmother increasingly distressed"
+        ],
+        "patientSpeech": "(minimal verbal response)"
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Bradycardia",
+        "ecgWaveform": 9,
+        "hr": 44,
+        "bpSys": 62,
+        "bpDia": 38,
+        "respRate": 18,
+        "spo2": 94,
+        "etco2": 0,
+        "temp": 36.7,
+        "tempF": 98.1,
+        "obstruction": 0,
+        "glucose": 118,
+        "customMeasures": [],
+        "trendTimeSeconds": 40,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a10-glucagon-rescue",
+          "shortAction": "Glucagon 0.5 mg IV (patient <25 kg), calcium gluconate, consider pacing",
+          "protocolExcerpt": "If atropine, calcium, and vasopressors have failed in the symptomatic bradycardia patient, consider: Pediatric: Glucagon 0.5 mg IVP (less than 25 kg); q 5 minutes as necessary. Consider transcutaneous pacing if refractory to initial pharmacologic interventions",
+          "priority": "critical",
+          "rationale": "Rescue therapy for refractory CCB-induced bradycardia and shock after delaying first-line calcium.",
+          "protocolReference": "MATC: Calcium Channel Blocker Poisoning/Overdose"
+        }
+      ],
+      "transitions": []
+    }
+  ],
+  "realiti": {
+    "scenarioMonitorType": 2,
+    "scenarioDefaultEnergy": 200,
+    "scenarioDefaultPacerThreshold": 55
+  }
+}

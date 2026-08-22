@@ -1,0 +1,464 @@
+{
+  "meta": {
+    "id": "916b-02-inferior-stemi-rv",
+    "name": "Inferior STEMI with RV Involvement",
+    "version": 1,
+    "difficulty": "advanced",
+    "category": "Cardiac",
+    "protocols": [
+      "cv-chest-pain-acs-stemi",
+      "medical-shock",
+      "medical-pain-management"
+    ],
+    "totalTimeSeconds": 900,
+    "createdAt": "2026-08-22",
+    "tags": [
+      "STEMI",
+      "inferior MI",
+      "RV infarct",
+      "12-lead interpretation",
+      "V4R",
+      "hypotension",
+      "nitroglycerin caution",
+      "916B"
+    ]
+  },
+  "patient": {
+    "name": "Gerald Whitfield",
+    "age": 64,
+    "ageUnit": "years",
+    "sex": "male",
+    "weight": 90,
+    "weightLbs": 198,
+    "height": 178,
+    "chiefComplaint": "Chest pain and dizziness",
+    "history": {
+      "hpi": "Sudden onset of substernal chest pressure (8/10) radiating to the jaw while mowing the lawn approximately 25 minutes ago, associated with nausea, diaphoresis, and lightheadedness. Pain has not improved with rest. Denies prior episodes like this.",
+      "pastMedical": [
+        "Hypertension",
+        "Type 2 diabetes mellitus",
+        "Hyperlipidemia"
+      ],
+      "medications": [
+        "Lisinopril 20 mg daily",
+        "Metformin 1000 mg BID",
+        "Atorvastatin 40 mg daily"
+      ],
+      "allergies": [
+        "NKDA"
+      ],
+      "lastOralIntake": "Breakfast and coffee at 0700",
+      "events": "Patient was mowing the lawn when he suddenly grabbed his chest and sat down in a lawn chair, appearing pale. His wife called 911 when he became diaphoretic and lightheaded."
+    }
+  },
+  "scene": {
+    "dispatch": "Dispatch for a 64-year-old male with chest pain, conscious and breathing, private residence.",
+    "location": "Single-family home, back yard, patient seated in a lawn chair",
+    "time": "Saturday, 1030 hours",
+    "safety": "No scene hazards noted; lawn mower shut off; clear access to patient",
+    "bystanders": "Wife present on scene; states her husband suddenly grabbed his chest and looked pale and sweaty",
+    "visualCues": [
+      "Patient pale, diaphoretic, and leaning forward in a lawn chair holding his chest",
+      "Stationary lawn mower in the middle of the yard",
+      "Wife hovering nearby, visibly anxious"
+    ]
+  },
+  "phases": [
+    {
+      "id": "initial",
+      "name": "Initial Contact",
+      "description": "64-year-old male found seated, pale and diaphoretic, reporting 8/10 substernal chest pressure radiating to the jaw with associated nausea and dizziness. Radial pulses are weak. Initial vitals reveal marginal hypotension and relative bradycardia, both classic for right ventricular involvement in an inferior STEMI.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent, speaking full sentences",
+        "breathing": "Unlabored, 20/min, mild diaphoresis, lungs clear bilaterally",
+        "circulation": "Weak, thready radial pulses; delayed capillary refill (~3 sec)",
+        "skin": { "color": "pale", "temperature": "cool", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Moves all extremities equally, no deficits",
+        "otherFindings": [
+          "Jugular venous distension noted at 30 degrees",
+          "No jaw or arm numbness beyond radiating discomfort",
+          "Clear lung sounds bilaterally, no crackles or wheeze"
+        ],
+        "patientSpeech": "My chest feels like an elephant is sitting on it, and I feel really lightheaded."
+      },
+      "monitorState": {
+        "ecgRhythm": "STEMI Inferior",
+        "ecgWaveform": 24,
+        "hr": 54,
+        "bpSys": 82,
+        "bpDia": 54,
+        "respRate": 20,
+        "spo2": 95,
+        "etco2": 34,
+        "temp": 36.8,
+        "tempF": 98.2,
+        "obstruction": 0,
+        "glucose": 118,
+        "customMeasures": [],
+        "trendTimeSeconds": 0,
+        "visibility": {
+          "spo2Visible": true,
+          "spo2Attached": true,
+          "rrVisible": true,
+          "etco2Visible": true,
+          "cvpVisible": false
+        }
+      },
+      "expectedActions": [
+        {
+          "id": "initial-1",
+          "shortAction": "Apply oxygen only if hypoxemic, titrate to SpO2 94-98%",
+          "protocolExcerpt": "If the patient is dyspneic, hypoxemic, or has obvious signs of heart failure, EMS clinicians should administer oxygen as appropriate with a target of achieving 94–98% saturation",
+          "priority": "important",
+          "rationale": "SpO2 95% on room air does not meet the threshold for supplemental oxygen; over-oxygenation is not indicated.",
+          "protocolReference": "MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)"
+        },
+        {
+          "id": "initial-2",
+          "shortAction": "Acquire 12-lead EKG within 10 minutes of patient contact",
+          "protocolExcerpt": "The 12-lead EKG is the primary diagnostic tool that identifies a STEMI; it is imperative that EMS clinicians routinely acquire a 12-lead EKG within 10 minutes for all patients exhibiting signs and symptoms of ACS",
+          "priority": "critical",
+          "rationale": "Rapid 12-lead acquisition is the key diagnostic step and drives the STEMI activation timeline.",
+          "protocolReference": "MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)"
+        },
+        {
+          "id": "initial-3",
+          "shortAction": "Aspirin 324 mg PO, chewable non-enteric-coated",
+          "protocolExcerpt": "Administer aspirin; chewable, non-enteric-coated aspirin preferred (162–325 mg)",
+          "priority": "critical",
+          "rationale": "Antiplatelet therapy should be given promptly once ACS is suspected, regardless of hemodynamic status.",
+          "protocolReference": "MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)"
+        },
+        {
+          "id": "initial-4",
+          "shortAction": "Establish IV access",
+          "protocolExcerpt": "Establish IV access",
+          "priority": "critical",
+          "rationale": "IV access is needed for both fluid resuscitation and any subsequent medication administration.",
+          "protocolReference": "MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "leads-acquired",
+          "if": "12-lead and V4R acquired",
+          "condition": "Crew acquires the initial 12-lead EKG showing ST elevation in leads II, III, and aVF, and obtains a right-sided V4R lead confirming ST elevation consistent with RV infarction.",
+          "conditionType": "action_taken",
+          "triggerActionIds": ["initial-2"]
+        }
+      ]
+    },
+    {
+      "id": "leads-acquired",
+      "name": "12-Lead and V4R Acquired",
+      "description": "The 12-lead confirms an inferior STEMI (ST elevation II, III, aVF) and the right-sided V4R lead confirms RV involvement. The crew must recognize that this patient's hypotension is preload-dependent and that fluid resuscitation must precede any nitrate administration.",
+      "triggerCondition": "After the initial 12-lead shows ST elevation in II, III, and aVF, the crew places a right-sided V4R lead per inferior STEMI protocol, which also shows ST elevation, confirming right ventricular infarction. The patient remains hypotensive (SBP in the low 80s) and relatively bradycardic.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "Unlabored, 20/min, clear bilaterally",
+        "circulation": "Weak radial pulses persist; JVD still present",
+        "skin": { "color": "pale", "temperature": "cool", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Moves all extremities equally",
+        "otherFindings": [
+          "V4R lead shows ST elevation, confirming RV infarct",
+          "Patient increasingly anxious, repeatedly asking if he is having a heart attack"
+        ],
+        "patientSpeech": "Is this a heart attack? I still feel dizzy and sick to my stomach."
+      },
+      "monitorState": {
+        "ecgRhythm": "STEMI Inferior",
+        "ecgWaveform": 24,
+        "hr": 52,
+        "bpSys": 80,
+        "bpDia": 52,
+        "respRate": 20,
+        "spo2": 95,
+        "etco2": 33,
+        "temp": 36.8,
+        "tempF": 98.2,
+        "obstruction": 0,
+        "glucose": 118,
+        "customMeasures": [
+          { "label": "V4R ST Elevation", "value": 2 }
+        ],
+        "trendTimeSeconds": 25,
+        "visibility": {
+          "spo2Visible": true,
+          "spo2Attached": true,
+          "rrVisible": true,
+          "etco2Visible": true,
+          "cvpVisible": false
+        }
+      },
+      "expectedActions": [
+        {
+          "id": "leads-1",
+          "shortAction": "Recognize inferior STEMI with RV involvement; withhold nitroglycerin until fluids given",
+          "protocolExcerpt": "Care should always be taken when giving nitroglycerin when the patient's blood pressure is marginal. If used in this setting, the clinician should weigh the risk and benefit of nitrate administration over the administration of an opiate analgesic and be ready to respond to hypotension with fluid bolus or pressor",
+          "priority": "critical",
+          "rationale": "RV infarct makes stroke volume preload-dependent; nitrates drop preload and can cause profound hypotension.",
+          "protocolReference": "MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)"
+        },
+        {
+          "id": "leads-2",
+          "shortAction": "Administer 500 mL NS IV bolus, pressure-infused over <15 min (up to 30 mL/kg goal = 2,700 mL for 90 kg patient)",
+          "protocolExcerpt": "IV fluid volume goal attained by giving boluses that are pressure infused over less than 15 minutes each based on patient's condition and clinical impression. Fluid volume goal of up to 30 mL/kg of isotonic fluid by administering rapid, predetermined boluses (e.g., 500 mL) unless the MAP goal is achieved, or pulmonary edema develops",
+          "priority": "critical",
+          "rationale": "Fluid resuscitation restores RV preload and cardiac output before any preload-reducing agent is considered.",
+          "protocolReference": "MATC: Shock"
+        },
+        {
+          "id": "leads-3",
+          "shortAction": "Provide advance STEMI notification to receiving hospital",
+          "protocolExcerpt": "Advance notification should be provided to the receiving hospital for patients identified as having a STEMI",
+          "priority": "important",
+          "rationale": "Early activation shortens door-to-balloon time for the cath lab team.",
+          "protocolReference": "MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "fluid-response",
+          "if": "Fluid bolus given before nitro",
+          "condition": "Crew withholds nitroglycerin and administers the 500 mL IV fluid bolus first; blood pressure begins to improve as RV preload is restored.",
+          "conditionType": "action_taken",
+          "triggerActionIds": ["leads-2"]
+        },
+        {
+          "targetPhaseId": "nitro-crash",
+          "if": "Nitro given without fluid resuscitation",
+          "condition": "Crew administers sublingual nitroglycerin for chest pain without first correcting the RV-infarct hypotension with a fluid bolus, causing a further drop in preload and blood pressure.",
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["leads-2"]
+        }
+      ]
+    },
+    {
+      "id": "fluid-response",
+      "name": "Fluid Bolus Given",
+      "description": "Following the 500 mL fluid bolus, the patient's blood pressure and heart rate improve modestly. Chest pain persists at 6/10. Given the still-marginal blood pressure, the crew weighs opiate analgesia over nitroglycerin per protocol and continues STEMI transport.",
+      "triggerCondition": "The crew withheld nitroglycerin and administered a 500 mL normal saline bolus per the shock guideline; blood pressure and heart rate trend upward over the next 25-40 seconds as RV preload is restored.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "Unlabored, 18/min, clear bilaterally",
+        "circulation": "Radial pulses stronger; capillary refill improving (~2 sec)",
+        "skin": { "color": "pale, less mottled", "temperature": "cool", "moisture": "diaphoretic, improving" },
+        "pupils": "PERRL",
+        "motorFunction": "Moves all extremities equally",
+        "otherFindings": [
+          "Patient reports feeling less dizzy",
+          "Chest pain persists, rated 6/10"
+        ],
+        "patientSpeech": "I don't feel as dizzy now, but my chest still really hurts."
+      },
+      "monitorState": {
+        "ecgRhythm": "STEMI Inferior",
+        "ecgWaveform": 24,
+        "hr": 64,
+        "bpSys": 96,
+        "bpDia": 60,
+        "respRate": 18,
+        "spo2": 96,
+        "etco2": 35,
+        "temp": 36.8,
+        "tempF": 98.2,
+        "obstruction": 0,
+        "glucose": 118,
+        "customMeasures": [
+          { "label": "V4R ST Elevation", "value": 2 }
+        ],
+        "trendTimeSeconds": 40,
+        "visibility": {
+          "spo2Visible": true,
+          "spo2Attached": true,
+          "rrVisible": true,
+          "etco2Visible": true,
+          "cvpVisible": false
+        }
+      },
+      "expectedActions": [
+        {
+          "id": "fluid-1",
+          "shortAction": "Reassess vital signs and repeat 12-lead after fluid bolus",
+          "protocolExcerpt": "Performance of serial EKGs is encouraged for symptomatic patients with EKGs initially non-diagnostic for STEMI",
+          "priority": "important",
+          "rationale": "Serial reassessment confirms hemodynamic response to fluids and tracks ST-segment changes.",
+          "protocolReference": "MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)"
+        },
+        {
+          "id": "fluid-2",
+          "shortAction": "Morphine 9 mg IV (90 kg x 0.1 mg/kg; max initial dose 10 mg), used cautiously given borderline BP",
+          "protocolExcerpt": "Morphine sulfate: 0.1 mg/kg IM, IV or IO (maximum initial dose is 10 mg)",
+          "priority": "important",
+          "rationale": "With nitrates deferred due to hemodynamic instability, an opiate is the protocol-directed alternative for ongoing pain once BP has responded to fluids.",
+          "protocolReference": "MATC: Pain Management"
+        },
+        {
+          "id": "fluid-3",
+          "shortAction": "Continue transport to STEMI-capable facility with early notification of changes",
+          "protocolExcerpt": "Early notification to receiving facility of any changes in patient condition or serial EKGs",
+          "priority": "important",
+          "rationale": "Continued communication ensures the cath lab team is prepared for the patient's arrival.",
+          "protocolReference": "MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "transport-enroute",
+          "if": "BP stable, transport continues",
+          "condition": "Blood pressure remains stable to improving after the fluid bolus and analgesia; the crew continues transport with ongoing monitoring.",
+          "conditionType": "vital_threshold",
+          "triggerActionIds": ["fluid-1", "fluid-2"]
+        }
+      ]
+    },
+    {
+      "id": "transport-enroute",
+      "name": "Transport En Route",
+      "description": "The patient remains hemodynamically stable en route to the STEMI-capable facility. Pain is improved with morphine, blood pressure and heart rate remain adequate, and the receiving hospital has been notified for cath lab activation.",
+      "triggerCondition": "The crew continued fluid resuscitation as needed and transported without further nitrate administration; the patient's hemodynamics remain stable through transport.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "Unlabored, 16/min, clear bilaterally",
+        "circulation": "Radial pulses strong and regular",
+        "skin": { "color": "improving color", "temperature": "warm", "moisture": "drying" },
+        "pupils": "PERRL",
+        "motorFunction": "Moves all extremities equally",
+        "otherFindings": [
+          "Chest pain reduced to 3/10",
+          "Patient calmer, conversational"
+        ],
+        "patientSpeech": "That's a lot better. Thank you."
+      },
+      "monitorState": {
+        "ecgRhythm": "STEMI Inferior",
+        "ecgWaveform": 24,
+        "hr": 68,
+        "bpSys": 104,
+        "bpDia": 66,
+        "respRate": 16,
+        "spo2": 97,
+        "etco2": 36,
+        "temp": 36.8,
+        "tempF": 98.2,
+        "obstruction": 0,
+        "glucose": 116,
+        "customMeasures": [
+          { "label": "V4R ST Elevation", "value": 1 }
+        ],
+        "trendTimeSeconds": 45,
+        "visibility": {
+          "spo2Visible": true,
+          "spo2Attached": true,
+          "rrVisible": true,
+          "etco2Visible": true,
+          "cvpVisible": false
+        }
+      },
+      "expectedActions": [
+        {
+          "id": "transport-1",
+          "shortAction": "Continue serial vital sign reassessment en route, transmit final 12-lead to receiving facility",
+          "protocolExcerpt": "All EKGs should be made available to treating personnel at the receiving hospital, whether hand delivered as hard copy or transmitted from the field",
+          "priority": "important",
+          "rationale": "Ensures the receiving team has the most current diagnostic information prior to arrival.",
+          "protocolReference": "MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)"
+        }
+      ],
+      "transitions": []
+    },
+    {
+      "id": "nitro-crash",
+      "name": "Nitro Given Without Fluids",
+      "description": "Sublingual nitroglycerin was administered for chest pain before the RV-infarct hypotension was corrected with fluids. Venous return drops sharply, causing a precipitous fall in blood pressure and a compensatory rise in heart rate.",
+      "triggerCondition": "The crew administered nitroglycerin 0.4 mg SL for chest pain without first giving a fluid bolus to correct the RV-infarct hypotension; the resulting drop in preload causes a further, more severe fall in blood pressure.",
+      "isDefault": false,
+      "clinicalPresentation": {
+        "avpu": "Verbal",
+        "gcs": { "eye": 3, "verbal": 4, "motor": 5 },
+        "airway": "Patent, but patient more lethargic",
+        "breathing": "20/min, shallow",
+        "circulation": "Radial pulses barely palpable, only central pulses easily felt",
+        "skin": { "color": "ashen", "temperature": "cold", "moisture": "profusely diaphoretic" },
+        "pupils": "PERRL, sluggish",
+        "motorFunction": "Moves all extremities but sluggish",
+        "otherFindings": [
+          "Patient becoming confused, slow to answer questions",
+          "Marked worsening of pallor immediately after nitroglycerin administration"
+        ],
+        "patientSpeech": "I feel... really bad... everything's spinning..."
+      },
+      "monitorState": {
+        "ecgRhythm": "STEMI Inferior",
+        "ecgWaveform": 24,
+        "hr": 102,
+        "bpSys": 62,
+        "bpDia": 38,
+        "respRate": 20,
+        "spo2": 90,
+        "etco2": 28,
+        "temp": 36.7,
+        "tempF": 98.1,
+        "obstruction": 0,
+        "glucose": 118,
+        "customMeasures": [
+          { "label": "V4R ST Elevation", "value": 2 }
+        ],
+        "trendTimeSeconds": 15,
+        "visibility": {
+          "spo2Visible": true,
+          "spo2Attached": true,
+          "rrVisible": true,
+          "etco2Visible": true,
+          "cvpVisible": false
+        }
+      },
+      "expectedActions": [
+        {
+          "id": "crash-1",
+          "shortAction": "Recognize nitrate-induced hypotension from RV infarct; place patient supine",
+          "protocolExcerpt": "The location of the infarct does not preclude the use of nitrates. Right-sided leads are of no additional value if an inferior STEMI has been diagnosed and such findings (presumed RV infarct) do not preclude the use of nitroglycerin: however, continually monitor the patient's hemodynamic status and be prepared to resuscitate if hypotension occurs",
+          "priority": "critical",
+          "rationale": "Recognizing the RV-infarct mechanism of sudden hypotension after nitrates is essential to reversing it quickly.",
+          "protocolReference": "MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)"
+        },
+        {
+          "id": "crash-2",
+          "shortAction": "Rapid 500 mL NS IV fluid bolus, pressure-infused, repeat as needed toward 30 mL/kg (2,700 mL) goal",
+          "protocolExcerpt": "Care should always be taken when giving nitroglycerin when the patient's blood pressure is marginal. If used in this setting, the clinician should weigh the risk and benefit of nitrate administration over the administration of an opiate analgesic and be ready to respond to hypotension with fluid bolus or pressor",
+          "priority": "critical",
+          "rationale": "Aggressive fluid resuscitation is the primary treatment to reverse nitrate-induced preload collapse in RV infarct.",
+          "protocolReference": "MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)"
+        },
+        {
+          "id": "crash-3",
+          "shortAction": "Consider norepinephrine 0.05-0.5 mcg/kg/min IV if hypotension is fluid-refractory",
+          "protocolExcerpt": "Vasopressors (shock unresponsive to IV fluids) titrated to physiologic targets. Cardiogenic, hypovolemic, obstructive shock and distributive shock: Norepinephrine 0.05–0.5 mcg/kg/minute",
+          "priority": "important",
+          "rationale": "If fluids alone do not restore perfusion, a vasopressor is protocol-directed for ongoing cardiogenic shock.",
+          "protocolReference": "MATC: Shock"
+        }
+      ],
+      "transitions": []
+    }
+  ],
+  "realiti": {
+    "scenarioMonitorType": 2,
+    "scenarioDefaultEnergy": 200,
+    "scenarioDefaultPacerThreshold": 55
+  }
+}

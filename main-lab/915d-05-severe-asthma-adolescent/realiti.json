@@ -1,0 +1,201 @@
+{
+  "scenarioId": "915d-05-severe-asthma-adolescent",
+  "scenarioName": "Near-Fatal Asthma — Silent Chest with Altered Mental Status",
+  "scenarioType": "Vital Signs",
+  "scenarioVersion": 2,
+  "scenarioTime": 900,
+  "scenarioMonitorType": 2,
+  "scenarioDefaultEnergy": 200,
+  "scenarioDefaultPacerThreshold": 55,
+  "isDemo": false,
+  "isALSILegacy": false,
+  "scenarioStory": {
+    "history": "Mother reports the patient has had a worsening asthma flare over the past several hours despite using her rescue inhaler more than 10 times. She has become progressively more short of breath and is now confused and difficult to arouse. She has a history of a prior ICU admission for asthma.",
+    "discussion": "",
+    "course": "Initial Contact: Crew finds a 16-year-old female with known severe asthma who is altered, cyanotic, and has a silent chest — minimal air movement despite obvious severe distress — after excessive rescue inhaler use without relief. → IM epi and mag sulfate given: Crew recognizes the silent chest and altered mental status as signs of impending respiratory failure and escalates immediately: continuous nebulized albuterol/ipratropium, IM epinephrine as adjunctive therapy, and IV magnesium sulfate over 10-15 minutes. → Improved, intubation avoided: Air movement and mental status continue to improve with aggressive medical therapy. Crew avoids invasive airway management, consistent with the principle that intubation does not improve bronchospasm and should be reserved for true respiratory failure."
+  },
+  "patientInformation": {
+    "patientName": "Ava Sorenson",
+    "patientCondition": "Severe difficulty breathing, known asthmatic",
+    "patientAge": 16,
+    "patientAgeUnit": "years",
+    "patientAgeCategory": 1,
+    "patientSex": 2,
+    "patientHeight": 163,
+    "patientWeight": 55,
+    "patientPhotoId": 20,
+    "patientAdmitted": 1
+  },
+  "labs": [],
+  "scenarioEvents": [
+    {
+      "type": "ScenarioEvent",
+      "name": "Initial Contact",
+      "description": "Crew finds a 16-year-old female with known severe asthma who is altered, cyanotic, and has a silent chest — minimal air movement despite obvious severe distress — after excessive rescue inhaler use without relief.",
+      "monitorType": 0,
+      "trendTime": 0,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 138,
+        "bpSys": 108,
+        "bpDia": 68,
+        "respRate": 8,
+        "spo2": 76,
+        "etco2": 65,
+        "temp": 37,
+        "obstruction": 85,
+        "custMeasure1": 104,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "IM epi and mag sulfate given",
+      "description": "Crew recognizes the silent chest and altered mental status as signs of impending respiratory failure and escalates immediately: continuous nebulized albuterol/ipratropium, IM epinephrine as adjunctive therapy, and IV magnesium sulfate over 10-15 minutes.",
+      "monitorType": 0,
+      "trendTime": 30,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 126,
+        "bpSys": 112,
+        "bpDia": 70,
+        "respRate": 14,
+        "spo2": 88,
+        "etco2": 52,
+        "temp": 37,
+        "obstruction": 45,
+        "custMeasure1": 104,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Continuous albuterol 5 mg + ipratropium 0.5 mg nebulized, repeated with unlimited frequency for ongoing distress",
+        "Epinephrine 0.3 mg IM (1 mg/mL) (55 kg × 0.01 mg/kg = 0.55 mg → capped at max 0.3 mg); adjunctive for impending respiratory failure",
+        "Magnesium sulfate 2 g IV (55 kg × 40 mg/kg = 2200 mg → capped at max 2 g) over 10-15 minutes"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Improved, intubation avoided",
+      "description": "Air movement and mental status continue to improve with aggressive medical therapy. Crew avoids invasive airway management, consistent with the principle that intubation does not improve bronchospasm and should be reserved for true respiratory failure.",
+      "monitorType": 0,
+      "trendTime": 40,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 110,
+        "bpSys": 116,
+        "bpDia": 72,
+        "respRate": 18,
+        "spo2": 93,
+        "etco2": 42,
+        "temp": 37,
+        "obstruction": 25,
+        "custMeasure1": 104,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Continue non-invasive management; avoid intubation now that air movement and mental status are improving"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Escalation delayed, respiratory failure requiring RSI",
+      "description": "Crew continues standard nebulizer treatment without escalating to IM epinephrine or magnesium sulfate. The patient progresses to frank respiratory failure with loss of respiratory effort, requiring RSI.",
+      "monitorType": 0,
+      "trendTime": 40,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 52,
+        "bpSys": 88,
+        "bpDia": 54,
+        "respRate": 2,
+        "spo2": 65,
+        "etco2": 92,
+        "temp": 37,
+        "obstruction": 95,
+        "custMeasure1": 104,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Recognize true respiratory failure; perform RSI with ketamine (bronchodilator properties) for induction"
+      ],
+      "relatedSounds": []
+    }
+  ],
+  "checklist": [
+    {
+      "title": "Continuous albuterol 5 mg + ipratropium 0.5 mg nebulized, repeated with unlimited frequency for ongoing distress",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Epinephrine 0.3 mg IM (1 mg/mL) (55 kg × 0.01 mg/kg = 0.55 mg → capped at max 0.3 mg); adjunctive for impending respiratory failure",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Magnesium sulfate 2 g IV (55 kg × 40 mg/kg = 2200 mg → capped at max 2 g) over 10-15 minutes",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Continue non-invasive management; avoid intubation now that air movement and mental status are improving",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Recognize true respiratory failure; perform RSI with ketamine (bronchodilator properties) for induction",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    }
+  ],
+  "media": []
+}

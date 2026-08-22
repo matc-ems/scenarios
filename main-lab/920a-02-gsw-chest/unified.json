@@ -1,0 +1,309 @@
+{
+  "meta": {
+    "id": "920a-02-gsw-chest",
+    "name": "GSW to Chest — Tension Pneumothorax",
+    "version": 1,
+    "difficulty": "intermediate",
+    "category": "Trauma",
+    "protocols": ["trauma-general"],
+    "totalTimeSeconds": 900,
+    "tags": ["ALS", "trauma", "penetrating", "tension pneumothorax", "920"]
+  },
+  "patient": {
+    "name": "Marcus Delgado",
+    "age": 26,
+    "ageUnit": "years",
+    "sex": "male",
+    "weight": 82,
+    "weightLbs": 181,
+    "height": 178,
+    "chiefComplaint": "Gunshot wound to the left chest",
+    "history": {
+      "hpi": "Patient was standing outside a convenience store when he was shot once in the left anterior chest during an apparent robbery attempt. Bystanders called 911 immediately; police secured the scene prior to EMS entry. Patient was initially able to speak but is now increasingly short of breath and anxious.",
+      "pastMedical": [],
+      "medications": [],
+      "allergies": ["NKDA"],
+      "lastOralIntake": "Lunch approximately 3 hours prior",
+      "events": "Single gunshot wound sustained during attempted robbery; bystanders called 911, scene secured by police prior to EMS entry"
+    }
+  },
+  "scene": {
+    "dispatch": "26-year-old male, gunshot wound, conscious and breathing, outside commercial building",
+    "location": "Sidewalk outside a convenience store, scene secured by police",
+    "time": "9:47 PM, weekday night",
+    "safety": "Scene secured by law enforcement prior to EMS entry; shooter not apprehended, area remains monitored",
+    "bystanders": "Store clerk called 911, did not witness the shooting directly",
+    "visualCues": [
+      "Single gunshot wound to left anterior chest, second intercostal space midclavicular line",
+      "Minimal external bleeding at wound site",
+      "Patient sitting upright, leaning forward, visibly dyspneic",
+      "Jugular venous distention noted",
+      "Trachea deviated toward the right"
+    ]
+  },
+  "phases": [
+    {
+      "id": "initial",
+      "name": "Initial Contact",
+      "description": "Crew arrives to find a 26-year-old male sitting upright with a single gunshot wound to the left anterior chest. He is increasingly dyspneic with visible jugular venous distention and tracheal deviation.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent, speaking in short 3-4 word sentences",
+        "breathing": "Labored, asymmetric chest rise, diminished on the left",
+        "circulation": "Radial pulses weak and rapid, skin pale",
+        "skin": { "color": "pale", "temperature": "cool", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Strength intact in all four extremities",
+        "otherFindings": [
+          "Single GSW to left anterior chest, 2nd intercostal space midclavicular line",
+          "Jugular venous distention present",
+          "Trachea deviated to the right",
+          "Absent breath sounds on the left"
+        ],
+        "patientSpeech": "\"I can't... catch my breath...\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 128,
+        "bpSys": 82,
+        "bpDia": 54,
+        "respRate": 28,
+        "spo2": 90,
+        "etco2": 0,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 100,
+        "glucose": 98,
+        "customMeasures": [],
+        "trendTimeSeconds": 0,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [],
+      "transitions": [
+        {
+          "targetPhaseId": "decompression-performed",
+          "if": "Tension pneumothorax recognized, decompressed",
+          "condition": "Crew performs a MARCH primary survey, recognizes absent left breath sounds with JVD, tracheal deviation, and hypotension as tension pneumothorax, and performs immediate needle decompression of the left second intercostal space.",
+          "conditionType": "action_taken"
+        }
+      ]
+    },
+    {
+      "id": "decompression-performed",
+      "name": "Tension pneumothorax decompressed",
+      "description": "Crew recognizes the classic signs of tension pneumothorax and performs needle decompression of the left chest, with immediate improvement in breath sounds and hemodynamics.",
+      "triggerCondition": "After the primary survey identifies absent left breath sounds, JVD, tracheal deviation, and hypotension consistent with tension pneumothorax, the crew immediately performs needle decompression of the left second intercostal space at the midclavicular line.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent, speaking in full sentences",
+        "breathing": "Improved, more symmetric chest rise, breath sounds returning on the left",
+        "circulation": "Radial pulses stronger",
+        "skin": { "color": "improving, still pale", "temperature": "cool", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Strength intact in all four extremities",
+        "otherFindings": [
+          "Rush of air heard on decompression",
+          "JVD improving",
+          "Trachea returning toward midline",
+          "Semi-occlusive dressing applied to chest wound"
+        ],
+        "patientSpeech": "\"That's... better... I can breathe.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 108,
+        "bpSys": 98,
+        "bpDia": 64,
+        "respRate": 22,
+        "spo2": 95,
+        "etco2": 0,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 30,
+        "glucose": 98,
+        "customMeasures": [],
+        "trendTimeSeconds": 20,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a1-march",
+          "shortAction": "Perform MARCH primary survey; identify absent left breath sounds, JVD, and hypotension",
+          "protocolExcerpt": "If absent or diminished breath sounds in a hypotensive trauma patient, especially those with chest trauma and/or tracheal deviation, consider tension pneumothorax",
+          "priority": "critical",
+          "rationale": "Recognizing the triad of absent breath sounds, JVD, and hypotension is what drives urgent decompression.",
+          "protocolReference": "MATC: General Trauma Management"
+        },
+        {
+          "id": "a2-decompress",
+          "shortAction": "Needle decompression of left 2nd intercostal space, midclavicular line",
+          "protocolExcerpt": "perform needle decompression of side without breath sounds or side opposite tracheal deviation; may need second or third needle decompression on same side if there is a rush of air but patient again has symptoms",
+          "priority": "critical",
+          "rationale": "Immediate decompression relieves the obstructive physiology causing hypotension and hypoxia.",
+          "protocolReference": "MATC: General Trauma Management"
+        },
+        {
+          "id": "a3-occlusive-dressing",
+          "shortAction": "Apply semi-occlusive dressing over the open chest wound",
+          "protocolExcerpt": "For open chest wound, place semi-occlusive dressing",
+          "priority": "critical",
+          "rationale": "Prevents ongoing air entry through the chest wall wound while allowing trapped air to vent.",
+          "protocolReference": "MATC: General Trauma Management"
+        },
+        {
+          "id": "a4-iv-fluids",
+          "shortAction": "Establish large-bore IV access; give 500 mL crystalloid bolus for SBP <90 mmHg",
+          "protocolExcerpt": "Establish IV access if needed (large bore preferred). If SBP less than 90 mmHg or HR greater than 120 BPM, initiate resuscitation: consider 500 mL bolus of IV fluid, repeat as needed for persistent signs and symptoms of shock. Trauma resuscitation target SBP 90 mmHg",
+          "priority": "important",
+          "rationale": "Supports perfusion while the obstructive component is being addressed.",
+          "protocolReference": "MATC: General Trauma Management"
+        },
+        {
+          "id": "a5-oxygen",
+          "shortAction": "Apply supplemental oxygen to maintain SpO2 greater than 94%",
+          "protocolExcerpt": "Monitor oxygen saturation (SpO2) and, if indicated, provide supplemental oxygen to maintain SPO2 greater than 94% and respiratory support if needed",
+          "priority": "important",
+          "rationale": "Corrects hypoxia from the ventilation-perfusion mismatch caused by the pneumothorax.",
+          "protocolReference": "MATC: General Trauma Management"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "transport",
+          "if": "Rapid transport initiated",
+          "condition": "With the tension pneumothorax decompressed and hemodynamics improving, the crew packages the patient and initiates rapid transport to the trauma center with minimal scene time.",
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a2-decompress", "a4-iv-fluids"]
+        },
+        {
+          "targetPhaseId": "decompression-delayed",
+          "if": "Decompression delayed",
+          "condition": "The crew focuses on IV access and fluid administration without recognizing or acting on the signs of tension pneumothorax, delaying needle decompression.",
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["a2-decompress"]
+        }
+      ]
+    },
+    {
+      "id": "transport",
+      "name": "Rapid transport initiated",
+      "description": "With the tension physiology resolved, the patient is packaged and transported rapidly to a trauma center with continued reassessment en route.",
+      "triggerCondition": "Following successful needle decompression, occlusive dressing, and IV access with fluid resuscitation, the patient's hemodynamics and breath sounds improve; the crew packages for rapid transport to a trauma center with minimized scene time.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "Nonlabored, symmetric chest rise, breath sounds present bilaterally",
+        "circulation": "Radial pulses strong",
+        "skin": { "color": "pink", "temperature": "warm", "moisture": "dry" },
+        "pupils": "PERRL",
+        "motorFunction": "Strength intact in all four extremities",
+        "otherFindings": [
+          "Repeat exam shows resolved tension physiology",
+          "Dressing intact, no active external bleeding",
+          "En route to trauma center"
+        ],
+        "patientSpeech": "\"Thank you, I feel a lot better.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 102,
+        "bpSys": 112,
+        "bpDia": 70,
+        "respRate": 18,
+        "spo2": 98,
+        "etco2": 0,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 0,
+        "glucose": 98,
+        "customMeasures": [],
+        "trendTimeSeconds": 30,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a6-reassess",
+          "shortAction": "Reassess breath sounds, vitals, and mental status serially en route",
+          "protocolExcerpt": "Monitor patient for deterioration over time with serial vital signs (pulse, blood pressure, respiratory rate, neurologic status assessment) and repeat neurologic status assessment",
+          "priority": "critical",
+          "rationale": "Tension physiology can recur; repeat exam catches early recurrence before decompensation.",
+          "protocolReference": "MATC: General Trauma Management"
+        },
+        {
+          "id": "a7-rapid-transport",
+          "shortAction": "Transport to trauma center; minimize scene time (goal under 10 minutes) for penetrating torso trauma",
+          "protocolExcerpt": "Patients with major hemorrhage, hemodynamic instability, penetrating torso trauma, or signs of traumatic brain injury often require rapid surgical intervention. Minimize scene time (goal is under 10 minutes) and initiate rapid transport to the highest level of care within the trauma system",
+          "priority": "critical",
+          "rationale": "Penetrating torso trauma requires surgical intervention that only a trauma center can provide.",
+          "protocolReference": "MATC: General Trauma Management"
+        }
+      ],
+      "transitions": []
+    },
+    {
+      "id": "decompression-delayed",
+      "name": "Decompression delayed",
+      "description": "The crew prioritizes IV access and fluids without recognizing the tension physiology. Intrathoracic pressure continues to rise, and the patient rapidly deteriorates toward obstructive shock.",
+      "triggerCondition": "The crew focuses on IV access and fluid administration without recognizing tension physiology; needle decompression is delayed, allowing intrathoracic pressure to continue rising.",
+      "isDefault": false,
+      "clinicalPresentation": {
+        "avpu": "Verbal",
+        "gcs": { "eye": 3, "verbal": 4, "motor": 6 },
+        "airway": "Patent but increasingly labored",
+        "breathing": "Severely labored, absent breath sounds on the left, worsening tracheal deviation",
+        "circulation": "Radial pulses weak, thready, barely palpable",
+        "skin": { "color": "cyanotic", "temperature": "cool", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Diminished responsiveness",
+        "otherFindings": [
+          "JVD markedly worsened",
+          "Tracheal deviation increasing",
+          "SpO2 falling despite supplemental oxygen"
+        ],
+        "patientSpeech": "(no longer speaking, moaning only)"
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 150,
+        "bpSys": 68,
+        "bpDia": 40,
+        "respRate": 34,
+        "spo2": 78,
+        "etco2": 0,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 100,
+        "glucose": 98,
+        "customMeasures": [],
+        "trendTimeSeconds": 50,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a8-rescue-decompression",
+          "shortAction": "Recognize worsening tension physiology; perform immediate needle decompression",
+          "protocolExcerpt": "perform needle decompression of side without breath sounds or side opposite tracheal deviation; may need second or third needle decompression on same side if there is a rush of air but patient again has symptoms",
+          "priority": "critical",
+          "rationale": "Delayed recognition allows obstructive shock to worsen; decompression remains the definitive rescue action.",
+          "protocolReference": "MATC: General Trauma Management"
+        }
+      ],
+      "transitions": []
+    }
+  ],
+  "realiti": {
+    "scenarioMonitorType": 2,
+    "scenarioDefaultEnergy": 200,
+    "scenarioDefaultPacerThreshold": 55
+  }
+}

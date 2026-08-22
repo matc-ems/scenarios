@@ -1,0 +1,255 @@
+{
+  "scenarioId": "915c-02-acute-pulm-edema",
+  "scenarioName": "Acute Pulmonary Edema — Hypertensive Flash Edema",
+  "scenarioType": "Vital Signs",
+  "scenarioVersion": 2,
+  "scenarioTime": 900,
+  "scenarioMonitorType": 2,
+  "scenarioDefaultEnergy": 200,
+  "scenarioDefaultPacerThreshold": 55,
+  "isDemo": false,
+  "isALSILegacy": false,
+  "scenarioStory": {
+    "history": "Woke abruptly around 0200 with severe air hunger and a sensation of drowning. Symptoms progressed rapidly over 20-30 minutes. Wife called 911 when he began coughing up pink, frothy sputum and could no longer speak in full sentences. Denies chest pain but reports significant anxiety and a feeling of impending doom. No recent illness, no leg swelling reported prior to tonight by patient (wife notes ankles have looked puffier the past week).",
+    "discussion": "",
+    "course": "Initial Contact: Crew finds a 78-year-old male in severe respiratory distress, sitting bolt upright, unable to speak more than 2-3 words at a time, with pink frothy sputum and diffuse crackles. → CPAP and nitro started: Crew applies CPAP with coaching, screens for PDE5 inhibitor use, and administers high-dose sublingual nitroglycerin given the severely elevated blood pressure. → Mask seal maintained continuously: With continuous CPAP and repeated nitroglycerin, the patient's oxygenation, work of breathing, and blood pressure steadily improve during transport."
+  },
+  "patientInformation": {
+    "patientName": "Walter Nowicki",
+    "patientCondition": "Sudden severe shortness of breath",
+    "patientAge": 78,
+    "patientAgeUnit": "years",
+    "patientAgeCategory": 0,
+    "patientSex": 1,
+    "patientHeight": 173,
+    "patientWeight": 88,
+    "patientPhotoId": 94,
+    "patientAdmitted": 1
+  },
+  "labs": [],
+  "scenarioEvents": [
+    {
+      "type": "ScenarioEvent",
+      "name": "Initial Contact",
+      "description": "Crew finds a 78-year-old male in severe respiratory distress, sitting bolt upright, unable to speak more than 2-3 words at a time, with pink frothy sputum and diffuse crackles.",
+      "monitorType": 0,
+      "trendTime": 0,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 132,
+        "bpSys": 224,
+        "bpDia": 122,
+        "respRate": 36,
+        "spo2": 78,
+        "etco2": 28,
+        "temp": 36.9,
+        "obstruction": 0,
+        "custMeasure1": 118,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "CPAP and nitro started",
+      "description": "Crew applies CPAP with coaching, screens for PDE5 inhibitor use, and administers high-dose sublingual nitroglycerin given the severely elevated blood pressure.",
+      "monitorType": 0,
+      "trendTime": 30,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 118,
+        "bpSys": 198,
+        "bpDia": 108,
+        "respRate": 28,
+        "spo2": 88,
+        "etco2": 32,
+        "temp": 36.9,
+        "obstruction": 0,
+        "custMeasure1": 118,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Apply CPAP with coaching and reassurance; maintain continuous mask seal",
+        "Screen for PDE5 inhibitor use in past 48 hours before administering nitroglycerin",
+        "Nitroglycerin 0.8 mg SL, may repeat every 5 minutes while SBP remains greater than 100 mmHg",
+        "Place waveform capnography in line to monitor ventilatory status and response to CPAP"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Mask seal maintained continuously",
+      "description": "With continuous CPAP and repeated nitroglycerin, the patient's oxygenation, work of breathing, and blood pressure steadily improve during transport.",
+      "monitorType": 0,
+      "trendTime": 50,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 92,
+        "bpSys": 152,
+        "bpDia": 86,
+        "respRate": 20,
+        "spo2": 96,
+        "etco2": 38,
+        "temp": 36.8,
+        "obstruction": 0,
+        "custMeasure1": 118,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Maintain continuous CPAP seal through transport; do not remove until ED-ready to switch",
+        "Reassess blood pressure before and after each nitroglycerin dose"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "CPAP seal broken during transport",
+      "description": "The CPAP mask seal is broken while moving the patient down the stairwell to the ambulance. Positive airway pressure is lost, and the patient rapidly decompensates.",
+      "monitorType": 0,
+      "trendTime": 15,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 138,
+        "bpSys": 210,
+        "bpDia": 116,
+        "respRate": 40,
+        "spo2": 74,
+        "etco2": 26,
+        "temp": 36.9,
+        "obstruction": 0,
+        "custMeasure1": 118,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Reseal and reapply CPAP mask immediately; do not delay for other interventions"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "CPAP and nitro delayed",
+      "description": "The crew spends critical time on history-taking and IV attempts before addressing the airway and oxygenation crisis, allowing the patient to progress toward respiratory failure.",
+      "monitorType": 0,
+      "trendTime": 40,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 140,
+        "bpSys": 226,
+        "bpDia": 124,
+        "respRate": 42,
+        "spo2": 70,
+        "etco2": 24,
+        "temp": 36.9,
+        "obstruction": 0,
+        "custMeasure1": 118,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Immediately apply CPAP and administer high-dose nitroglycerin now that impending respiratory failure is recognized"
+      ],
+      "relatedSounds": []
+    }
+  ],
+  "checklist": [
+    {
+      "title": "Apply CPAP with coaching and reassurance; maintain continuous mask seal",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Screen for PDE5 inhibitor use in past 48 hours before administering nitroglycerin",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Nitroglycerin 0.8 mg SL, may repeat every 5 minutes while SBP remains greater than 100 mmHg",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Place waveform capnography in line to monitor ventilatory status and response to CPAP",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Maintain continuous CPAP seal through transport; do not remove until ED-ready to switch",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Reassess blood pressure before and after each nitroglycerin dose",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Reseal and reapply CPAP mask immediately; do not delay for other interventions",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Immediately apply CPAP and administer high-dose nitroglycerin now that impending respiratory failure is recognized",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    }
+  ],
+  "media": []
+}

@@ -1,0 +1,312 @@
+{
+  "scenarioId": "916b-04-wpw-afib",
+  "scenarioName": "WPW with Pre-Excited Atrial Fibrillation",
+  "scenarioType": "Vital Signs",
+  "scenarioVersion": 2,
+  "scenarioTime": 900,
+  "scenarioMonitorType": 2,
+  "scenarioDefaultEnergy": 200,
+  "scenarioDefaultPacerThreshold": 55,
+  "isDemo": false,
+  "isALSILegacy": false,
+  "scenarioStory": {
+    "history": "34-year-old male reports sudden onset of rapid, irregular palpitations approximately 25 minutes ago while at rest, associated with lightheadedness and mild left-sided chest discomfort. Denies loss of consciousness. States he has had similar brief episodes in the past that resolved on their own, but this one has not stopped. No recent illness, no drug use reported.",
+    "discussion": "",
+    "course": "Initial Contact: Patient is alert and oriented, seated upright, reporting palpitations, mild dizziness, and mild left-sided chest discomfort for the past 25 minutes. Radial pulse is rapid and irregularly irregular. Monitor shows a wide-complex, irregular tachycardia. Blood pressure is on the low end of normal but the patient is not yet showing signs of severe hypoperfusion. → Procainamide given: Crew correctly withholds AV nodal blocking agents and initiates a procainamide infusion for the stable, irregularly irregular wide-complex tachycardia (pre-excited AFib). Over several minutes the ventricular response slows and the patient's symptoms and perfusion improve. → Rate controlled, patient stabilized: Ventricular response has slowed and perfusion has normalized following procainamide. Patient remains in a pre-excited rhythm (WPW baseline pattern) but is hemodynamically stable and comfortable. Continuous monitoring is maintained for transport to a facility with cardiology capability."
+  },
+  "patientInformation": {
+    "patientName": "Derek Solano",
+    "patientCondition": "Palpitations and dizziness",
+    "patientAge": 34,
+    "patientAgeUnit": "years",
+    "patientAgeCategory": 0,
+    "patientSex": 1,
+    "patientHeight": 178,
+    "patientWeight": 86,
+    "patientPhotoId": 41,
+    "patientAdmitted": 1
+  },
+  "labs": [],
+  "scenarioEvents": [
+    {
+      "type": "ScenarioEvent",
+      "name": "Initial Contact",
+      "description": "Patient is alert and oriented, seated upright, reporting palpitations, mild dizziness, and mild left-sided chest discomfort for the past 25 minutes. Radial pulse is rapid and irregularly irregular. Monitor shows a wide-complex, irregular tachycardia. Blood pressure is on the low end of normal but the patient is not yet showing signs of severe hypoperfusion.",
+      "monitorType": 0,
+      "trendTime": 0,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 84,
+        "hr": 172,
+        "bpSys": 96,
+        "bpDia": 58,
+        "respRate": 20,
+        "spo2": 96,
+        "etco2": 34,
+        "temp": 37,
+        "obstruction": 0,
+        "custMeasure1": 98,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Manage airway as necessary; airway patent, no intervention required",
+        "Administer oxygen titrated to target SpO2 94-98% (currently 96%)",
+        "Initiate cardiac monitoring and acquire 12-lead EKG",
+        "Establish IV access",
+        "Check blood glucose (98 mg/dL, normal); rules out hypoglycemia as cause",
+        "Recognize irregularly irregular wide-complex tachycardia as pre-excited AFib (WPW); note short PR interval/delta wave on 12-lead",
+        "Do NOT give adenosine, diltiazem, verapamil, metoprolol, or digoxin — AV nodal blockers contraindicated in pre-excited AFib"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Procainamide given",
+      "description": "Crew correctly withholds AV nodal blocking agents and initiates a procainamide infusion for the stable, irregularly irregular wide-complex tachycardia (pre-excited AFib). Over several minutes the ventricular response slows and the patient's symptoms and perfusion improve.",
+      "monitorType": 0,
+      "trendTime": 45,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 84,
+        "hr": 118,
+        "bpSys": 112,
+        "bpDia": 72,
+        "respRate": 16,
+        "spo2": 98,
+        "etco2": 36,
+        "temp": 37,
+        "obstruction": 0,
+        "custMeasure1": 98,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Procainamide 20-50 mg/min IV infusion (86 kg × 17 mg/kg = 1,462 mg maximum total dose); titrate to arrhythmia suppression, hypotension, or QRS widening >50%",
+        "If arrhythmia persists and a second agent is needed, give procainamide before amiodarone (WPW-specific sequencing)",
+        "Obtain repeat monitor strip/12-lead after the procainamide infusion to document response"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Rate controlled, patient stabilized",
+      "description": "Ventricular response has slowed and perfusion has normalized following procainamide. Patient remains in a pre-excited rhythm (WPW baseline pattern) but is hemodynamically stable and comfortable. Continuous monitoring is maintained for transport to a facility with cardiology capability.",
+      "monitorType": 0,
+      "trendTime": 50,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 84,
+        "hr": 92,
+        "bpSys": 118,
+        "bpDia": 76,
+        "respRate": 14,
+        "spo2": 99,
+        "etco2": 38,
+        "temp": 37,
+        "obstruction": 0,
+        "custMeasure1": 98,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Document initial rhythm, all rhythm changes, and time/dose/response to procainamide for handoff"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "AV nodal blocker given",
+      "description": "An AV nodal blocking agent was administered to the pre-excited AFib rhythm. AV node blockade forces conduction exclusively down the accessory pathway, producing a paradoxical increase in ventricular rate. The rhythm rapidly degenerates into ventricular fibrillation and the patient becomes pulseless.",
+      "monitorType": 0,
+      "trendTime": 15,
+      "jumpTime": 0,
+      "defibShock": true,
+      "defibDisarm": false,
+      "parameters": {
+        "ecgWaveform": 18,
+        "hr": 0,
+        "bpSys": 0,
+        "bpDia": 0,
+        "respRate": 0,
+        "spo2": 0,
+        "etco2": 12,
+        "temp": 37,
+        "obstruction": 0,
+        "custMeasure1": 98,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": false,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Recognize degeneration into ventricular fibrillation; begin immediate chest compressions and prepare to defibrillate",
+        "Defibrillate at manufacturer's recommended biphasic energy (or highest setting if unknown)",
+        "Recognize AV nodal blockade of pre-excited AFib as the precipitating cause of VF"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Treatment delayed, patient decompensates",
+      "description": "Treatment was delayed and the patient has progressed to hemodynamic instability: worsening hypotension and altered mental status. This now meets criteria for the unstable irregular wide-complex tachycardia pathway and requires synchronized cardioversion.",
+      "monitorType": 0,
+      "trendTime": 40,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 84,
+        "hr": 188,
+        "bpSys": 74,
+        "bpDia": 44,
+        "respRate": 26,
+        "spo2": 90,
+        "etco2": 28,
+        "temp": 37,
+        "obstruction": 0,
+        "custMeasure1": 96,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Deliver synchronized cardioversion per manufacturer's recommended energy settings",
+        "Consider sedation and analgesia prior to cardioversion since patient remains responsive"
+      ],
+      "relatedSounds": []
+    }
+  ],
+  "checklist": [
+    {
+      "title": "Manage airway as necessary; airway patent, no intervention required",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Administer oxygen titrated to target SpO2 94-98% (currently 96%)",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Initiate cardiac monitoring and acquire 12-lead EKG",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Establish IV access",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Check blood glucose (98 mg/dL, normal); rules out hypoglycemia as cause",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Recognize irregularly irregular wide-complex tachycardia as pre-excited AFib (WPW); note short PR interval/delta wave on 12-lead",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Do NOT give adenosine, diltiazem, verapamil, metoprolol, or digoxin — AV nodal blockers contraindicated in pre-excited AFib",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Procainamide 20-50 mg/min IV infusion (86 kg × 17 mg/kg = 1,462 mg maximum total dose); titrate to arrhythmia suppression, hypotension, or QRS widening >50%",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "If arrhythmia persists and a second agent is needed, give procainamide before amiodarone (WPW-specific sequencing)",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Obtain repeat monitor strip/12-lead after the procainamide infusion to document response",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Document initial rhythm, all rhythm changes, and time/dose/response to procainamide for handoff",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Recognize degeneration into ventricular fibrillation; begin immediate chest compressions and prepare to defibrillate",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Defibrillate at manufacturer's recommended biphasic energy (or highest setting if unknown)",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Recognize AV nodal blockade of pre-excited AFib as the precipitating cause of VF",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Deliver synchronized cardioversion per manufacturer's recommended energy settings",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Consider sedation and analgesia prior to cardioversion since patient remains responsive",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    }
+  ],
+  "media": []
+}

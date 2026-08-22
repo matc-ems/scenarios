@@ -1,0 +1,222 @@
+{
+  "scenarioId": "920a-12-traumatic-arrest",
+  "scenarioName": "Traumatic Cardiac Arrest — MVC with Witnessed Arrest",
+  "scenarioType": "Vital Signs",
+  "scenarioVersion": 2,
+  "scenarioTime": 900,
+  "scenarioMonitorType": 2,
+  "scenarioDefaultEnergy": 200,
+  "scenarioDefaultPacerThreshold": 55,
+  "isDemo": false,
+  "isALSILegacy": false,
+  "scenarioStory": {
+    "history": "28-year-old male involved in a high-speed single-vehicle collision into a fixed tree. A bystander witnessed brief spontaneous movement and vocalization immediately after impact, followed by rapid loss of responsiveness and cessation of breathing approximately 4 minutes prior to EMS arrival — meeting criteria for a witnessed traumatic cardiac arrest with recent signs of life.",
+    "discussion": "",
+    "course": "Initial Contact: Crew arrives to find a 28-year-old male supine on the roadway shoulder following a high-speed MVC. He is unresponsive, apneic, and pulseless. A bystander confirms brief movement and vocalization immediately post-crash before he went still — a witnessed arrest with recent signs of life, meeting criteria for traumatic cardiac arrest management. → Primary survey and bilateral decompression performed: Crew works through the traumatic arrest reversible-causes sequence: hemorrhage control, pelvic binder placement, bilateral rapid needle chest decompression, and IV/IO access with volume resuscitation. Rush of air is noted bilaterally on decompression. → Reversible causes addressed, pulses return: Following bilateral decompression and volume resuscitation, the patient regains a palpable pulse with an organized tachycardic rhythm. He remains unresponsive and ventilator-dependent but is now perfusing. Crew prepares for rapid transport."
+  },
+  "patientInformation": {
+    "patientName": "Dominic Ruiz",
+    "patientCondition": "Unresponsive, not breathing after high-speed single-vehicle MVC",
+    "patientAge": 28,
+    "patientAgeUnit": "years",
+    "patientAgeCategory": 0,
+    "patientSex": 1,
+    "patientHeight": 178,
+    "patientWeight": 85,
+    "patientPhotoId": 34,
+    "patientAdmitted": 1
+  },
+  "labs": [],
+  "scenarioEvents": [
+    {
+      "type": "ScenarioEvent",
+      "name": "Initial Contact",
+      "description": "Crew arrives to find a 28-year-old male supine on the roadway shoulder following a high-speed MVC. He is unresponsive, apneic, and pulseless. A bystander confirms brief movement and vocalization immediately post-crash before he went still — a witnessed arrest with recent signs of life, meeting criteria for traumatic cardiac arrest management.",
+      "monitorType": 0,
+      "trendTime": 0,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 42,
+        "bpSys": 0,
+        "bpDia": 0,
+        "respRate": 0,
+        "spo2": 0,
+        "etco2": 0,
+        "temp": 36.5,
+        "obstruction": 0,
+        "custMeasure1": 95,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": false,
+        "spo2Attached": false,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Primary survey and bilateral decompression performed",
+      "description": "Crew works through the traumatic arrest reversible-causes sequence: hemorrhage control, pelvic binder placement, bilateral rapid needle chest decompression, and IV/IO access with volume resuscitation. Rush of air is noted bilaterally on decompression.",
+      "monitorType": 0,
+      "trendTime": 30,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 46,
+        "bpSys": 0,
+        "bpDia": 0,
+        "respRate": 0,
+        "spo2": 0,
+        "etco2": 12,
+        "temp": 36.4,
+        "obstruction": 0,
+        "custMeasure1": 95,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": false,
+        "spo2Attached": false,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Assess for signs of life: pulses, respiratory effort, other signs",
+        "Control any external hemorrhage with tourniquet or hemostatic wound packing",
+        "Apply pelvic binder for the grossly unstable pelvis",
+        "Perform bilateral rapid needle chest decompression",
+        "Establish IV or IO access",
+        "Initiate 500 mL crystalloid bolus, reassess and repeat as needed"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Reversible causes addressed, pulses return",
+      "description": "Following bilateral decompression and volume resuscitation, the patient regains a palpable pulse with an organized tachycardic rhythm. He remains unresponsive and ventilator-dependent but is now perfusing. Crew prepares for rapid transport.",
+      "monitorType": 0,
+      "trendTime": 20,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 128,
+        "bpSys": 84,
+        "bpDia": 54,
+        "respRate": 12,
+        "spo2": 90,
+        "etco2": 30,
+        "temp": 36.2,
+        "obstruction": 0,
+        "custMeasure1": 92,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Minimize scene time, transport rapidly to the highest-level trauma center"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Bilateral decompression delayed or skipped",
+      "description": "The crew performs CPR and standard resuscitation measures but does not perform bilateral needle chest decompression despite absent breath sounds and significant chest trauma. Tension physiology continues to worsen and the rhythm deteriorates.",
+      "monitorType": 0,
+      "trendTime": 40,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 3,
+        "hr": 0,
+        "bpSys": 0,
+        "bpDia": 0,
+        "respRate": 0,
+        "spo2": 0,
+        "etco2": 8,
+        "temp": 36,
+        "obstruction": 0,
+        "custMeasure1": 95,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": false,
+        "spo2Attached": false,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Recognize unrelieved tension physiology; perform bilateral needle decompression immediately"
+      ],
+      "relatedSounds": []
+    }
+  ],
+  "checklist": [
+    {
+      "title": "Assess for signs of life: pulses, respiratory effort, other signs",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Control any external hemorrhage with tourniquet or hemostatic wound packing",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Apply pelvic binder for the grossly unstable pelvis",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Perform bilateral rapid needle chest decompression",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Establish IV or IO access",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Initiate 500 mL crystalloid bolus, reassess and repeat as needed",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Minimize scene time, transport rapidly to the highest-level trauma center",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Recognize unrelieved tension physiology; perform bilateral needle decompression immediately",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    }
+  ],
+  "media": []
+}

@@ -1,0 +1,284 @@
+{
+  "meta": {
+    "id": "915a-02-copd-mild",
+    "name": "COPD Exacerbation — Mild, Responds to NC and DuoNeb",
+    "version": 1,
+    "difficulty": "beginner",
+    "category": "Respiratory",
+    "protocols": ["resp-respiratory-distress"],
+    "totalTimeSeconds": 720,
+    "tags": ["BLS-ALS", "COPD", "respiratory distress", "duoneb", "915"]
+  },
+  "patient": {
+    "name": "Walter Simmons",
+    "age": 67,
+    "ageUnit": "years",
+    "sex": "male",
+    "weight": 85,
+    "weightLbs": 187,
+    "height": 175,
+    "chiefComplaint": "Increasing shortness of breath over 2 days",
+    "history": {
+      "hpi": "Patient reports gradually worsening shortness of breath and productive cough with thicker, darker sputum over the past 2 days. Denies fever or chest pain. Has used his rescue inhaler more than usual with only partial relief. No recent travel, no known sick contacts. Lives alone, was able to walk to the door for EMS but stopped twice to catch his breath.",
+      "pastMedical": ["COPD", "Hypertension", "40 pack-year smoking history, quit 3 years ago"],
+      "medications": ["Tiotropium inhaler daily", "Albuterol MDI PRN", "Lisinopril 20 mg PO daily"],
+      "allergies": ["NKDA"],
+      "lastOralIntake": "Toast and coffee, 3 hours ago",
+      "events": "Called EMS after rescue inhaler use provided only partial relief and breathing continued to worsen"
+    }
+  },
+  "scene": {
+    "dispatch": "67-year-old male, difficulty breathing, residence",
+    "location": "Single-story home, patient found seated in a recliner in the living room, oxygen concentrator nearby but not in use",
+    "time": "2:15 PM, weekday",
+    "safety": "No hazards to crew; cluttered living room, adequate access for stretcher",
+    "bystanders": "Patient lives alone; neighbor let crew in and is waiting outside",
+    "visualCues": [
+      "Patient seated upright, leaning slightly forward",
+      "Pursed-lip breathing",
+      "Home oxygen concentrator present but powered off",
+      "Cigarette-stained fingertips, though patient reports quitting 3 years ago",
+      "Empty albuterol MDI canister on side table"
+    ]
+  },
+  "phases": [
+    {
+      "id": "initial",
+      "name": "Initial Contact",
+      "description": "Crew arrives to find a 67-year-old male with known COPD seated upright in a recliner, mildly tachypneic with audible expiratory wheezing and pursed-lip breathing. He is alert and able to speak in full sentences with occasional pauses.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent, speaking in full sentences with occasional pauses",
+        "breathing": "Mildly labored, prolonged expiratory phase, expiratory wheezing bilaterally",
+        "circulation": "Radial pulses present bilaterally, skin warm and dry",
+        "skin": { "color": "pink", "temperature": "warm", "moisture": "dry" },
+        "pupils": "PERRL",
+        "motorFunction": "Intact in all extremities",
+        "otherFindings": [
+          "Pursed-lip breathing",
+          "Mild use of accessory muscles",
+          "Productive cough with thick, dark sputum",
+          "Able to speak in full sentences with brief pauses"
+        ],
+        "patientSpeech": "\"I just can't seem to catch my breath the last couple days.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 104,
+        "bpSys": 142,
+        "bpDia": 84,
+        "respRate": 24,
+        "spo2": 90,
+        "etco2": 0,
+        "temp": 37.1,
+        "tempF": 98.8,
+        "obstruction": 50,
+        "glucose": 102,
+        "customMeasures": [],
+        "trendTimeSeconds": 0,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [],
+      "transitions": [
+        {
+          "targetPhaseId": "o2-duoneb-given",
+          "if": "Oxygen and DuoNeb administered",
+          "condition": "Crew places patient on nasal cannula oxygen titrated toward 94-98% (permissive hypoxia acceptable per COPD history) and administers a nebulized bronchodilator treatment.",
+          "conditionType": "action_taken"
+        }
+      ]
+    },
+    {
+      "id": "o2-duoneb-given",
+      "name": "Oxygen and DuoNeb administered",
+      "description": "Crew applies nasal cannula oxygen and begins a nebulized albuterol/ipratropium (DuoNeb) treatment. Patient tolerates the treatment well without signs of severe distress requiring NIV escalation.",
+      "triggerCondition": "After recognizing bronchospasm from the wheezing, prolonged expiratory phase, and COPD history, the crew applies supplemental oxygen and initiates a nebulized bronchodilator treatment.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "Mildly labored, wheezing improving with treatment",
+        "circulation": "Radial pulses present bilaterally, skin warm and dry",
+        "skin": { "color": "pink", "temperature": "warm", "moisture": "dry" },
+        "pupils": "PERRL",
+        "motorFunction": "Intact in all extremities",
+        "otherFindings": [
+          "Nasal cannula in place",
+          "Nebulizer treatment in progress",
+          "Slightly improved air entry on auscultation"
+        ],
+        "patientSpeech": "\"That's already helping a little bit.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 102,
+        "bpSys": 138,
+        "bpDia": 82,
+        "respRate": 22,
+        "spo2": 93,
+        "etco2": 0,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 40,
+        "glucose": 102,
+        "customMeasures": [],
+        "trendTimeSeconds": 30,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a1-history-exam",
+          "shortAction": "Obtain history of onset, triggers, prior treatments, and full vital signs including SPO2",
+          "protocolExcerpt": "Onset of symptoms. Concurrent symptoms (e.g., fever, cough, rhinorrhea, tongue/lip swelling, rash, labored breathing, foreign body aspiration). Treatments prior to EMS: Oxygen, inhaler, nebulizer, other treatments, chronic or recent steroids. Full set of vital signs (pulse, blood pressure, respiratory rate, neurologic status assessment), temperature, and O2 saturation",
+          "priority": "critical",
+          "rationale": "Establishes baseline severity and guides escalation decisions.",
+          "protocolReference": "MATC: Respiratory Distress (includes Bronchospasm, Pulmonary Edema)"
+        },
+        {
+          "id": "a2-oxygen",
+          "shortAction": "Apply nasal cannula oxygen titrated to 94-98% SPO2 (permissive hypoxia to 90% acceptable given COPD)",
+          "protocolExcerpt": "Give supplemental oxygen for dyspnea to a target of 94–98% saturation. Escalate from a nasal cannula as needed to reach this goal",
+          "priority": "critical",
+          "rationale": "Corrects hypoxia while avoiding over-oxygenation risk in chronic COPD.",
+          "protocolReference": "MATC: Respiratory Distress (includes Bronchospasm, Pulmonary Edema)"
+        },
+        {
+          "id": "a3-duoneb",
+          "shortAction": "Albuterol 5 mg nebulized with Ipratropium 0.5 mg nebulized (DuoNeb) for bronchospasm",
+          "protocolExcerpt": "Albuterol 5 mg nebulized (or 6 puffs metered dose inhaler) should be administered to all patients in respiratory distress with signs of bronchospasm (e.g., known asthmatics, quiet wheezers). Repeat at this dose with unlimited frequency for ongoing respiratory distress. Ipratropium 0.5 mg nebulized should be given up to 3 doses in conjunction with albuterol",
+          "priority": "critical",
+          "rationale": "Bronchodilator and anticholinergic combination directly targets the bronchospasm driving the exacerbation.",
+          "protocolReference": "MATC: Respiratory Distress (includes Bronchospasm, Pulmonary Edema)"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "improved-transport",
+          "if": "Symptoms improve without CPAP",
+          "condition": "Patient's work of breathing, wheezing, and SPO2 continue to improve with oxygen and nebulized bronchodilator therapy alone, without need for non-invasive ventilation.",
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a2-oxygen", "a3-duoneb"]
+        },
+        {
+          "targetPhaseId": "treatment-delayed",
+          "if": "Bronchodilator therapy delayed",
+          "condition": "Crew delays or omits nebulized bronchodilator therapy despite clear signs of bronchospasm, allowing distress to progress.",
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["a3-duoneb"]
+        }
+      ]
+    },
+    {
+      "id": "improved-transport",
+      "name": "Symptoms improve without CPAP",
+      "description": "Patient's respiratory distress continues to improve with oxygen and nebulized bronchodilator therapy. Work of breathing decreases, wheezing diminishes, and SPO2 normalizes. Prepared for transport without need for CPAP.",
+      "triggerCondition": "Following oxygen and DuoNeb administration, the patient's wheezing and tachypnea steadily improve, confirming this is a mild exacerbation that does not require escalation to non-invasive ventilation.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "Improved, mild residual expiratory wheezing",
+        "circulation": "Radial pulses present bilaterally, skin warm and dry",
+        "skin": { "color": "pink", "temperature": "warm", "moisture": "dry" },
+        "pupils": "PERRL",
+        "motorFunction": "Intact in all extremities",
+        "otherFindings": [
+          "Speaking in full sentences without pausing",
+          "Improved air entry bilaterally",
+          "No longer using accessory muscles"
+        ],
+        "patientSpeech": "\"That's a lot better, thank you.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Rhythm",
+        "ecgWaveform": 9,
+        "hr": 88,
+        "bpSys": 134,
+        "bpDia": 80,
+        "respRate": 18,
+        "spo2": 95,
+        "etco2": 0,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 15,
+        "glucose": 102,
+        "customMeasures": [],
+        "trendTimeSeconds": 40,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a4-reassess",
+          "shortAction": "Reassess vital signs, SPO2, and work of breathing; document response to treatment",
+          "protocolExcerpt": "Document key aspects of the exam at baseline and after each intervention: Respiratory rate. Oxygen saturation. Use of accessory muscles. Breath sounds and quality. Response to interventions",
+          "priority": "important",
+          "rationale": "Confirms the treatment is working and guides transport decision.",
+          "protocolReference": "MATC: Respiratory Distress (includes Bronchospasm, Pulmonary Edema)"
+        }
+      ],
+      "transitions": []
+    },
+    {
+      "id": "treatment-delayed",
+      "name": "Bronchodilator therapy delayed",
+      "description": "Nebulized bronchodilator therapy is delayed despite clear bronchospasm findings. The patient's work of breathing and hypoxia progressively worsen, now showing early signs of a more severe exacerbation.",
+      "triggerCondition": "Crew focuses on oxygen application alone and delays starting nebulized DuoNeb despite audible wheezing and prolonged expiratory phase, allowing bronchospasm to worsen.",
+      "isDefault": false,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "Increasingly labored, louder wheezing, speaking in shorter phrases",
+        "circulation": "Radial pulses present bilaterally, skin warm and diaphoretic",
+        "skin": { "color": "pink", "temperature": "warm", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Intact in all extremities",
+        "otherFindings": [
+          "Increased accessory muscle use",
+          "Wheezing now audible without stethoscope",
+          "Speaking in shorter phrases"
+        ],
+        "patientSpeech": "\"It's... getting harder... to breathe.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 116,
+        "bpSys": 146,
+        "bpDia": 88,
+        "respRate": 28,
+        "spo2": 87,
+        "etco2": 0,
+        "temp": 37.1,
+        "tempF": 98.8,
+        "obstruction": 65,
+        "glucose": 102,
+        "customMeasures": [],
+        "trendTimeSeconds": 45,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a5-recover-duoneb",
+          "shortAction": "Initiate DuoNeb without further delay: Albuterol 5 mg + Ipratropium 0.5 mg nebulized",
+          "protocolExcerpt": "Albuterol 5 mg nebulized (or 6 puffs metered dose inhaler) should be administered to all patients in respiratory distress with signs of bronchospasm (e.g., known asthmatics, quiet wheezers). Repeat at this dose with unlimited frequency for ongoing respiratory distress. Ipratropium 0.5 mg nebulized should be given up to 3 doses in conjunction with albuterol",
+          "priority": "critical",
+          "rationale": "Delayed bronchodilator therapy allows a mild exacerbation to progress toward severe distress.",
+          "protocolReference": "MATC: Respiratory Distress (includes Bronchospasm, Pulmonary Edema)"
+        }
+      ],
+      "transitions": []
+    }
+  ],
+  "realiti": {
+    "scenarioMonitorType": 2,
+    "scenarioDefaultEnergy": 200,
+    "scenarioDefaultPacerThreshold": 55
+  }
+}

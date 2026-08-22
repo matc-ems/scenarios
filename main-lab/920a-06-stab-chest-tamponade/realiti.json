@@ -1,0 +1,215 @@
+{
+  "scenarioId": "920a-06-stab-chest-tamponade",
+  "scenarioName": "Stab Wound to Chest — Cardiac Tamponade",
+  "scenarioType": "Vital Signs",
+  "scenarioVersion": 2,
+  "scenarioTime": 780,
+  "scenarioMonitorType": 2,
+  "scenarioDefaultEnergy": 200,
+  "scenarioDefaultPacerThreshold": 55,
+  "isDemo": false,
+  "isALSILegacy": false,
+  "scenarioStory": {
+    "history": "Bystanders report the patient was stabbed once during an altercation outside a bar approximately 10 minutes ago. He walked a short distance before collapsing to the ground and now appears anxious and short of breath. He denies loss of consciousness. A single puncture wound is visible over the left 4th intercostal space, parasternal, with minimal external bleeding.",
+    "discussion": "",
+    "course": "Initial Contact: Crew arrives to find a 22-year-old male with a single stab wound to the left anterior chest. He is anxious, tachycardic, and hypotensive with distended neck veins. Breath sounds are equal bilaterally. → Tamponade recognized, dressing and transport initiated: The crew performs a MARCH primary survey, confirms breath sounds are equal bilaterally (against tension pneumothorax), places a semi-occlusive dressing over the open chest wound, establishes IV access, and prepares for immediate transport given the high likelihood of cardiac tamponade requiring surgical intervention. → En route with serial reassessment: The patient is en route to a trauma center with continuous monitoring. Vitals remain tenuous but stable with the fluid bolus; the crew reassesses frequently for signs of decompensation."
+  },
+  "patientInformation": {
+    "patientName": "Marcus Delaney",
+    "patientCondition": "Stab wound to the left chest",
+    "patientAge": 22,
+    "patientAgeUnit": "years",
+    "patientAgeCategory": 0,
+    "patientSex": 1,
+    "patientHeight": 178,
+    "patientWeight": 80,
+    "patientPhotoId": 27,
+    "patientAdmitted": 1
+  },
+  "labs": [],
+  "scenarioEvents": [
+    {
+      "type": "ScenarioEvent",
+      "name": "Initial Contact",
+      "description": "Crew arrives to find a 22-year-old male with a single stab wound to the left anterior chest. He is anxious, tachycardic, and hypotensive with distended neck veins. Breath sounds are equal bilaterally.",
+      "monitorType": 0,
+      "trendTime": 0,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 128,
+        "bpSys": 84,
+        "bpDia": 68,
+        "respRate": 24,
+        "spo2": 96,
+        "etco2": 0,
+        "temp": 36.9,
+        "obstruction": 0,
+        "custMeasure1": 98,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Tamponade recognized, dressing and transport initiated",
+      "description": "The crew performs a MARCH primary survey, confirms breath sounds are equal bilaterally (against tension pneumothorax), places a semi-occlusive dressing over the open chest wound, establishes IV access, and prepares for immediate transport given the high likelihood of cardiac tamponade requiring surgical intervention.",
+      "monitorType": 0,
+      "trendTime": 25,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 124,
+        "bpSys": 86,
+        "bpDia": 70,
+        "respRate": 22,
+        "spo2": 97,
+        "etco2": 0,
+        "temp": 36.9,
+        "obstruction": 0,
+        "custMeasure1": 98,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Perform MARCH primary survey: hemorrhage, airway, breathing, circulation, head/hypothermia",
+        "Recognize JVD, muffled heart sounds, and hypotension as obstructive shock (tamponade)",
+        "Apply semi-occlusive dressing over the open chest wound",
+        "Establish IV access; 500 mL crystalloid bolus (SBP <90 mmHg, HR >120)",
+        "Minimize scene time (<10 min); initiate rapid transport to trauma center"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "En route with serial reassessment",
+      "description": "The patient is en route to a trauma center with continuous monitoring. Vitals remain tenuous but stable with the fluid bolus; the crew reassesses frequently for signs of decompensation.",
+      "monitorType": 0,
+      "trendTime": 30,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 122,
+        "bpSys": 88,
+        "bpDia": 70,
+        "respRate": 22,
+        "spo2": 97,
+        "etco2": 0,
+        "temp": 36.9,
+        "obstruction": 0,
+        "custMeasure1": 98,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Reassess vitals and breath sounds serially en route for decompensation"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Needle decompression attempted despite equal breath sounds",
+      "description": "The crew assumes tension pneumothorax and performs needle decompression without confirming absent or diminished breath sounds. The patient's condition does not improve, and time is lost that should have gone toward rapid transport for a suspected cardiac tamponade.",
+      "monitorType": 0,
+      "trendTime": 40,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 134,
+        "bpSys": 78,
+        "bpDia": 64,
+        "respRate": 26,
+        "spo2": 94,
+        "etco2": 0,
+        "temp": 36.9,
+        "obstruction": 0,
+        "custMeasure1": 98,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Confirm breath sounds equal bilaterally; abandon tension pneumothorax pathway, initiate rapid transport"
+      ],
+      "relatedSounds": []
+    }
+  ],
+  "checklist": [
+    {
+      "title": "Perform MARCH primary survey: hemorrhage, airway, breathing, circulation, head/hypothermia",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Recognize JVD, muffled heart sounds, and hypotension as obstructive shock (tamponade)",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Apply semi-occlusive dressing over the open chest wound",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Establish IV access; 500 mL crystalloid bolus (SBP <90 mmHg, HR >120)",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Minimize scene time (<10 min); initiate rapid transport to trauma center",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Reassess vitals and breath sounds serially en route for decompensation",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Confirm breath sounds equal bilaterally; abandon tension pneumothorax pathway, initiate rapid transport",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    }
+  ],
+  "media": []
+}

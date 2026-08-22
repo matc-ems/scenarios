@@ -1,0 +1,255 @@
+{
+  "scenarioId": "914a-03-hypoglycemia-iv",
+  "scenarioName": "Hypoglycemia — IV Access and Dextrose in an Agitated Patient",
+  "scenarioType": "Vital Signs",
+  "scenarioVersion": 2,
+  "scenarioTime": 900,
+  "scenarioMonitorType": 2,
+  "scenarioDefaultEnergy": 200,
+  "scenarioDefaultPacerThreshold": 55,
+  "isDemo": false,
+  "isALSILegacy": false,
+  "scenarioStory": {
+    "history": "Coworkers noticed the patient becoming increasingly confused and diaphoretic over the past 20 minutes during his lunch break; he takes insulin for type 2 diabetes and reportedly skipped lunch today after taking his usual morning insulin dose. He is slurring words and not making sense, though he continues to move all extremities and pushes away hands during examination.",
+    "discussion": "",
+    "course": "Initial Contact: Crew arrives to find a 52-year-old male, confused and profusely diaphoretic, pushing away attempts to assist. Scene glucometer reads BGL 38 mg/dL. → IV access and dextrose given: Crew performs a focused AEIOU-TIPS assessment, confirms BGL 38 mg/dL, and — because the patient is too confused and combative to safely take oral glucose — establishes IV access and administers incremental IV dextrose, securing the line carefully given his agitation. → Mental status improved, transport initiated: Following incremental IV dextrose, the patient's mental status clears and repeat glucose normalizes. Crew reassesses and prepares for transport."
+  },
+  "patientInformation": {
+    "patientName": "Raymond Cole",
+    "patientCondition": "Confusion and diaphoresis",
+    "patientAge": 52,
+    "patientAgeUnit": "years",
+    "patientAgeCategory": 0,
+    "patientSex": 1,
+    "patientHeight": 178,
+    "patientWeight": 90,
+    "patientPhotoId": 63,
+    "patientAdmitted": 1
+  },
+  "labs": [],
+  "scenarioEvents": [
+    {
+      "type": "ScenarioEvent",
+      "name": "Initial Contact",
+      "description": "Crew arrives to find a 52-year-old male, confused and profusely diaphoretic, pushing away attempts to assist. Scene glucometer reads BGL 38 mg/dL.",
+      "monitorType": 0,
+      "trendTime": 0,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 118,
+        "bpSys": 148,
+        "bpDia": 92,
+        "respRate": 20,
+        "spo2": 97,
+        "etco2": 0,
+        "temp": 36.6,
+        "obstruction": 0,
+        "custMeasure1": 38,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "IV access and dextrose given",
+      "description": "Crew performs a focused AEIOU-TIPS assessment, confirms BGL 38 mg/dL, and — because the patient is too confused and combative to safely take oral glucose — establishes IV access and administers incremental IV dextrose, securing the line carefully given his agitation.",
+      "monitorType": 0,
+      "trendTime": 20,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 114,
+        "bpSys": 146,
+        "bpDia": 90,
+        "respRate": 18,
+        "spo2": 97,
+        "etco2": 0,
+        "temp": 36.6,
+        "obstruction": 0,
+        "custMeasure1": 38,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Perform focused AEIOU-TIPS assessment; check airway, breathing, circulation, GCS, pupils",
+        "Confirm blood glucose level via glucometer (BGL 38 mg/dL)",
+        "Establish IV access; administer Dextrose 25 g (250 mL of D10%) IV in incremental doses, secure site given agitation"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Mental status improved, transport initiated",
+      "description": "Following incremental IV dextrose, the patient's mental status clears and repeat glucose normalizes. Crew reassesses and prepares for transport.",
+      "monitorType": 0,
+      "trendTime": 30,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 88,
+        "bpSys": 132,
+        "bpDia": 84,
+        "respRate": 16,
+        "spo2": 98,
+        "etco2": 0,
+        "temp": 36.7,
+        "obstruction": 0,
+        "custMeasure1": 96,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Reassess vital signs, mental status, and repeat BGL after dextrose administration",
+        "Transport to closest appropriate receiving facility given seizure risk history and continued monitoring needs"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "IV infiltrated during attempt",
+      "description": "The agitated patient pulls away during dextrose administration and the IV catheter dislodges, causing local swelling and pain at the site before the dose is completed. He remains hypoglycemic and confused.",
+      "monitorType": 0,
+      "trendTime": 20,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 130,
+        "bpSys": 150,
+        "bpDia": 94,
+        "respRate": 22,
+        "spo2": 96,
+        "etco2": 0,
+        "temp": 36.6,
+        "obstruction": 0,
+        "custMeasure1": 38,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Recognize IV infiltration, discontinue the line, and reassess for an alternate treatment route"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Glucagon given after IV failure",
+      "description": "With the IV line lost, crew administers IM glucagon as the protocol-specified alternative and continues to monitor the patient as it takes effect.",
+      "monitorType": 0,
+      "trendTime": 50,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 104,
+        "bpSys": 138,
+        "bpDia": 86,
+        "respRate": 18,
+        "spo2": 97,
+        "etco2": 0,
+        "temp": 36.6,
+        "obstruction": 0,
+        "custMeasure1": 78,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Glucagon 1 mg IM to deltoid (adult fixed dose); reassess mental status and repeat BGL",
+        "Reassess vital signs and mental status; transport while monitoring for continued improvement"
+      ],
+      "relatedSounds": []
+    }
+  ],
+  "checklist": [
+    {
+      "title": "Perform focused AEIOU-TIPS assessment; check airway, breathing, circulation, GCS, pupils",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Confirm blood glucose level via glucometer (BGL 38 mg/dL)",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Establish IV access; administer Dextrose 25 g (250 mL of D10%) IV in incremental doses, secure site given agitation",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Reassess vital signs, mental status, and repeat BGL after dextrose administration",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Transport to closest appropriate receiving facility given seizure risk history and continued monitoring needs",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Recognize IV infiltration, discontinue the line, and reassess for an alternate treatment route",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Glucagon 1 mg IM to deltoid (adult fixed dose); reassess mental status and repeat BGL",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Reassess vital signs and mental status; transport while monitoring for continued improvement",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    }
+  ],
+  "media": []
+}

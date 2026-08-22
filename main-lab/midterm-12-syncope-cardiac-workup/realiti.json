@@ -1,0 +1,255 @@
+{
+  "scenarioId": "midterm-12-syncope-cardiac-workup",
+  "scenarioName": "Syncope Workup — Third-Degree Heart Block on Beta-Blocker Therapy",
+  "scenarioType": "Vital Signs",
+  "scenarioVersion": 2,
+  "scenarioTime": 900,
+  "scenarioMonitorType": 2,
+  "scenarioDefaultEnergy": 200,
+  "scenarioDefaultPacerThreshold": 55,
+  "isDemo": false,
+  "isALSILegacy": false,
+  "scenarioStory": {
+    "history": "Patient was standing at the kitchen counter when she suddenly lost consciousness and slumped to the floor, per her husband who witnessed the event. No shaking, no incontinence, no tongue biting. She regained consciousness within seconds and was talking by the time he reached her. She reports feeling lightheaded and 'foggy' for a minute or two beforehand but denies chest pain, palpitations prior to the event, or shortness of breath. This is her first syncopal episode. She mentions her cardiologist increased her metoprolol dose about a week ago for blood pressure control.",
+    "discussion": "",
+    "course": "Initial Contact: Crew arrives to find a 70-year-old female alert and conversant, seated in a kitchen chair after a witnessed syncopal episode. She is pale with a palpably slow, regular pulse. No signs of trauma from the fall. → High-grade block identified: The 12-lead EKG reveals complete AV dissociation consistent with third-degree heart block. The crew recognizes the recent beta-blocker dose increase as a likely contributing cause and anticipates that atropine is unlikely to be effective, proceeding directly toward pacing readiness. → TCP initiated with sedation: Pacing pads are applied and transcutaneous pacing is started at a rate of 70 with ketamine given first for pain control. Electrical and mechanical capture are confirmed with a palpable pulse matching the paced rate. → Capture maintained, perfusion improved: Pacing capture is well tolerated and consistently maintained. The patient's color, blood pressure, and mentation have all improved, and she is transported with continuous EKG monitoring to a cardiac-capable facility."
+  },
+  "patientInformation": {
+    "patientName": "Carol Ann Whitfield",
+    "patientCondition": "Sudden loss of consciousness while standing, now awake and bradycardic",
+    "patientAge": 70,
+    "patientAgeUnit": "years",
+    "patientAgeCategory": 0,
+    "patientSex": 2,
+    "patientHeight": 163,
+    "patientWeight": 65,
+    "patientPhotoId": 84,
+    "patientAdmitted": 1
+  },
+  "labs": [],
+  "scenarioEvents": [
+    {
+      "type": "ScenarioEvent",
+      "name": "Initial Contact",
+      "description": "Crew arrives to find a 70-year-old female alert and conversant, seated in a kitchen chair after a witnessed syncopal episode. She is pale with a palpably slow, regular pulse. No signs of trauma from the fall.",
+      "monitorType": 0,
+      "trendTime": 0,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 38,
+        "bpSys": 92,
+        "bpDia": 58,
+        "respRate": 16,
+        "spo2": 96,
+        "etco2": 0,
+        "temp": 36.8,
+        "obstruction": 0,
+        "custMeasure1": 98,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "High-grade block identified",
+      "description": "The 12-lead EKG reveals complete AV dissociation consistent with third-degree heart block. The crew recognizes the recent beta-blocker dose increase as a likely contributing cause and anticipates that atropine is unlikely to be effective, proceeding directly toward pacing readiness.",
+      "monitorType": 0,
+      "trendTime": 40,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 100,
+        "hr": 34,
+        "bpSys": 84,
+        "bpDia": 54,
+        "respRate": 16,
+        "spo2": 96,
+        "etco2": 0,
+        "temp": 36.8,
+        "obstruction": 0,
+        "custMeasure1": 98,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Initiate cardiac monitoring and 12-lead EKG; establish IV access",
+        "Check blood glucose to rule out hypoglycemia as a contributing cause",
+        "Identify recent beta-blocker dose increase as likely cause; anticipate atropine may fail",
+        "Proceed quickly toward pacing rather than delaying on atropine for 3rd-degree block"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "TCP initiated with sedation",
+      "description": "Pacing pads are applied and transcutaneous pacing is started at a rate of 70 with ketamine given first for pain control. Electrical and mechanical capture are confirmed with a palpable pulse matching the paced rate.",
+      "monitorType": 0,
+      "trendTime": 30,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 70,
+        "bpSys": 104,
+        "bpDia": 64,
+        "respRate": 16,
+        "spo2": 98,
+        "etco2": 0,
+        "temp": 36.8,
+        "obstruction": 0,
+        "custMeasure1": 98,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Ketamine 16 mg IV for pacing analgesia (65 kg × 0.25 mg/kg = 16.25 mg; max initial 25 mg)",
+        "Initiate transcutaneous pacing at rate 70, confirm electrical and mechanical capture"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Capture maintained, perfusion improved",
+      "description": "Pacing capture is well tolerated and consistently maintained. The patient's color, blood pressure, and mentation have all improved, and she is transported with continuous EKG monitoring to a cardiac-capable facility.",
+      "monitorType": 0,
+      "trendTime": 40,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 72,
+        "bpSys": 112,
+        "bpDia": 68,
+        "respRate": 16,
+        "spo2": 98,
+        "etco2": 0,
+        "temp": 36.9,
+        "obstruction": 0,
+        "custMeasure1": 98,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Continue continuous EKG monitoring; transport to cardiac-capable facility"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "TCP started without sedation",
+      "description": "Pacing is started without offering sedation or pain control first. The patient experiences significant pain and involuntary muscle contraction with each pacing spike, becoming agitated and thrashing, which disrupts consistent pad contact and capture.",
+      "monitorType": 0,
+      "trendTime": 20,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 100,
+        "hr": 34,
+        "bpSys": 76,
+        "bpDia": 48,
+        "respRate": 22,
+        "spo2": 93,
+        "etco2": 0,
+        "temp": 36.8,
+        "obstruction": 0,
+        "custMeasure1": 98,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Recognize inadequate pacing tolerance; give ketamine 16 mg IV (65 kg × 0.25 mg/kg) to allow effective capture"
+      ],
+      "relatedSounds": []
+    }
+  ],
+  "checklist": [
+    {
+      "title": "Initiate cardiac monitoring and 12-lead EKG; establish IV access",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Check blood glucose to rule out hypoglycemia as a contributing cause",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Identify recent beta-blocker dose increase as likely cause; anticipate atropine may fail",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Proceed quickly toward pacing rather than delaying on atropine for 3rd-degree block",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Ketamine 16 mg IV for pacing analgesia (65 kg × 0.25 mg/kg = 16.25 mg; max initial 25 mg)",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Initiate transcutaneous pacing at rate 70, confirm electrical and mechanical capture",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Continue continuous EKG monitoring; transport to cardiac-capable facility",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Recognize inadequate pacing tolerance; give ketamine 16 mg IV (65 kg × 0.25 mg/kg) to allow effective capture",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    }
+  ],
+  "media": []
+}

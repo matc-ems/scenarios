@@ -1,0 +1,248 @@
+{
+  "scenarioId": "919b-03-urosepsis",
+  "scenarioName": "Septic Shock — Urosepsis with Steroid-Dependent Adrenal Suppression",
+  "scenarioType": "Vital Signs",
+  "scenarioVersion": 2,
+  "scenarioTime": 900,
+  "scenarioMonitorType": 2,
+  "scenarioDefaultEnergy": 200,
+  "scenarioDefaultPacerThreshold": 55,
+  "isDemo": false,
+  "isALSILegacy": false,
+  "scenarioStory": {
+    "history": "Nursing home staff report the patient has complained of burning with urination and foul-smelling urine for the past two days. This morning she was found unusually drowsy and difficult to arouse for breakfast, with a documented temperature of 102.4°F on the facility's routine check. Staff called EMS when she became difficult to keep awake.",
+    "discussion": "",
+    "course": "Initial Contact: Crew arrives to find an 83-year-old female with altered mental status, rousable only to sternal rub, febrile, tachycardic, and hypotensive. A Foley catheter is in place draining cloudy urine. → BGL checked, IV fluids started: Crew rules out hypoglycemia, establishes IV access, and begins fluid resuscitation for distributive shock from suspected urosepsis. The medication administration record shows daily prednisone, flagging a risk of adrenal suppression if shock persists despite fluids. → Fluid-refractory shock, hydrocortisone given: The patient remains hypotensive after the initial fluid bolus. Recognizing her chronic steroid dependence, the crew administers hydrocortisone while continuing fluid resuscitation and preparing for a possible vasopressor if the blood pressure does not improve. → Perfusion improves, transport continues: With fluids and hydrocortisone on board, the patient's perfusion and mental status trend toward baseline. The crew continues serial reassessment and transports for definitive urosepsis workup and antibiotics."
+  },
+  "patientInformation": {
+    "patientName": "Ruth Callahan",
+    "patientCondition": "Confusion and weakness, nursing home staff report two days of dysuria",
+    "patientAge": 83,
+    "patientAgeUnit": "years",
+    "patientAgeCategory": 0,
+    "patientSex": 2,
+    "patientHeight": 157,
+    "patientWeight": 58,
+    "patientPhotoId": 100,
+    "patientAdmitted": 1
+  },
+  "labs": [],
+  "scenarioEvents": [
+    {
+      "type": "ScenarioEvent",
+      "name": "Initial Contact",
+      "description": "Crew arrives to find an 83-year-old female with altered mental status, rousable only to sternal rub, febrile, tachycardic, and hypotensive. A Foley catheter is in place draining cloudy urine.",
+      "monitorType": 0,
+      "trendTime": 0,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 122,
+        "bpSys": 82,
+        "bpDia": 48,
+        "respRate": 24,
+        "spo2": 94,
+        "etco2": 28,
+        "temp": 39.1,
+        "obstruction": 0,
+        "custMeasure1": 118,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "BGL checked, IV fluids started",
+      "description": "Crew rules out hypoglycemia, establishes IV access, and begins fluid resuscitation for distributive shock from suspected urosepsis. The medication administration record shows daily prednisone, flagging a risk of adrenal suppression if shock persists despite fluids.",
+      "monitorType": 0,
+      "trendTime": 30,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 116,
+        "bpSys": 86,
+        "bpDia": 50,
+        "respRate": 20,
+        "spo2": 96,
+        "etco2": 30,
+        "temp": 39,
+        "obstruction": 0,
+        "custMeasure1": 118,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Check blood glucose; correct if less than 60 mg/dL (result 118 mg/dL, no correction needed)",
+        "Establish IV access; begin 500 mL isotonic fluid bolus, pressure infused over less than 15 min toward MAP 65 mmHg",
+        "Identify chronic steroid dependence (prednisone 10 mg daily) as an adrenal suppression risk factor"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Fluid-refractory shock, hydrocortisone given",
+      "description": "The patient remains hypotensive after the initial fluid bolus. Recognizing her chronic steroid dependence, the crew administers hydrocortisone while continuing fluid resuscitation and preparing for a possible vasopressor if the blood pressure does not improve.",
+      "monitorType": 0,
+      "trendTime": 40,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 108,
+        "bpSys": 92,
+        "bpDia": 54,
+        "respRate": 18,
+        "spo2": 97,
+        "etco2": 32,
+        "temp": 38.8,
+        "obstruction": 0,
+        "custMeasure1": 116,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Hydrocortisone succinate 100 mg IV (58 kg × 2 mg/kg = 116 mg → cap at 100 mg max)",
+        "Provide advanced notification to receiving hospital of suspected septic shock"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Perfusion improves, transport continues",
+      "description": "With fluids and hydrocortisone on board, the patient's perfusion and mental status trend toward baseline. The crew continues serial reassessment and transports for definitive urosepsis workup and antibiotics.",
+      "monitorType": 0,
+      "trendTime": 50,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 102,
+        "bpSys": 104,
+        "bpDia": 62,
+        "respRate": 16,
+        "spo2": 98,
+        "etco2": 35,
+        "temp": 38.5,
+        "obstruction": 0,
+        "custMeasure1": 114,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Reassess full vital signs and neurologic status at least every 15 minutes en route"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Steroid history not identified",
+      "description": "The crew continues fluid boluses without reviewing the medication administration record, missing the patient's chronic prednisone use. Blood pressure remains persistently low despite two fluid boluses, and the crew must escalate to a vasopressor without the benefit of stress-dose steroid coverage.",
+      "monitorType": 0,
+      "trendTime": 45,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 128,
+        "bpSys": 78,
+        "bpDia": 44,
+        "respRate": 24,
+        "spo2": 93,
+        "etco2": 26,
+        "temp": 39.2,
+        "obstruction": 0,
+        "custMeasure1": 116,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Review medication administration record; identify prednisone use and give hydrocortisone 100 mg IV alongside norepinephrine"
+      ],
+      "relatedSounds": []
+    }
+  ],
+  "checklist": [
+    {
+      "title": "Check blood glucose; correct if less than 60 mg/dL (result 118 mg/dL, no correction needed)",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Establish IV access; begin 500 mL isotonic fluid bolus, pressure infused over less than 15 min toward MAP 65 mmHg",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Identify chronic steroid dependence (prednisone 10 mg daily) as an adrenal suppression risk factor",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Hydrocortisone succinate 100 mg IV (58 kg × 2 mg/kg = 116 mg → cap at 100 mg max)",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Provide advanced notification to receiving hospital of suspected septic shock",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Reassess full vital signs and neurologic status at least every 15 minutes en route",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Review medication administration record; identify prednisone use and give hydrocortisone 100 mg IV alongside norepinephrine",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    }
+  ],
+  "media": []
+}

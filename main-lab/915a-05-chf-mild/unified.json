@@ -1,0 +1,300 @@
+{
+  "meta": {
+    "id": "915a-05-chf-mild",
+    "name": "CHF Exacerbation — Mild Pulmonary Edema, CPAP Response",
+    "version": 1,
+    "difficulty": "beginner",
+    "category": "Respiratory",
+    "protocols": ["resp-respiratory-distress", "resp-airway-management"],
+    "totalTimeSeconds": 720,
+    "tags": ["respiratory", "CHF", "pulmonary edema", "CPAP", "915"]
+  },
+  "patient": {
+    "name": "Walter Ostrowski",
+    "age": 71,
+    "ageUnit": "years",
+    "sex": "male",
+    "weight": 90,
+    "weightLbs": 198,
+    "height": 178,
+    "chiefComplaint": "Increasing shortness of breath and leg swelling",
+    "history": {
+      "hpi": "Wife reports three days of gradually worsening shortness of breath and bilateral leg swelling, with the patient sleeping upright in his recliner the past two nights because he can't breathe lying flat. Tonight his breathing suddenly worsened after dinner, becoming labored and audibly wet-sounding, prompting the 911 call.",
+      "pastMedical": ["Congestive heart failure", "Hypertension", "Type 2 diabetes mellitus"],
+      "medications": ["Furosemide 40 mg PO daily", "Lisinopril 20 mg PO daily", "Metoprolol 50 mg PO BID"],
+      "allergies": ["NKDA"],
+      "lastOralIntake": "Dinner (ham and canned soup) approximately 2 hours prior to onset",
+      "events": "Wife called 911 after patient became acutely more short of breath sitting in his recliner after a high-sodium dinner"
+    }
+  },
+  "scene": {
+    "dispatch": "71-year-old male, difficulty breathing, residence",
+    "location": "Single-story home, living room, patient seated upright in a recliner",
+    "time": "8:15 PM, weekday",
+    "safety": "No hazards to crew noted",
+    "bystanders": "Wife present, called 911, reports 3 days of worsening symptoms",
+    "visualCues": [
+      "Patient sitting bolt upright in recliner, leaning slightly forward",
+      "Visible use of accessory muscles, labored breathing",
+      "Bilateral lower extremity swelling visible above the sock line",
+      "Multiple pillows stacked on the bed visible through the bedroom doorway",
+      "Home oxygen concentrator present but not in use"
+    ]
+  },
+  "phases": [
+    {
+      "id": "initial",
+      "name": "Initial Contact",
+      "description": "Crew arrives to find a 71-year-old male with a history of CHF sitting upright in a recliner in visible respiratory distress, with audible wet breath sounds and bilateral pedal edema.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent, speaking in 3-4 word phrases",
+        "breathing": "Labored, use of accessory muscles, bibasilar rales audible without stethoscope",
+        "circulation": "Radial pulses present bilaterally, bounding",
+        "skin": { "color": "pale", "temperature": "cool", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Strength intact in all extremities",
+        "otherFindings": [
+          "Jugular venous distention noted",
+          "Bibasilar rales to mid-lung fields on auscultation",
+          "2+ pitting edema bilateral lower extremities",
+          "Sitting in tripod-like posture, unable to tolerate lying flat"
+        ],
+        "patientSpeech": "\"Can't... catch my breath...\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 108,
+        "bpSys": 168,
+        "bpDia": 94,
+        "respRate": 28,
+        "spo2": 88,
+        "etco2": 0,
+        "temp": 36.9,
+        "tempF": 98.4,
+        "obstruction": 0,
+        "glucose": 118,
+        "customMeasures": [],
+        "trendTimeSeconds": 0,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [],
+      "transitions": [
+        {
+          "targetPhaseId": "cpap-started",
+          "if": "CPAP initiated and coached",
+          "condition": "Crew recognizes severe respiratory distress from pulmonary edema and escalates therapy to CPAP, coaching the patient through mask placement.",
+          "conditionType": "action_taken"
+        }
+      ]
+    },
+    {
+      "id": "cpap-started",
+      "name": "CPAP initiated and coached",
+      "description": "Crew escalates oxygen therapy to CPAP for severe respiratory distress from suspected pulmonary edema, coaching the patient through mask placement and titrating to target oxygenation.",
+      "triggerCondition": "After recognizing signs of pulmonary edema with worsening hypoxia despite supplemental oxygen, the crew escalates to CPAP per the escalating-therapy approach in the Respiratory Distress guideline, coaching the patient through the unfamiliar sensation of positive pressure.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent, CPAP mask in place with good seal",
+        "breathing": "Improving, still using accessory muscles but less pronounced, RR decreasing",
+        "circulation": "Radial pulses present bilaterally",
+        "skin": { "color": "pale", "temperature": "cool", "moisture": "diaphoretic, slightly improved" },
+        "pupils": "PERRL",
+        "motorFunction": "Strength intact in all extremities",
+        "otherFindings": [
+          "CPAP mask coached into place with adequate seal",
+          "Bibasilar rales persist but less pronounced",
+          "Patient tolerating mask after initial coaching"
+        ],
+        "patientSpeech": "Nods and gives thumbs up between breaths, mask in place"
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 102,
+        "bpSys": 160,
+        "bpDia": 90,
+        "respRate": 24,
+        "spo2": 92,
+        "etco2": 40,
+        "temp": 36.9,
+        "tempF": 98.4,
+        "obstruction": 0,
+        "glucose": 118,
+        "customMeasures": [],
+        "trendTimeSeconds": 30,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a1-cpap-escalate",
+          "shortAction": "Escalate therapy from supplemental O2 to CPAP for severe respiratory distress",
+          "protocolExcerpt": "Non-invasive ventilation (NIV) should be administered for severe respiratory distress via BVM, continuous positive airway pressure (CPAP) or bi-level positive airway pressure (BiPAP)",
+          "priority": "critical",
+          "rationale": "CPAP recruits alveoli and reduces preload, directly addressing pulmonary edema physiology.",
+          "protocolReference": "MATC: Respiratory Distress (includes Bronchospasm, Pulmonary Edema)"
+        },
+        {
+          "id": "a2-titrate-spo2",
+          "shortAction": "Titrate oxygen/CPAP settings to target SpO2 94-98%",
+          "protocolExcerpt": "Give supplemental oxygen for dyspnea to a target of 94–98% saturation. Escalate from a nasal cannula as needed to reach this goal",
+          "priority": "important",
+          "rationale": "Avoids both hypoxia and unnecessary over-oxygenation.",
+          "protocolReference": "MATC: Respiratory Distress (includes Bronchospasm, Pulmonary Edema)"
+        },
+        {
+          "id": "a3-coach-patient",
+          "shortAction": "Coach and reassure patient through CPAP mask placement to achieve tolerance",
+          "protocolExcerpt": "The key to successful use of NIV in a patient who has not used it before is coaching and explanation of the process and reassurance of the patient",
+          "priority": "important",
+          "rationale": "First-time CPAP patients often resist the mask without verbal coaching, delaying effective therapy.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        },
+        {
+          "id": "a4-capnography-inline",
+          "shortAction": "Place waveform capnography in-line with CPAP to monitor ventilatory status",
+          "protocolExcerpt": "Should be used in spontaneously breathing patients who are: on NIV",
+          "priority": "supplemental",
+          "rationale": "Continuous capnography helps detect early deterioration on NIV before pulse oximetry changes.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        },
+        {
+          "id": "a5-maintain-seal",
+          "shortAction": "Maintain continuous, uninterrupted CPAP mask seal through transport to ED bedside",
+          "protocolExcerpt": "Once initiated and patient is tolerating mask, DO NOT discontinue CPAP/BiPAP until patient is on the emergency department stretcher and hospital CPAP/BiPAP is immediately available for patient to be switched over, or physician is at bedside and requesting CPAP/BiPAP be discontinued. Breaking the mask seal causes a significant decrease in airway pressures and may lead to abrupt decompensation due to atelectasis and alveolar collapse.",
+          "priority": "critical",
+          "rationale": "Breaking the seal at any point rapidly reverses the therapeutic PEEP effect, risking sudden decompensation.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "improved-transport",
+          "if": "CPAP seal maintained continuously",
+          "condition": "The CPAP mask seal is maintained without interruption through packaging and transport, allowing continued alveolar recruitment and preload reduction.",
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a5-maintain-seal"]
+        },
+        {
+          "targetPhaseId": "seal-broken",
+          "if": "CPAP seal broken en route",
+          "condition": "The crew breaks the CPAP mask seal during transport (e.g., to let the patient talk or during movement) rather than maintaining continuous pressure, causing an abrupt loss of PEEP.",
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["a5-maintain-seal"]
+        }
+      ]
+    },
+    {
+      "id": "improved-transport",
+      "name": "CPAP seal maintained continuously",
+      "description": "Continuous, uninterrupted CPAP further improves oxygenation and work of breathing. The patient is packaged and transported without breaking the mask seal.",
+      "triggerCondition": "With the CPAP seal maintained continuously and oxygen titrated appropriately, the patient's work of breathing and oxygenation steadily improve through transport.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent, CPAP mask maintained with good seal",
+        "breathing": "Markedly improved, minimal accessory muscle use",
+        "circulation": "Radial pulses present bilaterally, stronger",
+        "skin": { "color": "pink", "temperature": "warm", "moisture": "drying" },
+        "pupils": "PERRL",
+        "motorFunction": "Strength intact in all extremities",
+        "otherFindings": [
+          "Rales decreased, now limited to bases only",
+          "Patient calm and tolerating CPAP well",
+          "No further JVD noted"
+        ],
+        "patientSpeech": "Gestures thumbs up, mask remains in place"
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Rhythm",
+        "ecgWaveform": 9,
+        "hr": 88,
+        "bpSys": 148,
+        "bpDia": 86,
+        "respRate": 18,
+        "spo2": 97,
+        "etco2": 38,
+        "temp": 36.8,
+        "tempF": 98.2,
+        "obstruction": 0,
+        "glucose": 116,
+        "customMeasures": [],
+        "trendTimeSeconds": 40,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a6-reassess",
+          "shortAction": "Reassess vital signs and work of breathing after CPAP; document response to therapy",
+          "protocolExcerpt": "Subsequent vital signs and physical exam to assess for change after the interventions",
+          "priority": "important",
+          "rationale": "Documents therapeutic response and guides continued titration of CPAP settings.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        }
+      ],
+      "transitions": []
+    },
+    {
+      "id": "seal-broken",
+      "name": "CPAP seal broken en route",
+      "description": "The crew breaks the CPAP mask seal during transport, causing an abrupt loss of positive pressure and rapid return of severe respiratory distress.",
+      "triggerCondition": "The crew removes or loosens the CPAP mask during transport rather than maintaining a continuous seal, per protocol causing a significant decrease in airway pressures and abrupt decompensation from atelectasis and alveolar collapse.",
+      "isDefault": false,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent but distressed, mask seal disrupted",
+        "breathing": "Rapidly worsening, marked accessory muscle use returns",
+        "circulation": "Radial pulses present bilaterally, thready",
+        "skin": { "color": "pale", "temperature": "cool", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Strength intact in all extremities",
+        "otherFindings": [
+          "Rales increasing again bilaterally",
+          "Visible panic and air hunger",
+          "CPAP mask seal broken, positive pressure lost"
+        ],
+        "patientSpeech": "\"Can't... breathe... again!\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 126,
+        "bpSys": 172,
+        "bpDia": 96,
+        "respRate": 32,
+        "spo2": 84,
+        "etco2": 0,
+        "temp": 36.9,
+        "tempF": 98.4,
+        "obstruction": 0,
+        "glucose": 118,
+        "customMeasures": [],
+        "trendTimeSeconds": 20,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a7-reseal-cpap",
+          "shortAction": "Immediately reapply CPAP mask and reestablish a continuous seal",
+          "protocolExcerpt": "Breaking the mask seal causes a significant decrease in airway pressures and may lead to abrupt decompensation due to atelectasis and alveolar collapse.",
+          "priority": "critical",
+          "rationale": "Prompt reapplication of the seal is required to reverse the abrupt loss of PEEP and recruited alveoli.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        }
+      ],
+      "transitions": []
+    }
+  ],
+  "realiti": {
+    "scenarioMonitorType": 2,
+    "scenarioDefaultEnergy": 200,
+    "scenarioDefaultPacerThreshold": 55
+  }
+}

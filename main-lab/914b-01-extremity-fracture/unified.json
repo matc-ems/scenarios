@@ -1,0 +1,307 @@
+{
+  "meta": {
+    "id": "914b-01-extremity-fracture",
+    "name": "Isolated Tib/Fib Fracture — Weight-Based Fentanyl Titration",
+    "version": 1,
+    "difficulty": "intermediate",
+    "category": "Trauma",
+    "protocols": ["medical-pain-management", "trauma-extremity-hemorrhage"],
+    "totalTimeSeconds": 600,
+    "tags": ["ALS", "trauma", "fracture", "pain management", "fentanyl", "med math", "914"]
+  },
+  "patient": {
+    "name": "Derek Simmons",
+    "age": 34,
+    "ageUnit": "years",
+    "sex": "male",
+    "weight": 84,
+    "weightLbs": 185,
+    "height": 180,
+    "chiefComplaint": "Right lower leg pain after ski fall, unable to bear weight",
+    "history": {
+      "hpi": "Patient was skiing at a resort when he caught an edge and twisted his right leg, resulting in immediate severe pain and inability to stand. Ski patrol arrived first and applied an improvised splint with a ski pole before EMS arrival. Patient denies head strike, loss of consciousness, or other injuries.",
+      "pastMedical": [],
+      "medications": [],
+      "allergies": ["NKDA"],
+      "lastOralIntake": "Breakfast burrito approximately 3 hours ago",
+      "events": "Ski patrol responded first, called EMS, and kept the patient still on the slope"
+    }
+  },
+  "scene": {
+    "dispatch": "34-year-old male, ski injury, leg pain, unable to move, ski resort",
+    "location": "Mid-mountain ski run, patient on packed snow near a marked trail, ski patrol toboggan staged nearby",
+    "time": "1:15 PM, weekday, sunny, 28°F",
+    "safety": "Ski patrol has closed the run above the patient; no additional hazards to crew",
+    "bystanders": "Ski patrol on scene, applied an improvised splint with a ski pole and jacket sleeve",
+    "visualCues": [
+      "Obvious deformity to right lower leg below the knee",
+      "Boot removed by ski patrol, deformity visible through pant leg",
+      "Patient grimacing, guarding leg",
+      "No open wound or active bleeding visible"
+    ]
+  },
+  "phases": [
+    {
+      "id": "initial",
+      "name": "Initial Contact",
+      "description": "Crew arrives to find a 34-year-old male on packed snow with an obvious right lower leg deformity, splinted informally by ski patrol. He is alert, in severe pain, and denies other injuries.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent, speaking full sentences",
+        "breathing": "Nonlabored, symmetric chest rise, 20/min",
+        "circulation": "Radial pulses strong bilaterally",
+        "skin": { "color": "pale", "temperature": "cool", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Strength intact throughout; unable to fully assess right lower leg due to pain and deformity, sensation intact distally",
+        "otherFindings": [
+          "Right lower leg pain 8/10, worse with any attempted movement",
+          "Obvious deformity below the right knee",
+          "Improvised ski-pole splint in place from ski patrol",
+          "Denies head strike, loss of consciousness, or other injuries"
+        ],
+        "patientSpeech": "\"It hurts so bad, please don't touch it!\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 108,
+        "bpSys": 142,
+        "bpDia": 88,
+        "respRate": 20,
+        "spo2": 98,
+        "etco2": 0,
+        "temp": 36.4,
+        "tempF": 97.5,
+        "obstruction": 0,
+        "glucose": 96,
+        "customMeasures": [],
+        "trendTimeSeconds": 0,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [],
+      "transitions": [
+        {
+          "targetPhaseId": "iv-fentanyl-given",
+          "if": "IV obtained, fentanyl given",
+          "condition": "Crew assesses pain and distal neurovascular status, splints the leg in the position found, establishes IV access, and administers weight-based fentanyl.",
+          "conditionType": "action_taken"
+        }
+      ]
+    },
+    {
+      "id": "iv-fentanyl-given",
+      "name": "IV obtained, fentanyl given",
+      "description": "Crew splints the deformed right lower leg, establishes IV access, and administers weight-based IV fentanyl for severe pain.",
+      "triggerCondition": "After confirming distal pulses, sensation, and movement, the crew splints the leg in the position found, establishes peripheral IV access, and administers fentanyl calculated to this patient's weight for his reported 8/10 pain.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "Nonlabored, 18/min",
+        "circulation": "Radial pulses strong bilaterally, distal pulses present in right foot",
+        "skin": { "color": "pink", "temperature": "warm", "moisture": "dry" },
+        "pupils": "PERRL",
+        "motorFunction": "Sensation and movement intact distal to splint; strength intact elsewhere",
+        "otherFindings": [
+          "Right lower leg splinted with vacuum splint",
+          "Pain decreased from 8/10 to 4/10 after fentanyl",
+          "Ice pack applied over splint, not directly on skin"
+        ],
+        "patientSpeech": "\"That's already helping a lot, thank you.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Rhythm",
+        "ecgWaveform": 9,
+        "hr": 92,
+        "bpSys": 128,
+        "bpDia": 78,
+        "respRate": 16,
+        "spo2": 98,
+        "etco2": 38,
+        "temp": 36.5,
+        "tempF": 97.7,
+        "obstruction": 0,
+        "glucose": 96,
+        "customMeasures": [],
+        "trendTimeSeconds": 30,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a1-neurovascular",
+          "shortAction": "Assess distal pulse, sensation, and movement before splinting",
+          "protocolExcerpt": "Vascular status of extremity: Pallor, Pulse, Capillary refill and skin temperature. Neurologic status of extremity: Sensation to light touch, Distal movement of extremity",
+          "priority": "critical",
+          "rationale": "Establishes a neurovascular baseline before splinting to detect vascular compromise.",
+          "protocolReference": "MATC: Extremity Trauma/External Hemorrhage Management"
+        },
+        {
+          "id": "a2-splint",
+          "shortAction": "Splint right lower leg in position found; apply ice pack, not directly on skin",
+          "protocolExcerpt": "Use splints as appropriate to limit movement of suspected fracture. Apply ice/cool packs to limit swelling in suspected fractures or soft tissue injury, but do not apply ice directly to bare skin",
+          "priority": "important",
+          "rationale": "Splinting in position found minimizes further tissue damage and pain.",
+          "protocolReference": "MATC: Extremity Trauma/External Hemorrhage Management"
+        },
+        {
+          "id": "a3-pain-scale",
+          "shortAction": "Assess pain using Numeric Rating Scale (patient >12 years old)",
+          "protocolExcerpt": "Greater than 12 years old: Self-report scale Numeric Rating Scale (NRS)",
+          "priority": "important",
+          "rationale": "Establishes a baseline pain score to guide analgesic dosing and reassessment.",
+          "protocolReference": "MATC: Pain Management"
+        },
+        {
+          "id": "a4-fentanyl",
+          "shortAction": "Fentanyl 84 mcg IV (84 kg × 1 mcg/kg; max initial dose 100 mcg)",
+          "protocolExcerpt": "Fentanyl: 1 mcg/kg IN, IM, IV or IO (maximum initial dose of 100 mcg)",
+          "priority": "critical",
+          "rationale": "Weight-based IV fentanyl targets severe pain without exceeding the max initial dose.",
+          "protocolReference": "MATC: Pain Management"
+        },
+        {
+          "id": "a5-capnography",
+          "shortAction": "Apply capnography to monitor for early hypoventilation after opioid administration",
+          "protocolExcerpt": "Use of non-invasive capnography is an earlier predictor of hypoventilation than pulse oximetry if opioid medications are administered",
+          "priority": "important",
+          "rationale": "Capnography detects hypoventilation before pulse oximetry would show desaturation.",
+          "protocolReference": "MATC: Pain Management"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "repeat-dose-transport",
+          "if": "Pain reassessed, repeat dose given, transport",
+          "condition": "Five minutes after the initial fentanyl dose, pain remains at 4/10; crew reassesses vitals and administers a repeat fentanyl dose before transport.",
+          "conditionType": "time_elapsed",
+          "triggerActionIds": ["a4-fentanyl"]
+        },
+        {
+          "targetPhaseId": "analgesia-withheld",
+          "if": "Fentanyl withheld despite severe pain",
+          "condition": "Crew splints the fracture but withholds analgesia despite the patient's 8/10 pain and no identified contraindications.",
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["a4-fentanyl"]
+        }
+      ]
+    },
+    {
+      "id": "repeat-dose-transport",
+      "name": "Pain reassessed, repeat dose given, transport",
+      "description": "Five minutes post-fentanyl, the patient's pain has decreased but is not fully controlled; crew reassesses vital signs and pain score, administers a second weight-based fentanyl dose per protocol, and transports in a position of comfort.",
+      "triggerCondition": "After reassessing vital signs and pain (now 4/10, still above target) and confirming no signs of hypoventilation or hypotension, the crew repeats a weight-based fentanyl dose five minutes after the first and transports the patient in a position of comfort.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "Nonlabored, 16/min",
+        "circulation": "Radial pulses strong bilaterally",
+        "skin": { "color": "pink", "temperature": "warm", "moisture": "dry" },
+        "pupils": "PERRL",
+        "motorFunction": "Sensation and movement intact distal to splint",
+        "otherFindings": [
+          "Pain now 2/10 after repeat dose",
+          "No signs of respiratory depression",
+          "Splint remains well-secured, distal pulses intact"
+        ],
+        "patientSpeech": "\"I feel a lot better, thank you.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Rhythm",
+        "ecgWaveform": 9,
+        "hr": 84,
+        "bpSys": 122,
+        "bpDia": 76,
+        "respRate": 16,
+        "spo2": 99,
+        "etco2": 40,
+        "temp": 36.5,
+        "tempF": 97.7,
+        "obstruction": 0,
+        "glucose": 96,
+        "customMeasures": [],
+        "trendTimeSeconds": 40,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a6-repeat-fentanyl",
+          "shortAction": "Repeat fentanyl 84 mcg IV 5 min after first dose (84 kg × 1 mcg/kg; pain persists at 4/10)",
+          "protocolExcerpt": "If indicated based on pain assessment, and vital signs allow, repeat pain medication administration (excluding acetaminophen and nonsteroidal anti-inflammatory medicines) after 5 minutes of the previous dose",
+          "priority": "critical",
+          "rationale": "Persistent moderate pain after the first dose meets protocol criteria for a repeat dose.",
+          "protocolReference": "MATC: Pain Management"
+        },
+        {
+          "id": "a7-transport",
+          "shortAction": "Transport in position of comfort; reassess vitals and pain score en route",
+          "protocolExcerpt": "Transport in position of comfort and reassess as indicated",
+          "priority": "important",
+          "rationale": "Ongoing reassessment confirms adequate analgesia without respiratory compromise.",
+          "protocolReference": "MATC: Pain Management"
+        }
+      ],
+      "transitions": []
+    },
+    {
+      "id": "analgesia-withheld",
+      "name": "Fentanyl withheld despite severe pain",
+      "description": "The crew splints the leg but does not administer analgesia despite the patient's continued severe pain, resulting in ongoing tachycardia, hypertension, and patient distress during movement and transport.",
+      "triggerCondition": "Crew splints the deformed leg but withholds fentanyl despite an 8/10 pain score and no identified contraindications, leaving the patient's pain and physiologic stress response unmanaged.",
+      "isDefault": false,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "Rapid, shallow with guarding, 24/min",
+        "circulation": "Radial pulses strong and bounding bilaterally",
+        "skin": { "color": "flushed", "temperature": "warm", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Sensation and movement intact distal to splint",
+        "otherFindings": [
+          "Pain unchanged at 8/10",
+          "Patient crying out with any movement",
+          "Increasingly anxious and uncooperative with packaging"
+        ],
+        "patientSpeech": "\"Please, it still hurts so bad, can't you give me something?!\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 128,
+        "bpSys": 156,
+        "bpDia": 94,
+        "respRate": 24,
+        "spo2": 97,
+        "etco2": 0,
+        "temp": 36.5,
+        "tempF": 97.7,
+        "obstruction": 0,
+        "glucose": 96,
+        "customMeasures": [],
+        "trendTimeSeconds": 30,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a8-recognize-untreated-pain",
+          "shortAction": "Recognize undertreated severe pain; administer fentanyl 84 mcg IV (84 kg × 1 mcg/kg; max 100 mcg)",
+          "protocolExcerpt": "For Moderate to Severe pain, analgesics include: Fentanyl: 1 mcg/kg IN, IM, IV or IO (maximum initial dose of 100 mcg)",
+          "priority": "critical",
+          "rationale": "Untreated severe pain drives the ongoing tachycardia and hypertension; weight-based fentanyl is indicated with no contraindications present.",
+          "protocolReference": "MATC: Pain Management"
+        }
+      ],
+      "transitions": []
+    }
+  ],
+  "realiti": {
+    "scenarioMonitorType": 2,
+    "scenarioDefaultEnergy": 200,
+    "scenarioDefaultPacerThreshold": 55
+  }
+}

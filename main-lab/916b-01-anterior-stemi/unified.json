@@ -1,0 +1,541 @@
+{
+  "meta": {
+    "id": "916b-01-anterior-stemi",
+    "name": "Anterior STEMI — Crushing Chest Pain with PDE5 Inhibitor Complication",
+    "version": 1,
+    "difficulty": "intermediate",
+    "category": "Cardiac",
+    "protocols": [
+      "cv-chest-pain-acs-stemi",
+      "medical-pain-management",
+      "resus-cardiac-arrest"
+    ],
+    "totalTimeSeconds": 900,
+    "createdAt": "2026-08-22",
+    "tags": ["STEMI", "ACS", "chest pain", "12-lead", "anterior MI", "PDE5 inhibitor", "cardiac arrest"]
+  },
+  "patient": {
+    "name": "Robert Hensley",
+    "age": 58,
+    "ageUnit": "years",
+    "sex": "male",
+    "weight": 95,
+    "weightLbs": 209,
+    "height": 178,
+    "chiefComplaint": "Crushing chest pain",
+    "history": {
+      "hpi": "Patient was mowing his lawn approximately 30 minutes ago when he developed sudden-onset crushing substernal chest pain, 9/10, radiating to his left arm and jaw, associated with diaphoresis and nausea. Pain has not improved with rest. Denies similar pain before today.",
+      "pastMedical": ["Hypertension", "Hyperlipidemia", "Type 2 diabetes mellitus", "Prior MI 5 years ago with drug-eluting stent placement"],
+      "medications": ["Lisinopril 20 mg daily", "Atorvastatin 40 mg daily", "Metformin 1000 mg BID", "Aspirin 81 mg daily (last dose 2 days ago, ran out)", "Sildenafil (Viagra) 50 mg, taken approximately 12 hours prior to symptom onset"],
+      "allergies": ["NKDA"],
+      "lastOralIntake": "Coffee and toast approximately 2 hours ago",
+      "events": "Wife heard him call out from the backyard and found him sitting on the ground clutching his chest, pale and sweating; she called 911 immediately"
+    }
+  },
+  "scene": {
+    "dispatch": "58-year-old male, chest pain, difficulty breathing, residential backyard",
+    "location": "Single-family home, back yard; patient found sitting on the grass near a running lawnmower",
+    "time": "Saturday, mid-afternoon, 1430 hrs, warm and sunny",
+    "safety": "Scene is safe; mower has been shut off by a neighbor; no other hazards noted",
+    "bystanders": "Wife present, tearful and anxious, reports the sudden onset and that he has never had chest pain like this before",
+    "visualCues": [
+      "Patient sitting on the ground, leaning forward, clutching his chest with a fist (Levine's sign)",
+      "Pale, diaphoretic skin with visible sweat on the forehead and shirt",
+      "Idle lawnmower nearby",
+      "Prescription bottle for sildenafil visible in patient's pocket when wife hands over his medications"
+    ]
+  },
+  "phases": [
+    {
+      "id": "initial",
+      "name": "Initial Contact",
+      "description": "58-year-old male found sitting in his backyard with acute-onset crushing chest pain radiating to the left arm and jaw, diaphoretic and anxious, pain 9/10. Vitals show sinus tachycardia and mild hypertension consistent with an acute cardiac event, though the 12-lead has not yet been acquired.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent, speaking full sentences",
+        "breathing": "Mildly tachypneic, equal bilateral breath sounds, no distress",
+        "circulation": "Radial pulses strong and rapid, skin pale and diaphoretic",
+        "skin": { "color": "pale", "temperature": "cool", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Grossly intact, no deficits",
+        "otherFindings": ["Clutching chest with fist (Levine's sign)", "Visibly anxious and restless", "Grimacing with pain"],
+        "patientSpeech": "It feels like an elephant is sitting on my chest... it's going into my jaw and my left arm. I feel sick."
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 112,
+        "bpSys": 158,
+        "bpDia": 96,
+        "respRate": 22,
+        "spo2": 95,
+        "etco2": 34,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 0,
+        "glucose": 138,
+        "customMeasures": [],
+        "trendTimeSeconds": 0,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "ea-initial-1",
+          "shortAction": "Perform rapid focused assessment; recognize signs/symptoms consistent with ACS",
+          "protocolExcerpt": "Signs and symptoms include chest pain, congestive heart failure (CHF), syncope, shock, symptoms similar to a patient's previous MI",
+          "priority": "critical",
+          "rationale": "Early recognition drives the STEMI system of care timeline",
+          "protocolReference": "MATC: Chest Pain/ACS/STEMI"
+        },
+        {
+          "id": "ea-initial-2",
+          "shortAction": "Assess cardiac rhythm; address any pulseless, symptomatic tachycardia, or symptomatic bradycardia first",
+          "protocolExcerpt": "Assess the patient's cardiac rhythm and immediately address pulseless rhythms, symptomatic tachycardia, or symptomatic bradycardia",
+          "priority": "critical",
+          "rationale": "Rule out immediately life-threatening rhythm disturbance before proceeding",
+          "protocolReference": "MATC: Chest Pain/ACS/STEMI"
+        },
+        {
+          "id": "ea-initial-3",
+          "shortAction": "Obtain complete SAMPLE history including full medication list",
+          "protocolExcerpt": "A complete medication list should be obtained from each patient. It is especially important for the treating physician and healthcare providers to be informed if the patient is taking beta-blockers, calcium channel blockers, clonidine, digoxin, blood thinners (anticoagulants), and medications for the treatment of erectile dysfunction or pulmonary hypertension",
+          "priority": "important",
+          "rationale": "Sildenafil use is a critical nitrate contraindication that must be identified before NTG is considered",
+          "protocolReference": "MATC: Chest Pain/ACS/STEMI"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "stemi-recognized",
+          "if": "12-lead acquired within 10 minutes",
+          "condition": "Crew acquires and interprets a 12-lead EKG within 10 minutes of patient contact, identifying anterior ST elevation consistent with STEMI",
+          "conditionType": "action_taken",
+          "triggerActionIds": []
+        },
+        {
+          "targetPhaseId": "12lead-delayed",
+          "if": "12-lead delayed beyond 10 minutes",
+          "condition": "Crew fails to acquire a 12-lead EKG within 10 minutes of patient contact, delaying STEMI recognition and hospital notification",
+          "conditionType": "time_elapsed",
+          "timeoutSeconds": 600
+        }
+      ]
+    },
+    {
+      "id": "stemi-recognized",
+      "name": "12-lead acquired, STEMI Anterior recognized",
+      "description": "12-lead EKG acquired within the target window shows ST-segment elevation across V1-V4 consistent with an anterior STEMI. Crew activates the STEMI system of care with advance hospital notification, gives aspirin, and establishes IV access.",
+      "triggerCondition": "Crew acquires a 12-lead EKG within 10 minutes of patient contact; the tracing shows significant ST-segment elevation in leads V1-V4, confirming an anterior wall STEMI.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "Mildly tachypneic, equal breath sounds",
+        "circulation": "Strong rapid radial pulses, skin pale and diaphoretic",
+        "skin": { "color": "pale", "temperature": "cool", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Grossly intact",
+        "otherFindings": ["12-lead confirms ST elevation V1-V4", "Patient remains 9/10 pain", "Still anxious, gripping stretcher rail"],
+        "patientSpeech": "Is this a heart attack? Please don't let anything happen to me."
+      },
+      "monitorState": {
+        "ecgRhythm": "STEMI Anterior",
+        "ecgWaveform": 23,
+        "hr": 114,
+        "bpSys": 160,
+        "bpDia": 98,
+        "respRate": 22,
+        "spo2": 95,
+        "etco2": 34,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 0,
+        "glucose": 138,
+        "customMeasures": [],
+        "trendTimeSeconds": 20,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "ea-stemi-1",
+          "shortAction": "Acquire 12-lead EKG within 10 minutes of patient contact; identify STEMI",
+          "protocolExcerpt": "The 12-lead EKG is the primary diagnostic tool that identifies a STEMI; it is imperative that EMS clinicians routinely acquire a 12-lead EKG within 10 minutes for all patients exhibiting signs and symptoms of ACS",
+          "priority": "critical",
+          "rationale": "Meeting the 10-minute benchmark is a core STEMI performance measure",
+          "protocolReference": "MATC: Chest Pain/ACS/STEMI"
+        },
+        {
+          "id": "ea-stemi-2",
+          "shortAction": "Activate STEMI alert; transmit 12-lead and provide advance notification to receiving hospital",
+          "protocolExcerpt": "Advance notification should be provided to the receiving hospital for patients identified as having a STEMI",
+          "priority": "critical",
+          "rationale": "Advance notification shortens door-to-balloon time",
+          "protocolReference": "MATC: Chest Pain/ACS/STEMI"
+        },
+        {
+          "id": "ea-stemi-3",
+          "shortAction": "Aspirin 324 mg PO, chewable non-enteric-coated (within 162-325 mg range)",
+          "protocolExcerpt": "Administer aspirin; chewable, non-enteric-coated aspirin preferred (162–325 mg)",
+          "priority": "critical",
+          "rationale": "Antiplatelet therapy reduces infarct extension and mortality",
+          "protocolReference": "MATC: Chest Pain/ACS/STEMI"
+        },
+        {
+          "id": "ea-stemi-4",
+          "shortAction": "Establish IV access",
+          "protocolExcerpt": "Establish IV access",
+          "priority": "critical",
+          "rationale": "Vascular access needed for medications and in case of deterioration",
+          "protocolReference": "MATC: Chest Pain/ACS/STEMI"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "pde5-screened",
+          "if": "PDE5 inhibitor use identified before NTG given",
+          "condition": "Crew reviews medication history, identifies sildenafil use within the past 48 hours, and correctly withholds nitroglycerin",
+          "conditionType": "action_taken",
+          "triggerActionIds": ["ea-initial-3"]
+        },
+        {
+          "targetPhaseId": "ntg-unscreened",
+          "if": "NTG given without PDE5 screen",
+          "condition": "Crew administers sublingual nitroglycerin without first screening for phosphodiesterase inhibitor use, precipitating profound hypotension",
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["ea-initial-3"]
+        }
+      ]
+    },
+    {
+      "id": "12lead-delayed",
+      "name": "12-lead delayed",
+      "description": "Crew becomes distracted by scene management and does not acquire the 12-lead EKG within the 10-minute target window. STEMI recognition and hospital notification are delayed, prolonging total ischemic time.",
+      "triggerCondition": "More than 10 minutes elapse from patient contact without a 12-lead EKG being acquired; ischemic burden continues to accumulate without STEMI recognition or hospital notification.",
+      "isDefault": false,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "Increasingly labored, tachypneic",
+        "circulation": "Weaker radial pulses, worsening diaphoresis",
+        "skin": { "color": "pale, mottling beginning", "temperature": "cool", "moisture": "profusely diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Grossly intact",
+        "otherFindings": ["Pain now 10/10", "Increasingly restless and anxious", "New complaint of lightheadedness"],
+        "patientSpeech": "It's getting so much worse... I feel like I'm going to pass out."
+      },
+      "monitorState": {
+        "ecgRhythm": "STEMI Anterior",
+        "ecgWaveform": 23,
+        "hr": 128,
+        "bpSys": 142,
+        "bpDia": 88,
+        "respRate": 26,
+        "spo2": 92,
+        "etco2": 32,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 0,
+        "glucose": 138,
+        "customMeasures": [],
+        "trendTimeSeconds": 50,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "ea-delayed-1",
+          "shortAction": "Immediately acquire 12-lead EKG; recognize delayed diagnosis increases morbidity/mortality risk",
+          "protocolExcerpt": "Ischemic burden time is a risk for morbidity and mortality, EMS can help decrease first medical contact to intervention time/reflow by efficient scripting/training of safely minimizing scene time",
+          "priority": "critical",
+          "rationale": "Correct the delay as soon as recognized to limit further ischemic damage",
+          "protocolReference": "MATC: Chest Pain/ACS/STEMI"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "vf-arrest",
+          "if": "STEMI recognition remains delayed, patient deteriorates",
+          "condition": "STEMI goes unrecognized and untreated as ischemia progresses, precipitating ventricular fibrillation and cardiac arrest",
+          "conditionType": "time_elapsed",
+          "timeoutSeconds": 300
+        }
+      ]
+    },
+    {
+      "id": "pde5-screened",
+      "name": "PDE5 use identified, NTG withheld, fentanyl given",
+      "description": "Crew identifies the patient's sildenafil use within the past 48 hours and correctly withholds nitroglycerin due to the risk of profound, refractory hypotension. Fentanyl is administered for ongoing severe pain.",
+      "triggerCondition": "Medication reconciliation reveals the patient took sildenafil approximately 12 hours ago; per protocol, nitrates are avoided and an opiate analgesic is used instead.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "Improving, less tachypneic",
+        "circulation": "Strong radial pulses, skin remains diaphoretic but pain easing",
+        "skin": { "color": "pale", "temperature": "cool", "moisture": "diaphoretic" },
+        "pupils": "PERRL, slightly miotic after fentanyl",
+        "motorFunction": "Grossly intact",
+        "otherFindings": ["Pain decreasing from 9/10 toward 4/10 after fentanyl", "Less restless, more relaxed posture"],
+        "patientSpeech": "That's helping... the pain isn't as sharp now."
+      },
+      "monitorState": {
+        "ecgRhythm": "STEMI Anterior",
+        "ecgWaveform": 23,
+        "hr": 100,
+        "bpSys": 148,
+        "bpDia": 90,
+        "respRate": 18,
+        "spo2": 97,
+        "etco2": 36,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 0,
+        "glucose": 138,
+        "customMeasures": [],
+        "trendTimeSeconds": 30,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "ea-screen-1",
+          "shortAction": "Screen for PDE5 inhibitor use before considering nitroglycerin; withhold NTG given sildenafil 12 hours ago",
+          "protocolExcerpt": "The use of nitrates should be avoided in any patient who has used a phosphodiesterase inhibitor within the past 48 hours. Examples include sildenafil (Viagra®, Revatio®), vardenafil (Levitra®, Staxyn®), tadalafil (Cialis®, Adcirca®) which are used for erectile dysfunction and pulmonary hypertension",
+          "priority": "critical",
+          "rationale": "Nitrates combined with PDE5 inhibitors can cause severe, refractory hypotension",
+          "protocolReference": "MATC: Chest Pain/ACS/STEMI"
+        },
+        {
+          "id": "ea-screen-2",
+          "shortAction": "Fentanyl 95 mcg IV for pain unresponsive to nitrates being contraindicated (95 kg × 1 mcg/kg = 95 mcg; max initial dose 100 mcg)",
+          "protocolExcerpt": "Fentanyl: 1 mcg/kg IN, IM, IV or IO (maximum initial dose of 100 mcg)",
+          "priority": "critical",
+          "rationale": "Opiate analgesia is the appropriate alternative when nitrates are contraindicated",
+          "protocolReference": "MATC: Pain Management"
+        },
+        {
+          "id": "ea-screen-3",
+          "shortAction": "Reassess pain score and vital signs after analgesic administration; document response",
+          "protocolExcerpt": "Pain severity scores should be recorded before and after analgesic medication administration and upon arrival at destination",
+          "priority": "important",
+          "rationale": "Ongoing reassessment guides need for repeat dosing and detects adverse effects",
+          "protocolReference": "MATC: Pain Management"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "transport-ready",
+          "if": "Pain controlled, patient stable for transport",
+          "condition": "Pain improves with fentanyl, vital signs remain stable, and the patient is prepared for transport to a PCI-capable facility",
+          "conditionType": "action_taken",
+          "triggerActionIds": ["ea-screen-2"]
+        }
+      ]
+    },
+    {
+      "id": "ntg-unscreened",
+      "name": "NTG given without PDE5 screen",
+      "description": "Nitroglycerin is given without first screening for recent PDE5 inhibitor use. Because the patient took sildenafil approximately 12 hours earlier, he develops profound, refractory hypotension requiring immediate intervention.",
+      "triggerCondition": "Crew administers sublingual nitroglycerin without asking about erectile dysfunction or pulmonary hypertension medications; the patient's recent sildenafil use precipitates a severe hypotensive crisis.",
+      "isDefault": false,
+      "clinicalPresentation": {
+        "avpu": "Verbal",
+        "gcs": { "eye": 3, "verbal": 4, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "Shallow, rapid",
+        "circulation": "Weak, thready radial pulses, near-absent",
+        "skin": { "color": "ashen, pale", "temperature": "cool", "moisture": "diaphoretic" },
+        "pupils": "PERRL, sluggish",
+        "motorFunction": "Grossly intact but lethargic",
+        "otherFindings": ["Profound hypotension after NTG", "Lightheaded, near-syncopal", "Diminishing level of alertness"],
+        "patientSpeech": "I feel... really dizzy... everything's going dark..."
+      },
+      "monitorState": {
+        "ecgRhythm": "STEMI Anterior",
+        "ecgWaveform": 23,
+        "hr": 130,
+        "bpSys": 72,
+        "bpDia": 40,
+        "respRate": 24,
+        "spo2": 90,
+        "etco2": 28,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 0,
+        "glucose": 138,
+        "customMeasures": [],
+        "trendTimeSeconds": 15,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "ea-ntgerr-1",
+          "shortAction": "Recognize NTG-induced hypotension; hold further nitrates and position patient supine",
+          "protocolExcerpt": "Care should always be taken when giving nitroglycerin when the patient's blood pressure is marginal. If used in this setting, the clinician should weigh the risk and benefit of nitrate administration over the administration of an opiate analgesic and be ready to respond to hypotension with fluid bolus or pressor",
+          "priority": "critical",
+          "rationale": "Immediate recognition prevents progression to cardiovascular collapse",
+          "protocolReference": "MATC: Chest Pain/ACS/STEMI"
+        },
+        {
+          "id": "ea-ntgerr-2",
+          "shortAction": "IV fluid bolus to treat NTG/PDE5-induced hypotension; reassess blood pressure closely",
+          "protocolExcerpt": "Care should always be taken when giving nitroglycerin when the patient's blood pressure is marginal... be ready to respond to hypotension with fluid bolus or pressor",
+          "priority": "critical",
+          "rationale": "Fluid resuscitation is the first-line response to preload-dependent hypotension from combined NTG/PDE5 inhibitor use",
+          "protocolReference": "MATC: Chest Pain/ACS/STEMI"
+        }
+      ],
+      "transitions": []
+    },
+    {
+      "id": "transport-ready",
+      "name": "Transport to PCI center",
+      "description": "Pain is controlled, vital signs are stable, and serial 12-lead EKGs continue to show the anterior STEMI pattern. The patient is packaged and transported to the PCI-capable receiving facility with continued monitoring and hospital updates.",
+      "triggerCondition": "Analgesia is effective, hemodynamics remain stable, and the crew proceeds with transport per the regional STEMI system of care.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "Non-labored",
+        "circulation": "Strong radial pulses",
+        "skin": { "color": "improving color", "temperature": "warm", "moisture": "drying" },
+        "pupils": "PERRL",
+        "motorFunction": "Grossly intact",
+        "otherFindings": ["Pain 3/10", "Calm, cooperative", "Resting comfortably on the stretcher"],
+        "patientSpeech": "That's a lot better, thank you. How much longer to the hospital?"
+      },
+      "monitorState": {
+        "ecgRhythm": "STEMI Anterior",
+        "ecgWaveform": 23,
+        "hr": 92,
+        "bpSys": 138,
+        "bpDia": 84,
+        "respRate": 16,
+        "spo2": 98,
+        "etco2": 38,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 0,
+        "glucose": 138,
+        "customMeasures": [],
+        "trendTimeSeconds": 40,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "ea-transport-1",
+          "shortAction": "Perform serial 12-lead EKGs, especially with any clinical change",
+          "protocolExcerpt": "Perform serial 12-lead EKGs (especially if clinical changes are noted)",
+          "priority": "important",
+          "rationale": "Monitors for evolving infarct or new dysrhythmia en route",
+          "protocolReference": "MATC: Chest Pain/ACS/STEMI"
+        },
+        {
+          "id": "ea-transport-2",
+          "shortAction": "Transport to appropriate PCI-capable facility per regional STEMI system of care",
+          "protocolExcerpt": "Transport and destination decisions should be based on local resources and system of care",
+          "priority": "critical",
+          "rationale": "Timely PCI is the definitive treatment for STEMI",
+          "protocolReference": "MATC: Chest Pain/ACS/STEMI"
+        },
+        {
+          "id": "ea-transport-3",
+          "shortAction": "Provide early notification to receiving facility of any condition changes or serial EKG findings",
+          "protocolExcerpt": "Early notification to receiving facility of any changes in patient condition or serial EKGs",
+          "priority": "important",
+          "rationale": "Keeps the receiving cath lab team updated for readiness",
+          "protocolReference": "MATC: Chest Pain/ACS/STEMI"
+        }
+      ],
+      "transitions": []
+    },
+    {
+      "id": "vf-arrest",
+      "name": "STEMI progresses to VF arrest",
+      "description": "Prolonged, unrecognized anterior STEMI progresses to ventricular fibrillation. The patient becomes pulseless and unresponsive, requiring immediate high-quality CPR and defibrillation.",
+      "triggerCondition": "Delayed STEMI recognition and treatment allow ongoing myocardial ischemia to progress until the patient develops ventricular fibrillation and becomes pulseless.",
+      "isDefault": false,
+      "clinicalPresentation": {
+        "avpu": "Unresponsive",
+        "gcs": { "eye": 1, "verbal": 1, "motor": 1 },
+        "airway": "Patent but unprotected, requires management",
+        "breathing": "Agonal, then absent",
+        "circulation": "Pulseless",
+        "skin": { "color": "cyanotic, mottled", "temperature": "cool", "moisture": "diaphoretic" },
+        "pupils": "Fixed and dilated",
+        "motorFunction": "Absent",
+        "otherFindings": ["No palpable pulse", "No spontaneous respirations", "CPR in progress"],
+        "patientSpeech": "None — unresponsive"
+      },
+      "monitorState": {
+        "ecgRhythm": "Ventricular Fibrillation (Coarse)",
+        "ecgWaveform": 18,
+        "hr": 0,
+        "bpSys": 0,
+        "bpDia": 0,
+        "respRate": 0,
+        "spo2": 0,
+        "etco2": 18,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 0,
+        "glucose": 138,
+        "customMeasures": [],
+        "trendTimeSeconds": 15,
+        "visibility": { "spo2Visible": false, "spo2Attached": true, "rrVisible": false, "etco2Visible": true, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "ea-arrest-1",
+          "shortAction": "Recognize pulselessness; begin high-quality chest compressions immediately",
+          "protocolExcerpt": "Once pulselessness is discovered, treatment should be initiated immediately, and any further history must be obtained by bystanders while treatment is ongoing",
+          "priority": "critical",
+          "rationale": "Minimally interrupted compressions are the most important determinant of survival",
+          "protocolReference": "MATC: Cardiac Arrest"
+        },
+        {
+          "id": "ea-arrest-2",
+          "shortAction": "Defibrillate coarse VF per biphasic protocol (e.g., Zoll 120 J, 150 J, 200 J escalating)",
+          "protocolExcerpt": "Defibrillation dosing should follow manufacturer's recommendation in the case of biphasic defibrillators. If the manufacturer's recommendation is unknown, use highest setting possible. Zoll Adult – 120 J, 150 J, 200 J",
+          "priority": "critical",
+          "rationale": "Prompt defibrillation is the definitive treatment for VF",
+          "protocolReference": "MATC: Cardiac Arrest"
+        },
+        {
+          "id": "ea-arrest-3",
+          "shortAction": "Resume chest compressions immediately after each shock; no pause for pulse checks for 2 minutes",
+          "protocolExcerpt": "Chest compressions should resume immediately after defibrillation attempts with no pauses for pulse checks for 2 minutes regardless of the rhythm displayed on the cardiac monitor",
+          "priority": "critical",
+          "rationale": "Interruptions in compressions reduce coronary perfusion pressure and survival",
+          "protocolReference": "MATC: Cardiac Arrest"
+        },
+        {
+          "id": "ea-arrest-4",
+          "shortAction": "Establish IV/IO access; administer Epinephrine 1 mg IV/IO during CPR",
+          "protocolExcerpt": "If feasible, IV or IO access should be obtained. Administer Epinephrine 1mg during the first or second round of compressions",
+          "priority": "critical",
+          "rationale": "Epinephrine supports coronary and cerebral perfusion pressure during CPR",
+          "protocolReference": "MATC: Cardiac Arrest"
+        },
+        {
+          "id": "ea-arrest-5",
+          "shortAction": "Amiodarone 300 mg IV/IO for shock-refractory VF; may repeat 150 mg in 4-6 minutes",
+          "protocolExcerpt": "Amiodarone 300mg, followed by 150mg 4-6 min later if still in refractory VF and pulseless VT",
+          "priority": "important",
+          "rationale": "Antiarrhythmic therapy is considered for recurrent/refractory VF",
+          "protocolReference": "MATC: Cardiac Arrest"
+        }
+      ],
+      "transitions": []
+    }
+  ],
+  "realiti": {
+    "scenarioMonitorType": 2,
+    "scenarioDefaultEnergy": 200,
+    "scenarioDefaultPacerThreshold": 55
+  }
+}

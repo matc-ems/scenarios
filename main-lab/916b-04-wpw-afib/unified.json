@@ -1,0 +1,384 @@
+{
+  "meta": {
+    "id": "916b-04-wpw-afib",
+    "name": "WPW with Pre-Excited Atrial Fibrillation",
+    "version": 1,
+    "difficulty": "advanced",
+    "category": "Cardiac",
+    "protocols": ["cv-tachycardia", "medical-hypoglycemia", "resus-cardiac-arrest"],
+    "totalTimeSeconds": 900,
+    "createdAt": "2026-08-22",
+    "tags": ["916b", "12-lead interpretation", "WPW", "pre-excited AFib", "wide complex tachycardia", "irregularly irregular", "procainamide", "AV nodal blocker contraindicated"]
+  },
+  "patient": {
+    "name": "Derek Solano",
+    "age": 34,
+    "ageUnit": "years",
+    "sex": "male",
+    "weight": 86,
+    "weightLbs": 190,
+    "height": 178,
+    "chiefComplaint": "Palpitations and dizziness",
+    "history": {
+      "hpi": "34-year-old male reports sudden onset of rapid, irregular palpitations approximately 25 minutes ago while at rest, associated with lightheadedness and mild left-sided chest discomfort. Denies loss of consciousness. States he has had similar brief episodes in the past that resolved on their own, but this one has not stopped. No recent illness, no drug use reported.",
+      "pastMedical": ["Wolff-Parkinson-White syndrome (diagnosed at age 19, never ablated)"],
+      "medications": [],
+      "allergies": ["NKDA"],
+      "lastOralIntake": "Lunch approximately 3 hours ago; black coffee 1 hour ago",
+      "events": "Onset of rapid irregular heartbeat and lightheadedness while watching television; wife called 911 when it did not resolve after 20 minutes"
+    }
+  },
+  "scene": {
+    "dispatch": "34-year-old male, palpitations and dizziness, patient conscious and breathing, residence.",
+    "location": "Single-family home, living room; patient seated on couch",
+    "time": "Friday, 8:40 PM",
+    "safety": "No scene hazards identified; patient cooperative",
+    "bystanders": "Wife present, states patient has a history of 'a heart rhythm thing since he was a teenager' and has had short episodes before that 'always went away on their own'",
+    "visualCues": ["Patient appears anxious, hand on chest", "Half-empty energy drink can on coffee table", "Patient's pulse visibly rapid and irregular at the wrist"]
+  },
+  "phases": [
+    {
+      "id": "initial",
+      "name": "Initial Contact",
+      "description": "Patient is alert and oriented, seated upright, reporting palpitations, mild dizziness, and mild left-sided chest discomfort for the past 25 minutes. Radial pulse is rapid and irregularly irregular. Monitor shows a wide-complex, irregular tachycardia. Blood pressure is on the low end of normal but the patient is not yet showing signs of severe hypoperfusion.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent, speaking full sentences",
+        "breathing": "Mildly tachypneic, lungs clear bilaterally, no accessory muscle use",
+        "circulation": "Radial pulse rapid, irregularly irregular; skin cool and slightly diaphoretic",
+        "skin": { "color": "pale", "temperature": "cool", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Normal, moves all extremities",
+        "otherFindings": ["Anxious affect", "Hand pressed to chest", "No JVD", "No peripheral edema"],
+        "patientSpeech": "\"My heart is racing and it feels like it's skipping all over the place. I feel a little dizzy but I'm not gonna pass out.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Wolff-Parkinson-White",
+        "ecgWaveform": 84,
+        "hr": 172,
+        "bpSys": 96,
+        "bpDia": 58,
+        "respRate": 20,
+        "spo2": 96,
+        "etco2": 34,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 0,
+        "glucose": 98,
+        "customMeasures": [],
+        "trendTimeSeconds": 0,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a1-airway",
+          "shortAction": "Manage airway as necessary; airway patent, no intervention required",
+          "protocolExcerpt": "Manage airway as necessary",
+          "priority": "supplemental",
+          "rationale": "Airway is patent and patient is talking; confirm and monitor.",
+          "protocolReference": "MATC: Tachycardia with a Pulse"
+        },
+        {
+          "id": "a2-o2",
+          "shortAction": "Administer oxygen titrated to target SpO2 94-98% (currently 96%)",
+          "protocolExcerpt": "Administer oxygen as appropriate with a target of achieving 94–98% saturation",
+          "priority": "important",
+          "protocolReference": "MATC: Tachycardia with a Pulse"
+        },
+        {
+          "id": "a3-monitor",
+          "shortAction": "Initiate cardiac monitoring and acquire 12-lead EKG",
+          "protocolExcerpt": "Initiate monitoring and perform 12-lead EKG",
+          "priority": "critical",
+          "protocolReference": "MATC: Tachycardia with a Pulse"
+        },
+        {
+          "id": "a4-iv",
+          "shortAction": "Establish IV access",
+          "protocolExcerpt": "Establish IV access",
+          "priority": "important",
+          "protocolReference": "MATC: Tachycardia with a Pulse"
+        },
+        {
+          "id": "a5-glucose",
+          "shortAction": "Check blood glucose (98 mg/dL, normal); rules out hypoglycemia as cause",
+          "protocolExcerpt": "Check blood glucose and treat hypoglycemia per the Hypoglycemia Guideline",
+          "priority": "important",
+          "rationale": "Hypoglycemia is a listed reversible cause of tachydysrhythmia; glucose here is normal so no dextrose is indicated per the Hypoglycemia Guideline inclusion criteria (BG <60 mg/dL with symptoms).",
+          "protocolReference": "MATC: Tachycardia with a Pulse"
+        },
+        {
+          "id": "a6-recognize-wpw",
+          "shortAction": "Recognize irregularly irregular wide-complex tachycardia as pre-excited AFib (WPW); note short PR interval/delta wave on 12-lead",
+          "protocolExcerpt": "A wide-complex irregular rhythm should be considered pre-excited A-FIB; extreme care must be taken in these patients Characteristic EKG findings include a short PR interval and, in some cases, a delta wave",
+          "priority": "critical",
+          "protocolReference": "MATC: Tachycardia with a Pulse"
+        },
+        {
+          "id": "a7-avoid-avnodal",
+          "shortAction": "Do NOT give adenosine, diltiazem, verapamil, metoprolol, or digoxin — AV nodal blockers contraindicated in pre-excited AFib",
+          "protocolExcerpt": "Avoid AV nodal blocking agents such as adenosine, calcium channel blockers, digoxin, and possibly beta-blockers in patients with pre-excitation A-FIB (e.g., Wolff-Parkinson-White Syndrome, Lown-Ganong-Levine Syndrome) because these drugs may cause a paradoxical increase in the ventricular response",
+          "priority": "critical",
+          "protocolReference": "MATC: Tachycardia with a Pulse"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "procainamide-given",
+          "if": "Procainamide given, AV nodal blockers avoided",
+          "condition": "Crew correctly identifies irregular wide-complex tachycardia as pre-excited AFib (WPW) and avoids AV nodal blocking agents, instead initiating procainamide per the stable irregular wide complex tachycardia pathway.",
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a6-recognize-wpw", "a7-avoid-avnodal"]
+        },
+        {
+          "targetPhaseId": "av-nodal-blocker-given",
+          "if": "AV nodal blocker given",
+          "condition": "Crew mistakenly administers an AV nodal blocking agent (e.g., adenosine, diltiazem, metoprolol) to the pre-excited AFib rhythm, unmasking exclusive accessory pathway conduction.",
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["a7-avoid-avnodal"]
+        },
+        {
+          "targetPhaseId": "unstable-cardioversion",
+          "if": "Treatment delayed, patient decompensates",
+          "condition": "Treatment is delayed beyond several minutes without intervention; patient progresses to hemodynamic instability (hypotension, altered mental status) requiring synchronized cardioversion.",
+          "conditionType": "time_elapsed",
+          "timeoutSeconds": 300
+        }
+      ]
+    },
+    {
+      "id": "procainamide-given",
+      "name": "Procainamide given",
+      "description": "Crew correctly withholds AV nodal blocking agents and initiates a procainamide infusion for the stable, irregularly irregular wide-complex tachycardia (pre-excited AFib). Over several minutes the ventricular response slows and the patient's symptoms and perfusion improve.",
+      "triggerCondition": "Crew recognized the irregular wide-complex tachycardia as pre-excited AFib (WPW) and, per protocol, avoided AV nodal blocking agents in favor of procainamide.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "Improving, RR trending down toward normal",
+        "circulation": "Radial pulse still irregular but slower and stronger; skin warming, less diaphoretic",
+        "skin": { "color": "pink", "temperature": "warm", "moisture": "slightly diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Normal",
+        "otherFindings": ["Patient reports chest discomfort resolving", "Less anxious affect"],
+        "patientSpeech": "\"Okay, that's better, my chest doesn't feel as tight now.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Wolff-Parkinson-White",
+        "ecgWaveform": 84,
+        "hr": 118,
+        "bpSys": 112,
+        "bpDia": 72,
+        "respRate": 16,
+        "spo2": 98,
+        "etco2": 36,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 0,
+        "glucose": 98,
+        "customMeasures": [],
+        "trendTimeSeconds": 45,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "b1-procainamide",
+          "shortAction": "Procainamide 20-50 mg/min IV infusion (86 kg × 17 mg/kg = 1,462 mg maximum total dose); titrate to arrhythmia suppression, hypotension, or QRS widening >50%",
+          "protocolExcerpt": "Procainamide 20–50 mg/min until arrhythmia suppressed, hypotension ensues, QRS duration increases greater than 50%, or maximum dose 17 mg/kg given Maintenance infusion: 1–4 mg/min Avoid if prolonged QT or CHF",
+          "priority": "critical",
+          "protocolReference": "MATC: Tachycardia with a Pulse"
+        },
+        {
+          "id": "b2-sequence",
+          "shortAction": "If arrhythmia persists and a second agent is needed, give procainamide before amiodarone (WPW-specific sequencing)",
+          "protocolExcerpt": "Patients with Wolff–Parkinson–White should be given procainamide prior to amiodarone",
+          "priority": "important",
+          "protocolReference": "MATC: Tachycardia with a Pulse"
+        },
+        {
+          "id": "b3-strips",
+          "shortAction": "Obtain repeat monitor strip/12-lead after the procainamide infusion to document response",
+          "protocolExcerpt": "Obtain monitor strips after each intervention",
+          "priority": "important",
+          "protocolReference": "MATC: Tachycardia with a Pulse"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "stable-transport",
+          "if": "Rate controlled, patient stabilized",
+          "condition": "Ventricular response slows, symptoms and perfusion improve; patient is prepared for transport with continuous monitoring.",
+          "conditionType": "vital_threshold",
+          "triggerActionIds": ["b1-procainamide"]
+        }
+      ]
+    },
+    {
+      "id": "stable-transport",
+      "name": "Rate controlled, patient stabilized",
+      "description": "Ventricular response has slowed and perfusion has normalized following procainamide. Patient remains in a pre-excited rhythm (WPW baseline pattern) but is hemodynamically stable and comfortable. Continuous monitoring is maintained for transport to a facility with cardiology capability.",
+      "triggerCondition": "Procainamide infusion controlled the ventricular rate and improved perfusion; no further antidysrhythmic needed at this time.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "Normal, RR 14, clear bilaterally",
+        "circulation": "Pulse regular and strong",
+        "skin": { "color": "pink", "temperature": "warm", "moisture": "dry" },
+        "pupils": "PERRL",
+        "motorFunction": "Normal",
+        "otherFindings": ["Chest discomfort resolved", "Patient calm and conversant"],
+        "patientSpeech": "\"I feel a lot better now, thanks.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Wolff-Parkinson-White",
+        "ecgWaveform": 84,
+        "hr": 92,
+        "bpSys": 118,
+        "bpDia": 76,
+        "respRate": 14,
+        "spo2": 99,
+        "etco2": 38,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 0,
+        "glucose": 98,
+        "customMeasures": [],
+        "trendTimeSeconds": 50,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "c1-document",
+          "shortAction": "Document initial rhythm, all rhythm changes, and time/dose/response to procainamide for handoff",
+          "protocolExcerpt": "Initial rhythm and all rhythm changes Time, dose, and response to medications given",
+          "priority": "supplemental",
+          "protocolReference": "MATC: Tachycardia with a Pulse"
+        }
+      ],
+      "transitions": []
+    },
+    {
+      "id": "av-nodal-blocker-given",
+      "name": "AV nodal blocker given",
+      "description": "An AV nodal blocking agent was administered to the pre-excited AFib rhythm. AV node blockade forces conduction exclusively down the accessory pathway, producing a paradoxical increase in ventricular rate. The rhythm rapidly degenerates into ventricular fibrillation and the patient becomes pulseless.",
+      "triggerCondition": "Crew administered an AV nodal blocking agent (e.g., adenosine, diltiazem, metoprolol) to the irregularly irregular wide-complex tachycardia instead of recognizing it as pre-excited AFib (WPW).",
+      "isDefault": false,
+      "clinicalPresentation": {
+        "avpu": "Unresponsive",
+        "gcs": { "eye": 1, "verbal": 1, "motor": 1 },
+        "airway": "Patent but unprotected, requires airway management",
+        "breathing": "Agonal then absent",
+        "circulation": "Pulseless",
+        "skin": { "color": "cyanotic", "temperature": "cool", "moisture": "diaphoretic" },
+        "pupils": "Fixed, mid-position",
+        "motorFunction": "None",
+        "otherFindings": ["Sudden collapse seconds after medication administration", "No palpable pulse"],
+        "patientSpeech": ""
+      },
+      "monitorState": {
+        "ecgRhythm": "Ventricular Fibrillation (Coarse)",
+        "ecgWaveform": 18,
+        "hr": 0,
+        "bpSys": 0,
+        "bpDia": 0,
+        "respRate": 0,
+        "spo2": 0,
+        "etco2": 12,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 0,
+        "glucose": 98,
+        "customMeasures": [],
+        "trendTimeSeconds": 15,
+        "visibility": { "spo2Visible": false, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "d1-cpr-defib",
+          "shortAction": "Recognize degeneration into ventricular fibrillation; begin immediate chest compressions and prepare to defibrillate",
+          "protocolExcerpt": "Initiate chest compressions in cases with no bystander chest compressions or take over compressions from bystanders while a second rescuer is setting up the AED or defibrillator If adequate, uninterrupted bystander CPR has been performed or if the patient arrests in front of the EMS clinicians, immediately proceed with rhythm analysis and defibrillation, if appropriate",
+          "priority": "critical",
+          "protocolReference": "MATC: Cardiac Arrest"
+        },
+        {
+          "id": "d2-defib-dose",
+          "shortAction": "Defibrillate at manufacturer's recommended biphasic energy (or highest setting if unknown)",
+          "protocolExcerpt": "Defibrillation dosing should follow manufacturer's recommendation in the case of biphasic defibrillators. If the manufacturer's recommendation is unknown, use highest setting possible.",
+          "priority": "critical",
+          "protocolReference": "MATC: Cardiac Arrest"
+        },
+        {
+          "id": "d3-recognize-cause",
+          "shortAction": "Recognize AV nodal blockade of pre-excited AFib as the precipitating cause of VF",
+          "protocolExcerpt": "Blocking the AV node in some of these patients may lead to impulses that are transmitted exclusively down the accessory pathway, which can result in ventricular fibrillation",
+          "priority": "important",
+          "protocolReference": "MATC: Tachycardia with a Pulse"
+        }
+      ],
+      "transitions": []
+    },
+    {
+      "id": "unstable-cardioversion",
+      "name": "Treatment delayed, patient decompensates",
+      "description": "Treatment was delayed and the patient has progressed to hemodynamic instability: worsening hypotension and altered mental status. This now meets criteria for the unstable irregular wide-complex tachycardia pathway and requires synchronized cardioversion.",
+      "triggerCondition": "Antidysrhythmic treatment was not initiated in a timely manner; patient decompensated to hypotension and altered mental status, meeting criteria for unstable tachycardia.",
+      "isDefault": false,
+      "clinicalPresentation": {
+        "avpu": "Verbal",
+        "gcs": { "eye": 3, "verbal": 4, "motor": 6 },
+        "airway": "Patent, protecting airway but sluggish responses",
+        "breathing": "Rapid, shallow, RR 26",
+        "circulation": "Radial pulse thready, irregularly irregular, barely palpable; only central pulses palpable",
+        "skin": { "color": "pale/mottled", "temperature": "cool", "moisture": "diaphoretic" },
+        "pupils": "PERRL, sluggish",
+        "motorFunction": "Normal but slow to follow commands",
+        "otherFindings": ["Diaphoresis increasing", "Patient slumping in seat"],
+        "patientSpeech": "\"I... don't feel right...\" (slurred, slow to respond)"
+      },
+      "monitorState": {
+        "ecgRhythm": "Wolff-Parkinson-White",
+        "ecgWaveform": 84,
+        "hr": 188,
+        "bpSys": 74,
+        "bpDia": 44,
+        "respRate": 26,
+        "spo2": 90,
+        "etco2": 28,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 0,
+        "glucose": 96,
+        "customMeasures": [],
+        "trendTimeSeconds": 40,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "e1-cardiovert",
+          "shortAction": "Deliver synchronized cardioversion per manufacturer's recommended energy settings",
+          "protocolExcerpt": "Deliver a synchronized shock based on manufacturer's recommendation",
+          "priority": "critical",
+          "protocolReference": "MATC: Tachycardia with a Pulse"
+        },
+        {
+          "id": "e2-sedation",
+          "shortAction": "Consider sedation and analgesia prior to cardioversion since patient remains responsive",
+          "protocolExcerpt": "For responsive patients, consider sedation",
+          "priority": "important",
+          "protocolReference": "MATC: Tachycardia with a Pulse"
+        }
+      ],
+      "transitions": []
+    }
+  ],
+  "realiti": {
+    "scenarioMonitorType": 2,
+    "scenarioDefaultEnergy": 200,
+    "scenarioDefaultPacerThreshold": 55
+  }
+}

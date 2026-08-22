@@ -1,0 +1,243 @@
+{
+  "scenarioId": "921a-05-normal-term-delivery",
+  "scenarioName": "Normal Term Delivery — Uncomplicated Crowning",
+  "scenarioType": "Vital Signs",
+  "scenarioVersion": 2,
+  "scenarioTime": 900,
+  "scenarioMonitorType": 2,
+  "scenarioDefaultEnergy": 200,
+  "scenarioDefaultPacerThreshold": 55,
+  "isDemo": false,
+  "isALSILegacy": false,
+  "scenarioStory": {
+    "history": "G1P0 at 40 weeks gestation with an uncomplicated, well-monitored pregnancy, presenting in active labor with contractions progressively increasing over the past 8 hours, now 2 minutes apart and lasting 60 seconds. Reports a strong urge to push and a sensation that delivery is imminent. Membranes ruptured approximately 45 minutes ago with clear fluid, no meconium.",
+    "discussion": "",
+    "course": "Initial Contact: Crew arrives to find a 30-year-old G1P0 female at 40 weeks gestation with visible crowning and a strong urge to push. Contractions are 2 minutes apart and delivery appears imminent. → Controlled delivery performed: With crowning progressing, the crew supports delivery with gentle counterpressure on the head, checks for a nuchal cord, and guides delivery of the anterior and posterior shoulders before the infant delivers fully. → Newborn dried, warmed, APGAR assessed: The newborn is dried, warmed, and stimulated on the maternal chest with a strong cry and good tone. APGAR is scored at 1 and 5 minutes while the cord is clamped and cut and the placenta is allowed to deliver spontaneously."
+  },
+  "patientInformation": {
+    "patientName": "Emily Carter",
+    "patientCondition": "Active labor, crowning",
+    "patientAge": 30,
+    "patientAgeUnit": "years",
+    "patientAgeCategory": 0,
+    "patientSex": 2,
+    "patientHeight": 165,
+    "patientWeight": 70,
+    "patientPhotoId": 36,
+    "patientAdmitted": 1
+  },
+  "labs": [],
+  "scenarioEvents": [
+    {
+      "type": "ScenarioEvent",
+      "name": "Initial Contact",
+      "description": "Crew arrives to find a 30-year-old G1P0 female at 40 weeks gestation with visible crowning and a strong urge to push. Contractions are 2 minutes apart and delivery appears imminent.",
+      "monitorType": 0,
+      "trendTime": 0,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 105,
+        "bpSys": 128,
+        "bpDia": 82,
+        "respRate": 22,
+        "spo2": 98,
+        "etco2": 0,
+        "temp": 37,
+        "obstruction": 0,
+        "custMeasure1": 88,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Controlled delivery performed",
+      "description": "With crowning progressing, the crew supports delivery with gentle counterpressure on the head, checks for a nuchal cord, and guides delivery of the anterior and posterior shoulders before the infant delivers fully.",
+      "monitorType": 0,
+      "trendTime": 20,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 110,
+        "bpSys": 130,
+        "bpDia": 84,
+        "respRate": 24,
+        "spo2": 98,
+        "etco2": 0,
+        "temp": 37,
+        "obstruction": 0,
+        "custMeasure1": 88,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Support head with gentle counterpressure to control delivery pace",
+        "Check for nuchal cord after head delivers; slip over head if present",
+        "Guide head down to deliver anterior shoulder, then up for posterior shoulder",
+        "Do not routinely suction airway during delivery, even with bulb syringe"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Newborn dried, warmed, APGAR assessed",
+      "description": "The newborn is dried, warmed, and stimulated on the maternal chest with a strong cry and good tone. APGAR is scored at 1 and 5 minutes while the cord is clamped and cut and the placenta is allowed to deliver spontaneously.",
+      "monitorType": 0,
+      "trendTime": 40,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 92,
+        "bpSys": 122,
+        "bpDia": 78,
+        "respRate": 18,
+        "spo2": 99,
+        "etco2": 0,
+        "temp": 37,
+        "obstruction": 0,
+        "custMeasure1": 88,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Dry, warm, and stimulate newborn; place skin-to-skin on maternal chest",
+        "Clamp cord in two places 5-6 inches from abdomen and cut after 1-minute delay",
+        "Score APGAR at 1 and 5 minutes once neonate is stabilized",
+        "Do not pull cord; allow placenta to deliver spontaneously and contain it in a bag",
+        "Massage uterine fundus at the umbilicus to promote contraction and control bleeding"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Nuchal cord not checked before delivery",
+      "description": "The crew proceeds directly to shoulder delivery without palpating for a nuchal cord. As the body delivers, the cord is found wrapped tightly around the neck, and the newborn is initially pale with a weak cry, requiring prompt cord reduction and stimulation.",
+      "monitorType": 0,
+      "trendTime": 20,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 118,
+        "bpSys": 132,
+        "bpDia": 86,
+        "respRate": 24,
+        "spo2": 97,
+        "etco2": 0,
+        "temp": 37,
+        "obstruction": 0,
+        "custMeasure1": 88,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Slip tight nuchal cord over shoulders instead of head; double-clamp and cut if unable",
+        "Dry, warm, stimulate newborn; position airway and reassess tone, cry, and color"
+      ],
+      "relatedSounds": []
+    }
+  ],
+  "checklist": [
+    {
+      "title": "Support head with gentle counterpressure to control delivery pace",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Check for nuchal cord after head delivers; slip over head if present",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Guide head down to deliver anterior shoulder, then up for posterior shoulder",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Do not routinely suction airway during delivery, even with bulb syringe",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Dry, warm, and stimulate newborn; place skin-to-skin on maternal chest",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Clamp cord in two places 5-6 inches from abdomen and cut after 1-minute delay",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Score APGAR at 1 and 5 minutes once neonate is stabilized",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Do not pull cord; allow placenta to deliver spontaneously and contain it in a bag",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Massage uterine fundus at the umbilicus to promote contraction and control bleeding",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Slip tight nuchal cord over shoulders instead of head; double-clamp and cut if unable",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Dry, warm, stimulate newborn; position airway and reassess tone, cry, and color",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    }
+  ],
+  "media": []
+}

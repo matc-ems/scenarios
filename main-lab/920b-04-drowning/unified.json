@@ -1,0 +1,403 @@
+{
+  "meta": {
+    "id": "920b-04-drowning",
+    "name": "Drowning — Submersion with Apnea and Moderate Hypothermia",
+    "version": 1,
+    "difficulty": "intermediate",
+    "category": "Environmental",
+    "protocols": ["env-drowning", "resp-airway-management", "env-hypothermia-cold-exposure"],
+    "totalTimeSeconds": 900,
+    "tags": ["drowning", "submersion", "hypothermia", "airway", "920", "environmental"]
+  },
+  "patient": {
+    "name": "Tyler Brennan",
+    "age": 18,
+    "ageUnit": "years",
+    "sex": "male",
+    "weight": 75,
+    "weightLbs": 165,
+    "height": 178,
+    "chiefComplaint": "Pulled unresponsive from lake water, apneic",
+    "history": {
+      "hpi": "Patient was swimming with friends at a public lake and went underwater; friends estimate approximately 5 minutes before he was located and pulled to the dock by a lifeguard. The lifeguard began rescue breathing immediately. No reported diving, no witnessed trauma, water temperature moderate (not near-freezing).",
+      "pastMedical": [],
+      "medications": [],
+      "allergies": ["NKDA"],
+      "lastOralIntake": "Lunch approximately 2 hours prior to the incident",
+      "events": "Friends called 911 immediately after patient was pulled from the water; lifeguard initiated rescue breathing prior to EMS arrival"
+    }
+  },
+  "scene": {
+    "dispatch": "Water rescue, unresponsive 18-year-old male pulled from lake, bystander rescue breathing in progress",
+    "location": "Public lake swimming area, patient supine on the dock",
+    "time": "3:15 PM, summer weekend",
+    "safety": "Water hazard for rescuers; patient already fully removed from water; lifeguard and bystanders on scene",
+    "bystanders": "Lifeguard performed initial rescue breaths after pulling patient from the water; friends confirm no diving or impact, patient waded out too deep and went under",
+    "visualCues": [
+      "Patient supine on dock, wet clothing",
+      "Cyanotic lips and nailbeds",
+      "Water/foam at mouth and nose",
+      "No spontaneous chest rise",
+      "Shivering absent"
+    ]
+  },
+  "phases": [
+    {
+      "id": "initial",
+      "name": "Initial Contact",
+      "description": "Crew arrives to find an 18-year-old male supine on the dock, apneic, with a weak carotid pulse. Skin is cold, wet, and cyanotic. Lifeguard has been providing rescue breaths.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Unresponsive",
+        "gcs": { "eye": 1, "verbal": 1, "motor": 2 },
+        "airway": "Apneic, water/foam at mouth, no spontaneous respirations",
+        "breathing": "Apneic; occasional agonal gasp",
+        "circulation": "Weak carotid pulse present, bradycardic; skin cold and wet",
+        "skin": { "color": "cyanotic", "temperature": "cold", "moisture": "wet" },
+        "pupils": "Sluggish bilaterally",
+        "motorFunction": "No purposeful movement",
+        "otherFindings": [
+          "Water/foam at mouth and nose",
+          "Cyanotic lips and nailbeds",
+          "Shivering absent",
+          "No signs of diving or traumatic mechanism"
+        ],
+        "patientSpeech": "None — unresponsive"
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Bradycardia",
+        "ecgWaveform": 9,
+        "hr": 46,
+        "bpSys": 88,
+        "bpDia": 56,
+        "respRate": 0,
+        "spo2": 78,
+        "etco2": 0,
+        "temp": 30.0,
+        "tempF": 86.0,
+        "obstruction": 0,
+        "glucose": 95,
+        "customMeasures": [],
+        "trendTimeSeconds": 0,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [],
+      "transitions": [
+        {
+          "targetPhaseId": "bvm-started",
+          "if": "BVM with PEEP started",
+          "condition": "Crew opens the airway and begins bag-valve-mask ventilation with PEEP at an apnea rate, replacing bystander rescue breathing.",
+          "conditionType": "action_taken"
+        }
+      ]
+    },
+    {
+      "id": "bvm-started",
+      "name": "BVM with PEEP started",
+      "description": "Crew ventilates with BVM and PEEP at an adult apnea rate, monitoring oxygenation closely and avoiding hyperoxygenation per the drowning guideline.",
+      "triggerCondition": "After confirming apnea and a palpable pulse, the crew opens the airway and begins BVM ventilation with PEEP rather than compressions, since the patient is not yet pulseless.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Unresponsive",
+        "gcs": { "eye": 1, "verbal": 1, "motor": 2 },
+        "airway": "Patent with BVM support, OPA in place",
+        "breathing": "BVM ventilations delivered at 10/min with PEEP 5 cmH2O, adequate chest rise",
+        "circulation": "Carotid pulse present, still bradycardic",
+        "skin": { "color": "pale", "temperature": "cold", "moisture": "wet" },
+        "pupils": "Sluggish bilaterally",
+        "motorFunction": "No purposeful movement",
+        "otherFindings": [
+          "Cyanosis improving slightly with ventilation",
+          "Waveform capnography placed in-line"
+        ],
+        "patientSpeech": "None — unresponsive"
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Bradycardia",
+        "ecgWaveform": 9,
+        "hr": 48,
+        "bpSys": 90,
+        "bpDia": 58,
+        "respRate": 10,
+        "spo2": 90,
+        "etco2": 32,
+        "temp": 30.0,
+        "tempF": 86.0,
+        "obstruction": 0,
+        "glucose": 95,
+        "customMeasures": [],
+        "trendTimeSeconds": 20,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a1-bvm",
+          "shortAction": "Begin BVM ventilation with PEEP 5 cmH2O at 1 breath every 6 seconds (10/min) for apnea",
+          "protocolExcerpt": "For apnea, provide one breath every 6 seconds adjusting based on pulse oximetry and digital capnometry or capnography (with the goal of 35–45 mmHg)",
+          "priority": "critical",
+          "rationale": "Airway/ventilation takes priority over compressions in a drowning patient who still has a pulse.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        },
+        {
+          "id": "a2-titrate-o2",
+          "shortAction": "Titrate oxygen/PEEP to target SpO2 94–98%; avoid hyperoxygenation",
+          "protocolExcerpt": "Treatment: If O2 saturations are less than 92%, administer oxygen as appropriate with a target of achieving 94–98% saturation. Patient Safety Considerations: Avoidance of hyperoxygenation of the drowning victim.",
+          "priority": "important",
+          "rationale": "Excess oxygen delivery is discouraged in drowning resuscitation once adequate saturation is achieved.",
+          "protocolReference": "MATC: Drowning"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "rewarming-started",
+          "if": "Rewarming and warmed IV fluids started",
+          "condition": "With ventilation established and oxygenation improving, the crew shifts focus to preventing further heat loss, applying field rewarming measures, and establishing IV access for warmed fluids.",
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a1-bvm", "a2-titrate-o2"]
+        },
+        {
+          "targetPhaseId": "ventilation-inadequate",
+          "if": "Ventilation delayed, pulse lost",
+          "condition": "BVM ventilation is delayed, poorly sealed, or otherwise ineffective while the patient remains apneic and hypothermic; the pulse is lost and the patient progresses into cardiac arrest.",
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["a1-bvm"]
+        }
+      ]
+    },
+    {
+      "id": "rewarming-started",
+      "name": "Rewarming and warmed IV fluids started",
+      "description": "Crew removes wet clothing, insulates the patient, applies field rewarming with heat packs wrapped in a barrier, and establishes IV access for a warmed crystalloid bolus while continuing ventilatory support.",
+      "triggerCondition": "With ventilation and oxygenation improving, the crew addresses moderate hypothermia — removing wet clothing, insulating with dry blankets and a vapor barrier, applying wrapped heat packs, and starting a warmed IV fluid bolus.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Unresponsive",
+        "gcs": { "eye": 1, "verbal": 1, "motor": 3 },
+        "airway": "Patent with continued BVM support",
+        "breathing": "BVM ventilations continued, adequate chest rise, EtCO2 improving",
+        "circulation": "Carotid pulse strengthening slightly",
+        "skin": { "color": "pale", "temperature": "cool", "moisture": "dry" },
+        "pupils": "Sluggish bilaterally",
+        "motorFunction": "Slight withdrawal to painful stimulus",
+        "otherFindings": [
+          "Wet clothing removed, patient dried and wrapped in blankets with vapor barrier",
+          "Heat packs applied to torso, wrapped in a barrier",
+          "IV established, warmed crystalloid bolus running"
+        ],
+        "patientSpeech": "None — unresponsive"
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Bradycardia",
+        "ecgWaveform": 9,
+        "hr": 52,
+        "bpSys": 94,
+        "bpDia": 60,
+        "respRate": 10,
+        "spo2": 94,
+        "etco2": 36,
+        "temp": 30.5,
+        "tempF": 86.9,
+        "obstruction": 0,
+        "glucose": 95,
+        "customMeasures": [],
+        "trendTimeSeconds": 40,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a3-remove-wet",
+          "shortAction": "Remove wet clothing, dry skin, insulate with dry blankets and a vapor barrier",
+          "protocolExcerpt": "Prevent further heat loss by removing the patient from the environment and removing wet clothes and drying skin, insulate from the ground, shelter the patient from wind and wet conditions, and insulate the patient with dry clothing or a hypothermia wrap/blanket. Cover the patient with a vapor barrier and, if available, move the patient to a warm environment",
+          "priority": "critical",
+          "rationale": "Ongoing evaporative and conductive heat loss will worsen hypothermia if wet clothing and exposure continue.",
+          "protocolReference": "MATC: Hypothermia/Cold Exposure"
+        },
+        {
+          "id": "a4-field-rewarm",
+          "shortAction": "Apply heat packs to torso wrapped in a barrier; never place directly on skin",
+          "protocolExcerpt": "Initiate field-rewarming methods such as placement of large heat packs or heat blankets (chemical or electric if feasible) to the anterior chest or wrapped around the patient's thorax if large enough Chemical or electrical heat sources should never be applied directly to the skin Use a barrier between the skin and heat source to prevent burns",
+          "priority": "important",
+          "rationale": "Direct skin contact with heat sources can cause burns, especially in a patient with reduced ability to sense injury.",
+          "protocolReference": "MATC: Hypothermia/Cold Exposure"
+        },
+        {
+          "id": "a5-iv-fluids",
+          "shortAction": "Establish IV access; give warmed isotonic crystalloid bolus, repeat as needed",
+          "protocolExcerpt": "Establish IV and provide warmed isotonic crystalloid bolus. Repeat as necessary",
+          "priority": "important",
+          "rationale": "Warmed fluids support rewarming while addressing hypotension associated with moderate hypothermia.",
+          "protocolReference": "MATC: Hypothermia/Cold Exposure"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "improved-transport",
+          "if": "Ventilation and rewarming improving, transport initiated",
+          "condition": "Ventilation remains adequate, core temperature is trending upward, and the patient is packaged for transport with the ambulance compartment warmed.",
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a3-remove-wet", "a4-field-rewarm", "a5-iv-fluids"]
+        },
+        {
+          "targetPhaseId": "heat-pack-burn",
+          "if": "Heat pack applied without barrier",
+          "condition": "A heat pack is placed directly against bare skin without a barrier during field rewarming, risking a thermal burn injury in a patient with reduced ability to sense or report developing tissue damage.",
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["a4-field-rewarm"]
+        }
+      ]
+    },
+    {
+      "id": "improved-transport",
+      "name": "Ventilation and rewarming improving, transport initiated",
+      "description": "Spontaneous respiratory effort is returning, perfusion is improving, and the patient is transported to a hospital capable of rewarming and resuscitation with the ambulance compartment warmed.",
+      "triggerCondition": "After field rewarming and warmed IV fluids, ventilation and perfusion continue to improve, and the crew initiates transport with the patient compartment warmed per protocol.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Pain",
+        "gcs": { "eye": 2, "verbal": 2, "motor": 4 },
+        "airway": "Patent, spontaneous respiratory effort returning",
+        "breathing": "Spontaneous respirations returning, assisted as needed",
+        "circulation": "Pulse strengthening, distal perfusion improving",
+        "skin": { "color": "pink", "temperature": "cool", "moisture": "dry" },
+        "pupils": "Reactive bilaterally, sluggish",
+        "motorFunction": "Withdraws to pain, purposeful movement returning",
+        "otherFindings": [
+          "Ambulance compartment warmed",
+          "Continued reassessment of temperature and ventilation en route"
+        ],
+        "patientSpeech": "Groaning, no purposeful words yet"
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Rhythm",
+        "ecgWaveform": 9,
+        "hr": 62,
+        "bpSys": 100,
+        "bpDia": 64,
+        "respRate": 14,
+        "spo2": 96,
+        "etco2": 38,
+        "temp": 31.5,
+        "tempF": 88.7,
+        "obstruction": 0,
+        "glucose": 95,
+        "customMeasures": [],
+        "trendTimeSeconds": 40,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a6-transport",
+          "shortAction": "Transport to hospital capable of rewarming/resuscitation; warm ambulance to at least 24°C",
+          "protocolExcerpt": "Transport as soon as possible to a hospital capable of resuscitation. If cardiac arrest develops consider transport to a center capable of extracorporeal circulation (ECMO) or cardiopulmonary bypass (if feasible) Warm the patient compartment of the ambulance to at least 24°C (75.2°F) during transport",
+          "priority": "important",
+          "rationale": "Definitive rewarming and monitoring require prompt transport to an appropriate facility.",
+          "protocolReference": "MATC: Hypothermia/Cold Exposure"
+        }
+      ],
+      "transitions": []
+    },
+    {
+      "id": "ventilation-inadequate",
+      "name": "Ventilation delayed, pulse lost",
+      "description": "BVM ventilation is delayed or ineffective while the patient remains apneic and hypothermic. The pulse is lost and the patient progresses into cardiac arrest, requiring the drowning-specific ABC approach rather than standard compressions-first CPR.",
+      "triggerCondition": "Ventilation is delayed or ineffective (poor mask seal, inadequate rate) while the patient remains apneic; the pulse is lost and the patient becomes pulseless.",
+      "isDefault": false,
+      "clinicalPresentation": {
+        "avpu": "Unresponsive",
+        "gcs": { "eye": 1, "verbal": 1, "motor": 1 },
+        "airway": "Apneic, no advanced airway in place",
+        "breathing": "Apneic, no spontaneous or assisted effective ventilation",
+        "circulation": "No palpable pulse",
+        "skin": { "color": "cyanotic", "temperature": "cold", "moisture": "wet" },
+        "pupils": "Fixed and dilated",
+        "motorFunction": "None",
+        "otherFindings": [
+          "Cardiac arrest recognized during ongoing hypothermia and apnea"
+        ],
+        "patientSpeech": "None — unresponsive"
+      },
+      "monitorState": {
+        "ecgRhythm": "Pulseless Electrical Activity (PEA)",
+        "ecgWaveform": 9,
+        "hr": 40,
+        "bpSys": 0,
+        "bpDia": 0,
+        "respRate": 0,
+        "spo2": 0,
+        "etco2": 15,
+        "temp": 30.0,
+        "tempF": 86.0,
+        "obstruction": 0,
+        "glucose": 95,
+        "customMeasures": [],
+        "trendTimeSeconds": 20,
+        "visibility": { "spo2Visible": false, "spo2Attached": false, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a7-abc-arrest",
+          "shortAction": "Recognize drowning-specific arrest; give 5 rescue breaths, then continue 30:2 CPR",
+          "protocolExcerpt": "patients suffering cardiac arrest from drowning require an ABCs (Airway, Breathing, Circulation) approach with prompt airway management and supplemental breathing Initiate 5 rescue breaths followed by 30 chest compressions. After the initial 5 breaths, use ratio of 30 compressions to 2 breaths",
+          "priority": "critical",
+          "rationale": "Drowning arrest is hypoxic in origin, so airway and ventilation are prioritized ahead of compressions, unlike standard CAB cardiac arrest management.",
+          "protocolReference": "MATC: Drowning"
+        }
+      ],
+      "transitions": []
+    },
+    {
+      "id": "heat-pack-burn",
+      "name": "Heat pack applied without barrier",
+      "description": "A heat pack is placed directly against bare skin without a barrier during field rewarming. A thermal burn injury develops at the contact site, compounding patient morbidity in a patient with reduced ability to sense or report the injury.",
+      "triggerCondition": "During field rewarming, a heat pack is applied directly to bare skin without a protective barrier.",
+      "isDefault": false,
+      "clinicalPresentation": {
+        "avpu": "Unresponsive",
+        "gcs": { "eye": 1, "verbal": 1, "motor": 3 },
+        "airway": "Patent with continued BVM support",
+        "breathing": "BVM ventilations continued, adequate chest rise",
+        "circulation": "Carotid pulse present, still bradycardic",
+        "skin": { "color": "pale", "temperature": "cool", "moisture": "dry" },
+        "pupils": "Sluggish bilaterally",
+        "motorFunction": "No purposeful movement",
+        "otherFindings": [
+          "New area of erythema/blistering at heat pack contact site on the chest"
+        ],
+        "patientSpeech": "None — unresponsive"
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Bradycardia",
+        "ecgWaveform": 9,
+        "hr": 52,
+        "bpSys": 94,
+        "bpDia": 60,
+        "respRate": 10,
+        "spo2": 93,
+        "etco2": 36,
+        "temp": 30.5,
+        "tempF": 86.9,
+        "obstruction": 0,
+        "glucose": 95,
+        "customMeasures": [],
+        "trendTimeSeconds": 30,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a8-burn-correction",
+          "shortAction": "Recognize thermal injury; remove direct heat source and place a barrier before reapplying",
+          "protocolExcerpt": "Chemical or electrical heat sources should never be applied directly to the skin Use a barrier between the skin and heat source to prevent burns",
+          "priority": "important",
+          "rationale": "Continued unbarriered contact worsens the burn and adds an avoidable injury to an already critical patient.",
+          "protocolReference": "MATC: Hypothermia/Cold Exposure"
+        }
+      ],
+      "transitions": []
+    }
+  ],
+  "realiti": {
+    "scenarioMonitorType": 2,
+    "scenarioDefaultEnergy": 200,
+    "scenarioDefaultPacerThreshold": 55
+  }
+}

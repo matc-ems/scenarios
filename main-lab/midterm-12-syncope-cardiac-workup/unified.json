@@ -1,0 +1,359 @@
+{
+  "meta": {
+    "id": "midterm-12-syncope-cardiac-workup",
+    "name": "Syncope Workup — Third-Degree Heart Block on Beta-Blocker Therapy",
+    "version": 1,
+    "difficulty": "advanced",
+    "category": "Cardiac",
+    "protocols": ["cv-syncope", "cv-bradycardia", "medical-pain-management"],
+    "totalTimeSeconds": 900,
+    "tags": ["cardiac", "syncope", "bradycardia", "heart block", "TCP", "pacing", "midterm", "geriatric"]
+  },
+  "patient": {
+    "name": "Carol Ann Whitfield",
+    "age": 70,
+    "ageUnit": "years",
+    "sex": "female",
+    "weight": 65,
+    "weightLbs": 143,
+    "height": 163,
+    "chiefComplaint": "Sudden loss of consciousness while standing, now awake and bradycardic",
+    "history": {
+      "hpi": "Patient was standing at the kitchen counter when she suddenly lost consciousness and slumped to the floor, per her husband who witnessed the event. No shaking, no incontinence, no tongue biting. She regained consciousness within seconds and was talking by the time he reached her. She reports feeling lightheaded and 'foggy' for a minute or two beforehand but denies chest pain, palpitations prior to the event, or shortness of breath. This is her first syncopal episode. She mentions her cardiologist increased her metoprolol dose about a week ago for blood pressure control.",
+      "pastMedical": ["Hypertension", "Hyperlipidemia", "Prior TIA (2 years ago, no residual deficit)"],
+      "medications": ["Metoprolol succinate 100 mg PO daily (increased from 50 mg one week ago)", "Atorvastatin 40 mg PO daily", "Aspirin 81 mg PO daily"],
+      "allergies": ["NKDA"],
+      "lastOralIntake": "Breakfast and coffee approximately 1 hour prior to the event",
+      "events": "Husband witnessed the syncopal episode, helped her to a kitchen chair, and called 911 when he felt her pulse was 'very slow'"
+    }
+  },
+  "scene": {
+    "dispatch": "70-year-old female, fainting episode, now conscious, residence",
+    "location": "Single-family home, kitchen, patient seated in a kitchen chair with husband at her side",
+    "time": "9:15 AM, weekday",
+    "safety": "No hazards to crew noted",
+    "bystanders": "Husband present, witnessed the syncopal episode, provided medication history",
+    "visualCues": [
+      "Patient seated upright in a kitchen chair, pale but alert and conversant",
+      "Husband hovering nearby, visibly concerned",
+      "Pill organizer on the counter showing morning medications already taken",
+      "Radial pulse palpably slow and regular on initial contact"
+    ]
+  },
+  "phases": [
+    {
+      "id": "initial",
+      "name": "Initial Contact",
+      "description": "Crew arrives to find a 70-year-old female alert and conversant, seated in a kitchen chair after a witnessed syncopal episode. She is pale with a palpably slow, regular pulse. No signs of trauma from the fall.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent, speaking full sentences",
+        "breathing": "Nonlabored, symmetric chest rise, 16/min",
+        "circulation": "Radial pulse present, slow and regular, skin pale and cool, diaphoretic",
+        "skin": { "color": "pale", "temperature": "cool", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Strength intact in all extremities, no focal deficits",
+        "otherFindings": [
+          "No signs of head strike or trauma from the fall",
+          "Denies chest pain, shortness of breath, or palpitations",
+          "Brief lightheadedness and 'foggy' feeling preceded the event",
+          "Radial pulse notably slow on palpation"
+        ],
+        "patientSpeech": "\"I just felt woozy for a second and then I was on the floor. I feel okay now, just a little tired.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Bradycardia",
+        "ecgWaveform": 9,
+        "hr": 38,
+        "bpSys": 92,
+        "bpDia": 58,
+        "respRate": 16,
+        "spo2": 96,
+        "etco2": 0,
+        "temp": 36.8,
+        "tempF": 98.2,
+        "obstruction": 0,
+        "glucose": 98,
+        "customMeasures": [],
+        "trendTimeSeconds": 0,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [],
+      "transitions": [
+        {
+          "targetPhaseId": "block-identified",
+          "if": "12-lead acquired, high-grade block identified",
+          "condition": "Crew initiates cardiac monitoring, obtains a 12-lead EKG, establishes IV access, and checks blood glucose per the Syncope and Bradycardia Guidelines; the 12-lead reveals a third-degree AV block with AV dissociation.",
+          "conditionType": "action_taken"
+        }
+      ]
+    },
+    {
+      "id": "block-identified",
+      "name": "High-grade block identified",
+      "description": "The 12-lead EKG reveals complete AV dissociation consistent with third-degree heart block. The crew recognizes the recent beta-blocker dose increase as a likely contributing cause and anticipates that atropine is unlikely to be effective, proceeding directly toward pacing readiness.",
+      "triggerCondition": "After cardiac monitoring, IV access, and 12-lead acquisition, the EKG shows a third-degree AV block with a ventricular escape rhythm; the patient's blood pressure is beginning to trend down as the bradycardia persists.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "Nonlabored, 16/min",
+        "circulation": "Radial pulse slow and regular, skin pale, cool, diaphoretic",
+        "skin": { "color": "pale", "temperature": "cool", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Strength intact in all extremities",
+        "otherFindings": [
+          "IV established in left forearm",
+          "12-lead EKG shows AV dissociation, no relationship between P waves and QRS complexes",
+          "Recent metoprolol dose increase identified as likely contributing cause",
+          "Patient becoming more fatigued, less talkative"
+        ],
+        "patientSpeech": "\"I'm feeling a little more tired now than I was a minute ago.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Third Degree Heart Block",
+        "ecgWaveform": 100,
+        "hr": 34,
+        "bpSys": 84,
+        "bpDia": 54,
+        "respRate": 16,
+        "spo2": 96,
+        "etco2": 0,
+        "temp": 36.8,
+        "tempF": 98.2,
+        "obstruction": 0,
+        "glucose": 98,
+        "customMeasures": [],
+        "trendTimeSeconds": 40,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a1-monitor-12lead",
+          "shortAction": "Initiate cardiac monitoring and 12-lead EKG; establish IV access",
+          "protocolExcerpt": "Initiate monitoring and perform 12-lead EKG. Establish IV access.",
+          "priority": "critical",
+          "rationale": "Confirms the rhythm diagnosis and secures access before pacing or medications are needed.",
+          "protocolReference": "MATC: Bradycardia"
+        },
+        {
+          "id": "a2-bgl",
+          "shortAction": "Check blood glucose to rule out hypoglycemia as a contributing cause",
+          "protocolExcerpt": "Check blood glucose and treat hypoglycemia per the Hypoglycemia Guideline and Hyperglycemia Guideline",
+          "priority": "important",
+          "rationale": "Rules out a rapidly reversible metabolic cause of altered perfusion before escalating cardiac interventions.",
+          "protocolReference": "MATC: Bradycardia"
+        },
+        {
+          "id": "a3-med-recognition",
+          "shortAction": "Identify recent beta-blocker dose increase as likely cause; anticipate atropine may fail",
+          "protocolExcerpt": "Consider potential culprit medications including beta-blockers, calcium channel blockers, sodium channel blockers/anti-depressants, digoxin, and clonidine",
+          "priority": "important",
+          "rationale": "Beta-blocker-induced high-grade block is often atropine-refractory, so recognizing this early speeds the decision to pace.",
+          "protocolReference": "MATC: Bradycardia"
+        },
+        {
+          "id": "a4-skip-atropine-delay",
+          "shortAction": "Proceed quickly toward pacing rather than delaying on atropine for 3rd-degree block",
+          "protocolExcerpt": "Third-degree heart block or the denervated heart (as in cardiac transplant) may not respond to atropine and in these cases, proceed quickly to chronotropic agents (such as epinephrine or dopamine) or transcutaneous pacing",
+          "priority": "critical",
+          "rationale": "Avoids wasting time on a therapy unlikely to work in complete heart block while the patient's perfusion continues to decline.",
+          "protocolReference": "MATC: Bradycardia"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "tcp-sedated",
+          "if": "TCP initiated with sedation",
+          "condition": "Crew applies pacing pads, administers ketamine for pain control prior to pacing, and initiates transcutaneous pacing with electrical and mechanical capture confirmed.",
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a4-skip-atropine-delay"]
+        },
+        {
+          "targetPhaseId": "tcp-no-sedation",
+          "if": "TCP started without sedation",
+          "condition": "Crew initiates transcutaneous pacing without offering sedation or pain control first, causing significant patient distress and interfering with maintained capture.",
+          "conditionType": "action_not_taken"
+        }
+      ]
+    },
+    {
+      "id": "tcp-sedated",
+      "name": "TCP initiated with sedation",
+      "description": "Pacing pads are applied and transcutaneous pacing is started at a rate of 70 with ketamine given first for pain control. Electrical and mechanical capture are confirmed with a palpable pulse matching the paced rate.",
+      "triggerCondition": "With third-degree block confirmed and atropine expected to be ineffective, the crew proceeds directly to transcutaneous pacing, administering ketamine first per the sedation-with-pacing guidance.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "Nonlabored, 16/min",
+        "circulation": "Palpable pulse matching paced rate, skin warming, less diaphoretic",
+        "skin": { "color": "pink", "temperature": "warm", "moisture": "dry" },
+        "pupils": "PERRL",
+        "motorFunction": "Strength intact in all extremities",
+        "otherFindings": [
+          "Pacing pads applied anterior/posterior",
+          "Electrical and mechanical capture confirmed with palpable pulse at set rate",
+          "Ketamine given prior to pacing, patient tolerating pacing comfortably",
+          "Color and mentation improving"
+        ],
+        "patientSpeech": "\"That's not too bad, I can feel it but it's not painful.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Pacemaker Rhythm",
+        "ecgWaveform": 9,
+        "hr": 70,
+        "bpSys": 104,
+        "bpDia": 64,
+        "respRate": 16,
+        "spo2": 98,
+        "etco2": 0,
+        "temp": 36.8,
+        "tempF": 98.2,
+        "obstruction": 0,
+        "glucose": 98,
+        "customMeasures": [],
+        "trendTimeSeconds": 30,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a5-ketamine",
+          "shortAction": "Ketamine 16 mg IV for pacing analgesia (65 kg × 0.25 mg/kg = 16.25 mg; max initial 25 mg)",
+          "protocolExcerpt": "For Moderate to Severe pain, analgesics include: Ketamine: 0.25 mg/kg IM, IV or IO (maximum initial dose 25 mg; maximum cumulative dose 100 mg)",
+          "priority": "critical",
+          "rationale": "Transcutaneous pacing is painful; providing analgesia first improves tolerance and helps maintain consistent capture.",
+          "protocolReference": "MATC: Pain Management"
+        },
+        {
+          "id": "a6-tcp",
+          "shortAction": "Initiate transcutaneous pacing at rate 70, confirm electrical and mechanical capture",
+          "protocolExcerpt": "Transcutaneous Pacing – If pacing is performed, consider sedation or pain control",
+          "priority": "critical",
+          "rationale": "Pacing directly treats the hemodynamically significant third-degree block by restoring an adequate ventricular rate.",
+          "protocolReference": "MATC: Bradycardia"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "transport",
+          "if": "Capture maintained, perfusion improved",
+          "condition": "Pacing capture remains consistent with a palpable pulse matching the set rate; blood pressure and mentation improve, and the patient is packaged for transport to a cardiac-capable facility.",
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a6-tcp"]
+        }
+      ]
+    },
+    {
+      "id": "transport",
+      "name": "Capture maintained, perfusion improved",
+      "description": "Pacing capture is well tolerated and consistently maintained. The patient's color, blood pressure, and mentation have all improved, and she is transported with continuous EKG monitoring to a cardiac-capable facility.",
+      "triggerCondition": "After ketamine and successful transcutaneous pacing, the patient's perfusion stabilizes and she is packaged for transport with ongoing rhythm monitoring.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "Nonlabored, 16/min",
+        "circulation": "Strong palpable pulse matching paced rate",
+        "skin": { "color": "pink", "temperature": "warm", "moisture": "dry" },
+        "pupils": "PERRL",
+        "motorFunction": "Strength intact in all extremities",
+        "otherFindings": [
+          "Pacing well tolerated, capture consistent throughout transport",
+          "Mentation clear, conversant",
+          "En route to cardiac-capable facility"
+        ],
+        "patientSpeech": "\"I feel much better now, thank you.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Pacemaker Rhythm",
+        "ecgWaveform": 9,
+        "hr": 72,
+        "bpSys": 112,
+        "bpDia": 68,
+        "respRate": 16,
+        "spo2": 98,
+        "etco2": 0,
+        "temp": 36.9,
+        "tempF": 98.4,
+        "obstruction": 0,
+        "glucose": 98,
+        "customMeasures": [],
+        "trendTimeSeconds": 40,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a7-transport",
+          "shortAction": "Continue continuous EKG monitoring; transport to cardiac-capable facility",
+          "protocolExcerpt": "Additional Evaluation: Cardiac monitoring, Oxygen saturation (SPO2), Ongoing vital signs, 12-lead EKG, Blood glucose level (BGL)",
+          "priority": "important",
+          "rationale": "Ongoing monitoring detects recurrence or loss of capture en route, and cardiac-capable transport ensures definitive pacing/cardiology care.",
+          "protocolReference": "MATC: Syncope"
+        }
+      ],
+      "transitions": []
+    },
+    {
+      "id": "tcp-no-sedation",
+      "name": "TCP started without sedation",
+      "description": "Pacing is started without offering sedation or pain control first. The patient experiences significant pain and involuntary muscle contraction with each pacing spike, becoming agitated and thrashing, which disrupts consistent pad contact and capture.",
+      "triggerCondition": "The crew applies pacing pads and begins transcutaneous pacing without first providing ketamine or other analgesia; the patient experiences severe discomfort with each paced beat.",
+      "isDefault": false,
+      "clinicalPresentation": {
+        "avpu": "Pain",
+        "gcs": { "eye": 3, "verbal": 4, "motor": 5 },
+        "airway": "Patent, patient crying out",
+        "breathing": "Labored with distress, 22/min",
+        "circulation": "Pulse intermittently palpable, inconsistent with paced rate",
+        "skin": { "color": "pale", "temperature": "cool", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Visible chest wall and abdominal muscle twitching with each pacing spike",
+        "otherFindings": [
+          "Patient thrashing and pulling away from pacing pads with each spike",
+          "Intermittent loss of mechanical capture due to poor pad contact",
+          "Blood pressure trending down as effective pacing is interrupted"
+        ],
+        "patientSpeech": "\"Stop, please stop, it hurts so much!\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Third Degree Heart Block",
+        "ecgWaveform": 100,
+        "hr": 34,
+        "bpSys": 76,
+        "bpDia": 48,
+        "respRate": 22,
+        "spo2": 93,
+        "etco2": 0,
+        "temp": 36.8,
+        "tempF": 98.2,
+        "obstruction": 0,
+        "glucose": 98,
+        "customMeasures": [],
+        "trendTimeSeconds": 20,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a8-rescue-sedation",
+          "shortAction": "Recognize inadequate pacing tolerance; give ketamine 16 mg IV (65 kg × 0.25 mg/kg) to allow effective capture",
+          "protocolExcerpt": "For Moderate to Severe pain, analgesics include: Ketamine: 0.25 mg/kg IM, IV or IO (maximum initial dose 25 mg; maximum cumulative dose 100 mg)",
+          "priority": "critical",
+          "rationale": "Pacing without analgesia causes movement and poor pad contact that undermines capture; sedation is needed to salvage effective pacing.",
+          "protocolReference": "MATC: Pain Management"
+        }
+      ],
+      "transitions": []
+    }
+  ],
+  "realiti": {
+    "scenarioMonitorType": 2,
+    "scenarioDefaultEnergy": 200,
+    "scenarioDefaultPacerThreshold": 55
+  }
+}

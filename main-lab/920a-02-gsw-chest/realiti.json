@@ -1,0 +1,222 @@
+{
+  "scenarioId": "920a-02-gsw-chest",
+  "scenarioName": "GSW to Chest — Tension Pneumothorax",
+  "scenarioType": "Vital Signs",
+  "scenarioVersion": 2,
+  "scenarioTime": 900,
+  "scenarioMonitorType": 2,
+  "scenarioDefaultEnergy": 200,
+  "scenarioDefaultPacerThreshold": 55,
+  "isDemo": false,
+  "isALSILegacy": false,
+  "scenarioStory": {
+    "history": "Patient was standing outside a convenience store when he was shot once in the left anterior chest during an apparent robbery attempt. Bystanders called 911 immediately; police secured the scene prior to EMS entry. Patient was initially able to speak but is now increasingly short of breath and anxious.",
+    "discussion": "",
+    "course": "Initial Contact: Crew arrives to find a 26-year-old male sitting upright with a single gunshot wound to the left anterior chest. He is increasingly dyspneic with visible jugular venous distention and tracheal deviation. → Tension pneumothorax decompressed: Crew recognizes the classic signs of tension pneumothorax and performs needle decompression of the left chest, with immediate improvement in breath sounds and hemodynamics. → Rapid transport initiated: With the tension physiology resolved, the patient is packaged and transported rapidly to a trauma center with continued reassessment en route."
+  },
+  "patientInformation": {
+    "patientName": "Marcus Delgado",
+    "patientCondition": "Gunshot wound to the left chest",
+    "patientAge": 26,
+    "patientAgeUnit": "years",
+    "patientAgeCategory": 0,
+    "patientSex": 1,
+    "patientHeight": 178,
+    "patientWeight": 82,
+    "patientPhotoId": 32,
+    "patientAdmitted": 1
+  },
+  "labs": [],
+  "scenarioEvents": [
+    {
+      "type": "ScenarioEvent",
+      "name": "Initial Contact",
+      "description": "Crew arrives to find a 26-year-old male sitting upright with a single gunshot wound to the left anterior chest. He is increasingly dyspneic with visible jugular venous distention and tracheal deviation.",
+      "monitorType": 0,
+      "trendTime": 0,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 128,
+        "bpSys": 82,
+        "bpDia": 54,
+        "respRate": 28,
+        "spo2": 90,
+        "etco2": 0,
+        "temp": 37,
+        "obstruction": 100,
+        "custMeasure1": 98,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Tension pneumothorax decompressed",
+      "description": "Crew recognizes the classic signs of tension pneumothorax and performs needle decompression of the left chest, with immediate improvement in breath sounds and hemodynamics.",
+      "monitorType": 0,
+      "trendTime": 20,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 108,
+        "bpSys": 98,
+        "bpDia": 64,
+        "respRate": 22,
+        "spo2": 95,
+        "etco2": 0,
+        "temp": 37,
+        "obstruction": 30,
+        "custMeasure1": 98,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Perform MARCH primary survey; identify absent left breath sounds, JVD, and hypotension",
+        "Needle decompression of left 2nd intercostal space, midclavicular line",
+        "Apply semi-occlusive dressing over the open chest wound",
+        "Establish large-bore IV access; give 500 mL crystalloid bolus for SBP <90 mmHg",
+        "Apply supplemental oxygen to maintain SpO2 greater than 94%"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Rapid transport initiated",
+      "description": "With the tension physiology resolved, the patient is packaged and transported rapidly to a trauma center with continued reassessment en route.",
+      "monitorType": 0,
+      "trendTime": 30,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 102,
+        "bpSys": 112,
+        "bpDia": 70,
+        "respRate": 18,
+        "spo2": 98,
+        "etco2": 0,
+        "temp": 37,
+        "obstruction": 0,
+        "custMeasure1": 98,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Reassess breath sounds, vitals, and mental status serially en route",
+        "Transport to trauma center; minimize scene time (goal under 10 minutes) for penetrating torso trauma"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Decompression delayed",
+      "description": "The crew prioritizes IV access and fluids without recognizing the tension physiology. Intrathoracic pressure continues to rise, and the patient rapidly deteriorates toward obstructive shock.",
+      "monitorType": 0,
+      "trendTime": 50,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 150,
+        "bpSys": 68,
+        "bpDia": 40,
+        "respRate": 34,
+        "spo2": 78,
+        "etco2": 0,
+        "temp": 37,
+        "obstruction": 100,
+        "custMeasure1": 98,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Recognize worsening tension physiology; perform immediate needle decompression"
+      ],
+      "relatedSounds": []
+    }
+  ],
+  "checklist": [
+    {
+      "title": "Perform MARCH primary survey; identify absent left breath sounds, JVD, and hypotension",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Needle decompression of left 2nd intercostal space, midclavicular line",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Apply semi-occlusive dressing over the open chest wound",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Establish large-bore IV access; give 500 mL crystalloid bolus for SBP <90 mmHg",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Apply supplemental oxygen to maintain SpO2 greater than 94%",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Reassess breath sounds, vitals, and mental status serially en route",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Transport to trauma center; minimize scene time (goal under 10 minutes) for penetrating torso trauma",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Recognize worsening tension physiology; perform immediate needle decompression",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    }
+  ],
+  "media": []
+}

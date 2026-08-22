@@ -1,0 +1,417 @@
+{
+  "meta": {
+    "id": "913-01-difficulty-breathing",
+    "name": "Difficulty Breathing – COPD Exacerbation with Missed Medications",
+    "version": 1,
+    "difficulty": "intermediate",
+    "category": "Respiratory",
+    "protocols": ["resp-respiratory-distress", "resp-airway-management"],
+    "totalTimeSeconds": 900,
+    "createdAt": "2026-08-22T00:00:00-05:00",
+    "tags": ["BLS", "respiratory", "COPD", "assessment", "airway-management", "913"]
+  },
+  "patient": {
+    "name": "Robert Hendricks",
+    "age": 68,
+    "ageUnit": "years",
+    "sex": "male",
+    "weight": 86,
+    "weightLbs": 190,
+    "height": 178,
+    "chiefComplaint": "Difficulty breathing",
+    "history": {
+      "hpi": "Home health aide arrived for a scheduled visit and found the patient seated in tripod position at the kitchen table with audible expiratory wheezing and pursed-lip breathing. The aide reports the patient's oxygen concentrator was unplugged and his nasal cannula was off. She also observed the patient using his rescue inhaler incorrectly earlier in the week — not exhaling fully before actuating and no breath-hold afterward — and states he has missed both morning and evening doses of his maintenance inhaler for the past 2 days after running low on refills. Patient reports gradually worsening shortness of breath since waking this morning, worse with any exertion, denies chest pain, fever, or recent illness.",
+      "pastMedical": [
+        "COPD (GOLD stage III, home oxygen dependent, 2L/min NC)",
+        "Hypertension",
+        "Hyperlipidemia",
+        "Former smoker, 20 pack-years, quit 5 years ago"
+      ],
+      "medications": [
+        "Budesonide/formoterol (Symbicort) 160/4.5 mcg, 2 puffs BID — missed x2 days",
+        "Albuterol/ipratropium (Combivent) MDI PRN",
+        "Lisinopril 10 mg daily",
+        "Atorvastatin 40 mg daily",
+        "Home oxygen 2L/min via nasal cannula"
+      ],
+      "allergies": ["NKDA"],
+      "lastOralIntake": "Coffee and toast approximately 3 hours ago",
+      "events": "Home health aide arrived for a scheduled visit, found patient sitting tripod with audible wheezing and O2 disconnected, and called 911 immediately"
+    }
+  },
+  "scene": {
+    "dispatch": "Difficulty breathing, 68-year-old male, patient has home oxygen, residence",
+    "location": "Single-story home, patient seated in a kitchen chair",
+    "time": "Weekday morning, approximately 10:40 AM",
+    "safety": "No scene hazards noted; home health aide present and cooperative",
+    "bystanders": "Home health aide present; states she found the patient in this condition roughly 10 minutes ago and called 911",
+    "visualCues": [
+      "Patient sitting tripod position, elbows on knees",
+      "Pursed-lip breathing pattern visible on approach",
+      "Portable oxygen concentrator present but unplugged, not running",
+      "Nasal cannula disconnected, lying on the table",
+      "Several inhaler canisters on the kitchen counter, one nearly empty"
+    ]
+  },
+  "phases": [
+    {
+      "id": "initial",
+      "name": "Initial Contact",
+      "description": "68-year-old male, COPD on home O2, found tripod with audible expiratory wheezing and pursed-lip breathing. Oxygen concentrator unplugged and nasal cannula off; missed maintenance inhaler doses x2 days with reported poor inhaler technique.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent, no stridor or drooling",
+        "breathing": "Labored; tripod positioning, pursed-lip breathing, audible expiratory wheezing bilaterally, use of accessory and intercostal muscles, speaking in 3-4 word phrases",
+        "circulation": "Radial pulses strong and rapid, skin warm and diaphoretic",
+        "skin": { "color": "pink/flushed", "temperature": "warm", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Normal, moves all extremities purposefully",
+        "otherFindings": [
+          "Nasal cannula disconnected and lying on table",
+          "Portable O2 concentrator unplugged",
+          "Multiple inhalers on counter, one nearly empty"
+        ],
+        "patientSpeech": "\"I... can't... catch my breath... ran out... of my inhaler...\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 108,
+        "bpSys": 148,
+        "bpDia": 86,
+        "respRate": 28,
+        "spo2": 89,
+        "etco2": 42,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 50,
+        "glucose": 110,
+        "customMeasures": [],
+        "trendTimeSeconds": 0,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a1",
+          "shortAction": "Obtain focused history: symptom onset, triggers, medication compliance, prior hospitalizations/ICU stays",
+          "protocolExcerpt": "Onset of symptoms Treatments prior to EMS: Oxygen, inhaler, nebulizer, other treatments, chronic or recent steroids Hospitalizations: Number of emergency department visits in the past year, number of hospital admissions in the past year, number of ICU admissions (ever), previously intubated (ever)",
+          "priority": "important",
+          "rationale": "Missed medications and poor inhaler technique are key modifiable contributors identified in this scenario.",
+          "protocolReference": "MATC: Respiratory Distress (includes Bronchospasm, Pulmonary Edema)"
+        },
+        {
+          "id": "a2",
+          "shortAction": "Perform full physical exam: vital signs, breath sounds, accessory muscle use, mental status",
+          "protocolExcerpt": "Full set of vital signs (pulse, blood pressure, respiratory rate, neurologic status assessment), temperature, and O2 saturation. Breath sounds (wheezes, crackles, rales, rhonchi, diminished, clear) Intercostal/subcostal/supraclavicular retractions, accessory muscle use",
+          "priority": "critical",
+          "protocolReference": "MATC: Respiratory Distress (includes Bronchospasm, Pulmonary Edema)"
+        },
+        {
+          "id": "a3",
+          "shortAction": "Recognize signs of significant respiratory distress (retractions, inability to speak full sentences)",
+          "protocolExcerpt": "Signs of distress include: Apprehension, anxiety, combativeness Hypoxia (less than 90% oxygen saturation) Intercostal/subcostal/supraclavicular retractions, accessory muscle use Grunting, stridor, inability to speak full sentences Nasal flaring Cyanosis",
+          "priority": "critical",
+          "protocolReference": "MATC: Respiratory Distress (includes Bronchospasm, Pulmonary Edema)"
+        },
+        {
+          "id": "a4",
+          "shortAction": "Allow/maintain position of comfort (tripod); elevate head/pad shoulders to ease breathing",
+          "protocolExcerpt": "Patients with severe bronchospasm should be left in the position of comfort (perhaps tripod) whenever possible. Elevating the head or padding (shoulders, occiput) can assist with opening airway and respiratory mechanics.",
+          "priority": "important",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        },
+        {
+          "id": "a5",
+          "shortAction": "Apply supplemental oxygen via nasal cannula, escalate as needed toward SpO2 94-98%",
+          "protocolExcerpt": "Give supplemental oxygen for dyspnea to a target of 94–98% saturation. Escalate from a nasal cannula as needed to reach this goal",
+          "priority": "critical",
+          "protocolReference": "MATC: Respiratory Distress (includes Bronchospasm, Pulmonary Edema)"
+        },
+        {
+          "id": "a6",
+          "shortAction": "Apply continuous pulse oximetry monitoring",
+          "protocolExcerpt": "Pulse oximetry and EtCO2 should be routinely used as adjuncts to other forms of monitoring in patients with respiratory complaints",
+          "priority": "important",
+          "protocolReference": "MATC: Respiratory Distress (includes Bronchospasm, Pulmonary Edema)"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "o2-positioning-given",
+          "if": "Position and O2 given",
+          "condition": "Crew places the patient in a tripod position of comfort and applies supplemental oxygen via nasal cannula, titrating toward 94–98% SpO2, within the first few minutes of contact.",
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a4", "a5"]
+        },
+        {
+          "targetPhaseId": "respiratory-failure-progressing",
+          "if": "O2/positioning delayed",
+          "condition": "Oxygen therapy and positioning of comfort are delayed or not addressed within the first several minutes; the patient's work of breathing and hypoxia progressively worsen toward respiratory failure.",
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["a4", "a5"],
+          "timeoutSeconds": 300
+        }
+      ]
+    },
+    {
+      "id": "o2-positioning-given",
+      "name": "O2 and positioning given",
+      "description": "Supplemental oxygen and position of comfort applied. Work of breathing and oxygenation begin to improve as the patient is reassessed.",
+      "triggerCondition": "Crew placed the patient in tripod position of comfort and applied supplemental oxygen titrated toward 94–98% SpO2 shortly after arrival.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent, no stridor",
+        "breathing": "Improving; respiratory rate decreasing, expiratory wheezing still present but softer, speaking in fuller sentences, less accessory muscle use",
+        "circulation": "Radial pulses strong, rate decreasing, skin less diaphoretic",
+        "skin": { "color": "pink", "temperature": "warm", "moisture": "slightly diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Normal, moves all extremities purposefully",
+        "otherFindings": [
+          "Nasal cannula in place and connected",
+          "Patient maintaining tripod position with pillow support"
+        ],
+        "patientSpeech": "\"That's a little better... still tight... but I can talk more now.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Normal Sinus Rhythm",
+        "ecgWaveform": 9,
+        "hr": 96,
+        "bpSys": 138,
+        "bpDia": 82,
+        "respRate": 22,
+        "spo2": 95,
+        "etco2": 38,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 35,
+        "glucose": 108,
+        "customMeasures": [],
+        "trendTimeSeconds": 30,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "b1",
+          "shortAction": "Reassess vital signs and breath sounds after oxygen therapy; document response to treatment",
+          "protocolExcerpt": "Document key aspects of the exam at baseline and after each intervention:",
+          "priority": "important",
+          "protocolReference": "MATC: Respiratory Distress (includes Bronchospasm, Pulmonary Edema)"
+        },
+        {
+          "id": "b2",
+          "shortAction": "Continue titrating oxygen to maintain SpO2 94-98%; reassess frequently",
+          "protocolExcerpt": "Give supplemental oxygen for dyspnea to a target of 94–98% saturation. Escalate from a nasal cannula as needed to reach this goal",
+          "priority": "important",
+          "protocolReference": "MATC: Respiratory Distress (includes Bronchospasm, Pulmonary Edema)"
+        },
+        {
+          "id": "b3",
+          "shortAction": "Maintain continuous pulse oximetry monitoring for ongoing assessment and to guide therapy",
+          "protocolExcerpt": "Patients with significant respiratory distress should have continuous pulse oximetry and waveform capnography monitoring for both assessment and for guiding therapy",
+          "priority": "important",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "transport-ready",
+          "if": "Reassessment shows improvement",
+          "condition": "Reassessment after oxygen therapy demonstrates improving SpO2, decreasing respiratory rate, and reduced work of breathing; crew continues monitoring and oxygen en route to transport.",
+          "conditionType": "action_taken",
+          "triggerActionIds": ["b1", "b2", "b3"]
+        },
+        {
+          "targetPhaseId": "o2-discontinued-relapse",
+          "if": "O2 removed prematurely",
+          "condition": "Supplemental oxygen is discontinued or the nasal cannula is removed before the patient has stabilized, and continuous monitoring lapses.",
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["b2", "b3"]
+        }
+      ]
+    },
+    {
+      "id": "transport-ready",
+      "name": "Reassessment performed",
+      "description": "Patient continues to improve with ongoing oxygen therapy and monitoring; prepared for transport with mild residual wheeze.",
+      "triggerCondition": "Repeated reassessment after oxygen and positioning confirms sustained improvement in oxygenation, respiratory rate, and work of breathing.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "Mild expiratory wheeze only, respiratory rate near baseline, no accessory muscle use, speaking in full sentences",
+        "circulation": "Radial pulses strong and regular, skin warm and dry",
+        "skin": { "color": "pink", "temperature": "warm", "moisture": "dry" },
+        "pupils": "PERRL",
+        "motorFunction": "Normal, moves all extremities purposefully",
+        "otherFindings": [
+          "Nasal cannula in place, patient comfortable in tripod/semi-Fowler's position on the cot"
+        ],
+        "patientSpeech": "\"I feel a lot better now, thank you.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Normal Sinus Rhythm",
+        "ecgWaveform": 9,
+        "hr": 88,
+        "bpSys": 132,
+        "bpDia": 80,
+        "respRate": 18,
+        "spo2": 97,
+        "etco2": 36,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 20,
+        "glucose": 106,
+        "customMeasures": [],
+        "trendTimeSeconds": 40,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "c1",
+          "shortAction": "Continue reassessment of mental status and response to interventions during transport",
+          "protocolExcerpt": "Mental status Response to interventions",
+          "priority": "supplemental",
+          "protocolReference": "MATC: Respiratory Distress (includes Bronchospasm, Pulmonary Edema)"
+        }
+      ],
+      "transitions": []
+    },
+    {
+      "id": "respiratory-failure-progressing",
+      "name": "O2/positioning delayed",
+      "description": "Oxygen and positioning were delayed; the patient progressively fatigues and tips into impending respiratory failure with worsening hypoxia and diminishing air movement.",
+      "triggerCondition": "Supplemental oxygen and position of comfort were not promptly addressed. Over several minutes the patient's accessory muscle use, hypoxia, and fatigue worsen, and air movement diminishes despite ongoing wheeze — a sign of impending respiratory failure.",
+      "isDefault": false,
+      "clinicalPresentation": {
+        "avpu": "Verbal",
+        "gcs": { "eye": 3, "verbal": 4, "motor": 6 },
+        "airway": "Patent but tiring; diminished air movement",
+        "breathing": "Severe distress progressing to fatigue — shallow, rapid respirations, minimal air movement, near-silent chest in areas, perioral cyanosis",
+        "circulation": "Weak, rapid pulses; skin pale and diaphoretic",
+        "skin": { "color": "pale/cyanotic", "temperature": "cool", "moisture": "diaphoretic" },
+        "pupils": "PERRL, sluggish",
+        "motorFunction": "Slowed, minimal purposeful movement",
+        "otherFindings": [
+          "Central and perioral cyanosis",
+          "Diminishing wheeze due to poor air movement (ominous sign)",
+          "No longer maintaining tripod position, slumping in chair"
+        ],
+        "patientSpeech": "Unable to speak in words; only grunting/moaning"
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 128,
+        "bpSys": 100,
+        "bpDia": 60,
+        "respRate": 34,
+        "spo2": 78,
+        "etco2": 50,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 70,
+        "glucose": 112,
+        "customMeasures": [],
+        "trendTimeSeconds": 20,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "d1",
+          "shortAction": "Recognize impending respiratory failure from rising EtCO2 with tachypnea and fatigue",
+          "protocolExcerpt": "Normal EtCO2 (35–45 mmHg) with tachypnea and respiratory distress is an indicator of impending respiratory failure",
+          "priority": "critical",
+          "protocolReference": "MATC: Respiratory Distress (includes Bronchospasm, Pulmonary Edema)"
+        },
+        {
+          "id": "d2",
+          "shortAction": "Open/reposition airway (head-tilt chin-lift or jaw thrust); suction as needed",
+          "protocolExcerpt": "Provide head tilt/chin lift, or jaw thrust if concern for potential spinal injury Suction airway: for significantly contaminated airways, consider utilizing a suction assisted laryngeal airway decontamination (SALAD) technique",
+          "priority": "critical",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        },
+        {
+          "id": "d3",
+          "shortAction": "Insert OPA/NPA as needed to maintain a patent airway and aid BVM ventilation",
+          "protocolExcerpt": "Oropharyngeal airways (OPA) or nasopharyngeal airways (NPA) can be placed if needed to maintain a patent airway and make BVM ventilation more effective",
+          "priority": "important",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        },
+        {
+          "id": "d4",
+          "shortAction": "Begin two-person BVM ventilation with high-flow O2, adult rate 10-12/min, PEEP as tolerated",
+          "protocolExcerpt": "Use bag-valve-mask (BVM) ventilation in the setting of respiratory failure or arrest. Two-person, two-thumbs-up BVM ventilation is preferred Adult: 10–12 breaths/minute",
+          "priority": "critical",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        }
+      ],
+      "transitions": []
+    },
+    {
+      "id": "o2-discontinued-relapse",
+      "name": "O2 removed prematurely",
+      "description": "Supplemental oxygen was discontinued and monitoring lapsed after early improvement; the patient's distress and hypoxia recur.",
+      "triggerCondition": "Oxygen therapy was stopped or the nasal cannula removed before the patient had truly stabilized, and reassessment was not continued; the patient's wheezing, respiratory rate, and hypoxia relapse toward baseline distress.",
+      "isDefault": false,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "Recurrence of distress — respiratory rate increasing, expiratory wheeze intensifying, patient re-adopts tripod position",
+        "circulation": "Pulses rapid, skin becoming diaphoretic again",
+        "skin": { "color": "pale/flushed", "temperature": "warm", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Normal, moves all extremities purposefully",
+        "otherFindings": [
+          "Nasal cannula found off/disconnected",
+          "SpO2 alarm sounding on the monitor"
+        ],
+        "patientSpeech": "\"It's getting hard to breathe again...\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 114,
+        "bpSys": 130,
+        "bpDia": 78,
+        "respRate": 30,
+        "spo2": 85,
+        "etco2": 44,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 45,
+        "glucose": 108,
+        "customMeasures": [],
+        "trendTimeSeconds": 30,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "e1",
+          "shortAction": "Recognize relapse of hypoxia/distress; reapply oxygen immediately and retitrate to 94-98%",
+          "protocolExcerpt": "Give supplemental oxygen for dyspnea to a target of 94–98% saturation. Escalate from a nasal cannula as needed to reach this goal",
+          "priority": "critical",
+          "protocolReference": "MATC: Respiratory Distress (includes Bronchospasm, Pulmonary Edema)"
+        },
+        {
+          "id": "e2",
+          "shortAction": "Return patient to position of comfort; reassess vital signs and breath sounds",
+          "protocolExcerpt": "Patients with severe bronchospasm should be left in the position of comfort (perhaps tripod) whenever possible.",
+          "priority": "important",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        }
+      ],
+      "transitions": []
+    }
+  ],
+  "realiti": {
+    "scenarioMonitorType": 2,
+    "scenarioDefaultEnergy": 200,
+    "scenarioDefaultPacerThreshold": 55
+  }
+}

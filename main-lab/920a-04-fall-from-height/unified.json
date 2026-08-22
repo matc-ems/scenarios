@@ -1,0 +1,377 @@
+{
+  "meta": {
+    "id": "920a-04-fall-from-height",
+    "name": "Fall from Height — Pelvic Fracture with Hemorrhagic Shock Risk",
+    "version": 1,
+    "difficulty": "advanced",
+    "category": "Trauma",
+    "protocols": ["trauma-general", "trauma-spinal-care", "medical-pain-management"],
+    "totalTimeSeconds": 900,
+    "tags": ["trauma", "fall", "pelvic fracture", "shock", "spinal motion restriction", "920"]
+  },
+  "patient": {
+    "name": "Daniel Reyes",
+    "age": 48,
+    "ageUnit": "years",
+    "sex": "male",
+    "weight": 90,
+    "weightLbs": 198,
+    "height": 178,
+    "chiefComplaint": "Fall from scaffolding, severe pelvic and lower back pain",
+    "history": {
+      "hpi": "Roofing contractor fell approximately 25 feet from scaffolding onto packed dirt, landing feet-first then falling backward. Coworkers report he was briefly stunned but did not lose consciousness. Complains of severe pelvic pain and inability to stand. Denies neck pain but reports diffuse lower back tenderness.",
+      "pastMedical": ["Hypertension"],
+      "medications": ["Amlodipine 5 mg PO daily"],
+      "allergies": ["NKDA"],
+      "lastOralIntake": "Breakfast burrito approximately 3 hours prior",
+      "events": "Scaffolding plank gave way; coworkers called 911 immediately and kept him still on the ground"
+    }
+  },
+  "scene": {
+    "dispatch": "48-year-old male, fall from height, construction site",
+    "location": "Residential construction site, patient supine on packed dirt at the base of a two-story scaffold",
+    "time": "9:14 AM, weekday",
+    "safety": "Scaffold has been secured by site foreman; hard hat area, crew directing bystanders back",
+    "bystanders": "Two coworkers present, witnessed the fall, kept patient still per 911 dispatcher instructions",
+    "visualCues": [
+      "Patient supine on dirt, scaffold visible above at estimated 25-foot height",
+      "Pelvis appears asymmetric with bruising over both iliac crests",
+      "Patient guarding pelvis, unwilling to move legs",
+      "Hard hat cracked but still on patient's head",
+      "No visible deformity to extremities"
+    ]
+  },
+  "phases": [
+    {
+      "id": "initial",
+      "name": "Initial Contact",
+      "description": "Crew arrives to find a 48-year-old male supine at the base of a scaffold, alert and in severe pain, with bruising and asymmetry over the pelvis. He denies neck pain but reports diffuse back and pelvic pain.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent, speaking full sentences",
+        "breathing": "Nonlabored, symmetric chest rise, 22/min",
+        "circulation": "Radial pulses present but thready, skin pale and diaphoretic",
+        "skin": { "color": "pale", "temperature": "cool", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Sensation and movement intact in all four extremities, guarding pelvis",
+        "otherFindings": [
+          "Pelvic pain 9/10, worse with any movement",
+          "Bruising and asymmetry noted over bilateral iliac crests",
+          "Diffuse lower back tenderness, no midline point tenderness",
+          "Denies neck pain, denies loss of consciousness"
+        ],
+        "patientSpeech": "\"My hips feel like they're crushed — please don't move me.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 124,
+        "bpSys": 88,
+        "bpDia": 58,
+        "respRate": 22,
+        "spo2": 95,
+        "etco2": 0,
+        "temp": 36.4,
+        "tempF": 97.5,
+        "obstruction": 0,
+        "glucose": 98,
+        "customMeasures": [],
+        "trendTimeSeconds": 0,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [],
+      "transitions": [
+        {
+          "targetPhaseId": "primary-survey-binder",
+          "if": "Primary survey and pelvic binder applied",
+          "condition": "Crew performs a MARCH primary survey, palpates the pelvis once for instability, applies a pelvic binder, and initiates spinal motion restriction given the high-risk fall mechanism and distracting pelvic injury.",
+          "conditionType": "action_taken"
+        }
+      ]
+    },
+    {
+      "id": "primary-survey-binder",
+      "name": "Primary survey and pelvic binder applied",
+      "description": "Crew completes the MARCH primary survey, palpates the pelvis once for instability, applies a pelvic binder, initiates spinal motion restriction given the fall greater than 10 feet, and establishes IV access for fluid resuscitation.",
+      "triggerCondition": "After the primary survey confirms no massive hemorrhage or airway compromise, the crew recognizes pelvic instability on a single gentle palpation and the fall-from-height mechanism (greater than 10 feet) as criteria for pelvic binder application and spinal motion restriction, and establishes IV access given hypotension and tachycardia.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "Nonlabored, 20/min",
+        "circulation": "Radial pulses present, thready, skin pale and diaphoretic",
+        "skin": { "color": "pale", "temperature": "cool", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Sensation and movement intact distal to pelvis in all four extremities",
+        "otherFindings": [
+          "Pelvic binder applied at level of greater trochanters",
+          "Cervical collar applied for spinal motion restriction",
+          "IV established, 18-gauge left antecubital",
+          "No midline spinal tenderness on palpation"
+        ],
+        "patientSpeech": "\"That strap actually helps a little.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 118,
+        "bpSys": 90,
+        "bpDia": 60,
+        "respRate": 20,
+        "spo2": 96,
+        "etco2": 0,
+        "temp": 36.4,
+        "tempF": 97.5,
+        "obstruction": 0,
+        "glucose": 98,
+        "customMeasures": [],
+        "trendTimeSeconds": 30,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a1-march",
+          "shortAction": "Perform MARCH primary survey: hemorrhage, airway, breathing, circulation, head/hypothermia",
+          "protocolExcerpt": "Primary survey (Use \"MARCH\" algorithm)",
+          "priority": "critical",
+          "rationale": "Rules out other life threats before focusing on the obvious pelvic injury.",
+          "protocolReference": "MATC: General Trauma Management"
+        },
+        {
+          "id": "a2-pelvis-palpate-once",
+          "shortAction": "Palpate pelvis ONCE by applying medial pressure on iliac crests bilaterally to assess instability",
+          "protocolExcerpt": "Pelvis: Palpate once for instability by applying medial pressure on the iliac crests bilaterally",
+          "priority": "critical",
+          "rationale": "A single gentle palpation assesses instability without dislodging a forming clot.",
+          "protocolReference": "MATC: General Trauma Management"
+        },
+        {
+          "id": "a3-pelvic-binder",
+          "shortAction": "Apply pelvic binder to stabilize suspected unstable pelvis",
+          "protocolExcerpt": "If pelvis is unstable, place pelvic binder or sheet to stabilize pelvis",
+          "priority": "critical",
+          "rationale": "Stabilizing the pelvic ring reduces ongoing venous and bony hemorrhage.",
+          "protocolReference": "MATC: General Trauma Management"
+        },
+        {
+          "id": "a4-smr",
+          "shortAction": "Apply cervical collar and initiate spinal motion restriction for fall >10 feet",
+          "protocolExcerpt": "Mechanisms that have been associated with a higher risk of injury are: Falls greater than 10 feet",
+          "priority": "important",
+          "rationale": "A 25-foot fall is a high-risk mechanism warranting spinal motion restriction even without neck complaints.",
+          "protocolReference": "MATC: Spinal Care"
+        },
+        {
+          "id": "a5-iv-access",
+          "shortAction": "Establish large-bore IV access given SBP <90 and HR >120",
+          "protocolExcerpt": "Establish IV access if needed (large bore preferred)",
+          "priority": "critical",
+          "rationale": "Vascular access is required before fluid resuscitation can begin for this hypotensive, tachycardic patient.",
+          "protocolReference": "MATC: General Trauma Management"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "fluid-resuscitation",
+          "if": "Fluid bolus given for shock",
+          "condition": "With IV access established and SBP persistently less than 90 mmHg, the crew initiates a 500 mL crystalloid bolus targeting an SBP of 90 mmHg.",
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a5-iv-access"]
+        },
+        {
+          "targetPhaseId": "pelvis-repalpated",
+          "if": "Pelvis palpated repeatedly to reassess",
+          "condition": "Instead of palpating once and moving on, the crew repeatedly presses on the pelvis to 'recheck' stability, risking dislodgement of a forming clot and worsening hemorrhage.",
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["a2-pelvis-palpate-once"]
+        }
+      ]
+    },
+    {
+      "id": "fluid-resuscitation",
+      "name": "Fluid bolus given for shock",
+      "description": "A 500 mL crystalloid bolus is given for persistent hypotension. Blood pressure improves toward the trauma resuscitation target, and the patient receives weight-based analgesia before transport.",
+      "triggerCondition": "SBP remains below 90 mmHg after pelvic binder placement, meeting criteria for crystalloid fluid resuscitation targeting SBP 90 mmHg.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "Nonlabored, 18/min",
+        "circulation": "Radial pulses stronger, skin still cool but less diaphoretic",
+        "skin": { "color": "pale", "temperature": "cool", "moisture": "dry" },
+        "pupils": "PERRL",
+        "motorFunction": "Sensation and movement intact distal to pelvis in all four extremities",
+        "otherFindings": [
+          "500 mL crystalloid bolus infused",
+          "Fentanyl 90 mcg IV given for pain (90 kg x 1 mcg/kg)",
+          "Pain improved to 5/10",
+          "Pelvic binder and cervical collar remain in place"
+        ],
+        "patientSpeech": "\"Okay, that's a bit more bearable now.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 108,
+        "bpSys": 96,
+        "bpDia": 64,
+        "respRate": 18,
+        "spo2": 97,
+        "etco2": 0,
+        "temp": 36.5,
+        "tempF": 97.7,
+        "obstruction": 0,
+        "glucose": 98,
+        "customMeasures": [],
+        "trendTimeSeconds": 40,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a6-fluid-bolus",
+          "shortAction": "500 mL crystalloid bolus IV, reassess SBP, repeat as needed (target SBP 90 mmHg)",
+          "protocolExcerpt": "If SBP less than 90 mmHg or HR greater than 120 BPM, initiate resuscitation: ... consider 500 mL bolus of IV fluid, repeat as needed for persistent signs and symptoms of shock ... Trauma resuscitation target SBP 90 mmHg (palpable radial pulse or alert mental status). Reassess SBP after bolus given",
+          "priority": "critical",
+          "rationale": "Titrated crystalloid resuscitation restores perfusion without over-diluting clotting factors.",
+          "protocolReference": "MATC: General Trauma Management"
+        },
+        {
+          "id": "a7-fentanyl",
+          "shortAction": "Fentanyl 90 mcg IV (90 kg x 1 mcg/kg = 90 mcg; max initial dose 100 mcg)",
+          "protocolExcerpt": "Fentanyl: 1 mcg/kg IN, IM, IV or IO (maximum initial dose of 100 mcg)",
+          "priority": "important",
+          "rationale": "Weight-based fentanyl provides rapid analgesia for a patient with a severe pelvic injury.",
+          "protocolReference": "MATC: Pain Management"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "transport",
+          "if": "Perfusion improved, prepared for transport",
+          "condition": "SBP rises toward the 90 mmHg target and heart rate trends down; patient is packaged for rapid transport to the appropriate trauma center.",
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a6-fluid-bolus"]
+        }
+      ]
+    },
+    {
+      "id": "transport",
+      "name": "Perfusion improved, prepared for transport",
+      "description": "Patient is packaged with pelvic binder and cervical collar in place, perfusion trending toward target, and transported to a trauma center with serial vital sign reassessment.",
+      "triggerCondition": "After fluid resuscitation and analgesia, SBP trends toward 90 mmHg and the patient is packaged for rapid transport, minimizing scene time given the high-risk mechanism and ongoing shock physiology.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "Nonlabored, 18/min",
+        "circulation": "Radial pulses strong, skin warming, less pale",
+        "skin": { "color": "pink", "temperature": "cool", "moisture": "dry" },
+        "pupils": "PERRL",
+        "motorFunction": "Sensation and movement intact distal to pelvis in all four extremities",
+        "otherFindings": [
+          "Pain improved to 4/10 with fentanyl",
+          "No new neurologic deficits",
+          "Scene time under 10 minutes achieved"
+        ],
+        "patientSpeech": "\"Thank you, I know this looks bad.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 102,
+        "bpSys": 100,
+        "bpDia": 66,
+        "respRate": 18,
+        "spo2": 98,
+        "etco2": 0,
+        "temp": 36.6,
+        "tempF": 97.9,
+        "obstruction": 0,
+        "glucose": 98,
+        "customMeasures": [],
+        "trendTimeSeconds": 40,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a8-serial-reassess",
+          "shortAction": "Reassess vital signs and pelvic binder position serially en route to trauma center",
+          "protocolExcerpt": "Monitor patient for deterioration over time with serial vital signs (pulse, blood pressure, respiratory rate, neurologic status assessment) and repeat neurologic status assessment",
+          "priority": "critical",
+          "rationale": "Pelvic fractures can continue to bleed occultly even after initial improvement with fluids.",
+          "protocolReference": "MATC: General Trauma Management"
+        },
+        {
+          "id": "a9-transport-decision",
+          "shortAction": "Transport to appropriate trauma center per field triage guideline; minimize scene time",
+          "protocolExcerpt": "Decisions regarding transport destination should be based on the ACS-COT 2022 National Guideline for the Field Triage of Injured Patients",
+          "priority": "important",
+          "rationale": "A high-risk fall with hemodynamic instability requires the highest level of trauma care available.",
+          "protocolReference": "MATC: General Trauma Management"
+        }
+      ],
+      "transitions": []
+    },
+    {
+      "id": "pelvis-repalpated",
+      "name": "Pelvis palpated repeatedly to reassess",
+      "description": "The crew repeatedly presses on the pelvis to 'recheck' instability instead of palpating once, risking dislodgement of a forming clot. The patient's pain and hemodynamic status worsen.",
+      "triggerCondition": "Instead of a single gentle palpation, the crew presses on the pelvis multiple times to reassess stability, which can disrupt an early clot and worsen ongoing pelvic hemorrhage.",
+      "isDefault": false,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "Nonlabored, 26/min, visibly distressed",
+        "circulation": "Radial pulses weaker and more thready, skin pale and diaphoretic",
+        "skin": { "color": "pale", "temperature": "cool", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Sensation and movement intact distal to pelvis in all four extremities",
+        "otherFindings": [
+          "Increased pelvic pain and guarding after repeated palpation",
+          "Worsening tachycardia and hypotension",
+          "Patient anxious, repeatedly asking crew to stop touching his hips"
+        ],
+        "patientSpeech": "\"Stop pushing on it, please, it's getting worse!\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 136,
+        "bpSys": 78,
+        "bpDia": 50,
+        "respRate": 26,
+        "spo2": 93,
+        "etco2": 0,
+        "temp": 36.3,
+        "tempF": 97.3,
+        "obstruction": 0,
+        "glucose": 98,
+        "customMeasures": [],
+        "trendTimeSeconds": 20,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a10-stop-repalpation",
+          "shortAction": "Stop repeat pelvic palpation, apply binder immediately, and begin fluid resuscitation",
+          "protocolExcerpt": "Pelvis: Palpate once for instability by applying medial pressure on the iliac crests bilaterally",
+          "priority": "critical",
+          "rationale": "Repeated pelvic palpation can worsen bony and venous hemorrhage; stabilize and treat the shock it caused instead of continuing to reassess.",
+          "protocolReference": "MATC: General Trauma Management"
+        }
+      ],
+      "transitions": []
+    }
+  ],
+  "realiti": {
+    "scenarioMonitorType": 2,
+    "scenarioDefaultEnergy": 200,
+    "scenarioDefaultPacerThreshold": 55
+  }
+}

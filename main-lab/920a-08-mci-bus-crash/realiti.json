@@ -1,0 +1,248 @@
+{
+  "scenarioId": "920a-08-mci-bus-crash",
+  "scenarioName": "Mass Casualty Incident — School Bus Crash, START Triage",
+  "scenarioType": "Vital Signs",
+  "scenarioVersion": 2,
+  "scenarioTime": 900,
+  "scenarioMonitorType": 2,
+  "scenarioDefaultEnergy": 200,
+  "scenarioDefaultPacerThreshold": 55,
+  "isDemo": false,
+  "isALSILegacy": false,
+  "scenarioStory": {
+    "history": "Second-arriving ALS unit responds to a school bus vs. sedan collision on a two-lane highway. The bus, carrying 22 students and a driver, rolled onto its side after impact; the sedan's single occupant is trapped. Approximately 15 patients have injuries ranging from minor to critical, scattered across the scene. This scenario follows the responding paramedic acting as triage officer, with Emma Ross (10F) as the first patient triaged using START.",
+    "discussion": "",
+    "course": "Initial Contact: The paramedic arrives second-due to a chaotic multi-casualty scene: a rolled school bus and a sedan, roughly 15 patients of mixed severity, incomplete scene safety, and no triage structure yet established. → Scene assessed and roles assigned: The paramedic functions as the senior clinician on scene: confirms scene safety concerns (fuel odor, downed line), requests the resources the incident actually needs, and assigns triage/treatment roles before beginning patient-by-patient sorting. → Emma triaged using START: Emma is categorized Delayed per START (cannot walk, but breathing without difficulty, has a palpable radial pulse, and follows commands). She receives a tag and a splint for her femur, and the paramedic moves on to continue sorting the remaining patients rather than staying with her. → Sorting complete, transport prioritized: All patients have been triaged and tagged. Transport proceeds by category — Immediate patients transported first to trauma centers, Delayed patients (including Emma) second, Minimal patients assessed and transported appropriately, with continuous re-triage throughout."
+  },
+  "patientInformation": {
+    "patientName": "Emma Ross (index patient — one of 15 casualties)",
+    "patientCondition": "Multi-casualty school bus vs. passenger car collision — 15 patients on scene; this record follows the responding paramedic's first triaged patient",
+    "patientAge": 10,
+    "patientAgeUnit": "years",
+    "patientAgeCategory": 1,
+    "patientSex": 2,
+    "patientHeight": 138,
+    "patientWeight": 32,
+    "patientPhotoId": 12,
+    "patientAdmitted": 1
+  },
+  "labs": [],
+  "scenarioEvents": [
+    {
+      "type": "ScenarioEvent",
+      "name": "Initial Contact",
+      "description": "The paramedic arrives second-due to a chaotic multi-casualty scene: a rolled school bus and a sedan, roughly 15 patients of mixed severity, incomplete scene safety, and no triage structure yet established.",
+      "monitorType": 0,
+      "trendTime": 0,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 112,
+        "bpSys": 104,
+        "bpDia": 68,
+        "respRate": 26,
+        "spo2": 99,
+        "etco2": 0,
+        "temp": 37,
+        "obstruction": 0,
+        "custMeasure1": 98,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Scene assessed and roles assigned",
+      "description": "The paramedic functions as the senior clinician on scene: confirms scene safety concerns (fuel odor, downed line), requests the resources the incident actually needs, and assigns triage/treatment roles before beginning patient-by-patient sorting.",
+      "monitorType": 0,
+      "trendTime": 30,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 108,
+        "bpSys": 106,
+        "bpDia": 68,
+        "respRate": 24,
+        "spo2": 99,
+        "etco2": 0,
+        "temp": 37,
+        "obstruction": 0,
+        "custMeasure1": 98,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Assign triage, treatment, and transport roles to arriving EMS personnel before patient contact",
+        "Begin sorting all patients using START/JumpSTART before providing individual treatment"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Emma triaged using START",
+      "description": "Emma is categorized Delayed per START (cannot walk, but breathing without difficulty, has a palpable radial pulse, and follows commands). She receives a tag and a splint for her femur, and the paramedic moves on to continue sorting the remaining patients rather than staying with her.",
+      "monitorType": 0,
+      "trendTime": 40,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 98,
+        "bpSys": 108,
+        "bpDia": 70,
+        "respRate": 22,
+        "spo2": 99,
+        "etco2": 0,
+        "temp": 37,
+        "obstruction": 0,
+        "custMeasure1": 98,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Tag Emma Delayed per START; do not remain with her — continue sorting remaining patients",
+        "Splint the right femur fracture in position found before moving to the next patient",
+        "Re-triage Emma and all other tagged patients periodically for the duration of the incident"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Sorting complete, transport prioritized",
+      "description": "All patients have been triaged and tagged. Transport proceeds by category — Immediate patients transported first to trauma centers, Delayed patients (including Emma) second, Minimal patients assessed and transported appropriately, with continuous re-triage throughout.",
+      "monitorType": 0,
+      "trendTime": 45,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 94,
+        "bpSys": 110,
+        "bpDia": 70,
+        "respRate": 20,
+        "spo2": 99,
+        "etco2": 0,
+        "temp": 37,
+        "obstruction": 0,
+        "custMeasure1": 98,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Transport Immediate-category patients first, then Delayed patients, then assess Minimal patients for transport"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Full treatment given before sorting complete",
+      "description": "By fully treating and staying with Emma — a Delayed patient — before the rest of the scene is sorted, the crew delays discovery of Immediate-category patients elsewhere, including a student with an evolving airway compromise who is not found and treated in time.",
+      "monitorType": 0,
+      "trendTime": 60,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 92,
+        "bpSys": 108,
+        "bpDia": 70,
+        "respRate": 20,
+        "spo2": 99,
+        "etco2": 0,
+        "temp": 37,
+        "obstruction": 0,
+        "custMeasure1": 98,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Stop extended single-patient care; resume rapid START sorting of all remaining patients immediately"
+      ],
+      "relatedSounds": []
+    }
+  ],
+  "checklist": [
+    {
+      "title": "Assign triage, treatment, and transport roles to arriving EMS personnel before patient contact",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Begin sorting all patients using START/JumpSTART before providing individual treatment",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Tag Emma Delayed per START; do not remain with her — continue sorting remaining patients",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Splint the right femur fracture in position found before moving to the next patient",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Re-triage Emma and all other tagged patients periodically for the duration of the incident",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Transport Immediate-category patients first, then Delayed patients, then assess Minimal patients for transport",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Stop extended single-patient care; resume rapid START sorting of all remaining patients immediately",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    }
+  ],
+  "media": []
+}

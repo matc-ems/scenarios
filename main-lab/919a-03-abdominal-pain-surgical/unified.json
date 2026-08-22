@@ -1,0 +1,298 @@
+{
+  "meta": {
+    "id": "919a-03-abdominal-pain-surgical",
+    "name": "Abdominal Pain — Suspected Perforation with Shock",
+    "version": 1,
+    "difficulty": "intermediate",
+    "category": "Medical",
+    "protocols": ["medical-abdominal-pain", "medical-shock"],
+    "totalTimeSeconds": 900,
+    "tags": ["medical", "abdominal pain", "shock", "surgical abdomen", "919"]
+  },
+  "patient": {
+    "name": "Gerald Nakamura",
+    "age": 55,
+    "ageUnit": "years",
+    "sex": "male",
+    "weight": 90,
+    "weightLbs": 198,
+    "height": 178,
+    "chiefComplaint": "Sudden severe abdominal pain",
+    "history": {
+      "hpi": "Patient reports sudden onset of severe, diffuse abdominal pain approximately 2 hours ago while at home, described as \"the worst pain of my life.\" Pain has progressively worsened and is now constant. Denies vomiting blood or blood in stool. Reports feeling increasingly lightheaded over the last 20 minutes.",
+      "pastMedical": ["Peptic ulcer disease", "Hypertension"],
+      "medications": ["Omeprazole 20 mg PO daily", "Lisinopril 10 mg PO daily", "Ibuprofen 400 mg PO as needed (takes frequently for back pain)"],
+      "allergies": ["NKDA"],
+      "lastOralIntake": "Coffee and toast, 7 hours prior to onset",
+      "events": "Wife called 911 after patient became unable to stand upright due to pain and appeared pale and diaphoretic"
+    }
+  },
+  "scene": {
+    "dispatch": "55-year-old male, severe abdominal pain, residence",
+    "location": "Single-family home, patient found on living room floor curled on his side",
+    "time": "9:15 PM, weekday",
+    "safety": "No hazards to crew noted",
+    "bystanders": "Wife present, called 911, reports pain came on suddenly with no preceding trauma",
+    "visualCues": [
+      "Patient lying on side, knees drawn up, minimal movement",
+      "Pale, diaphoretic, grimacing with any repositioning",
+      "Abdomen visibly rigid and boardlike on inspection",
+      "Empty ibuprofen bottle on kitchen counter"
+    ]
+  },
+  "phases": [
+    {
+      "id": "initial",
+      "name": "Initial Contact",
+      "description": "Crew arrives to find a 55-year-old male lying on his side, pale and diaphoretic, guarding a rigid, diffusely tender abdomen. He is alert but in severe distress and reluctant to move.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent, speaking in short sentences due to pain",
+        "breathing": "Rapid, shallow to splint abdominal pain, symmetric chest rise, 24/min",
+        "circulation": "Radial pulses present but weak and rapid, skin pale and diaphoretic",
+        "skin": { "color": "pale", "temperature": "cool", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Strength intact in all extremities; minimal movement due to abdominal guarding",
+        "otherFindings": [
+          "Abdomen rigid and boardlike on inspection, diffusely tender",
+          "Involuntary guarding, rebound tenderness on light palpation",
+          "No pulsatile abdominal mass appreciated",
+          "Femoral pulses equal bilaterally"
+        ],
+        "patientSpeech": "\"Please don't touch my stomach — it feels like it's on fire.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 118,
+        "bpSys": 88,
+        "bpDia": 58,
+        "respRate": 24,
+        "spo2": 96,
+        "etco2": 30,
+        "temp": 38.2,
+        "tempF": 100.8,
+        "obstruction": 0,
+        "glucose": 98,
+        "customMeasures": [],
+        "trendTimeSeconds": 0,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
+      },
+      "expectedActions": [],
+      "transitions": [
+        {
+          "targetPhaseId": "shock-recognized",
+          "if": "Abdomen and shock assessed",
+          "condition": "Crew performs a focused abdominal exam identifying signs of a surgical abdomen (rigidity, rebound tenderness) and recognizes hypotension/tachycardia as shock requiring treatment per the Shock Guideline.",
+          "conditionType": "action_taken"
+        }
+      ]
+    },
+    {
+      "id": "shock-recognized",
+      "name": "Abdomen and shock assessed",
+      "description": "Crew completes a focused assessment identifying findings consistent with a perforated or ischemic viscus, recognizes early shock, establishes IV access, and begins fluid resuscitation targeting a MAP of 65 mmHg.",
+      "triggerCondition": "After the primary survey rules out immediate airway/breathing threats, the crew examines the rigid abdomen, identifies signs concerning for perforation, and recognizes the patient's tachycardia and hypotension as shock requiring immediate fluid resuscitation.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "22/min, still guarded but less rapid",
+        "circulation": "IV established, radial pulses stronger",
+        "skin": { "color": "pale", "temperature": "cool", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Intact",
+        "otherFindings": [
+          "IV access obtained, 500 mL NS bolus infusing",
+          "Cardiac monitor and pulse oximetry applied",
+          "Abdomen remains rigid, diffusely tender with rebound"
+        ],
+        "patientSpeech": "\"It still hurts so bad, but I feel a little less dizzy.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 106,
+        "bpSys": 98,
+        "bpDia": 64,
+        "respRate": 22,
+        "spo2": 97,
+        "etco2": 32,
+        "temp": 38.2,
+        "tempF": 100.8,
+        "obstruction": 0,
+        "glucose": 98,
+        "customMeasures": [],
+        "trendTimeSeconds": 30,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a1-airway-vitals",
+          "shortAction": "Perform airway assessment and obtain full vital signs (pulse, BP, RR, neuro status)",
+          "protocolExcerpt": "Perform airway assessment and management per the Airway Management Guideline. Obtain vital signs including pulse, blood pressure, respiratory rate, neurologic status assessment",
+          "priority": "critical",
+          "rationale": "Establishes baseline and rules out immediate airway/breathing threats before focused exam.",
+          "protocolReference": "MATC: Abdominal Pain"
+        },
+        {
+          "id": "a2-recognize-perforation",
+          "shortAction": "Recognize rigid, distended, rebound-tender abdomen as signs of possible perforated/ischemic bowel",
+          "protocolExcerpt": "Signs and symptoms of ischemic, necrotic, or perforated bowel: Severe tenderness. Abdominal pain with motion or palpation of the abdomen. Fever. Nausea and vomiting. Absence of passage of stool or gas. Abdominal distention, with tympany to percussion",
+          "priority": "critical",
+          "rationale": "Identifies a surgical emergency requiring rapid, gentle transport rather than prolonged on-scene time.",
+          "protocolReference": "MATC: Abdominal Pain"
+        },
+        {
+          "id": "a3-assess-shock",
+          "shortAction": "Assess for shock given hypotension and tachycardia; treat per Shock Guideline",
+          "protocolExcerpt": "Assess for signs of shock. If shock is present, provide treatment per appropriate Shock Guideline",
+          "priority": "critical",
+          "rationale": "Hypotension with tachycardia in this context signals early hypovolemic/distributive shock from a surgical abdomen.",
+          "protocolReference": "MATC: Abdominal Pain"
+        },
+        {
+          "id": "a4-iv-fluid-bolus",
+          "shortAction": "Establish IV access; give 500 mL NS bolus pressure-infused <15 min (90 kg × up to 30 mL/kg = 2,700 mL goal; target MAP 65 mmHg)",
+          "protocolExcerpt": "Establish IV access. If unable to obtain within two attempts or less than 90 seconds, place an IO needle. IV fluid volume goal attained by giving boluses that are pressure infused over less than 15 minutes each based on patient's condition and clinical impression. Physiologic target: MAP goal 65 mmHg. Fluid goal of up to 30 mL/kg of isotonic fluid by administering rapid, predetermined boluses (e.g., 500 mL) unless the MAP goal is achieved, or pulmonary edema develops",
+          "priority": "critical",
+          "rationale": "Early fluid resuscitation is essential to restore perfusion while transporting to definitive surgical care.",
+          "protocolReference": "MATC: Shock"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "stable-transport",
+          "if": "Perfusion improves with fluids",
+          "condition": "MAP improves toward goal with the fluid bolus; patient remains alert with improving vital signs, and crew proceeds to advanced notification and rapid transport to a surgical-capable facility.",
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a4-iv-fluid-bolus"]
+        },
+        {
+          "targetPhaseId": "shock-worsens",
+          "if": "Fluid resuscitation delayed",
+          "condition": "IV access and fluid bolus are delayed or omitted despite recognized shock; the patient progresses to decompensated shock with worsening hypotension and altered mental status.",
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["a4-iv-fluid-bolus"]
+        }
+      ]
+    },
+    {
+      "id": "stable-transport",
+      "name": "Perfusion improves with fluids",
+      "description": "The patient's perfusion improves following the fluid bolus. Crew provides advanced notification to the receiving hospital regarding a surgical abdomen with shock and transports rapidly with ongoing reassessment.",
+      "triggerCondition": "After the initial fluid bolus, the patient's heart rate and blood pressure trend toward normal and mentation remains intact; crew proceeds with advanced notification and transport rather than further scene time.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "20/min, nonlabored",
+        "circulation": "Radial pulses strong, skin warming slightly",
+        "skin": { "color": "pink", "temperature": "cool", "moisture": "diaphoretic, improving" },
+        "pupils": "PERRL",
+        "motorFunction": "Intact",
+        "otherFindings": [
+          "Abdomen remains rigid and tender, unchanged exam otherwise",
+          "Advanced notification given to receiving facility",
+          "Second IV access considered given ongoing surgical concern"
+        ],
+        "patientSpeech": "\"I still hurt, but I don't feel like I'm going to pass out anymore.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 102,
+        "bpSys": 106,
+        "bpDia": 68,
+        "respRate": 20,
+        "spo2": 98,
+        "etco2": 35,
+        "temp": 38.2,
+        "tempF": 100.8,
+        "obstruction": 0,
+        "glucose": 98,
+        "customMeasures": [],
+        "trendTimeSeconds": 40,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a5-advanced-notification",
+          "shortAction": "Provide advanced notification to receiving hospital: surgical abdomen with shock",
+          "protocolExcerpt": "Provide advanced notification to the hospital",
+          "priority": "important",
+          "rationale": "Allows the receiving facility to mobilize surgical resources before arrival.",
+          "protocolReference": "MATC: Shock"
+        },
+        {
+          "id": "a6-reassess-transport",
+          "shortAction": "Reassess vitals and abdominal exam en route; transport to appropriate surgical-capable facility",
+          "protocolExcerpt": "Provide transport to an appropriate receiving facility. Consider specialty destination centers for conditions such as suspected abdominal aortic aneurysm and aortic dissection. Reassess vital signs and response to therapeutic interventions throughout transport",
+          "priority": "important",
+          "rationale": "Ongoing reassessment detects early deterioration; destination selection matters for time-critical surgical disease.",
+          "protocolReference": "MATC: Abdominal Pain"
+        }
+      ],
+      "transitions": []
+    },
+    {
+      "id": "shock-worsens",
+      "name": "Fluid resuscitation delayed",
+      "description": "Without timely IV access and fluid resuscitation, the patient progresses to decompensated shock with worsening hypotension, tachycardia, and altered mental status, now requiring repeat boluses and consideration of vasopressor support.",
+      "triggerCondition": "Recognized shock was not promptly treated with IV access and fluid boluses; the patient's perfusion continues to deteriorate, now with altered mental status and profound hypotension.",
+      "isDefault": false,
+      "clinicalPresentation": {
+        "avpu": "Verbal",
+        "gcs": { "eye": 3, "verbal": 4, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "28/min, shallow",
+        "circulation": "Radial pulses thready, barely palpable",
+        "skin": { "color": "pale", "temperature": "cool", "moisture": "diaphoretic" },
+        "pupils": "PERRL, sluggish",
+        "motorFunction": "Intact but slow to respond to commands",
+        "otherFindings": [
+          "Increasingly confused, slow to answer questions",
+          "Abdomen remains rigid, now with worsening distention"
+        ],
+        "patientSpeech": "\"I don't... feel right...\" (slurred, slow to respond)"
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 132,
+        "bpSys": 76,
+        "bpDia": 48,
+        "respRate": 28,
+        "spo2": 94,
+        "etco2": 22,
+        "temp": 38.4,
+        "tempF": 101.1,
+        "obstruction": 0,
+        "glucose": 96,
+        "customMeasures": [],
+        "trendTimeSeconds": 45,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a7-decompensated-shock-rescue",
+          "shortAction": "Recognize decompensated shock; repeat 500 mL NS bolus, prepare norepinephrine 4.5 mcg/min if fluid-refractory (90 kg × 0.05 mcg/kg/min starting dose)",
+          "protocolExcerpt": "IV fluid volume goal attained by giving boluses that are pressure infused over less than 15 minutes each... Vasopressors (shock unresponsive to IV fluids) titrated to physiologic targets: Norepinephrine 0.05–0.5 mcg/kg/minute",
+          "priority": "critical",
+          "rationale": "Delayed resuscitation allows progression to uncompensated shock, which can rapidly become refractory without aggressive correction.",
+          "protocolReference": "MATC: Shock"
+        }
+      ],
+      "transitions": []
+    }
+  ],
+  "realiti": {
+    "scenarioMonitorType": 2,
+    "scenarioDefaultEnergy": 200,
+    "scenarioDefaultPacerThreshold": 55
+  }
+}

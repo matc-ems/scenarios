@@ -1,0 +1,291 @@
+{
+  "meta": {
+    "id": "913-04-chest-pain",
+    "name": "Chest Pain — Atypical ACS Presentation ('Indigestion')",
+    "version": 1,
+    "difficulty": "beginner",
+    "category": "Cardiac",
+    "protocols": ["cv-chest-pain-acs-stemi"],
+    "totalTimeSeconds": 780,
+    "tags": ["BLS", "chest pain", "ACS", "OPQRST", "913"]
+  },
+  "patient": {
+    "name": "Gary Meissner",
+    "age": 59,
+    "ageUnit": "years",
+    "sex": "male",
+    "weight": 90,
+    "weightLbs": 198,
+    "height": 178,
+    "chiefComplaint": "Chest/epigastric discomfort described as 'indigestion that won't go away'",
+    "history": {
+      "hpi": "Patient was working on his car in the garage when he developed a burning, pressure-like sensation in his chest and upper abdomen roughly 45 minutes ago. He initially attributed it to indigestion and took two antacid tablets without relief. He now reports the discomfort radiating faintly into his left arm, associated with nausea and sweating. Denies prior episodes like this. Denies shortness of breath at rest but notes he felt winded walking in from the driveway.",
+      "pastMedical": ["Hypertension"],
+      "medications": ["Lisinopril 20 mg PO daily"],
+      "allergies": ["NKDA"],
+      "lastOralIntake": "Breakfast (eggs and toast) approximately 3 hours prior to onset",
+      "events": "Wife checked on him in the garage after he didn't come in for lunch, found him seated and diaphoretic, called 911 when he described chest discomfort not relieved by antacids."
+    }
+  },
+  "scene": {
+    "dispatch": "59-year-old male, chest discomfort, residential garage",
+    "location": "Detached garage at a single-family residence, patient seated on a stool near the workbench",
+    "time": "12:35 PM, weekday",
+    "safety": "No hazards; garage well-ventilated, car engine off",
+    "bystanders": "Wife present, called 911, no other bystanders",
+    "visualCues": [
+      "Patient seated, leaning forward slightly, hand on chest",
+      "Visible diaphoresis on forehead and shirt",
+      "Pale skin color",
+      "Open antacid bottle on the workbench",
+      "Patient periodically grimacing and rubbing sternum"
+    ]
+  },
+  "phases": [
+    {
+      "id": "initial",
+      "name": "Initial Contact",
+      "description": "Crew arrives to find a 59-year-old male seated in his garage, pale and diaphoretic, reporting persistent 'indigestion' that has not improved with antacids. He denies a prior cardiac history but has hypertension and is a current smoker.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent, speaking full sentences",
+        "breathing": "Mildly increased effort, nonlabored, 20/min",
+        "circulation": "Radial pulses present bilaterally, rapid and regular",
+        "skin": { "color": "pale", "temperature": "cool", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Strength intact in all extremities",
+        "otherFindings": [
+          "Substernal burning/pressure sensation, 6/10, faint radiation to left arm",
+          "Associated nausea, denies vomiting",
+          "Denies prior cardiac history; has hypertension, current smoker (1 pack/day x 20 years)",
+          "No relief from antacids taken approximately 30 minutes ago"
+        ],
+        "patientSpeech": "\"It's just bad indigestion, I think — it won't go away though, and I feel kind of sick to my stomach.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 108,
+        "bpSys": 144,
+        "bpDia": 92,
+        "respRate": 20,
+        "spo2": 93,
+        "etco2": 0,
+        "temp": 36.8,
+        "tempF": 98.2,
+        "obstruction": 0,
+        "glucose": 118,
+        "customMeasures": [],
+        "trendTimeSeconds": 0,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [],
+      "transitions": [
+        {
+          "targetPhaseId": "assessed-treated",
+          "if": "OPQRST completed; O2 and ASA given",
+          "condition": "Crew obtains a focused OPQRST history, recognizes the presentation as suspicious for ACS despite the patient's 'indigestion' framing, applies supplemental oxygen for the mildly hypoxic patient, and administers chewable aspirin.",
+          "conditionType": "action_taken"
+        },
+        {
+          "targetPhaseId": "asa-withheld",
+          "if": "ASA withheld; symptoms progress",
+          "condition": "Crew accepts the patient's 'indigestion' framing at face value, does not recognize the presentation as suspicious for ACS, and does not administer aspirin.",
+          "conditionType": "action_not_taken"
+        }
+      ]
+    },
+    {
+      "id": "assessed-treated",
+      "name": "OPQRST completed; O2 and ASA given",
+      "description": "Crew performs a focused history and full set of vital signs, recognizes the atypical presentation as concerning for ACS, applies supplemental oxygen, and administers chewable aspirin per protocol.",
+      "triggerCondition": "After completing a focused OPQRST history and full vital signs, the crew recognizes the burning epigastric/chest discomfort with diaphoresis, nausea, and cardiac risk factors (hypertension, smoking) as suspicious for ACS rather than simple indigestion, and treats accordingly.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "Nonlabored, 18/min",
+        "circulation": "Radial pulses present bilaterally, still rapid",
+        "skin": { "color": "pale", "temperature": "cool", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Strength intact in all extremities",
+        "otherFindings": [
+          "Discomfort now 5/10 after aspirin, still present",
+          "Diaphoresis slightly improved",
+          "Denies worsening pain or new symptoms"
+        ],
+        "patientSpeech": "\"It still hurts but maybe a little less. I hope this isn't my heart.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 102,
+        "bpSys": 140,
+        "bpDia": 88,
+        "respRate": 18,
+        "spo2": 97,
+        "etco2": 0,
+        "temp": 36.8,
+        "tempF": 98.2,
+        "obstruction": 0,
+        "glucose": 118,
+        "customMeasures": [],
+        "trendTimeSeconds": 30,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a1-opqrst",
+          "shortAction": "Obtain focused OPQRST history and full vital signs; recognize possible ACS despite 'indigestion' framing",
+          "protocolExcerpt": "Chest pain or discomfort in other areas of the body (e.g., arm, jaw, epigastrium) of suspected cardiac origin, shortness of breath, associated or unexplained sweating, nausea, vomiting, or dizziness. Atypical or unusual symptoms are more common in women, the elderly, and diabetic patients.",
+          "priority": "critical",
+          "rationale": "Atypical 'indigestion' presentations with diaphoresis, nausea, and cardiac risk factors must be recognized as possible ACS rather than dismissed.",
+          "protocolReference": "MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)"
+        },
+        {
+          "id": "a2-oxygen",
+          "shortAction": "Apply supplemental oxygen, titrate to target SpO2 94-98%",
+          "protocolExcerpt": "If the patient is dyspneic, hypoxemic, or has obvious signs of heart failure, EMS clinicians should administer oxygen as appropriate with a target of achieving 94–98% saturation",
+          "priority": "important",
+          "rationale": "Patient is mildly hypoxic (SpO2 93%) on presentation and should be brought to target saturation.",
+          "protocolReference": "MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)"
+        },
+        {
+          "id": "a3-asa",
+          "shortAction": "Administer aspirin 324 mg PO, chewable non-enteric-coated",
+          "protocolExcerpt": "Administer aspirin; chewable, non-enteric-coated aspirin preferred (162–325 mg)",
+          "priority": "critical",
+          "rationale": "Early aspirin administration reduces mortality in ACS and is within BLS scope.",
+          "protocolReference": "MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "transport",
+          "if": "Prepared for prompt transport",
+          "condition": "Patient is packaged for transport with ongoing reassessment; crew minimizes scene time given suspected ACS.",
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a1-opqrst", "a3-asa"]
+        }
+      ]
+    },
+    {
+      "id": "transport",
+      "name": "Prepared for prompt transport",
+      "description": "Patient is packaged and transported with serial vital sign reassessment, minimizing scene time given the suspicion for ACS.",
+      "triggerCondition": "After OPQRST assessment, oxygen, and aspirin administration, the crew minimizes scene time and initiates transport with continued monitoring for deterioration.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "Nonlabored, 16/min",
+        "circulation": "Radial pulses present bilaterally, regular",
+        "skin": { "color": "pink", "temperature": "warm", "moisture": "dry" },
+        "pupils": "PERRL",
+        "motorFunction": "Strength intact in all extremities",
+        "otherFindings": [
+          "Discomfort steady at 4/10",
+          "No new or worsening symptoms",
+          "Diaphoresis resolved"
+        ],
+        "patientSpeech": "\"Thanks for taking this seriously — I really thought it was just indigestion.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Rhythm",
+        "ecgWaveform": 9,
+        "hr": 94,
+        "bpSys": 134,
+        "bpDia": 84,
+        "respRate": 16,
+        "spo2": 98,
+        "etco2": 0,
+        "temp": 36.8,
+        "tempF": 98.2,
+        "obstruction": 0,
+        "glucose": 118,
+        "customMeasures": [],
+        "trendTimeSeconds": 40,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a4-serial-reassess",
+          "shortAction": "Reassess vital signs and pain level serially en route; observe for deterioration",
+          "protocolExcerpt": "Observe for signs of clinical deterioration: dysrhythmias, chest pain, shortness of breath, decreased level of consciousness/syncope, or other signs of shock/hypotension",
+          "priority": "critical",
+          "rationale": "ACS patients can deteriorate suddenly; ongoing reassessment catches early warning signs.",
+          "protocolReference": "MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)"
+        },
+        {
+          "id": "a5-transport-decision",
+          "shortAction": "Transport promptly, minimizing scene time; base destination on local system of care",
+          "protocolExcerpt": "Transport and destination decisions should be based on local resources and system of care",
+          "priority": "important",
+          "rationale": "Minimizing scene time and ischemic burden time improves outcomes in suspected ACS.",
+          "protocolReference": "MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)"
+        }
+      ],
+      "transitions": []
+    },
+    {
+      "id": "asa-withheld",
+      "name": "ASA withheld; symptoms progress",
+      "description": "The crew treats the presentation as simple indigestion and does not administer aspirin or recognize the ACS risk. The patient's discomfort worsens and early signs of hemodynamic compromise develop.",
+      "triggerCondition": "Crew accepts the patient's own 'indigestion' framing without recognizing the atypical ACS presentation, and does not administer aspirin or treat the patient as a cardiac concern.",
+      "isDefault": false,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "Increased effort, 24/min",
+        "circulation": "Radial pulses present but weaker, rapid",
+        "skin": { "color": "pale", "temperature": "cool", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Strength intact in all extremities",
+        "otherFindings": [
+          "Discomfort worsened to 9/10, now clearly radiating down left arm",
+          "New lightheadedness reported",
+          "Increasing diaphoresis and pallor"
+        ],
+        "patientSpeech": "\"This is getting a lot worse — I feel dizzy now.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 126,
+        "bpSys": 96,
+        "bpDia": 60,
+        "respRate": 24,
+        "spo2": 90,
+        "etco2": 0,
+        "temp": 36.8,
+        "tempF": 98.2,
+        "obstruction": 0,
+        "glucose": 118,
+        "customMeasures": [],
+        "trendTimeSeconds": 20,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a6-recognize-late",
+          "shortAction": "Recognize worsening presentation as ACS; give aspirin 324 mg PO chewable and apply oxygen now",
+          "protocolExcerpt": "Observe for signs of clinical deterioration: dysrhythmias, chest pain, shortness of breath, decreased level of consciousness/syncope, or other signs of shock/hypotension",
+          "priority": "critical",
+          "rationale": "Delayed recognition of ACS allows progression toward cardiogenic shock; treatment should still be initiated as soon as recognized.",
+          "protocolReference": "MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)"
+        }
+      ],
+      "transitions": []
+    }
+  ],
+  "realiti": {
+    "scenarioMonitorType": 2,
+    "scenarioDefaultEnergy": 200,
+    "scenarioDefaultPacerThreshold": 55
+  }
+}

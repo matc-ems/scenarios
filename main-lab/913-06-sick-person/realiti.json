@@ -1,0 +1,258 @@
+{
+  "scenarioId": "913-06-sick-person",
+  "scenarioName": "Sick Person - Three Days of Vomiting and Diarrhea",
+  "scenarioType": "Vital Signs",
+  "scenarioVersion": 2,
+  "scenarioTime": 900,
+  "scenarioMonitorType": 2,
+  "scenarioDefaultEnergy": 200,
+  "scenarioDefaultPacerThreshold": 55,
+  "isDemo": false,
+  "isALSILegacy": false,
+  "scenarioStory": {
+    "history": "Patient reports three days of intermittent vomiting and watery diarrhea, worsening over the last 24 hours. She has been unable to keep fluids down since last night and now feels too weak and dizzy to stand without help. She nearly fell when she tried to stand for her husband this afternoon. Denies blood in vomit or stool, denies abdominal trauma, denies chest pain. Reports feeling warm but has not taken her temperature.",
+    "discussion": "",
+    "course": "Initial Contact: Crew finds a 36-year-old female sitting on the bathroom floor, pale and weak, supported by her husband. She reports three days of vomiting and diarrhea and nearly collapsed when she last tried to stand. → Assessment and O2 completed: Crew completes a full assessment, recognizes the tachycardia and skin findings as compensated shock from volume loss, and applies oxygen while preparing for transport. → Transport with reassessment: Patient is moved to the stretcher on oxygen and transported, with vital signs and mental status reassessed en route."
+  },
+  "patientInformation": {
+    "patientName": "Denise Whitfield",
+    "patientCondition": "Weakness and inability to stand after several days of vomiting and diarrhea",
+    "patientAge": 36,
+    "patientAgeUnit": "years",
+    "patientAgeCategory": 0,
+    "patientSex": 2,
+    "patientHeight": 165,
+    "patientWeight": 65,
+    "patientPhotoId": 44,
+    "patientAdmitted": 1
+  },
+  "labs": [],
+  "scenarioEvents": [
+    {
+      "type": "ScenarioEvent",
+      "name": "Initial Contact",
+      "description": "Crew finds a 36-year-old female sitting on the bathroom floor, pale and weak, supported by her husband. She reports three days of vomiting and diarrhea and nearly collapsed when she last tried to stand.",
+      "monitorType": 0,
+      "trendTime": 0,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 118,
+        "bpSys": 108,
+        "bpDia": 72,
+        "respRate": 18,
+        "spo2": 97,
+        "etco2": 0,
+        "temp": 37.9,
+        "obstruction": 0,
+        "custMeasure1": 92,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Obtain full vital signs: pulse, BP, respiratory rate, neuro status",
+        "Take focused SAMPLE history on GI symptoms, oral intake, and urination",
+        "Assess skin turgor, mucous membrane hydration, and capillary refill",
+        "Perform airway assessment per Airway Management Guideline"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Assessment and O2 completed",
+      "description": "Crew completes a full assessment, recognizes the tachycardia and skin findings as compensated shock from volume loss, and applies oxygen while preparing for transport.",
+      "monitorType": 0,
+      "trendTime": 30,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 114,
+        "bpSys": 110,
+        "bpDia": 74,
+        "respRate": 16,
+        "spo2": 98,
+        "etco2": 0,
+        "temp": 37.8,
+        "obstruction": 0,
+        "custMeasure1": 92,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Administer oxygen titrated to a target of 94-98% SpO2",
+        "Check blood glucose level",
+        "Recognize tachycardia with a maintained BP as early compensated shock",
+        "Offer isopropyl alcohol wipe inhalation for nausea relief",
+        "Assess for signs of shock and treat per Shock Guideline"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Transport with reassessment",
+      "description": "Patient is moved to the stretcher on oxygen and transported, with vital signs and mental status reassessed en route.",
+      "monitorType": 0,
+      "trendTime": 40,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 108,
+        "bpSys": 112,
+        "bpDia": 74,
+        "respRate": 16,
+        "spo2": 99,
+        "etco2": 0,
+        "temp": 37.7,
+        "obstruction": 0,
+        "custMeasure1": 94,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Provide transport to an appropriate receiving facility",
+        "Reassess vital signs and response to therapy throughout transport",
+        "Provide advance notification to the receiving hospital"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Assessment and O2 delayed",
+      "description": "Crew spends several minutes focused only on the vomiting/diarrhea complaint without completing vital signs or applying oxygen; the patient's compensated shock progresses toward hypotension.",
+      "monitorType": 0,
+      "trendTime": 45,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 148,
+        "bpSys": 82,
+        "bpDia": 54,
+        "respRate": 26,
+        "spo2": 94,
+        "etco2": 0,
+        "temp": 37.9,
+        "obstruction": 0,
+        "custMeasure1": 90,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Recognize hypotension as a late, ominous sign of uncompensated shock; give oxygen and expedite transport"
+      ],
+      "relatedSounds": []
+    }
+  ],
+  "checklist": [
+    {
+      "title": "Obtain full vital signs: pulse, BP, respiratory rate, neuro status",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Take focused SAMPLE history on GI symptoms, oral intake, and urination",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Assess skin turgor, mucous membrane hydration, and capillary refill",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Perform airway assessment per Airway Management Guideline",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Administer oxygen titrated to a target of 94-98% SpO2",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Check blood glucose level",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Recognize tachycardia with a maintained BP as early compensated shock",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Offer isopropyl alcohol wipe inhalation for nausea relief",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Assess for signs of shock and treat per Shock Guideline",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Recognize hypotension as a late, ominous sign of uncompensated shock; give oxygen and expedite transport",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Provide transport to an appropriate receiving facility",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Reassess vital signs and response to therapy throughout transport",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Provide advance notification to the receiving hospital",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    }
+  ],
+  "media": []
+}

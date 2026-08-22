@@ -1,0 +1,276 @@
+{
+  "scenarioId": "midterm-08-severe-asthma",
+  "scenarioName": "Severe Asthma — Near-Fatal Pediatric Presentation",
+  "scenarioType": "Vital Signs",
+  "scenarioVersion": 2,
+  "scenarioTime": 900,
+  "scenarioMonitorType": 2,
+  "scenarioDefaultEnergy": 200,
+  "scenarioDefaultPacerThreshold": 55,
+  "isDemo": false,
+  "isALSILegacy": false,
+  "scenarioStory": {
+    "history": "Mother reports patient has had a cold for two days and started wheezing badly this morning. Rescue inhaler used six times in the last two hours without relief. Patient now sitting bolt upright, unable to speak more than one or two words at a time, visibly exhausted.",
+    "discussion": "",
+    "course": "Initial Contact: Crew finds a 14-year-old female in severe respiratory distress, tripoding, with minimal audible air movement and suprasternal retractions. She is exhausted and can only mouth single words. → Impending respiratory failure recognized, epi/mag given: Crew recognizes minimal air movement and accessory muscle use as signs of impending respiratory failure. Continuous nebulized albuterol/ipratropium is started, IM epinephrine is given as adjunctive therapy, IV access is obtained, and magnesium sulfate is infused. → NIV started early, air movement improves: CPAP is applied early with continuous nebulized bronchodilator delivered in-line through a T-connector. The patient's air movement, mental status, and vital signs steadily improve without requiring invasive airway management."
+  },
+  "patientInformation": {
+    "patientName": "Maya Thompson",
+    "patientCondition": "Severe difficulty breathing, known asthmatic",
+    "patientAge": 14,
+    "patientAgeUnit": "years",
+    "patientAgeCategory": 1,
+    "patientSex": 2,
+    "patientHeight": 160,
+    "patientWeight": 50,
+    "patientPhotoId": 17,
+    "patientAdmitted": 1
+  },
+  "labs": [],
+  "scenarioEvents": [
+    {
+      "type": "ScenarioEvent",
+      "name": "Initial Contact",
+      "description": "Crew finds a 14-year-old female in severe respiratory distress, tripoding, with minimal audible air movement and suprasternal retractions. She is exhausted and can only mouth single words.",
+      "monitorType": 0,
+      "trendTime": 0,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 132,
+        "bpSys": 110,
+        "bpDia": 70,
+        "respRate": 32,
+        "spo2": 89,
+        "etco2": 0,
+        "temp": 37.1,
+        "obstruction": 70,
+        "custMeasure1": 96,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Impending respiratory failure recognized, epi/mag given",
+      "description": "Crew recognizes minimal air movement and accessory muscle use as signs of impending respiratory failure. Continuous nebulized albuterol/ipratropium is started, IM epinephrine is given as adjunctive therapy, IV access is obtained, and magnesium sulfate is infused.",
+      "monitorType": 0,
+      "trendTime": 30,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 148,
+        "bpSys": 128,
+        "bpDia": 78,
+        "respRate": 30,
+        "spo2": 91,
+        "etco2": 48,
+        "temp": 37.1,
+        "obstruction": 65,
+        "custMeasure1": 96,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Recognize impending respiratory failure: near-silent chest, minimal air movement, exhaustion",
+        "Continuous nebulized albuterol 5 mg with ipratropium 0.5 mg (up to 3 doses)",
+        "Epinephrine 0.3 mg IM 1 mg/mL (50 kg × 0.01 mg/kg = 0.5 mg → capped at 0.3 mg max)",
+        "Magnesium sulfate 2 g IV (50 kg × 40 mg/kg = 2000 mg = 2 g; max dose 2 g) over 10-15 min",
+        "Place continuous waveform capnography to monitor severe bronchospasm and guide therapy"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "NIV started early, air movement improves",
+      "description": "CPAP is applied early with continuous nebulized bronchodilator delivered in-line through a T-connector. The patient's air movement, mental status, and vital signs steadily improve without requiring invasive airway management.",
+      "monitorType": 0,
+      "trendTime": 50,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 108,
+        "bpSys": 118,
+        "bpDia": 74,
+        "respRate": 22,
+        "spo2": 96,
+        "etco2": 42,
+        "temp": 37,
+        "obstruction": 30,
+        "custMeasure1": 96,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Apply CPAP with nebulizer in-line via T-connector; maintain continuous mask seal",
+        "Do not break CPAP mask seal until hospital CPAP is ready to take over"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Escalation delayed despite silent chest",
+      "description": "Without escalation to NIV, the patient's exhaustion progresses to frank respiratory arrest. Crew initiates two-person BVM ventilation with PEEP at a pediatric rate while preparing for advanced airway management.",
+      "monitorType": 0,
+      "trendTime": 20,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 58,
+        "bpSys": 84,
+        "bpDia": 56,
+        "respRate": 24,
+        "spo2": 82,
+        "etco2": 20,
+        "temp": 37,
+        "obstruction": 90,
+        "custMeasure1": 96,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Two-person BVM with PEEP 5 cmH2O at pediatric rate 20-30/min"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "BVM ineffective, RSI performed",
+      "description": "BVM ventilation is inadequate to overcome the severe bronchospasm, and the crew proceeds to rapid sequence intubation using pediatric tube sizing and ketamine for its bronchodilatory properties, then confirms placement and begins controlled ventilation.",
+      "monitorType": 0,
+      "trendTime": 30,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 96,
+        "bpSys": 100,
+        "bpDia": 64,
+        "respRate": 22,
+        "spo2": 98,
+        "etco2": 38,
+        "temp": 37,
+        "obstruction": 40,
+        "custMeasure1": 96,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "RSI with ketamine 75 mg IV (50 kg × 1.5 mg/kg) then rocuronium 50 mg IV (50 kg × 1 mg/kg)",
+        "Size endotracheal tube using pediatric formula: (14/4) + 3.5 = 7.0 mm cuffed",
+        "Confirm tube placement with waveform capnography, bilateral breath sounds, absent gastric sounds"
+      ],
+      "relatedSounds": []
+    }
+  ],
+  "checklist": [
+    {
+      "title": "Recognize impending respiratory failure: near-silent chest, minimal air movement, exhaustion",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Continuous nebulized albuterol 5 mg with ipratropium 0.5 mg (up to 3 doses)",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Epinephrine 0.3 mg IM 1 mg/mL (50 kg × 0.01 mg/kg = 0.5 mg → capped at 0.3 mg max)",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Magnesium sulfate 2 g IV (50 kg × 40 mg/kg = 2000 mg = 2 g; max dose 2 g) over 10-15 min",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Place continuous waveform capnography to monitor severe bronchospasm and guide therapy",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Apply CPAP with nebulizer in-line via T-connector; maintain continuous mask seal",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Do not break CPAP mask seal until hospital CPAP is ready to take over",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Two-person BVM with PEEP 5 cmH2O at pediatric rate 20-30/min",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "RSI with ketamine 75 mg IV (50 kg × 1.5 mg/kg) then rocuronium 50 mg IV (50 kg × 1 mg/kg)",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Size endotracheal tube using pediatric formula: (14/4) + 3.5 = 7.0 mm cuffed",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Confirm tube placement with waveform capnography, bilateral breath sounds, absent gastric sounds",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    }
+  ],
+  "media": []
+}

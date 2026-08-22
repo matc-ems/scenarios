@@ -1,0 +1,262 @@
+{
+  "scenarioId": "915a-06-moderate-asthma",
+  "scenarioName": "Moderate Asthma — Nebulizer Failure Requiring CPAP",
+  "scenarioType": "Vital Signs",
+  "scenarioVersion": 2,
+  "scenarioTime": 900,
+  "scenarioMonitorType": 2,
+  "scenarioDefaultEnergy": 200,
+  "scenarioDefaultPacerThreshold": 55,
+  "isDemo": false,
+  "isALSILegacy": false,
+  "scenarioStory": {
+    "history": "Patient with known asthma since childhood reports worsening shortness of breath over the past hour after a URI this week. Used her albuterol MDI four times in the last 45 minutes with minimal relief before calling 911. No fever, no chest pain, no known trigger exposure today.",
+    "discussion": "",
+    "course": "Initial Contact: Crew arrives to find a 34-year-old female in moderate-to-severe respiratory distress, tripod positioning, with audible wheezing and accessory muscle use. She reports overusing her rescue inhaler without relief. → Oxygen and nebulized bronchodilators given: Crew administers supplemental oxygen and nebulized albuterol/ipratropium. Despite treatment, the patient shows minimal improvement and remains in significant distress. → CPAP with in-line duoneb started: Crew escalates to CPAP with nebulized albuterol/ipratropium administered in line through a T-connector. The patient begins to show improved air movement and decreased work of breathing. → Improved on CPAP, prepared for transport: Patient remains on CPAP with in-line nebulized bronchodilator during transport, with improved oxygenation and decreased work of breathing."
+  },
+  "patientInformation": {
+    "patientName": "Renee Castillo",
+    "patientCondition": "Progressive shortness of breath not relieved by rescue inhaler",
+    "patientAge": 34,
+    "patientAgeUnit": "years",
+    "patientAgeCategory": 0,
+    "patientSex": 2,
+    "patientHeight": 165,
+    "patientWeight": 70,
+    "patientPhotoId": 41,
+    "patientAdmitted": 1
+  },
+  "labs": [],
+  "scenarioEvents": [
+    {
+      "type": "ScenarioEvent",
+      "name": "Initial Contact",
+      "description": "Crew arrives to find a 34-year-old female in moderate-to-severe respiratory distress, tripod positioning, with audible wheezing and accessory muscle use. She reports overusing her rescue inhaler without relief.",
+      "monitorType": 0,
+      "trendTime": 0,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 118,
+        "bpSys": 132,
+        "bpDia": 84,
+        "respRate": 26,
+        "spo2": 91,
+        "etco2": 38,
+        "temp": 37.1,
+        "obstruction": 40,
+        "custMeasure1": 98,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Oxygen and nebulized bronchodilators given",
+      "description": "Crew administers supplemental oxygen and nebulized albuterol/ipratropium. Despite treatment, the patient shows minimal improvement and remains in significant distress.",
+      "monitorType": 0,
+      "trendTime": 30,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 122,
+        "bpSys": 134,
+        "bpDia": 86,
+        "respRate": 28,
+        "spo2": 92,
+        "etco2": 40,
+        "temp": 37.1,
+        "obstruction": 45,
+        "custMeasure1": 98,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Administer supplemental O2 titrated to target SpO2 94-98%",
+        "Albuterol 5 mg nebulized for bronchospasm with respiratory distress",
+        "Ipratropium 0.5 mg nebulized in conjunction with albuterol",
+        "Apply continuous pulse oximetry and waveform capnography"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "CPAP with in-line duoneb started",
+      "description": "Crew escalates to CPAP with nebulized albuterol/ipratropium administered in line through a T-connector. The patient begins to show improved air movement and decreased work of breathing.",
+      "monitorType": 0,
+      "trendTime": 40,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 108,
+        "bpSys": 128,
+        "bpDia": 80,
+        "respRate": 22,
+        "spo2": 96,
+        "etco2": 39,
+        "temp": 37,
+        "obstruction": 30,
+        "custMeasure1": 98,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Initiate CPAP with nebulizer administered in-line via T-connector",
+        "Maintain continuous CPAP mask seal; do not discontinue en route"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Improved on CPAP, prepared for transport",
+      "description": "Patient remains on CPAP with in-line nebulized bronchodilator during transport, with improved oxygenation and decreased work of breathing.",
+      "monitorType": 0,
+      "trendTime": 45,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 98,
+        "bpSys": 124,
+        "bpDia": 78,
+        "respRate": 18,
+        "spo2": 97,
+        "etco2": 38,
+        "temp": 37,
+        "obstruction": 20,
+        "custMeasure1": 98,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Reassess respiratory status, SpO2, and EtCO2 serially en route"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "CPAP escalation delayed",
+      "description": "Crew continues nebulized bronchodilators alone without escalating to non-invasive ventilation. The patient tires, air movement worsens, and EtCO2 begins normalizing despite ongoing tachypnea — an ominous sign of impending respiratory failure.",
+      "monitorType": 0,
+      "trendTime": 50,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 138,
+        "bpSys": 118,
+        "bpDia": 74,
+        "respRate": 34,
+        "spo2": 87,
+        "etco2": 44,
+        "temp": 37.1,
+        "obstruction": 70,
+        "custMeasure1": 98,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Recognize impending respiratory failure from normalizing EtCO2 despite tachypnea",
+        "Emergently escalate to CPAP or assisted BVM ventilation with in-line bronchodilator"
+      ],
+      "relatedSounds": []
+    }
+  ],
+  "checklist": [
+    {
+      "title": "Administer supplemental O2 titrated to target SpO2 94-98%",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Albuterol 5 mg nebulized for bronchospasm with respiratory distress",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Ipratropium 0.5 mg nebulized in conjunction with albuterol",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Apply continuous pulse oximetry and waveform capnography",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Initiate CPAP with nebulizer administered in-line via T-connector",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Maintain continuous CPAP mask seal; do not discontinue en route",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Reassess respiratory status, SpO2, and EtCO2 serially en route",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Recognize impending respiratory failure from normalizing EtCO2 despite tachypnea",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Emergently escalate to CPAP or assisted BVM ventilation with in-line bronchodilator",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    }
+  ],
+  "media": []
+}

@@ -1,0 +1,317 @@
+{
+  "meta": {
+    "id": "914b-11-femur-fracture-pediatric",
+    "name": "Pediatric Femur Fracture — Weight-Based Fentanyl Analgesia",
+    "version": 1,
+    "difficulty": "intermediate",
+    "category": "Trauma",
+    "protocols": ["trauma-general", "trauma-extremity-hemorrhage", "medical-pain-management"],
+    "totalTimeSeconds": 720,
+    "tags": ["pediatric", "fracture", "pain management", "fentanyl", "med math", "914"]
+  },
+  "patient": {
+    "name": "Ava Thompson",
+    "age": 11,
+    "ageUnit": "years",
+    "sex": "female",
+    "weight": 36,
+    "weightLbs": 79,
+    "height": 145,
+    "chiefComplaint": "Severe right thigh pain after a bicycle crash",
+    "history": {
+      "hpi": "Patient was riding her bicycle down a residential street, lost control while braking, and fell directly onto her right thigh, striking the frame of the bike. She reports immediate severe pain and has been unable to move or bear weight on the leg since the fall. Denies head strike, loss of consciousness, or other injuries.",
+      "pastMedical": [],
+      "medications": [],
+      "allergies": ["NKDA"],
+      "lastOralIntake": "Lunch (sandwich and juice) approximately 3 hours prior",
+      "events": "Mother heard the crash from the front porch, ran out, found patient on the ground next to the bicycle, and called 911 immediately"
+    }
+  },
+  "scene": {
+    "dispatch": "11-year-old female, bicycle accident, leg injury, conscious and breathing, residential street",
+    "location": "Residential street, patient supine on pavement near the curb, bicycle on its side a few feet away",
+    "time": "4:15 PM, weekday afternoon",
+    "safety": "No traffic hazards, quiet residential block, bicycle moved off roadway by bystander",
+    "bystanders": "Mother present, witnessed the aftermath but not the exact fall, highly anxious and staying close to patient",
+    "visualCues": [
+      "Bicycle on its side near the patient",
+      "Obvious deformity and swelling to mid right thigh",
+      "Patient rigidly holding right leg still, refusing to let it be touched",
+      "Scrape marks on right forearm and knee, minor",
+      "Patient crying, mother kneeling beside her trying to calm her"
+    ]
+  },
+  "phases": [
+    {
+      "id": "initial",
+      "name": "Initial Contact",
+      "description": "Crew arrives to find an 11-year-old female lying on the pavement with an obviously deformed right thigh, crying and guarding the leg. She is alert, oriented, and in severe distress from pain.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent, crying loudly, speaking in short phrases",
+        "breathing": "Rapid but nonlabored, symmetric chest rise, 22/min",
+        "circulation": "Radial and pedal pulses strong bilaterally",
+        "skin": { "color": "pale", "temperature": "warm", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Sensation and movement intact in all extremities except right leg, which she refuses to move due to pain",
+        "otherFindings": [
+          "Obvious deformity and swelling to mid right thigh",
+          "Pain 10/10 on Wong-Baker Faces scale",
+          "Minor abrasions to right forearm and knee",
+          "Denies head strike, neck pain, or loss of consciousness"
+        ],
+        "patientSpeech": "\"It hurts so bad, please don't touch it!\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 128,
+        "bpSys": 108,
+        "bpDia": 70,
+        "respRate": 22,
+        "spo2": 99,
+        "etco2": 0,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 0,
+        "glucose": 90,
+        "customMeasures": [],
+        "trendTimeSeconds": 0,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [],
+      "transitions": [
+        {
+          "targetPhaseId": "analgesia-splint",
+          "if": "Fentanyl given before splinting",
+          "condition": "Crew completes a primary survey confirming an isolated extremity injury with intact distal neurovascular status and no other life threats, assesses pain via a validated pediatric scale, and administers weight-based intranasal fentanyl before attempting to move or splint the leg.",
+          "conditionType": "action_taken"
+        }
+      ]
+    },
+    {
+      "id": "analgesia-splint",
+      "name": "Fentanyl given before splinting",
+      "description": "Crew confirms the injury is isolated with intact distal pulses and sensation, treats pain first with weight-based intranasal fentanyl, then splints the leg in the position found once pain is controlled.",
+      "triggerCondition": "After the primary survey confirms an isolated extremity injury with intact distal neurovascular status and no other life threats, the crew treats pain first with intranasal fentanyl before manipulating or splinting the deformed leg.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "Nonlabored, 20/min",
+        "circulation": "Radial and pedal pulses strong bilaterally, distal right foot warm with brisk capillary refill",
+        "skin": { "color": "pink", "temperature": "warm", "moisture": "mildly diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Sensation and movement intact distal to right thigh fracture",
+        "otherFindings": [
+          "Pain improved to 5/10 on Wong-Baker Faces scale",
+          "Right leg splinted in position found",
+          "Ice pack applied over dressing, not directly on skin",
+          "No new deformity or crepitus noted after splinting"
+        ],
+        "patientSpeech": "\"It still hurts but not as bad now.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Rhythm",
+        "ecgWaveform": 9,
+        "hr": 98,
+        "bpSys": 110,
+        "bpDia": 72,
+        "respRate": 20,
+        "spo2": 99,
+        "etco2": 0,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 0,
+        "glucose": 90,
+        "customMeasures": [],
+        "trendTimeSeconds": 30,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a1-march",
+          "shortAction": "Perform MARCH primary survey; confirm isolated extremity injury, no other life threats",
+          "protocolExcerpt": "Primary survey (Use \"MARCH\" algorithm)",
+          "priority": "critical",
+          "rationale": "Rules out life threats before focusing on the obvious leg deformity.",
+          "protocolReference": "MATC: General Trauma Management"
+        },
+        {
+          "id": "a2-neurovascular",
+          "shortAction": "Assess distal pulse, sensation, and movement of right leg before treatment",
+          "protocolExcerpt": "Vascular status of extremity: Pallor, Pulse, Capillary refill and skin temperature. Neurologic status of extremity: Sensation to light touch, Distal movement of extremity",
+          "priority": "critical",
+          "rationale": "Establishes a neurovascular baseline before analgesia and splinting to detect compromise.",
+          "protocolReference": "MATC: Extremity Trauma/External Hemorrhage Management"
+        },
+        {
+          "id": "a3-pain-scale",
+          "shortAction": "Assess pain using Wong-Baker Faces scale (age-appropriate self-report tool)",
+          "protocolExcerpt": "4–12 years old: Self-report scale Wong Baker Faces, Faces Pain Scale (FPS), Faces Pain Scale Revised (FPS-R)",
+          "priority": "important",
+          "rationale": "A validated pediatric pain scale is required before choosing an analgesic strategy.",
+          "protocolReference": "MATC: Pain Management"
+        },
+        {
+          "id": "a4-fentanyl",
+          "shortAction": "Fentanyl 36 mcg IN (36 kg × 1 mcg/kg; max initial dose 100 mcg)",
+          "protocolExcerpt": "Fentanyl: 1 mcg/kg IN, IM, IV or IO (maximum initial dose of 100 mcg)",
+          "priority": "critical",
+          "rationale": "Weight-based fentanyl given intranasally avoids the need for IV access before treating severe pain in a pediatric patient.",
+          "protocolReference": "MATC: Pain Management"
+        },
+        {
+          "id": "a5-splint",
+          "shortAction": "Splint right leg in position found after analgesia; apply ice pack, not directly on skin",
+          "protocolExcerpt": "Strongly consider pain management before attempting to move a suspected fracture. Use splints as appropriate to limit movement of suspected fracture. Apply ice/cool packs to limit swelling in suspected fractures or soft tissue injury, but do not apply ice directly to bare skin",
+          "priority": "important",
+          "rationale": "Splinting after analgesia minimizes pain and further tissue damage from movement.",
+          "protocolReference": "MATC: Extremity Trauma/External Hemorrhage Management"
+        },
+        {
+          "id": "a6-reassess-nv",
+          "shortAction": "Reassess distal pulse, sensation, and movement after splinting",
+          "protocolExcerpt": "Reassess distal neurovascular status after any manipulation or splinting of fractures/dislocations",
+          "priority": "important",
+          "rationale": "Confirms splinting did not compromise circulation or nerve function.",
+          "protocolReference": "MATC: Extremity Trauma/External Hemorrhage Management"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "transport",
+          "if": "Splinted and pain improved, transport",
+          "condition": "Fentanyl and splinting reduce pain and confirm stable distal neurovascular status; patient is packaged for transport with ongoing reassessment.",
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a4-fentanyl", "a5-splint"]
+        },
+        {
+          "targetPhaseId": "splint-before-analgesia",
+          "if": "Splinted before fentanyl given",
+          "condition": "Crew moves directly to splinting the deformed leg without first treating pain, causing a sharp increase in pain and distress.",
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["a4-fentanyl"]
+        }
+      ]
+    },
+    {
+      "id": "transport",
+      "name": "Splinted and pain improved, transport",
+      "description": "Patient is packaged with the right leg splinted and pain well controlled, ready for transport with serial reassessment of pain and neurovascular status.",
+      "triggerCondition": "After fentanyl and splinting reduce pain and confirm stable distal neurovascular status, the patient is packaged for transport with ongoing reassessment.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "Nonlabored, 18/min",
+        "circulation": "Radial and pedal pulses strong bilaterally",
+        "skin": { "color": "pink", "temperature": "warm", "moisture": "dry" },
+        "pupils": "PERRL",
+        "motorFunction": "Sensation and movement intact distal to right thigh fracture",
+        "otherFindings": [
+          "Pain improved to 3/10 on Wong-Baker Faces scale",
+          "Calm and cooperative, mother at bedside",
+          "Splint and dressings intact"
+        ],
+        "patientSpeech": "\"I feel a lot better now, thank you.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Rhythm",
+        "ecgWaveform": 9,
+        "hr": 92,
+        "bpSys": 112,
+        "bpDia": 74,
+        "respRate": 18,
+        "spo2": 99,
+        "etco2": 0,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 0,
+        "glucose": 90,
+        "customMeasures": [],
+        "trendTimeSeconds": 30,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a7-repeat-pain",
+          "shortAction": "Reassess pain and vitals; may repeat fentanyl 36 mcg IN if pain persists >5 min after first dose",
+          "protocolExcerpt": "If indicated based on pain assessment, and vital signs allow, repeat pain medication administration (excluding acetaminophen and nonsteroidal anti-inflammatory medicines) after 5 minutes of the previous dose",
+          "priority": "important",
+          "rationale": "Ongoing pain reassessment guides whether a repeat dose is needed en route.",
+          "protocolReference": "MATC: Pain Management"
+        },
+        {
+          "id": "a8-transport-position",
+          "shortAction": "Transport in position of comfort; reassess as indicated",
+          "protocolExcerpt": "Transport in position of comfort and reassess as indicated",
+          "priority": "supplemental",
+          "rationale": "Positioning for comfort reduces ongoing pain during transport.",
+          "protocolReference": "MATC: Pain Management"
+        }
+      ],
+      "transitions": []
+    },
+    {
+      "id": "splint-before-analgesia",
+      "name": "Splinted before fentanyl given",
+      "description": "Crew moves directly to splinting the deformed leg without treating pain first, causing a sharp increase in pain and distress before fentanyl is ultimately administered.",
+      "triggerCondition": "Crew skips weight-based analgesia and splints the deformed leg first, causing a sharp increase in pain and distress that must then be corrected with delayed fentanyl.",
+      "isDefault": false,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent, crying forcefully",
+        "breathing": "Rapid, 26/min, nonlabored",
+        "circulation": "Radial and pedal pulses strong bilaterally, patient thrashing",
+        "skin": { "color": "pale", "temperature": "warm", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Guarding right leg, refusing further exam, sensation intact when briefly assessed",
+        "otherFindings": [
+          "Pain remains 10/10 on Wong-Baker Faces scale, worse with movement",
+          "Mother visibly distressed, patient inconsolable",
+          "Leg now splinted but patient remains highly agitated"
+        ],
+        "patientSpeech": "\"Stop! Stop touching it! It hurts!\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 142,
+        "bpSys": 120,
+        "bpDia": 78,
+        "respRate": 26,
+        "spo2": 98,
+        "etco2": 0,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 0,
+        "glucose": 90,
+        "customMeasures": [],
+        "trendTimeSeconds": 20,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a9-recover-analgesia",
+          "shortAction": "Give fentanyl 36 mcg IN (36 kg × 1 mcg/kg; max 100 mcg) now to regain control of pain",
+          "protocolExcerpt": "Strongly consider pain management before attempting to move a suspected fracture",
+          "priority": "critical",
+          "rationale": "Delayed analgesia after uncontrolled movement still requires prompt correction to regain pain control.",
+          "protocolReference": "MATC: Extremity Trauma/External Hemorrhage Management"
+        }
+      ],
+      "transitions": []
+    }
+  ],
+  "realiti": {
+    "scenarioMonitorType": 2,
+    "scenarioDefaultEnergy": 200,
+    "scenarioDefaultPacerThreshold": 55
+  }
+}

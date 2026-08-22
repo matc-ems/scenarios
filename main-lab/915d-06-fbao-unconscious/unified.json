@@ -1,0 +1,308 @@
+{
+  "meta": {
+    "id": "915d-06-fbao-unconscious",
+    "name": "Witnessed Choking — Cardiac Arrest from Foreign Body Airway Obstruction",
+    "version": 1,
+    "difficulty": "advanced",
+    "category": "Respiratory",
+    "protocols": ["resp-airway-management", "resus-cardiac-arrest", "resus-post-rosc"],
+    "totalTimeSeconds": 900,
+    "tags": ["FBAO", "choking", "cardiac arrest", "airway obstruction", "915"]
+  },
+  "patient": {
+    "name": "Gregory Halvorsen",
+    "age": 58,
+    "ageUnit": "years",
+    "sex": "male",
+    "weight": 88,
+    "weightLbs": 194,
+    "height": 178,
+    "chiefComplaint": "Unresponsive, witnessed choking during a meal",
+    "history": {
+      "hpi": "Patient was eating a steak dinner with a coworker when he suddenly stood up, grabbed his throat, and could not speak or cough. He collapsed within about a minute. The coworker attempted abdominal thrusts without success before the patient became unresponsive and stopped breathing; 911 was called immediately.",
+      "pastMedical": ["Hypertension", "Type 2 diabetes"],
+      "medications": ["Lisinopril 20 mg PO daily", "Metformin 1000 mg PO BID"],
+      "allergies": ["NKDA"],
+      "lastOralIntake": "Currently eating dinner (steak) at time of event",
+      "events": "Witnessed choking on food at a restaurant table, coworker attempted abdominal thrusts, patient became unresponsive and apneic"
+    }
+  },
+  "scene": {
+    "dispatch": "58-year-old male, choking, now unresponsive, restaurant",
+    "location": "Restaurant dining room, patient supine on the floor beside his table, cleared space around him",
+    "time": "7:40 PM, weekday",
+    "safety": "No hazards to crew noted; restaurant staff have cleared bystanders and moved furniture",
+    "bystanders": "Coworker present, witnessed the choking event and attempted abdominal thrusts before EMS arrival; restaurant manager assisting with scene access",
+    "visualCues": [
+      "Patient supine on restaurant floor, unresponsive",
+      "No visible chest rise, cyanotic lips",
+      "Partially chewed food visible at the mouth",
+      "Coworker kneeling nearby, visibly shaken",
+      "Overturned chair and scattered napkins near the table"
+    ]
+  },
+  "phases": [
+    {
+      "id": "initial",
+      "name": "Initial Contact",
+      "description": "Crew arrives to find a 58-year-old male supine and unresponsive on the restaurant floor following a witnessed choking event. He is apneic with no palpable pulse and visible food debris at the mouth.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Unresponsive",
+        "gcs": { "eye": 1, "verbal": 1, "motor": 1 },
+        "airway": "Obstructed; food debris visible at the mouth, no air movement felt or heard",
+        "breathing": "Apneic, no chest rise",
+        "circulation": "No palpable carotid or radial pulse",
+        "skin": { "color": "cyanotic", "temperature": "cool", "moisture": "dry" },
+        "pupils": "Fixed and dilated",
+        "motorFunction": "No spontaneous movement",
+        "otherFindings": [
+          "Partially chewed food visible in the oropharynx",
+          "No response to painful stimuli",
+          "Coworker reports collapse occurred within the last 1-2 minutes"
+        ],
+        "patientSpeech": "None — unresponsive"
+      },
+      "monitorState": {
+        "ecgRhythm": "Pulseless Electrical Activity (PEA)",
+        "ecgWaveform": 9,
+        "hr": 32,
+        "bpSys": 0,
+        "bpDia": 0,
+        "respRate": 0,
+        "spo2": 0,
+        "etco2": 0,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 100,
+        "glucose": 118,
+        "customMeasures": [],
+        "trendTimeSeconds": 0,
+        "visibility": { "spo2Visible": false, "spo2Attached": false, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [],
+      "transitions": [
+        {
+          "targetPhaseId": "cpr-airway-cleared",
+          "if": "CPR started, airway obstruction cleared",
+          "condition": "Crew immediately begins high-quality chest compressions while a second provider performs direct laryngoscopy to visualize and suction the obstructing food bolus, then achieves effective bag-valve-mask ventilation.",
+          "conditionType": "action_taken"
+        },
+        {
+          "targetPhaseId": "ventilation-ineffective",
+          "if": "Airway obstruction not cleared",
+          "condition": "Crew attempts bag-valve-mask ventilation without first visualizing and clearing the obstructing food bolus, resulting in no chest rise and continued hypoxia despite compressions.",
+          "conditionType": "action_not_taken"
+        }
+      ]
+    },
+    {
+      "id": "cpr-airway-cleared",
+      "name": "CPR started, airway obstruction cleared",
+      "description": "Crew initiates immediate high-quality chest compressions while simultaneously managing the obstructed airway: direct laryngoscopy visualizes the food bolus, which is suctioned/cleared, allowing effective two-person BVM ventilation with continuous waveform capnography in place.",
+      "triggerCondition": "Given the witnessed choking with subsequent cardiac arrest, the crew recognizes a respiratory etiology and prioritizes early, deliberate airway management alongside compressions rather than deferring airway care as in a typical cardiac-etiology arrest.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Unresponsive",
+        "gcs": { "eye": 1, "verbal": 1, "motor": 1 },
+        "airway": "Cleared of visible obstruction via direct laryngoscopy and suction",
+        "breathing": "Apneic, effective BVM ventilation with visible chest rise",
+        "circulation": "No palpable pulse, compressions ongoing",
+        "skin": { "color": "cyanotic, improving", "temperature": "cool", "moisture": "dry" },
+        "pupils": "Fixed and dilated",
+        "motorFunction": "No spontaneous movement",
+        "otherFindings": [
+          "Food bolus visualized and cleared from the oropharynx under direct laryngoscopy",
+          "Chest rise now visible with each BVM ventilation",
+          "High-quality compressions ongoing, minimally interrupted",
+          "Waveform capnography placed in line"
+        ],
+        "patientSpeech": "None — unresponsive, CPR in progress"
+      },
+      "monitorState": {
+        "ecgRhythm": "Pulseless Electrical Activity (PEA)",
+        "ecgWaveform": 9,
+        "hr": 45,
+        "bpSys": 0,
+        "bpDia": 0,
+        "respRate": 10,
+        "spo2": 0,
+        "etco2": 14,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 10,
+        "glucose": 118,
+        "customMeasures": [],
+        "trendTimeSeconds": 20,
+        "visibility": { "spo2Visible": false, "spo2Attached": false, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a1-compressions",
+          "shortAction": "Begin immediate high-quality chest compressions, minimally interrupted",
+          "protocolExcerpt": "Successful resuscitation from cardiac arrest depends primarily on effective, minimally interrupted chest compressions and prompt defibrillation if the patient is in pulseless VT/VF. Arrests of respiratory etiology (including drowning). In addition to the above, consider early management of the patient's airway",
+          "priority": "critical",
+          "rationale": "Chest compressions remain the priority even in an arrest of respiratory etiology; airway care is escalated early alongside them rather than delayed.",
+          "protocolReference": "MATC: Cardiac Arrest"
+        },
+        {
+          "id": "a2-visualize-clear",
+          "shortAction": "Perform direct laryngoscopy to visualize the oropharynx; suction and clear the obstructing food bolus (SALAD technique)",
+          "protocolExcerpt": "Airway obstruction with foreign body or swelling (e.g., angioedema, posterior pharyngeal and laryngeal infections). Suction airway: for significantly contaminated airways, consider utilizing a suction assisted laryngeal airway decontamination (SALAD) technique",
+          "priority": "critical",
+          "rationale": "Ventilation cannot be effective until the obstructing foreign body is visualized and removed from the airway.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        },
+        {
+          "id": "a3-bvm",
+          "shortAction": "Provide two-person, two-thumbs-up BVM ventilation once the airway is cleared, with PEEP",
+          "protocolExcerpt": "Use bag-valve-mask (BVM) ventilation in the setting of respiratory failure or arrest. Two-person, two-thumbs-up BVM ventilation is preferred. PEEP should be used with BVM",
+          "priority": "critical",
+          "rationale": "Two-person BVM technique with PEEP maximizes effective ventilation once the airway is patent.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        },
+        {
+          "id": "a4-capnography",
+          "shortAction": "Apply continuous waveform capnography to monitor CPR quality and detect ROSC",
+          "protocolExcerpt": "Is strongly encouraged in patients in cardiac arrest to monitor quality of CPR, as an early indicator of ROSC (rapid increase of 10-15 in EtCO2)",
+          "priority": "important",
+          "rationale": "A rapid rise in EtCO2 is an early, reliable indicator of return of spontaneous circulation.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "rosc-achieved",
+          "if": "ROSC achieved after airway cleared",
+          "condition": "With the airway cleared and effective ventilation and compressions ongoing, EtCO2 rises sharply and a palpable pulse returns.",
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a1-compressions", "a2-visualize-clear", "a3-bvm"]
+        }
+      ]
+    },
+    {
+      "id": "rosc-achieved",
+      "name": "ROSC achieved after airway cleared",
+      "description": "Following successful clearance of the airway obstruction and effective CPR, the patient achieves return of spontaneous circulation. Crew transitions to post-ROSC care, securing the airway, avoiding hyperventilation, and closely monitoring for re-arrest.",
+      "triggerCondition": "EtCO2 rises sharply and a palpable pulse returns, indicating return of spontaneous circulation after the airway obstruction was cleared.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Unresponsive",
+        "gcs": { "eye": 1, "verbal": 2, "motor": 3 },
+        "airway": "Patent, secured with supraglottic airway, chest rise present",
+        "breathing": "Supported with BVM at 8-10 breaths/minute",
+        "circulation": "Palpable carotid pulse, improving perfusion",
+        "skin": { "color": "improving, less cyanotic", "temperature": "cool", "moisture": "dry" },
+        "pupils": "Sluggish but reactive",
+        "motorFunction": "Occasional purposeful withdrawal to stimuli",
+        "otherFindings": [
+          "Palpable pulse returned",
+          "EtCO2 rose sharply from 14 to 38 mmHg, consistent with ROSC",
+          "Continuous cardiac and capnography monitoring maintained",
+          "Preparing for immediate transport"
+        ],
+        "patientSpeech": "None — post-arrest, unresponsive"
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 118,
+        "bpSys": 96,
+        "bpDia": 58,
+        "respRate": 8,
+        "spo2": 92,
+        "etco2": 38,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 0,
+        "glucose": 118,
+        "customMeasures": [],
+        "trendTimeSeconds": 30,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a5-secure-airway",
+          "shortAction": "Secure the airway and support ventilation, avoiding hyperoxygenation (target SpO2 94-98%)",
+          "protocolExcerpt": "Secure airway. Administer oxygen as appropriate with a target of achieving 94-98% saturation. Do not hyperoxygenate",
+          "priority": "critical",
+          "rationale": "Post-ROSC hyperoxygenation is associated with worse neurologic outcomes; titrated oxygen is preferred.",
+          "protocolReference": "MATC: Adult Post-ROSC (Return of Spontaneous Circulation) Care"
+        },
+        {
+          "id": "a6-avoid-hyperventilation",
+          "shortAction": "Ventilate at 8-10 breaths/minute, targeting EtCO2 35-45 mmHg; avoid hyperventilation",
+          "protocolExcerpt": "Do not hyperventilate. Maintain a ventilation rate of 8-10 breaths per minute, targeting an EtCO2 of 35-45 mmHg",
+          "priority": "critical",
+          "rationale": "Hyperventilation reduces cerebral perfusion and can worsen post-arrest neurologic injury.",
+          "protocolReference": "MATC: Adult Post-ROSC (Return of Spontaneous Circulation) Care"
+        },
+        {
+          "id": "a7-monitor-rearrest",
+          "shortAction": "Monitor closely for recurrence of cardiac arrest using cardiac and EtCO2 monitoring and signs of perfusion",
+          "protocolExcerpt": "Monitor closely for recurrence of cardiac arrest using clinical and adjunctive criteria such as cardiac monitoring, EtCO2 monitoring, and physical signs of perfusion",
+          "priority": "important",
+          "rationale": "Post-ROSC patients remain at high risk for re-arrest during transport.",
+          "protocolReference": "MATC: Adult Post-ROSC (Return of Spontaneous Circulation) Care"
+        }
+      ],
+      "transitions": []
+    },
+    {
+      "id": "ventilation-ineffective",
+      "name": "Airway obstruction not cleared",
+      "description": "Crew attempts bag-valve-mask ventilation without first visualizing and clearing the obstructing food bolus. No chest rise is achieved despite repeated ventilation attempts, and the patient's rhythm deteriorates toward asystole as hypoxia persists.",
+      "triggerCondition": "Ventilation was attempted without addressing the visible airway obstruction; without clearing the food bolus, positive pressure ventilation cannot move air past the obstruction, and the arrest progresses despite ongoing compressions.",
+      "isDefault": false,
+      "clinicalPresentation": {
+        "avpu": "Unresponsive",
+        "gcs": { "eye": 1, "verbal": 1, "motor": 1 },
+        "airway": "Still obstructed; food debris remains visible, no chest rise with BVM attempts",
+        "breathing": "Apneic, no effective ventilation achieved",
+        "circulation": "No palpable pulse despite ongoing compressions",
+        "skin": { "color": "cyanotic, worsening", "temperature": "cool", "moisture": "dry" },
+        "pupils": "Fixed and dilated",
+        "motorFunction": "No spontaneous movement",
+        "otherFindings": [
+          "No chest rise despite multiple BVM attempts",
+          "Food debris still visible at the airway, not addressed",
+          "EtCO2 remains critically low, consistent with ineffective ventilation"
+        ],
+        "patientSpeech": "None — unresponsive, CPR in progress"
+      },
+      "monitorState": {
+        "ecgRhythm": "Asystole",
+        "ecgWaveform": 3,
+        "hr": 0,
+        "bpSys": 0,
+        "bpDia": 0,
+        "respRate": 0,
+        "spo2": 0,
+        "etco2": 6,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 100,
+        "glucose": 118,
+        "customMeasures": [],
+        "trendTimeSeconds": 20,
+        "visibility": { "spo2Visible": false, "spo2Attached": false, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a8-recognize-failed-ventilation",
+          "shortAction": "Recognize failed ventilation (no chest rise); reassess airway, perform direct laryngoscopy and suction to clear obstruction",
+          "protocolExcerpt": "Airway obstruction with foreign body or swelling (e.g., angioedema, posterior pharyngeal and laryngeal infections). Suction airway: for significantly contaminated airways, consider utilizing a suction assisted laryngeal airway decontamination (SALAD) technique",
+          "priority": "critical",
+          "rationale": "Absence of chest rise despite BVM attempts should immediately prompt reassessment for an unaddressed airway obstruction rather than continued futile ventilation.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        }
+      ],
+      "transitions": []
+    }
+  ],
+  "realiti": {
+    "scenarioMonitorType": 2,
+    "scenarioDefaultEnergy": 200,
+    "scenarioDefaultPacerThreshold": 55
+  }
+}

@@ -1,0 +1,357 @@
+{
+  "meta": {
+    "id": "920a-01-high-speed-mvc",
+    "name": "High-Speed MVC — Multi-System Trauma with Hemorrhagic Shock",
+    "version": 1,
+    "difficulty": "advanced",
+    "category": "Trauma",
+    "protocols": [
+      "trauma-general",
+      "trauma-extremity-hemorrhage"
+    ],
+    "totalTimeSeconds": 900,
+    "tags": ["trauma", "MVC", "hemorrhagic shock", "tourniquet", "fluid resuscitation", "920"]
+  },
+  "patient": {
+    "name": "Marcus Delaney",
+    "age": 42,
+    "ageUnit": "years",
+    "sex": "male",
+    "weight": 86,
+    "weightLbs": 190,
+    "height": 178,
+    "chiefComplaint": "Multi-system trauma after high-speed motor vehicle crash",
+    "history": {
+      "hpi": "Unrestrained driver of a sedan that struck a highway median at highway speed and rotated into a guardrail. Prolonged extrication (approximately 12 minutes) due to intrusion on the driver's side. Patient was initially confused, now more responsive but tachypneic and diaphoretic. Right thigh is deformed with an open wound and active bleeding; abdomen is distended and diffusely tender.",
+      "pastMedical": ["Hypertension"],
+      "medications": ["Lisinopril 20 mg PO daily"],
+      "allergies": ["NKDA"],
+      "lastOralIntake": "Lunch approximately 3 hours prior to the crash",
+      "events": "Single-vehicle crash into a guardrail at highway speed; unrestrained driver; prolonged extrication"
+    }
+  },
+  "scene": {
+    "dispatch": "42-year-old male, motor vehicle crash, high speed, entrapment reported, highway",
+    "location": "Interstate highway shoulder, sedan rotated into guardrail with driver's side intrusion",
+    "time": "9:14 PM, weeknight",
+    "safety": "Scene secured by fire/law enforcement, vehicle stabilized, traffic diverted",
+    "bystanders": "None — first EMS unit on scene, fire crew completing extrication",
+    "visualCues": [
+      "Sedan with significant driver's side intrusion and spider-webbed windshield",
+      "Patient supine on backboard after extrication, right thigh grossly deformed with open wound and active bleeding",
+      "Abdomen visibly distended, patient guarding on any palpation",
+      "Pale, diaphoretic skin"
+    ]
+  },
+  "phases": [
+    {
+      "id": "initial",
+      "name": "Initial Contact",
+      "description": "Crew makes contact with the patient just as extrication is completed. He is tachycardic, hypotensive, and pale, with an open right femur fracture actively bleeding and a distended, diffusely tender abdomen suggesting intra-abdominal hemorrhage.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent, speaking in short sentences",
+        "breathing": "Tachypneic, 24/min, symmetric chest rise, no tracheal deviation",
+        "circulation": "Weak, thready radial pulses; skin pale, cool, diaphoretic",
+        "skin": { "color": "pale", "temperature": "cool", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Moves all extremities except right leg, which he will not move due to pain",
+        "otherFindings": [
+          "Right thigh grossly deformed with open wound, active bleeding pooling beneath the leg",
+          "Abdomen distended, diffusely tender to palpation, guarding present",
+          "No jugular venous distention, no tracheal deviation, breath sounds equal bilaterally"
+        ],
+        "patientSpeech": "\"My leg... it hurts so bad. My stomach feels tight, I can't breathe right.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 128,
+        "bpSys": 82,
+        "bpDia": 54,
+        "respRate": 24,
+        "spo2": 94,
+        "etco2": 28,
+        "temp": 36.2,
+        "tempF": 97.2,
+        "obstruction": 0,
+        "glucose": 118,
+        "customMeasures": [],
+        "trendTimeSeconds": 0,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
+      },
+      "expectedActions": [],
+      "transitions": [
+        {
+          "targetPhaseId": "hemorrhage-controlled-fluids-started",
+          "if": "Tourniquet applied, IV fluids started",
+          "condition": "Crew performs a MARCH primary survey, identifies the right thigh as a source of massive hemorrhage, applies a tourniquet, establishes IV access, and initiates fluid resuscitation for the hypotensive trauma patient.",
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a1-tourniquet", "a2-iv-access", "a3-fluid-bolus"]
+        },
+        {
+          "targetPhaseId": "hemorrhage-control-delayed",
+          "if": "Tourniquet application delayed",
+          "condition": "Crew focuses on the abdomen or spends excessive time on secondary assessment without controlling the visible extremity hemorrhage, allowing ongoing blood loss.",
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["a1-tourniquet"]
+        }
+      ]
+    },
+    {
+      "id": "hemorrhage-controlled-fluids-started",
+      "name": "Tourniquet applied, IV fluids started",
+      "description": "Crew applies a tourniquet to the bleeding right thigh, establishes large-bore IV access, and begins fluid resuscitation for hypotension. Scene time is minimized in favor of rapid transport given the suspected intra-abdominal hemorrhage.",
+      "triggerCondition": "After identifying massive extremity hemorrhage and hypotension (SBP 82) on the primary survey, the crew applies a tourniquet, obtains IV access, and initiates a fluid bolus while preparing for rapid transport to a trauma center.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "22/min, still tachypneic but less labored",
+        "circulation": "Radial pulses palpable, tourniquet bleeding controlled",
+        "skin": { "color": "pale", "temperature": "cool", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Moves all extremities except right leg (immobilized)",
+        "otherFindings": [
+          "Tourniquet in place on right thigh, bleeding stopped, time marked",
+          "Abdomen remains distended and tender",
+          "Two large-bore IVs established bilaterally"
+        ],
+        "patientSpeech": "\"The leg hurts less now. Please just get me to the hospital.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 122,
+        "bpSys": 86,
+        "bpDia": 56,
+        "respRate": 22,
+        "spo2": 96,
+        "etco2": 30,
+        "temp": 36.2,
+        "tempF": 97.2,
+        "obstruction": 0,
+        "glucose": 118,
+        "customMeasures": [],
+        "trendTimeSeconds": 30,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a1-tourniquet",
+          "shortAction": "Apply commercial tourniquet 2-3 inches proximal to right thigh wound; mark time",
+          "protocolExcerpt": "If the bleeding site is amenable to tourniquet placement, apply a commercial tourniquet to extremity: Tourniquet should be placed 2–3 inches proximal to wound, not over a joint, and tightened until bleeding stops and distal pulse is eliminated",
+          "priority": "critical",
+          "rationale": "Massive extremity hemorrhage must be controlled first per the MARCH algorithm before any other intervention.",
+          "protocolReference": "MATC: Extremity Trauma/External Hemorrhage Management"
+        },
+        {
+          "id": "a2-iv-access",
+          "shortAction": "Establish two large-bore IV lines for fluid resuscitation and possible blood products",
+          "protocolExcerpt": "Establish IV access if needed (large bore preferred)",
+          "priority": "critical",
+          "rationale": "Hypotensive trauma patient requires immediate vascular access for resuscitation.",
+          "protocolReference": "MATC: General Trauma Management"
+        },
+        {
+          "id": "a3-fluid-bolus",
+          "shortAction": "500 mL crystalloid bolus IV for SBP 82 (below 90 mmHg threshold); reassess after",
+          "protocolExcerpt": "If SBP less than 90 mmHg or HR greater than 120 BPM, initiate resuscitation: Blood products are recommended if available; If blood products not available, consider 500 mL bolus of IV fluid, repeat as needed for persistent signs and symptoms of shock",
+          "priority": "critical",
+          "rationale": "SBP 82 and HR 128 both meet the protocol's threshold for immediate fluid resuscitation targeting SBP 90.",
+          "protocolReference": "MATC: General Trauma Management"
+        },
+        {
+          "id": "a4-minimize-scene-time",
+          "shortAction": "Minimize scene time (goal under 10 minutes); initiate rapid transport to trauma center",
+          "protocolExcerpt": "Minimize scene time (goal is under 10 minutes) and initiate rapid transport to the highest level of care within the trauma system",
+          "priority": "critical",
+          "rationale": "Signs of hemorrhagic shock with suspected intra-abdominal source require surgical intervention that only a trauma center can provide.",
+          "protocolReference": "MATC: General Trauma Management"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "perfusion-improving-transport",
+          "if": "SBP reassessed, perfusion improving",
+          "condition": "After the initial 500 mL bolus, the crew reassesses SBP per protocol; blood pressure trends toward the 90 mmHg target and the patient is packaged for rapid transport.",
+          "conditionType": "vital_threshold",
+          "triggerActionIds": ["a3-fluid-bolus"]
+        },
+        {
+          "targetPhaseId": "ongoing-hemorrhage-unrecognized",
+          "if": "Bolus repeated without reassessment",
+          "condition": "Crew repeats fluid boluses without reassessing SBP or re-examining the abdomen and tourniquet, missing a source of ongoing internal hemorrhage not controlled by the tourniquet alone.",
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["a3-fluid-bolus"]
+        }
+      ]
+    },
+    {
+      "id": "perfusion-improving-transport",
+      "name": "SBP reassessed, perfusion improving",
+      "description": "Following the fluid bolus and hemorrhage control, the patient's blood pressure trends upward toward target. The crew continues serial reassessment en route to the trauma center, anticipating that the abdominal findings may still require surgical intervention.",
+      "triggerCondition": "After the tourniquet controls extremity hemorrhage and the initial fluid bolus is given, SBP improves toward the 90 mmHg resuscitation target and the patient is transported with ongoing reassessment.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "20/min",
+        "circulation": "Radial pulses stronger, tourniquet holding",
+        "skin": { "color": "pale", "temperature": "cool", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Unchanged",
+        "otherFindings": [
+          "Abdomen remains distended and tender — unresolved by fluids, consistent with ongoing intra-abdominal hemorrhage requiring surgery",
+          "No new active external bleeding"
+        ],
+        "patientSpeech": "\"I feel a little better, but my stomach still really hurts.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 112,
+        "bpSys": 92,
+        "bpDia": 60,
+        "respRate": 20,
+        "spo2": 97,
+        "etco2": 33,
+        "temp": 36.3,
+        "tempF": 97.3,
+        "obstruction": 0,
+        "glucose": 116,
+        "customMeasures": [],
+        "trendTimeSeconds": 40,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a5-reassess-sbp",
+          "shortAction": "Reassess SBP after bolus; confirm trend toward 90 mmHg resuscitation target",
+          "protocolExcerpt": "Reassess SBP after bolus given",
+          "priority": "critical",
+          "rationale": "Confirms the bolus is achieving the trauma resuscitation target and guides whether further boluses are needed.",
+          "protocolReference": "MATC: General Trauma Management"
+        },
+        {
+          "id": "a6-transport-destination",
+          "shortAction": "Transport to highest-level trauma center per field triage guideline",
+          "protocolExcerpt": "Decisions regarding transport destination should be based on the ACS-COT 2022 National Guideline for the Field Triage of Injured Patients",
+          "priority": "important",
+          "rationale": "Persistent abdominal tenderness despite fluid resuscitation suggests a surgical source of hemorrhage requiring definitive trauma center care.",
+          "protocolReference": "MATC: General Trauma Management"
+        }
+      ],
+      "transitions": []
+    },
+    {
+      "id": "hemorrhage-control-delayed",
+      "name": "Tourniquet application delayed",
+      "description": "The crew delays tourniquet application on the actively bleeding right thigh, allowing continued blood loss. The patient's hemodynamic status deteriorates further before hemorrhage control is finally achieved.",
+      "triggerCondition": "Crew becomes preoccupied with the abdominal exam or history-taking and does not promptly control the visible extremity hemorrhage identified on the primary survey.",
+      "isDefault": false,
+      "clinicalPresentation": {
+        "avpu": "Verbal",
+        "gcs": { "eye": 3, "verbal": 4, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "28/min, shallow",
+        "circulation": "Thready, barely palpable radial pulses",
+        "skin": { "color": "pale", "temperature": "cool", "moisture": "diaphoretic" },
+        "pupils": "PERRL, sluggish",
+        "motorFunction": "Decreased response to voice",
+        "otherFindings": [
+          "Active pooling of blood beneath right thigh continues to expand",
+          "Patient becoming increasingly lethargic"
+        ],
+        "patientSpeech": "\"I feel... dizzy...\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 142,
+        "bpSys": 68,
+        "bpDia": 42,
+        "respRate": 28,
+        "spo2": 90,
+        "etco2": 22,
+        "temp": 36.0,
+        "tempF": 96.8,
+        "obstruction": 0,
+        "glucose": 118,
+        "customMeasures": [],
+        "trendTimeSeconds": 20,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a7-rescue-tourniquet",
+          "shortAction": "Immediately apply tourniquet to right thigh; recognize decompensating hemorrhagic shock",
+          "protocolExcerpt": "Survival is markedly improved when a tourniquet is placed *before* shock develops",
+          "priority": "critical",
+          "rationale": "Delayed hemorrhage control has allowed progression from compensated to decompensated shock.",
+          "protocolReference": "MATC: Extremity Trauma/External Hemorrhage Management"
+        }
+      ],
+      "transitions": []
+    },
+    {
+      "id": "ongoing-hemorrhage-unrecognized",
+      "name": "Bolus repeated without reassessment",
+      "description": "The crew repeats fluid boluses without reassessing the patient, missing that the tourniquet is controlling external bleeding but the distended, tender abdomen reflects an internal hemorrhage source that fluids alone cannot fix — only rapid surgical transport can.",
+      "triggerCondition": "After the initial bolus, the crew gives repeated boluses without reassessing SBP or re-examining the patient, delaying recognition that ongoing hypotension is driven by unaddressed intra-abdominal hemorrhage.",
+      "isDefault": false,
+      "clinicalPresentation": {
+        "avpu": "Verbal",
+        "gcs": { "eye": 3, "verbal": 5, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "26/min",
+        "circulation": "Weak peripheral pulses despite fluids given",
+        "skin": { "color": "pale", "temperature": "cool", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Sluggish response",
+        "otherFindings": [
+          "Abdomen now more distended than initial exam",
+          "SBP has not improved despite multiple boluses given"
+        ],
+        "patientSpeech": "\"My stomach... it's getting worse...\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 134,
+        "bpSys": 76,
+        "bpDia": 48,
+        "respRate": 26,
+        "spo2": 93,
+        "etco2": 25,
+        "temp": 36.1,
+        "tempF": 97.0,
+        "obstruction": 0,
+        "glucose": 116,
+        "customMeasures": [],
+        "trendTimeSeconds": 40,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a8-recognize-internal-source",
+          "shortAction": "Reassess SBP and abdomen; recognize non-fluid-responsive shock requires rapid surgical transport",
+          "protocolExcerpt": "Life-threatening injuries identified on primary survey should be mitigated immediately with rapid transport to a trauma center",
+          "priority": "critical",
+          "rationale": "Fluid boluses cannot substitute for surgical control of an internal hemorrhage source; delay in recognizing this increases mortality.",
+          "protocolReference": "MATC: General Trauma Management"
+        }
+      ],
+      "transitions": []
+    }
+  ],
+  "realiti": {
+    "scenarioMonitorType": 2,
+    "scenarioDefaultEnergy": 200,
+    "scenarioDefaultPacerThreshold": 55
+  }
+}

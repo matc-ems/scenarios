@@ -1,0 +1,365 @@
+{
+  "meta": {
+    "id": "921b-06-autism-abdominal-emergency",
+    "name": "Autism Spectrum Disorder — Nonverbal Patient with Acute Abdomen",
+    "version": 1,
+    "difficulty": "intermediate",
+    "category": "Special Populations",
+    "protocols": ["medical-abdominal-pain", "medical-pain-management"],
+    "totalTimeSeconds": 900,
+    "tags": ["special populations", "autism", "nonverbal", "pediatric", "abdominal pain", "921"]
+  },
+  "patient": {
+    "name": "Ethan Voss",
+    "age": 16,
+    "ageUnit": "years",
+    "sex": "male",
+    "weight": 65,
+    "weightLbs": 143,
+    "height": 170,
+    "chiefComplaint": "Abdominal pain and guarding; nonverbal, communicating distress through vocalizations and behavior only",
+    "history": {
+      "hpi": "Mother reports patient has been holding his abdomen, moaning, and refusing to eat since early afternoon, with unusual withdrawal from his normal routine and resistance to being touched near the stomach. No vomiting reported at home. No fever noted, though she did not take his temperature.",
+      "pastMedical": ["Autism spectrum disorder, nonverbal", "Mild intellectual disability"],
+      "medications": ["Risperidone 0.5 mg PO nightly"],
+      "allergies": ["NKDA"],
+      "lastOralIntake": "Small amount of breakfast around 8 AM; refused lunch",
+      "events": "Mother noticed increasing abdominal guarding and unusual vocalizations over several hours and called 911 when patient refused to walk to the car for a scheduled appointment"
+    }
+  },
+  "scene": {
+    "dispatch": "16-year-old male, abdominal pain, non-ambulatory, residence",
+    "location": "Single-family home, patient's bedroom, lying on his left side on the bed",
+    "time": "3:15 PM, weekday",
+    "safety": "No hazards noted; patient may be resistant to unfamiliar touch or environment changes",
+    "bystanders": "Mother present, primary caregiver and communication support; father en route",
+    "visualCues": [
+      "Patient curled on his left side, knees drawn to chest",
+      "Grimacing and rocking, no verbal complaints",
+      "Mother gently stroking patient's arm using his usual calming routine",
+      "Abdomen visibly guarded when anyone approaches"
+    ]
+  },
+  "phases": [
+    {
+      "id": "initial",
+      "name": "Initial Contact",
+      "description": "16-year-old male with autism spectrum disorder (nonverbal) presents curled on his side, guarding his abdomen, moaning and rocking. His mother is present and serves as primary historian and communication support.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "Mildly tachypneic, nonlabored, 22/min",
+        "circulation": "Radial pulses present, tachycardic, skin pale and diaphoretic",
+        "skin": { "color": "pale", "temperature": "warm", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Moves all extremities, resists abdominal palpation",
+        "otherFindings": [
+          "Abdomen rigid and guarded on approach",
+          "Curled in fetal position, will not straighten legs",
+          "Baseline nonverbal per mother; communicates via vocalizations, gestures, and behavior, not words",
+          "Increased rocking and hand movements consistent with mother's description of his pain behavior"
+        ],
+        "patientSpeech": "Nonverbal; moans and vocalizes distress, does not use words"
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 116,
+        "bpSys": 126,
+        "bpDia": 80,
+        "respRate": 22,
+        "spo2": 97,
+        "etco2": 0,
+        "temp": 38.2,
+        "tempF": 100.8,
+        "obstruction": 0,
+        "glucose": 96,
+        "customMeasures": [],
+        "trendTimeSeconds": 0,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [],
+      "transitions": [
+        {
+          "targetPhaseId": "history-flacc",
+          "if": "History and FLACC pain score obtained",
+          "condition": "Crew adapts its approach, obtains history primarily from the mother, and assesses pain using the FLACC observational scale given the patient's nonverbal, cognitively-impaired status.",
+          "conditionType": "action_taken"
+        }
+      ]
+    },
+    {
+      "id": "history-flacc",
+      "name": "History and FLACC pain score obtained",
+      "description": "Crew slows its pace, follows the mother's guidance on approach, and completes a structured assessment using caregiver-reported history and an observational pain scale rather than a self-report scale.",
+      "triggerCondition": "Recognizing the patient cannot self-report pain, the crew gathers the history from his mother and scores pain using the FLACC observational scale as directed by protocol for patients with cognitive impairment unable to self-report.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "Tachypneic, nonlabored, 20/min",
+        "circulation": "Radial pulses present, tachycardic, skin pale and diaphoretic",
+        "skin": { "color": "pale", "temperature": "warm", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Resists abdominal palpation, guards on approach",
+        "otherFindings": [
+          "FLACC score 7/10 (grimacing face, legs drawn up, rigid activity, frequent vocalization, difficult to console)",
+          "Abdominal rigidity and voluntary guarding persist, worse in the right lower quadrant",
+          "No fever spike yet documented but temp trending up"
+        ],
+        "patientSpeech": "Nonverbal; moans and vocalizes distress, does not use words"
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 112,
+        "bpSys": 124,
+        "bpDia": 78,
+        "respRate": 20,
+        "spo2": 97,
+        "etco2": 0,
+        "temp": 38.2,
+        "tempF": 100.8,
+        "obstruction": 0,
+        "glucose": 96,
+        "customMeasures": [],
+        "trendTimeSeconds": 30,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a1-flacc",
+          "shortAction": "Assess pain using the FLACC observational scale (nonverbal/cognitive impairment)",
+          "protocolExcerpt": "Less than 4 years old or those with cognitive impairment unable to self-report: Observational Scales — Faces, Legs, Arms, Cry, Consolability (FLACC), Children's Hospital of Eastern Ontario Pain Scale (CHEOPS)",
+          "priority": "critical",
+          "rationale": "The patient cannot use a numeric self-report scale; an observational tool is required for an accurate pain assessment.",
+          "protocolReference": "MATC: Pain Management"
+        },
+        {
+          "id": "a2-vitals",
+          "shortAction": "Obtain full vital signs (pulse, BP, RR, neurologic status)",
+          "protocolExcerpt": "Obtain vital signs including pulse, blood pressure, respiratory rate, neurologic status assessment",
+          "priority": "important",
+          "rationale": "Establishes a baseline to trend response to treatment.",
+          "protocolReference": "MATC: Abdominal Pain"
+        },
+        {
+          "id": "a3-life-threat",
+          "shortAction": "Assess for signs of ischemic/perforated bowel: rigidity, distension, guarding, fever",
+          "protocolExcerpt": "Signs and symptoms of ischemic, necrotic, or perforated bowel: Severe tenderness, Abdominal pain with motion or palpation of the abdomen, Fever, Abdominal distention, with tympany to percussion",
+          "priority": "critical",
+          "rationale": "Rigid, guarded abdomen with low-grade fever raises concern for a surgical abdomen.",
+          "protocolReference": "MATC: Abdominal Pain"
+        },
+        {
+          "id": "a4-iv-access",
+          "shortAction": "Obtain vascular access to allow analgesia administration",
+          "protocolExcerpt": "Obtain vascular access as necessary to provide analgesia and/or fluid resuscitation",
+          "priority": "important",
+          "rationale": "Prepares for weight-based analgesia once the pain assessment is complete.",
+          "protocolReference": "MATC: Abdominal Pain"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "analgesia-given",
+          "if": "FLACC-guided analgesia given",
+          "condition": "Based on the FLACC score indicating severe pain, the crew administers weight-based analgesia despite the patient's inability to verbally rate pain, consistent with protocol guidance that acute abdominal pain should be treated with analgesia.",
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a1-flacc"]
+        },
+        {
+          "targetPhaseId": "pain-untreated",
+          "if": "FLACC skipped, pain untreated",
+          "condition": "Crew misattributes the patient's rocking, vocalizing, and resistance to touch as baseline autistic behavior rather than a pain response, skips a structured pain assessment, and withholds analgesia.",
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["a1-flacc"]
+        }
+      ]
+    },
+    {
+      "id": "analgesia-given",
+      "name": "FLACC-guided analgesia given",
+      "description": "Crew administers intranasal fentanyl dosed to the patient's weight, choosing the IN route to avoid a distressing IV attempt, then prepares for transport.",
+      "triggerCondition": "The FLACC score of 7/10 indicates severe pain despite the patient's outwardly calm baseline; per protocol, acute abdominal pain should be treated with analgesia, so the crew proceeds with weight-based opioid analgesia via the intranasal route.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "Improving, nonlabored, 18/min",
+        "circulation": "Radial pulses present, improving, skin less diaphoretic",
+        "skin": { "color": "pink", "temperature": "warm", "moisture": "dry" },
+        "pupils": "PERRL",
+        "motorFunction": "Tolerates gentle palpation better than on arrival",
+        "otherFindings": [
+          "FLACC reassessed at 3/10 after analgesia",
+          "Guarding still present but less rigid",
+          "Mother reports patient calmer, rocking less frequent"
+        ],
+        "patientSpeech": "Nonverbal; vocalizations quieter and less distressed"
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 104,
+        "bpSys": 120,
+        "bpDia": 76,
+        "respRate": 18,
+        "spo2": 98,
+        "etco2": 0,
+        "temp": 38.1,
+        "tempF": 100.6,
+        "obstruction": 0,
+        "glucose": 96,
+        "customMeasures": [],
+        "trendTimeSeconds": 30,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a5-fentanyl",
+          "shortAction": "Fentanyl 65 mcg IN (65 kg × 1 mcg/kg; max 100 mcg)",
+          "protocolExcerpt": "Fentanyl: 1 mcg/kg IN, IM, IV or IO (maximum initial dose of 100 mcg)",
+          "priority": "critical",
+          "rationale": "IN route avoids a distressing IV attempt in a patient who may not tolerate unfamiliar procedures well.",
+          "protocolReference": "MATC: Pain Management"
+        },
+        {
+          "id": "a6-reassess",
+          "shortAction": "Reassess FLACC pain score and vital signs after analgesia",
+          "protocolExcerpt": "Documentation of patient reassessment with repeat vital signs and patient pain scale assessment",
+          "priority": "important",
+          "rationale": "Confirms the analgesia is working and screens for early respiratory depression.",
+          "protocolReference": "MATC: Pain Management"
+        },
+        {
+          "id": "a7-nonpharm",
+          "shortAction": "Position of comfort; minimize unfamiliar stimulation per mother's guidance",
+          "protocolExcerpt": "Non-pharmacologic pain management options include Placement of the patient in a position of comfort ... Verbal reassurance to control anxiety",
+          "priority": "supplemental",
+          "rationale": "Reduces additional distress on top of the medical intervention.",
+          "protocolReference": "MATC: Pain Management"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "transport",
+          "if": "Transport initiated with mother present",
+          "condition": "With pain improving and vitals trending toward baseline, crew packages the patient with his mother accompanying for continuity of communication and prepares for transport.",
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a5-fentanyl"]
+        }
+      ]
+    },
+    {
+      "id": "transport",
+      "name": "Transport initiated with mother present",
+      "description": "Patient is transported with his mother present to support communication and comfort; crew continues serial reassessment en route given the persistent abdominal rigidity concerning for a surgical abdomen.",
+      "triggerCondition": "Analgesia and a calm, caregiver-guided approach have reduced distress; crew proceeds to transport with continued reassessment.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "Nonlabored, 16/min",
+        "circulation": "Radial pulses present, regular",
+        "skin": { "color": "pink", "temperature": "warm", "moisture": "dry" },
+        "pupils": "PERRL",
+        "motorFunction": "Tolerates gentle exam, guarding reduced",
+        "otherFindings": [
+          "Abdominal guarding persists though less severe",
+          "Mother remains at bedside throughout transport"
+        ],
+        "patientSpeech": "Nonverbal; calm vocalizations"
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Rhythm",
+        "ecgWaveform": 9,
+        "hr": 98,
+        "bpSys": 118,
+        "bpDia": 74,
+        "respRate": 16,
+        "spo2": 98,
+        "etco2": 0,
+        "temp": 38.0,
+        "tempF": 100.4,
+        "obstruction": 0,
+        "glucose": 96,
+        "customMeasures": [],
+        "trendTimeSeconds": 40,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a8-transport",
+          "shortAction": "Transport to appropriate receiving facility; reassess vitals and pain en route",
+          "protocolExcerpt": "Provide transport to an appropriate receiving facility. Reassess vital signs and response to therapeutic interventions throughout transport",
+          "priority": "important",
+          "rationale": "Persistent rigidity warrants ongoing reassessment for a surgical abdomen despite improved comfort.",
+          "protocolReference": "MATC: Abdominal Pain"
+        }
+      ],
+      "transitions": []
+    },
+    {
+      "id": "pain-untreated",
+      "name": "FLACC skipped, pain untreated",
+      "description": "Without a structured pain assessment, the patient's distress escalates — increased rocking, resistance to touch, and rising heart rate — making the abdominal exam harder to trust and delaying recognition of his true pain level.",
+      "triggerCondition": "The crew interprets the patient's rocking, vocalizing, and resistance to touch as his baseline autistic behavior rather than a pain response, skips an observational pain assessment, and does not administer analgesia.",
+      "isDefault": false,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "Tachypneic, mildly labored from distress, 26/min",
+        "circulation": "Radial pulses present, tachycardic, skin pale and diaphoretic",
+        "skin": { "color": "pale", "temperature": "warm", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Increased self-restraint against touch, harder to examine",
+        "otherFindings": [
+          "Increased rocking and resistance to touch",
+          "Mother reports this is worse than his usual baseline, not just typical behavior",
+          "Abdominal exam limited by patient's escalating distress"
+        ],
+        "patientSpeech": "Nonverbal; louder, more frequent distress vocalizations"
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 132,
+        "bpSys": 130,
+        "bpDia": 84,
+        "respRate": 26,
+        "spo2": 96,
+        "etco2": 0,
+        "temp": 38.3,
+        "tempF": 100.9,
+        "obstruction": 0,
+        "glucose": 96,
+        "customMeasures": [],
+        "trendTimeSeconds": 45,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a9-rescue",
+          "shortAction": "Recognize escalating distress as undertreated pain; FLACC score and fentanyl 65 mcg IN",
+          "protocolExcerpt": "Observational Scales — Faces, Legs, Arms, Cry, Consolability (FLACC) ... Fentanyl: 1 mcg/kg IN, IM, IV or IO (maximum initial dose of 100 mcg)",
+          "priority": "critical",
+          "rationale": "Undertreated pain compounds the patient's distress and makes ongoing assessment less reliable the longer it goes unaddressed.",
+          "protocolReference": "MATC: Pain Management"
+        }
+      ],
+      "transitions": []
+    }
+  ],
+  "realiti": {
+    "scenarioMonitorType": 2,
+    "scenarioDefaultEnergy": 200,
+    "scenarioDefaultPacerThreshold": 55
+  }
+}

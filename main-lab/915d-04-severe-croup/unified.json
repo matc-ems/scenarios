@@ -1,0 +1,300 @@
+{
+  "meta": {
+    "id": "915d-04-severe-croup",
+    "name": "Severe Croup — Stridor at Rest",
+    "version": 1,
+    "difficulty": "intermediate",
+    "category": "Respiratory",
+    "protocols": ["peds-resp-distress-croup"],
+    "totalTimeSeconds": 720,
+    "tags": ["pediatric", "croup", "stridor", "nebulized epinephrine", "915"]
+  },
+  "patient": {
+    "name": "Mason Whitfield",
+    "age": 3,
+    "ageUnit": "years",
+    "sex": "male",
+    "weight": 14,
+    "weightLbs": 31,
+    "height": 95,
+    "chiefComplaint": "Barking cough and noisy breathing",
+    "history": {
+      "hpi": "Mother reports the child woke up two nights ago with a harsh, barking cough and has had a low-grade fever and runny nose since. Tonight the cough worsened and he began making a high-pitched noise with every breath, even while sitting calmly in her lap. No choking event, no known foreign body exposure.",
+      "pastMedical": ["One prior mild croup episode at age 2, resolved without EMS"],
+      "medications": [],
+      "allergies": ["NKDA"],
+      "lastOralIntake": "A few sips of water about an hour ago; refusing solid food due to breathing discomfort",
+      "events": "Mother called 911 after noticing stridor at rest and visible chest retractions"
+    }
+  },
+  "scene": {
+    "dispatch": "3-year-old male, difficulty breathing, residence",
+    "location": "Single-family home, living room, child seated upright in mother's lap on the couch",
+    "time": "1:15 AM, weekday",
+    "safety": "No hazards to crew noted; well-lit, calm household",
+    "bystanders": "Mother present and cooperative, providing history; father in the room comforting an older sibling",
+    "visualCues": [
+      "Child seated upright in mother's lap, leaning forward slightly",
+      "Audible high-pitched inspiratory noise without a stethoscope",
+      "Visible suprasternal and intercostal retractions with each breath",
+      "Runny nose, mild perioral pallor",
+      "Child appears anxious but clings to mother, tracks the room"
+    ]
+  },
+  "phases": [
+    {
+      "id": "initial",
+      "name": "Initial Contact",
+      "description": "Crew finds a 3-year-old male seated upright in his mother's lap with audible inspiratory stridor at rest, a barking cough, and visible retractions. He is anxious but alert and clinging to his mother.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Audible inspiratory stridor at rest, patent",
+        "breathing": "Tachypneic with suprasternal and intercostal retractions, barking cough",
+        "circulation": "Radial and brachial pulses strong, tachycardic",
+        "skin": { "color": "mild perioral pallor", "temperature": "warm", "moisture": "dry" },
+        "pupils": "PERRL",
+        "motorFunction": "Moves all extremities spontaneously, clings to mother",
+        "otherFindings": [
+          "Stridor audible without auscultation, present at rest",
+          "Barking, harsh cough",
+          "Low-grade fever reported at home",
+          "Anxious but consolable in mother's lap"
+        ],
+        "patientSpeech": "Whimpers and clings to mother; says \"hurts\" pointing to his throat"
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 148,
+        "bpSys": 96,
+        "bpDia": 60,
+        "respRate": 40,
+        "spo2": 94,
+        "etco2": 0,
+        "temp": 38.3,
+        "tempF": 100.9,
+        "obstruction": 65,
+        "glucose": 98,
+        "customMeasures": [],
+        "trendTimeSeconds": 0,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [],
+      "transitions": [
+        {
+          "targetPhaseId": "epi-dex-given",
+          "if": "Nebulized epi and dexamethasone given",
+          "condition": "Crew recognizes stridor at rest as an indication for inhaled epinephrine and administers nebulized epinephrine along with oral/IM dexamethasone while keeping the child calm in his mother's lap.",
+          "conditionType": "action_taken"
+        },
+        {
+          "targetPhaseId": "epi-delayed",
+          "if": "Nebulized epi delayed",
+          "condition": "Crew delays nebulized epinephrine to attempt IV access or other lower-priority tasks first, agitating the child and allowing work of breathing to worsen toward impending respiratory failure.",
+          "conditionType": "action_not_taken"
+        }
+      ]
+    },
+    {
+      "id": "epi-dex-given",
+      "name": "Nebulized epi and dexamethasone given",
+      "description": "Crew administers nebulized epinephrine and dexamethasone while keeping the child calm and upright in his mother's lap, escalating supplemental oxygen and applying continuous monitoring.",
+      "triggerCondition": "Stridor at rest and retractions meet the protocol's criteria for inhaled epinephrine; crew treats promptly while minimizing agitation, since crying and distress can worsen upper airway obstruction.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Stridor decreasing after nebulized epinephrine",
+        "breathing": "Retractions less pronounced, still mildly tachypneic",
+        "circulation": "Radial pulses strong, tachycardic",
+        "skin": { "color": "pink", "temperature": "warm", "moisture": "dry" },
+        "pupils": "PERRL",
+        "motorFunction": "Moves all extremities spontaneously",
+        "otherFindings": [
+          "Nebulized epinephrine 5 mg administered via mask, tolerated well seated on mother's lap",
+          "Dexamethasone given orally without difficulty",
+          "Continuous SpO2 monitoring applied",
+          "Remains calm, minimal agitation with treatment"
+        ],
+        "patientSpeech": "Quieter breathing, still resting against mother"
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 128,
+        "bpSys": 98,
+        "bpDia": 62,
+        "respRate": 30,
+        "spo2": 97,
+        "etco2": 0,
+        "temp": 38.1,
+        "tempF": 100.6,
+        "obstruction": 30,
+        "glucose": 98,
+        "customMeasures": [],
+        "trendTimeSeconds": 30,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a1-neb-epi",
+          "shortAction": "Nebulized epinephrine 5 mg (5 mL of 1 mg/mL solution); may repeat in 20 minutes",
+          "protocolExcerpt": "Inhaled medications should be administered to all children with croup in respiratory distress with signs of stridor at rest—these medications should be repeated at this dose with unlimited frequency for ongoing respiratory distress. Epinephrine 5 mg (5 mL of 1 mg/mL solution) nebulized (may repeat in 20 minutes as needed)",
+          "priority": "critical",
+          "rationale": "Stridor at rest indicates significant upper airway narrowing requiring nebulized epinephrine per protocol.",
+          "protocolReference": "MATC: Pediatric Respiratory Distress (Croup)"
+        },
+        {
+          "id": "a2-dexamethasone",
+          "shortAction": "Dexamethasone 8.4 mg PO (14 kg × 0.6 mg/kg; max 16 mg)",
+          "protocolExcerpt": "Dexamethasone 0.6 mg/kg oral, IV, or IM to maximum dose of 16 mg should be administered to patients with suspected croup",
+          "priority": "critical",
+          "rationale": "Dexamethasone reduces airway inflammation and shortens duration of symptoms in croup.",
+          "protocolReference": "MATC: Pediatric Respiratory Distress (Croup)"
+        },
+        {
+          "id": "a3-o2-escalation",
+          "shortAction": "Escalate supplemental oxygen (nasal cannula → face mask → non-rebreather) to target SpO2 94–98%",
+          "protocolExcerpt": "Give supplemental oxygen. Escalate from a nasal cannula to a simple face mask to a non-breather mask to SpO2 94–98%",
+          "priority": "important",
+          "rationale": "Titrated oxygen escalation corrects mild hypoxia without unnecessary invasive intervention.",
+          "protocolReference": "MATC: Pediatric Respiratory Distress (Croup)"
+        },
+        {
+          "id": "a4-monitoring",
+          "shortAction": "Apply continuous pulse oximetry and EtCO2 monitoring as adjuncts to respiratory assessment",
+          "protocolExcerpt": "Pulse oximetry and EtCO2 should be routinely used as an adjunct to other forms of respiratory monitoring",
+          "priority": "important",
+          "rationale": "Continuous monitoring detects early deterioration or improvement trends.",
+          "protocolReference": "MATC: Pediatric Respiratory Distress (Croup)"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "improved-transport",
+          "if": "Stridor improved, transport initiated",
+          "condition": "Stridor and retractions decrease after nebulized epinephrine and dexamethasone; crew transports the child calmly without lights and sirens per protocol.",
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a1-neb-epi", "a3-o2-escalation"]
+        }
+      ]
+    },
+    {
+      "id": "improved-transport",
+      "name": "Stridor improved, transport initiated",
+      "description": "Following nebulized epinephrine and dexamethasone, the child's stridor and work of breathing improve substantially. Crew transports calmly without lights and sirens, keeping the child with his mother, and monitors for rebound stridor as the epinephrine effect wears off.",
+      "triggerCondition": "After treatment, stridor and retractions have decreased and SpO2 has normalized; the child is transported to definitive care per protocol given his exposure to inhaled epinephrine.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent, stridor only with agitation",
+        "breathing": "Mild tachypnea, minimal retractions",
+        "circulation": "Radial pulses strong, rate improving",
+        "skin": { "color": "pink", "temperature": "warm", "moisture": "dry" },
+        "pupils": "PERRL",
+        "motorFunction": "Moves all extremities spontaneously, playful with a toy offered by mother",
+        "otherFindings": [
+          "No stridor at rest, mild stridor only when crying",
+          "No further retractions noted",
+          "Tolerating transport calmly in mother's lap with car seat/restraint per local practice"
+        ],
+        "patientSpeech": "\"All better,\" pointing to his throat, smiling at mother"
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Rhythm",
+        "ecgWaveform": 9,
+        "hr": 108,
+        "bpSys": 100,
+        "bpDia": 64,
+        "respRate": 24,
+        "spo2": 99,
+        "etco2": 0,
+        "temp": 37.9,
+        "tempF": 100.2,
+        "obstruction": 10,
+        "glucose": 98,
+        "customMeasures": [],
+        "trendTimeSeconds": 40,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a5-transport-no-ls",
+          "shortAction": "Transport calmly without lights and sirens; continue to hospital for post-epinephrine observation",
+          "protocolExcerpt": "Routine use of lights and sirens is not recommended during transport. Patients who receive inhaled epinephrine should be transported to definitive care",
+          "priority": "important",
+          "rationale": "Avoiding lights/sirens reduces patient anxiety, which can worsen upper airway obstruction; all epinephrine-treated croup patients require ED observation for rebound.",
+          "protocolReference": "MATC: Pediatric Respiratory Distress (Croup)"
+        },
+        {
+          "id": "a6-reassess-rebound",
+          "shortAction": "Reassess for rebound stridor at rest before epinephrine effect wanes; repeat dose if it recurs",
+          "protocolExcerpt": "Epinephrine 5 mg (5 mL of 1 mg/mL solution) nebulized (may repeat in 20 minutes as needed)",
+          "priority": "important",
+          "rationale": "Nebulized epinephrine's effect is temporary; ongoing reassessment catches rebound distress before it becomes severe.",
+          "protocolReference": "MATC: Pediatric Respiratory Distress (Croup)"
+        }
+      ],
+      "transitions": []
+    },
+    {
+      "id": "epi-delayed",
+      "name": "Nebulized epi delayed",
+      "description": "Crew prioritizes IV access attempts over nebulized epinephrine, agitating the child with the stick attempts. Increased crying worsens airway dynamics, and the child begins showing early signs of impending respiratory failure.",
+      "triggerCondition": "Nebulized epinephrine is delayed while the crew attempts other lower-priority interventions; agitation from the attempts increases work of breathing, and retractions and stridor volume paradoxically begin to decrease as the child tires.",
+      "isDefault": false,
+      "clinicalPresentation": {
+        "avpu": "Verbal",
+        "gcs": { "eye": 3, "verbal": 4, "motor": 6 },
+        "airway": "Stridor becoming quieter despite worsening obstruction",
+        "breathing": "Marked retractions initially, now decreasing as child tires; shallow",
+        "circulation": "Radial pulses present, tachycardic",
+        "skin": { "color": "pale, dusky perioral", "temperature": "cool", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Decreased spontaneous movement, listless",
+        "otherFindings": [
+          "Decreasing stridor volume with decreasing retractions — an ominous sign, not improvement",
+          "Increasingly listless and fatigued",
+          "Dusky perioral color noted"
+        ],
+        "patientSpeech": "No longer verbalizing, whimpers weakly"
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 168,
+        "bpSys": 90,
+        "bpDia": 56,
+        "respRate": 44,
+        "spo2": 89,
+        "etco2": 0,
+        "temp": 38.3,
+        "tempF": 100.9,
+        "obstruction": 85,
+        "glucose": 98,
+        "customMeasures": [],
+        "trendTimeSeconds": 50,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a7-recognize-impending-failure",
+          "shortAction": "Recognize impending respiratory failure (fatigue, pallor, decreasing stridor/retractions); give nebulized epinephrine immediately",
+          "protocolExcerpt": "Impending respiratory failure is indicated by: Change in mental status such as fatigue and listlessness; Pallor; Dusky appearance; Decreased retractions; Decreased breath sounds with decreasing stridor",
+          "priority": "critical",
+          "rationale": "Decreasing stridor and retractions with a tiring child is a false-reassurance sign of impending total obstruction, not improvement.",
+          "protocolReference": "MATC: Pediatric Respiratory Distress (Croup)"
+        }
+      ],
+      "transitions": []
+    }
+  ],
+  "realiti": {
+    "scenarioMonitorType": 2,
+    "scenarioDefaultEnergy": 200,
+    "scenarioDefaultPacerThreshold": 55
+  }
+}

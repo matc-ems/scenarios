@@ -1,0 +1,396 @@
+{
+  "meta": {
+    "id": "916a-03-unstable-svt",
+    "name": "Unstable SVT with Hypotension and Altered Mental Status",
+    "version": 1,
+    "difficulty": "advanced",
+    "category": "Cardiac",
+    "protocols": ["cv-tachycardia", "medical-shock", "medical-altered-mental-status", "medical-hypoglycemia"],
+    "totalTimeSeconds": 900,
+    "createdAt": "2026-08-22T00:00:00Z",
+    "tags": ["SVT", "tachycardia", "cardioversion", "adenosine", "unstable", "cardiac", "ALS"]
+  },
+  "patient": {
+    "name": "Linda Marsh",
+    "age": 48,
+    "ageUnit": "years",
+    "sex": "female",
+    "weight": 70,
+    "weightLbs": 154,
+    "height": 163,
+    "chiefComplaint": "Palpitations and dizziness",
+    "history": {
+      "hpi": "48-year-old female at work reports sudden onset of palpitations and lightheadedness approximately 10 minutes prior to EMS arrival while seated at her desk. No preceding chest pain, exertion, or trauma. Denies prior similar episodes. Coworkers report she became pale, diaphoretic, and increasingly confused over the last few minutes before EMS arrival.",
+      "pastMedical": ["Hypertension", "Generalized anxiety disorder"],
+      "medications": ["Lisinopril 10 mg daily", "Sertraline 50 mg daily"],
+      "allergies": ["NKDA"],
+      "lastOralIntake": "Coffee (approximately 2 cups) roughly 1 hour prior to onset; no solid food since breakfast",
+      "events": "Sudden onset of palpitations and lightheadedness at her desk; coworker called 911 after noting she became pale, diaphoretic, and confused"
+    }
+  },
+  "scene": {
+    "dispatch": "48-year-old female, difficulty breathing and dizziness, office building",
+    "location": "Third-floor office break room, downtown office building",
+    "time": "Weekday afternoon, 1415 hrs",
+    "safety": "Scene safe; coworkers present and cooperative, no hazards noted",
+    "bystanders": "Coworker reports sudden onset of palpitations approximately 10 minutes prior to EMS arrival; states patient became pale, diaphoretic, and confused shortly before crews arrived",
+    "visualCues": [
+      "Patient seated in office chair, pale and diaphoretic",
+      "Coworkers gathered nearby, appear anxious",
+      "Patient clutching chest, appears anxious and disoriented"
+    ]
+  },
+  "phases": [
+    {
+      "id": "initial",
+      "name": "Initial Contact",
+      "description": "48-year-old female found seated, pale, diaphoretic, and confused with a rapid, regular narrow-complex tachycardia at 210 and hypotension. Crew must rapidly recognize unstable SVT and prepare for definitive treatment.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Verbal",
+        "gcs": { "eye": 3, "verbal": 4, "motor": 6 },
+        "airway": "Patent, speaking in short phrases",
+        "breathing": "Tachypneic, RR 22, mild accessory muscle use",
+        "circulation": "Rapid, thready radial pulse; delayed capillary refill ~3 seconds",
+        "skin": { "color": "Pale", "temperature": "Cool", "moisture": "Diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Moves all extremities, follows simple commands intermittently",
+        "otherFindings": ["Diaphoretic", "Anxious appearance", "Reports palpitations and lightheadedness"],
+        "patientSpeech": "My heart is racing... I feel really dizzy... (repeats questions, appears confused)"
+      },
+      "monitorState": {
+        "ecgRhythm": "Supraventricular Tachycardia",
+        "ecgWaveform": 4,
+        "hr": 210,
+        "bpSys": 78,
+        "bpDia": 50,
+        "respRate": 22,
+        "spo2": 95,
+        "etco2": 32,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 0,
+        "glucose": 98,
+        "customMeasures": [],
+        "trendTimeSeconds": 0,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a1",
+          "shortAction": "Manage airway; administer O2 to target SpO2 94–98%",
+          "protocolExcerpt": "Manage airway as necessary Administer oxygen as appropriate with a target of achieving 94–98% saturation",
+          "priority": "critical",
+          "rationale": "Ensures adequate oxygenation before further hemodynamic evaluation and treatment.",
+          "protocolReference": "MATC: Tachycardia with a Pulse"
+        },
+        {
+          "id": "a2",
+          "shortAction": "Initiate cardiac monitoring and obtain 12-lead EKG",
+          "protocolExcerpt": "Initiate monitoring and perform 12-lead EKG",
+          "priority": "critical",
+          "rationale": "Confirms regular narrow-complex tachycardia and guides the treatment pathway.",
+          "protocolReference": "MATC: Tachycardia with a Pulse"
+        },
+        {
+          "id": "a3",
+          "shortAction": "Establish IV access",
+          "protocolExcerpt": "Establish IV access",
+          "priority": "critical",
+          "rationale": "Required for adenosine administration and preparation for possible sedation.",
+          "protocolReference": "MATC: Tachycardia with a Pulse"
+        },
+        {
+          "id": "a4",
+          "shortAction": "Check blood glucose (obtained 98 mg/dL, rules out hypoglycemia as a contributing cause)",
+          "protocolExcerpt": "Check blood glucose and treat hypoglycemia per the Hypoglycemia Guideline",
+          "priority": "important",
+          "rationale": "Hypoglycemia is a reversible cause of tachycardia and altered mental status that must be excluded.",
+          "protocolReference": "MATC: Tachycardia with a Pulse"
+        },
+        {
+          "id": "a5",
+          "shortAction": "Recognize hemodynamic instability (BP 78/50, altered mentation) as unstable SVT; prepare for synchronized cardioversion",
+          "protocolExcerpt": "Regular Narrow Complex Tachycardia – Unstable: Deliver a synchronized shock based on manufacturer's recommendations.",
+          "priority": "critical",
+          "rationale": "Instability with hypotension and AMS mandates the unstable pathway and prompt preparation for cardioversion.",
+          "protocolReference": "MATC: Tachycardia with a Pulse"
+        },
+        {
+          "id": "a6",
+          "shortAction": "Attempt vagal maneuvers (e.g., modified Valsalva) while preparing for cardioversion",
+          "protocolExcerpt": "Regular Narrow Complex Tachycardia – Stable (SVT): Perform vagal maneuvers",
+          "priority": "important",
+          "rationale": "A brief vagal maneuver attempt is reasonable while equipment for cardioversion and adenosine are prepared, without delaying definitive treatment.",
+          "protocolReference": "MATC: Tachycardia with a Pulse"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "vagal-attempted",
+          "if": "Vagal maneuvers attempted",
+          "condition": "Crew performs vagal maneuvers (e.g., modified Valsalva) while continuing to prepare for possible cardioversion; the SVT persists unchanged.",
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a6"]
+        }
+      ]
+    },
+    {
+      "id": "vagal-attempted",
+      "name": "Vagal maneuvers attempted",
+      "description": "Vagal maneuvers performed without conversion; SVT persists with continued hypotension and worsening mentation. Adenosine is given as a bridge while cardioversion is prepared.",
+      "triggerCondition": "After a modified Valsalva maneuver, the rhythm remains unchanged at HR ~208 with continued hypotension (BP 76/48) and worsening confusion; adenosine is given per protocol while defibrillator pads and sedation are prepared for possible cardioversion.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Verbal",
+        "gcs": { "eye": 3, "verbal": 3, "motor": 5 },
+        "airway": "Patent",
+        "breathing": "RR 24, shallow",
+        "circulation": "Weak, thready pulse; capillary refill >3 seconds",
+        "skin": { "color": "Pale/mottled", "temperature": "Cool", "moisture": "Diaphoretic" },
+        "pupils": "PERRL, sluggish",
+        "motorFunction": "Follows commands inconsistently",
+        "otherFindings": ["Increasing confusion", "Diaphoresis worsening"],
+        "patientSpeech": "Confused mumbling, unable to reliably answer orientation questions"
+      },
+      "monitorState": {
+        "ecgRhythm": "Supraventricular Tachycardia",
+        "ecgWaveform": 4,
+        "hr": 208,
+        "bpSys": 76,
+        "bpDia": 48,
+        "respRate": 24,
+        "spo2": 94,
+        "etco2": 30,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 0,
+        "glucose": 98,
+        "customMeasures": [],
+        "trendTimeSeconds": 20,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "b1",
+          "shortAction": "Adenosine 6 mg IV rapid push via proximal site, immediately followed by 10 mL saline flush (fixed adult dose)",
+          "protocolExcerpt": "Adenosine 6 mg IV (proximal site) followed by 10 mL fluid bolus",
+          "priority": "critical",
+          "rationale": "First-line pharmacologic therapy for regular narrow-complex SVT.",
+          "protocolReference": "MATC: Tachycardia with a Pulse"
+        },
+        {
+          "id": "b2",
+          "shortAction": "Apply defibrillator/cardioversion pads; prepare synchronized cardioversion; consider sedation/analgesia for responsive patient",
+          "protocolExcerpt": "Regular Narrow Complex Tachycardia – Unstable: Deliver a synchronized shock based on manufacturer's recommendations. For responsive patients, consider sedation and analgesia.",
+          "priority": "critical",
+          "rationale": "Given instability, cardioversion equipment and sedation should be readied in parallel rather than waiting for adenosine to fail.",
+          "protocolReference": "MATC: Tachycardia with a Pulse"
+        },
+        {
+          "id": "b3",
+          "shortAction": "Reassess vital signs and mental status after adenosine",
+          "protocolExcerpt": "Full vital signs (pulse, blood pressure, respiratory rate, neurologic status assessment) with reassessment q 15 minutes or more frequently as appropriate",
+          "priority": "supplemental",
+          "rationale": "Frequent reassessment tracks response to therapy and guides next steps.",
+          "protocolReference": "MATC: Shock"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "cardioversion-performed",
+          "if": "Adenosine given, SVT persists",
+          "condition": "Adenosine 6 mg IV given without conversion; crew proceeds to prepare and deliver synchronized cardioversion given ongoing instability.",
+          "conditionType": "action_taken",
+          "triggerActionIds": ["b1"]
+        },
+        {
+          "targetPhaseId": "cardioversion-delayed",
+          "if": "Cardioversion delayed, repeat drugs given",
+          "condition": "Crew continues pharmacologic attempts (e.g., repeat adenosine or diltiazem) rather than proceeding to synchronized cardioversion despite persistent hypotension and altered mental status for more than 5 minutes.",
+          "conditionType": "time_elapsed",
+          "triggerActionIds": ["b2"],
+          "timeoutSeconds": 300
+        }
+      ]
+    },
+    {
+      "id": "cardioversion-performed",
+      "name": "Adenosine failed, cardioversion performed",
+      "description": "Adenosine failed to convert the rhythm; hemodynamic status continues to deteriorate. Crew proceeds to deliver synchronized cardioversion per the unstable pathway.",
+      "triggerCondition": "Despite adenosine 6 mg IV, SVT persists at HR 206 with worsening hypotension (BP 72/46) and declining mental status (GCS 10); crew proceeds directly to synchronized cardioversion per the Unstable SVT pathway.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Pain",
+        "gcs": { "eye": 2, "verbal": 3, "motor": 5 },
+        "airway": "Patent, protecting own airway but minimally responsive",
+        "breathing": "RR 26, shallow",
+        "circulation": "Thready, barely palpable radial pulse; capillary refill >4 seconds",
+        "skin": { "color": "Pale/gray", "temperature": "Cool, clammy", "moisture": "Diaphoretic" },
+        "pupils": "PERRL, sluggish",
+        "motorFunction": "Withdraws to pain only",
+        "otherFindings": ["Profound diaphoresis", "Minimal verbal response"],
+        "patientSpeech": "Moaning, no coherent speech"
+      },
+      "monitorState": {
+        "ecgRhythm": "Supraventricular Tachycardia",
+        "ecgWaveform": 4,
+        "hr": 206,
+        "bpSys": 72,
+        "bpDia": 46,
+        "respRate": 26,
+        "spo2": 92,
+        "etco2": 28,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 0,
+        "glucose": 98,
+        "customMeasures": [],
+        "trendTimeSeconds": 30,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "c1",
+          "shortAction": "Sedate per local sedation protocol prior to cardioversion (patient remains responsive to pain)",
+          "protocolExcerpt": "For responsive patients, consider sedation and analgesia.",
+          "priority": "critical",
+          "rationale": "The patient retains a pain response; procedural sedation should be attempted if it does not delay definitive treatment.",
+          "protocolReference": "MATC: Tachycardia with a Pulse"
+        },
+        {
+          "id": "c2",
+          "shortAction": "Deliver synchronized cardioversion at manufacturer-recommended initial energy setting",
+          "protocolExcerpt": "Deliver a synchronized shock based on manufacturer's recommendations.",
+          "priority": "critical",
+          "rationale": "Definitive treatment for unstable regular narrow-complex tachycardia unresponsive to adenosine.",
+          "protocolReference": "MATC: Tachycardia with a Pulse"
+        },
+        {
+          "id": "c3",
+          "shortAction": "Document cardioversion time, synchronization, joules, and rhythm response; obtain monitor strip post-shock",
+          "protocolExcerpt": "Cardioversion times, synchronization, attempts, joules, and response Obtain monitor strips after each intervention",
+          "priority": "supplemental",
+          "rationale": "Required documentation for the intervention and quality review.",
+          "protocolReference": "MATC: Tachycardia with a Pulse"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "converted",
+          "if": "Synchronized cardioversion successful",
+          "condition": "Synchronized cardioversion delivered; rhythm converts to sinus rhythm with rapid improvement in blood pressure and mental status.",
+          "conditionType": "action_taken",
+          "triggerActionIds": ["c2"]
+        }
+      ]
+    },
+    {
+      "id": "converted",
+      "name": "Converted to sinus rhythm",
+      "description": "Following synchronized cardioversion, the patient converts to sinus rhythm with prompt improvement in perfusion and mental status.",
+      "triggerCondition": "Immediately after synchronized cardioversion, the rhythm converts from SVT to sinus rhythm; heart rate, blood pressure, and mentation rapidly normalize.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "RR 18, unlabored",
+        "circulation": "Strong radial pulse; capillary refill <2 seconds",
+        "skin": { "color": "Pink", "temperature": "Warm", "moisture": "Diaphoresis resolving" },
+        "pupils": "PERRL",
+        "motorFunction": "Full, follows commands appropriately",
+        "otherFindings": ["Oriented x4", "Reports chest feels 'more normal now'"],
+        "patientSpeech": "Oh wow, that felt strange... I feel so much better now."
+      },
+      "monitorState": {
+        "ecgRhythm": "Normal Sinus Rhythm",
+        "ecgWaveform": 9,
+        "hr": 96,
+        "bpSys": 114,
+        "bpDia": 74,
+        "respRate": 18,
+        "spo2": 98,
+        "etco2": 36,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 0,
+        "glucose": 98,
+        "customMeasures": [],
+        "trendTimeSeconds": 15,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "d1",
+          "shortAction": "Reassess vital signs, mental status, and 12-lead EKG post-conversion",
+          "protocolExcerpt": "Full vital signs (pulse, blood pressure, respiratory rate, neurologic status assessment) with reassessment q 15 minutes or more frequently as appropriate",
+          "priority": "important",
+          "rationale": "Confirms sustained conversion and hemodynamic stability prior to transport.",
+          "protocolReference": "MATC: Shock"
+        },
+        {
+          "id": "d2",
+          "shortAction": "Continue cardiac monitoring and transport; document rhythm changes throughout",
+          "protocolExcerpt": "Initial rhythm and all rhythm changes",
+          "priority": "supplemental",
+          "rationale": "Ongoing monitoring detects recurrence of SVT during transport.",
+          "protocolReference": "MATC: Tachycardia with a Pulse"
+        }
+      ],
+      "transitions": []
+    },
+    {
+      "id": "cardioversion-delayed",
+      "name": "Cardioversion delayed",
+      "description": "Cardioversion is delayed while the crew continues pharmacologic attempts; the patient's perfusion continues to deteriorate toward hemodynamic collapse.",
+      "triggerCondition": "Rather than proceeding to synchronized cardioversion after failed adenosine, the crew administers additional AV-nodal blocking agents (e.g., diltiazem) and continues to reassess; more than 5 minutes elapse with the patient remaining hypotensive and altered, and perfusion continues to worsen toward hemodynamic collapse.",
+      "isDefault": false,
+      "clinicalPresentation": {
+        "avpu": "Pain",
+        "gcs": { "eye": 2, "verbal": 2, "motor": 4 },
+        "airway": "Patent but at risk given declining responsiveness",
+        "breathing": "RR 28, shallow, weak effort",
+        "circulation": "Barely palpable central pulse only; capillary refill >4 seconds",
+        "skin": { "color": "Gray/mottled", "temperature": "Cold", "moisture": "Diaphoretic" },
+        "pupils": "Sluggish",
+        "motorFunction": "Withdraws to pain only",
+        "otherFindings": ["Profoundly altered", "Approaching decompensation"],
+        "patientSpeech": "Unintelligible moaning"
+      },
+      "monitorState": {
+        "ecgRhythm": "Supraventricular Tachycardia",
+        "ecgWaveform": 4,
+        "hr": 212,
+        "bpSys": 58,
+        "bpDia": 38,
+        "respRate": 28,
+        "spo2": 88,
+        "etco2": 24,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 0,
+        "glucose": 98,
+        "customMeasures": [],
+        "trendTimeSeconds": 45,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "e1",
+          "shortAction": "Recognize ongoing decompensation; expedite synchronized cardioversion without further delay",
+          "protocolExcerpt": "Regular Narrow Complex Tachycardia – Unstable: Deliver a synchronized shock based on manufacturer's recommendations.",
+          "priority": "critical",
+          "rationale": "Continued delay of cardioversion risks progression to cardiovascular collapse and cardiac arrest.",
+          "protocolReference": "MATC: Tachycardia with a Pulse"
+        }
+      ],
+      "transitions": []
+    }
+  ],
+  "realiti": {
+    "scenarioMonitorType": 2,
+    "scenarioDefaultEnergy": 200,
+    "scenarioDefaultPacerThreshold": 55
+  }
+}

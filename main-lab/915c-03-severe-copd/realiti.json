@@ -1,0 +1,283 @@
+{
+  "scenarioId": "915c-03-severe-copd",
+  "scenarioName": "Severe COPD Exacerbation — Failing CPAP with CO2 Narcosis",
+  "scenarioType": "Vital Signs",
+  "scenarioVersion": 2,
+  "scenarioTime": 1080,
+  "scenarioMonitorType": 2,
+  "scenarioDefaultEnergy": 200,
+  "scenarioDefaultPacerThreshold": 55,
+  "isDemo": false,
+  "isALSILegacy": false,
+  "scenarioStory": {
+    "history": "Wife called 911 after patient's breathing worsened over several hours despite using his home nebulizer twice. On EMS arrival he is tripoding, using accessory muscles, and speaking only 1-2 words at a time. He has a known history of end-stage COPD with two prior ICU admissions and one prior intubation. Wife reports he seemed 'more confused than usual' in the last 15 minutes.",
+    "discussion": "",
+    "course": "Initial Contact: Crew finds a 69-year-old male with known end-stage COPD in severe respiratory distress, tripoding with accessory muscle use, speaking only 1-2 words at a time. He is increasingly difficult to arouse per his wife. → CPAP with in-line duoneb started: CPAP is applied with albuterol/ipratropium nebulized in-line through a T-connector. The patient initially tolerates the mask with coaching, and permissive hypoxia (SpO2 goal ≥90%, higher COPD tolerance) is accepted rather than chasing a normal saturation. → CPAP failure recognized, RSI performed: The patient's EtCO2 continues to rise and mental status deteriorates despite an adequate CPAP trial, meeting CPAP-failure criteria. The crew removes CPAP, preoxygenates, and proceeds with RSI, selecting ketamine for its bronchodilatory properties given the underlying severe bronchospasm. → Tube confirmed, ventilated for permissive hypercapnia: The endotracheal tube is confirmed with waveform capnography and secured. Ventilation is titrated to gradually decrease the patient's chronically elevated EtCO2 rather than aggressively normalizing it, avoiding the hemodynamic and cerebral perfusion risks of rapid correction."
+  },
+  "patientInformation": {
+    "patientName": "Walter Grunsky",
+    "patientCondition": "Severe shortness of breath, worsening despite home nebulizer treatments",
+    "patientAge": 69,
+    "patientAgeUnit": "years",
+    "patientAgeCategory": 0,
+    "patientSex": 1,
+    "patientHeight": 175,
+    "patientWeight": 78,
+    "patientPhotoId": 83,
+    "patientAdmitted": 1
+  },
+  "labs": [],
+  "scenarioEvents": [
+    {
+      "type": "ScenarioEvent",
+      "name": "Initial Contact",
+      "description": "Crew finds a 69-year-old male with known end-stage COPD in severe respiratory distress, tripoding with accessory muscle use, speaking only 1-2 words at a time. He is increasingly difficult to arouse per his wife.",
+      "monitorType": 0,
+      "trendTime": 0,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 122,
+        "bpSys": 156,
+        "bpDia": 94,
+        "respRate": 32,
+        "spo2": 87,
+        "etco2": 68,
+        "temp": 37.1,
+        "obstruction": 55,
+        "custMeasure1": 118,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "CPAP with in-line duoneb started",
+      "description": "CPAP is applied with albuterol/ipratropium nebulized in-line through a T-connector. The patient initially tolerates the mask with coaching, and permissive hypoxia (SpO2 goal ≥90%, higher COPD tolerance) is accepted rather than chasing a normal saturation.",
+      "monitorType": 0,
+      "trendTime": 30,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 118,
+        "bpSys": 152,
+        "bpDia": 92,
+        "respRate": 28,
+        "spo2": 90,
+        "etco2": 66,
+        "temp": 37.1,
+        "obstruction": 50,
+        "custMeasure1": 118,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Initiate CPAP with in-line nebulized bronchodilator; coach patient through mask seal",
+        "Accept SpO2 ≥90% rather than titrating to normal saturation; monitor EtCO2 trend, not absolute normalization",
+        "Maintain continuous waveform capnography and pulse oximetry throughout NIV trial"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "CPAP failure recognized, RSI performed",
+      "description": "The patient's EtCO2 continues to rise and mental status deteriorates despite an adequate CPAP trial, meeting CPAP-failure criteria. The crew removes CPAP, preoxygenates, and proceeds with RSI, selecting ketamine for its bronchodilatory properties given the underlying severe bronchospasm.",
+      "monitorType": 0,
+      "trendTime": 40,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 128,
+        "bpSys": 148,
+        "bpDia": 90,
+        "respRate": 10,
+        "spo2": 84,
+        "etco2": 78,
+        "temp": 37,
+        "obstruction": 55,
+        "custMeasure1": 116,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Recognize CPAP failure (worsened mental status, rising EtCO2); remove CPAP and escalate",
+        "Preoxygenate with high-flow O2 and positive pressure ventilation for at least 2 minutes before RSI",
+        "Fentanyl 78 mcg IV push (78 kg × 1 mcg/kg) 2-3 minutes prior to intubation attempt",
+        "Ketamine 117 mg IV push (78 kg × 1.5 mg/kg) as induction agent",
+        "Rocuronium 78 mg IV push (78 kg × 1 mg/kg) as paralytic"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Tube confirmed, ventilated for permissive hypercapnia",
+      "description": "The endotracheal tube is confirmed with waveform capnography and secured. Ventilation is titrated to gradually decrease the patient's chronically elevated EtCO2 rather than aggressively normalizing it, avoiding the hemodynamic and cerebral perfusion risks of rapid correction.",
+      "monitorType": 0,
+      "trendTime": 45,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 110,
+        "bpSys": 138,
+        "bpDia": 84,
+        "respRate": 11,
+        "spo2": 95,
+        "etco2": 70,
+        "temp": 37,
+        "obstruction": 45,
+        "custMeasure1": 114,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Confirm tube placement with waveform capnography, bilateral breath sounds, absent gastric sounds",
+        "Titrate ventilation to gradually decrease EtCO2 rather than rapid normalization",
+        "Provide post-intubation sedation with fentanyl and midazolam or ketamine per protocol"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "CPAP continued despite worsening mental status",
+      "description": "The crew continues CPAP without reassessing for failure, despite the patient's mental status continuing to decline and EtCO2 continuing to climb. The patient progresses toward respiratory arrest as CO2 narcosis worsens under the mask.",
+      "monitorType": 0,
+      "trendTime": 50,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 134,
+        "bpSys": 100,
+        "bpDia": 62,
+        "respRate": 6,
+        "spo2": 74,
+        "etco2": 92,
+        "temp": 37,
+        "obstruction": 60,
+        "custMeasure1": 116,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Remove CPAP immediately, begin BVM ventilation, prepare emergent RSI"
+      ],
+      "relatedSounds": []
+    }
+  ],
+  "checklist": [
+    {
+      "title": "Initiate CPAP with in-line nebulized bronchodilator; coach patient through mask seal",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Accept SpO2 ≥90% rather than titrating to normal saturation; monitor EtCO2 trend, not absolute normalization",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Maintain continuous waveform capnography and pulse oximetry throughout NIV trial",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Recognize CPAP failure (worsened mental status, rising EtCO2); remove CPAP and escalate",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Preoxygenate with high-flow O2 and positive pressure ventilation for at least 2 minutes before RSI",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Fentanyl 78 mcg IV push (78 kg × 1 mcg/kg) 2-3 minutes prior to intubation attempt",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Ketamine 117 mg IV push (78 kg × 1.5 mg/kg) as induction agent",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Rocuronium 78 mg IV push (78 kg × 1 mg/kg) as paralytic",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Confirm tube placement with waveform capnography, bilateral breath sounds, absent gastric sounds",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Titrate ventilation to gradually decrease EtCO2 rather than rapid normalization",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Provide post-intubation sedation with fentanyl and midazolam or ketamine per protocol",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Remove CPAP immediately, begin BVM ventilation, prepare emergent RSI",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    }
+  ],
+  "media": []
+}

@@ -1,0 +1,458 @@
+{
+  "meta": {
+    "id": "913-03-fall-from-standing",
+    "name": "Fall from Standing - Elderly Female with Hip Deformity",
+    "version": 1,
+    "difficulty": "beginner",
+    "category": "Trauma",
+    "protocols": ["trauma-general", "trauma-spinal-care", "trauma-extremity-hemorrhage"],
+    "totalTimeSeconds": 900,
+    "createdAt": "2026-08-22",
+    "tags": ["geriatric", "fall", "hip fracture", "spinal motion restriction", "BLS", "full trauma assessment", "skin tears"]
+  },
+  "patient": {
+    "name": "Dorothy Hensley",
+    "age": 82,
+    "ageUnit": "years",
+    "sex": "female",
+    "weight": 65,
+    "weightLbs": 143,
+    "height": 160,
+    "chiefComplaint": "Right hip pain after a fall, unable to bear weight",
+    "history": {
+      "hpi": "82-year-old female found supine on the bathroom floor by her daughter, who is unsure how long she had been down (last spoke with her by phone approximately 2 hours prior). Patient reports she was walking to the toilet, felt her right hip 'give out,' and fell. She denies recalling any loss of consciousness but cannot state what time it is or how long she was on the floor. She complains of severe right hip pain and is unable to move or bear weight on the right leg. No reported neck pain on initial questioning.",
+      "pastMedical": ["Osteoporosis", "Hypertension", "Osteoarthritis", "Mild early-stage dementia per daughter"],
+      "medications": ["Alendronate 70 mg PO weekly", "Lisinopril 10 mg PO daily", "Acetaminophen PRN"],
+      "allergies": ["NKDA"],
+      "lastOralIntake": "Dinner approximately 12 hours prior; daughter unsure of any fluid intake since",
+      "events": "Daughter arrived for a scheduled visit and found patient on the bathroom floor; called 911 immediately. Exact down time unknown."
+    }
+  },
+  "scene": {
+    "dispatch": "Fall, 82-year-old female, unable to get up, bathroom, possible hip injury",
+    "location": "Single-story home, upstairs bathroom, tile floor, narrow space between the toilet and tub",
+    "time": "Mid-morning, approximately 10:45 AM",
+    "safety": "No scene hazards identified; tile floor is dry; adequate room to work once the bathroom door is propped open",
+    "bystanders": "Daughter present on scene, states she found her mother roughly 2 hours after their last phone call and reports patient has early dementia and lives alone",
+    "visualCues": [
+      "Patient supine on tile floor wedged between the toilet and tub",
+      "Right leg visibly shortened and externally rotated",
+      "Linear skin tears with serous drainage on both forearms consistent with fragile skin and the fall",
+      "Patient shivering slightly",
+      "Bath mat askew near the tub"
+    ]
+  },
+  "phases": [
+    {
+      "id": "initial",
+      "name": "Initial Contact",
+      "description": "Crew arrives to find an 82-year-old female supine on the bathroom floor with an obviously deformed right hip and unknown down time. She is alert but intermittently confused about the time and how long she has been down. Daughter reports early dementia at baseline, complicating the mental status assessment.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 4, "motor": 6 },
+        "airway": "Patent, speaking full sentences",
+        "breathing": "Non-labored, symmetric chest rise",
+        "circulation": "Radial pulses present bilaterally, skin cool to touch on distal extremities",
+        "skin": { "color": "Pale", "temperature": "Cool", "moisture": "Dry" },
+        "pupils": "PERRL",
+        "motorFunction": "Moves all extremities except unable to move right leg due to pain; sensation intact distally in all four extremities",
+        "otherFindings": [
+          "Right leg shortened and externally rotated at the hip",
+          "Linear skin tears with serous drainage on both forearms",
+          "Mild shivering",
+          "Intermittently unable to state the correct time or how long she has been on the floor"
+        ],
+        "patientSpeech": "I was just going to the bathroom and my hip just gave out... I don't really know how long I've been here, honey."
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 104,
+        "bpSys": 118,
+        "bpDia": 76,
+        "respRate": 20,
+        "spo2": 95,
+        "etco2": 0,
+        "temp": 36.3,
+        "tempF": 97.3,
+        "obstruction": 0,
+        "glucose": 98,
+        "customMeasures": [],
+        "trendTimeSeconds": 0,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a1",
+          "shortAction": "Perform MARCH primary survey; rule out massive hemorrhage and airway/breathing/circulation threats",
+          "protocolExcerpt": "Primary survey (Use \"MARCH\" algorithm) Massive Hemorrhage Initial visual and body sweep to assess for penetrating wounds and severe life-threatening hemorrhage",
+          "priority": "critical",
+          "rationale": "Confirms no immediately life-threatening injury before focusing on the hip and spinal decision-making.",
+          "protocolReference": "MATC: General Trauma Management"
+        },
+        {
+          "id": "a2",
+          "shortAction": "Assess mechanism and patient for spinal motion restriction criteria: mental status, neuro deficit, pain, intoxication",
+          "protocolExcerpt": "Assess the patient in the position found for findings associated with spine injury: Mental status Neurologic deficits Spinal pain or tenderness Any evidence of intoxication Other severe injuries, particularly associated torso injuries",
+          "priority": "critical",
+          "rationale": "Unknown down time and baseline dementia make mental status assessment unreliable, directly affecting the SMR decision.",
+          "protocolReference": "MATC: Spinal Care"
+        },
+        {
+          "id": "a3",
+          "shortAction": "Expose right hip/leg; evaluate for deformity, shortening, rotation; check distal pulses, sensation, movement",
+          "protocolExcerpt": "Evaluate for obvious deformity, shortening, rotation, or instability Neurologic status of extremity: Sensation to light touch Distal movement of extremity",
+          "priority": "critical",
+          "rationale": "Shortened, externally rotated leg is a classic hip fracture finding; distal neurovascular exam must be documented before and after any splinting.",
+          "protocolReference": "MATC: Extremity Trauma/External Hemorrhage Management"
+        },
+        {
+          "id": "a4",
+          "shortAction": "Perform GCS/AVPU and pupillary assessment; screen for signs of TBI given unknown downtime",
+          "protocolExcerpt": "Perform initial neurologic status assessment of GCS/AVPU (Alert, Verbal, Painful, Unconscious) and pupillary size and responsiveness",
+          "priority": "important",
+          "rationale": "Prolonged unwitnessed down time raises concern for an unrecognized head strike during the fall.",
+          "protocolReference": "MATC: General Trauma Management"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "spinal-precautions-applied",
+          "if": "SMR criteria recognized, collar applied",
+          "condition": "Crew recognizes that the patient's intermittent abnormal mental status and severe distracting hip pain meet spinal motion restriction criteria and applies a cervical collar with careful in-line handling before further movement.",
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a2"]
+        },
+        {
+          "targetPhaseId": "spinal-assessment-skipped",
+          "if": "Spinal assessment skipped",
+          "condition": "Crew focuses only on the obvious hip deformity and moves/repositions the patient without formally assessing or applying spinal motion restriction despite her abnormal mental status and distracting injury.",
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["a2"]
+        }
+      ]
+    },
+    {
+      "id": "spinal-precautions-applied",
+      "name": "Spinal precautions applied",
+      "description": "Crew has correctly identified that the patient's fluctuating mental status and severe distracting hip pain meet criteria for spinal motion restriction. A cervical collar is applied and the patient is kept in a position of comfort while the back and remaining body are assessed.",
+      "triggerCondition": "Because the patient cannot reliably deny neck/spine pain (intermittent confusion) and has a severe painful distracting injury (the hip), spinal motion restriction criteria are met per protocol even though the fall mechanism alone was low-energy.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 4, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "Non-labored",
+        "circulation": "Radial pulses present bilaterally, warming with blanket",
+        "skin": { "color": "Pale", "temperature": "Cool", "moisture": "Dry" },
+        "pupils": "PERRL",
+        "motorFunction": "Intact in all four extremities except limited by hip pain",
+        "otherFindings": [
+          "Cervical collar in place",
+          "No midline neck tenderness on palpation",
+          "Back inspected without additional injury noted"
+        ],
+        "patientSpeech": "This collar feels tight, but I understand why you need it."
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Rhythm",
+        "ecgWaveform": 9,
+        "hr": 98,
+        "bpSys": 120,
+        "bpDia": 78,
+        "respRate": 18,
+        "spo2": 96,
+        "etco2": 0,
+        "temp": 36.4,
+        "tempF": 97.5,
+        "obstruction": 0,
+        "glucose": 98,
+        "customMeasures": [],
+        "trendTimeSeconds": 30,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "b1",
+          "shortAction": "Apply cervical collar and initiate spinal motion restriction due to abnormal mental status and distracting injury",
+          "protocolExcerpt": "Place patient in cervical collar and initiate spinal motion restriction in adults if there are any of the following: Any abnormal mental status (including extreme agitation) Another severe or painful distracting injury",
+          "priority": "critical",
+          "rationale": "Both criteria are independently sufficient to indicate SMR per protocol.",
+          "protocolReference": "MATC: Spinal Care"
+        },
+        {
+          "id": "b2",
+          "shortAction": "Maintain spinal alignment while inspecting the back; avoid unnecessary log-rolling given fragile positioning",
+          "protocolExcerpt": "Maintain spinal alignment. Refer to Spinal Care Guideline Inspect for penetrating or soft tissue injuries",
+          "priority": "important",
+          "rationale": "Careful handling limits secondary spinal injury risk while still completing the secondary survey.",
+          "protocolReference": "MATC: General Trauma Management"
+        },
+        {
+          "id": "b3",
+          "shortAction": "Cover patient to prevent further heat loss given prolonged floor time and mild shivering",
+          "protocolExcerpt": "Avoid/treat hypothermia Remove wet clothing Cover patient to warm and/or prevent further heat loss",
+          "priority": "supplemental",
+          "rationale": "Elderly patients with prolonged floor time are at increased risk for environmental hypothermia.",
+          "protocolReference": "MATC: General Trauma Management"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "hip-splinted-packaged",
+          "if": "Hip splinted with gentle technique",
+          "condition": "Crew gently splints the deformed right leg in the position found, dresses the forearm skin tears, and reassesses neurovascular status before packaging for transport.",
+          "conditionType": "action_taken",
+          "triggerActionIds": ["c1"]
+        },
+        {
+          "targetPhaseId": "rough-handling",
+          "if": "Patient moved without gentle technique",
+          "condition": "Crew attempts to move or splint the patient quickly without gentle, deliberate technique, causing acute pain and additional skin trauma.",
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["c1", "c2"]
+        }
+      ]
+    },
+    {
+      "id": "hip-splinted-packaged",
+      "name": "Hip splinted and packaged",
+      "description": "The right hip/leg has been gently splinted in the position found, the forearm skin tears are dressed, and distal neurovascular status has been confirmed intact. Patient is calmer and ready for careful transfer to the stretcher.",
+      "triggerCondition": "Crew completed gentle splinting of the deformed extremity and dressed the fragile-skin lacerations, reassessing distal pulses/sensation/movement afterward per protocol.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "Non-labored",
+        "circulation": "Distal pulses intact and equal bilaterally, capillary refill under 2 seconds",
+        "skin": { "color": "Pink", "temperature": "Cool to warming", "moisture": "Dry" },
+        "pupils": "PERRL",
+        "motorFunction": "Sensation and distal movement intact bilaterally; right leg immobilized in splint",
+        "otherFindings": [
+          "Right leg splinted in position found",
+          "Saline-moistened dressings applied to bilateral forearm skin tears",
+          "No further bleeding noted from skin tears",
+          "Patient more oriented and cooperative now that she is warmer and more comfortable"
+        ],
+        "patientSpeech": "That's a bit more comfortable, thank you."
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Rhythm",
+        "ecgWaveform": 9,
+        "hr": 92,
+        "bpSys": 122,
+        "bpDia": 78,
+        "respRate": 16,
+        "spo2": 97,
+        "etco2": 0,
+        "temp": 36.6,
+        "tempF": 97.9,
+        "obstruction": 0,
+        "glucose": 98,
+        "customMeasures": [],
+        "trendTimeSeconds": 30,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "c1",
+          "shortAction": "Splint suspected right hip fracture in the position found to limit further movement",
+          "protocolExcerpt": "If distal vascular function is compromised, gently attempt to restore normal anatomic position, and reassess perfusion status Use splints as appropriate to limit movement of suspected fracture",
+          "priority": "critical",
+          "rationale": "Distal pulses are intact, so the leg should be splinted as found rather than manipulated.",
+          "protocolReference": "MATC: Extremity Trauma/External Hemorrhage Management"
+        },
+        {
+          "id": "c2",
+          "shortAction": "Cover forearm skin tears with saline-moistened gauze; avoid adhesive tape on fragile elderly skin",
+          "protocolExcerpt": "Dress open wounds associated with fractures with saline-moistened gauze",
+          "priority": "important",
+          "rationale": "Elderly skin is prone to further tearing from adhesives; saline-moistened non-adherent dressings minimize additional trauma.",
+          "protocolReference": "MATC: Extremity Trauma/External Hemorrhage Management"
+        },
+        {
+          "id": "c3",
+          "shortAction": "Reassess distal pulses, sensation, and movement in the right leg after splinting",
+          "protocolExcerpt": "Reassess distal neurovascular status after any manipulation or splinting of fractures/dislocations",
+          "priority": "critical",
+          "rationale": "Confirms the splint has not compromised circulation or nerve function.",
+          "protocolReference": "MATC: Extremity Trauma/External Hemorrhage Management"
+        },
+        {
+          "id": "c4",
+          "shortAction": "Elevate the injured leg if possible and apply a cold pack over the dressing to limit swelling",
+          "protocolExcerpt": "Elevate extremity fractures above heart level whenever possible to limit swelling Apply ice/cool packs to limit swelling in suspected fractures or soft tissue injury, but do not apply ice directly to bare skin",
+          "priority": "supplemental",
+          "rationale": "Reduces swelling and discomfort during transport.",
+          "protocolReference": "MATC: Extremity Trauma/External Hemorrhage Management"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "transport-initiated",
+          "if": "Patient packaged for transport",
+          "condition": "Patient is fully assessed, splinted, dressed, and carefully transferred onto the stretcher for transport.",
+          "conditionType": "action_taken",
+          "triggerActionIds": ["c1", "c3"]
+        }
+      ]
+    },
+    {
+      "id": "transport-initiated",
+      "name": "Transport initiated",
+      "description": "Patient is packaged and en route to an appropriate trauma-capable facility. Vital signs are trending toward baseline as she warms and pain is controlled with positioning and splinting.",
+      "triggerCondition": "Full trauma assessment, spinal motion restriction, and extremity splinting are complete; crew begins transport with ongoing serial reassessment.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "Non-labored",
+        "circulation": "Distal pulses intact and equal bilaterally",
+        "skin": { "color": "Pink", "temperature": "Warm", "moisture": "Dry" },
+        "pupils": "PERRL",
+        "motorFunction": "Sensation and distal movement intact bilaterally",
+        "otherFindings": [
+          "Patient resting comfortably on stretcher with splint and cervical collar in place",
+          "No new bleeding from skin tears"
+        ],
+        "patientSpeech": "I think I'm doing okay now, thank you for taking care of me."
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Rhythm",
+        "ecgWaveform": 9,
+        "hr": 88,
+        "bpSys": 124,
+        "bpDia": 80,
+        "respRate": 16,
+        "spo2": 98,
+        "etco2": 0,
+        "temp": 36.8,
+        "tempF": 98.2,
+        "obstruction": 0,
+        "glucose": 98,
+        "customMeasures": [],
+        "trendTimeSeconds": 40,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "d1",
+          "shortAction": "Reassess vital signs and neurologic status serially en route to the trauma center",
+          "protocolExcerpt": "Monitor patient for deterioration over time with serial vital signs (pulse, blood pressure, respiratory rate, neurologic status assessment) and repeat neurologic status assessment",
+          "priority": "important",
+          "rationale": "Elderly trauma patients can decompensate later than expected and require ongoing monitoring.",
+          "protocolReference": "MATC: General Trauma Management"
+        },
+        {
+          "id": "d2",
+          "shortAction": "Transport to an appropriate trauma-capable facility per field triage guideline",
+          "protocolExcerpt": "Decisions regarding transport destination should be based on the ACS-COT 2022 National Guideline for the Field Triage of Injured Patients",
+          "priority": "important",
+          "rationale": "Geriatric fall patients with fracture deformity warrant transport consistent with trauma triage criteria.",
+          "protocolReference": "MATC: General Trauma Management"
+        }
+      ],
+      "transitions": []
+    },
+    {
+      "id": "spinal-assessment-skipped",
+      "name": "Spinal assessment skipped",
+      "description": "Crew moves the patient to assess and treat the obvious hip deformity without formally evaluating or applying spinal motion restriction, despite her intermittent confusion and severe distracting pain — both independent SMR criteria per protocol.",
+      "triggerCondition": "The crew did not formally assess spinal motion restriction criteria before repositioning the patient, missing that her fluctuating mental status and severe distracting hip pain each independently indicate the need for a cervical collar and careful spinal handling.",
+      "isDefault": false,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 4, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "Non-labored",
+        "circulation": "Radial pulses present bilaterally",
+        "skin": { "color": "Pale", "temperature": "Cool", "moisture": "Dry" },
+        "pupils": "PERRL",
+        "motorFunction": "Guarding right leg; unable to reliably confirm absence of neck pain due to intermittent confusion",
+        "otherFindings": [
+          "No cervical collar applied",
+          "Patient shifted/repositioned without spinal precautions",
+          "Any undiagnosed cervical injury would go unprotected during movement"
+        ],
+        "patientSpeech": "Ow, my neck moved funny when you turned me..."
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 112,
+        "bpSys": 128,
+        "bpDia": 82,
+        "respRate": 22,
+        "spo2": 94,
+        "etco2": 0,
+        "temp": 36.3,
+        "tempF": 97.3,
+        "obstruction": 0,
+        "glucose": 98,
+        "customMeasures": [],
+        "trendTimeSeconds": 20,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [],
+      "transitions": []
+    },
+    {
+      "id": "rough-handling",
+      "name": "Rough handling during move",
+      "description": "The patient is lifted or repositioned quickly without gentle, deliberate technique, causing a sharp pain response and additional trauma to her fragile skin.",
+      "triggerCondition": "Crew attempted to move or splint the patient without slow, deliberate handling appropriate for a fragile elderly patient with a suspected hip fracture and thin skin, resulting in acute pain and new skin injury.",
+      "isDefault": false,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 4, "motor": 6 },
+        "airway": "Patent, crying out in pain",
+        "breathing": "Rapid, shallow with pain",
+        "circulation": "Radial pulses present, bilaterally strong",
+        "skin": { "color": "Flushed", "temperature": "Warm", "moisture": "Diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Guarding right leg severely; new skin tear noted on left forearm from grip during the move",
+        "otherFindings": [
+          "New linear skin tear on left forearm with active oozing",
+          "Patient visibly distressed"
+        ],
+        "patientSpeech": "Ow! Stop, please, that hurts so much!"
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 136,
+        "bpSys": 142,
+        "bpDia": 90,
+        "respRate": 26,
+        "spo2": 93,
+        "etco2": 0,
+        "temp": 36.4,
+        "tempF": 97.5,
+        "obstruction": 0,
+        "glucose": 98,
+        "customMeasures": [],
+        "trendTimeSeconds": 10,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "e1",
+          "shortAction": "Stop; reposition using slow, gentle technique and re-splint before continuing",
+          "protocolExcerpt": "Minimize patient morbidity from the unnecessary use of immobilization devices",
+          "priority": "important",
+          "rationale": "Recognizing and correcting rough handling limits further pain and skin/soft-tissue injury in a fragile elderly patient.",
+          "protocolReference": "MATC: Spinal Care"
+        }
+      ],
+      "transitions": []
+    }
+  ],
+  "realiti": {
+    "scenarioMonitorType": 2,
+    "scenarioDefaultEnergy": 200,
+    "scenarioDefaultPacerThreshold": 55
+  }
+}

@@ -1,0 +1,262 @@
+{
+  "scenarioId": "916c-01-unstable-tachycardia",
+  "scenarioName": "Unstable Wide-Complex Tachycardia — Synchronized Cardioversion",
+  "scenarioType": "Vital Signs",
+  "scenarioVersion": 2,
+  "scenarioTime": 900,
+  "scenarioMonitorType": 2,
+  "scenarioDefaultEnergy": 200,
+  "scenarioDefaultPacerThreshold": 55,
+  "isDemo": false,
+  "isALSILegacy": false,
+  "scenarioStory": {
+    "history": "Sudden onset of palpitations and lightheadedness while gardening approximately 20 minutes ago, followed by progressive confusion per husband. Denies chest pain. Reports prior brief episodes of 'heart racing' but nothing this severe or prolonged.",
+    "discussion": "",
+    "course": "Initial Contact: Crew arrives to find a 56-year-old female seated in a lawn chair, pale, diaphoretic, and confused, with a rapid, weak radial pulse. Husband reports sudden onset of palpitations followed by worsening confusion. → Unstable WCT recognized, prepared for cardioversion: Crew applies oxygen, establishes IV access, attaches the monitor and obtains a 12-lead, checks blood glucose, and recognizes a regular wide-complex tachycardia with hemodynamic instability. Ketamine is given for procedural sedation prior to synchronized cardioversion. → Synchronized cardioversion performed: Following sedation, the crew delivers a synchronized shock. The rhythm converts to sinus rhythm and the patient's mental status and blood pressure begin to improve. → Converted, transport initiated: Sinus rhythm is maintained, vital signs continue to improve, and the crew packages the patient for transport with continued monitoring for recurrence."
+  },
+  "patientInformation": {
+    "patientName": "Diane Whitfield",
+    "patientCondition": "Palpitations and lightheadedness",
+    "patientAge": 56,
+    "patientAgeUnit": "years",
+    "patientAgeCategory": 0,
+    "patientSex": 2,
+    "patientHeight": 165,
+    "patientWeight": 70,
+    "patientPhotoId": 68,
+    "patientAdmitted": 1
+  },
+  "labs": [],
+  "scenarioEvents": [
+    {
+      "type": "ScenarioEvent",
+      "name": "Initial Contact",
+      "description": "Crew arrives to find a 56-year-old female seated in a lawn chair, pale, diaphoretic, and confused, with a rapid, weak radial pulse. Husband reports sudden onset of palpitations followed by worsening confusion.",
+      "monitorType": 0,
+      "trendTime": 0,
+      "jumpTime": 0,
+      "defibShock": true,
+      "defibDisarm": false,
+      "parameters": {
+        "ecgWaveform": 12,
+        "hr": 178,
+        "bpSys": 78,
+        "bpDia": 52,
+        "respRate": 22,
+        "spo2": 91,
+        "etco2": 0,
+        "temp": 37,
+        "obstruction": 0,
+        "custMeasure1": 98,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Unstable WCT recognized, prepared for cardioversion",
+      "description": "Crew applies oxygen, establishes IV access, attaches the monitor and obtains a 12-lead, checks blood glucose, and recognizes a regular wide-complex tachycardia with hemodynamic instability. Ketamine is given for procedural sedation prior to synchronized cardioversion.",
+      "monitorType": 0,
+      "trendTime": 30,
+      "jumpTime": 0,
+      "defibShock": true,
+      "defibDisarm": false,
+      "parameters": {
+        "ecgWaveform": 12,
+        "hr": 176,
+        "bpSys": 80,
+        "bpDia": 54,
+        "respRate": 22,
+        "spo2": 94,
+        "etco2": 0,
+        "temp": 37,
+        "obstruction": 0,
+        "custMeasure1": 98,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Apply supplemental oxygen, titrate to target 94–98% SpO2",
+        "Establish IV access",
+        "Initiate cardiac monitoring and obtain a 12-lead ECG",
+        "Check blood glucose; treat per Hypoglycemia Guideline if low",
+        "Ketamine 17.5 mg IV for procedural sedation before cardioversion (70 kg × 0.25 mg/kg = 17.5 mg; max initial 25 mg)"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Synchronized cardioversion performed",
+      "description": "Following sedation, the crew delivers a synchronized shock. The rhythm converts to sinus rhythm and the patient's mental status and blood pressure begin to improve.",
+      "monitorType": 0,
+      "trendTime": 20,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 92,
+        "bpSys": 108,
+        "bpDia": 68,
+        "respRate": 18,
+        "spo2": 98,
+        "etco2": 0,
+        "temp": 37,
+        "obstruction": 0,
+        "custMeasure1": 98,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Deliver synchronized cardioversion per manufacturer-recommended energy setting",
+        "Obtain repeat monitor strip/12-lead after cardioversion to confirm conversion"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Converted, transport initiated",
+      "description": "Sinus rhythm is maintained, vital signs continue to improve, and the crew packages the patient for transport with continued monitoring for recurrence.",
+      "monitorType": 0,
+      "trendTime": 40,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 86,
+        "bpSys": 116,
+        "bpDia": 72,
+        "respRate": 16,
+        "spo2": 99,
+        "etco2": 0,
+        "temp": 37,
+        "obstruction": 0,
+        "custMeasure1": 98,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Continue continuous cardiac monitoring en route; reassess for tachycardia recurrence"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Pharmacologic therapy attempted instead of shock",
+      "description": "Despite hemodynamic instability, the crew attempts antiarrhythmic medication instead of immediate synchronized cardioversion. The delay allows further hemodynamic deterioration.",
+      "monitorType": 0,
+      "trendTime": 50,
+      "jumpTime": 0,
+      "defibShock": true,
+      "defibDisarm": false,
+      "parameters": {
+        "ecgWaveform": 12,
+        "hr": 182,
+        "bpSys": 62,
+        "bpDia": 40,
+        "respRate": 26,
+        "spo2": 87,
+        "etco2": 0,
+        "temp": 37,
+        "obstruction": 0,
+        "custMeasure1": 98,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Recognize worsening instability; stop pharmacologic trial and proceed immediately to synchronized cardioversion"
+      ],
+      "relatedSounds": []
+    }
+  ],
+  "checklist": [
+    {
+      "title": "Apply supplemental oxygen, titrate to target 94–98% SpO2",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Establish IV access",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Initiate cardiac monitoring and obtain a 12-lead ECG",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Check blood glucose; treat per Hypoglycemia Guideline if low",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Ketamine 17.5 mg IV for procedural sedation before cardioversion (70 kg × 0.25 mg/kg = 17.5 mg; max initial 25 mg)",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Deliver synchronized cardioversion per manufacturer-recommended energy setting",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Obtain repeat monitor strip/12-lead after cardioversion to confirm conversion",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Continue continuous cardiac monitoring en route; reassess for tachycardia recurrence",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Recognize worsening instability; stop pharmacologic trial and proceed immediately to synchronized cardioversion",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    }
+  ],
+  "media": []
+}

@@ -1,0 +1,308 @@
+{
+  "meta": {
+    "id": "915d-02-pneumonia-sepsis",
+    "name": "Respiratory Distress from Pneumonia with Evolving Septic Shock",
+    "version": 1,
+    "difficulty": "advanced",
+    "category": "Respiratory",
+    "protocols": ["resp-respiratory-distress", "medical-shock", "resp-airway-management"],
+    "totalTimeSeconds": 900,
+    "tags": ["pneumonia", "sepsis", "CPAP", "shock", "915"]
+  },
+  "patient": {
+    "name": "Carol Denniston",
+    "age": 64,
+    "ageUnit": "years",
+    "sex": "female",
+    "weight": 70,
+    "weightLbs": 154,
+    "height": 163,
+    "chiefComplaint": "Worsening cough and shortness of breath with fever",
+    "history": {
+      "hpi": "Daughter reports the patient has had a productive cough and fever for four days, treated at home with over-the-counter medications. Today she became much more short of breath and confused, prompting the 911 call. No recent hospitalizations.",
+      "pastMedical": ["Type 2 diabetes", "Hypertension"],
+      "medications": ["Metformin 500 mg PO BID", "Amlodipine 5 mg PO daily"],
+      "allergies": ["NKDA"],
+      "lastOralIntake": "Small amount of soup this morning, poor intake since yesterday",
+      "events": "Daughter found her more confused and short of breath than usual and called 911"
+    }
+  },
+  "scene": {
+    "dispatch": "64-year-old female, difficulty breathing, residence",
+    "location": "Single-story home, bedroom, patient in bed propped on pillows",
+    "time": "11:20 AM, weekday",
+    "safety": "No hazards to crew noted",
+    "bystanders": "Daughter present, providing history, appears worried",
+    "visualCues": [
+      "Patient sitting upright in bed, visibly tachypneic",
+      "Flushed, warm, diaphoretic skin",
+      "Productive cough audible on arrival",
+      "Confused, slow to answer orientation questions",
+      "Empty water glass and used tissues on nightstand"
+    ]
+  },
+  "phases": [
+    {
+      "id": "initial",
+      "name": "Initial Contact",
+      "description": "Crew finds a 64-year-old female with a 4-day history of productive cough and fever, now tachypneic, hypoxic, and mildly confused, with warm flushed skin and borderline hypotension consistent with early septic shock from pneumonia.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 4, "motor": 6 },
+        "airway": "Patent, productive cough",
+        "breathing": "Tachypneic, shallow, diminished breath sounds at the right base",
+        "circulation": "Radial pulses present, bounding, tachycardic",
+        "skin": { "color": "flushed", "temperature": "warm", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Moves all extremities, mildly confused, disoriented to time",
+        "otherFindings": [
+          "Fever, productive cough with yellow-green sputum",
+          "Mild confusion, oriented to person and place only",
+          "Flash capillary refill (<1 second), consistent with early distributive shock",
+          "Poor oral intake over the past day"
+        ],
+        "patientSpeech": "\"I just can't catch my breath... what day is it?\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 118,
+        "bpSys": 86,
+        "bpDia": 52,
+        "respRate": 32,
+        "spo2": 84,
+        "etco2": 24,
+        "temp": 39.4,
+        "tempF": 103.0,
+        "obstruction": 0,
+        "glucose": 142,
+        "customMeasures": [],
+        "trendTimeSeconds": 0,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [],
+      "transitions": [
+        {
+          "targetPhaseId": "cpap-fluids-started",
+          "if": "CPAP and IV fluids started",
+          "condition": "Crew recognizes combined severe hypoxic respiratory distress and early septic shock, initiating CPAP for oxygenation while simultaneously establishing IV/IO access and beginning fluid resuscitation toward a MAP goal.",
+          "conditionType": "action_taken"
+        },
+        {
+          "targetPhaseId": "shock-progresses",
+          "if": "Fluids withheld, shock progresses",
+          "condition": "Crew focuses only on respiratory support without establishing IV access or initiating fluid resuscitation, and the patient's perfusion continues to decline toward uncompensated septic shock.",
+          "conditionType": "action_not_taken"
+        }
+      ]
+    },
+    {
+      "id": "cpap-fluids-started",
+      "name": "CPAP and IV fluids started",
+      "description": "Crew initiates CPAP for severe hypoxic respiratory distress while establishing IV access and beginning fluid resuscitation toward a MAP goal, checking glucose, and providing advanced notification to the receiving hospital for suspected sepsis.",
+      "triggerCondition": "The combination of severe hypoxia, tachypnea, fever, and evolving hypotension with altered mental status meets criteria for both CPAP and shock protocol activation; crew manages both simultaneously.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 4, "motor": 6 },
+        "airway": "Patent, tolerating CPAP mask",
+        "breathing": "Improved oxygenation on CPAP, still tachypneic",
+        "circulation": "IV established, fluid bolus infusing",
+        "skin": { "color": "flushed, less warm", "temperature": "warm", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Slightly more alert, still mildly confused",
+        "otherFindings": [
+          "CPAP mask sealed and tolerated",
+          "IV access obtained, first 500 mL bolus infusing",
+          "Blood glucose checked, within normal range",
+          "Advanced notification provided to receiving hospital for suspected sepsis"
+        ],
+        "patientSpeech": "\"That air helps a little.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 108,
+        "bpSys": 96,
+        "bpDia": 58,
+        "respRate": 26,
+        "spo2": 92,
+        "etco2": 30,
+        "temp": 39.2,
+        "tempF": 102.6,
+        "obstruction": 0,
+        "glucose": 138,
+        "customMeasures": [],
+        "trendTimeSeconds": 30,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a1-cpap",
+          "shortAction": "Initiate CPAP for severe hypoxic respiratory distress",
+          "protocolExcerpt": "Non-invasive ventilation (NIV) should be administered for severe respiratory distress via BVM, continuous positive airway pressure (CPAP) or bi-level positive airway pressure (BiPAP)",
+          "priority": "critical",
+          "rationale": "Severe hypoxia from pneumonia warrants early non-invasive ventilatory support.",
+          "protocolReference": "MATC: Respiratory Distress (includes Bronchospasm, Pulmonary Edema)"
+        },
+        {
+          "id": "a2-iv-io-access",
+          "shortAction": "Establish IV access; if unsuccessful within 2 attempts or 90 seconds, place an IO needle",
+          "protocolExcerpt": "Establish IV access. If unable to obtain within two attempts or less than 90 seconds, place an IO needle",
+          "priority": "critical",
+          "rationale": "Prompt vascular access is essential to begin fluid resuscitation for septic shock.",
+          "protocolReference": "MATC: Shock"
+        },
+        {
+          "id": "a3-fluid-bolus",
+          "shortAction": "Administer isotonic fluid bolus (500 mL) toward a MAP goal of 65 mmHg, up to 30 mL/kg total",
+          "protocolExcerpt": "Fluid goal of up to 30 mL/kg of isotonic fluid by administering rapid, predetermined boluses (e.g., 500 mL) unless the MAP goal is achieved, or pulmonary edema develops",
+          "priority": "critical",
+          "rationale": "Aggressive early fluid resuscitation is essential in suspected septic shock.",
+          "protocolReference": "MATC: Shock"
+        },
+        {
+          "id": "a4-glucose-check",
+          "shortAction": "Check blood glucose; correct if less than 60 mg/dL",
+          "protocolExcerpt": "Check blood sugar, and correct if less than 60 mg/dL",
+          "priority": "important",
+          "rationale": "Hypoglycemia can mimic or worsen altered mental status in a septic patient and is quickly correctable.",
+          "protocolReference": "MATC: Shock"
+        },
+        {
+          "id": "a5-notification",
+          "shortAction": "Provide advanced notification to the receiving hospital for suspected sepsis",
+          "protocolExcerpt": "Provide advanced notification to the hospital",
+          "priority": "important",
+          "rationale": "Advance notice allows the receiving facility to activate sepsis protocols before arrival.",
+          "protocolReference": "MATC: Shock"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "improved-transport",
+          "if": "Perfusion improving, transport initiated",
+          "condition": "With CPAP and fluid resuscitation, oxygenation and perfusion begin to improve; crew continues management en route.",
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a1-cpap", "a3-fluid-bolus"]
+        }
+      ]
+    },
+    {
+      "id": "improved-transport",
+      "name": "Perfusion improving, transport initiated",
+      "description": "With continued CPAP and fluid resuscitation, oxygenation and mental status improve. Crew maintains the CPAP seal throughout transport and considers coordinating empiric antibiotics if transport time is prolonged.",
+      "triggerCondition": "Following the initial fluid bolus and CPAP, the patient's oxygenation and perfusion trend favorably; crew continues supportive care during transport.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent, CPAP seal maintained",
+        "breathing": "Improved, less tachypneic",
+        "circulation": "Improving perfusion, second fluid bolus considered",
+        "skin": { "color": "pink", "temperature": "warm", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Alert and oriented x3",
+        "otherFindings": [
+          "Mental status clearing as perfusion improves",
+          "CPAP seal maintained continuously",
+          "MAP trending toward goal"
+        ],
+        "patientSpeech": "\"I feel a little more with it now.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 102,
+        "bpSys": 104,
+        "bpDia": 64,
+        "respRate": 22,
+        "spo2": 94,
+        "etco2": 34,
+        "temp": 38.9,
+        "tempF": 102.0,
+        "obstruction": 0,
+        "glucose": 132,
+        "customMeasures": [],
+        "trendTimeSeconds": 40,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a6-maintain-cpap-seal",
+          "shortAction": "Maintain continuous CPAP mask seal throughout transport until hospital CPAP is ready to take over",
+          "protocolExcerpt": "Once initiated and patient is tolerating mask, DO NOT discontinue CPAP/BiPAP until patient is on the emergency department stretcher and hospital CPAP/BiPAP is immediately available for patient to be switched over, or physician is at bedside and requesting CPAP/BiPAP be discontinued",
+          "priority": "critical",
+          "rationale": "Interrupting CPAP can cause rapid decompensation from atelectasis and alveolar collapse.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        },
+        {
+          "id": "a7-antibiotics-coordination",
+          "shortAction": "Consider empiric antibiotics per regional coordination if prolonged transport time anticipated",
+          "protocolExcerpt": "Consider empiric antibiotics for suspected septic shock if transport time is anticipated to be prolonged, if blood cultures can be obtained in advance, and/or EMS has coordinated with regional receiving hospitals about choice of antibiotic therapy",
+          "priority": "supplemental",
+          "rationale": "Early antibiotics improve septic shock outcomes when local protocols and coordination support prehospital administration.",
+          "protocolReference": "MATC: Shock"
+        }
+      ],
+      "transitions": []
+    },
+    {
+      "id": "shock-progresses",
+      "name": "Fluids withheld, shock progresses",
+      "description": "Crew focuses only on CPAP and respiratory support without establishing IV access or beginning fluid resuscitation. The patient's mental status and blood pressure continue to decline as septic shock becomes uncompensated.",
+      "triggerCondition": "Without fluid resuscitation, perfusion continues to worsen despite improved oxygenation on CPAP; mental status declines and blood pressure falls further, indicating progression to uncompensated shock.",
+      "isDefault": false,
+      "clinicalPresentation": {
+        "avpu": "Verbal",
+        "gcs": { "eye": 3, "verbal": 3, "motor": 5 },
+        "airway": "Patent, tolerating CPAP mask",
+        "breathing": "Oxygenation improved on CPAP, still tachypneic",
+        "circulation": "No IV access established, worsening perfusion",
+        "skin": { "color": "mottled, pale", "temperature": "cool", "moisture": "diaphoretic" },
+        "pupils": "PERRL, sluggish",
+        "motorFunction": "Responds only to voice, increasingly confused",
+        "otherFindings": [
+          "Mental status worsening despite improved oxygenation",
+          "No fluid resuscitation initiated",
+          "Delayed capillary refill now present, a shift from earlier flash refill"
+        ],
+        "patientSpeech": "Confused, incoherent responses"
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 128,
+        "bpSys": 76,
+        "bpDia": 42,
+        "respRate": 28,
+        "spo2": 91,
+        "etco2": 26,
+        "temp": 39.3,
+        "tempF": 102.7,
+        "obstruction": 0,
+        "glucose": 140,
+        "customMeasures": [],
+        "trendTimeSeconds": 50,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a8-recognize-uncompensated-shock",
+          "shortAction": "Recognize uncompensated septic shock; establish IV/IO access immediately and begin fluid resuscitation",
+          "protocolExcerpt": "Hypotension indicates uncompensated shock, which may progress to cardiopulmonary failure within minutes. Establish IV access. If unable to obtain within two attempts or less than 90 seconds, place an IO needle",
+          "priority": "critical",
+          "rationale": "Delayed fluid resuscitation allows progression from compensated to uncompensated shock, which can rapidly become life-threatening.",
+          "protocolReference": "MATC: Shock"
+        }
+      ],
+      "transitions": []
+    }
+  ],
+  "realiti": {
+    "scenarioMonitorType": 2,
+    "scenarioDefaultEnergy": 200,
+    "scenarioDefaultPacerThreshold": 55
+  }
+}

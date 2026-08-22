@@ -1,0 +1,425 @@
+{
+  "meta": {
+    "id": "916a-02-symptomatic-bradycardia",
+    "name": "Symptomatic Bradycardia with Syncope - Atropine-Refractory, TCP",
+    "version": 1,
+    "difficulty": "intermediate",
+    "category": "Cardiovascular",
+    "protocols": ["cv-bradycardia", "cv-syncope", "medical-shock"],
+    "totalTimeSeconds": 720,
+    "createdAt": "2026-08-22",
+    "tags": ["cardiac", "bradycardia", "syncope", "transcutaneous pacing", "atropine", "third-degree block", "916a"]
+  },
+  "patient": {
+    "name": "Dorothy Ellison",
+    "age": 74,
+    "ageUnit": "years",
+    "sex": "female",
+    "weight": 65,
+    "weightLbs": 143,
+    "height": 163,
+    "chiefComplaint": "Syncope",
+    "history": {
+      "hpi": "Patient reports feeling lightheaded and 'fuzzy' after standing up from the couch, then has no memory of the fall itself; daughter states she was unresponsive for approximately 10 seconds before regaining consciousness. Patient now complains of generalized weakness and mild chest heaviness. Denies prior syncope, chest pain, or shortness of breath prior to the event.",
+      "pastMedical": ["Hypertension", "Coronary artery disease", "Hypothyroidism"],
+      "medications": ["Metoprolol 50 mg PO daily", "Digoxin 0.125 mg PO daily", "Levothyroxine 100 mcg PO daily"],
+      "allergies": ["NKDA"],
+      "lastOralIntake": "Light breakfast approximately 6 hours ago",
+      "events": "Stood up from the couch, became lightheaded, and collapsed to the floor; daughter witnessed the fall and called 911 immediately"
+    }
+  },
+  "scene": {
+    "dispatch": "Medic 4, respond to 1420 Birchwood Lane for a 74-year-old female, syncope, patient now conscious but weak.",
+    "location": "Private residence, living room; patient found seated in a chair with family assistance after a witnessed collapse",
+    "time": "Weekday afternoon, 1420 hrs",
+    "safety": "Scene safe, family present and cooperative",
+    "bystanders": "Daughter witnessed patient stand up, go pale, and collapse to the floor; no seizure activity noted, brief loss of consciousness approximately 10 seconds",
+    "visualCues": [
+      "Patient pale and diaphoretic, seated in a chair with family assistance",
+      "Small abrasion to forehead from the fall",
+      "Medication bottles visible on the kitchen counter (metoprolol, digoxin, levothyroxine)"
+    ]
+  },
+  "phases": [
+    {
+      "id": "initial",
+      "name": "Initial Contact",
+      "description": "74-year-old female found post-syncopal episode, now awake but pale, diaphoretic, and weak. Initial vitals reveal profound bradycardia (HR 32) with hypotension (78/50), consistent with symptomatic bradycardia requiring immediate assessment and monitoring.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 4, "motor": 6 },
+        "airway": "Patent, speaking in full sentences",
+        "breathing": "Slightly labored, symmetric chest rise, no accessory muscle use",
+        "circulation": "Radial pulse weak and slow, palpable at approximately 32/min; skin pale and diaphoretic",
+        "skin": { "color": "Pale", "temperature": "Cool", "moisture": "Diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Grossly intact x4 extremities",
+        "otherFindings": ["Small forehead abrasion from fall, no active bleeding", "Reports generalized weakness and mild chest heaviness"],
+        "patientSpeech": "I just felt so dizzy when I stood up... I don't really remember falling."
+      },
+      "monitorState": {
+        "ecgRhythm": "Third Degree Heart Block",
+        "ecgWaveform": 100,
+        "hr": 32,
+        "bpSys": 78,
+        "bpDia": 50,
+        "respRate": 18,
+        "spo2": 94,
+        "etco2": 0,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 0,
+        "glucose": 96,
+        "customMeasures": [],
+        "trendTimeSeconds": 0,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a1",
+          "shortAction": "Apply cardiac monitor and obtain 12-lead EKG",
+          "protocolExcerpt": "Additional Evaluation: Cardiac monitoring; Oxygen saturation (SPO2); Ongoing vital signs; 12-lead EKG; Blood glucose level (BGL)",
+          "priority": "critical",
+          "rationale": "Identifies the underlying rhythm (third-degree AV block) driving the symptomatic bradycardia and rules out ACS as a contributing cause.",
+          "protocolReference": "MATC: Adult and Pediatric Syncope and Near Syncope"
+        },
+        {
+          "id": "a2",
+          "shortAction": "Administer oxygen titrated to a target SpO2 of 94-98%",
+          "protocolExcerpt": "Administer oxygen as appropriate with a target of achieving 94–98% saturation",
+          "priority": "important",
+          "rationale": "Corrects hypoxia as a contributing cause of bradycardia per protocol treatment goals.",
+          "protocolReference": "MATC: Bradycardia"
+        },
+        {
+          "id": "a3",
+          "shortAction": "Check blood glucose level",
+          "protocolExcerpt": "Check blood glucose and treat hypoglycemia per the Hypoglycemia Guideline and Hyperglycemia Guideline",
+          "priority": "important",
+          "rationale": "Rules out hypoglycemia as a reversible cause of altered perfusion/bradycardia.",
+          "protocolReference": "MATC: Bradycardia"
+        },
+        {
+          "id": "a4",
+          "shortAction": "Establish IV access",
+          "protocolExcerpt": "Establish IV access",
+          "priority": "critical",
+          "rationale": "Required for atropine and any subsequent vasopressor or sedation administration.",
+          "protocolReference": "MATC: Bradycardia"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "atropine-given",
+          "if": "IV access established",
+          "condition": "IV access obtained and initial assessment complete; heart rate remains 32 with hypotension (78/50), meeting inclusion criteria for symptomatic bradycardia requiring pharmacologic treatment.",
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a4"]
+        }
+      ]
+    },
+    {
+      "id": "atropine-given",
+      "name": "Atropine given",
+      "description": "IV access is established and the patient remains symptomatic with HR 32 and hypotension. Per protocol, atropine is the first-line additional therapy for symptomatic bradycardia.",
+      "triggerCondition": "IV access obtained; heart rate remains 32 with hypotension (BP 78/50) meeting inclusion criteria for symptomatic bradycardia; atropine is indicated as the first additional therapy per protocol.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 4, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "Slightly labored, symmetric chest rise",
+        "circulation": "Radial pulse weak and slow, IV established in left AC",
+        "skin": { "color": "Pale", "temperature": "Cool", "moisture": "Diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Grossly intact x4 extremities",
+        "otherFindings": ["Patient increasingly fatigued, still oriented"],
+        "patientSpeech": "I still feel really weak and lightheaded."
+      },
+      "monitorState": {
+        "ecgRhythm": "Third Degree Heart Block",
+        "ecgWaveform": 100,
+        "hr": 32,
+        "bpSys": 78,
+        "bpDia": 50,
+        "respRate": 18,
+        "spo2": 94,
+        "etco2": 0,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 0,
+        "glucose": 96,
+        "customMeasures": [],
+        "trendTimeSeconds": 20,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a5",
+          "shortAction": "Atropine 1 mg IV push; may repeat every 3-5 minutes to a max total dose of 3 mg",
+          "protocolExcerpt": "Atropine 1 mg IV q 3–5 minutes (maximum total dose of 3 mg)",
+          "priority": "critical",
+          "rationale": "First-line additional therapy for symptomatic bradycardia per protocol.",
+          "protocolReference": "MATC: Bradycardia"
+        },
+        {
+          "id": "a6",
+          "shortAction": "Reassess HR and BP after each atropine dose; recognize third-degree block may be atropine-refractory",
+          "protocolExcerpt": "Third-degree heart block or the denervated heart (as in cardiac transplant) may not respond to atropine and in these cases, proceed quickly to chronotropic agents (such as epinephrine or dopamine) or transcutaneous pacing",
+          "priority": "important",
+          "rationale": "Prevents delay in escalating to pacing when atropine is unlikely to work for infranodal (third-degree) block.",
+          "protocolReference": "MATC: Bradycardia"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "tcp-initiated",
+          "if": "Atropine fails after two doses",
+          "condition": "Two 1 mg doses of atropine (2 mg total) administered IV with no improvement in heart rate or blood pressure; patient remains symptomatic with HR 32 and BP 76/48. Provider recognizes atropine-refractory third-degree block and escalates to transcutaneous pacing.",
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a5", "a6"]
+        },
+        {
+          "targetPhaseId": "deterioration-atropine-max",
+          "if": "Atropine repeated to max dose, pacing delayed",
+          "condition": "Atropine given to the maximum total dose of 3 mg without initiating transcutaneous pacing; heart rate remains 32 and blood pressure continues to fall, with worsening mental status.",
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["a5"]
+        }
+      ]
+    },
+    {
+      "id": "tcp-initiated",
+      "name": "TCP initiated",
+      "description": "Atropine has failed to improve the patient's heart rate or blood pressure. Per protocol, in cases of impending hemodynamic collapse the provider proceeds directly to transcutaneous pacing, with sedation or pain control considered.",
+      "triggerCondition": "After 2 mg atropine IV with no improvement in heart rate or blood pressure, patient remains symptomatic with HR 32 and BP 76/48. Per protocol, in cases of impending hemodynamic collapse, proceed directly to transcutaneous pacing.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 4, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "Slightly labored",
+        "circulation": "Radial pulse weak and slow, worsening pallor",
+        "skin": { "color": "Pale", "temperature": "Cool", "moisture": "Diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Grossly intact x4 extremities",
+        "otherFindings": ["Pacing pads applied anterior/posterior", "Patient anxious about upcoming pacing"],
+        "patientSpeech": "What are you about to do to me? I'm scared."
+      },
+      "monitorState": {
+        "ecgRhythm": "Third Degree Heart Block",
+        "ecgWaveform": 100,
+        "hr": 32,
+        "bpSys": 76,
+        "bpDia": 48,
+        "respRate": 18,
+        "spo2": 93,
+        "etco2": 0,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 0,
+        "glucose": 96,
+        "customMeasures": [],
+        "trendTimeSeconds": 40,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a7",
+          "shortAction": "Apply pacing pads (anterior/posterior) and initiate transcutaneous pacing",
+          "protocolExcerpt": "Transcutaneous Pacing – If pacing is performed, consider sedation or pain control",
+          "priority": "critical",
+          "rationale": "Third-degree block is atropine-refractory; TCP is the next escalation per protocol.",
+          "protocolReference": "MATC: Bradycardia"
+        },
+        {
+          "id": "a8",
+          "shortAction": "Administer sedation/analgesia prior to pacing per local protocol",
+          "protocolExcerpt": "If pacing is performed, consider sedation or pain control",
+          "priority": "critical",
+          "rationale": "TCP is painful; sedation improves patient tolerance and cooperation.",
+          "protocolReference": "MATC: Bradycardia"
+        },
+        {
+          "id": "a9",
+          "shortAction": "Confirm electrical and mechanical capture; document pacer rate, mA, and patient response",
+          "protocolExcerpt": "Pacing: Time started or stopped, rate, joules, capture, and response rate",
+          "priority": "critical",
+          "rationale": "Mechanical capture (palpable pulse matching paced rate) confirms effective pacing, not just electrical spikes on the monitor.",
+          "protocolReference": "MATC: Bradycardia"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "captured-stabilized",
+          "if": "Capture achieved with sedation given",
+          "condition": "Pacing pads applied, sedation administered, and transcutaneous pacing captures at the set rate with a palpable pulse; heart rate rises to the paced rate and blood pressure improves.",
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a7", "a8", "a9"]
+        },
+        {
+          "targetPhaseId": "pacing-without-sedation",
+          "if": "Pacing started without sedation",
+          "condition": "Transcutaneous pacing is initiated without administering sedation or analgesia; patient experiences significant pain and agitation from pacing, complicating capture assessment and patient cooperation.",
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["a8"]
+        }
+      ]
+    },
+    {
+      "id": "captured-stabilized",
+      "name": "Capture achieved; perfusion improved",
+      "description": "Transcutaneous pacing successfully captures with sedation on board. Heart rate rises to the paced rate and blood pressure improves; the patient is less pale and more comfortable. Ongoing reassessment and transport preparation continue.",
+      "triggerCondition": "Transcutaneous pacing captures at the set rate with sedation on board; heart rate rises to the paced rate and blood pressure improves, patient less pale and more comfortable.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "Unlabored",
+        "circulation": "Radial pulse strong, regular, matching paced rate",
+        "skin": { "color": "Pink", "temperature": "Warm", "moisture": "Slightly diaphoretic, improving" },
+        "pupils": "PERRL",
+        "motorFunction": "Grossly intact x4 extremities",
+        "otherFindings": ["Pacer capture confirmed with palpable femoral pulse matching monitor rate", "Sedation on board, patient calm and cooperative"],
+        "patientSpeech": "That feels a lot better. Is it working now?"
+      },
+      "monitorState": {
+        "ecgRhythm": "Pacemaker Rhythm",
+        "ecgWaveform": 9,
+        "hr": 70,
+        "bpSys": 100,
+        "bpDia": 64,
+        "respRate": 16,
+        "spo2": 97,
+        "etco2": 0,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 0,
+        "glucose": 96,
+        "customMeasures": [{ "label": "Pacer Rate", "value": 70 }, { "label": "Pacer Output (mA)", "value": 80 }],
+        "trendTimeSeconds": 20,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a10",
+          "shortAction": "Reassess vitals and mental status; provide advance hospital notification given persistent hemodynamic instability requiring pacing",
+          "protocolExcerpt": "Provide advanced notification to the hospital",
+          "priority": "important",
+          "rationale": "Ensures receiving facility is prepared for a paced, previously unstable bradycardia patient.",
+          "protocolReference": "MATC: Shock"
+        },
+        {
+          "id": "a11",
+          "shortAction": "Continue cardiac monitoring and reassess vitals throughout transport",
+          "protocolExcerpt": "Ongoing vital signs",
+          "priority": "supplemental",
+          "rationale": "Third-degree block can recur or the patient may lose capture; ongoing monitoring detects deterioration early.",
+          "protocolReference": "MATC: Adult and Pediatric Syncope and Near Syncope"
+        }
+      ],
+      "transitions": []
+    },
+    {
+      "id": "deterioration-atropine-max",
+      "name": "Atropine repeated, pacing delayed",
+      "description": "Atropine is repeated to the maximum total dose of 3 mg without initiating transcutaneous pacing. The third-degree block does not respond, and the patient's perfusion continues to deteriorate.",
+      "triggerCondition": "Atropine given to the maximum total dose of 3 mg without initiating transcutaneous pacing; heart rate remains 32 and blood pressure falls further, with worsening mental status approaching unresponsiveness.",
+      "isDefault": false,
+      "clinicalPresentation": {
+        "avpu": "Verbal",
+        "gcs": { "eye": 3, "verbal": 3, "motor": 5 },
+        "airway": "Patent, but responses slowing",
+        "breathing": "Increased rate, shallow",
+        "circulation": "Radial pulse weak, thready, slow; peripheral pulses difficult to palpate",
+        "skin": { "color": "Pale/mottled", "temperature": "Cool", "moisture": "Diaphoretic" },
+        "pupils": "PERRL, sluggish",
+        "motorFunction": "Grossly intact but responses delayed",
+        "otherFindings": ["Patient rousable only to voice", "Family increasingly anxious"],
+        "patientSpeech": "Mumbled, difficult to understand"
+      },
+      "monitorState": {
+        "ecgRhythm": "Third Degree Heart Block",
+        "ecgWaveform": 100,
+        "hr": 32,
+        "bpSys": 62,
+        "bpDia": 40,
+        "respRate": 22,
+        "spo2": 90,
+        "etco2": 0,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 0,
+        "glucose": 96,
+        "customMeasures": [],
+        "trendTimeSeconds": 40,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "b1a",
+          "shortAction": "Recognize impending hemodynamic collapse; proceed directly to transcutaneous pacing without further atropine",
+          "protocolExcerpt": "In cases of impending hemodynamic collapse, proceed directly to transcutaneous pacing",
+          "priority": "critical",
+          "rationale": "Further atropine at max dose provides no additional benefit for third-degree block; delaying pacing risks cardiovascular collapse.",
+          "protocolReference": "MATC: Bradycardia"
+        }
+      ],
+      "transitions": []
+    },
+    {
+      "id": "pacing-without-sedation",
+      "name": "Pacing without sedation",
+      "description": "Transcutaneous pacing is initiated without prior sedation or analgesia. The patient experiences significant pain and agitation from the pacing current, complicating assessment of capture and patient cooperation.",
+      "triggerCondition": "Transcutaneous pacing initiated without administering sedation or analgesia; patient experiences significant pain and agitation from pacing, complicating capture assessment and patient cooperation.",
+      "isDefault": false,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 4, "motor": 6 },
+        "airway": "Patent, crying out",
+        "breathing": "Rapid due to pain/distress",
+        "circulation": "Radial pulse strong, matching paced rate, but patient thrashing",
+        "skin": { "color": "Flushed", "temperature": "Warm", "moisture": "Diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Grossly intact, actively resisting/pulling away",
+        "otherFindings": ["Patient grimacing and guarding chest wall with each pacing spike", "Difficult to obtain accurate capture assessment due to patient movement"],
+        "patientSpeech": "Stop, stop, that hurts! Please stop!"
+      },
+      "monitorState": {
+        "ecgRhythm": "Pacemaker Rhythm",
+        "ecgWaveform": 9,
+        "hr": 70,
+        "bpSys": 98,
+        "bpDia": 60,
+        "respRate": 24,
+        "spo2": 95,
+        "etco2": 0,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 0,
+        "glucose": 96,
+        "customMeasures": [{ "label": "Pacer Rate", "value": 70 }, { "label": "Pacer Output (mA)", "value": 80 }],
+        "trendTimeSeconds": 15,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "b2a",
+          "shortAction": "Administer sedation/analgesia promptly to reduce pain and improve tolerance of pacing",
+          "protocolExcerpt": "If pacing is performed, consider sedation or pain control",
+          "priority": "important",
+          "rationale": "Untreated pain from TCP causes patient distress and can obscure accurate assessment of mechanical capture.",
+          "protocolReference": "MATC: Bradycardia"
+        }
+      ],
+      "transitions": []
+    }
+  ],
+  "realiti": {
+    "scenarioMonitorType": 2,
+    "scenarioDefaultEnergy": 200,
+    "scenarioDefaultPacerThreshold": 55
+  }
+}

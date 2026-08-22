@@ -1,0 +1,236 @@
+{
+  "scenarioId": "914b-02-kidney-stones",
+  "scenarioName": "Kidney Stone — Severe Flank Pain with Hydromorphone Titration",
+  "scenarioType": "Vital Signs",
+  "scenarioVersion": 2,
+  "scenarioTime": 780,
+  "scenarioMonitorType": 2,
+  "scenarioDefaultEnergy": 200,
+  "scenarioDefaultPacerThreshold": 55,
+  "isDemo": false,
+  "isALSILegacy": false,
+  "scenarioStory": {
+    "history": "Sudden onset of severe left-sided flank pain approximately 45 minutes ago while at work, described as sharp and colicky, radiating toward the groin. Pain is constant with waves of increased intensity. Associated nausea with two episodes of vomiting. No fever. Reports one prior kidney stone 3 years ago that passed without intervention.",
+    "discussion": "",
+    "course": "Initial Contact: Crew arrives to find a 45-year-old female writhing on the floor, unable to sit still, holding her left flank. She is alert, diaphoretic, and reports 10/10 colicky pain with associated nausea. → Pain assessed and hydromorphone given: Crew obtains a full set of vitals, assesses pain using a numeric rating scale, establishes IV access, and administers weight-based hydromorphone along with ondansetron for nausea. Patient is placed in a position of comfort. → Reassessed at 5 min, repeat dose given: Five minutes after the initial dose, pain remains moderate. Crew reassesses vital signs, confirms hemodynamic stability, and administers a repeat weight-based hydromorphone dose within the protocol's cumulative maximum before transporting."
+  },
+  "patientInformation": {
+    "patientName": "Renata Ford",
+    "patientCondition": "Severe left flank pain, writhing and unable to find a comfortable position",
+    "patientAge": 45,
+    "patientAgeUnit": "years",
+    "patientAgeCategory": 0,
+    "patientSex": 2,
+    "patientHeight": 165,
+    "patientWeight": 70,
+    "patientPhotoId": 54,
+    "patientAdmitted": 1
+  },
+  "labs": [],
+  "scenarioEvents": [
+    {
+      "type": "ScenarioEvent",
+      "name": "Initial Contact",
+      "description": "Crew arrives to find a 45-year-old female writhing on the floor, unable to sit still, holding her left flank. She is alert, diaphoretic, and reports 10/10 colicky pain with associated nausea.",
+      "monitorType": 0,
+      "trendTime": 0,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 118,
+        "bpSys": 148,
+        "bpDia": 92,
+        "respRate": 22,
+        "spo2": 98,
+        "etco2": 0,
+        "temp": 37,
+        "obstruction": 0,
+        "custMeasure1": 98,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Pain assessed and hydromorphone given",
+      "description": "Crew obtains a full set of vitals, assesses pain using a numeric rating scale, establishes IV access, and administers weight-based hydromorphone along with ondansetron for nausea. Patient is placed in a position of comfort.",
+      "monitorType": 0,
+      "trendTime": 30,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 104,
+        "bpSys": 136,
+        "bpDia": 84,
+        "respRate": 18,
+        "spo2": 99,
+        "etco2": 0,
+        "temp": 37,
+        "obstruction": 0,
+        "custMeasure1": 98,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Assess pain using Numeric Rating Scale (patient >12 years old)",
+        "Assess for life-threatening causes: AAA, ectopic pregnancy, appendicitis, perforation",
+        "Establish IV access for analgesia administration",
+        "Hydromorphone 1 mg IV (70 kg × 0.015 mg/kg = 1.05 mg, rounded to 1 mg; max initial 2 mg, max cumulative 4 mg)",
+        "Ondansetron 4 mg IV for nausea",
+        "Place patient in position of comfort and reassess"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Reassessed at 5 min, repeat dose given",
+      "description": "Five minutes after the initial dose, pain remains moderate. Crew reassesses vital signs, confirms hemodynamic stability, and administers a repeat weight-based hydromorphone dose within the protocol's cumulative maximum before transporting.",
+      "monitorType": 0,
+      "trendTime": 40,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 88,
+        "bpSys": 126,
+        "bpDia": 78,
+        "respRate": 16,
+        "spo2": 99,
+        "etco2": 0,
+        "temp": 37,
+        "obstruction": 0,
+        "custMeasure1": 98,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Repeat hydromorphone 1 mg IV after 5 min (cumulative 2 mg; max cumulative 4 mg)",
+        "Monitor capnography/SpO2 for hypoventilation after repeat opioid dose",
+        "Transport to appropriate receiving facility, reassess vitals en route"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Analgesia withheld despite protocol",
+      "description": "Crew withholds opioid analgesia out of concern for masking the clinical picture. The patient remains in severe, uncontrolled pain, continuing to writhe and becoming increasingly tachycardic and distressed.",
+      "monitorType": 0,
+      "trendTime": 30,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 128,
+        "bpSys": 152,
+        "bpDia": 96,
+        "respRate": 26,
+        "spo2": 97,
+        "etco2": 0,
+        "temp": 37,
+        "obstruction": 0,
+        "custMeasure1": 98,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Recognize ongoing severe pain unresponsive to non-pharmacologic measures; administer hydromorphone"
+      ],
+      "relatedSounds": []
+    }
+  ],
+  "checklist": [
+    {
+      "title": "Assess pain using Numeric Rating Scale (patient >12 years old)",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Assess for life-threatening causes: AAA, ectopic pregnancy, appendicitis, perforation",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Establish IV access for analgesia administration",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Hydromorphone 1 mg IV (70 kg × 0.015 mg/kg = 1.05 mg, rounded to 1 mg; max initial 2 mg, max cumulative 4 mg)",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Ondansetron 4 mg IV for nausea",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Place patient in position of comfort and reassess",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Repeat hydromorphone 1 mg IV after 5 min (cumulative 2 mg; max cumulative 4 mg)",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Monitor capnography/SpO2 for hypoventilation after repeat opioid dose",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Transport to appropriate receiving facility, reassess vitals en route",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Recognize ongoing severe pain unresponsive to non-pharmacologic measures; administer hydromorphone",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    }
+  ],
+  "media": []
+}

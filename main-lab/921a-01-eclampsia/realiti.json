@@ -1,0 +1,290 @@
+{
+  "scenarioId": "921a-01-eclampsia",
+  "scenarioName": "Eclampsia — New-Onset Seizure at 34 Weeks",
+  "scenarioType": "Vital Signs",
+  "scenarioVersion": 2,
+  "scenarioTime": 900,
+  "scenarioMonitorType": 2,
+  "scenarioDefaultEnergy": 200,
+  "scenarioDefaultPacerThreshold": 55,
+  "isDemo": false,
+  "isALSILegacy": false,
+  "scenarioStory": {
+    "history": "34-week pregnant female (G2P1) with no prior seizure history. Husband reports a roughly 1-hour prodrome of severe headache and visual disturbances (spots), followed by a witnessed generalized tonic-clonic seizure lasting approximately 90 seconds. Patient is now postictal, confused, and continues to report headache. No prior history of hypertension or pre-eclampsia in this or a prior pregnancy.",
+    "discussion": "",
+    "course": "Initial Contact: Crew arrives to find a 28-year-old pregnant female postictal on the living room floor after a witnessed generalized seizure. She is confused, severely hypertensive, and reports a headache that preceded the event. → Eclampsia recognized, magnesium given: Crew treats the seizure as eclampsia: IV access is obtained, magnesium sulfate is administered, supplemental oxygen is applied, and the patient is positioned in the left lateral position to optimize uterine perfusion. → DTRs reassessed, transport initiated: With reflexes and respiratory status confirmed normal, the crew continues the magnesium infusion, treats persistent severe hypertension, and initiates emergent transport with serial vital signs."
+  },
+  "patientInformation": {
+    "patientName": "Maria Delgado",
+    "patientCondition": "Seizure, now postictal, 34 weeks pregnant",
+    "patientAge": 28,
+    "patientAgeUnit": "years",
+    "patientAgeCategory": 0,
+    "patientSex": 2,
+    "patientHeight": 165,
+    "patientWeight": 78,
+    "patientPhotoId": 34,
+    "patientAdmitted": 1
+  },
+  "labs": [],
+  "scenarioEvents": [
+    {
+      "type": "ScenarioEvent",
+      "name": "Initial Contact",
+      "description": "Crew arrives to find a 28-year-old pregnant female postictal on the living room floor after a witnessed generalized seizure. She is confused, severely hypertensive, and reports a headache that preceded the event.",
+      "monitorType": 0,
+      "trendTime": 0,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 108,
+        "bpSys": 182,
+        "bpDia": 118,
+        "respRate": 20,
+        "spo2": 96,
+        "etco2": 0,
+        "temp": 37,
+        "obstruction": 0,
+        "custMeasure1": 92,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Eclampsia recognized, magnesium given",
+      "description": "Crew treats the seizure as eclampsia: IV access is obtained, magnesium sulfate is administered, supplemental oxygen is applied, and the patient is positioned in the left lateral position to optimize uterine perfusion.",
+      "monitorType": 0,
+      "trendTime": 30,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 102,
+        "bpSys": 168,
+        "bpDia": 108,
+        "respRate": 18,
+        "spo2": 98,
+        "etco2": 0,
+        "temp": 37,
+        "obstruction": 0,
+        "custMeasure1": 92,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Recognize new seizure at 34 weeks gestation as eclampsia until proven otherwise",
+        "Establish IV access; administer O2 to target 94-98% saturation",
+        "Magnesium sulfate 6 g IV over 5-10 min for seizure management",
+        "Position patient left lateral or manually displace uterus to the left",
+        "Reassess deep tendon reflexes and respiratory status after magnesium bolus"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "DTRs reassessed, transport initiated",
+      "description": "With reflexes and respiratory status confirmed normal, the crew continues the magnesium infusion, treats persistent severe hypertension, and initiates emergent transport with serial vital signs.",
+      "monitorType": 0,
+      "trendTime": 40,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 94,
+        "bpSys": 146,
+        "bpDia": 92,
+        "respRate": 16,
+        "spo2": 99,
+        "etco2": 0,
+        "temp": 37,
+        "obstruction": 0,
+        "custMeasure1": 92,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Repeat blood pressure and vital signs every 10 minutes during transport",
+        "Continue magnesium sulfate maintenance infusion at 2 g/hr",
+        "Labetalol 20 mg IV over 2 minutes for persistent severe hypertension",
+        "Transport emergently to closest appropriate receiving facility; notify en route"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Magnesium delayed, transport prioritized",
+      "description": "Without magnesium sulfate on board, seizure prophylaxis is absent during transport. The patient has a second generalized convulsive seizure en route.",
+      "monitorType": 0,
+      "trendTime": 20,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 132,
+        "bpSys": 194,
+        "bpDia": 124,
+        "respRate": 8,
+        "spo2": 89,
+        "etco2": 0,
+        "temp": 37.1,
+        "obstruction": 20,
+        "custMeasure1": 92,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Midazolam 4 mg IV (78 kg x 0.1 mg/kg = 7.8 mg -> cap at 4 mg max) for recurrent seizure"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "DTRs not reassessed",
+      "description": "The magnesium infusion continues unchecked. Deep tendon reflexes are lost, the patient becomes increasingly somnolent, and respirations slow — early signs of magnesium toxicity progressing toward respiratory paralysis.",
+      "monitorType": 0,
+      "trendTime": 50,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 56,
+        "bpSys": 96,
+        "bpDia": 58,
+        "respRate": 8,
+        "spo2": 88,
+        "etco2": 0,
+        "temp": 37,
+        "obstruction": 0,
+        "custMeasure1": 92,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Recognize absent DTRs, somnolence, and slurred speech as magnesium toxicity",
+        "Stop the magnesium sulfate infusion immediately",
+        "Calcium gluconate 3 g IV to reverse magnesium toxicity; support respirations"
+      ],
+      "relatedSounds": []
+    }
+  ],
+  "checklist": [
+    {
+      "title": "Recognize new seizure at 34 weeks gestation as eclampsia until proven otherwise",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Establish IV access; administer O2 to target 94-98% saturation",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Magnesium sulfate 6 g IV over 5-10 min for seizure management",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Position patient left lateral or manually displace uterus to the left",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Reassess deep tendon reflexes and respiratory status after magnesium bolus",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Repeat blood pressure and vital signs every 10 minutes during transport",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Continue magnesium sulfate maintenance infusion at 2 g/hr",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Labetalol 20 mg IV over 2 minutes for persistent severe hypertension",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Transport emergently to closest appropriate receiving facility; notify en route",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Midazolam 4 mg IV (78 kg x 0.1 mg/kg = 7.8 mg -> cap at 4 mg max) for recurrent seizure",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Recognize absent DTRs, somnolence, and slurred speech as magnesium toxicity",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Stop the magnesium sulfate infusion immediately",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Calcium gluconate 3 g IV to reverse magnesium toxicity; support respirations",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    }
+  ],
+  "media": []
+}

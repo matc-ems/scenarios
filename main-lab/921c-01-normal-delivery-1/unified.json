@@ -1,0 +1,250 @@
+{
+  "meta": {
+    "id": "921c-01-normal-delivery-1",
+    "name": "Normal Delivery — Rapid Multiparous Labor",
+    "version": 1,
+    "difficulty": "beginner",
+    "category": "OB/GYN",
+    "protocols": ["obgyn-childbirth", "obgyn-neonatal-resuscitation"],
+    "totalTimeSeconds": 600,
+    "tags": ["OB", "delivery", "normal delivery", "APGAR", "921"]
+  },
+  "patient": {
+    "name": "Maria Guzman",
+    "age": 29,
+    "ageUnit": "years",
+    "sex": "female",
+    "weight": 74,
+    "weightLbs": 163,
+    "height": 163,
+    "chiefComplaint": "39 weeks pregnant, strong urge to push, contractions very close together",
+    "history": {
+      "hpi": "G2P1 at 39 weeks gestation. Labor started about 90 minutes ago and progressed unusually fast for her second pregnancy. Contractions are now less than 2 minutes apart and she reports an overwhelming urge to push and a feeling that the baby is coming now.",
+      "pastMedical": ["Prior uncomplicated vaginal delivery 2 years ago"],
+      "medications": ["Prenatal vitamins"],
+      "allergies": ["NKDA"],
+      "lastOralIntake": "Breakfast approximately 4 hours ago",
+      "events": "Rapid onset of active labor at home; husband called 911 when patient stated the baby was coming"
+    }
+  },
+  "scene": {
+    "dispatch": "29-year-old female, pregnant, in labor, contractions close together, residence",
+    "location": "Single-family home, living room, patient on the floor on a folded blanket at husband's direction",
+    "time": "7:52 PM, weekday",
+    "safety": "No hazards to crew noted; adequate space and lighting available",
+    "bystanders": "Husband present and coaching patient's breathing",
+    "visualCues": [
+      "Patient in semi-reclined position with knees bent, visibly bearing down",
+      "Crowning visible with each contraction",
+      "Bag packed by the door — clearly prepared for imminent transport",
+      "Husband timing contractions on his phone, less than 2 minutes apart"
+    ]
+  },
+  "phases": [
+    {
+      "id": "initial",
+      "name": "Initial Contact",
+      "description": "Crew arrives to find a 29-year-old G2P1 female at 39 weeks with crowning visible and strong, frequent contractions. Delivery is clearly imminent.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent, vocalizing with contractions",
+        "breathing": "Nonlabored between contractions, breath-holding during pushing",
+        "circulation": "Radial pulses strong and regular",
+        "skin": { "color": "pink", "temperature": "warm", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Intact",
+        "otherFindings": [
+          "Crowning visible with each contraction",
+          "Contractions less than 2 minutes apart, strong",
+          "Strong urge to push reported",
+          "No prior complications this pregnancy"
+        ],
+        "patientSpeech": "\"The baby's coming right now, I can't stop it!\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 108,
+        "bpSys": 122,
+        "bpDia": 76,
+        "respRate": 22,
+        "spo2": 98,
+        "etco2": 0,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 0,
+        "glucose": 90,
+        "customMeasures": [],
+        "trendTimeSeconds": 0,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [],
+      "transitions": [
+        {
+          "targetPhaseId": "controlled-delivery",
+          "if": "Controlled delivery performed",
+          "condition": "Crew recognizes imminent delivery and prepares to support a slow, controlled delivery of the head and body rather than transporting.",
+          "conditionType": "action_taken"
+        }
+      ]
+    },
+    {
+      "id": "controlled-delivery",
+      "name": "Controlled delivery performed",
+      "description": "Crew supports the infant's head with gentle counterpressure to prevent explosive delivery, checks for a nuchal cord, and guides delivery of the anterior and posterior shoulders.",
+      "triggerCondition": "With crowning visible and delivery clearly imminent, the crew commits to delivering on scene, applying gentle counterpressure to control the head's delivery and checking for a nuchal cord before proceeding.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "Breath-holding with each push",
+        "circulation": "Radial pulses strong and regular",
+        "skin": { "color": "pink", "temperature": "warm", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Intact",
+        "otherFindings": [
+          "Head delivered with gentle counterpressure, no nuchal cord present",
+          "Anterior shoulder delivering with gentle downward guidance",
+          "No tearing or excessive bleeding noted"
+        ],
+        "patientSpeech": "\"Oh god, oh god, is the head out?\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 112,
+        "bpSys": 124,
+        "bpDia": 78,
+        "respRate": 24,
+        "spo2": 98,
+        "etco2": 0,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 0,
+        "glucose": 90,
+        "customMeasures": [],
+        "trendTimeSeconds": 20,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a1-controlled-delivery",
+          "shortAction": "Support head with gentle counterpressure for slow, controlled delivery",
+          "protocolExcerpt": "Delivery should be controlled to allow a slow controlled delivery of infant – This will prevent injury to mother. Support the infant's head as needed and apply gentle counterpressure to help prevent the head from suddenly popping out",
+          "priority": "critical",
+          "rationale": "Prevents maternal perineal trauma from an uncontrolled, explosive delivery.",
+          "protocolReference": "MATC: OB/GYN Childbirth"
+        },
+        {
+          "id": "a2-nuchal-check",
+          "shortAction": "Check for nuchal cord after head delivers; slip over head if present",
+          "protocolExcerpt": "Check for nuchal cord (i.e., around the baby's neck). If present, slip it over the head. If unable to free the cord from the neck, double clamp the cord and cut between the clamps",
+          "priority": "critical",
+          "rationale": "An unrecognized nuchal cord can obstruct delivery of the body or cause cord compression.",
+          "protocolReference": "MATC: OB/GYN Childbirth"
+        },
+        {
+          "id": "a3-shoulders",
+          "shortAction": "Guide head down for anterior shoulder, then up for posterior shoulder",
+          "protocolExcerpt": "Grasping the head with hand over the ears, gently guide head down to allow delivery of the anterior shoulder. Gently guide the head up to allow delivery of the posterior shoulder",
+          "priority": "critical",
+          "rationale": "Correct sequencing safely delivers each shoulder in turn without excessive traction.",
+          "protocolReference": "MATC: OB/GYN Childbirth"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "newborn-care",
+          "if": "Newborn dried, warmed, and scored",
+          "condition": "The remainder of the infant delivers slowly following the shoulders; crew proceeds directly to newborn stabilization and APGAR scoring.",
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a3-shoulders"]
+        }
+      ]
+    },
+    {
+      "id": "newborn-care",
+      "name": "Newborn dried, warmed, and scored",
+      "description": "Newborn delivers with a strong cry and good tone. Crew dries, warms, and stimulates the infant, delays cord clamping appropriately, and calculates APGAR scores at 1 and 5 minutes.",
+      "triggerCondition": "Following delivery of the body, the newborn immediately cries vigorously with good tone and color, meeting criteria for routine care rather than resuscitation.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent, maternal airway unaffected",
+        "breathing": "Nonlabored, contractions resolving",
+        "circulation": "Radial pulses strong and regular",
+        "skin": { "color": "pink", "temperature": "warm", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Intact",
+        "otherFindings": [
+          "Newborn crying vigorously, good tone, pink centrally with acrocyanosis",
+          "Cord clamped and cut after approximately 1 minute",
+          "Newborn dried, warmed, and placed skin-to-skin on maternal chest",
+          "APGAR 9 at 1 minute (1 point off for acrocyanosis)"
+        ],
+        "patientSpeech": "\"I can't believe it, is my baby okay? Let me see her!\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Rhythm",
+        "ecgWaveform": 9,
+        "hr": 96,
+        "bpSys": 118,
+        "bpDia": 72,
+        "respRate": 18,
+        "spo2": 98,
+        "etco2": 0,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 0,
+        "glucose": 90,
+        "customMeasures": [],
+        "trendTimeSeconds": 40,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a4-no-suction",
+          "shortAction": "Do not routinely suction infant's airway, even with bulb syringe",
+          "protocolExcerpt": "Do not routinely suction the infant's airway (even with a bulb syringe) during delivery",
+          "priority": "important",
+          "rationale": "Routine suctioning of a vigorous newborn provides no benefit and can cause vagally-mediated bradycardia.",
+          "protocolReference": "MATC: OB/GYN Childbirth"
+        },
+        {
+          "id": "a5-cord-clamp",
+          "shortAction": "Clamp cord in two places about 5-6 inches from abdomen after 1 minute; cut between clamps",
+          "protocolExcerpt": "After 1 minute, clamp cord about 5–6 inches from the abdomen with two clamps; cut the cord between the clamps",
+          "priority": "important",
+          "rationale": "Delayed cord clamping improves neonatal outcomes when resuscitation is not needed.",
+          "protocolReference": "MATC: OB/GYN Childbirth"
+        },
+        {
+          "id": "a6-dry-warm",
+          "shortAction": "Dry, warm, and stimulate infant; wrap in towel and place on maternal chest",
+          "protocolExcerpt": "Dry, warm, and stimulate infant, wrap in towel and place on maternal chest unless resuscitation needed",
+          "priority": "critical",
+          "rationale": "Prevents neonatal hypothermia, a major driver of adverse outcomes in newborns.",
+          "protocolReference": "MATC: OB/GYN Childbirth"
+        },
+        {
+          "id": "a7-apgar",
+          "shortAction": "Calculate APGAR score at 1 and 5 minutes",
+          "protocolExcerpt": "Record APGAR scores at 1 and 5 minutes once neonate is stabilized",
+          "priority": "important",
+          "rationale": "Standardized documentation of newborn transition status for the receiving team.",
+          "protocolReference": "MATC: OB/GYN Childbirth"
+        }
+      ],
+      "transitions": []
+    }
+  ],
+  "realiti": {
+    "scenarioMonitorType": 2,
+    "scenarioDefaultEnergy": 200,
+    "scenarioDefaultPacerThreshold": 55
+  }
+}

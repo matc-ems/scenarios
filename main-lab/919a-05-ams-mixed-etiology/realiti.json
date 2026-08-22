@@ -1,0 +1,255 @@
+{
+  "scenarioId": "919a-05-ams-mixed-etiology",
+  "scenarioName": "Altered Mental Status — Sulfonylurea-Potentiated Hypoglycemia with Concurrent Infection",
+  "scenarioType": "Vital Signs",
+  "scenarioVersion": 2,
+  "scenarioTime": 900,
+  "scenarioMonitorType": 2,
+  "scenarioDefaultEnergy": 200,
+  "scenarioDefaultPacerThreshold": 55,
+  "isDemo": false,
+  "isALSILegacy": false,
+  "scenarioStory": {
+    "history": "Home health aide arrived for a routine visit and found the patient sitting in his recliner, confused and not making sense, unable to state the day or where he was. Aide reports he felt warm to the touch and seemed unusually diaphoretic. He was last known well and normal the previous evening. No witnessed seizure activity, no reported trauma.",
+    "discussion": "",
+    "course": "Initial Contact: Crew arrives to find a 65-year-old male with altered mental status, diaphoresis, and a reported fever. The presentation is ambiguous — could be infection, medication effect, or a metabolic cause — and warrants a systematic AEIOU-TIPS workup rather than anchoring on any single cause. → BGL checked per systematic workup: Following the AEIOU-TIPS differential, the crew checks blood glucose and finds severe hypoglycemia (42 mg/dL), despite the patient's fever raising suspicion for infection as a distractor. → Dextrose given, mental status improving: Crew administers incremental IV dextrose per protocol. Mental status begins to clear as the blood glucose corrects, though the fever persists, confirming this is a mixed picture rather than a single cause. → Transport for combined hypoglycemia/infection workup: Mental status has returned to baseline, but the crew recognizes this is not a simple, isolated hypoglycemic episode: the glipizide-Bactrim interaction risks recurrent hypoglycemia, and the persistent fever needs hospital evaluation for a possible urinary source."
+  },
+  "patientInformation": {
+    "patientName": "Robert Aldana",
+    "patientCondition": "Altered mental status, found confused by home health aide",
+    "patientAge": 65,
+    "patientAgeUnit": "years",
+    "patientAgeCategory": 0,
+    "patientSex": 1,
+    "patientHeight": 178,
+    "patientWeight": 85,
+    "patientPhotoId": 78,
+    "patientAdmitted": 1
+  },
+  "labs": [],
+  "scenarioEvents": [
+    {
+      "type": "ScenarioEvent",
+      "name": "Initial Contact",
+      "description": "Crew arrives to find a 65-year-old male with altered mental status, diaphoresis, and a reported fever. The presentation is ambiguous — could be infection, medication effect, or a metabolic cause — and warrants a systematic AEIOU-TIPS workup rather than anchoring on any single cause.",
+      "monitorType": 0,
+      "trendTime": 0,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 110,
+        "bpSys": 136,
+        "bpDia": 82,
+        "respRate": 18,
+        "spo2": 96,
+        "etco2": 0,
+        "temp": 38.1,
+        "obstruction": 0,
+        "custMeasure1": 42,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "BGL checked per systematic workup",
+      "description": "Following the AEIOU-TIPS differential, the crew checks blood glucose and finds severe hypoglycemia (42 mg/dL), despite the patient's fever raising suspicion for infection as a distractor.",
+      "monitorType": 0,
+      "trendTime": 20,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 112,
+        "bpSys": 134,
+        "bpDia": 82,
+        "respRate": 18,
+        "spo2": 96,
+        "etco2": 0,
+        "temp": 38.1,
+        "obstruction": 0,
+        "custMeasure1": 42,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Perform AEIOU-TIPS workup; check blood glucose as a first treatable cause (reveals 42 mg/dL)"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Dextrose given, mental status improving",
+      "description": "Crew administers incremental IV dextrose per protocol. Mental status begins to clear as the blood glucose corrects, though the fever persists, confirming this is a mixed picture rather than a single cause.",
+      "monitorType": 0,
+      "trendTime": 30,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 96,
+        "bpSys": 128,
+        "bpDia": 80,
+        "respRate": 16,
+        "spo2": 97,
+        "etco2": 0,
+        "temp": 38.1,
+        "obstruction": 0,
+        "custMeasure1": 118,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Dextrose 10% 100 mL IV (10 g); reassess mental status, repeat incrementally to max 25 g (250 mL D10%)",
+        "Reassess vital signs and mental status after dextrose administration"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Transport for combined hypoglycemia/infection workup",
+      "description": "Mental status has returned to baseline, but the crew recognizes this is not a simple, isolated hypoglycemic episode: the glipizide-Bactrim interaction risks recurrent hypoglycemia, and the persistent fever needs hospital evaluation for a possible urinary source.",
+      "monitorType": 0,
+      "trendTime": 30,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 92,
+        "bpSys": 124,
+        "bpDia": 78,
+        "respRate": 16,
+        "spo2": 98,
+        "etco2": 0,
+        "temp": 38.2,
+        "obstruction": 0,
+        "custMeasure1": 132,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Recognize glipizide's long half-life; transport despite improvement (recurrent hypoglycemia risk)",
+        "Recognize fever as a disqualifying co-morbid symptom; do not consider release, transport",
+        "Continue assessment for infection source (fever, dysuria) en route; transport for combined workup"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Infection assumed, BGL not checked",
+      "description": "The crew attributes the altered mental status solely to the reported fever and begins IV fluids for suspected sepsis without checking blood glucose. The untreated hypoglycemia progresses, with mental status further declining.",
+      "monitorType": 0,
+      "trendTime": 40,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 128,
+        "bpSys": 118,
+        "bpDia": 76,
+        "respRate": 22,
+        "spo2": 94,
+        "etco2": 0,
+        "temp": 38.3,
+        "obstruction": 0,
+        "custMeasure1": 28,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Recognize non-improvement with fluids alone; check blood glucose (missed on initial workup)",
+        "Administer rescue Dextrose 10% 100 mL IV (10 g) once hypoglycemia identified; reassess"
+      ],
+      "relatedSounds": []
+    }
+  ],
+  "checklist": [
+    {
+      "title": "Perform AEIOU-TIPS workup; check blood glucose as a first treatable cause (reveals 42 mg/dL)",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Dextrose 10% 100 mL IV (10 g); reassess mental status, repeat incrementally to max 25 g (250 mL D10%)",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Reassess vital signs and mental status after dextrose administration",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Recognize glipizide's long half-life; transport despite improvement (recurrent hypoglycemia risk)",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Recognize fever as a disqualifying co-morbid symptom; do not consider release, transport",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Continue assessment for infection source (fever, dysuria) en route; transport for combined workup",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Recognize non-improvement with fluids alone; check blood glucose (missed on initial workup)",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Administer rescue Dextrose 10% 100 mL IV (10 g) once hypoglycemia identified; reassess",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    }
+  ],
+  "media": []
+}

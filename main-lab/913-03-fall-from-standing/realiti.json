@@ -1,0 +1,330 @@
+{
+  "scenarioId": "913-03-fall-from-standing",
+  "scenarioName": "Fall from Standing - Elderly Female with Hip Deformity",
+  "scenarioType": "Vital Signs",
+  "scenarioVersion": 2,
+  "scenarioTime": 900,
+  "scenarioMonitorType": 2,
+  "scenarioDefaultEnergy": 200,
+  "scenarioDefaultPacerThreshold": 55,
+  "isDemo": false,
+  "isALSILegacy": false,
+  "scenarioStory": {
+    "history": "82-year-old female found supine on the bathroom floor by her daughter, who is unsure how long she had been down (last spoke with her by phone approximately 2 hours prior). Patient reports she was walking to the toilet, felt her right hip 'give out,' and fell. She denies recalling any loss of consciousness but cannot state what time it is or how long she was on the floor. She complains of severe right hip pain and is unable to move or bear weight on the right leg. No reported neck pain on initial questioning.",
+    "discussion": "",
+    "course": "Initial Contact: Crew arrives to find an 82-year-old female supine on the bathroom floor with an obviously deformed right hip and unknown down time. She is alert but intermittently confused about the time and how long she has been down. Daughter reports early dementia at baseline, complicating the mental status assessment. → Spinal precautions applied: Crew has correctly identified that the patient's fluctuating mental status and severe distracting hip pain meet criteria for spinal motion restriction. A cervical collar is applied and the patient is kept in a position of comfort while the back and remaining body are assessed. → Hip splinted and packaged: The right hip/leg has been gently splinted in the position found, the forearm skin tears are dressed, and distal neurovascular status has been confirmed intact. Patient is calmer and ready for careful transfer to the stretcher. → Transport initiated: Patient is packaged and en route to an appropriate trauma-capable facility. Vital signs are trending toward baseline as she warms and pain is controlled with positioning and splinting."
+  },
+  "patientInformation": {
+    "patientName": "Dorothy Hensley",
+    "patientCondition": "Right hip pain after a fall, unable to bear weight",
+    "patientAge": 82,
+    "patientAgeUnit": "years",
+    "patientAgeCategory": 0,
+    "patientSex": 2,
+    "patientHeight": 160,
+    "patientWeight": 65,
+    "patientPhotoId": 99,
+    "patientAdmitted": 1
+  },
+  "labs": [],
+  "scenarioEvents": [
+    {
+      "type": "ScenarioEvent",
+      "name": "Initial Contact",
+      "description": "Crew arrives to find an 82-year-old female supine on the bathroom floor with an obviously deformed right hip and unknown down time. She is alert but intermittently confused about the time and how long she has been down. Daughter reports early dementia at baseline, complicating the mental status assessment.",
+      "monitorType": 0,
+      "trendTime": 0,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 104,
+        "bpSys": 118,
+        "bpDia": 76,
+        "respRate": 20,
+        "spo2": 95,
+        "etco2": 0,
+        "temp": 36.3,
+        "obstruction": 0,
+        "custMeasure1": 98,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Perform MARCH primary survey; rule out massive hemorrhage and airway/breathing/circulation threats",
+        "Assess mechanism and patient for spinal motion restriction criteria: mental status, neuro deficit, pain, intoxication",
+        "Expose right hip/leg; evaluate for deformity, shortening, rotation; check distal pulses, sensation, movement",
+        "Perform GCS/AVPU and pupillary assessment; screen for signs of TBI given unknown downtime"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Spinal precautions applied",
+      "description": "Crew has correctly identified that the patient's fluctuating mental status and severe distracting hip pain meet criteria for spinal motion restriction. A cervical collar is applied and the patient is kept in a position of comfort while the back and remaining body are assessed.",
+      "monitorType": 0,
+      "trendTime": 30,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 98,
+        "bpSys": 120,
+        "bpDia": 78,
+        "respRate": 18,
+        "spo2": 96,
+        "etco2": 0,
+        "temp": 36.4,
+        "obstruction": 0,
+        "custMeasure1": 98,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Apply cervical collar and initiate spinal motion restriction due to abnormal mental status and distracting injury",
+        "Maintain spinal alignment while inspecting the back; avoid unnecessary log-rolling given fragile positioning",
+        "Cover patient to prevent further heat loss given prolonged floor time and mild shivering"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Hip splinted and packaged",
+      "description": "The right hip/leg has been gently splinted in the position found, the forearm skin tears are dressed, and distal neurovascular status has been confirmed intact. Patient is calmer and ready for careful transfer to the stretcher.",
+      "monitorType": 0,
+      "trendTime": 30,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 92,
+        "bpSys": 122,
+        "bpDia": 78,
+        "respRate": 16,
+        "spo2": 97,
+        "etco2": 0,
+        "temp": 36.6,
+        "obstruction": 0,
+        "custMeasure1": 98,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Splint suspected right hip fracture in the position found to limit further movement",
+        "Cover forearm skin tears with saline-moistened gauze; avoid adhesive tape on fragile elderly skin",
+        "Reassess distal pulses, sensation, and movement in the right leg after splinting",
+        "Elevate the injured leg if possible and apply a cold pack over the dressing to limit swelling"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Transport initiated",
+      "description": "Patient is packaged and en route to an appropriate trauma-capable facility. Vital signs are trending toward baseline as she warms and pain is controlled with positioning and splinting.",
+      "monitorType": 0,
+      "trendTime": 40,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 88,
+        "bpSys": 124,
+        "bpDia": 80,
+        "respRate": 16,
+        "spo2": 98,
+        "etco2": 0,
+        "temp": 36.8,
+        "obstruction": 0,
+        "custMeasure1": 98,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Reassess vital signs and neurologic status serially en route to the trauma center",
+        "Transport to an appropriate trauma-capable facility per field triage guideline"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Spinal assessment skipped",
+      "description": "Crew moves the patient to assess and treat the obvious hip deformity without formally evaluating or applying spinal motion restriction, despite her intermittent confusion and severe distracting pain — both independent SMR criteria per protocol.",
+      "monitorType": 0,
+      "trendTime": 20,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 112,
+        "bpSys": 128,
+        "bpDia": 82,
+        "respRate": 22,
+        "spo2": 94,
+        "etco2": 0,
+        "temp": 36.3,
+        "obstruction": 0,
+        "custMeasure1": 98,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Rough handling during move",
+      "description": "The patient is lifted or repositioned quickly without gentle, deliberate technique, causing a sharp pain response and additional trauma to her fragile skin.",
+      "monitorType": 0,
+      "trendTime": 10,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 136,
+        "bpSys": 142,
+        "bpDia": 90,
+        "respRate": 26,
+        "spo2": 93,
+        "etco2": 0,
+        "temp": 36.4,
+        "obstruction": 0,
+        "custMeasure1": 98,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Stop; reposition using slow, gentle technique and re-splint before continuing"
+      ],
+      "relatedSounds": []
+    }
+  ],
+  "checklist": [
+    {
+      "title": "Perform MARCH primary survey; rule out massive hemorrhage and airway/breathing/circulation threats",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Assess mechanism and patient for spinal motion restriction criteria: mental status, neuro deficit, pain, intoxication",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Expose right hip/leg; evaluate for deformity, shortening, rotation; check distal pulses, sensation, movement",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Perform GCS/AVPU and pupillary assessment; screen for signs of TBI given unknown downtime",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Apply cervical collar and initiate spinal motion restriction due to abnormal mental status and distracting injury",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Maintain spinal alignment while inspecting the back; avoid unnecessary log-rolling given fragile positioning",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Cover patient to prevent further heat loss given prolonged floor time and mild shivering",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Splint suspected right hip fracture in the position found to limit further movement",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Cover forearm skin tears with saline-moistened gauze; avoid adhesive tape on fragile elderly skin",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Reassess distal pulses, sensation, and movement in the right leg after splinting",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Elevate the injured leg if possible and apply a cold pack over the dressing to limit swelling",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Reassess vital signs and neurologic status serially en route to the trauma center",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Transport to an appropriate trauma-capable facility per field triage guideline",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Stop; reposition using slow, gentle technique and re-splint before continuing",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    }
+  ],
+  "media": []
+}

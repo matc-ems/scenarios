@@ -1,0 +1,371 @@
+{
+  "meta": {
+    "id": "919b-02-hemorrhagic-stroke",
+    "name": "Hemorrhagic Stroke — Thunderclap Headache with Rapid LOC Decline",
+    "version": 1,
+    "difficulty": "advanced",
+    "category": "Medical",
+    "protocols": ["cv-stroke-tia", "resp-airway-management"],
+    "totalTimeSeconds": 900,
+    "tags": ["stroke", "hemorrhagic", "SAH", "RSI", "airway protection", "919"]
+  },
+  "patient": {
+    "name": "Gregory Alston",
+    "age": 58,
+    "ageUnit": "years",
+    "sex": "male",
+    "weight": 90,
+    "weightLbs": 198,
+    "height": 178,
+    "chiefComplaint": "Sudden severe headache with vomiting and declining responsiveness",
+    "history": {
+      "hpi": "Coworker reports the patient suddenly grabbed his head, described it as \"the worst headache of my life,\" and vomited twice within minutes. Over the next several minutes he became progressively less responsive, now only groaning to voice.",
+      "pastMedical": ["Hypertension, poorly controlled"],
+      "medications": ["Lisinopril 20 mg PO daily (per coworker, inconsistent compliance)"],
+      "allergies": ["NKDA"],
+      "lastOralIntake": "Coffee approximately 1 hour prior to onset",
+      "events": "Coworker witnessed sudden onset at the office; called 911 immediately when the patient began vomiting and became less responsive"
+    }
+  },
+  "scene": {
+    "dispatch": "58-year-old male, severe headache, now less responsive, office building",
+    "location": "Office break room, patient on the floor beside an overturned chair",
+    "time": "2:20 PM, weekday",
+    "safety": "No hazards to crew noted",
+    "bystanders": "Coworker present, witnessed sudden onset and progressive decline in responsiveness",
+    "visualCues": [
+      "Patient supine on floor, emesis visible nearby",
+      "Overturned chair suggesting sudden collapse",
+      "Patient groaning, eyes closed, not following commands",
+      "Coworker anxiously relaying the timeline of events"
+    ]
+  },
+  "phases": [
+    {
+      "id": "initial",
+      "name": "Initial Contact",
+      "description": "Crew arrives to find a 58-year-old male with a witnessed sudden-onset severe headache, vomiting, and rapidly declining level of consciousness, now responsive only to voice with groaning.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Verbal",
+        "gcs": { "eye": 3, "verbal": 3, "motor": 5 },
+        "airway": "Patent but at risk given vomiting and declining mentation",
+        "breathing": "Irregular, 22/min",
+        "circulation": "Radial pulses present, bounding",
+        "skin": { "color": "pale", "temperature": "warm", "moisture": "diaphoretic" },
+        "pupils": "Left pupil sluggish and slightly larger than right",
+        "motorFunction": "Withdraws to voice, no clear focal weakness distinguishable at this time",
+        "otherFindings": [
+          "Emesis on the floor nearby",
+          "Groaning, not following commands",
+          "Neck stiffness noted on gentle exam"
+        ],
+        "patientSpeech": "(Groaning, no words)"
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Bradycardia",
+        "ecgWaveform": 9,
+        "hr": 54,
+        "bpSys": 202,
+        "bpDia": 108,
+        "respRate": 22,
+        "spo2": 94,
+        "etco2": 30,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 0,
+        "glucose": 108,
+        "customMeasures": [],
+        "trendTimeSeconds": 0,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
+      },
+      "expectedActions": [],
+      "transitions": [
+        {
+          "targetPhaseId": "scale-lkw-bgl",
+          "if": "Stroke scale, BGL, and LKW established",
+          "condition": "Crew performs a validated stroke scale, checks blood glucose to exclude hypoglycemia as a mimic, and establishes a precise last-known-well time from the coworker while continuously monitoring for airway compromise.",
+          "conditionType": "action_taken"
+        }
+      ]
+    },
+    {
+      "id": "scale-lkw-bgl",
+      "name": "Stroke scale, BGL, and LKW established",
+      "description": "Crew completes a validated stroke scale, checks blood glucose to exclude a mimic, and documents the witnessed last-known-well time, while closely monitoring the patient's rapidly declining level of consciousness and vomiting for signs of impending airway compromise.",
+      "triggerCondition": "The crew completes a validated stroke scale, confirms normal blood glucose, and documents last known well from the coworker's witnessed account, all while the patient's level of consciousness continues to trend downward.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Pain",
+        "gcs": { "eye": 2, "verbal": 2, "motor": 5 },
+        "airway": "Patent but increasingly at risk; gag reflex sluggish",
+        "breathing": "Irregular, 20/min",
+        "circulation": "Radial pulses present, bounding",
+        "skin": { "color": "pale", "temperature": "warm", "moisture": "diaphoretic" },
+        "pupils": "Left pupil now more dilated and sluggish than right",
+        "motorFunction": "Withdraws to pain only",
+        "otherFindings": [
+          "Bradycardic with widening pulse pressure (Cushing's triad developing)",
+          "Vomited again, airway soiled",
+          "Cardiac monitor placed"
+        ],
+        "patientSpeech": "(Groaning only)"
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Bradycardia",
+        "ecgWaveform": 9,
+        "hr": 48,
+        "bpSys": 210,
+        "bpDia": 112,
+        "respRate": 20,
+        "spo2": 91,
+        "etco2": 28,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 0,
+        "glucose": 108,
+        "customMeasures": [],
+        "trendTimeSeconds": 30,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a1-stroke-scale",
+          "shortAction": "Perform validated prehospital stroke scale despite declining mentation; positive for asymmetric pupils and unresponsiveness",
+          "protocolExcerpt": "Use a validated prehospital stroke scale that may include, but is not limited to: Facial smile/grimace, Arm drift, Speech",
+          "priority": "critical",
+          "rationale": "A validated scale still drives destination and pre-notification decisions even in a severely affected patient.",
+          "protocolReference": "MATC: Suspected Stroke/Transient Ischemic Attack"
+        },
+        {
+          "id": "a2-bgl",
+          "shortAction": "Check blood glucose to rule out hypoglycemia as a mimic (result 108 mg/dL, no treatment needed)",
+          "protocolExcerpt": "Check blood glucose level (BGL). Treat only if glucose less than 60 mg/dL",
+          "priority": "critical",
+          "rationale": "Hypoglycemia is a rapidly reversible cause of AMS that must be excluded.",
+          "protocolReference": "MATC: Suspected Stroke/Transient Ischemic Attack"
+        },
+        {
+          "id": "a3-lkw",
+          "shortAction": "Establish witnessed last-known-well time from coworker",
+          "protocolExcerpt": "Determine \"last known well\" time. History – \"last known well\" and source of that information",
+          "priority": "critical",
+          "rationale": "LKW time is essential documentation even when the primary concern shifts to airway management.",
+          "protocolReference": "MATC: Suspected Stroke/Transient Ischemic Attack"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "rsi-performed",
+          "if": "RSI performed for airway protection",
+          "condition": "With GCS now 9 and loss of protective airway reflexes plus active vomiting, the crew proceeds with rapid sequence intubation to protect the airway before further decline.",
+          "conditionType": "action_taken"
+        },
+        {
+          "targetPhaseId": "rsi-delayed",
+          "if": "Airway protection delayed",
+          "condition": "The crew continues focusing on the stroke workup without escalating airway management despite the patient's declining GCS, sluggish gag reflex, and active vomiting.",
+          "conditionType": "action_not_taken"
+        }
+      ]
+    },
+    {
+      "id": "rsi-performed",
+      "name": "RSI performed for airway protection",
+      "description": "Recognizing loss of protective airway reflexes with active vomiting and a GCS of 9, the crew proceeds with rapid sequence intubation, suctioning the soiled airway first and pre-oxygenating before the procedure.",
+      "triggerCondition": "With GCS 9, a sluggish gag reflex, and ongoing emesis risking aspiration, the crew suctions the airway, preoxygenates, and performs RSI to secure a definitive airway.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Unresponsive",
+        "gcs": { "eye": 1, "verbal": 1, "motor": 4 },
+        "airway": "Secured with endotracheal tube",
+        "breathing": "Ventilated via BVM, chest rise symmetric",
+        "circulation": "Radial pulses present, bounding",
+        "skin": { "color": "pale", "temperature": "warm", "moisture": "diaphoretic" },
+        "pupils": "Left pupil fixed and dilated, right sluggish",
+        "motorFunction": "No purposeful movement post-sedation/paralysis",
+        "otherFindings": [
+          "Airway suctioned of emesis prior to intubation",
+          "Endotracheal tube placed and confirmed with waveform capnography",
+          "Tube secured, EtCO2 monitored continuously"
+        ],
+        "patientSpeech": "(Intubated, no speech)"
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Bradycardia",
+        "ecgWaveform": 9,
+        "hr": 46,
+        "bpSys": 206,
+        "bpDia": 110,
+        "respRate": 12,
+        "spo2": 97,
+        "etco2": 33,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 0,
+        "glucose": 106,
+        "customMeasures": [],
+        "trendTimeSeconds": 20,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a4-suction",
+          "shortAction": "Suction soiled airway prior to intubation attempt",
+          "protocolExcerpt": "Suction airway: for significantly contaminated airways, consider utilizing a suction assisted laryngeal airway decontamination (SALAD) technique. Suctioning to limit aspiration is a priority",
+          "priority": "critical",
+          "rationale": "Active vomiting must be cleared before airway instrumentation to limit aspiration risk.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        },
+        {
+          "id": "a5-premedication",
+          "shortAction": "Fentanyl 90 mcg IV premedication (90 kg × 1 mcg/kg), 2-3 minutes prior to intubation",
+          "protocolExcerpt": "Consider pre-medication with Fentanyl, 1 mcg/kg, 2-3 minutes prior to intubation attempt",
+          "priority": "important",
+          "rationale": "Blunts the sympathetic/ICP response to laryngoscopy.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        },
+        {
+          "id": "a6-induction",
+          "shortAction": "Etomidate 22.5 mg IV push (90 kg × 0.25 mg/kg)",
+          "protocolExcerpt": "Administer induction sedative agent: Etomidate IV push, 0.2-0.3 mg/kg",
+          "priority": "critical",
+          "rationale": "Etomidate provides hemodynamically stable induction, important given the elevated ICP and bradycardia already present.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        },
+        {
+          "id": "a7-paralytic",
+          "shortAction": "Rocuronium 90 mg IV push (90 kg × 1 mg/kg)",
+          "protocolExcerpt": "Administer paralytic agent: Rocuronium IV push, 1 mg/kg",
+          "priority": "critical",
+          "rationale": "Provides paralysis for first-pass intubation success.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        },
+        {
+          "id": "a8-confirm-tube",
+          "shortAction": "Confirm tube placement with waveform capnography, bilateral breath sounds, and absent gastric sounds",
+          "protocolExcerpt": "Confirm placement of advanced airway (endotracheal tube, SGA) with waveform capnography (most reliable), absent gastric sounds, and bilateral breath sounds",
+          "priority": "critical",
+          "rationale": "Waveform capnography is the most reliable confirmation method and must be checked before committing to the tube.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "transport-ventilated",
+          "if": "Tube secured, ventilation continued to transport",
+          "condition": "Tube is confirmed and secured; crew continues manual ventilation with continuous waveform capnography monitoring en route to a comprehensive stroke center.",
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a8-confirm-tube"]
+        }
+      ]
+    },
+    {
+      "id": "transport-ventilated",
+      "name": "Tube secured, ventilation continued to transport",
+      "description": "With the airway secured, the crew continues manual ventilation targeting an EtCO2 of 35-45 mmHg, continuously monitors tube placement, and transports emergently to a comprehensive stroke center capable of neurosurgical intervention.",
+      "triggerCondition": "After confirming tube placement, the crew ventilates at a normal rate and volume targeting EtCO2 35-45 mmHg (reserving mild hyperventilation only for overt herniation signs), and transports emergently.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Unresponsive",
+        "gcs": { "eye": 1, "verbal": 1, "motor": 4 },
+        "airway": "Secured, tube confirmed and taped",
+        "breathing": "Ventilated via BVM at 10-12 breaths/min",
+        "circulation": "Radial pulses present, bounding",
+        "skin": { "color": "pale", "temperature": "warm", "moisture": "diaphoretic" },
+        "pupils": "Left pupil fixed and dilated, right sluggish",
+        "motorFunction": "No purposeful movement",
+        "otherFindings": [
+          "EtCO2 maintained 35-40 mmHg",
+          "Tube position reassessed after each patient movement",
+          "Comprehensive stroke center notified"
+        ],
+        "patientSpeech": "(Intubated, no speech)"
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Bradycardia",
+        "ecgWaveform": 9,
+        "hr": 50,
+        "bpSys": 198,
+        "bpDia": 104,
+        "respRate": 12,
+        "spo2": 98,
+        "etco2": 38,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 0,
+        "glucose": 106,
+        "customMeasures": [],
+        "trendTimeSeconds": 40,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a9-ventilation-target",
+          "shortAction": "Ventilate to maintain EtCO2 35-45 mmHg; reserve mild hyperventilation for overt herniation signs only",
+          "protocolExcerpt": "In patients without primary pulmonary pathology ... maintain EtCO2 of no less than 35 and up to 40 mmHg. In patients with severe head injury with signs of herniation (unilateral dilated pupil or decerebrate posturing), modest hyperventilation to EtCO2 no less than 30 mmHg may be considered for a brief time",
+          "priority": "important",
+          "rationale": "Routine hyperventilation is harmful; it is reserved only for overt herniation signs, and even then only briefly.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        }
+      ],
+      "transitions": []
+    },
+    {
+      "id": "rsi-delayed",
+      "name": "Airway protection delayed",
+      "description": "The crew continues the stroke workup without escalating airway management despite a declining GCS and active vomiting. The patient's gag reflex is lost and emesis is aspirated, causing acute desaturation.",
+      "triggerCondition": "Airway management is not escalated despite GCS falling to 9 with active vomiting; the patient aspirates and desaturates acutely.",
+      "isDefault": false,
+      "clinicalPresentation": {
+        "avpu": "Unresponsive",
+        "gcs": { "eye": 1, "verbal": 1, "motor": 4 },
+        "airway": "Compromised, emesis audible in airway",
+        "breathing": "Gurgling respirations, 10/min, ineffective",
+        "circulation": "Radial pulses present",
+        "skin": { "color": "cyanotic", "temperature": "warm", "moisture": "diaphoretic" },
+        "pupils": "Left pupil fixed and dilated, right sluggish",
+        "motorFunction": "No purposeful movement",
+        "otherFindings": [
+          "Audible gurgling, suspected aspiration",
+          "SpO2 falling rapidly",
+          "Emesis visible at the mouth"
+        ],
+        "patientSpeech": "(Gurgling, unresponsive)"
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Bradycardia",
+        "ecgWaveform": 9,
+        "hr": 42,
+        "bpSys": 214,
+        "bpDia": 116,
+        "respRate": 10,
+        "spo2": 78,
+        "etco2": 22,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 30,
+        "glucose": 106,
+        "customMeasures": [],
+        "trendTimeSeconds": 20,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a10-emergent-suction-airway",
+          "shortAction": "Emergently suction airway, then proceed to RSI without further delay",
+          "protocolExcerpt": "Suctioning to limit aspiration is a priority, since it is associated with development of hospital acquired pneumonia and related increases in ICU stay and mortality. Altered mental status with loss of normal protective airway reflexes",
+          "priority": "critical",
+          "rationale": "Once aspiration occurs, immediate suctioning and definitive airway placement are required to prevent further hypoxic injury.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        }
+      ],
+      "transitions": []
+    }
+  ],
+  "realiti": {
+    "scenarioMonitorType": 2,
+    "scenarioDefaultEnergy": 200,
+    "scenarioDefaultPacerThreshold": 55
+  }
+}

@@ -1,0 +1,290 @@
+{
+  "meta": {
+    "id": "914a-01-dehydration",
+    "name": "Hyperemesis with Dehydration — Straightforward IV Access",
+    "version": 1,
+    "difficulty": "beginner",
+    "category": "Medical",
+    "protocols": ["medical-nausea-vomiting", "medical-shock"],
+    "totalTimeSeconds": 600,
+    "tags": ["ALS", "IV access", "dehydration", "hyperemesis", "914"]
+  },
+  "patient": {
+    "name": "Emily Carter",
+    "age": 24,
+    "ageUnit": "years",
+    "sex": "female",
+    "weight": 63,
+    "weightLbs": 139,
+    "height": 165,
+    "chiefComplaint": "Nausea and vomiting for 3 days, now weak and dizzy",
+    "history": {
+      "hpi": "Patient reports three days of persistent nausea and vomiting, unable to keep down food or most liquids. Today she felt lightheaded and nearly fainted getting out of bed, prompting her husband to call EMS. She is 8 weeks pregnant by her last menstrual period and was told by her OB last week this could be hyperemesis gravidarum. Denies abdominal pain, fever, or vaginal bleeding.",
+      "pastMedical": ["Hyperemesis gravidarum, suspected (per OB, last week)", "G1P0, 8 weeks pregnant"],
+      "medications": ["Prenatal vitamin daily"],
+      "allergies": ["NKDA"],
+      "lastOralIntake": "A few sips of water 1 hour ago; last solid food tolerated was 2 days ago",
+      "events": "Husband called 911 after patient became lightheaded and nearly fainted standing up"
+    }
+  },
+  "scene": {
+    "dispatch": "24-year-old female, nausea and vomiting, weakness, residence",
+    "location": "Second-floor apartment bedroom, patient lying on bed",
+    "time": "7:15 PM, weeknight",
+    "safety": "No hazards noted",
+    "bystanders": "Husband present, called 911 and has been assisting patient to the bathroom",
+    "visualCues": [
+      "Emesis basin on nightstand with recent contents",
+      "Several empty water bottles, mostly untouched",
+      "Patient pale, lying still on the bed with eyes closed",
+      "Blanket pulled up despite warm room"
+    ]
+  },
+  "phases": [
+    {
+      "id": "initial",
+      "name": "Initial Contact",
+      "description": "Crew arrives to find a 24-year-old female, 8 weeks pregnant, pale and fatigued in bed after three days of vomiting. She is alert but reports dizziness when sitting up and has not tolerated oral intake.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent, speaking full sentences",
+        "breathing": "Nonlabored, 18/min",
+        "circulation": "Radial pulses present, rapid and thready",
+        "skin": { "color": "pale", "temperature": "warm", "moisture": "dry" },
+        "pupils": "PERRL",
+        "motorFunction": "Strength intact in all extremities",
+        "otherFindings": [
+          "Dry mucous membranes",
+          "Skin tenting noted on forearm",
+          "Reports dizziness and near-syncope when standing",
+          "Abdomen soft, nontender"
+        ],
+        "patientSpeech": "\"I just can't keep anything down. I felt like I was going to pass out getting up.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 104,
+        "bpSys": 100,
+        "bpDia": 64,
+        "respRate": 18,
+        "spo2": 98,
+        "etco2": 0,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 0,
+        "glucose": 88,
+        "customMeasures": [],
+        "trendTimeSeconds": 0,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [],
+      "transitions": [
+        {
+          "targetPhaseId": "iv-fluids-started",
+          "if": "IV access obtained, NS bolus started",
+          "condition": "Crew establishes a forearm IV without difficulty, checks blood glucose, and initiates a normal saline bolus per the Shock guideline.",
+          "conditionType": "action_taken"
+        },
+        {
+          "targetPhaseId": "shock-progression",
+          "if": "IV access delayed, no fluids given",
+          "condition": "Crew delays IV attempts or defers fluid administration, allowing ongoing volume loss from vomiting to progress toward uncompensated shock.",
+          "conditionType": "action_not_taken"
+        }
+      ]
+    },
+    {
+      "id": "iv-fluids-started",
+      "name": "IV access obtained, NS bolus started",
+      "description": "Crew establishes forearm IV access, checks blood glucose, administers ondansetron for nausea, and begins a normal saline bolus targeting improved perfusion.",
+      "triggerCondition": "After the crew performs a straightforward forearm IV stick, checks glucose, and initiates a normal saline bolus per the Shock guideline along with an antiemetic for ongoing nausea.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "Nonlabored, 16/min",
+        "circulation": "Radial pulses present, improving strength",
+        "skin": { "color": "pale", "temperature": "warm", "moisture": "dry" },
+        "pupils": "PERRL",
+        "motorFunction": "Strength intact in all extremities",
+        "otherFindings": [
+          "18ga IV in place, right forearm, flushing well",
+          "Nausea improving after ondansetron",
+          "Skin tenting less pronounced"
+        ],
+        "patientSpeech": "\"That's helping a little, thank you.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Rhythm",
+        "ecgWaveform": 9,
+        "hr": 96,
+        "bpSys": 106,
+        "bpDia": 66,
+        "respRate": 16,
+        "spo2": 99,
+        "etco2": 0,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 0,
+        "glucose": 88,
+        "customMeasures": [],
+        "trendTimeSeconds": 30,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a1-iv-access",
+          "shortAction": "Establish forearm IV access (18-20ga)",
+          "protocolExcerpt": "Establish IV access. If unable to obtain within two attempts or less than 90 seconds, place an IO needle",
+          "priority": "critical",
+          "rationale": "Vascular access is required for fluid resuscitation and antiemetic administration.",
+          "protocolReference": "MATC: Shock"
+        },
+        {
+          "id": "a2-glucose",
+          "shortAction": "Obtain blood glucose level",
+          "protocolExcerpt": "Obtain glucose level",
+          "priority": "important",
+          "rationale": "Rules out hypoglycemia as a contributor to weakness and dizziness.",
+          "protocolReference": "MATC: Nausea-Vomiting"
+        },
+        {
+          "id": "a3-ns-bolus",
+          "shortAction": "Normal saline 500 mL IV bolus, pressure infused over <15 min",
+          "protocolExcerpt": "IV fluid volume goal attained by giving boluses that are pressure infused over less than 15 minutes each based on patient's condition and clinical impression... Fluid goal of up to 30 mL/kg of isotonic fluid by administering rapid, predetermined boluses (e.g., 500 mL) unless the MAP goal is achieved, or pulmonary edema develops",
+          "priority": "critical",
+          "rationale": "Restores intravascular volume lost from several days of emesis and poor intake.",
+          "protocolReference": "MATC: Shock"
+        },
+        {
+          "id": "a4-ondansetron",
+          "shortAction": "Ondansetron 4 mg IV (fixed adult dose)",
+          "protocolExcerpt": "Ondansetron (contraindicated for suspected or known diagnosis of prolonged QT syndrome) Adult: 4 mg IV/PO/SL",
+          "priority": "important",
+          "rationale": "Controls ongoing nausea/vomiting to prevent further fluid losses.",
+          "protocolReference": "MATC: Nausea-Vomiting"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "transport-improved",
+          "if": "Improved with fluids and ondansetron",
+          "condition": "Heart rate trends down, blood pressure improves, and nausea subsides after the bolus and antiemetic; patient is packaged for transport.",
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a3-ns-bolus", "a4-ondansetron"]
+        }
+      ]
+    },
+    {
+      "id": "transport-improved",
+      "name": "Improved with fluids and ondansetron",
+      "description": "Patient's tachycardia and hypotension improve after the fluid bolus and antiemetic. She is reassessed serially and transported to an appropriate facility for OB evaluation.",
+      "triggerCondition": "After the initial 500 mL bolus and ondansetron, the patient's perfusion and nausea improve, and the crew prepares her for transport with ongoing reassessment.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "Nonlabored, 14/min",
+        "circulation": "Radial pulses strong and regular",
+        "skin": { "color": "pink", "temperature": "warm", "moisture": "dry" },
+        "pupils": "PERRL",
+        "motorFunction": "Strength intact in all extremities",
+        "otherFindings": [
+          "No further emesis en route",
+          "Denies dizziness when repositioned upright",
+          "Skin turgor improved"
+        ],
+        "patientSpeech": "\"I feel a lot less dizzy now, thank you.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Rhythm",
+        "ecgWaveform": 9,
+        "hr": 88,
+        "bpSys": 112,
+        "bpDia": 70,
+        "respRate": 14,
+        "spo2": 100,
+        "etco2": 0,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 0,
+        "glucose": 90,
+        "customMeasures": [],
+        "trendTimeSeconds": 40,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a5-serial-reassess",
+          "shortAction": "Reassess vital signs serially en route; monitor for recurrent nausea",
+          "protocolExcerpt": "Full vital signs (pulse, blood pressure, respiratory rate, neurologic status assessment) with reassessment q 15 minutes or more frequently as appropriate",
+          "priority": "important",
+          "rationale": "Confirms sustained improvement and catches early recurrence of symptoms.",
+          "protocolReference": "MATC: Shock"
+        }
+      ],
+      "transitions": []
+    },
+    {
+      "id": "shock-progression",
+      "name": "IV access delayed, no fluids given",
+      "description": "Without IV access or fluid resuscitation, ongoing volume loss from vomiting drives the patient toward uncompensated shock, with worsening tachycardia and new hypotension.",
+      "triggerCondition": "IV attempts are delayed or fluids are withheld, allowing continued volume depletion from vomiting; the patient's compensated shock progresses toward hypotension.",
+      "isDefault": false,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 4, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "Nonlabored, 22/min",
+        "circulation": "Radial pulses weak and rapid",
+        "skin": { "color": "pale", "temperature": "cool", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Strength intact but patient appears increasingly lethargic",
+        "otherFindings": [
+          "Increasing confusion when answering questions",
+          "Delayed capillary refill, >3 seconds",
+          "Marked skin tenting"
+        ],
+        "patientSpeech": "\"I feel really dizzy... everything's spinning.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 128,
+        "bpSys": 84,
+        "bpDia": 54,
+        "respRate": 22,
+        "spo2": 95,
+        "etco2": 0,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 0,
+        "glucose": 86,
+        "customMeasures": [],
+        "trendTimeSeconds": 50,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a6-recognize-shock",
+          "shortAction": "Recognize progression to uncompensated shock; establish IV/IO access emergently",
+          "protocolExcerpt": "Hypotension indicates uncompensated shock, which may progress to cardiopulmonary failure within minutes... Establish IV access. If unable to obtain within two attempts or less than 90 seconds, place an IO needle",
+          "priority": "critical",
+          "rationale": "Delayed volume replacement allows compensated shock to progress to hypotension, a late and dangerous sign.",
+          "protocolReference": "MATC: Shock"
+        }
+      ],
+      "transitions": []
+    }
+  ],
+  "realiti": {
+    "scenarioMonitorType": 2,
+    "scenarioDefaultEnergy": 200,
+    "scenarioDefaultPacerThreshold": 55
+  }
+}

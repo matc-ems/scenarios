@@ -1,0 +1,378 @@
+{
+  "meta": {
+    "id": "913-02-altered-mental-status",
+    "name": "Altered Mental Status - Kitchen Table",
+    "version": 1,
+    "difficulty": "beginner",
+    "category": "Medical",
+    "protocols": [
+      "medical-altered-mental-status",
+      "medical-hypoglycemia",
+      "cv-stroke-tia"
+    ],
+    "totalTimeSeconds": 600,
+    "createdAt": "2026-08-22",
+    "tags": ["BLS", "altered mental status", "hypoglycemia", "stroke mimic", "diabetes", "913"]
+  },
+  "patient": {
+    "name": "Linda Petersen",
+    "age": 54,
+    "ageUnit": "years",
+    "sex": "female",
+    "weight": 70,
+    "weightLbs": 154,
+    "height": 165,
+    "chiefComplaint": "Altered mental status, husband reports \"not acting right\" since this morning",
+    "history": {
+      "hpi": "Husband states his wife has not been herself since this morning. He last saw her acting normally around 7:00 AM when she took her morning insulin injection. He found her slumped in a kitchen chair at approximately 9:45 AM, sweaty, and slurring her words when he tried to talk to her. She skipped breakfast because she got a phone call. An insulin pen and a used glucose test strip wrapper are on the kitchen table next to her.",
+      "pastMedical": [
+        "Type 2 diabetes mellitus, insulin-dependent (10 years)",
+        "Hypertension",
+        "Hyperlipidemia"
+      ],
+      "medications": [
+        "Insulin glargine (Lantus) 20 units subcutaneous nightly",
+        "Insulin lispro (Humalog) sliding-scale with meals",
+        "Lisinopril 10 mg PO daily",
+        "Atorvastatin 20 mg PO nightly"
+      ],
+      "allergies": ["NKDA"],
+      "lastOralIntake": "Black coffee around 7:30 AM; skipped breakfast",
+      "events": "Took morning insulin as usual around 7:00 AM per husband, then skipped breakfast due to a phone call. Husband found her slumped at the kitchen table around 9:45 AM, diaphoretic and slurring her speech, and called 911."
+    }
+  },
+  "scene": {
+    "dispatch": "Respond for a 54-year-old female, altered mental status, husband on scene",
+    "location": "Single-family home, kitchen; patient seated in a kitchen chair at the table",
+    "time": "Friday, 9:52 AM",
+    "safety": "Scene appears safe; husband is cooperative and calm; no hazards or weapons noted",
+    "bystanders": "Husband present at bedside; states his wife has not been acting right since this morning and has been a type 2 diabetic on insulin for 10 years",
+    "visualCues": [
+      "Insulin pen and used glucose test strip wrapper on the kitchen table",
+      "Patient's shirt visibly damp with sweat",
+      "Half-empty cup of coffee on the table",
+      "Patient slouched in chair, slow to respond when husband says her name"
+    ]
+  },
+  "phases": [
+    {
+      "id": "initial",
+      "name": "Initial Contact",
+      "description": "Crew arrives to find a 54-year-old female seated at the kitchen table, diaphoretic, with slurred speech and a slowed response to voice. Husband is present and provides history of insulin use and a skipped breakfast.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Verbal",
+        "gcs": { "eye": 3, "verbal": 3, "motor": 5 },
+        "airway": "Patent, able to swallow and manage secretions, no stridor",
+        "breathing": "Non-labored, regular rate and depth",
+        "circulation": "Radial pulses present, strong and rapid; skin diaphoretic",
+        "skin": { "color": "pale", "temperature": "cool", "moisture": "diaphoretic" },
+        "pupils": "Equal, round, reactive to light bilaterally",
+        "motorFunction": "Moves all extremities spontaneously, no focal weakness noted, mild generalized tremor",
+        "otherFindings": [
+          "Slurred, slowed speech",
+          "Disoriented to time",
+          "Slow to follow simple commands",
+          "No facial droop"
+        ],
+        "patientSpeech": "\"I'm...fine...just tired\" (words slurred and slow)"
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 112,
+        "bpSys": 148,
+        "bpDia": 92,
+        "respRate": 18,
+        "spo2": 97,
+        "etco2": 36,
+        "temp": 36.5,
+        "tempF": 97.7,
+        "obstruction": 0,
+        "glucose": 42,
+        "customMeasures": [],
+        "trendTimeSeconds": 0,
+        "visibility": {
+          "spo2Visible": true,
+          "spo2Attached": true,
+          "rrVisible": true,
+          "etco2Visible": false,
+          "cvpVisible": false
+        }
+      },
+      "expectedActions": [
+        {
+          "id": "a1",
+          "shortAction": "Primary survey; ensure airway remains patent, reposition as needed",
+          "protocolExcerpt": "Airway: Make sure airway remains patent; reposition patient as needed",
+          "priority": "critical",
+          "rationale": "Rule out airway compromise before further assessment",
+          "protocolReference": "MATC: Altered Mental Status"
+        },
+        {
+          "id": "a2",
+          "shortAction": "Assess AVPU and Glasgow Coma Score",
+          "protocolExcerpt": "Glasgow Coma Score and/or AVPU",
+          "priority": "critical",
+          "rationale": "Establishes baseline mental status for trending",
+          "protocolReference": "MATC: Altered Mental Status"
+        },
+        {
+          "id": "a3",
+          "shortAction": "Obtain blood glucose level",
+          "protocolExcerpt": "Monitoring: Check blood glucose level",
+          "priority": "critical",
+          "rationale": "Insulin pen on scene and AMS make hypoglycemia a leading differential",
+          "protocolReference": "MATC: Hypoglycemia"
+        },
+        {
+          "id": "a4",
+          "shortAction": "Perform validated stroke scale (facial droop, arm drift, speech)",
+          "protocolExcerpt": "Facial smile/grimace – ask patient to smile Arm drift – close eyes and hold out arms for count of 10 seconds Speech – ask patient to say \"You can't teach an old dog new tricks\"",
+          "priority": "important",
+          "rationale": "Slurred speech requires a formal stroke scale to screen for a stroke mimic",
+          "protocolReference": "MATC: Suspected Stroke/Transient Ischemic Attack"
+        },
+        {
+          "id": "a5",
+          "shortAction": "Obtain SAMPLE history and last known well time from husband",
+          "protocolExcerpt": "History – \"last known well\" and source of that information",
+          "priority": "important",
+          "rationale": "Onset time is essential if stroke cannot be excluded",
+          "protocolReference": "MATC: Suspected Stroke/Transient Ischemic Attack"
+        },
+        {
+          "id": "a6",
+          "shortAction": "Administer oral glucose gel 25 g PO (BGL 42 mg/dL, patient able to swallow)",
+          "protocolExcerpt": "Conscious patient with a patent airway: Glucose, oral (in form of glucose tablets, glucose gel, tube of cake icing, etc.) Adult Dosing: 25 g",
+          "priority": "critical",
+          "rationale": "Symptomatic hypoglycemia (BGL <60 mg/dL) with a patent airway meets criteria for oral glucose",
+          "protocolReference": "MATC: Hypoglycemia"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "glucose-given",
+          "if": "Oral glucose given",
+          "condition": "Crew recognizes hypoglycemia (BGL 42 mg/dL) with intact airway and administers 25 g oral glucose promptly",
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a3", "a6"]
+        },
+        {
+          "targetPhaseId": "glucose-delayed",
+          "if": "Oral glucose delayed",
+          "condition": "Crew fails to check blood glucose or delays oral glucose administration; patient's mental status continues to decline",
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["a3", "a6"]
+        }
+      ]
+    },
+    {
+      "id": "glucose-given",
+      "name": "Oral glucose given",
+      "description": "After 25 g of oral glucose, the patient's speech clears and she becomes oriented. Husband confirms this is consistent with prior low blood sugar episodes.",
+      "triggerCondition": "Oral glucose was administered promptly after BGL 42 mg/dL was identified; symptomatic hypoglycemia responds to glucose within several minutes.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent, protecting own airway",
+        "breathing": "Non-labored, regular rate and depth",
+        "circulation": "Radial pulses strong and regular; skin drying",
+        "skin": { "color": "pink", "temperature": "warm", "moisture": "drying" },
+        "pupils": "Equal, round, reactive to light bilaterally",
+        "motorFunction": "Moves all extremities equally, no focal weakness, tremor resolved",
+        "otherFindings": [
+          "Speech now clear",
+          "Oriented to person, place, time, and event",
+          "No facial droop or arm drift"
+        ],
+        "patientSpeech": "\"Sorry about that, I get that way sometimes when my sugar drops. I forgot to eat breakfast.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Normal Sinus Rhythm",
+        "ecgWaveform": 9,
+        "hr": 88,
+        "bpSys": 132,
+        "bpDia": 84,
+        "respRate": 16,
+        "spo2": 98,
+        "etco2": 35,
+        "temp": 36.7,
+        "tempF": 98.1,
+        "obstruction": 0,
+        "glucose": 96,
+        "customMeasures": [],
+        "trendTimeSeconds": 40,
+        "visibility": {
+          "spo2Visible": true,
+          "spo2Attached": true,
+          "rrVisible": true,
+          "etco2Visible": false,
+          "cvpVisible": false
+        }
+      },
+      "expectedActions": [
+        {
+          "id": "a7",
+          "shortAction": "Reassess vital signs and mental status after glucose administration",
+          "protocolExcerpt": "Reassess vital signs (pulse, blood pressure, respiratory rate, neurologic status assessment) and mental status",
+          "priority": "critical",
+          "rationale": "Confirms response to treatment and rules out need for repeat dosing",
+          "protocolReference": "MATC: Hypoglycemia"
+        },
+        {
+          "id": "a8",
+          "shortAction": "Transport to hospital; not all safe-release criteria are met",
+          "protocolExcerpt": "If symptoms of hypoglycemia resolve after treatment, release without transport should only be considered if all the following are true",
+          "priority": "important",
+          "rationale": "A single skipped meal alone does not satisfy all documented release-at-scene criteria; transport for evaluation is indicated",
+          "protocolReference": "MATC: Hypoglycemia"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "transport",
+          "if": "Transport initiated",
+          "condition": "Crew elects to transport the now-alert patient to the closest appropriate receiving facility for further evaluation",
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a8"]
+        }
+      ]
+    },
+    {
+      "id": "transport",
+      "name": "Transport initiated",
+      "description": "Patient is packaged and transported, remaining alert and oriented with stable vital signs en route.",
+      "triggerCondition": "Crew initiated transport after the patient's mental status normalized following oral glucose administration.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent, protecting own airway",
+        "breathing": "Non-labored, regular rate and depth",
+        "circulation": "Radial pulses strong and regular; skin warm and dry",
+        "skin": { "color": "pink", "temperature": "warm", "moisture": "dry" },
+        "pupils": "Equal, round, reactive to light bilaterally",
+        "motorFunction": "Moves all extremities equally, no focal deficit",
+        "otherFindings": [
+          "Remains oriented x4",
+          "Asking about missing her morning insulin dosing schedule"
+        ],
+        "patientSpeech": "\"I feel back to normal now, thank you.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Normal Sinus Rhythm",
+        "ecgWaveform": 9,
+        "hr": 82,
+        "bpSys": 126,
+        "bpDia": 80,
+        "respRate": 16,
+        "spo2": 99,
+        "etco2": 34,
+        "temp": 36.8,
+        "tempF": 98.2,
+        "obstruction": 0,
+        "glucose": 110,
+        "customMeasures": [],
+        "trendTimeSeconds": 20,
+        "visibility": {
+          "spo2Visible": true,
+          "spo2Attached": true,
+          "rrVisible": true,
+          "etco2Visible": false,
+          "cvpVisible": false
+        }
+      },
+      "expectedActions": [
+        {
+          "id": "a9",
+          "shortAction": "Continue reassessment of mental status and vitals en route to prevent complications",
+          "protocolExcerpt": "Protect patient from complications of altered mental status (e.g., respiratory failure, shock, cardiopulmonary arrest)",
+          "priority": "supplemental",
+          "rationale": "Ongoing monitoring guards against recurrence or unrecognized deterioration",
+          "protocolReference": "MATC: Altered Mental Status"
+        }
+      ],
+      "transitions": []
+    },
+    {
+      "id": "glucose-delayed",
+      "name": "Oral glucose delayed",
+      "description": "With glucose unchecked or oral glucose withheld, the patient's mental status continues to deteriorate. She is now unresponsive and unable to protect her own airway.",
+      "triggerCondition": "Blood glucose was not checked promptly, or oral glucose was withheld, while untreated hypoglycemia progressed to unresponsiveness.",
+      "isDefault": false,
+      "clinicalPresentation": {
+        "avpu": "Unresponsive",
+        "gcs": { "eye": 1, "verbal": 1, "motor": 4 },
+        "airway": "At risk; not purposefully protecting airway, occasional soft snoring respirations",
+        "breathing": "Shallow, slightly increased rate",
+        "circulation": "Radial pulses weak and rapid; skin profoundly diaphoretic",
+        "skin": { "color": "pale", "temperature": "cool", "moisture": "diaphoretic" },
+        "pupils": "Equal, round, sluggish to react",
+        "motorFunction": "Withdraws to painful stimuli only, no purposeful movement",
+        "otherFindings": [
+          "No longer responds to voice",
+          "No gag suppression assessed",
+          "Husband reports she \"just stopped answering\""
+        ],
+        "patientSpeech": "Unresponsive, no verbalization"
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 130,
+        "bpSys": 96,
+        "bpDia": 58,
+        "respRate": 22,
+        "spo2": 94,
+        "etco2": 40,
+        "temp": 36.3,
+        "tempF": 97.3,
+        "obstruction": 0,
+        "glucose": 28,
+        "customMeasures": [],
+        "trendTimeSeconds": 45,
+        "visibility": {
+          "spo2Visible": true,
+          "spo2Attached": true,
+          "rrVisible": true,
+          "etco2Visible": false,
+          "cvpVisible": false
+        }
+      },
+      "expectedActions": [
+        {
+          "id": "a10",
+          "shortAction": "Recognize patient can no longer safely receive oral glucose",
+          "protocolExcerpt": "Unconscious patient, or patients who are unable to protect their own airway:",
+          "priority": "critical",
+          "rationale": "Oral glucose in an unresponsive patient risks aspiration; this is outside oral glucose criteria",
+          "protocolReference": "MATC: Hypoglycemia"
+        },
+        {
+          "id": "a11",
+          "shortAction": "Position patient for airway protection; apply high-flow oxygen",
+          "protocolExcerpt": "With depressed mental status, initial focus is on airway protection, oxygenation, ventilation, and perfusion",
+          "priority": "critical",
+          "rationale": "Airway protection takes priority once the patient can no longer manage secretions purposefully",
+          "protocolReference": "MATC: Altered Mental Status"
+        },
+        {
+          "id": "a12",
+          "shortAction": "Initiate immediate transport to closest appropriate receiving facility",
+          "protocolExcerpt": "Initiate transport to closest appropriate receiving facility for further treatment of refractory hypoglycemia",
+          "priority": "critical",
+          "rationale": "Definitive treatment (IV dextrose/glucagon) is beyond BLS scope; rapid transport is the priority intervention",
+          "protocolReference": "MATC: Hypoglycemia"
+        }
+      ],
+      "transitions": []
+    }
+  ],
+  "realiti": {
+    "scenarioMonitorType": 2,
+    "scenarioDefaultEnergy": 200,
+    "scenarioDefaultPacerThreshold": 55
+  }
+}

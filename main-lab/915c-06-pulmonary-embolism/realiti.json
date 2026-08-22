@@ -1,0 +1,208 @@
+{
+  "scenarioId": "915c-06-pulmonary-embolism",
+  "scenarioName": "Pulmonary Embolism — Post-Op Sudden Dyspnea with Right Heart Strain",
+  "scenarioType": "Vital Signs",
+  "scenarioVersion": 2,
+  "scenarioTime": 900,
+  "scenarioMonitorType": 2,
+  "scenarioDefaultEnergy": 200,
+  "scenarioDefaultPacerThreshold": 55,
+  "isDemo": false,
+  "isALSILegacy": false,
+  "scenarioStory": {
+    "history": "Patient underwent right total knee replacement 6 days ago and has been largely sedentary at home since discharge. While standing up from the couch approximately 20 minutes ago, she developed abrupt, severe shortness of breath and right-sided pleuritic chest pain. She denies fever, cough, or leg trauma but reports the operative leg has felt 'swollen and achy' for the past two days, which she attributed to normal post-surgical recovery.",
+    "discussion": "",
+    "course": "Initial Contact: Crew finds a 55-year-old post-operative female in acute respiratory distress, tachycardic and hypoxic, with a swollen post-surgical leg noted incidentally. → O2, monitor, and IV access established: Oxygen is applied, the patient is placed on continuous cardiac and pulse oximetry monitoring, a 12-lead reveals an S1Q3T3 pattern concerning for right heart strain, and IV access is obtained. → Supportive care maintained, hospital notified: The patient remains hemodynamically borderline but stable on high-flow oxygen with continuous monitoring; the crew avoids aggressive fluid boluses given the obstructive/cardiogenic-pattern physiology and transports emergently with advance hospital notification."
+  },
+  "patientInformation": {
+    "patientName": "Renee Castellano",
+    "patientCondition": "Sudden shortness of breath",
+    "patientAge": 55,
+    "patientAgeUnit": "years",
+    "patientAgeCategory": 0,
+    "patientSex": 2,
+    "patientHeight": 165,
+    "patientWeight": 70,
+    "patientPhotoId": 66,
+    "patientAdmitted": 1
+  },
+  "labs": [],
+  "scenarioEvents": [
+    {
+      "type": "ScenarioEvent",
+      "name": "Initial Contact",
+      "description": "Crew finds a 55-year-old post-operative female in acute respiratory distress, tachycardic and hypoxic, with a swollen post-surgical leg noted incidentally.",
+      "monitorType": 0,
+      "trendTime": 0,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 122,
+        "bpSys": 106,
+        "bpDia": 70,
+        "respRate": 28,
+        "spo2": 89,
+        "etco2": 22,
+        "temp": 37,
+        "obstruction": 0,
+        "custMeasure1": 102,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "O2, monitor, and IV access established",
+      "description": "Oxygen is applied, the patient is placed on continuous cardiac and pulse oximetry monitoring, a 12-lead reveals an S1Q3T3 pattern concerning for right heart strain, and IV access is obtained.",
+      "monitorType": 0,
+      "trendTime": 30,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 45,
+        "hr": 118,
+        "bpSys": 102,
+        "bpDia": 66,
+        "respRate": 24,
+        "spo2": 93,
+        "etco2": 21,
+        "temp": 37,
+        "obstruction": 0,
+        "custMeasure1": 102,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Apply high-flow oxygen via non-rebreather, titrate to 94-98% SpO2",
+        "Apply cardiac monitor, pulse oximetry, and EtCO2; obtain 12-lead ECG",
+        "Establish IV access; place IO if unsuccessful within 2 attempts or 90 seconds",
+        "Provide advance notification to receiving hospital of suspected obstructive shock"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Supportive care maintained, hospital notified",
+      "description": "The patient remains hemodynamically borderline but stable on high-flow oxygen with continuous monitoring; the crew avoids aggressive fluid boluses given the obstructive/cardiogenic-pattern physiology and transports emergently with advance hospital notification.",
+      "monitorType": 0,
+      "trendTime": 40,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 45,
+        "hr": 112,
+        "bpSys": 104,
+        "bpDia": 68,
+        "respRate": 22,
+        "spo2": 95,
+        "etco2": 24,
+        "temp": 37,
+        "obstruction": 0,
+        "custMeasure1": 102,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Serially reassess vitals and perfusion en route; withhold aggressive fluid boluses"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Right heart strain unrecognized, no reassessment",
+      "description": "Without recognizing the obstructive shock pattern, the crew focuses only on symptomatic oxygen therapy. Blood pressure continues to fall as right heart strain progresses, and the patient becomes progressively more hypotensive and altered.",
+      "monitorType": 0,
+      "trendTime": 50,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 45,
+        "hr": 134,
+        "bpSys": 82,
+        "bpDia": 54,
+        "respRate": 30,
+        "spo2": 88,
+        "etco2": 18,
+        "temp": 37,
+        "obstruction": 0,
+        "custMeasure1": 102,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Start norepinephrine 0.05-0.5 mcg/kg/min IV (70 kg patient), titrate to MAP 65"
+      ],
+      "relatedSounds": []
+    }
+  ],
+  "checklist": [
+    {
+      "title": "Apply high-flow oxygen via non-rebreather, titrate to 94-98% SpO2",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Apply cardiac monitor, pulse oximetry, and EtCO2; obtain 12-lead ECG",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Establish IV access; place IO if unsuccessful within 2 attempts or 90 seconds",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Provide advance notification to receiving hospital of suspected obstructive shock",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Serially reassess vitals and perfusion en route; withhold aggressive fluid boluses",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Start norepinephrine 0.05-0.5 mcg/kg/min IV (70 kg patient), titrate to MAP 65",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    }
+  ],
+  "media": []
+}

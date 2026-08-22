@@ -1,0 +1,208 @@
+{
+  "scenarioId": "914a-01-dehydration",
+  "scenarioName": "Hyperemesis with Dehydration — Straightforward IV Access",
+  "scenarioType": "Vital Signs",
+  "scenarioVersion": 2,
+  "scenarioTime": 600,
+  "scenarioMonitorType": 2,
+  "scenarioDefaultEnergy": 200,
+  "scenarioDefaultPacerThreshold": 55,
+  "isDemo": false,
+  "isALSILegacy": false,
+  "scenarioStory": {
+    "history": "Patient reports three days of persistent nausea and vomiting, unable to keep down food or most liquids. Today she felt lightheaded and nearly fainted getting out of bed, prompting her husband to call EMS. She is 8 weeks pregnant by her last menstrual period and was told by her OB last week this could be hyperemesis gravidarum. Denies abdominal pain, fever, or vaginal bleeding.",
+    "discussion": "",
+    "course": "Initial Contact: Crew arrives to find a 24-year-old female, 8 weeks pregnant, pale and fatigued in bed after three days of vomiting. She is alert but reports dizziness when sitting up and has not tolerated oral intake. → IV access obtained, NS bolus started: Crew establishes forearm IV access, checks blood glucose, administers ondansetron for nausea, and begins a normal saline bolus targeting improved perfusion. → Improved with fluids and ondansetron: Patient's tachycardia and hypotension improve after the fluid bolus and antiemetic. She is reassessed serially and transported to an appropriate facility for OB evaluation."
+  },
+  "patientInformation": {
+    "patientName": "Emily Carter",
+    "patientCondition": "Nausea and vomiting for 3 days, now weak and dizzy",
+    "patientAge": 24,
+    "patientAgeUnit": "years",
+    "patientAgeCategory": 0,
+    "patientSex": 2,
+    "patientHeight": 165,
+    "patientWeight": 63,
+    "patientPhotoId": 29,
+    "patientAdmitted": 1
+  },
+  "labs": [],
+  "scenarioEvents": [
+    {
+      "type": "ScenarioEvent",
+      "name": "Initial Contact",
+      "description": "Crew arrives to find a 24-year-old female, 8 weeks pregnant, pale and fatigued in bed after three days of vomiting. She is alert but reports dizziness when sitting up and has not tolerated oral intake.",
+      "monitorType": 0,
+      "trendTime": 0,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 104,
+        "bpSys": 100,
+        "bpDia": 64,
+        "respRate": 18,
+        "spo2": 98,
+        "etco2": 0,
+        "temp": 37,
+        "obstruction": 0,
+        "custMeasure1": 88,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "IV access obtained, NS bolus started",
+      "description": "Crew establishes forearm IV access, checks blood glucose, administers ondansetron for nausea, and begins a normal saline bolus targeting improved perfusion.",
+      "monitorType": 0,
+      "trendTime": 30,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 96,
+        "bpSys": 106,
+        "bpDia": 66,
+        "respRate": 16,
+        "spo2": 99,
+        "etco2": 0,
+        "temp": 37,
+        "obstruction": 0,
+        "custMeasure1": 88,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Establish forearm IV access (18-20ga)",
+        "Obtain blood glucose level",
+        "Normal saline 500 mL IV bolus, pressure infused over <15 min",
+        "Ondansetron 4 mg IV (fixed adult dose)"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Improved with fluids and ondansetron",
+      "description": "Patient's tachycardia and hypotension improve after the fluid bolus and antiemetic. She is reassessed serially and transported to an appropriate facility for OB evaluation.",
+      "monitorType": 0,
+      "trendTime": 40,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 88,
+        "bpSys": 112,
+        "bpDia": 70,
+        "respRate": 14,
+        "spo2": 100,
+        "etco2": 0,
+        "temp": 37,
+        "obstruction": 0,
+        "custMeasure1": 90,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Reassess vital signs serially en route; monitor for recurrent nausea"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "IV access delayed, no fluids given",
+      "description": "Without IV access or fluid resuscitation, ongoing volume loss from vomiting drives the patient toward uncompensated shock, with worsening tachycardia and new hypotension.",
+      "monitorType": 0,
+      "trendTime": 50,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 128,
+        "bpSys": 84,
+        "bpDia": 54,
+        "respRate": 22,
+        "spo2": 95,
+        "etco2": 0,
+        "temp": 37,
+        "obstruction": 0,
+        "custMeasure1": 86,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Recognize progression to uncompensated shock; establish IV/IO access emergently"
+      ],
+      "relatedSounds": []
+    }
+  ],
+  "checklist": [
+    {
+      "title": "Establish forearm IV access (18-20ga)",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Obtain blood glucose level",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Normal saline 500 mL IV bolus, pressure infused over <15 min",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Ondansetron 4 mg IV (fixed adult dose)",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Reassess vital signs serially en route; monitor for recurrent nausea",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Recognize progression to uncompensated shock; establish IV/IO access emergently",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    }
+  ],
+  "media": []
+}

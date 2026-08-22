@@ -1,0 +1,349 @@
+{
+  "scenarioId": "921c-02-normal-delivery-2",
+  "scenarioName": "Normal Delivery #2 — En Route Delivery with Shoulder Dystocia",
+  "scenarioType": "Vital Signs",
+  "scenarioVersion": 2,
+  "scenarioTime": 900,
+  "scenarioMonitorType": 2,
+  "scenarioDefaultEnergy": 200,
+  "scenarioDefaultPacerThreshold": 55,
+  "isDemo": false,
+  "isALSILegacy": false,
+  "scenarioStory": {
+    "history": "G4P3 patient at 38 weeks gestation reports lower back pain for the past hour that she attributes to helping move boxes earlier in the day. Denies 'contractions' in her own words, but on direct questioning describes cyclical tightening across her lower abdomen roughly every 6-8 minutes. Each of her three prior pregnancies progressed from first noticeable contraction to delivery in under 90 minutes. Denies rupture of membranes or bloody show at this time. Denies urge to push.",
+    "discussion": "",
+    "course": "Initial Contact: Crew arrives to find a 35-year-old G4P3 female at 38 weeks gestation, ambulatory and uncomfortable with lower back pain she attributes to lifting earlier in the day. She denies contractions by name but describes a cyclical tightening pattern when questioned directly. → OB history obtained, transport initiated: Crew completes a focused OB assessment. Contractions are present but irregular in the patient's perception; there is no crowning, urge to push, or bloody show. Per protocol, the crew begins transport toward the receiving facility rather than delaying on scene. → Crowning discovered en route: Mid-transport, the patient reports a sudden, overwhelming urge to push. Reassessment in the moving compartment reveals crowning — delivery is now imminent and will not wait for hospital arrival. → Delivery prepared, controlled technique used: The head delivers under controlled technique, but the anterior shoulder fails to descend with gentle downward guidance — shoulder dystocia is recognized and managed in the confined ambulance compartment. → Shoulder delivered, newborn emerges: The shoulder dystocia resolves with McRoberts positioning and suprapubic pressure; the newborn delivers, is dried and warmed, and the crew continues transport while completing postpartum care for both patients."
+  },
+  "patientInformation": {
+    "patientName": "Marisol Vega",
+    "patientCondition": "Lower back pain, thought to be muscular strain",
+    "patientAge": 35,
+    "patientAgeUnit": "years",
+    "patientAgeCategory": 0,
+    "patientSex": 2,
+    "patientHeight": 165,
+    "patientWeight": 78,
+    "patientPhotoId": 42,
+    "patientAdmitted": 1
+  },
+  "labs": [],
+  "scenarioEvents": [
+    {
+      "type": "ScenarioEvent",
+      "name": "Initial Contact",
+      "description": "Crew arrives to find a 35-year-old G4P3 female at 38 weeks gestation, ambulatory and uncomfortable with lower back pain she attributes to lifting earlier in the day. She denies contractions by name but describes a cyclical tightening pattern when questioned directly.",
+      "monitorType": 0,
+      "trendTime": 0,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 88,
+        "bpSys": 122,
+        "bpDia": 78,
+        "respRate": 18,
+        "spo2": 99,
+        "etco2": 0,
+        "temp": 37,
+        "obstruction": 0,
+        "custMeasure1": 92,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "OB history obtained, transport initiated",
+      "description": "Crew completes a focused OB assessment. Contractions are present but irregular in the patient's perception; there is no crowning, urge to push, or bloody show. Per protocol, the crew begins transport toward the receiving facility rather than delaying on scene.",
+      "monitorType": 0,
+      "trendTime": 30,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 92,
+        "bpSys": 120,
+        "bpDia": 76,
+        "respRate": 18,
+        "spo2": 99,
+        "etco2": 0,
+        "temp": 37,
+        "obstruction": 0,
+        "custMeasure1": 92,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Obtain focused OB history: gravida/para, gestational age, contraction pattern, membrane/bleeding status",
+        "No crowning or urge to push present; begin transport to the receiving facility"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Crowning discovered en route",
+      "description": "Mid-transport, the patient reports a sudden, overwhelming urge to push. Reassessment in the moving compartment reveals crowning — delivery is now imminent and will not wait for hospital arrival.",
+      "monitorType": 0,
+      "trendTime": 20,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 108,
+        "bpSys": 128,
+        "bpDia": 80,
+        "respRate": 22,
+        "spo2": 98,
+        "etco2": 0,
+        "temp": 37,
+        "obstruction": 0,
+        "custMeasure1": 92,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Recognize crowning and urge to push; commit to delivering in the moving ambulance",
+        "Open the delivery kit and support the infant's head with gentle counterpressure as it emerges"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Delivery prepared, controlled technique used",
+      "description": "The head delivers under controlled technique, but the anterior shoulder fails to descend with gentle downward guidance — shoulder dystocia is recognized and managed in the confined ambulance compartment.",
+      "monitorType": 0,
+      "trendTime": 15,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 116,
+        "bpSys": 130,
+        "bpDia": 82,
+        "respRate": 24,
+        "spo2": 97,
+        "etco2": 0,
+        "temp": 37,
+        "obstruction": 0,
+        "custMeasure1": 92,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Check for nuchal cord after head delivers; slip over head if present",
+        "Recognize shoulder dystocia; perform McRoberts maneuver, hyperflexing maternal hips",
+        "Apply firm suprapubic pressure with a second crew member to dislodge the shoulder"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Shoulder delivered, newborn emerges",
+      "description": "The shoulder dystocia resolves with McRoberts positioning and suprapubic pressure; the newborn delivers, is dried and warmed, and the crew continues transport while completing postpartum care for both patients.",
+      "monitorType": 0,
+      "trendTime": 45,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 96,
+        "bpSys": 118,
+        "bpDia": 74,
+        "respRate": 18,
+        "spo2": 99,
+        "etco2": 0,
+        "temp": 37,
+        "obstruction": 0,
+        "custMeasure1": 92,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Clamp cord after 1 minute, cutting between two clamps 5-6 inches from the abdomen",
+        "Dry, warm, and stimulate newborn; record APGAR scores at 1 and 5 minutes",
+        "Massage uterine fundus after placenta delivers to promote contraction and control bleeding"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Delivery attempted without preparation",
+      "description": "The crew continues driving at normal speed without opening the delivery kit or bracing for an in-compartment birth. The infant begins to deliver suddenly and unassisted, creating a risk of dropping the newborn in the moving vehicle.",
+      "monitorType": 0,
+      "trendTime": 20,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 112,
+        "bpSys": 126,
+        "bpDia": 80,
+        "respRate": 22,
+        "spo2": 97,
+        "etco2": 0,
+        "temp": 37,
+        "obstruction": 0,
+        "custMeasure1": 92,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Recognize the drop risk; immediately secure the newborn with both hands and a towel"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Head pulled instead of McRoberts",
+      "description": "Rather than performing McRoberts positioning and suprapubic pressure, the crew applies direct traction on the fetal head in an attempt to free the shoulder, risking brachial plexus injury to the newborn.",
+      "monitorType": 0,
+      "trendTime": 15,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 122,
+        "bpSys": 132,
+        "bpDia": 84,
+        "respRate": 24,
+        "spo2": 96,
+        "etco2": 0,
+        "temp": 37,
+        "obstruction": 0,
+        "custMeasure1": 92,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Stop traction on the head immediately; reposition to McRoberts and apply suprapubic pressure"
+      ],
+      "relatedSounds": []
+    }
+  ],
+  "checklist": [
+    {
+      "title": "Obtain focused OB history: gravida/para, gestational age, contraction pattern, membrane/bleeding status",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "No crowning or urge to push present; begin transport to the receiving facility",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Recognize crowning and urge to push; commit to delivering in the moving ambulance",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Open the delivery kit and support the infant's head with gentle counterpressure as it emerges",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Check for nuchal cord after head delivers; slip over head if present",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Recognize shoulder dystocia; perform McRoberts maneuver, hyperflexing maternal hips",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Apply firm suprapubic pressure with a second crew member to dislodge the shoulder",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Clamp cord after 1 minute, cutting between two clamps 5-6 inches from the abdomen",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Dry, warm, and stimulate newborn; record APGAR scores at 1 and 5 minutes",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Massage uterine fundus after placenta delivers to promote contraction and control bleeding",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Recognize the drop risk; immediately secure the newborn with both hands and a towel",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Stop traction on the head immediately; reposition to McRoberts and apply suprapubic pressure",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    }
+  ],
+  "media": []
+}

@@ -1,0 +1,299 @@
+{
+  "meta": {
+    "id": "914b-05-back-pain",
+    "name": "Back Pain — Acute Lumbar Strain, Morphine Titration",
+    "version": 1,
+    "difficulty": "intermediate",
+    "category": "Medical",
+    "protocols": ["medical-back-pain", "medical-pain-management"],
+    "totalTimeSeconds": 900,
+    "tags": ["ALS", "med math", "pain management", "morphine", "914"]
+  },
+  "patient": {
+    "name": "Linda Voss",
+    "age": 58,
+    "ageUnit": "years",
+    "sex": "female",
+    "weight": 70,
+    "weightLbs": 154,
+    "height": 165,
+    "chiefComplaint": "Severe low back pain after lifting grandchild, unable to ambulate",
+    "history": {
+      "hpi": "Patient was lifting her 2-year-old grandchild out of a crib this morning when she felt a sudden 'pop' and sharp pain in her lower back. Pain has progressively worsened over the past hour, now 9/10, sharp and band-like across the lumbar region without radiation into the legs. She is unable to stand upright or bear weight without severe pain and has been lying on the living room floor since the onset. Denies numbness, denies loss of bowel or bladder control, denies fever.",
+      "pastMedical": ["Hypertension", "Osteoarthritis"],
+      "medications": ["Lisinopril 10 mg PO daily", "Acetaminophen PRN"],
+      "allergies": ["NKDA"],
+      "lastOralIntake": "Coffee and toast, approximately 2 hours prior to onset",
+      "events": "Daughter called 911 after finding patient unable to get up off the living room floor"
+    }
+  },
+  "scene": {
+    "dispatch": "58-year-old female, back pain, unable to get up, residence",
+    "location": "Single-family home living room, patient supine on an area rug near a crib",
+    "time": "9:15 AM, weekday",
+    "safety": "No hazards to crew noted",
+    "bystanders": "Daughter present, witnessed onset while patient was lifting her grandchild out of the crib",
+    "visualCues": [
+      "Patient lying supine and rigid, guarding her lower back",
+      "Grimacing and crying out with any attempted movement",
+      "No visible deformity, bruising, or swelling to the spine",
+      "Toddler being held by another family member nearby"
+    ]
+  },
+  "phases": [
+    {
+      "id": "initial",
+      "name": "Initial Contact",
+      "description": "Crew arrives to find a 58-year-old female supine on the floor, rigid with guarding, reporting severe lumbar back pain that began while lifting her grandchild. She is alert, oriented, and cooperative but in visible distress.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent, speaking full sentences between grimaces",
+        "breathing": "Nonlabored, symmetric chest rise, 20/min",
+        "circulation": "Radial pulses present and equal bilaterally, femoral pulses equal",
+        "skin": { "color": "pink", "temperature": "warm", "moisture": "dry" },
+        "pupils": "PERRL",
+        "motorFunction": "Strength intact and equal in both legs, sensation intact, no saddle anesthesia",
+        "otherFindings": [
+          "Lumbar back pain 9/10, sharp and band-like, no radiation into legs",
+          "Denies bowel or bladder incontinence",
+          "No pulsatile abdominal mass, no midline spinal step-off",
+          "Afebrile"
+        ],
+        "patientSpeech": "\"It hurts so bad, please don't make me move.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 108,
+        "bpSys": 150,
+        "bpDia": 92,
+        "respRate": 20,
+        "spo2": 98,
+        "etco2": 0,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 0,
+        "glucose": 102,
+        "customMeasures": [],
+        "trendTimeSeconds": 0,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [],
+      "transitions": [
+        {
+          "targetPhaseId": "primary-treatment",
+          "if": "Red flags screened, analgesia given",
+          "condition": "Crew screens for life-threatening causes of back pain, assesses pain severity on a standard scale, and administers weight-based morphine per the Pain Management Guideline.",
+          "conditionType": "action_taken"
+        }
+      ]
+    },
+    {
+      "id": "primary-treatment",
+      "name": "Red flags screened, analgesia given",
+      "description": "Crew performs a focused assessment for life-threatening causes of back pain, positions the patient for comfort, and administers weight-based IV morphine for severe pain.",
+      "triggerCondition": "After the primary survey confirms no airway, breathing, or circulation threats, the crew screens for red-flag causes of back pain (spinal cord compression, aortic dissection/AAA, pyelonephritis) and, finding none present, proceeds with analgesia for isolated musculoskeletal back pain.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "Nonlabored, 19/min",
+        "circulation": "Radial and femoral pulses present and equal bilaterally",
+        "skin": { "color": "pink", "temperature": "warm", "moisture": "dry" },
+        "pupils": "PERRL",
+        "motorFunction": "Strength and sensation intact and equal in both legs",
+        "otherFindings": [
+          "IV established in left forearm",
+          "Pain scale reassessed at 9/10 prior to medication",
+          "No costovertebral angle tenderness, no fever"
+        ],
+        "patientSpeech": "\"Please, can you give me something for the pain?\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 110,
+        "bpSys": 152,
+        "bpDia": 94,
+        "respRate": 19,
+        "spo2": 98,
+        "etco2": 0,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 0,
+        "glucose": 102,
+        "customMeasures": [],
+        "trendTimeSeconds": 20,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a1-redflag-screen",
+          "shortAction": "Screen for life-threatening back pain causes: neuro deficit, unequal femoral pulses, pulsatile mass, fever",
+          "protocolExcerpt": "Assess for life-threatening causes of back pain, which may include: Spinal cord compression ... Aortic dissection or ruptured abdominal aortic aneurysm ... Pyelonephritis",
+          "priority": "critical",
+          "rationale": "Rules out spinal cord compression, aortic emergency, and pyelonephritis before treating as isolated musculoskeletal pain.",
+          "protocolReference": "MATC: Back Pain"
+        },
+        {
+          "id": "a2-pain-scale",
+          "shortAction": "Assess pain severity using the Numeric Rating Scale (patient is >12 years old)",
+          "protocolExcerpt": "Determine patient's pain score assessment using standard pain scale ... Greater than 12 years old: Self-report scale: Numeric Rating Scale (NRS)",
+          "priority": "important",
+          "rationale": "Establishes a baseline pain score to guide dosing and measure response to treatment.",
+          "protocolReference": "MATC: Pain Management"
+        },
+        {
+          "id": "a3-nonpharm",
+          "shortAction": "Position patient for comfort while preparing IV access and medication",
+          "protocolExcerpt": "Non-pharmacologic pain management options include Placement of the patient in a position of comfort",
+          "priority": "supplemental",
+          "rationale": "Reduces pain and anxiety while pharmacologic treatment is prepared.",
+          "protocolReference": "MATC: Pain Management"
+        },
+        {
+          "id": "a4-morphine",
+          "shortAction": "Morphine 7 mg IV (70 kg × 0.1 mg/kg = 7 mg; max initial dose 10 mg)",
+          "protocolExcerpt": "For Moderate to Severe pain, analgesics include: Morphine sulfate: 0.1 mg/kg IM, IV or IO (maximum initial dose is 10 mg)",
+          "priority": "critical",
+          "rationale": "Weight-based opioid dosing for severe pain not attributable to a life-threatening cause.",
+          "protocolReference": "MATC: Pain Management"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "pain-improved",
+          "if": "Morphine given, pain improves",
+          "condition": "IV morphine is administered at the correct weight-based dose; pain score and vital signs improve over the following minutes.",
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a4-morphine"]
+        },
+        {
+          "targetPhaseId": "analgesia-withheld",
+          "if": "Analgesia withheld despite severe pain",
+          "condition": "Crew completes the red-flag screen but does not administer analgesia, or significantly delays medication administration, leaving the patient in severe uncontrolled pain.",
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["a4-morphine"]
+        }
+      ]
+    },
+    {
+      "id": "pain-improved",
+      "name": "Morphine given, pain improves",
+      "description": "Following weight-based IV morphine, the patient's pain and vital signs improve. She is transported in a position of comfort with ongoing reassessment.",
+      "triggerCondition": "After IV morphine 7 mg is administered, pain score and hemodynamics improve within several minutes; patient remains alert with stable respiratory status.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "Nonlabored, 16/min",
+        "circulation": "Radial pulses present and equal bilaterally",
+        "skin": { "color": "pink", "temperature": "warm", "moisture": "dry" },
+        "pupils": "PERRL, slightly miotic",
+        "motorFunction": "Strength and sensation intact and equal in both legs",
+        "otherFindings": [
+          "Pain reassessed at 3/10, notably improved",
+          "No respiratory depression, no hypotension",
+          "Resting comfortably in position of comfort"
+        ],
+        "patientSpeech": "\"That's so much better, thank you.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Rhythm",
+        "ecgWaveform": 9,
+        "hr": 86,
+        "bpSys": 126,
+        "bpDia": 78,
+        "respRate": 16,
+        "spo2": 98,
+        "etco2": 0,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 0,
+        "glucose": 102,
+        "customMeasures": [],
+        "trendTimeSeconds": 40,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a5-reassess",
+          "shortAction": "Reassess pain score and vital signs after morphine; monitor respiratory status",
+          "protocolExcerpt": "Pain severity scores should be recorded before and after analgesic medication administration and upon arrival at destination",
+          "priority": "important",
+          "rationale": "Confirms treatment efficacy and screens for opioid-related respiratory depression.",
+          "protocolReference": "MATC: Pain Management"
+        },
+        {
+          "id": "a6-transport-comfort",
+          "shortAction": "Transport in position of comfort; reassess vitals and pain en route",
+          "protocolExcerpt": "Transport in position of comfort and reassess as indicated",
+          "priority": "important",
+          "rationale": "Continued reassessment ensures sustained pain control and early detection of adverse effects.",
+          "protocolReference": "MATC: Back Pain"
+        }
+      ],
+      "transitions": []
+    },
+    {
+      "id": "analgesia-withheld",
+      "name": "Analgesia withheld despite severe pain",
+      "description": "Crew delays or withholds analgesia despite a completed red-flag screen showing isolated musculoskeletal back pain. The patient remains in severe pain, becoming increasingly distressed, tachycardic, and hypertensive.",
+      "triggerCondition": "Despite screening negative for red-flag causes, the crew does not administer weight-based morphine within a reasonable interval, leaving the patient's severe pain uncontrolled during scene time and transport.",
+      "isDefault": false,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "Rapid, shallow with guarding, 24/min",
+        "circulation": "Radial pulses present bilaterally, strong and rapid",
+        "skin": { "color": "flushed", "temperature": "warm", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Strength and sensation intact and equal in both legs",
+        "otherFindings": [
+          "Pain remains 10/10, crying and unable to hold still",
+          "Increasing anxiety and distress",
+          "No new neurologic deficit"
+        ],
+        "patientSpeech": "\"Please, it still hurts so much, why won't it stop?\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 124,
+        "bpSys": 164,
+        "bpDia": 98,
+        "respRate": 24,
+        "spo2": 97,
+        "etco2": 0,
+        "temp": 37.1,
+        "tempF": 98.8,
+        "obstruction": 0,
+        "glucose": 102,
+        "customMeasures": [],
+        "trendTimeSeconds": 30,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a7-recover-morphine",
+          "shortAction": "Recognize uncontrolled pain; give morphine 7 mg IV now (70 kg × 0.1 mg/kg; max initial 10 mg)",
+          "protocolExcerpt": "For Moderate to Severe pain, analgesics include: Morphine sulfate: 0.1 mg/kg IM, IV or IO (maximum initial dose is 10 mg)",
+          "priority": "critical",
+          "rationale": "Uncontrolled severe pain with worsening tachycardia and hypertension requires prompt correction of the delayed analgesia.",
+          "protocolReference": "MATC: Pain Management"
+        }
+      ],
+      "transitions": []
+    }
+  ],
+  "realiti": {
+    "scenarioMonitorType": 2,
+    "scenarioDefaultEnergy": 200,
+    "scenarioDefaultPacerThreshold": 55
+  }
+}

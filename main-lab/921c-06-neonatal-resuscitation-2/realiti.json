@@ -1,0 +1,215 @@
+{
+  "scenarioId": "921c-06-neonatal-resuscitation-2",
+  "scenarioName": "Neonatal Resuscitation — 34-Week Preterm, Escalating NRP",
+  "scenarioType": "Vital Signs",
+  "scenarioVersion": 2,
+  "scenarioTime": 660,
+  "scenarioMonitorType": 2,
+  "scenarioDefaultEnergy": 200,
+  "scenarioDefaultPacerThreshold": 55,
+  "isDemo": false,
+  "isALSILegacy": false,
+  "scenarioStory": {
+    "history": "Preterm female infant delivered at approximately 34 weeks gestation following spontaneous preterm labor. At delivery the infant has poor respiratory effort with weak, irregular breathing and is noted to be cooling rapidly despite initial drying. Heart rate on initial assessment is below 100 bpm.",
+    "discussion": "",
+    "course": "Initial Contact: A 34-week preterm female newborn presents with poor respiratory effort and a heart rate below 100 bpm shortly after a precipitous home delivery. Prematurity places her at elevated risk for both respiratory compromise and hypothermia. → Aggressive warming and PPV started: Crew provides aggressive warming with drying, swaddling, and warm blankets covering the body and head, while simultaneously initiating BVM ventilation for the heart rate below 100 bpm. Heart rate does not improve after 90 seconds, prompting escalation. → Oxygen escalated, HR remains under 60: Despite effective PPV and escalated oxygen delivery, heart rate falls below 60 bpm. Crew initiates chest compressions coordinated with ventilation at a 3:1 ratio and prepares epinephrine per weight-based dosing."
+  },
+  "patientInformation": {
+    "patientName": "Baby Alvarez",
+    "patientCondition": "34-week preterm newborn, poor respiratory effort, heart rate under 100 after birth",
+    "patientAge": 2,
+    "patientAgeUnit": "minutes",
+    "patientAgeCategory": 1,
+    "patientSex": 2,
+    "patientHeight": 44,
+    "patientWeight": 2.2,
+    "patientPhotoId": 3,
+    "patientAdmitted": 1
+  },
+  "labs": [],
+  "scenarioEvents": [
+    {
+      "type": "ScenarioEvent",
+      "name": "Initial Contact",
+      "description": "A 34-week preterm female newborn presents with poor respiratory effort and a heart rate below 100 bpm shortly after a precipitous home delivery. Prematurity places her at elevated risk for both respiratory compromise and hypothermia.",
+      "monitorType": 0,
+      "trendTime": 0,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 90,
+        "bpSys": 0,
+        "bpDia": 0,
+        "respRate": 10,
+        "spo2": 68,
+        "etco2": 0,
+        "temp": 35.9,
+        "obstruction": 0,
+        "custMeasure1": 0,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Aggressive warming and PPV started",
+      "description": "Crew provides aggressive warming with drying, swaddling, and warm blankets covering the body and head, while simultaneously initiating BVM ventilation for the heart rate below 100 bpm. Heart rate does not improve after 90 seconds, prompting escalation.",
+      "monitorType": 0,
+      "trendTime": 30,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 92,
+        "bpSys": 0,
+        "bpDia": 0,
+        "respRate": 8,
+        "spo2": 72,
+        "etco2": 0,
+        "temp": 36.1,
+        "obstruction": 0,
+        "custMeasure1": 0,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Provide aggressive warming: dry, swaddle, warm blankets covering body and head",
+        "Initiate BVM ventilation with 100% oxygen at 40-60 breaths/min for 90 seconds",
+        "Evaluate heart rate every 30 seconds during ventilation"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Oxygen escalated, HR remains under 60",
+      "description": "Despite effective PPV and escalated oxygen delivery, heart rate falls below 60 bpm. Crew initiates chest compressions coordinated with ventilation at a 3:1 ratio and prepares epinephrine per weight-based dosing.",
+      "monitorType": 0,
+      "trendTime": 20,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 55,
+        "bpSys": 0,
+        "bpDia": 0,
+        "respRate": 0,
+        "spo2": 60,
+        "etco2": 0,
+        "temp": 36.3,
+        "obstruction": 0,
+        "custMeasure1": 0,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Initiate two-thumb-encircling-hands chest compressions, coordinated 3:1 with ventilation",
+        "Prepare epinephrine 0.022 mg IV/IO (2.2 kg x 0.01 mg/kg; 0.1 mg/mL concentration) q3-5min if HR remains <60",
+        "Check blood glucose given ongoing resuscitation"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Warming inadequate, hypothermia worsens",
+      "description": "Crew provides only routine drying without the aggressive warming measures a preterm infant requires, allowing progressive heat loss that compounds the newborn's respiratory and cardiovascular compromise.",
+      "monitorType": 0,
+      "trendTime": 40,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 72,
+        "bpSys": 0,
+        "bpDia": 0,
+        "respRate": 6,
+        "spo2": 58,
+        "etco2": 0,
+        "temp": 35.2,
+        "obstruction": 0,
+        "custMeasure1": 0,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Immediately escalate to aggressive warming: radiant warmer or blankets covering body and head, plus PPV"
+      ],
+      "relatedSounds": []
+    }
+  ],
+  "checklist": [
+    {
+      "title": "Provide aggressive warming: dry, swaddle, warm blankets covering body and head",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Initiate BVM ventilation with 100% oxygen at 40-60 breaths/min for 90 seconds",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Evaluate heart rate every 30 seconds during ventilation",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Initiate two-thumb-encircling-hands chest compressions, coordinated 3:1 with ventilation",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Prepare epinephrine 0.022 mg IV/IO (2.2 kg x 0.01 mg/kg; 0.1 mg/mL concentration) q3-5min if HR remains <60",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Check blood glucose given ongoing resuscitation",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Immediately escalate to aggressive warming: radiant warmer or blankets covering body and head, plus PPV",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    }
+  ],
+  "media": []
+}
