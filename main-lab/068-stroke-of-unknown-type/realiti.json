@@ -57,7 +57,14 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [],
+      "relatedChecklist": [
+        "Check blood glucose; treat only if BGL less than 60 mg/dL",
+        "Perform validated stroke scale and severity scale (face, arm, speech)",
+        "Determine and document a specific last known well time from bystander",
+        "Administer oxygen only as needed to target 94–98% SpO2",
+        "Elevate head of stretcher 15–30°; keep head and neck neutral",
+        "Acquire 12-lead EKG and place patient on cardiac monitor"
+      ],
       "relatedSounds": []
     },
     {
@@ -90,12 +97,8 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Check blood glucose; treat only if BGL less than 60 mg/dL",
-        "Perform validated stroke scale and severity scale (face, arm, speech)",
-        "Determine and document a specific last known well time from bystander",
-        "Administer oxygen only as needed to target 94–98% SpO2",
-        "Elevate head of stretcher 15–30°; keep head and neck neutral",
-        "Acquire 12-lead EKG and place patient on cardiac monitor"
+        "Transmit early stroke alert to receiving hospital including LVO suspicion",
+        "Do not treat hypertension; monitor without pharmacologic intervention"
       ],
       "relatedSounds": []
     },
@@ -128,10 +131,7 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [
-        "Transmit early stroke alert to receiving hospital including LVO suspicion",
-        "Do not treat hypertension; monitor without pharmacologic intervention"
-      ],
+      "relatedChecklist": [],
       "relatedSounds": []
     },
     {

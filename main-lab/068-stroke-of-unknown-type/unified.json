@@ -80,13 +80,70 @@
         "trendTimeSeconds": 0,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [],
+      "expectedActions": [
+        {
+          "id": "a1",
+          "shortAction": "Check blood glucose; treat only if BGL less than 60 mg/dL",
+          "protocolExcerpt": "Check blood glucose level (BGL) Treat only if glucose less than 60 mg/dL",
+          "priority": "critical",
+          "rationale": "Hypoglycemia is a common, rapidly reversible stroke mimic that must be excluded.",
+          "protocolReference": "MATC: Suspected Stroke/Transient Ischemic Attack"
+        },
+        {
+          "id": "a2",
+          "shortAction": "Perform validated stroke scale and severity scale (face, arm, speech)",
+          "protocolExcerpt": "Use a validated prehospital stroke scale that may include, but is not limited to: Facial smile/grimace – ask patient to smile; Arm drift – close eyes and hold out arms for count of 10 seconds; Speech – ask patient to say \"You can't teach an old dog new tricks\"",
+          "priority": "critical",
+          "rationale": "A validated scale standardizes findings and drives the destination decision.",
+          "protocolReference": "MATC: Suspected Stroke/Transient Ischemic Attack"
+        },
+        {
+          "id": "a3",
+          "shortAction": "Determine and document a specific last known well time from bystander",
+          "protocolExcerpt": "Determine \"last known well\" time \"Last known well\" must be specific",
+          "priority": "critical",
+          "rationale": "A specific LKW time determines eligibility for thrombolytic and thrombectomy therapy at the receiving hospital.",
+          "protocolReference": "MATC: Suspected Stroke/Transient Ischemic Attack"
+        },
+        {
+          "id": "a4",
+          "shortAction": "Administer oxygen only as needed to target 94–98% SpO2",
+          "protocolExcerpt": "Administer oxygen as appropriate with a target of achieving 94–98% saturation",
+          "priority": "important",
+          "rationale": "Routine high-flow O2 is not indicated when saturation is already adequate.",
+          "protocolReference": "MATC: Suspected Stroke/Transient Ischemic Attack"
+        },
+        {
+          "id": "a5",
+          "shortAction": "Elevate head of stretcher 15–30°; keep head and neck neutral",
+          "protocolExcerpt": "Prevent aspiration – elevate head of stretcher 15–30 degrees if systolic BP greater than 100 mmHg Maintain head and neck in neutral alignment, without flexing the neck",
+          "priority": "important",
+          "rationale": "Positioning reduces aspiration risk in a patient with impaired airway protection.",
+          "protocolReference": "MATC: Suspected Stroke/Transient Ischemic Attack"
+        },
+        {
+          "id": "a6",
+          "shortAction": "Acquire 12-lead EKG and place patient on cardiac monitor",
+          "protocolExcerpt": "Acquire 12-lead EKG, if possible Place on cardiac monitor",
+          "priority": "important",
+          "rationale": "Identifies atrial fibrillation or other dysrhythmia as a possible embolic source.",
+          "protocolReference": "MATC: Suspected Stroke/Transient Ischemic Attack"
+        }
+      ],
       "transitions": [
         {
           "targetPhaseId": "stroke-workup",
           "if": "Stroke scale and LKW obtained",
           "condition": "Crew performs a validated prehospital stroke scale, establishes a specific last known well time from the wife, and checks blood glucose to exclude hypoglycemia as a stroke mimic.",
-          "conditionType": "action_taken"
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a2", "a3"]
+        },
+        {
+          "targetPhaseId": "lkw-not-established",
+          "if": "LKW time not established",
+          "condition": "Crew fails to obtain a specific last known well time from the wife, complicating the receiving hospital's eligibility determination for thrombolytic or thrombectomy therapy.",
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["a3"]
         }
       ]
     },
@@ -131,51 +188,19 @@
       },
       "expectedActions": [
         {
-          "id": "a1-bgl",
-          "shortAction": "Check blood glucose; treat only if BGL less than 60 mg/dL",
-          "protocolExcerpt": "Check blood glucose level (BGL) Treat only if glucose less than 60 mg/dL",
+          "id": "b1",
+          "shortAction": "Transmit early stroke alert to receiving hospital including LVO suspicion",
+          "protocolExcerpt": "Early hospital notification per local stroke plan that should include any suspected large vessel occlusion (LVO) stroke",
           "priority": "critical",
-          "rationale": "Hypoglycemia is a common, rapidly reversible stroke mimic that must be excluded.",
+          "rationale": "Early notification activates the hospital stroke team before arrival, minimizing door-to-treatment time.",
           "protocolReference": "MATC: Suspected Stroke/Transient Ischemic Attack"
         },
         {
-          "id": "a2-stroke-scale",
-          "shortAction": "Perform validated stroke scale and severity scale (face, arm, speech)",
-          "protocolExcerpt": "Use a validated prehospital stroke scale that may include, but is not limited to: Facial smile/grimace – ask patient to smile; Arm drift – close eyes and hold out arms for count of 10 seconds; Speech – ask patient to say \"You can't teach an old dog new tricks\"",
-          "priority": "critical",
-          "rationale": "A validated scale standardizes findings and drives the destination decision.",
-          "protocolReference": "MATC: Suspected Stroke/Transient Ischemic Attack"
-        },
-        {
-          "id": "a3-lkw",
-          "shortAction": "Determine and document a specific last known well time from bystander",
-          "protocolExcerpt": "Determine \"last known well\" time \"Last known well\" must be specific",
-          "priority": "critical",
-          "rationale": "A specific LKW time determines eligibility for thrombolytic and thrombectomy therapy at the receiving hospital.",
-          "protocolReference": "MATC: Suspected Stroke/Transient Ischemic Attack"
-        },
-        {
-          "id": "a4-o2",
-          "shortAction": "Administer oxygen only as needed to target 94–98% SpO2",
-          "protocolExcerpt": "Administer oxygen as appropriate with a target of achieving 94–98% saturation",
+          "id": "b2",
+          "shortAction": "Do not treat hypertension; monitor without pharmacologic intervention",
+          "protocolExcerpt": "Do not treat hypertension",
           "priority": "important",
-          "rationale": "Routine high-flow O2 is not indicated when saturation is already adequate.",
-          "protocolReference": "MATC: Suspected Stroke/Transient Ischemic Attack"
-        },
-        {
-          "id": "a5-position",
-          "shortAction": "Elevate head of stretcher 15–30°; keep head and neck neutral",
-          "protocolExcerpt": "Prevent aspiration – elevate head of stretcher 15–30 degrees if systolic BP greater than 100 mmHg Maintain head and neck in neutral alignment, without flexing the neck",
-          "priority": "important",
-          "rationale": "Positioning reduces aspiration risk in a patient with impaired airway protection.",
-          "protocolReference": "MATC: Suspected Stroke/Transient Ischemic Attack"
-        },
-        {
-          "id": "a6-12lead",
-          "shortAction": "Acquire 12-lead EKG and place patient on cardiac monitor",
-          "protocolExcerpt": "Acquire 12-lead EKG, if possible Place on cardiac monitor",
-          "priority": "important",
-          "rationale": "Identifies atrial fibrillation or other dysrhythmia as a possible embolic source.",
+          "rationale": "Elevated BP may be a compensatory response maintaining cerebral perfusion; lowering it can worsen ischemia.",
           "protocolReference": "MATC: Suspected Stroke/Transient Ischemic Attack"
         }
       ],
@@ -185,14 +210,7 @@
           "if": "Stroke alert transmitted, transport initiated",
           "condition": "With a positive stroke scale and LKW within the thrombolytic window, the crew transmits an early stroke alert to the receiving hospital including LVO suspicion, and transports without delay while avoiding treatment of hypertension.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["a2-stroke-scale", "a3-lkw"]
-        },
-        {
-          "targetPhaseId": "lkw-not-established",
-          "if": "LKW time not established",
-          "condition": "Crew fails to obtain a specific last known well time from the wife, complicating the receiving hospital's eligibility determination for thrombolytic or thrombectomy therapy.",
-          "conditionType": "action_not_taken",
-          "triggerActionIds": ["a3-lkw"]
+          "triggerActionIds": ["b1", "b2"]
         }
       ]
     },
@@ -235,24 +253,7 @@
         "trendTimeSeconds": 30,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [
-        {
-          "id": "a7-notify",
-          "shortAction": "Transmit early stroke alert to receiving hospital including LVO suspicion",
-          "protocolExcerpt": "Early hospital notification per local stroke plan that should include any suspected large vessel occlusion (LVO) stroke",
-          "priority": "critical",
-          "rationale": "Early notification activates the hospital stroke team before arrival, minimizing door-to-treatment time.",
-          "protocolReference": "MATC: Suspected Stroke/Transient Ischemic Attack"
-        },
-        {
-          "id": "a8-no-bp-tx",
-          "shortAction": "Do not treat hypertension; monitor without pharmacologic intervention",
-          "protocolExcerpt": "Do not treat hypertension",
-          "priority": "important",
-          "rationale": "Elevated BP may be a compensatory response maintaining cerebral perfusion; lowering it can worsen ischemia.",
-          "protocolReference": "MATC: Suspected Stroke/Transient Ischemic Attack"
-        }
-      ],
+      "expectedActions": [],
       "transitions": []
     },
     {
@@ -296,7 +297,7 @@
       },
       "expectedActions": [
         {
-          "id": "a9-recover-lkw",
+          "id": "c1",
           "shortAction": "Re-question bystanders to pin down a specific, defensible LKW time before arrival",
           "protocolExcerpt": "\"Last known well\" must be specific If the patient was last known well prior to bedtime the night before, this is the time to be documented (not time the patient woke up with symptoms present)",
           "priority": "critical",
