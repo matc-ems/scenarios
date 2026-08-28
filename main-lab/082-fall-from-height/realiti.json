@@ -57,7 +57,13 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [],
+      "relatedChecklist": [
+        "Perform MARCH primary survey: hemorrhage, airway, breathing, circulation, head/hypothermia",
+        "Palpate pelvis ONCE by applying medial pressure on iliac crests bilaterally to assess instability",
+        "Apply pelvic binder to stabilize suspected unstable pelvis",
+        "Apply cervical collar and initiate spinal motion restriction for fall >10 feet",
+        "Establish large-bore IV access given SBP <90 and HR >120"
+      ],
       "relatedSounds": []
     },
     {
@@ -90,11 +96,8 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Perform MARCH primary survey: hemorrhage, airway, breathing, circulation, head/hypothermia",
-        "Palpate pelvis ONCE by applying medial pressure on iliac crests bilaterally to assess instability",
-        "Apply pelvic binder to stabilize suspected unstable pelvis",
-        "Apply cervical collar and initiate spinal motion restriction for fall >10 feet",
-        "Establish large-bore IV access given SBP <90 and HR >120"
+        "500 mL crystalloid bolus IV, reassess SBP, repeat as needed (target SBP 90 mmHg)",
+        "Fentanyl 90 mcg IV (90 kg x 1 mcg/kg = 90 mcg; max initial dose 100 mcg)"
       ],
       "relatedSounds": []
     },
@@ -128,8 +131,8 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "500 mL crystalloid bolus IV, reassess SBP, repeat as needed (target SBP 90 mmHg)",
-        "Fentanyl 90 mcg IV (90 kg x 1 mcg/kg = 90 mcg; max initial dose 100 mcg)"
+        "Reassess vital signs and pelvic binder position serially en route to trauma center",
+        "Transport to appropriate trauma center per field triage guideline; minimize scene time"
       ],
       "relatedSounds": []
     },
@@ -162,10 +165,7 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [
-        "Reassess vital signs and pelvic binder position serially en route to trauma center",
-        "Transport to appropriate trauma center per field triage guideline; minimize scene time"
-      ],
+      "relatedChecklist": [],
       "relatedSounds": []
     },
     {
