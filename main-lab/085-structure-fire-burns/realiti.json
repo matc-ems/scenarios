@@ -57,7 +57,12 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [],
+      "relatedChecklist": [
+        "Recognize stridor and hoarse voice as sentinel signs of a significant airway burn",
+        "Preoxygenate with high-flow O2 and positive pressure for 2 minutes before RSI",
+        "RSI: fentanyl 65 mcg IV (65 kg × 1 mcg/kg), etomidate 13 mg IV (65 kg × 0.2 mg/kg), rocuronium 65 mg IV (65 kg × 1 mg/kg)",
+        "Intubate with 7.5 mm ETT (adult female sizing), confirm with waveform capnography"
+      ],
       "relatedSounds": []
     },
     {
@@ -90,10 +95,11 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Recognize stridor and hoarse voice as sentinel signs of a significant airway burn",
-        "Preoxygenate with high-flow O2 and positive pressure for 2 minutes before RSI",
-        "RSI: fentanyl 65 mcg IV (65 kg × 1 mcg/kg), etomidate 13 mg IV (65 kg × 0.2 mg/kg), rocuronium 65 mg IV (65 kg × 1 mg/kg)",
-        "Intubate with 7.5 mm ETT (adult female sizing), confirm with waveform capnography"
+        "Estimate TBSA at 40% (rounded) using Rule of Nines, excluding first-degree burns",
+        "Initiate LR at 400 mL/hr (40% TBSA × 10; 65 kg patient, within the 40–80 kg bracket)",
+        "Remove jewelry and wet clothing, cover burns with dry dressing, leave blisters intact, no gels/ointments",
+        "Apply warming measures to prevent systemic heat loss",
+        "Transport to burn/trauma center given airway involvement and TBSA > 10%"
       ],
       "relatedSounds": []
     },
@@ -126,13 +132,7 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [
-        "Estimate TBSA at 40% (rounded) using Rule of Nines, excluding first-degree burns",
-        "Initiate LR at 400 mL/hr (40% TBSA × 10; 65 kg patient, within the 40–80 kg bracket)",
-        "Remove jewelry and wet clothing, cover burns with dry dressing, leave blisters intact, no gels/ointments",
-        "Apply warming measures to prevent systemic heat loss",
-        "Transport to burn/trauma center given airway involvement and TBSA > 10%"
-      ],
+      "relatedChecklist": [],
       "relatedSounds": []
     },
     {
