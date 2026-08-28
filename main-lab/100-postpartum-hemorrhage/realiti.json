@@ -57,7 +57,13 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [],
+      "relatedChecklist": [
+        "Perform fundal massage to promote uterine contraction and control bleeding",
+        "Obtain OB history: prenatal/delivery complications, trauma, anticoagulants, drug use",
+        "Establish IV access; if unsuccessful within 2 attempts/90 seconds, place IO",
+        "Initiate 500 mL isotonic fluid bolus toward MAP goal 65 mmHg (max 30 mL/kg ≈ 2,040 mL for 68 kg)",
+        "Notify medical direction/receiving facility of postpartum hemorrhage"
+      ],
       "relatedSounds": []
     },
     {
@@ -90,11 +96,8 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Perform fundal massage to promote uterine contraction and control bleeding",
-        "Obtain OB history: prenatal/delivery complications, trauma, anticoagulants, drug use",
-        "Establish IV access; if unsuccessful within 2 attempts/90 seconds, place IO",
-        "Initiate 500 mL isotonic fluid bolus toward MAP goal 65 mmHg (max 30 mL/kg ≈ 2,040 mL for 68 kg)",
-        "Notify medical direction/receiving facility of postpartum hemorrhage"
+        "Contain placenta and tissue in a plastic bag for hospital evaluation",
+        "Reassess vital signs and estimate total blood loss en route"
       ],
       "relatedSounds": []
     },
@@ -127,10 +130,7 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [
-        "Contain placenta and tissue in a plastic bag for hospital evaluation",
-        "Reassess vital signs and estimate total blood loss en route"
-      ],
+      "relatedChecklist": [],
       "relatedSounds": []
     },
     {

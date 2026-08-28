@@ -79,13 +79,62 @@
         "trendTimeSeconds": 0,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [],
+      "expectedActions": [
+        {
+          "id": "a1",
+          "shortAction": "Perform fundal massage to promote uterine contraction and control bleeding",
+          "protocolExcerpt": "After delivery, massaging the uterus (should be located at about the umbilicus) and allowing the infant to nurse will promote uterine contraction and help control bleeding",
+          "priority": "critical",
+          "rationale": "Uterine atony is the most common cause of postpartum hemorrhage; massage promotes contraction to tamponade bleeding.",
+          "protocolReference": "MATC: OB/GYN Childbirth"
+        },
+        {
+          "id": "a2",
+          "shortAction": "Obtain OB history: prenatal/delivery complications, trauma, anticoagulants, drug use",
+          "protocolExcerpt": "Obtain history from patient – history of prenatal or delivery complications, recent trauma, prescription anticoagulants, drug use especially cocaine",
+          "priority": "important",
+          "rationale": "Identifies contributing causes such as coagulopathy or retained tissue that change transport urgency.",
+          "protocolReference": "MATC: OB/GYN Childbirth"
+        },
+        {
+          "id": "a3",
+          "shortAction": "Establish IV access; if unsuccessful within 2 attempts/90 seconds, place IO",
+          "protocolExcerpt": "Establish IV access. If unable to obtain within two attempts or less than 90 seconds, place an IO needle",
+          "priority": "critical",
+          "rationale": "Timely vascular access is essential for fluid resuscitation in ongoing hemorrhage.",
+          "protocolReference": "MATC: Shock"
+        },
+        {
+          "id": "a4",
+          "shortAction": "Initiate 500 mL isotonic fluid bolus toward MAP goal 65 mmHg (max 30 mL/kg ≈ 2,040 mL for 68 kg)",
+          "protocolExcerpt": "IV fluid volume goal attained by giving boluses that are pressure infused over less than 15 minutes each... Fluid goal of up to 30 mL/kg of isotonic fluid by administering rapid, predetermined boluses (e.g., 500 mL) unless the MAP goal is achieved, or pulmonary edema develops.",
+          "priority": "critical",
+          "rationale": "Restores circulating volume and perfusion while definitive hemorrhage control (fundal massage) takes effect.",
+          "protocolReference": "MATC: Shock"
+        },
+        {
+          "id": "a5",
+          "shortAction": "Notify medical direction/receiving facility of postpartum hemorrhage",
+          "protocolExcerpt": "Notify medical direction/receiving facility if: ... Postpartum hemorrhage",
+          "priority": "important",
+          "rationale": "Allows the receiving facility to prepare blood products and OB resources before arrival.",
+          "protocolReference": "MATC: OB/GYN Childbirth"
+        }
+      ],
       "transitions": [
         {
           "targetPhaseId": "massage-iv-fluids",
           "if": "Fundal massage and IV fluids started",
           "condition": "Crew recognizes a boggy, poorly contracted uterine fundus with heavy ongoing bleeding, performs fundal massage, obtains IV access, and initiates fluid resuscitation.",
-          "conditionType": "action_taken"
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a1", "a4"]
+        },
+        {
+          "targetPhaseId": "massage-omitted",
+          "if": "Fundal massage omitted or delayed",
+          "condition": "Crew focuses on IV access and transport logistics without performing fundal massage; the uterus remains boggy and bleeding continues unchecked despite fluids.",
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["a1"]
         }
       ]
     },
@@ -130,43 +179,19 @@
       },
       "expectedActions": [
         {
-          "id": "a1-massage",
-          "shortAction": "Perform fundal massage to promote uterine contraction and control bleeding",
-          "protocolExcerpt": "After delivery, massaging the uterus (should be located at about the umbilicus) and allowing the infant to nurse will promote uterine contraction and help control bleeding",
-          "priority": "critical",
-          "rationale": "Uterine atony is the most common cause of postpartum hemorrhage; massage promotes contraction to tamponade bleeding.",
+          "id": "b1",
+          "shortAction": "Contain placenta and tissue in a plastic bag for hospital evaluation",
+          "protocolExcerpt": "Contain all tissue in plastic bag and transport",
+          "priority": "supplemental",
+          "rationale": "Allows the receiving facility to assess for retained products of conception.",
           "protocolReference": "MATC: OB/GYN Childbirth"
         },
         {
-          "id": "a2-history",
-          "shortAction": "Obtain OB history: prenatal/delivery complications, trauma, anticoagulants, drug use",
-          "protocolExcerpt": "Obtain history from patient – history of prenatal or delivery complications, recent trauma, prescription anticoagulants, drug use especially cocaine",
+          "id": "b2",
+          "shortAction": "Reassess vital signs and estimate total blood loss en route",
+          "protocolExcerpt": "Estimate maternal blood loss. Treat mother for hypovolemia as needed",
           "priority": "important",
-          "rationale": "Identifies contributing causes such as coagulopathy or retained tissue that change transport urgency.",
-          "protocolReference": "MATC: OB/GYN Childbirth"
-        },
-        {
-          "id": "a3-iv",
-          "shortAction": "Establish IV access; if unsuccessful within 2 attempts/90 seconds, place IO",
-          "protocolExcerpt": "Establish IV access. If unable to obtain within two attempts or less than 90 seconds, place an IO needle",
-          "priority": "critical",
-          "rationale": "Timely vascular access is essential for fluid resuscitation in ongoing hemorrhage.",
-          "protocolReference": "MATC: Shock"
-        },
-        {
-          "id": "a4-fluid",
-          "shortAction": "Initiate 500 mL isotonic fluid bolus toward MAP goal 65 mmHg (max 30 mL/kg ≈ 2,040 mL for 68 kg)",
-          "protocolExcerpt": "IV fluid volume goal attained by giving boluses that are pressure infused over less than 15 minutes each... Fluid goal of up to 30 mL/kg of isotonic fluid by administering rapid, predetermined boluses (e.g., 500 mL) unless the MAP goal is achieved, or pulmonary edema develops.",
-          "priority": "critical",
-          "rationale": "Restores circulating volume and perfusion while definitive hemorrhage control (fundal massage) takes effect.",
-          "protocolReference": "MATC: Shock"
-        },
-        {
-          "id": "a5-notify",
-          "shortAction": "Notify medical direction/receiving facility of postpartum hemorrhage",
-          "protocolExcerpt": "Notify medical direction/receiving facility if: ... Postpartum hemorrhage",
-          "priority": "important",
-          "rationale": "Allows the receiving facility to prepare blood products and OB resources before arrival.",
+          "rationale": "Ongoing reassessment catches recurrent bleeding or delayed decompensation.",
           "protocolReference": "MATC: OB/GYN Childbirth"
         }
       ],
@@ -176,14 +201,7 @@
           "if": "Bleeding controlled, transport initiated",
           "condition": "Fundal massage and fluid resuscitation improve uterine tone and hemodynamics; bleeding slows and vitals trend toward normal. Crew packages mother and newborn for transport.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["a1-massage", "a4-fluid"]
-        },
-        {
-          "targetPhaseId": "massage-omitted",
-          "if": "Fundal massage omitted or delayed",
-          "condition": "Crew focuses on IV access and transport logistics without performing fundal massage; the uterus remains boggy and bleeding continues unchecked despite fluids.",
-          "conditionType": "action_not_taken",
-          "triggerActionIds": ["a1-massage"]
+          "triggerActionIds": ["b1", "b2"]
         }
       ]
     },
@@ -227,24 +245,7 @@
         "trendTimeSeconds": 40,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [
-        {
-          "id": "a6-contain-placenta",
-          "shortAction": "Contain placenta and tissue in a plastic bag for hospital evaluation",
-          "protocolExcerpt": "Contain all tissue in plastic bag and transport",
-          "priority": "supplemental",
-          "rationale": "Allows the receiving facility to assess for retained products of conception.",
-          "protocolReference": "MATC: OB/GYN Childbirth"
-        },
-        {
-          "id": "a7-reassess",
-          "shortAction": "Reassess vital signs and estimate total blood loss en route",
-          "protocolExcerpt": "Estimate maternal blood loss. Treat mother for hypovolemia as needed",
-          "priority": "important",
-          "rationale": "Ongoing reassessment catches recurrent bleeding or delayed decompensation.",
-          "protocolReference": "MATC: OB/GYN Childbirth"
-        }
-      ],
+      "expectedActions": [],
       "transitions": []
     },
     {
@@ -288,7 +289,7 @@
       },
       "expectedActions": [
         {
-          "id": "a8-recognize-shock",
+          "id": "c1",
           "shortAction": "Recognize hypovolemic shock; perform fundal massage now and escalate fluid boluses toward MAP 65 mmHg",
           "protocolExcerpt": "IV fluid volume goal attained by giving boluses that are pressure infused over less than 15 minutes each... unless the MAP goal is achieved, or pulmonary edema develops",
           "priority": "critical",
@@ -296,7 +297,7 @@
           "protocolReference": "MATC: Shock"
         },
         {
-          "id": "a9-txa",
+          "id": "c2",
           "shortAction": "Consider TXA administration per medical direction (MATC does not specify a dose)",
           "protocolExcerpt": "Consider administration of tranexamic acid (TXA)",
           "priority": "important",
