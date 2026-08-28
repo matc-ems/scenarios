@@ -80,13 +80,70 @@
         "trendTimeSeconds": 0,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
       },
-      "expectedActions": [],
+      "expectedActions": [
+        {
+          "id": "a1",
+          "shortAction": "Establish IV access; if unable within 2 attempts/90 seconds, place an IO",
+          "protocolExcerpt": "Establish IV access. If unable to obtain within two attempts or less than 90 seconds, place an IO needle",
+          "priority": "critical",
+          "rationale": "Vascular access is required for fluids and vasopressor support in shock.",
+          "protocolReference": "MATC: Shock"
+        },
+        {
+          "id": "a2",
+          "shortAction": "Acquire 12-lead EKG within 10 minutes; transmit for STEMI interpretation",
+          "protocolExcerpt": "It is imperative that EMS clinicians routinely acquire a 12-lead EKG within 10 minutes for all patients exhibiting signs and symptoms of ACS",
+          "priority": "critical",
+          "rationale": "Rules out a new active STEMI as the cause of decompensation in this recent post-MI patient.",
+          "protocolReference": "MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)"
+        },
+        {
+          "id": "a3",
+          "shortAction": "Administer aspirin 324 mg PO, chewed (non-enteric-coated)",
+          "protocolExcerpt": "Administer aspirin; chewable, non-enteric-coated aspirin preferred (162–325 mg)",
+          "priority": "important",
+          "rationale": "Standard ACS therapy given recent MI, even without current chest pain.",
+          "protocolReference": "MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)"
+        },
+        {
+          "id": "a4",
+          "shortAction": "Place defibrillator pads and maintain continuous cardiac monitoring",
+          "protocolExcerpt": "Consider placing defibrillator pads on high-risk patients",
+          "priority": "important",
+          "rationale": "Recent MI with hemodynamic instability carries elevated dysrhythmia risk.",
+          "protocolReference": "MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)"
+        },
+        {
+          "id": "a5",
+          "shortAction": "Give a cautious 250-500 mL IV fluid bolus given SBP <100 mmHg",
+          "protocolExcerpt": "SBP less than 100 mmHg i. IV fluid bolus 250–500 mL",
+          "priority": "critical",
+          "rationale": "A small, cautious bolus is appropriate first-line for hypotension, but must be limited given cardiogenic shock risk.",
+          "protocolReference": "MATC: Respiratory Distress (includes Bronchospasm, Pulmonary Edema)"
+        },
+        {
+          "id": "a6",
+          "shortAction": "Reassess breath sounds and JVD before considering any repeat fluid bolus",
+          "protocolExcerpt": "If the patient condition deteriorates after fluid administration, rales or hepatomegaly develop, then consider cardiogenic shock and withholding further fluid administration",
+          "priority": "critical",
+          "rationale": "Repeating fluid boluses without reassessment risks worsening cardiogenic pulmonary edema.",
+          "protocolReference": "MATC: Shock"
+        }
+      ],
       "transitions": [
         {
           "targetPhaseId": "fluid-and-monitor",
           "if": "IV access, ASA, and cautious fluid bolus given",
           "condition": "Crew establishes IV access, applies cardiac monitor/defib pads, acquires a 12-lead EKG, administers aspirin, and gives a cautious 250-500 mL fluid bolus given the SBP <100 mmHg.",
-          "conditionType": "action_taken"
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a1", "a3", "a5"]
+        },
+        {
+          "targetPhaseId": "repeat-bolus-no-reassessment",
+          "if": "Fluid bolus repeated without reassessment",
+          "condition": "Crew repeats the fluid bolus without reassessing breath sounds or JVD, worsening the underlying cardiogenic pulmonary edema.",
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["a6"]
         }
       ]
     },
@@ -131,51 +188,19 @@
       },
       "expectedActions": [
         {
-          "id": "a1-iv-access",
-          "shortAction": "Establish IV access; if unable within 2 attempts/90 seconds, place an IO",
-          "protocolExcerpt": "Establish IV access. If unable to obtain within two attempts or less than 90 seconds, place an IO needle",
+          "id": "b1",
+          "shortAction": "Start norepinephrine infusion at 1.8 mcg/min (90 kg × 0.02 mcg/kg/min); titrate to SBP >90 mmHg",
+          "protocolExcerpt": "SBP less than 100 mmHg ii. Consider vasopressor: Norepinephrine 0.02–2 mcg/kg/min",
           "priority": "critical",
-          "rationale": "Vascular access is required for fluids and vasopressor support in shock.",
-          "protocolReference": "MATC: Shock"
-        },
-        {
-          "id": "a2-12-lead",
-          "shortAction": "Acquire 12-lead EKG within 10 minutes; transmit for STEMI interpretation",
-          "protocolExcerpt": "It is imperative that EMS clinicians routinely acquire a 12-lead EKG within 10 minutes for all patients exhibiting signs and symptoms of ACS",
-          "priority": "critical",
-          "rationale": "Rules out a new active STEMI as the cause of decompensation in this recent post-MI patient.",
-          "protocolReference": "MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)"
-        },
-        {
-          "id": "a3-asa",
-          "shortAction": "Administer aspirin 324 mg PO, chewed (non-enteric-coated)",
-          "protocolExcerpt": "Administer aspirin; chewable, non-enteric-coated aspirin preferred (162–325 mg)",
-          "priority": "important",
-          "rationale": "Standard ACS therapy given recent MI, even without current chest pain.",
-          "protocolReference": "MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)"
-        },
-        {
-          "id": "a4-fluid-bolus",
-          "shortAction": "Give a cautious 250-500 mL IV fluid bolus given SBP <100 mmHg",
-          "protocolExcerpt": "SBP less than 100 mmHg i. IV fluid bolus 250–500 mL",
-          "priority": "critical",
-          "rationale": "A small, cautious bolus is appropriate first-line for hypotension, but must be limited given cardiogenic shock risk.",
+          "rationale": "Fluid-refractory hypotension in cardiogenic shock requires titrated vasopressor support rather than further fluid.",
           "protocolReference": "MATC: Respiratory Distress (includes Bronchospasm, Pulmonary Edema)"
         },
         {
-          "id": "a5-defib-pads",
-          "shortAction": "Place defibrillator pads and maintain continuous cardiac monitoring",
-          "protocolExcerpt": "Consider placing defibrillator pads on high-risk patients",
+          "id": "b2",
+          "shortAction": "Provide advance notification to the receiving hospital",
+          "protocolExcerpt": "Provide advance notification to the hospital",
           "priority": "important",
-          "rationale": "Recent MI with hemodynamic instability carries elevated dysrhythmia risk.",
-          "protocolReference": "MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)"
-        },
-        {
-          "id": "a6-reassess-before-repeat",
-          "shortAction": "Reassess breath sounds and JVD before considering any repeat fluid bolus",
-          "protocolExcerpt": "If the patient condition deteriorates after fluid administration, rales or hepatomegaly develop, then consider cardiogenic shock and withholding further fluid administration",
-          "priority": "critical",
-          "rationale": "Repeating fluid boluses without reassessment risks worsening cardiogenic pulmonary edema.",
+          "rationale": "Cardiogenic shock post-MI requires hospital preparation for possible cath lab or ICU-level care.",
           "protocolReference": "MATC: Shock"
         }
       ],
@@ -185,14 +210,7 @@
           "if": "Fluid-refractory, norepinephrine started",
           "condition": "Blood pressure remains low despite the cautious fluid bolus; the crew withholds further fluid and initiates a norepinephrine infusion per the fluid-refractory hypotension guidance.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["a6-reassess-before-repeat"]
-        },
-        {
-          "targetPhaseId": "repeat-bolus-no-reassessment",
-          "if": "Fluid bolus repeated without reassessment",
-          "condition": "Crew repeats the fluid bolus without reassessing breath sounds or JVD, worsening the underlying cardiogenic pulmonary edema.",
-          "conditionType": "action_not_taken",
-          "triggerActionIds": ["a6-reassess-before-repeat"]
+          "triggerActionIds": ["b1"]
         }
       ]
     },
@@ -237,19 +255,11 @@
       },
       "expectedActions": [
         {
-          "id": "a7-norepi",
-          "shortAction": "Start norepinephrine infusion at 1.8 mcg/min (90 kg × 0.02 mcg/kg/min); titrate to SBP >90 mmHg",
-          "protocolExcerpt": "SBP less than 100 mmHg ii. Consider vasopressor: Norepinephrine 0.02–2 mcg/kg/min",
+          "id": "c1",
+          "shortAction": "Reassess vital signs and neurologic status serially en route, at least every 15 minutes",
+          "protocolExcerpt": "Full vital signs (pulse, blood pressure, respiratory rate, neurologic status assessment) with reassessment q 15 minutes or more frequently as appropriate",
           "priority": "critical",
-          "rationale": "Fluid-refractory hypotension in cardiogenic shock requires titrated vasopressor support rather than further fluid.",
-          "protocolReference": "MATC: Respiratory Distress (includes Bronchospasm, Pulmonary Edema)"
-        },
-        {
-          "id": "a8-notification",
-          "shortAction": "Provide advance notification to the receiving hospital",
-          "protocolExcerpt": "Provide advance notification to the hospital",
-          "priority": "important",
-          "rationale": "Cardiogenic shock post-MI requires hospital preparation for possible cath lab or ICU-level care.",
+          "rationale": "Cardiogenic shock patients can decompensate quickly; frequent reassessment catches deterioration early.",
           "protocolReference": "MATC: Shock"
         }
       ],
@@ -258,7 +268,8 @@
           "targetPhaseId": "stable-transport",
           "if": "Perfusion improves, transport initiated",
           "condition": "Blood pressure trends upward on the norepinephrine infusion, mentation remains intact, and the crew proceeds with transport with serial reassessment.",
-          "conditionType": "vital_threshold"
+          "conditionType": "vital_threshold",
+          "triggerActionIds": ["c1"]
         }
       ]
     },
@@ -301,16 +312,7 @@
         "trendTimeSeconds": 50,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
       },
-      "expectedActions": [
-        {
-          "id": "a9-serial-reassess",
-          "shortAction": "Reassess vital signs and neurologic status serially en route, at least every 15 minutes",
-          "protocolExcerpt": "Full vital signs (pulse, blood pressure, respiratory rate, neurologic status assessment) with reassessment q 15 minutes or more frequently as appropriate",
-          "priority": "critical",
-          "rationale": "Cardiogenic shock patients can decompensate quickly; frequent reassessment catches deterioration early.",
-          "protocolReference": "MATC: Shock"
-        }
-      ],
+      "expectedActions": [],
       "transitions": []
     },
     {
@@ -354,7 +356,7 @@
       },
       "expectedActions": [
         {
-          "id": "a10-recognize-overload",
+          "id": "d1",
           "shortAction": "Recognize iatrogenic pulmonary edema; stop fluids, support ventilation, start norepinephrine",
           "protocolExcerpt": "If the patient condition deteriorates after fluid administration, rales or hepatomegaly develop, then consider cardiogenic shock and withholding further fluid administration",
           "priority": "critical",

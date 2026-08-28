@@ -57,7 +57,14 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [],
+      "relatedChecklist": [
+        "Establish IV access; if unable within 2 attempts/90 seconds, place an IO",
+        "Acquire 12-lead EKG within 10 minutes; transmit for STEMI interpretation",
+        "Administer aspirin 324 mg PO, chewed (non-enteric-coated)",
+        "Place defibrillator pads and maintain continuous cardiac monitoring",
+        "Give a cautious 250-500 mL IV fluid bolus given SBP <100 mmHg",
+        "Reassess breath sounds and JVD before considering any repeat fluid bolus"
+      ],
       "relatedSounds": []
     },
     {
@@ -90,12 +97,8 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Establish IV access; if unable within 2 attempts/90 seconds, place an IO",
-        "Acquire 12-lead EKG within 10 minutes; transmit for STEMI interpretation",
-        "Administer aspirin 324 mg PO, chewed (non-enteric-coated)",
-        "Give a cautious 250-500 mL IV fluid bolus given SBP <100 mmHg",
-        "Place defibrillator pads and maintain continuous cardiac monitoring",
-        "Reassess breath sounds and JVD before considering any repeat fluid bolus"
+        "Start norepinephrine infusion at 1.8 mcg/min (90 kg × 0.02 mcg/kg/min); titrate to SBP >90 mmHg",
+        "Provide advance notification to the receiving hospital"
       ],
       "relatedSounds": []
     },
@@ -129,8 +132,7 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Start norepinephrine infusion at 1.8 mcg/min (90 kg × 0.02 mcg/kg/min); titrate to SBP >90 mmHg",
-        "Provide advance notification to the receiving hospital"
+        "Reassess vital signs and neurologic status serially en route, at least every 15 minutes"
       ],
       "relatedSounds": []
     },
@@ -163,9 +165,7 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [
-        "Reassess vital signs and neurologic status serially en route, at least every 15 minutes"
-      ],
+      "relatedChecklist": [],
       "relatedSounds": []
     },
     {
@@ -223,13 +223,13 @@
       "icon": 1
     },
     {
-      "title": "Give a cautious 250-500 mL IV fluid bolus given SBP <100 mmHg",
+      "title": "Place defibrillator pads and maintain continuous cardiac monitoring",
       "type": "Check",
       "value": 0,
       "icon": 1
     },
     {
-      "title": "Place defibrillator pads and maintain continuous cardiac monitoring",
+      "title": "Give a cautious 250-500 mL IV fluid bolus given SBP <100 mmHg",
       "type": "Check",
       "value": 0,
       "icon": 1
