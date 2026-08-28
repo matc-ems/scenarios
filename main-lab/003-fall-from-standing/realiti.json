@@ -61,7 +61,8 @@
         "Perform MARCH primary survey; rule out massive hemorrhage and airway/breathing/circulation threats",
         "Assess mechanism and patient for spinal motion restriction criteria: mental status, neuro deficit, pain, intoxication",
         "Expose right hip/leg; evaluate for deformity, shortening, rotation; check distal pulses, sensation, movement",
-        "Perform GCS/AVPU and pupillary assessment; screen for signs of TBI given unknown downtime"
+        "Perform GCS/AVPU and pupillary assessment; screen for signs of TBI given unknown downtime",
+        "Apply cervical collar and initiate spinal motion restriction due to abnormal mental status and distracting injury"
       ],
       "relatedSounds": []
     },
@@ -95,9 +96,10 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Apply cervical collar and initiate spinal motion restriction due to abnormal mental status and distracting injury",
         "Maintain spinal alignment while inspecting the back; avoid unnecessary log-rolling given fragile positioning",
-        "Cover patient to prevent further heat loss given prolonged floor time and mild shivering"
+        "Cover patient to prevent further heat loss given prolonged floor time and mild shivering",
+        "Splint suspected right hip fracture in the position found to limit further movement",
+        "Cover forearm skin tears with saline-moistened gauze; avoid adhesive tape on fragile elderly skin"
       ],
       "relatedSounds": []
     },
@@ -131,10 +133,9 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Splint suspected right hip fracture in the position found to limit further movement",
-        "Cover forearm skin tears with saline-moistened gauze; avoid adhesive tape on fragile elderly skin",
         "Reassess distal pulses, sensation, and movement in the right leg after splinting",
-        "Elevate the injured leg if possible and apply a cold pack over the dressing to limit swelling"
+        "Elevate the injured leg if possible and apply a cold pack over the dressing to limit swelling",
+        "Transport to an appropriate trauma-capable facility per field triage guideline"
       ],
       "relatedSounds": []
     },
@@ -168,8 +169,7 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Reassess vital signs and neurologic status serially en route to the trauma center",
-        "Transport to an appropriate trauma-capable facility per field triage guideline"
+        "Reassess vital signs and neurologic status serially en route to the trauma center"
       ],
       "relatedSounds": []
     },
@@ -202,7 +202,9 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [],
+      "relatedChecklist": [
+        "Recognize missed SMR criteria; apply cervical collar and restrict spinal motion now"
+      ],
       "relatedSounds": []
     },
     {
@@ -308,13 +310,19 @@
       "icon": 1
     },
     {
+      "title": "Transport to an appropriate trauma-capable facility per field triage guideline",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
       "title": "Reassess vital signs and neurologic status serially en route to the trauma center",
       "type": "Check",
       "value": 0,
       "icon": 1
     },
     {
-      "title": "Transport to an appropriate trauma-capable facility per field triage guideline",
+      "title": "Recognize missed SMR criteria; apply cervical collar and restrict spinal motion now",
       "type": "Check",
       "value": 0,
       "icon": 1
