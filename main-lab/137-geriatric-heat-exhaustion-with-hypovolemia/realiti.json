@@ -1,0 +1,271 @@
+{
+  "scenarioId": "137-geriatric-heat-exhaustion-with-hypovolemia",
+  "scenarioName": "137 - Geriatric Heat Exhaustion with Hypovolemia",
+  "scenarioType": "Vital Signs",
+  "scenarioVersion": 2,
+  "scenarioTime": 960,
+  "scenarioMonitorType": 2,
+  "scenarioDefaultEnergy": 200,
+  "scenarioDefaultPacerThreshold": 55,
+  "isDemo": false,
+  "isALSILegacy": false,
+  "scenarioStory": {
+    "history": "An 82-year-old woman who gardened outdoors from roughly 9 AM through midday on a day with a heat index of 95 degrees Fahrenheit. She came inside around noon feeling poorly and has been sitting in her armchair since. Her home has no air conditioning and only a single slow ceiling fan. She reports profound weakness, dizziness that is much worse on standing, and a very dry mouth. She has eaten and drunk almost nothing since a cup of tea and toast at 8 AM. She takes a thiazide diuretic and an ACE inhibitor daily. She denies chest pain, shortness of breath, fever, cough, vomiting, diarrhea, and any fall or head strike.",
+    "discussion": "",
+    "course": "Initial Contact: Crew finds an 82-year-old woman in a hot, unventilated house after hours of outdoor exertion in a heat advisory. She is slow to respond, oriented to person and place but believes the year is sometime in the 1990s. Her pulse is rapid and thready, her skin is hot and dry, her mucous membranes are dry and her skin turgor is poor. Temperature is 100.8 F and glucose is 112. This is heat exhaustion with hypovolemia, and because she has altered mental status the protocol triggers active cooling even though her temperature is well under 104 F. → Cooled and fluid resuscitated: After the move to the cooled ambulance, active cooling, and a 500 mL isotonic bolus, the patient is noticeably brighter. She now correctly states the year and month and is oriented to person, place, time, and event. Her heart rate has fallen to 98, her blood pressure has come up, and her skin is warm rather than hot. The crew continues cooling toward the protocol endpoint, reassesses for the need for a second bolus, and prepares for transport. → Mentation improved; transport underway: The patient is en route with her temperature down to 99.1 F, blood pressure 118/74, heart rate 92, and mentation at her stated baseline. A second bolus is running based on reassessment. The handoff covers the environmental exposure, the diuretic and ACE inhibitor, the poor oral intake over the preceding day, and the response to cooling and fluid. All interventions are complete and no further change in presentation is expected."
+  },
+  "patientInformation": {
+    "patientName": "Eleanor Gable",
+    "patientCondition": "Generalized weakness and dizziness after several hours of yard work in a heat advisory",
+    "patientAge": 82,
+    "patientAgeUnit": "years",
+    "patientAgeCategory": 0,
+    "patientSex": 2,
+    "patientHeight": 160,
+    "patientWeight": 58,
+    "patientPhotoId": 99,
+    "patientAdmitted": 1
+  },
+  "labs": [],
+  "scenarioEvents": [
+    {
+      "type": "ScenarioEvent",
+      "name": "Initial Contact",
+      "description": "Crew finds an 82-year-old woman in a hot, unventilated house after hours of outdoor exertion in a heat advisory. She is slow to respond, oriented to person and place but believes the year is sometime in the 1990s. Her pulse is rapid and thready, her skin is hot and dry, her mucous membranes are dry and her skin turgor is poor. Temperature is 100.8 F and glucose is 112. This is heat exhaustion with hypovolemia, and because she has altered mental status the protocol triggers active cooling even though her temperature is well under 104 F.",
+      "monitorType": 0,
+      "trendTime": 0,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 116,
+        "bpSys": 102,
+        "bpDia": 68,
+        "respRate": 20,
+        "spo2": 97,
+        "etco2": 33,
+        "temp": 38.2,
+        "obstruction": 0,
+        "custMeasure1": 112,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Move her out of the hot house to the cooled ambulance and remove excess clothing",
+        "Check the blood glucose: she has altered mental status",
+        "Begin active cooling for the altered mental status: mist and fan, or rotating ice-water towels",
+        "Place on the cardiac monitor and record ongoing vital signs",
+        "Establish IV access; place an IO if not obtained in two attempts or 90 seconds",
+        "500 mL isotonic bolus over under 15 min; MAP goal 65 (up to 30 mL/kg = 1,740 mL)",
+        "Do not rely on orthostatic vital signs; no evidence supports EMS obtaining them"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Cooled and fluid resuscitated",
+      "description": "After the move to the cooled ambulance, active cooling, and a 500 mL isotonic bolus, the patient is noticeably brighter. She now correctly states the year and month and is oriented to person, place, time, and event. Her heart rate has fallen to 98, her blood pressure has come up, and her skin is warm rather than hot. The crew continues cooling toward the protocol endpoint, reassesses for the need for a second bolus, and prepares for transport.",
+      "monitorType": 0,
+      "trendTime": 50,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 98,
+        "bpSys": 114,
+        "bpDia": 72,
+        "respRate": 16,
+        "spo2": 98,
+        "etco2": 36,
+        "temp": 37.6,
+        "obstruction": 0,
+        "custMeasure1": 108,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Continue cooling until under 102.2 F or until mental status clearly improves",
+        "Reassess vitals and mentation; repeat 500 mL bolus if MAP falls below 65 (max 1,740 mL)",
+        "Monitor for arrhythmia and cardiovascular collapse throughout",
+        "Transport: all life-threatening heat illness requires hospital evaluation"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Mentation improved; transport underway",
+      "description": "The patient is en route with her temperature down to 99.1 F, blood pressure 118/74, heart rate 92, and mentation at her stated baseline. A second bolus is running based on reassessment. The handoff covers the environmental exposure, the diuretic and ACE inhibitor, the poor oral intake over the preceding day, and the response to cooling and fluid. All interventions are complete and no further change in presentation is expected.",
+      "monitorType": 0,
+      "trendTime": 40,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 92,
+        "bpSys": 118,
+        "bpDia": 74,
+        "respRate": 16,
+        "spo2": 98,
+        "etco2": 37,
+        "temp": 37.3,
+        "obstruction": 0,
+        "custMeasure1": 108,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Fluids withheld; decompensation",
+      "description": "Ten to fifteen minutes have passed with the tachycardia and confusion written off as age-related. One IV attempt failed and access was abandoned; she was offered oral fluids she was too weak and nauseated to take beyond a few sips, and no cooling was started. She is now markedly more lethargic, responding only to loud verbal stimuli with mumbled words. Her systolic pressure has fallen to 88, her heart rate is 130 and thready, her respirations are shallow at 24, and her skin is mottled and clammy. This is decompensated hypovolemic shock caused by the delay.",
+      "monitorType": 0,
+      "trendTime": 55,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 130,
+        "bpSys": 88,
+        "bpDia": 50,
+        "respRate": 24,
+        "spo2": 95,
+        "etco2": 28,
+        "temp": 38.6,
+        "obstruction": 0,
+        "custMeasure1": 106,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Recognize decompensated shock; go to IO now rather than chasing another IV",
+        "500 mL isotonic bolus immediately; MAP goal 65 (up to 30 mL/kg = 1,740 mL)",
+        "Start active cooling now and recheck the glucose with her worsening mentation",
+        "Provide advanced notification to the hospital and transport emergently"
+      ],
+      "relatedSounds": []
+    }
+  ],
+  "checklist": [
+    {
+      "title": "Move her out of the hot house to the cooled ambulance and remove excess clothing",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Check the blood glucose: she has altered mental status",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Begin active cooling for the altered mental status: mist and fan, or rotating ice-water towels",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Place on the cardiac monitor and record ongoing vital signs",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Establish IV access; place an IO if not obtained in two attempts or 90 seconds",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "500 mL isotonic bolus over under 15 min; MAP goal 65 (up to 30 mL/kg = 1,740 mL)",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Do not rely on orthostatic vital signs; no evidence supports EMS obtaining them",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Continue cooling until under 102.2 F or until mental status clearly improves",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Reassess vitals and mentation; repeat 500 mL bolus if MAP falls below 65 (max 1,740 mL)",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Monitor for arrhythmia and cardiovascular collapse throughout",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Transport: all life-threatening heat illness requires hospital evaluation",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Recognize decompensated shock; go to IO now rather than chasing another IV",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "500 mL isotonic bolus immediately; MAP goal 65 (up to 30 mL/kg = 1,740 mL)",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Start active cooling now and recheck the glucose with her worsening mentation",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Provide advanced notification to the hospital and transport emergently",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    }
+  ],
+  "media": []
+}

@@ -1,0 +1,455 @@
+{
+  "meta": {
+    "id": "137-geriatric-heat-exhaustion-with-hypovolemia",
+    "name": "137 - Geriatric Heat Exhaustion with Hypovolemia",
+    "version": 1,
+    "difficulty": "intermediate",
+    "category": "Environmental",
+    "protocols": [
+      "env-hyperthermia-heat-exposure",
+      "medical-shock",
+      "medical-altered-mental-status"
+    ],
+    "totalTimeSeconds": 960,
+    "tags": [
+      "environmental",
+      "heat exhaustion",
+      "dehydration",
+      "geriatric",
+      "active cooling",
+      "fluid resuscitation",
+      "difficult IV access",
+      "practice summative"
+    ]
+  },
+  "patient": {
+    "name": "Eleanor Gable",
+    "age": 82,
+    "ageUnit": "years",
+    "sex": "female",
+    "weight": 58,
+    "weightLbs": 128,
+    "height": 160,
+    "chiefComplaint": "Generalized weakness and dizziness after several hours of yard work in a heat advisory",
+    "history": {
+      "hpi": "An 82-year-old woman who gardened outdoors from roughly 9 AM through midday on a day with a heat index of 95 degrees Fahrenheit. She came inside around noon feeling poorly and has been sitting in her armchair since. Her home has no air conditioning and only a single slow ceiling fan. She reports profound weakness, dizziness that is much worse on standing, and a very dry mouth. She has eaten and drunk almost nothing since a cup of tea and toast at 8 AM. She takes a thiazide diuretic and an ACE inhibitor daily. She denies chest pain, shortness of breath, fever, cough, vomiting, diarrhea, and any fall or head strike.",
+      "pastMedical": [
+        "Hypertension",
+        "No known cardiac, renal, or diabetic history"
+      ],
+      "medications": [
+        "Hydrochlorothiazide 25 mg PO daily",
+        "Lisinopril 10 mg PO daily"
+      ],
+      "allergies": [
+        "Sulfa drugs"
+      ],
+      "lastOralIntake": "Cup of tea and a piece of toast at approximately 8:00 AM; nothing since",
+      "events": "Worked in her garden for roughly three hours during a heat advisory, came inside feeling unwell around noon, and a neighbor called for a welfare check when she did not appear for lunch"
+    }
+  },
+  "scene": {
+    "dispatch": "82-year-old female, weakness and dizziness, welfare check requested by a neighbor; heat index today is 95 degrees",
+    "location": "Small single-family brick home in a residential neighborhood; dimly lit living room, patient in a large armchair",
+    "time": "2:51 PM, weekday afternoon during a heat advisory",
+    "safety": "No hazards. The interior is notably hot and stuffy with no air conditioning running and only a slow ceiling fan; crew heat exposure is a consideration",
+    "bystanders": "A neighbor in her fifties met the crew at the open front door and reports the patient was outside gardening from about 9 AM and never came in for lunch",
+    "visualCues": [
+      "Elderly woman sitting slumped in an armchair, frail and pale, slow to respond",
+      "Room is stiflingly hot with the windows closed and a single ceiling fan turning slowly",
+      "Gardening gloves and a trowel on the floor by the door",
+      "No fan or drink within her reach",
+      "Skin on the back of her hands appears loose and dry"
+    ]
+  },
+  "phases": [
+    {
+      "id": "initial",
+      "name": "Initial Contact",
+      "description": "Crew finds an 82-year-old woman in a hot, unventilated house after hours of outdoor exertion in a heat advisory. She is slow to respond, oriented to person and place but believes the year is sometime in the 1990s. Her pulse is rapid and thready, her skin is hot and dry, her mucous membranes are dry and her skin turgor is poor. Temperature is 100.8 F and glucose is 112. This is heat exhaustion with hypovolemia, and because she has altered mental status the protocol triggers active cooling even though her temperature is well under 104 F.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": {
+          "eye": 4,
+          "verbal": 4,
+          "motor": 6
+        },
+        "airway": "Patent and self-maintained",
+        "breathing": "Slightly rapid but of adequate depth and unlabored; lungs clear bilaterally",
+        "circulation": "Radial pulse rapid and thready; skin hot and dry to the touch; capillary refill 3 seconds",
+        "skin": {
+          "color": "pale",
+          "temperature": "hot",
+          "moisture": "dry"
+        },
+        "pupils": "3 mm bilaterally, PERRL",
+        "motorFunction": "Moves all extremities but is generally weak; no focal deficit, no facial droop, grips equal",
+        "otherFindings": [
+          "Oriented to person and place; states the year is sometime in the 1990s",
+          "Mucous membranes pale and very dry",
+          "Skin turgor poor, tenting for 2 to 3 seconds on the back of the hand",
+          "Temperature 100.8 F by temporal scanner",
+          "Blood glucose 112 mg/dL",
+          "Veins difficult to palpate in both forearms and antecubital fossae",
+          "No signs of trauma or fall; no incontinence"
+        ],
+        "patientSpeech": "\"I just feel so weak. And very dizzy, especially when I try to stand. My mouth is so dry.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 116,
+        "bpSys": 102,
+        "bpDia": 68,
+        "respRate": 20,
+        "spo2": 97,
+        "etco2": 33,
+        "temp": 38.2,
+        "tempF": 100.8,
+        "obstruction": 0,
+        "glucose": 112,
+        "trendTimeSeconds": 0,
+        "visibility": {
+          "spo2Visible": true,
+          "spo2Attached": true,
+          "rrVisible": true,
+          "etco2Visible": true,
+          "cvpVisible": false
+        }
+      },
+      "expectedActions": [
+        {
+          "id": "a1",
+          "shortAction": "Move her out of the hot house to the cooled ambulance and remove excess clothing",
+          "protocolExcerpt": "Move victim to a cool area and shield from the sun or any external heat source. Remove as much clothing as is practical and loosen any restrictive garments.",
+          "priority": "critical",
+          "rationale": "Nothing else works while she is still sitting in an unventilated 90-plus degree house. Removing the heat source is the first treatment.",
+          "protocolReference": "MATC: Hyperthermia/Heat Exposure"
+        },
+        {
+          "id": "a2",
+          "shortAction": "Check the blood glucose: she has altered mental status",
+          "protocolExcerpt": "If altered mental status, check blood glucose level.",
+          "priority": "critical",
+          "rationale": "Her disorientation could as easily be hypoglycemia in an elderly patient who has not eaten all day. The protocol requires the check before attributing it to heat.",
+          "protocolReference": "MATC: Hyperthermia/Heat Exposure"
+        },
+        {
+          "id": "a3",
+          "shortAction": "Begin active cooling for the altered mental status: mist and fan, or rotating ice-water towels",
+          "protocolExcerpt": "If core temperature is greater than 104 F (40 C) or if altered mental status is present, begin active cooling by: Ice bath immersion provides the most rapid cooling mechanism. If ice bath immersion is not available, consider the following: Tarp-assisted cooling with oscillation; Rotating ice water-soaked towels or sheets; Continually misting the exposed skin with tepid water while fanning the victim; Truncal ice packs may be used, but are less effective than evaporation; DO NOT apply wet cloths or wet clothing, as they may trap heat and prevent evaporative cooling.",
+          "priority": "critical",
+          "rationale": "Her temperature is only 100.8 F, so crews routinely skip cooling here. The protocol triggers active cooling on altered mental status alone, and it specifies rotating the towels rather than leaving wet cloths in place.",
+          "protocolReference": "MATC: Hyperthermia/Heat Exposure"
+        },
+        {
+          "id": "a4",
+          "shortAction": "Place on the cardiac monitor and record ongoing vital signs",
+          "protocolExcerpt": "Place on cardiac monitor and record ongoing vital signs (pulse, blood pressure, respiratory rate, neurologic status assessment).",
+          "priority": "important",
+          "rationale": "Heat illness carries arrhythmia risk independent of any drug, and she is on a diuretic with likely electrolyte derangement.",
+          "protocolReference": "MATC: Hyperthermia/Heat Exposure"
+        },
+        {
+          "id": "a5",
+          "shortAction": "Establish IV access; place an IO if not obtained in two attempts or 90 seconds",
+          "protocolExcerpt": "Establish IV access. If unable to obtain within two attempts or less than 90 seconds, place an IO needle.",
+          "priority": "critical",
+          "rationale": "Her veins are collapsed from the volume loss, which is exactly the situation the 90-second rule exists for. A half-hearted attempt followed by giving up is the failure mode here.",
+          "protocolReference": "MATC: Shock"
+        },
+        {
+          "id": "a6",
+          "shortAction": "500 mL isotonic bolus over under 15 min; MAP goal 65 (up to 30 mL/kg = 1,740 mL)",
+          "protocolExcerpt": "IV fluid volume goal attained by giving boluses that are pressure infused over less than 15 minutes each based on patient's condition and clinical impression. Adult: Physiologic target: MAP goal 65 mmHg. Fluid goal of up to 30 mL/kg of isotonic fluid by administering rapid, predetermined boluses (e.g., 500 mL) unless the MAP goal is achieved, or pulmonary edema develops.",
+          "priority": "critical",
+          "rationale": "The 30 mL/kg ceiling for this 58 kg patient is 1,740 mL, delivered as 500 mL boluses with reassessment between each, watching for pulmonary edema in an elderly patient.",
+          "protocolReference": "MATC: Shock"
+        },
+        {
+          "id": "a7",
+          "shortAction": "Do not rely on orthostatic vital signs; no evidence supports EMS obtaining them",
+          "protocolExcerpt": "Key Considerations: There is no evidence supporting EMS obtaining orthostatic vital signs as a clinical indicator.",
+          "priority": "important",
+          "rationale": "Sitting a symptomatic, hypovolemic 82-year-old up to prove she is hypovolemic risks a syncopal fall and adds nothing. The protocol states plainly that EMS orthostatics are not supported.",
+          "protocolReference": "MATC: Hyperthermia/Heat Exposure"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "cooled-and-resuscitated",
+          "if": "Cooled and fluid resuscitated",
+          "condition": "Crew moves her to the cooled ambulance, begins active cooling for her altered mental status, obtains vascular access despite the poor veins, and completes a 500 mL isotonic bolus. Her mentation clears, her heart rate falls, and her blood pressure improves.",
+          "conditionType": "action_taken",
+          "triggerActionIds": [
+            "a1",
+            "a3",
+            "a5",
+            "a6"
+          ]
+        },
+        {
+          "targetPhaseId": "fluids-withheld",
+          "if": "Fluids withheld; decompensation",
+          "condition": "Crew documents the vitals but attributes the tachycardia and confusion to her age, makes one unsuccessful IV attempt and abandons access, and elects to load and go with oral fluids she is too weak and nauseated to take. Over 10 to 15 minutes she slides into decompensated hypovolemic shock.",
+          "conditionType": "action_not_taken",
+          "triggerActionIds": [
+            "a5",
+            "a6"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cooled-and-resuscitated",
+      "name": "Cooled and fluid resuscitated",
+      "description": "After the move to the cooled ambulance, active cooling, and a 500 mL isotonic bolus, the patient is noticeably brighter. She now correctly states the year and month and is oriented to person, place, time, and event. Her heart rate has fallen to 98, her blood pressure has come up, and her skin is warm rather than hot. The crew continues cooling toward the protocol endpoint, reassesses for the need for a second bolus, and prepares for transport.",
+      "triggerCondition": "Active cooling was started for the altered mental status and a 500 mL isotonic bolus was completed after vascular access was obtained. Mentation and perfusion have both improved.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": {
+          "eye": 4,
+          "verbal": 5,
+          "motor": 6
+        },
+        "airway": "Patent and conversational",
+        "breathing": "Regular, unlabored, adequate depth; lungs remain clear with no rales after the bolus",
+        "circulation": "Radial pulse stronger and regular; capillary refill under 2 seconds; skin warm and no longer hot",
+        "skin": {
+          "color": "pink",
+          "temperature": "warm",
+          "moisture": "slightly moist from misting"
+        },
+        "pupils": "3 mm bilaterally, PERRL",
+        "motorFunction": "Moves all extremities with improved strength; still generally weak but steadier",
+        "otherFindings": [
+          "Oriented to person, place, time, and event; correctly states the year and month",
+          "Temperature down to 99.7 F",
+          "Mucous membranes still dry but less so",
+          "Reports the dizziness is much improved",
+          "Lungs auscultated after the bolus with no rales"
+        ],
+        "patientSpeech": "\"I'm still weak, but that dizzy feeling is much better. I feel more like myself.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Rhythm",
+        "ecgWaveform": 9,
+        "hr": 98,
+        "bpSys": 114,
+        "bpDia": 72,
+        "respRate": 16,
+        "spo2": 98,
+        "etco2": 36,
+        "temp": 37.6,
+        "tempF": 99.7,
+        "obstruction": 0,
+        "glucose": 108,
+        "trendTimeSeconds": 50,
+        "visibility": {
+          "spo2Visible": true,
+          "spo2Attached": true,
+          "rrVisible": true,
+          "etco2Visible": true,
+          "cvpVisible": false
+        }
+      },
+      "expectedActions": [
+        {
+          "id": "b1",
+          "shortAction": "Continue cooling until under 102.2 F or until mental status clearly improves",
+          "protocolExcerpt": "Cooling efforts should continue until the patient's temperature is less than 102.2 F (39 C) or, if continuous temperature monitoring is not available, until the patient demonstrates improvement in mental status.",
+          "priority": "critical",
+          "rationale": "The protocol names both endpoints. Stopping cooling on a whim rather than on one of these two markers is the common error.",
+          "protocolReference": "MATC: Hyperthermia/Heat Exposure"
+        },
+        {
+          "id": "b2",
+          "shortAction": "Reassess vitals and mentation; repeat 500 mL bolus if MAP falls below 65 (max 1,740 mL)",
+          "protocolExcerpt": "Key Documentation Elements: Full vital signs (pulse, blood pressure, respiratory rate, neurologic status assessment) with reassessment q 15 minutes or more frequently as appropriate. Amount of fluids given.",
+          "priority": "important",
+          "rationale": "One bolus is not a plan. Reassessment drives whether the next 500 mL is given, up to the 30 mL/kg ceiling of 1,740 mL for this patient.",
+          "protocolReference": "MATC: Shock"
+        },
+        {
+          "id": "b3",
+          "shortAction": "Monitor for arrhythmia and cardiovascular collapse throughout",
+          "protocolExcerpt": "Monitor for arrhythmia and cardiovascular collapse.",
+          "priority": "important",
+          "rationale": "Heat illness is associated with arrhythmias independent of drug ingestion, and a thiazide adds electrolyte risk on top.",
+          "protocolReference": "MATC: Hyperthermia/Heat Exposure"
+        },
+        {
+          "id": "b4",
+          "shortAction": "Transport: all life-threatening heat illness requires hospital evaluation",
+          "protocolExcerpt": "All patients suffering from life threatening heat illness (including heat stroke) should be transported to the hospital.",
+          "priority": "critical",
+          "rationale": "She improved with fluid, which is not the same as being fixed. She needs continued resuscitation and electrolyte evaluation.",
+          "protocolReference": "MATC: Hyperthermia/Heat Exposure"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "transporting",
+          "if": "Mentation improved; transport underway",
+          "condition": "Cooling continues to the protocol endpoint, reassessment confirms sustained improvement in mentation and perfusion, and the patient is transported with serial vital signs and ongoing fluid as indicated.",
+          "conditionType": "action_taken",
+          "triggerActionIds": [
+            "b1",
+            "b4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "transporting",
+      "name": "Mentation improved; transport underway",
+      "description": "The patient is en route with her temperature down to 99.1 F, blood pressure 118/74, heart rate 92, and mentation at her stated baseline. A second bolus is running based on reassessment. The handoff covers the environmental exposure, the diuretic and ACE inhibitor, the poor oral intake over the preceding day, and the response to cooling and fluid. All interventions are complete and no further change in presentation is expected.",
+      "triggerCondition": "Cooling reached the protocol endpoint, perfusion and mentation are stable on serial reassessment, and transport is underway without further deterioration.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": {
+          "eye": 4,
+          "verbal": 5,
+          "motor": 6
+        },
+        "airway": "Patent and conversational",
+        "breathing": "Regular and unlabored; lungs clear",
+        "circulation": "Radial pulse strong and regular; capillary refill under 2 seconds",
+        "skin": {
+          "color": "pink",
+          "temperature": "warm",
+          "moisture": "dry"
+        },
+        "pupils": "3 mm bilaterally, PERRL",
+        "motorFunction": "Moves all extremities; strength improving",
+        "otherFindings": [
+          "Temperature 99.1 F",
+          "Oriented to person, place, time, and event and holding",
+          "Second 500 mL bolus running; total 1,000 mL given, well under the 1,740 mL ceiling",
+          "No rales on repeat auscultation",
+          "Neighbor notified and following to the hospital"
+        ],
+        "patientSpeech": "\"I should have come in sooner. I just wanted to finish the weeding.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Rhythm",
+        "ecgWaveform": 9,
+        "hr": 92,
+        "bpSys": 118,
+        "bpDia": 74,
+        "respRate": 16,
+        "spo2": 98,
+        "etco2": 37,
+        "temp": 37.3,
+        "tempF": 99.1,
+        "obstruction": 0,
+        "glucose": 108,
+        "trendTimeSeconds": 40,
+        "visibility": {
+          "spo2Visible": true,
+          "spo2Attached": true,
+          "rrVisible": true,
+          "etco2Visible": true,
+          "cvpVisible": false
+        }
+      },
+      "expectedActions": []
+    },
+    {
+      "id": "fluids-withheld",
+      "name": "Fluids withheld; decompensation",
+      "description": "Ten to fifteen minutes have passed with the tachycardia and confusion written off as age-related. One IV attempt failed and access was abandoned; she was offered oral fluids she was too weak and nauseated to take beyond a few sips, and no cooling was started. She is now markedly more lethargic, responding only to loud verbal stimuli with mumbled words. Her systolic pressure has fallen to 88, her heart rate is 130 and thready, her respirations are shallow at 24, and her skin is mottled and clammy. This is decompensated hypovolemic shock caused by the delay.",
+      "triggerCondition": "Vascular access was abandoned after one attempt, no fluid was given, and no active cooling was started. Compensated hypovolemia has progressed to decompensated shock.",
+      "isDefault": false,
+      "clinicalPresentation": {
+        "avpu": "Verbal",
+        "gcs": {
+          "eye": 3,
+          "verbal": 3,
+          "motor": 5
+        },
+        "airway": "Patent but she is no longer reliably clearing secretions; requires positioning",
+        "breathing": "24 per minute and shallow with reduced tidal volume",
+        "circulation": "Radial pulse thready and difficult to palpate at 130; capillary refill 4 to 5 seconds",
+        "skin": {
+          "color": "mottled",
+          "temperature": "cool peripherally, trunk still warm",
+          "moisture": "clammy"
+        },
+        "pupils": "4 mm bilaterally, sluggish",
+        "motorFunction": "Localizes to painful stimulus; no purposeful movement to command",
+        "otherFindings": [
+          "Responds only to loud verbal stimuli with mumbled, unintelligible words",
+          "Temperature has climbed to 101.5 F",
+          "Took only a few sips of oral fluid before refusing",
+          "MAP approximately 63 mmHg, below the protocol target of 65",
+          "Peripheral veins now completely uncannulatable"
+        ],
+        "patientSpeech": "Mumbles unintelligibly when shouted at; no coherent speech"
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 130,
+        "bpSys": 88,
+        "bpDia": 50,
+        "respRate": 24,
+        "spo2": 95,
+        "etco2": 28,
+        "temp": 38.6,
+        "tempF": 101.5,
+        "obstruction": 0,
+        "glucose": 106,
+        "trendTimeSeconds": 55,
+        "visibility": {
+          "spo2Visible": true,
+          "spo2Attached": true,
+          "rrVisible": true,
+          "etco2Visible": true,
+          "cvpVisible": false
+        }
+      },
+      "expectedActions": [
+        {
+          "id": "c1",
+          "shortAction": "Recognize decompensated shock; go to IO now rather than chasing another IV",
+          "protocolExcerpt": "Establish IV access. If unable to obtain within two attempts or less than 90 seconds, place an IO needle.",
+          "priority": "critical",
+          "rationale": "Her peripheral veins are gone. The protocol already authorized IO fifteen minutes ago and there is no reason left to delay.",
+          "protocolReference": "MATC: Shock"
+        },
+        {
+          "id": "c2",
+          "shortAction": "500 mL isotonic bolus immediately; MAP goal 65 (up to 30 mL/kg = 1,740 mL)",
+          "protocolExcerpt": "IV fluid volume goal attained by giving boluses that are pressure infused over less than 15 minutes each based on patient's condition and clinical impression. Adult: Physiologic target: MAP goal 65 mmHg. Fluid goal of up to 30 mL/kg of isotonic fluid by administering rapid, predetermined boluses (e.g., 500 mL) unless the MAP goal is achieved, or pulmonary edema develops.",
+          "priority": "critical",
+          "rationale": "Her MAP is now 63 and falling. Volume is the treatment for the shock her crew allowed to develop.",
+          "protocolReference": "MATC: Shock"
+        },
+        {
+          "id": "c3",
+          "shortAction": "Start active cooling now and recheck the glucose with her worsening mentation",
+          "protocolExcerpt": "If core temperature is greater than 104 F (40 C) or if altered mental status is present, begin active cooling. If altered mental status, check blood glucose level.",
+          "priority": "critical",
+          "rationale": "Her temperature is climbing and her mental status has worsened. Both protocol triggers for cooling and glucometry are firmly met.",
+          "protocolReference": "MATC: Hyperthermia/Heat Exposure"
+        },
+        {
+          "id": "c4",
+          "shortAction": "Provide advanced notification to the hospital and transport emergently",
+          "protocolExcerpt": "Provide advanced notification to the hospital.",
+          "priority": "important",
+          "rationale": "An 82-year-old arriving in decompensated shock after a delayed field course needs the receiving team ready on arrival.",
+          "protocolReference": "MATC: Shock"
+        }
+      ]
+    }
+  ],
+  "realiti": {
+    "scenarioDefaultEnergy": 200,
+    "scenarioDefaultPacerThreshold": 55
+  }
+}
