@@ -59,8 +59,12 @@
       "relatedLabs": [],
       "relatedChecklist": [
         "Recognize symptomatic bradycardia (HR 38 with hypotension and AMS)",
-        "Obtain ingestion history: medication, time, quantity from daughter and pill bottle",
-        "Collect pill bottle and bring to ED with patient"
+        "Obtain ingestion history (drug, time, quantity) and collect the pill bottle to bring to the ED",
+        "Apply oxygen titrated to 94-98% SpO2",
+        "Initiate cardiac monitor and obtain 12-lead EKG",
+        "Establish IV access",
+        "Check blood glucose (beta-blockers can cause hypoglycemia)",
+        "Atropine 1 mg IV push (fixed adult dose; may repeat q5min to max 3 mg)"
       ],
       "relatedSounds": []
     },
@@ -94,11 +98,9 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Apply oxygen titrated to 94-98% SpO2",
-        "Initiate cardiac monitor and obtain 12-lead EKG",
-        "Establish IV access",
-        "Check blood glucose (beta-blockers can cause hypoglycemia)",
-        "Atropine 1 mg IV push (fixed adult dose; may repeat q5min to max 3 mg)"
+        "Glucagon 5 mg IVP (fixed adult dose; may repeat in 5-10 min, max 10 mg total)",
+        "Normal saline bolus 1,680 mL IV (84 kg x 20 mL/kg) for hypotension",
+        "Defer activated charcoal - ingestion occurred approximately 2 hours prior, outside 1-hour window"
       ],
       "relatedSounds": []
     },
@@ -132,9 +134,8 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Glucagon 5 mg IVP (fixed adult dose; may repeat in 5-10 min, max 10 mg total)",
-        "Normal saline bolus 1,680 mL IV (84 kg x 20 mL/kg) for hypotension",
-        "Defer activated charcoal - ingestion occurred approximately 2 hours prior, outside 1-hour window"
+        "Administer sedation/analgesia prior to transcutaneous pacing",
+        "Initiate transcutaneous pacing at 70 bpm; titrate mA until electrical and mechanical capture confirmed"
       ],
       "relatedSounds": []
     },
@@ -170,8 +171,6 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Administer sedation/analgesia prior to transcutaneous pacing",
-        "Initiate transcutaneous pacing at 70 bpm; titrate mA until electrical and mechanical capture confirmed",
         "Consider norepinephrine infusion 1.7-33.6 mcg/min IV (84 kg x 0.02-0.4 mcg/kg/min) titrated to MAP >65 mmHg if hypotension persists after pacing",
         "Reassess capture, pulse quality, and blood pressure response to pacing"
       ],
@@ -220,13 +219,7 @@
       "icon": 1
     },
     {
-      "title": "Obtain ingestion history: medication, time, quantity from daughter and pill bottle",
-      "type": "Check",
-      "value": 0,
-      "icon": 1
-    },
-    {
-      "title": "Collect pill bottle and bring to ED with patient",
+      "title": "Obtain ingestion history (drug, time, quantity) and collect the pill bottle to bring to the ED",
       "type": "Check",
       "value": 0,
       "icon": 1
