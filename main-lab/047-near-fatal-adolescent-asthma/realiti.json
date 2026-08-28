@@ -57,7 +57,11 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [],
+      "relatedChecklist": [
+        "Continuous albuterol 5 mg + ipratropium 0.5 mg nebulized, repeated with unlimited frequency for ongoing distress",
+        "Epinephrine 0.3 mg IM (1 mg/mL) (55 kg × 0.01 mg/kg = 0.55 mg → capped at max 0.3 mg); adjunctive for impending respiratory failure",
+        "Magnesium sulfate 2 g IV (55 kg × 40 mg/kg = 2200 mg → capped at max 2 g) over 10-15 minutes"
+      ],
       "relatedSounds": []
     },
     {
@@ -90,9 +94,7 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Continuous albuterol 5 mg + ipratropium 0.5 mg nebulized, repeated with unlimited frequency for ongoing distress",
-        "Epinephrine 0.3 mg IM (1 mg/mL) (55 kg × 0.01 mg/kg = 0.55 mg → capped at max 0.3 mg); adjunctive for impending respiratory failure",
-        "Magnesium sulfate 2 g IV (55 kg × 40 mg/kg = 2200 mg → capped at max 2 g) over 10-15 minutes"
+        "Continue non-invasive management; avoid intubation now that air movement and mental status are improving"
       ],
       "relatedSounds": []
     },
@@ -125,9 +127,7 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [
-        "Continue non-invasive management; avoid intubation now that air movement and mental status are improving"
-      ],
+      "relatedChecklist": [],
       "relatedSounds": []
     },
     {

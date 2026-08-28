@@ -81,19 +81,46 @@
         "trendTimeSeconds": 0,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
       },
-      "expectedActions": [],
+      "expectedActions": [
+        {
+          "id": "a1",
+          "shortAction": "Continuous albuterol 5 mg + ipratropium 0.5 mg nebulized, repeated with unlimited frequency for ongoing distress",
+          "protocolExcerpt": "Albuterol 5 mg nebulized (or 6 puffs metered dose inhaler) should be administered to all patients in respiratory distress with signs of bronchospasm. Repeat at this dose with unlimited frequency for ongoing respiratory distress. Ipratropium 0.5 mg nebulized should be given up to 3 doses in conjunction with albuterol",
+          "priority": "critical",
+          "rationale": "Continuous bronchodilator therapy is the foundation of severe asthma management and should not be interrupted.",
+          "protocolReference": "MATC: Respiratory Distress (includes Bronchospasm, Pulmonary Edema)"
+        },
+        {
+          "id": "a2",
+          "shortAction": "Epinephrine 0.3 mg IM (1 mg/mL) (55 kg × 0.01 mg/kg = 0.55 mg → capped at max 0.3 mg); adjunctive for impending respiratory failure",
+          "protocolExcerpt": "Epinephrine (0.01 mg/kg of 1 mg/mL solution IM, maximum dose of 0.3 mg) should only be administered for impending respiratory failure as adjunctive therapy when there are no clinical signs of improvement with the above treatments",
+          "priority": "critical",
+          "rationale": "A silent chest with altered mental status indicates impending respiratory failure, meeting criteria for adjunctive IM epinephrine.",
+          "protocolReference": "MATC: Respiratory Distress (includes Bronchospasm, Pulmonary Edema)"
+        },
+        {
+          "id": "a3",
+          "shortAction": "Magnesium sulfate 2 g IV (55 kg × 40 mg/kg = 2200 mg → capped at max 2 g) over 10-15 minutes",
+          "protocolExcerpt": "Magnesium sulfate (40 mg/kg IV, maximum dose of 2 g) over 10-15 minutes should be administered for severe bronchoconstriction and concern for impending respiratory failure",
+          "priority": "critical",
+          "rationale": "Magnesium sulfate provides additional bronchodilation for severe bronchoconstriction unresponsive to first-line therapy.",
+          "protocolReference": "MATC: Respiratory Distress (includes Bronchospasm, Pulmonary Edema)"
+        }
+      ],
       "transitions": [
         {
           "targetPhaseId": "aggressive-treatment",
           "if": "IM epi and mag sulfate given",
           "condition": "Crew recognizes impending respiratory failure from near-fatal asthma and escalates immediately to IM epinephrine, IV magnesium sulfate, and continuous nebulized bronchodilators.",
-          "conditionType": "action_taken"
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a1", "a2", "a3"]
         },
         {
           "targetPhaseId": "respiratory-failure-rsi",
           "if": "Escalation delayed, respiratory failure requiring RSI",
           "condition": "Crew continues standard nebulizer treatment alone without escalating to IM epinephrine or magnesium sulfate, and the patient progresses to frank respiratory failure and arrest requiring RSI.",
-          "conditionType": "action_not_taken"
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["a2", "a3"]
         }
       ]
     },
@@ -139,27 +166,11 @@
       },
       "expectedActions": [
         {
-          "id": "a1-continuous-neb",
-          "shortAction": "Continuous albuterol 5 mg + ipratropium 0.5 mg nebulized, repeated with unlimited frequency for ongoing distress",
-          "protocolExcerpt": "Albuterol 5 mg nebulized (or 6 puffs metered dose inhaler) should be administered to all patients in respiratory distress with signs of bronchospasm. Repeat at this dose with unlimited frequency for ongoing respiratory distress. Ipratropium 0.5 mg nebulized should be given up to 3 doses in conjunction with albuterol",
-          "priority": "critical",
-          "rationale": "Continuous bronchodilator therapy is the foundation of severe asthma management and should not be interrupted.",
-          "protocolReference": "MATC: Respiratory Distress (includes Bronchospasm, Pulmonary Edema)"
-        },
-        {
-          "id": "a2-im-epi",
-          "shortAction": "Epinephrine 0.3 mg IM (1 mg/mL) (55 kg × 0.01 mg/kg = 0.55 mg → capped at max 0.3 mg); adjunctive for impending respiratory failure",
-          "protocolExcerpt": "Epinephrine (0.01 mg/kg of 1 mg/mL solution IM, maximum dose of 0.3 mg) should only be administered for impending respiratory failure as adjunctive therapy when there are no clinical signs of improvement with the above treatments",
-          "priority": "critical",
-          "rationale": "A silent chest with altered mental status indicates impending respiratory failure, meeting criteria for adjunctive IM epinephrine.",
-          "protocolReference": "MATC: Respiratory Distress (includes Bronchospasm, Pulmonary Edema)"
-        },
-        {
-          "id": "a3-mag-sulfate",
-          "shortAction": "Magnesium sulfate 2 g IV (55 kg × 40 mg/kg = 2200 mg → capped at max 2 g) over 10-15 minutes",
-          "protocolExcerpt": "Magnesium sulfate (40 mg/kg IV, maximum dose of 2 g) over 10-15 minutes should be administered for severe bronchoconstriction and concern for impending respiratory failure",
-          "priority": "critical",
-          "rationale": "Magnesium sulfate provides additional bronchodilation for severe bronchoconstriction unresponsive to first-line therapy.",
+          "id": "b1",
+          "shortAction": "Continue non-invasive management; avoid intubation now that air movement and mental status are improving",
+          "protocolExcerpt": "Invasive airways do not improve bronchospasm. The airway should be managed in the least invasive way possible. Supraglottic devices and endotracheal intubation should be considered only if BVM ventilation fails",
+          "priority": "important",
+          "rationale": "Intubation in bronchospastic patients carries risk of air trapping and barotrauma and should be reserved for true respiratory failure.",
           "protocolReference": "MATC: Respiratory Distress (includes Bronchospasm, Pulmonary Edema)"
         }
       ],
@@ -169,7 +180,7 @@
           "if": "Improved, intubation avoided",
           "condition": "With continuous bronchodilators, IM epinephrine, and magnesium sulfate, air movement and mental status improve, avoiding the need for intubation.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["a1-continuous-neb", "a2-im-epi", "a3-mag-sulfate"]
+          "triggerActionIds": ["b1"]
         }
       ]
     },
@@ -212,16 +223,7 @@
         "trendTimeSeconds": 40,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
       },
-      "expectedActions": [
-        {
-          "id": "a4-avoid-invasive-airway",
-          "shortAction": "Continue non-invasive management; avoid intubation now that air movement and mental status are improving",
-          "protocolExcerpt": "Invasive airways do not improve bronchospasm. The airway should be managed in the least invasive way possible. Supraglottic devices and endotracheal intubation should be considered only if BVM ventilation fails",
-          "priority": "important",
-          "rationale": "Intubation in bronchospastic patients carries risk of air trapping and barotrauma and should be reserved for true respiratory failure.",
-          "protocolReference": "MATC: Respiratory Distress (includes Bronchospasm, Pulmonary Edema)"
-        }
-      ],
+      "expectedActions": [],
       "transitions": []
     },
     {
@@ -265,7 +267,7 @@
       },
       "expectedActions": [
         {
-          "id": "a5-rsi-for-failure",
+          "id": "c1",
           "shortAction": "Recognize true respiratory failure; perform RSI with ketamine (bronchodilator properties) for induction",
           "protocolExcerpt": "Endotracheal intubation... Other indications may include potential airway obstruction. Administer induction sedative agent: Ketamine IV push, 1-2 mg/kg",
           "priority": "critical",
