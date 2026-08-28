@@ -57,7 +57,11 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [],
+      "relatedChecklist": [
+        "Dry, warm, and stimulate infant; wrap in dry towel, cover head",
+        "Position airway in sniffing position; suction mouth then nose given visible meconium",
+        "Apply cardiac monitor and pulse oximetry to guide resuscitation"
+      ],
       "relatedSounds": []
     },
     {
@@ -90,9 +94,9 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Dry, warm, and stimulate infant; wrap in dry towel, cover head",
-        "Position airway in sniffing position; suction mouth then nose given visible meconium",
-        "Apply cardiac monitor and pulse oximetry to guide resuscitation"
+        "Initiate BVM ventilation with room air at 40-60 breaths/min for 90 seconds",
+        "Evaluate heart rate every 30 seconds during ventilation",
+        "Use minimum rate/volume needed for chest rise and HR change (squeeze-release technique)"
       ],
       "relatedSounds": []
     },
@@ -125,11 +129,7 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [
-        "Initiate BVM ventilation with room air at 40-60 breaths/min for 90 seconds",
-        "Evaluate heart rate every 30 seconds during ventilation",
-        "Use minimum rate/volume needed for chest rise and HR change (squeeze-release technique)"
-      ],
+      "relatedChecklist": [],
       "relatedSounds": []
     },
     {

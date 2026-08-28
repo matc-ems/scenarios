@@ -80,19 +80,46 @@
         "trendTimeSeconds": 0,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [],
+      "expectedActions": [
+        {
+          "id": "a1",
+          "shortAction": "Dry, warm, and stimulate infant; wrap in dry towel, cover head",
+          "protocolExcerpt": "Wrap infant in dry towel or thermal blanket to keep infant as warm as possible during resuscitation; keep head covered if possible",
+          "priority": "critical",
+          "rationale": "Hypothermia worsens outcomes in a compromised newborn and stimulation may itself trigger respiratory effort.",
+          "protocolReference": "MATC: Neonatal Resuscitation"
+        },
+        {
+          "id": "a2",
+          "shortAction": "Position airway in sniffing position; suction mouth then nose given visible meconium",
+          "protocolExcerpt": "If weak cry, signs of respiratory distress, poor tone, or preterm gestation then position airway (sniffing position) and clear airway as needed. If signs of respiratory distress with airway obstruction, suction mouth then nose; routine suctioning is not recommended",
+          "priority": "critical",
+          "rationale": "Meconium with airway obstruction and poor tone meets the protocol's criteria for targeted suctioning, unlike a vigorous newborn.",
+          "protocolReference": "MATC: Neonatal Resuscitation"
+        },
+        {
+          "id": "a3",
+          "shortAction": "Apply cardiac monitor and pulse oximetry to guide resuscitation",
+          "protocolExcerpt": "Apply cardiac monitor, if available",
+          "priority": "important",
+          "rationale": "Heart rate trend is the primary indicator of resuscitation effectiveness going forward.",
+          "protocolReference": "MATC: Neonatal Resuscitation"
+        }
+      ],
       "transitions": [
         {
           "targetPhaseId": "dry-warm-position",
           "if": "Dried, warmed, positioned, airway cleared",
           "condition": "Crew immediately dries, warms, and stimulates the infant while positioning the airway in sniffing position and clearing meconium from the mouth and nose given signs of respiratory distress with airway obstruction.",
-          "conditionType": "action_taken"
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a1", "a2", "a3"]
         },
         {
           "targetPhaseId": "resuscitation-delayed",
           "if": "Resuscitation sequence delayed",
           "condition": "Crew delays initiating the dry-warm-stimulate and airway-clearing sequence, allowing ongoing apnea and bradycardia.",
-          "conditionType": "action_not_taken"
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["a1", "a2"]
         }
       ]
     },
@@ -138,27 +165,27 @@
       },
       "expectedActions": [
         {
-          "id": "a1-dry-warm",
-          "shortAction": "Dry, warm, and stimulate infant; wrap in dry towel, cover head",
-          "protocolExcerpt": "Wrap infant in dry towel or thermal blanket to keep infant as warm as possible during resuscitation; keep head covered if possible",
+          "id": "b1",
+          "shortAction": "Initiate BVM ventilation with room air at 40-60 breaths/min for 90 seconds",
+          "protocolExcerpt": "Initiate BVM ventilation with room air at 40–60 breaths per minute for 90 seconds with room air",
           "priority": "critical",
-          "rationale": "Hypothermia worsens outcomes in a compromised newborn and stimulation may itself trigger respiratory effort.",
+          "rationale": "Effective PPV is the single most important intervention for a newborn with bradycardia and apnea.",
           "protocolReference": "MATC: Neonatal Resuscitation"
         },
         {
-          "id": "a2-position-suction",
-          "shortAction": "Position airway in sniffing position; suction mouth then nose given visible meconium",
-          "protocolExcerpt": "If weak cry, signs of respiratory distress, poor tone, or preterm gestation then position airway (sniffing position) and clear airway as needed. If signs of respiratory distress with airway obstruction, suction mouth then nose; routine suctioning is not recommended",
+          "id": "b2",
+          "shortAction": "Evaluate heart rate every 30 seconds during ventilation",
+          "protocolExcerpt": "Primary indicator of effective ventilation is improvement in heart rate. Evaluate heart rate every 30 seconds",
           "priority": "critical",
-          "rationale": "Meconium with airway obstruction and poor tone meets the protocol's criteria for targeted suctioning, unlike a vigorous newborn.",
+          "rationale": "Heart rate response determines whether to continue current management or escalate to compressions/epinephrine.",
           "protocolReference": "MATC: Neonatal Resuscitation"
         },
         {
-          "id": "a3-monitor",
-          "shortAction": "Apply cardiac monitor and pulse oximetry to guide resuscitation",
-          "protocolExcerpt": "Apply cardiac monitor, if available",
+          "id": "b3",
+          "shortAction": "Use minimum rate/volume needed for chest rise and HR change (squeeze-release technique)",
+          "protocolExcerpt": "Rates and volumes of ventilation required can be variable, only use the minimum necessary rate and volume to achieve chest rise and a change in heart rate; can control rate and volume by saying \"squeeze, release\"",
           "priority": "important",
-          "rationale": "Heart rate trend is the primary indicator of resuscitation effectiveness going forward.",
+          "rationale": "Excessive volume/pressure risks pneumothorax in the newborn lung.",
           "protocolReference": "MATC: Neonatal Resuscitation"
         }
       ],
@@ -168,7 +195,7 @@
           "if": "PPV initiated for HR under 100",
           "condition": "Despite warming, positioning, and airway clearing, the infant remains apneic with a heart rate below 100 bpm, meeting criteria for positive pressure ventilation.",
           "conditionType": "vital_threshold",
-          "triggerActionIds": ["a3-monitor"]
+          "triggerActionIds": ["b1", "b2"]
         }
       ]
     },
@@ -212,32 +239,7 @@
         "trendTimeSeconds": 30,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [
-        {
-          "id": "a4-ppv",
-          "shortAction": "Initiate BVM ventilation with room air at 40-60 breaths/min for 90 seconds",
-          "protocolExcerpt": "Initiate BVM ventilation with room air at 40–60 breaths per minute for 90 seconds with room air",
-          "priority": "critical",
-          "rationale": "Effective PPV is the single most important intervention for a newborn with bradycardia and apnea.",
-          "protocolReference": "MATC: Neonatal Resuscitation"
-        },
-        {
-          "id": "a5-reassess-hr",
-          "shortAction": "Evaluate heart rate every 30 seconds during ventilation",
-          "protocolExcerpt": "Primary indicator of effective ventilation is improvement in heart rate. Evaluate heart rate every 30 seconds",
-          "priority": "critical",
-          "rationale": "Heart rate response determines whether to continue current management or escalate to compressions/epinephrine.",
-          "protocolReference": "MATC: Neonatal Resuscitation"
-        },
-        {
-          "id": "a6-minimum-volume",
-          "shortAction": "Use minimum rate/volume needed for chest rise and HR change (squeeze-release technique)",
-          "protocolExcerpt": "Rates and volumes of ventilation required can be variable, only use the minimum necessary rate and volume to achieve chest rise and a change in heart rate; can control rate and volume by saying \"squeeze, release\"",
-          "priority": "important",
-          "rationale": "Excessive volume/pressure risks pneumothorax in the newborn lung.",
-          "protocolReference": "MATC: Neonatal Resuscitation"
-        }
-      ],
+      "expectedActions": [],
       "transitions": []
     },
     {
@@ -281,7 +283,7 @@
       },
       "expectedActions": [
         {
-          "id": "a7-recover-sequence",
+          "id": "c1",
           "shortAction": "Immediately begin dry-warm-stimulate, position airway, and suction mouth then nose",
           "protocolExcerpt": "Most newborns require only drying, warming, and stimulating to help them transition from fetal respiration to newborn respiration. The resuscitation sequence can be remembered as Dry, Warm, and Stimulate – Ventilate – Evaluate – and Resuscitate",
           "priority": "critical",
