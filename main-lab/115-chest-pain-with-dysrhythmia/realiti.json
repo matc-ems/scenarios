@@ -57,7 +57,14 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [],
+      "relatedChecklist": [
+        "Acquire 12-lead EKG within 10 minutes of patient contact",
+        "Aspirin 324 mg PO, chewed (non-enteric-coated)",
+        "Establish IV access",
+        "Place defibrillator pads proactively given dysrhythmia risk",
+        "Nitroglycerin 0.4 mg SL (SBP >100, no PDE5 use in 48h); may repeat q3–5min",
+        "Transmit STEMI alert with advance notification to receiving facility"
+      ],
       "relatedSounds": []
     },
     {
@@ -90,12 +97,9 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Acquire 12-lead EKG within 10 minutes of patient contact",
-        "Aspirin 324 mg PO, chewed (non-enteric-coated)",
-        "Establish IV access",
-        "Transmit STEMI alert with advance notification to receiving facility",
-        "Place defibrillator pads proactively given dysrhythmia risk",
-        "Nitroglycerin 0.4 mg SL (SBP >100, no PDE5 use in 48h); may repeat q3–5min"
+        "Continuously reassess pulse and mental status during any rhythm change",
+        "Perform a repeat 12-lead EKG after the rhythm change resolves",
+        "Keep defibrillator charged/ready for synchronized cardioversion if VT recurs and sustains"
       ],
       "relatedSounds": []
     },
@@ -128,11 +132,7 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [
-        "Continuously reassess pulse and mental status during any rhythm change",
-        "Perform a repeat 12-lead EKG after the rhythm change resolves",
-        "Keep defibrillator charged/ready for synchronized cardioversion if VT recurs and sustains"
-      ],
+      "relatedChecklist": [],
       "relatedSounds": []
     },
     {
@@ -227,12 +227,6 @@
       "icon": 1
     },
     {
-      "title": "Transmit STEMI alert with advance notification to receiving facility",
-      "type": "Check",
-      "value": 0,
-      "icon": 1
-    },
-    {
       "title": "Place defibrillator pads proactively given dysrhythmia risk",
       "type": "Check",
       "value": 0,
@@ -240,6 +234,12 @@
     },
     {
       "title": "Nitroglycerin 0.4 mg SL (SBP >100, no PDE5 use in 48h); may repeat q3–5min",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Transmit STEMI alert with advance notification to receiving facility",
       "type": "Check",
       "value": 0,
       "icon": 1
