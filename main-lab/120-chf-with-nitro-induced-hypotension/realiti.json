@@ -57,7 +57,10 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [],
+      "relatedChecklist": [
+        "Apply CPAP for severe respiratory distress with hypoxia; coach patient through mask seal",
+        "Nitroglycerin 0.8 mg SL for SBP ≥160/MAP >120; may repeat every 5 min if SBP remains >100 mmHg"
+      ],
       "relatedSounds": []
     },
     {
@@ -90,8 +93,8 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Apply CPAP for severe respiratory distress with hypoxia; coach patient through mask seal",
-        "Nitroglycerin 0.8 mg SL for SBP ≥160/MAP >120; may repeat every 5 min if SBP remains >100 mmHg"
+        "Hold further nitroglycerin; SBP 92 mmHg is below the >100 mmHg threshold required to repeat",
+        "IV fluid bolus 250-500 mL for SBP <100 mmHg"
       ],
       "relatedSounds": []
     },
@@ -125,8 +128,8 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Hold further nitroglycerin; SBP 92 mmHg is below the >100 mmHg threshold required to repeat",
-        "IV fluid bolus 250-500 mL for SBP <100 mmHg"
+        "Maintain continuous CPAP mask seal through transport; do not break seal until ED handoff",
+        "Reassess full vital signs and mental status serially en route"
       ],
       "relatedSounds": []
     },
@@ -159,10 +162,7 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [
-        "Maintain continuous CPAP mask seal through transport; do not break seal until ED handoff",
-        "Reassess full vital signs and mental status serially en route"
-      ],
+      "relatedChecklist": [],
       "relatedSounds": []
     },
     {
