@@ -78,13 +78,46 @@
         "trendTimeSeconds": 0,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [],
+      "expectedActions": [
+        {
+          "id": "a1",
+          "shortAction": "Position mother supine; allow buttocks, feet, and trunk to deliver spontaneously without traction",
+          "protocolExcerpt": "Breech Birth: Place mother supine, allow the buttocks, feet, and trunk to deliver spontaneously, then support the body while the head is delivered",
+          "priority": "critical",
+          "rationale": "Pulling on a breech fetus risks nuchal arm entrapment, cervical spine injury, or head entrapment.",
+          "protocolReference": "MATC: OB/GYN Childbirth"
+        },
+        {
+          "id": "a2",
+          "shortAction": "Assess for prolapsed cord as the trunk delivers; treat immediately if present",
+          "protocolExcerpt": "Assess for presence of prolapsed cord and treat as above",
+          "priority": "critical",
+          "rationale": "Footling breech carries a higher risk of cord prolapse than cephalic or complete breech presentations.",
+          "protocolReference": "MATC: OB/GYN Childbirth"
+        },
+        {
+          "id": "a3",
+          "shortAction": "Support fetal body without pulling; keep fetus elevated off the umbilical cord",
+          "protocolExcerpt": "Once the legs are delivered support the body to avoid hyperextension of the head; keep the fetus elevated off the umbilical cord",
+          "priority": "critical",
+          "rationale": "Prevents head hyperextension and cord compression during the vulnerable trunk-to-head interval.",
+          "protocolReference": "MATC: OB/GYN Childbirth"
+        }
+      ],
       "transitions": [
         {
           "targetPhaseId": "footling-delivery",
           "if": "Hands-off breech technique used",
           "condition": "Crew recognizes footling breech presentation and positions the mother supine, allowing the buttocks, feet, and trunk to deliver spontaneously without applying traction.",
-          "conditionType": "action_taken"
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a1", "a3"]
+        },
+        {
+          "targetPhaseId": "traction-applied",
+          "if": "Traction applied on fetal body",
+          "condition": "Instead of allowing spontaneous descent, the crew pulls on the fetal trunk to hasten delivery, risking nuchal arm entrapment or cervical injury.",
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["a1"]
         }
       ]
     },
@@ -129,27 +162,11 @@
       },
       "expectedActions": [
         {
-          "id": "a1-hands-off",
-          "shortAction": "Position mother supine; allow buttocks, feet, and trunk to deliver spontaneously without traction",
-          "protocolExcerpt": "Breech Birth: Place mother supine, allow the buttocks, feet, and trunk to deliver spontaneously, then support the body while the head is delivered",
+          "id": "b1",
+          "shortAction": "Insert gloved hand, form a 'V' with index/ring fingers on infant's cheeks, flex chin to chest to create an airway and deliver the head",
+          "protocolExcerpt": "If head fails to deliver, place gloved hand into vagina with fingers between infant's face and uterine wall to create an open airway. Place your index and ring fingers on the baby's cheeks forming a \"V\" taking care not to block the mouth and allowing the chin to be tilted toward the chest flexing the neck",
           "priority": "critical",
-          "rationale": "Pulling on a breech fetus risks nuchal arm entrapment, cervical spine injury, or head entrapment.",
-          "protocolReference": "MATC: OB/GYN Childbirth"
-        },
-        {
-          "id": "a2-cord-check",
-          "shortAction": "Assess for prolapsed cord as the trunk delivers; treat immediately if present",
-          "protocolExcerpt": "Assess for presence of prolapsed cord and treat as above",
-          "priority": "critical",
-          "rationale": "Footling breech carries a higher risk of cord prolapse than cephalic or complete breech presentations.",
-          "protocolReference": "MATC: OB/GYN Childbirth"
-        },
-        {
-          "id": "a3-support-body",
-          "shortAction": "Support fetal body without pulling; keep fetus elevated off the umbilical cord",
-          "protocolExcerpt": "Once the legs are delivered support the body to avoid hyperextension of the head; keep the fetus elevated off the umbilical cord",
-          "priority": "critical",
-          "rationale": "Prevents head hyperextension and cord compression during the vulnerable trunk-to-head interval.",
+          "rationale": "Creates an airway for the fetal face and flexes the head to allow safe passage through the birth canal.",
           "protocolReference": "MATC: OB/GYN Childbirth"
         }
       ],
@@ -159,14 +176,7 @@
           "if": "Head delivered with jaw-flexion technique",
           "condition": "The head does not deliver spontaneously after the trunk, requiring the crew to create an airway and flex the fetal head per the protocol's breech head-delivery technique.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["a3-support-body"]
-        },
-        {
-          "targetPhaseId": "traction-applied",
-          "if": "Traction applied on fetal body",
-          "condition": "Instead of allowing spontaneous descent, the crew pulls on the fetal trunk to hasten delivery, risking nuchal arm entrapment or cervical injury.",
-          "conditionType": "action_not_taken",
-          "triggerActionIds": ["a1-hands-off"]
+          "triggerActionIds": ["b1"]
         }
       ]
     },
@@ -211,11 +221,27 @@
       },
       "expectedActions": [
         {
-          "id": "a4-jaw-flexion",
-          "shortAction": "Insert gloved hand, form a 'V' with index/ring fingers on infant's cheeks, flex chin to chest to create an airway and deliver the head",
-          "protocolExcerpt": "If head fails to deliver, place gloved hand into vagina with fingers between infant's face and uterine wall to create an open airway. Place your index and ring fingers on the baby's cheeks forming a \"V\" taking care not to block the mouth and allowing the chin to be tilted toward the chest flexing the neck",
+          "id": "c1",
+          "shortAction": "Dry, warm, and stimulate newborn; wrap in towel and place on maternal chest",
+          "protocolExcerpt": "Dry, warm, and stimulate infant, wrap in towel and place on maternal chest unless resuscitation needed",
           "priority": "critical",
-          "rationale": "Creates an airway for the fetal face and flexes the head to allow safe passage through the birth canal.",
+          "rationale": "Prevents neonatal hypothermia and promotes spontaneous respiratory effort.",
+          "protocolReference": "MATC: OB/GYN Childbirth"
+        },
+        {
+          "id": "c2",
+          "shortAction": "Record APGAR score at 1 and 5 minutes once neonate is stabilized",
+          "protocolExcerpt": "Resuscitation takes priority over recording APGAR scores. Record APGAR scores at 1 and 5 minutes once neonate is stabilized",
+          "priority": "important",
+          "rationale": "Documents neonatal transition status and guides any escalation to resuscitation.",
+          "protocolReference": "MATC: OB/GYN Childbirth"
+        },
+        {
+          "id": "c3",
+          "shortAction": "Notify medical direction/receiving facility of the breech presentation prior to arrival",
+          "protocolExcerpt": "Notify medical direction/receiving facility if: ... Breech presentation",
+          "priority": "important",
+          "rationale": "Allows the receiving facility to prepare an OB/neonatal team in advance.",
           "protocolReference": "MATC: OB/GYN Childbirth"
         }
       ],
@@ -225,7 +251,7 @@
           "if": "Newborn dried, warmed, APGAR scored",
           "condition": "Newborn is delivered, dried, warmed, and stimulated; APGAR scoring and transport preparation begin.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["a4-jaw-flexion"]
+          "triggerActionIds": ["c1", "c2"]
         }
       ]
     },
@@ -268,32 +294,7 @@
         "trendTimeSeconds": 40,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [
-        {
-          "id": "a5-dry-warm",
-          "shortAction": "Dry, warm, and stimulate newborn; wrap in towel and place on maternal chest",
-          "protocolExcerpt": "Dry, warm, and stimulate infant, wrap in towel and place on maternal chest unless resuscitation needed",
-          "priority": "critical",
-          "rationale": "Prevents neonatal hypothermia and promotes spontaneous respiratory effort.",
-          "protocolReference": "MATC: OB/GYN Childbirth"
-        },
-        {
-          "id": "a6-apgar",
-          "shortAction": "Record APGAR score at 1 and 5 minutes once neonate is stabilized",
-          "protocolExcerpt": "Resuscitation takes priority over recording APGAR scores. Record APGAR scores at 1 and 5 minutes once neonate is stabilized",
-          "priority": "important",
-          "rationale": "Documents neonatal transition status and guides any escalation to resuscitation.",
-          "protocolReference": "MATC: OB/GYN Childbirth"
-        },
-        {
-          "id": "a7-notify",
-          "shortAction": "Notify medical direction/receiving facility of the breech presentation prior to arrival",
-          "protocolExcerpt": "Notify medical direction/receiving facility if: ... Breech presentation",
-          "priority": "important",
-          "rationale": "Allows the receiving facility to prepare an OB/neonatal team in advance.",
-          "protocolReference": "MATC: OB/GYN Childbirth"
-        }
-      ],
+      "expectedActions": [],
       "transitions": []
     },
     {
@@ -337,7 +338,7 @@
       },
       "expectedActions": [
         {
-          "id": "a8-stop-traction",
+          "id": "d1",
           "shortAction": "Recognize impaired progress; stop traction and revert to a hands-off, support-only technique",
           "protocolExcerpt": "NEVER pull on the body, especially a preterm or previable baby – just support the baby's body while mother pushes when she feels the urge to",
           "priority": "critical",

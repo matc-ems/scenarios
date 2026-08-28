@@ -57,7 +57,11 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [],
+      "relatedChecklist": [
+        "Position mother supine; allow buttocks, feet, and trunk to deliver spontaneously without traction",
+        "Assess for prolapsed cord as the trunk delivers; treat immediately if present",
+        "Support fetal body without pulling; keep fetus elevated off the umbilical cord"
+      ],
       "relatedSounds": []
     },
     {
@@ -90,9 +94,7 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Position mother supine; allow buttocks, feet, and trunk to deliver spontaneously without traction",
-        "Assess for prolapsed cord as the trunk delivers; treat immediately if present",
-        "Support fetal body without pulling; keep fetus elevated off the umbilical cord"
+        "Insert gloved hand, form a 'V' with index/ring fingers on infant's cheeks, flex chin to chest to create an airway and deliver the head"
       ],
       "relatedSounds": []
     },
@@ -126,7 +128,9 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Insert gloved hand, form a 'V' with index/ring fingers on infant's cheeks, flex chin to chest to create an airway and deliver the head"
+        "Dry, warm, and stimulate newborn; wrap in towel and place on maternal chest",
+        "Record APGAR score at 1 and 5 minutes once neonate is stabilized",
+        "Notify medical direction/receiving facility of the breech presentation prior to arrival"
       ],
       "relatedSounds": []
     },
@@ -159,11 +163,7 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [
-        "Dry, warm, and stimulate newborn; wrap in towel and place on maternal chest",
-        "Record APGAR score at 1 and 5 minutes once neonate is stabilized",
-        "Notify medical direction/receiving facility of the breech presentation prior to arrival"
-      ],
+      "relatedChecklist": [],
       "relatedSounds": []
     },
     {
