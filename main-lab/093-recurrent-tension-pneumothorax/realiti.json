@@ -57,7 +57,11 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [],
+      "relatedChecklist": [
+        "Needle decompression of left chest, 2nd ICS midclavicular line, for tension pneumothorax",
+        "Apply semi-occlusive dressing to the open chest wound",
+        "Apply supplemental O2, titrate to maintain SpO2 greater than 94%"
+      ],
       "relatedSounds": []
     },
     {
@@ -90,9 +94,8 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Needle decompression of left chest, 2nd ICS midclavicular line, for tension pneumothorax",
-        "Apply semi-occlusive dressing to the open chest wound",
-        "Apply supplemental O2, titrate to maintain SpO2 greater than 94%"
+        "Serially reassess breath sounds and hemodynamics en route for recurrent tension physiology",
+        "Repeat needle decompression of the left chest, same site, for recurrent tension pneumothorax"
       ],
       "relatedSounds": []
     },
@@ -126,8 +129,7 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Serially reassess breath sounds and hemodynamics en route for recurrent tension physiology",
-        "Repeat needle decompression of the left chest, same site, for recurrent tension pneumothorax"
+        "Continue serial vital sign reassessment; minimize scene time and transport to trauma center"
       ],
       "relatedSounds": []
     },
@@ -160,9 +162,7 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [
-        "Continue serial vital sign reassessment; minimize scene time and transport to trauma center"
-      ],
+      "relatedChecklist": [],
       "relatedSounds": []
     },
     {

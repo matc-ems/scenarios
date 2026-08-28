@@ -79,19 +79,46 @@
         "trendTimeSeconds": 0,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [],
+      "expectedActions": [
+        {
+          "id": "a1",
+          "shortAction": "Needle decompression of left chest, 2nd ICS midclavicular line, for tension pneumothorax",
+          "protocolExcerpt": "If absent or diminished breath sounds in a hypotensive trauma patient, especially those with chest trauma and/or tracheal deviation, consider tension pneumothorax and perform needle decompression of side without breath sounds or side opposite tracheal deviation",
+          "priority": "critical",
+          "rationale": "Relieves the obstructive shock physiology of tension pneumothorax.",
+          "protocolReference": "MATC: General Trauma Management"
+        },
+        {
+          "id": "a2",
+          "shortAction": "Apply semi-occlusive dressing to the open chest wound",
+          "protocolExcerpt": "For open chest wound, place semi-occlusive dressing",
+          "priority": "important",
+          "rationale": "Prevents air entrainment through the wound while allowing trapped air to vent.",
+          "protocolReference": "MATC: General Trauma Management"
+        },
+        {
+          "id": "a3",
+          "shortAction": "Apply supplemental O2, titrate to maintain SpO2 greater than 94%",
+          "protocolExcerpt": "Monitor oxygen saturation (SpO2) and, if indicated, provide supplemental oxygen to maintain SPO2 greater than 94% and respiratory support if needed",
+          "priority": "important",
+          "rationale": "Supports oxygenation while the underlying pneumothorax is addressed.",
+          "protocolReference": "MATC: General Trauma Management"
+        }
+      ],
       "transitions": [
         {
           "targetPhaseId": "needle-decompression",
           "if": "Needle decompression performed",
           "condition": "Crew recognizes tension pneumothorax based on absent left breath sounds, tracheal deviation, JVD, and hypotension, and performs needle decompression of the left chest.",
-          "conditionType": "action_taken"
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a1", "a2"]
         },
         {
           "targetPhaseId": "decompression-delayed",
           "if": "Decompression delayed",
           "condition": "Crew focuses on wound dressing and IV access without recognizing tension pneumothorax, delaying needle decompression despite absent breath sounds, tracheal deviation, JVD, and hypotension.",
-          "conditionType": "action_not_taken"
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["a1"]
         }
       ]
     },
@@ -136,27 +163,19 @@
       },
       "expectedActions": [
         {
-          "id": "a1-needle-decompression",
-          "shortAction": "Needle decompression of left chest, 2nd ICS midclavicular line, for tension pneumothorax",
-          "protocolExcerpt": "If absent or diminished breath sounds in a hypotensive trauma patient, especially those with chest trauma and/or tracheal deviation, consider tension pneumothorax and perform needle decompression of side without breath sounds or side opposite tracheal deviation",
+          "id": "b1",
+          "shortAction": "Serially reassess breath sounds and hemodynamics en route for recurrent tension physiology",
+          "protocolExcerpt": "Frequent reassessment of the patient is important. If patient develops difficulty with ventilation, reassess breath sounds for development of tension pneumothorax",
           "priority": "critical",
-          "rationale": "Relieves the obstructive shock physiology of tension pneumothorax.",
+          "rationale": "Catches recurrence early, before the patient decompensates further.",
           "protocolReference": "MATC: General Trauma Management"
         },
         {
-          "id": "a2-occlusive-dressing",
-          "shortAction": "Apply semi-occlusive dressing to the open chest wound",
-          "protocolExcerpt": "For open chest wound, place semi-occlusive dressing",
-          "priority": "important",
-          "rationale": "Prevents air entrainment through the wound while allowing trapped air to vent.",
-          "protocolReference": "MATC: General Trauma Management"
-        },
-        {
-          "id": "a3-oxygen",
-          "shortAction": "Apply supplemental O2, titrate to maintain SpO2 greater than 94%",
-          "protocolExcerpt": "Monitor oxygen saturation (SpO2) and, if indicated, provide supplemental oxygen to maintain SPO2 greater than 94% and respiratory support if needed",
-          "priority": "important",
-          "rationale": "Supports oxygenation while the underlying pneumothorax is addressed.",
+          "id": "b2",
+          "shortAction": "Repeat needle decompression of the left chest, same site, for recurrent tension pneumothorax",
+          "protocolExcerpt": "may need second or third needle decompression on same side if there is a rush of air but patient again has symptoms",
+          "priority": "critical",
+          "rationale": "Recurrence after an initial rush of air indicates the tension physiology has returned and requires re-decompression at the same site.",
           "protocolReference": "MATC: General Trauma Management"
         }
       ],
@@ -166,7 +185,7 @@
           "if": "Symptoms recur, repeat decompression",
           "condition": "En route reassessment reveals the patient's respiratory distress and hypotension have returned, indicating the needle has clotted or dislodged and tension physiology has recurred; the crew recognizes this and repeats decompression on the same side.",
           "conditionType": "vital_threshold",
-          "triggerActionIds": ["a1-needle-decompression"]
+          "triggerActionIds": ["b1", "b2"]
         }
       ]
     },
@@ -211,19 +230,11 @@
       },
       "expectedActions": [
         {
-          "id": "a4-serial-reassessment",
-          "shortAction": "Serially reassess breath sounds and hemodynamics en route for recurrent tension physiology",
-          "protocolExcerpt": "Frequent reassessment of the patient is important. If patient develops difficulty with ventilation, reassess breath sounds for development of tension pneumothorax",
-          "priority": "critical",
-          "rationale": "Catches recurrence early, before the patient decompensates further.",
-          "protocolReference": "MATC: General Trauma Management"
-        },
-        {
-          "id": "a5-repeat-decompression",
-          "shortAction": "Repeat needle decompression of the left chest, same site, for recurrent tension pneumothorax",
-          "protocolExcerpt": "may need second or third needle decompression on same side if there is a rush of air but patient again has symptoms",
-          "priority": "critical",
-          "rationale": "Recurrence after an initial rush of air indicates the tension physiology has returned and requires re-decompression at the same site.",
+          "id": "c1",
+          "shortAction": "Continue serial vital sign reassessment; minimize scene time and transport to trauma center",
+          "protocolExcerpt": "Minimize scene time (goal is under 10 minutes) and initiate rapid transport to the highest level of care within the trauma system",
+          "priority": "important",
+          "rationale": "Penetrating torso trauma with a treated tension pneumothorax still requires definitive surgical evaluation.",
           "protocolReference": "MATC: General Trauma Management"
         }
       ],
@@ -233,7 +244,7 @@
           "if": "Repeat decompression successful",
           "condition": "Repeat decompression relieves the recurrent tension pneumothorax; breath sounds and hemodynamics improve and remain stable through transport.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["a5-repeat-decompression"]
+          "triggerActionIds": ["c1"]
         }
       ]
     },
@@ -276,16 +287,7 @@
         "trendTimeSeconds": 30,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [
-        {
-          "id": "a6-transport",
-          "shortAction": "Continue serial vital sign reassessment; minimize scene time and transport to trauma center",
-          "protocolExcerpt": "Minimize scene time (goal is under 10 minutes) and initiate rapid transport to the highest level of care within the trauma system",
-          "priority": "important",
-          "rationale": "Penetrating torso trauma with a treated tension pneumothorax still requires definitive surgical evaluation.",
-          "protocolReference": "MATC: General Trauma Management"
-        }
-      ],
+      "expectedActions": [],
       "transitions": []
     },
     {
@@ -329,7 +331,7 @@
       },
       "expectedActions": [
         {
-          "id": "a7-emergent-decompression",
+          "id": "d1",
           "shortAction": "Immediately recognize tension pneumothorax and perform emergent needle decompression of the left chest",
           "protocolExcerpt": "If absent or diminished breath sounds in a hypotensive trauma patient, especially those with chest trauma and/or tracheal deviation, consider tension pneumothorax and perform needle decompression of side without breath sounds or side opposite tracheal deviation",
           "priority": "critical",
