@@ -100,6 +100,14 @@
         },
         {
           "id": "a3",
+          "shortAction": "Recognize lateral STEMI on 12-lead (ST elevation I, aVL, V5-V6)",
+          "protocolExcerpt": "The 12-lead EKG is the primary diagnostic tool that identifies a STEMI... The EKG may be transmitted for remote interpretation by a physician or screened for STEMI by properly trained EMS clinicians or other healthcare providers with or without the assistance of computer-interpretation.",
+          "priority": "critical",
+          "rationale": "Accurate 12-lead interpretation is the core skill being assessed in this scenario.",
+          "protocolReference": "MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)"
+        },
+        {
+          "id": "a4",
           "shortAction": "Aspirin 324 mg PO, chewed, non-enteric-coated",
           "protocolExcerpt": "Administer aspirin; chewable, non-enteric-coated aspirin preferred (162–325 mg).",
           "priority": "critical",
@@ -107,7 +115,7 @@
           "protocolReference": "MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)"
         },
         {
-          "id": "a4",
+          "id": "a5",
           "shortAction": "Establish IV access",
           "protocolExcerpt": "Establish IV access.",
           "priority": "important",
@@ -115,7 +123,7 @@
           "protocolReference": "MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)"
         },
         {
-          "id": "a5",
+          "id": "a6",
           "shortAction": "Assess SpO2; withhold supplemental O2 since saturation is 96% (target 94–98%, not hypoxemic)",
           "protocolExcerpt": "If the patient is dyspneic, hypoxemic, or has obvious signs of heart failure, EMS clinicians should administer oxygen as appropriate with a target of achieving 94–98% saturation.",
           "priority": "supplemental",
@@ -126,14 +134,14 @@
       "transitions": [
         {
           "targetPhaseId": "stemi-recognized",
-          "if": "12-lead acquired within 10 minutes",
+          "if": "STEMI recognized",
           "condition": "Crew acquires a 12-lead EKG within 10 minutes of patient contact, revealing ST-segment elevation in leads I, aVL, V5, and V6 consistent with lateral STEMI.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["a2"]
+          "triggerActionIds": ["a2", "a3"]
         },
         {
           "targetPhaseId": "12-lead-delayed",
-          "if": "12-lead delayed beyond 10 minutes",
+          "if": "12-lead delayed",
           "condition": "Crew does not acquire a 12-lead EKG within 10 minutes of patient contact; STEMI diagnosis is delayed while ischemia progresses.",
           "conditionType": "action_not_taken",
           "triggerActionIds": ["a2"]
@@ -182,14 +190,6 @@
       "expectedActions": [
         {
           "id": "b1",
-          "shortAction": "Recognize lateral STEMI on 12-lead (ST elevation I, aVL, V5-V6)",
-          "protocolExcerpt": "The 12-lead EKG is the primary diagnostic tool that identifies a STEMI... The EKG may be transmitted for remote interpretation by a physician or screened for STEMI by properly trained EMS clinicians or other healthcare providers with or without the assistance of computer-interpretation.",
-          "priority": "critical",
-          "rationale": "Accurate 12-lead interpretation is the core skill being assessed in this scenario.",
-          "protocolReference": "MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)"
-        },
-        {
-          "id": "b2",
           "shortAction": "Transmit 12-lead and provide advance STEMI notification to receiving PCI-capable hospital",
           "protocolExcerpt": "Advance notification should be provided to the receiving hospital for patients identified as having a STEMI.",
           "priority": "critical",
@@ -197,7 +197,7 @@
           "protocolReference": "MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)"
         },
         {
-          "id": "b3",
+          "id": "b2",
           "shortAction": "Screen for PDE5 inhibitor use and assess for marginal blood pressure before nitroglycerin",
           "protocolExcerpt": "The use of nitrates should be avoided in any patient who has used a phosphodiesterase inhibitor within the past 48 hours... Care should always be taken when giving nitroglycerin when the patient's blood pressure is marginal.",
           "priority": "critical",
@@ -205,7 +205,7 @@
           "protocolReference": "MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)"
         },
         {
-          "id": "b4",
+          "id": "b3",
           "shortAction": "Nitroglycerin 0.4 mg SL (SBP 142, no PDE5 use reported); may repeat q3-5min if SBP >100",
           "protocolExcerpt": "Nitroglycerin 0.4 mg sublingual (SL), can repeat q (quaque, every) 3–5 minutes if SBP greater than 100 mmHg.",
           "priority": "critical",
@@ -213,7 +213,7 @@
           "protocolReference": "MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)"
         },
         {
-          "id": "b5",
+          "id": "b4",
           "shortAction": "Perform serial 12-lead EKGs and monitor for dysrhythmia or clinical deterioration",
           "protocolExcerpt": "Perform serial 12-lead EKGs (especially if clinical changes are noted). Observe for signs of clinical deterioration: dysrhythmias, chest pain, shortness of breath, decreased level of consciousness/syncope, or other signs of shock/hypotension.",
           "priority": "important",
@@ -224,17 +224,17 @@
       "transitions": [
         {
           "targetPhaseId": "ntg-given",
-          "if": "NTG given after PDE5 screen negative, SBP >100",
+          "if": "NTG given, pain improved",
           "condition": "Crew screens for PDE5 inhibitor use, confirms none, and administers nitroglycerin 0.4 mg SL with SBP >100 mmHg.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["b3", "b4"]
+          "triggerActionIds": ["b2", "b3"]
         },
         {
           "targetPhaseId": "hypotension-shock",
-          "if": "NTG given without PDE5 screen",
+          "if": "Hypotension after NTG",
           "condition": "Crew administers nitroglycerin without screening for PDE5 inhibitor use or without adequately weighing the patient's marginal blood pressure, precipitating profound hypotension.",
           "conditionType": "action_not_taken",
-          "triggerActionIds": ["b3"]
+          "triggerActionIds": ["b2"]
         }
       ]
     },
@@ -297,15 +297,23 @@
           "priority": "important",
           "rationale": "Keeps the STEMI team updated as the patient's status evolves en route.",
           "protocolReference": "MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)"
+        },
+        {
+          "id": "c4",
+          "shortAction": "Transport to PCI-capable facility; reassess vitals and rhythm en route",
+          "protocolExcerpt": "Transport and destination decisions should be based on local resources and system of care.",
+          "priority": "critical",
+          "rationale": "Time-critical transport decision drives outcome in STEMI.",
+          "protocolReference": "MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)"
         }
       ],
       "transitions": [
         {
           "targetPhaseId": "transport-pci",
-          "if": "Pain improved, stable, prepared for transport",
+          "if": "Transport to PCI center",
           "condition": "Pain decreases to 3/10, vital signs remain stable, and the crew prepares the patient for transport to a PCI-capable facility with continued monitoring.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["c1"]
+          "triggerActionIds": ["c1", "c4"]
         }
       ]
     },
@@ -347,14 +355,6 @@
       "expectedActions": [
         {
           "id": "d1",
-          "shortAction": "Transport to PCI-capable facility; reassess vitals and rhythm en route",
-          "protocolExcerpt": "Transport and destination decisions should be based on local resources and system of care.",
-          "priority": "critical",
-          "rationale": "Time-critical transport decision drives outcome in STEMI.",
-          "protocolReference": "MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)"
-        },
-        {
-          "id": "d2",
           "shortAction": "Repeat 12-lead EKG en route and provide serial updates to receiving hospital",
           "protocolExcerpt": "Performance of serial EKGs is encouraged for symptomatic patients with EKGs initially non-diagnostic for STEMI. Early notification to receiving facility of any changes in patient condition or serial EKGs.",
           "priority": "important",

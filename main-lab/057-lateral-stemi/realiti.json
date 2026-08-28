@@ -60,6 +60,7 @@
       "relatedChecklist": [
         "Recognize atypical ACS presentation (isolated jaw pain, nausea, diaphoresis in an elderly diabetic female)",
         "Acquire 12-lead EKG within 10 minutes of patient contact",
+        "Recognize lateral STEMI on 12-lead (ST elevation I, aVL, V5-V6)",
         "Aspirin 324 mg PO, chewed, non-enteric-coated",
         "Establish IV access",
         "Assess SpO2; withhold supplemental O2 since saturation is 96% (target 94–98%, not hypoxemic)"
@@ -96,7 +97,6 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Recognize lateral STEMI on 12-lead (ST elevation I, aVL, V5-V6)",
         "Transmit 12-lead and provide advance STEMI notification to receiving PCI-capable hospital",
         "Screen for PDE5 inhibitor use and assess for marginal blood pressure before nitroglycerin",
         "Nitroglycerin 0.4 mg SL (SBP 142, no PDE5 use reported); may repeat q3-5min if SBP >100",
@@ -136,7 +136,8 @@
       "relatedChecklist": [
         "Reassess pain score and vital signs after nitroglycerin administration",
         "If pain remains unresponsive to nitrates, Morphine 7 mg IV (70 kg × 0.1 mg/kg = 7 mg; max initial dose 10 mg)",
-        "Provide advance notification of any change in condition or serial EKG findings to receiving facility"
+        "Provide advance notification of any change in condition or serial EKG findings to receiving facility",
+        "Transport to PCI-capable facility; reassess vitals and rhythm en route"
       ],
       "relatedSounds": []
     },
@@ -170,7 +171,6 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Transport to PCI-capable facility; reassess vitals and rhythm en route",
         "Repeat 12-lead EKG en route and provide serial updates to receiving hospital"
       ],
       "relatedSounds": []
@@ -260,6 +260,12 @@
       "icon": 1
     },
     {
+      "title": "Recognize lateral STEMI on 12-lead (ST elevation I, aVL, V5-V6)",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
       "title": "Aspirin 324 mg PO, chewed, non-enteric-coated",
       "type": "Check",
       "value": 0,
@@ -273,12 +279,6 @@
     },
     {
       "title": "Assess SpO2; withhold supplemental O2 since saturation is 96% (target 94–98%, not hypoxemic)",
-      "type": "Check",
-      "value": 0,
-      "icon": 1
-    },
-    {
-      "title": "Recognize lateral STEMI on 12-lead (ST elevation I, aVL, V5-V6)",
       "type": "Check",
       "value": 0,
       "icon": 1
