@@ -57,7 +57,12 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [],
+      "relatedChecklist": [
+        "Support head with gentle counterpressure to control delivery pace",
+        "Check for nuchal cord after head delivers; slip over head if present",
+        "Guide head down to deliver anterior shoulder, then up for posterior shoulder",
+        "Do not routinely suction airway during delivery, even with bulb syringe"
+      ],
       "relatedSounds": []
     },
     {
@@ -90,10 +95,11 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Support head with gentle counterpressure to control delivery pace",
-        "Check for nuchal cord after head delivers; slip over head if present",
-        "Guide head down to deliver anterior shoulder, then up for posterior shoulder",
-        "Do not routinely suction airway during delivery, even with bulb syringe"
+        "Dry, warm, and stimulate newborn; place skin-to-skin on maternal chest",
+        "Clamp cord in two places 5-6 inches from abdomen and cut after 1-minute delay",
+        "Score APGAR at 1 and 5 minutes once neonate is stabilized",
+        "Do not pull cord; allow placenta to deliver spontaneously and contain it in a bag",
+        "Massage uterine fundus at the umbilicus to promote contraction and control bleeding"
       ],
       "relatedSounds": []
     },
@@ -126,13 +132,7 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [
-        "Dry, warm, and stimulate newborn; place skin-to-skin on maternal chest",
-        "Clamp cord in two places 5-6 inches from abdomen and cut after 1-minute delay",
-        "Score APGAR at 1 and 5 minutes once neonate is stabilized",
-        "Do not pull cord; allow placenta to deliver spontaneously and contain it in a bag",
-        "Massage uterine fundus at the umbilicus to promote contraction and control bleeding"
-      ],
+      "relatedChecklist": [],
       "relatedSounds": []
     },
     {

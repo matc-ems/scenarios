@@ -80,13 +80,54 @@
         "trendTimeSeconds": 0,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [],
+      "expectedActions": [
+        {
+          "id": "a1",
+          "shortAction": "Support head with gentle counterpressure to control delivery pace",
+          "protocolExcerpt": "Delivery should be controlled to allow a slow controlled delivery of infant – This will prevent injury to mother. Support the infant's head as needed and apply gentle counterpressure to help prevent the head from suddenly popping out",
+          "priority": "critical",
+          "rationale": "Prevents maternal perineal injury from a sudden, uncontrolled delivery.",
+          "protocolReference": "MATC: OB/GYN Childbirth"
+        },
+        {
+          "id": "a2",
+          "shortAction": "Check for nuchal cord after head delivers; slip over head if present",
+          "protocolExcerpt": "Check for nuchal cord (i.e., around the baby's neck) If present, slip it over the head. If unable to free the cord from the neck, double clamp the cord and cut between the clamps",
+          "priority": "critical",
+          "rationale": "An unrecognized nuchal cord can cause fetal hypoxia during the remainder of delivery.",
+          "protocolReference": "MATC: OB/GYN Childbirth"
+        },
+        {
+          "id": "a3",
+          "shortAction": "Guide head down to deliver anterior shoulder, then up for posterior shoulder",
+          "protocolExcerpt": "Grasping the head with hand over the ears, gently guide head down to allow delivery of the anterior shoulder. Gently guide the head up to allow delivery of the posterior shoulder. Slowly deliver the remainder of the infant",
+          "priority": "critical",
+          "rationale": "Controlled shoulder delivery reduces risk of shoulder dystocia and perineal trauma.",
+          "protocolReference": "MATC: OB/GYN Childbirth"
+        },
+        {
+          "id": "a4",
+          "shortAction": "Do not routinely suction airway during delivery, even with bulb syringe",
+          "protocolExcerpt": "Do not routinely suction the infant's airway (even with a bulb syringe) during delivery",
+          "priority": "important",
+          "rationale": "Routine suctioning is not evidence-supported and can provoke reflex bradycardia.",
+          "protocolReference": "MATC: OB/GYN Childbirth"
+        }
+      ],
       "transitions": [
         {
           "targetPhaseId": "controlled-delivery",
           "if": "Controlled delivery performed",
           "condition": "Crew prepares an OB kit, positions the mother, and supports a slow, controlled delivery of the head and shoulders with gentle counterpressure rather than allowing an uncontrolled delivery.",
-          "conditionType": "action_taken"
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a1", "a2", "a3"]
+        },
+        {
+          "targetPhaseId": "nuchal-cord-missed",
+          "if": "Nuchal cord not checked before delivery",
+          "condition": "The crew proceeds directly to shoulder delivery without palpating for a nuchal cord after the head delivers.",
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["a2"]
         }
       ]
     },
@@ -132,35 +173,43 @@
       },
       "expectedActions": [
         {
-          "id": "a1-counterpressure",
-          "shortAction": "Support head with gentle counterpressure to control delivery pace",
-          "protocolExcerpt": "Delivery should be controlled to allow a slow controlled delivery of infant – This will prevent injury to mother. Support the infant's head as needed and apply gentle counterpressure to help prevent the head from suddenly popping out",
+          "id": "b1",
+          "shortAction": "Dry, warm, and stimulate newborn; place skin-to-skin on maternal chest",
+          "protocolExcerpt": "Dry, warm, and stimulate infant, wrap in towel and place on maternal chest unless resuscitation needed",
           "priority": "critical",
-          "rationale": "Prevents maternal perineal injury from a sudden, uncontrolled delivery.",
+          "rationale": "Newborns are prone to rapid heat loss; drying and skin-to-skin contact prevent hypothermia.",
           "protocolReference": "MATC: OB/GYN Childbirth"
         },
         {
-          "id": "a2-nuchal-cord-check",
-          "shortAction": "Check for nuchal cord after head delivers; slip over head if present",
-          "protocolExcerpt": "Check for nuchal cord (i.e., around the baby's neck) If present, slip it over the head. If unable to free the cord from the neck, double clamp the cord and cut between the clamps",
-          "priority": "critical",
-          "rationale": "An unrecognized nuchal cord can cause fetal hypoxia during the remainder of delivery.",
-          "protocolReference": "MATC: OB/GYN Childbirth"
-        },
-        {
-          "id": "a3-shoulder-delivery",
-          "shortAction": "Guide head down to deliver anterior shoulder, then up for posterior shoulder",
-          "protocolExcerpt": "Grasping the head with hand over the ears, gently guide head down to allow delivery of the anterior shoulder. Gently guide the head up to allow delivery of the posterior shoulder. Slowly deliver the remainder of the infant",
-          "priority": "critical",
-          "rationale": "Controlled shoulder delivery reduces risk of shoulder dystocia and perineal trauma.",
-          "protocolReference": "MATC: OB/GYN Childbirth"
-        },
-        {
-          "id": "a4-no-routine-suction",
-          "shortAction": "Do not routinely suction airway during delivery, even with bulb syringe",
-          "protocolExcerpt": "Do not routinely suction the infant's airway (even with a bulb syringe) during delivery",
+          "id": "b2",
+          "shortAction": "Clamp cord in two places 5-6 inches from abdomen and cut after 1-minute delay",
+          "protocolExcerpt": "After 1 minute, clamp cord about 5–6 inches from the abdomen with two clamps; cut the cord between the clamps",
           "priority": "important",
-          "rationale": "Routine suctioning is not evidence-supported and can provoke reflex bradycardia.",
+          "rationale": "Delayed cord clamping improves neonatal blood volume and outcomes when resuscitation is not needed.",
+          "protocolReference": "MATC: OB/GYN Childbirth"
+        },
+        {
+          "id": "b3",
+          "shortAction": "Score APGAR at 1 and 5 minutes once neonate is stabilized",
+          "protocolExcerpt": "Resuscitation takes priority over recording APGAR scores. Record APGAR scores at 1 and 5 minutes once neonate is stabilized",
+          "priority": "important",
+          "rationale": "APGAR trends document neonatal transition and guide the need for further intervention.",
+          "protocolReference": "MATC: OB/GYN Childbirth"
+        },
+        {
+          "id": "b4",
+          "shortAction": "Do not pull cord; allow placenta to deliver spontaneously and contain it in a bag",
+          "protocolExcerpt": "Do not force the placenta to deliver; do not pull on the umbilical cord. Contain all tissue in plastic bag and transport",
+          "priority": "important",
+          "rationale": "Traction on the cord risks uterine inversion or incomplete placental delivery.",
+          "protocolReference": "MATC: OB/GYN Childbirth"
+        },
+        {
+          "id": "b5",
+          "shortAction": "Massage uterine fundus at the umbilicus to promote contraction and control bleeding",
+          "protocolExcerpt": "After delivery, massaging the uterus (should be located at about the umbilicus) and allowing the infant to nurse will promote uterine contraction and help control bleeding. Estimate maternal blood loss",
+          "priority": "critical",
+          "rationale": "Uterine atony is the leading cause of postpartum hemorrhage; fundal massage reduces this risk.",
           "protocolReference": "MATC: OB/GYN Childbirth"
         }
       ],
@@ -170,14 +219,7 @@
           "if": "Newborn dried, warmed, APGAR assessed",
           "condition": "Following an uncomplicated shoulder and body delivery with a checked, clear nuchal area, the newborn is dried, warmed, and assessed with routine care.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["a2-nuchal-cord-check", "a3-shoulder-delivery"]
-        },
-        {
-          "targetPhaseId": "nuchal-cord-missed",
-          "if": "Nuchal cord not checked before delivery",
-          "condition": "The crew proceeds directly to shoulder delivery without palpating for a nuchal cord after the head delivers.",
-          "conditionType": "action_not_taken",
-          "triggerActionIds": ["a2-nuchal-cord-check"]
+          "triggerActionIds": ["b1", "b3"]
         }
       ]
     },
@@ -221,48 +263,7 @@
         "trendTimeSeconds": 40,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [
-        {
-          "id": "a5-dry-warm-stimulate",
-          "shortAction": "Dry, warm, and stimulate newborn; place skin-to-skin on maternal chest",
-          "protocolExcerpt": "Dry, warm, and stimulate infant, wrap in towel and place on maternal chest unless resuscitation needed",
-          "priority": "critical",
-          "rationale": "Newborns are prone to rapid heat loss; drying and skin-to-skin contact prevent hypothermia.",
-          "protocolReference": "MATC: OB/GYN Childbirth"
-        },
-        {
-          "id": "a6-cord-clamp",
-          "shortAction": "Clamp cord in two places 5-6 inches from abdomen and cut after 1-minute delay",
-          "protocolExcerpt": "After 1 minute, clamp cord about 5–6 inches from the abdomen with two clamps; cut the cord between the clamps",
-          "priority": "important",
-          "rationale": "Delayed cord clamping improves neonatal blood volume and outcomes when resuscitation is not needed.",
-          "protocolReference": "MATC: OB/GYN Childbirth"
-        },
-        {
-          "id": "a7-apgar",
-          "shortAction": "Score APGAR at 1 and 5 minutes once neonate is stabilized",
-          "protocolExcerpt": "Resuscitation takes priority over recording APGAR scores. Record APGAR scores at 1 and 5 minutes once neonate is stabilized",
-          "priority": "important",
-          "rationale": "APGAR trends document neonatal transition and guide the need for further intervention.",
-          "protocolReference": "MATC: OB/GYN Childbirth"
-        },
-        {
-          "id": "a8-placenta",
-          "shortAction": "Do not pull cord; allow placenta to deliver spontaneously and contain it in a bag",
-          "protocolExcerpt": "Do not force the placenta to deliver; do not pull on the umbilical cord. Contain all tissue in plastic bag and transport",
-          "priority": "important",
-          "rationale": "Traction on the cord risks uterine inversion or incomplete placental delivery.",
-          "protocolReference": "MATC: OB/GYN Childbirth"
-        },
-        {
-          "id": "a9-fundal-massage",
-          "shortAction": "Massage uterine fundus at the umbilicus to promote contraction and control bleeding",
-          "protocolExcerpt": "After delivery, massaging the uterus (should be located at about the umbilicus) and allowing the infant to nurse will promote uterine contraction and help control bleeding. Estimate maternal blood loss",
-          "priority": "critical",
-          "rationale": "Uterine atony is the leading cause of postpartum hemorrhage; fundal massage reduces this risk.",
-          "protocolReference": "MATC: OB/GYN Childbirth"
-        }
-      ],
+      "expectedActions": [],
       "transitions": []
     },
     {
@@ -306,7 +307,7 @@
       },
       "expectedActions": [
         {
-          "id": "a10-tight-cord-reduction",
+          "id": "c1",
           "shortAction": "Slip tight nuchal cord over shoulders instead of head; double-clamp and cut if unable",
           "protocolExcerpt": "If the loop is too tight to slip over the head, attempt to slip the cord over the shoulders and deliver the body through the loop. The cord can be doubly clamped and cut between the clamps; the newborn should be delivered promptly",
           "priority": "critical",
@@ -314,7 +315,7 @@
           "protocolReference": "MATC: OB/GYN Childbirth"
         },
         {
-          "id": "a11-newborn-reposition-stimulate",
+          "id": "c2",
           "shortAction": "Dry, warm, stimulate newborn; position airway and reassess tone, cry, and color",
           "protocolExcerpt": "If weak cry, signs of respiratory distress, poor tone, or preterm gestation then position airway (sniffing position) and clear airway as needed",
           "priority": "critical",
