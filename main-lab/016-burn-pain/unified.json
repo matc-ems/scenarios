@@ -80,19 +80,70 @@
         "trendTimeSeconds": 0,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [],
+      "expectedActions": [
+        {
+          "id": "a1",
+          "shortAction": "Stop the burning: remove jewelry and any non-adherent wet clothing from right forearm",
+          "protocolExcerpt": "Stop the burning: Remove wet clothing (if not stuck to the patient); Remove jewelry; Leave blisters intact",
+          "priority": "critical",
+          "rationale": "Ongoing contact with wet clothing or constricting jewelry continues tissue damage and can cause swelling complications.",
+          "protocolReference": "MATC: Burns"
+        },
+        {
+          "id": "a2",
+          "shortAction": "Cover burn with dry, clean dressing; do not apply gels or ointments",
+          "protocolExcerpt": "Minimize burn wound contamination: Cover burns with dry dressing or clean sheet. Do not apply gels or ointments",
+          "priority": "important",
+          "rationale": "Dry coverage reduces contamination risk and pain from air exposure without interfering with burn center evaluation.",
+          "protocolReference": "MATC: Burns"
+        },
+        {
+          "id": "a3",
+          "shortAction": "Estimate TBSA (~4-5%) via Rule of Nines and document baseline pain score of 9/10",
+          "protocolExcerpt": "Estimate TBSA burned and depth of burn Use \"Rule of 9's\" Document pain scale",
+          "priority": "important",
+          "rationale": "TBSA and pain documentation guide transport destination decisions and track treatment effectiveness.",
+          "protocolReference": "MATC: Burns"
+        },
+        {
+          "id": "a4",
+          "shortAction": "Establish IV access on unburned skin (left forearm), avoiding the burned right forearm",
+          "protocolExcerpt": "Establish IV access, avoid placement through burned skin",
+          "priority": "critical",
+          "rationale": "IV placement through burned tissue risks infection and unreliable access.",
+          "protocolReference": "MATC: Burns"
+        },
+        {
+          "id": "a5",
+          "shortAction": "Fentanyl 90 mcg IV (90 kg × 1 mcg/kg = 90 mcg; max initial dose 100 mcg)",
+          "protocolExcerpt": "For Moderate to Severe pain, analgesics include: Fentanyl: 1 mcg/kg IN, IM, IV or IO (maximum initial dose of 100 mcg)",
+          "priority": "critical",
+          "rationale": "Weight-based fentanyl controls severe burn pain rated 9/10 while remaining under the protocol maximum initial dose.",
+          "protocolReference": "MATC: Pain Management"
+        },
+        {
+          "id": "a6",
+          "shortAction": "Apply waveform capnography to monitor for early hypoventilation after opioid administration",
+          "protocolExcerpt": "Use of non-invasive capnography is an earlier predictor of hypoventilation than pulse oximetry if opioid medications are administered",
+          "priority": "important",
+          "rationale": "Capnography detects opioid-induced hypoventilation before pulse oximetry desaturation occurs.",
+          "protocolReference": "MATC: Pain Management"
+        }
+      ],
       "transitions": [
         {
           "targetPhaseId": "burn-care-fentanyl",
           "if": "Burn cared for, fentanyl given",
           "condition": "Crew performs burn wound care (stop the burning, dry dressing, TBSA/pain assessment), establishes IV access avoiding burned skin, and administers weight-based fentanyl for severe pain.",
-          "conditionType": "action_taken"
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a1", "a2", "a5"]
         },
         {
           "targetPhaseId": "pain-delayed",
           "if": "Pain management delayed",
           "condition": "Crew addresses the wound but does not establish IV access or administer analgesia despite the patient's reported 9/10 pain.",
-          "conditionType": "action_not_taken"
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["a5"]
         }
       ]
     },
@@ -138,51 +189,19 @@
       },
       "expectedActions": [
         {
-          "id": "a1-stop-burning",
-          "shortAction": "Stop the burning: remove jewelry and any non-adherent wet clothing from right forearm",
-          "protocolExcerpt": "Stop the burning: Remove wet clothing (if not stuck to the patient); Remove jewelry; Leave blisters intact",
+          "id": "b1",
+          "shortAction": "Repeat fentanyl 90 mcg IV (90 kg × 1 mcg/kg = 90 mcg) 5 minutes after first dose for persistent pain",
+          "protocolExcerpt": "If indicated based on pain assessment, and vital signs allow, repeat pain medication administration (excluding acetaminophen and nonsteroidal anti-inflammatory medicines) after 5 minutes of the previous dose",
           "priority": "critical",
-          "rationale": "Ongoing contact with wet clothing or constricting jewelry continues tissue damage and can cause swelling complications.",
-          "protocolReference": "MATC: Burns"
-        },
-        {
-          "id": "a2-dressing",
-          "shortAction": "Cover burn with dry, clean dressing; do not apply gels or ointments",
-          "protocolExcerpt": "Minimize burn wound contamination: Cover burns with dry dressing or clean sheet. Do not apply gels or ointments",
-          "priority": "important",
-          "rationale": "Dry coverage reduces contamination risk and pain from air exposure without interfering with burn center evaluation.",
-          "protocolReference": "MATC: Burns"
-        },
-        {
-          "id": "a3-tbsa-pain",
-          "shortAction": "Estimate TBSA (~4-5%) via Rule of Nines and document baseline pain score of 9/10",
-          "protocolExcerpt": "Estimate TBSA burned and depth of burn Use \"Rule of 9's\" Document pain scale",
-          "priority": "important",
-          "rationale": "TBSA and pain documentation guide transport destination decisions and track treatment effectiveness.",
-          "protocolReference": "MATC: Burns"
-        },
-        {
-          "id": "a4-iv-access",
-          "shortAction": "Establish IV access on unburned skin (left forearm), avoiding the burned right forearm",
-          "protocolExcerpt": "Establish IV access, avoid placement through burned skin",
-          "priority": "critical",
-          "rationale": "IV placement through burned tissue risks infection and unreliable access.",
-          "protocolReference": "MATC: Burns"
-        },
-        {
-          "id": "a5-fentanyl",
-          "shortAction": "Fentanyl 90 mcg IV (90 kg × 1 mcg/kg = 90 mcg; max initial dose 100 mcg)",
-          "protocolExcerpt": "For Moderate to Severe pain, analgesics include: Fentanyl: 1 mcg/kg IN, IM, IV or IO (maximum initial dose of 100 mcg)",
-          "priority": "critical",
-          "rationale": "Weight-based fentanyl controls severe burn pain rated 9/10 while remaining under the protocol maximum initial dose.",
+          "rationale": "Persistent pain above 4/10 with stable vitals meets protocol criteria to repeat the weight-based dose.",
           "protocolReference": "MATC: Pain Management"
         },
         {
-          "id": "a6-capnography",
-          "shortAction": "Apply waveform capnography to monitor for early hypoventilation after opioid administration",
-          "protocolExcerpt": "Use of non-invasive capnography is an earlier predictor of hypoventilation than pulse oximetry if opioid medications are administered",
+          "id": "b2",
+          "shortAction": "Reassess pain score and vital signs; transport in position of comfort",
+          "protocolExcerpt": "Transport in position of comfort and reassess as indicated",
           "priority": "important",
-          "rationale": "Capnography detects opioid-induced hypoventilation before pulse oximetry desaturation occurs.",
+          "rationale": "Ongoing reassessment confirms analgesic effectiveness and detects any adverse response en route.",
           "protocolReference": "MATC: Pain Management"
         }
       ],
@@ -192,7 +211,7 @@
           "if": "Pain reassessed, repeat fentanyl given",
           "condition": "Five minutes after the initial dose, reassessment shows pain remains above 4/10 with stable vital signs, meeting criteria to repeat the fentanyl dose before transport.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["a5-fentanyl"]
+          "triggerActionIds": ["b1", "b2"]
         }
       ]
     },
@@ -235,24 +254,7 @@
         "trendTimeSeconds": 40,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
       },
-      "expectedActions": [
-        {
-          "id": "a7-repeat-fentanyl",
-          "shortAction": "Repeat fentanyl 90 mcg IV (90 kg × 1 mcg/kg = 90 mcg) 5 minutes after first dose for persistent pain",
-          "protocolExcerpt": "If indicated based on pain assessment, and vital signs allow, repeat pain medication administration (excluding acetaminophen and nonsteroidal anti-inflammatory medicines) after 5 minutes of the previous dose",
-          "priority": "critical",
-          "rationale": "Persistent pain above 4/10 with stable vitals meets protocol criteria to repeat the weight-based dose.",
-          "protocolReference": "MATC: Pain Management"
-        },
-        {
-          "id": "a8-reassess-transport",
-          "shortAction": "Reassess pain score and vital signs; transport in position of comfort",
-          "protocolExcerpt": "Transport in position of comfort and reassess as indicated",
-          "priority": "important",
-          "rationale": "Ongoing reassessment confirms analgesic effectiveness and detects any adverse response en route.",
-          "protocolReference": "MATC: Pain Management"
-        }
-      ],
+      "expectedActions": [],
       "transitions": []
     },
     {
@@ -296,7 +298,7 @@
       },
       "expectedActions": [
         {
-          "id": "a9-recognize-delay",
+          "id": "c1",
           "shortAction": "Recognize unmanaged severe pain (9/10); establish IV access and give fentanyl 90 mcg IV per protocol",
           "protocolExcerpt": "For Moderate to Severe pain, analgesics include: Fentanyl: 1 mcg/kg IN, IM, IV or IO (maximum initial dose of 100 mcg)",
           "priority": "critical",

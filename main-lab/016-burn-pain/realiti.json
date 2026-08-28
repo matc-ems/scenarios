@@ -57,7 +57,14 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [],
+      "relatedChecklist": [
+        "Stop the burning: remove jewelry and any non-adherent wet clothing from right forearm",
+        "Cover burn with dry, clean dressing; do not apply gels or ointments",
+        "Estimate TBSA (~4-5%) via Rule of Nines and document baseline pain score of 9/10",
+        "Establish IV access on unburned skin (left forearm), avoiding the burned right forearm",
+        "Fentanyl 90 mcg IV (90 kg × 1 mcg/kg = 90 mcg; max initial dose 100 mcg)",
+        "Apply waveform capnography to monitor for early hypoventilation after opioid administration"
+      ],
       "relatedSounds": []
     },
     {
@@ -90,12 +97,8 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Stop the burning: remove jewelry and any non-adherent wet clothing from right forearm",
-        "Cover burn with dry, clean dressing; do not apply gels or ointments",
-        "Estimate TBSA (~4-5%) via Rule of Nines and document baseline pain score of 9/10",
-        "Establish IV access on unburned skin (left forearm), avoiding the burned right forearm",
-        "Fentanyl 90 mcg IV (90 kg × 1 mcg/kg = 90 mcg; max initial dose 100 mcg)",
-        "Apply waveform capnography to monitor for early hypoventilation after opioid administration"
+        "Repeat fentanyl 90 mcg IV (90 kg × 1 mcg/kg = 90 mcg) 5 minutes after first dose for persistent pain",
+        "Reassess pain score and vital signs; transport in position of comfort"
       ],
       "relatedSounds": []
     },
@@ -128,10 +131,7 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [
-        "Repeat fentanyl 90 mcg IV (90 kg × 1 mcg/kg = 90 mcg) 5 minutes after first dose for persistent pain",
-        "Reassess pain score and vital signs; transport in position of comfort"
-      ],
+      "relatedChecklist": [],
       "relatedSounds": []
     },
     {
