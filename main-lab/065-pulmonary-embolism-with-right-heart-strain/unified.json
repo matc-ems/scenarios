@@ -81,19 +81,46 @@
         "trendTimeSeconds": 0,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [],
+      "expectedActions": [
+        {
+          "id": "a1",
+          "shortAction": "Apply supplemental O2 titrated to 94-98% saturation; attach cardiac monitor and pulse oximetry",
+          "protocolExcerpt": "Administer oxygen as appropriate with a target of achieving 94–98% saturation. Cardiac monitor. Pulse oximetry and EtCO2 (reading of less than 25 mmHg may be sign of poor perfusion)",
+          "priority": "critical",
+          "rationale": "Corrects hypoxia and provides continuous monitoring for a patient with suspected obstructive shock.",
+          "protocolReference": "MATC: Shock"
+        },
+        {
+          "id": "a2",
+          "shortAction": "Obtain 12-lead ECG; recognize S1Q3T3 strain pattern consistent with obstructive shock from PE",
+          "protocolExcerpt": "EKG Determination of type of shock ... Obstructive (e.g., pulmonary embolism, cardiac tamponade, tension pneumothorax)",
+          "priority": "critical",
+          "rationale": "Identifying the strain pattern alongside VTE risk factors (recent surgery, immobility, unilateral leg swelling) points directly at PE as the obstructive cause.",
+          "protocolReference": "MATC: Shock"
+        },
+        {
+          "id": "a3",
+          "shortAction": "Establish IV access; if unsuccessful within 2 attempts or 90 seconds, place IO",
+          "protocolExcerpt": "Establish IV access. If unable to obtain within two attempts or less than 90 seconds, place an IO needle",
+          "priority": "important",
+          "rationale": "Vascular access is needed in case of decompensation into overt obstructive shock.",
+          "protocolReference": "MATC: Shock"
+        }
+      ],
       "transitions": [
         {
           "targetPhaseId": "assessed-monitored",
           "if": "O2 given, 12-lead performed",
           "condition": "Crew applies supplemental oxygen, places the patient on a cardiac monitor and pulse oximetry, and obtains a 12-lead ECG as part of a full shock/respiratory assessment.",
-          "conditionType": "action_taken"
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a1", "a2"]
         },
         {
           "targetPhaseId": "pe-not-considered",
           "if": "Attributed to anxiety, no 12-lead",
           "condition": "Crew attributes the presentation to anxiety or post-surgical pain without placing a cardiac monitor, obtaining a 12-lead, or escalating oxygen delivery despite hypoxia.",
-          "conditionType": "action_not_taken"
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["a1", "a2"]
         }
       ]
     },
@@ -138,27 +165,19 @@
       },
       "expectedActions": [
         {
-          "id": "a1-o2-monitor",
-          "shortAction": "Apply supplemental O2 titrated to 94-98% saturation; attach cardiac monitor and pulse oximetry",
-          "protocolExcerpt": "Administer oxygen as appropriate with a target of achieving 94–98% saturation. Cardiac monitor. Pulse oximetry and EtCO2 (reading of less than 25 mmHg may be sign of poor perfusion)",
-          "priority": "critical",
-          "rationale": "Corrects hypoxia and provides continuous monitoring for a patient with suspected obstructive shock.",
-          "protocolReference": "MATC: Shock"
-        },
-        {
-          "id": "a2-12-lead-recognition",
-          "shortAction": "Obtain 12-lead ECG; recognize S1Q3T3 strain pattern consistent with obstructive shock from PE",
-          "protocolExcerpt": "EKG Determination of type of shock ... Obstructive (e.g., pulmonary embolism, cardiac tamponade, tension pneumothorax)",
-          "priority": "critical",
-          "rationale": "Identifying the strain pattern alongside VTE risk factors (recent surgery, immobility, unilateral leg swelling) points directly at PE as the obstructive cause.",
-          "protocolReference": "MATC: Shock"
-        },
-        {
-          "id": "a3-iv-access",
-          "shortAction": "Establish IV access; if unsuccessful within 2 attempts or 90 seconds, place IO",
-          "protocolExcerpt": "Establish IV access. If unable to obtain within two attempts or less than 90 seconds, place an IO needle",
+          "id": "b1",
+          "shortAction": "Provide advance hospital notification for suspected PE with obstructive shock physiology",
+          "protocolExcerpt": "Provide advanced notification to the hospital",
           "priority": "important",
-          "rationale": "Vascular access is needed in case of decompensation into overt obstructive shock.",
+          "rationale": "Allows the receiving facility to prepare for rapid CT angiography and possible thrombolytic therapy.",
+          "protocolReference": "MATC: Shock"
+        },
+        {
+          "id": "b2",
+          "shortAction": "Avoid large-volume fluid boluses; reassess for signs of worsening right heart strain",
+          "protocolExcerpt": "Recognition of cardiogenic shock - If the patient condition deteriorates after fluid administration, rales or hepatomegaly develop, then consider cardiogenic shock and withholding further fluid administration",
+          "priority": "important",
+          "rationale": "Obstructive shock from PE can behave like cardiogenic shock; aggressive fluids can worsen right ventricular strain.",
           "protocolReference": "MATC: Shock"
         }
       ],
@@ -168,7 +187,7 @@
           "if": "Supportive care and transport initiated",
           "condition": "Oxygen, monitoring, and IV access are in place; crew provides advance hospital notification and transports promptly without over-aggressive fluid administration.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["a1-o2-monitor", "a3-iv-access"]
+          "triggerActionIds": ["b1", "b2"]
         }
       ]
     },
@@ -211,24 +230,7 @@
         "trendTimeSeconds": 40,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
       },
-      "expectedActions": [
-        {
-          "id": "a4-advance-notify",
-          "shortAction": "Provide advance hospital notification for suspected PE with obstructive shock physiology",
-          "protocolExcerpt": "Provide advanced notification to the hospital",
-          "priority": "important",
-          "rationale": "Allows the receiving facility to prepare for rapid CT angiography and possible thrombolytic therapy.",
-          "protocolReference": "MATC: Shock"
-        },
-        {
-          "id": "a5-cautious-fluids",
-          "shortAction": "Avoid large-volume fluid boluses; reassess for signs of worsening right heart strain",
-          "protocolExcerpt": "Recognition of cardiogenic shock - If the patient condition deteriorates after fluid administration, rales or hepatomegaly develop, then consider cardiogenic shock and withholding further fluid administration",
-          "priority": "important",
-          "rationale": "Obstructive shock from PE can behave like cardiogenic shock; aggressive fluids can worsen right ventricular strain.",
-          "protocolReference": "MATC: Shock"
-        }
-      ],
+      "expectedActions": [],
       "transitions": []
     },
     {
@@ -272,7 +274,7 @@
       },
       "expectedActions": [
         {
-          "id": "a6-recognize-and-escalate",
+          "id": "c1",
           "shortAction": "Recognize worsening hypoxia and falling EtCO2 as poor perfusion; escalate O2, monitor, and IV access immediately",
           "protocolExcerpt": "Pulse oximetry and EtCO2 (reading of less than 25 mmHg may be sign of poor perfusion) Administer oxygen as appropriate with a target of achieving 94–98% saturation",
           "priority": "critical",

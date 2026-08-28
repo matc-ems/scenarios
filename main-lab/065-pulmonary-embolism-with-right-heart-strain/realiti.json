@@ -57,7 +57,11 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [],
+      "relatedChecklist": [
+        "Apply supplemental O2 titrated to 94-98% saturation; attach cardiac monitor and pulse oximetry",
+        "Obtain 12-lead ECG; recognize S1Q3T3 strain pattern consistent with obstructive shock from PE",
+        "Establish IV access; if unsuccessful within 2 attempts or 90 seconds, place IO"
+      ],
       "relatedSounds": []
     },
     {
@@ -90,9 +94,8 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Apply supplemental O2 titrated to 94-98% saturation; attach cardiac monitor and pulse oximetry",
-        "Obtain 12-lead ECG; recognize S1Q3T3 strain pattern consistent with obstructive shock from PE",
-        "Establish IV access; if unsuccessful within 2 attempts or 90 seconds, place IO"
+        "Provide advance hospital notification for suspected PE with obstructive shock physiology",
+        "Avoid large-volume fluid boluses; reassess for signs of worsening right heart strain"
       ],
       "relatedSounds": []
     },
@@ -125,10 +128,7 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [
-        "Provide advance hospital notification for suspected PE with obstructive shock physiology",
-        "Avoid large-volume fluid boluses; reassess for signs of worsening right heart strain"
-      ],
+      "relatedChecklist": [],
       "relatedSounds": []
     },
     {
