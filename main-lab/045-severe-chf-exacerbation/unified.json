@@ -81,19 +81,46 @@
         "trendTimeSeconds": 0,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [],
+      "expectedActions": [
+        {
+          "id": "a1",
+          "shortAction": "Initiate CPAP for severe pulmonary edema, before or simultaneous with medication therapy",
+          "protocolExcerpt": "Restoration of adequate oxygenation and ventilation should precede or be accomplished simultaneously with other medication therapies below. CPAP/BiPAP: See Airway Management Guideline for goals of care and escalation of interventions",
+          "priority": "critical",
+          "rationale": "Restoring oxygenation is the first priority in acute pulmonary edema, alongside afterload reduction.",
+          "protocolReference": "MATC: Respiratory Distress (includes Bronchospasm, Pulmonary Edema)"
+        },
+        {
+          "id": "a2",
+          "shortAction": "Screen for phosphodiesterase-5 inhibitor use (sildenafil, vardenafil, tadalafil) within the past 48 hours before giving nitrates",
+          "protocolExcerpt": "The use of nitrates should be avoided in any patient who has used a phosphodiesterase inhibitor within the past 48 hours. Examples are sildenafil, vardenafil and tadalafil, which are used for erectile dysfunction and pulmonary hypertension",
+          "priority": "critical",
+          "rationale": "Combining nitrates with PDE5 inhibitors can cause profound, refractory hypotension.",
+          "protocolReference": "MATC: Respiratory Distress (includes Bronchospasm, Pulmonary Edema)"
+        },
+        {
+          "id": "a3",
+          "shortAction": "Nitroglycerin 0.8 mg SL (SBP ≥160), may repeat every 5 minutes while SBP >100; consider IV nitro infusion",
+          "protocolExcerpt": "SBP >= 160 mmHg or MAP greater than 120: Nitroglycerin 0.8 mg SL, can repeat every 5 minutes for SBP greater than 100 mmHg. Consider IV nitroglycerin infusion titrated to blood pressure",
+          "priority": "critical",
+          "rationale": "Rapid afterload and preload reduction with high-dose nitrates is the primary treatment for hypertensive pulmonary edema.",
+          "protocolReference": "MATC: Respiratory Distress (includes Bronchospasm, Pulmonary Edema)"
+        }
+      ],
       "transitions": [
         {
           "targetPhaseId": "cpap-nitro-started",
           "if": "CPAP and high-dose nitro started",
           "condition": "Crew initiates CPAP simultaneously with high-dose sublingual nitroglycerin (given the severely elevated blood pressure), after screening for phosphodiesterase inhibitor use.",
-          "conditionType": "action_taken"
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a1", "a3"]
         },
         {
           "targetPhaseId": "nitro-delayed",
           "if": "Nitro delayed despite severe hypertension",
           "condition": "Crew initiates CPAP but delays nitroglycerin, leaving the severely elevated afterload untreated and allowing the pulmonary edema to worsen.",
-          "conditionType": "action_not_taken"
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["a3"]
         }
       ]
     },
@@ -139,28 +166,12 @@
       },
       "expectedActions": [
         {
-          "id": "a1-cpap",
-          "shortAction": "Initiate CPAP for severe pulmonary edema, before or simultaneous with medication therapy",
-          "protocolExcerpt": "Restoration of adequate oxygenation and ventilation should precede or be accomplished simultaneously with other medication therapies below. CPAP/BiPAP: See Airway Management Guideline for goals of care and escalation of interventions",
+          "id": "b1",
+          "shortAction": "Maintain continuous CPAP mask seal throughout transport until hospital CPAP is ready to take over",
+          "protocolExcerpt": "Once initiated and patient is tolerating mask, DO NOT discontinue CPAP/BiPAP until patient is on the emergency department stretcher and hospital CPAP/BiPAP is immediately available for patient to be switched over, or physician is at bedside and requesting CPAP/BiPAP be discontinued",
           "priority": "critical",
-          "rationale": "Restoring oxygenation is the first priority in acute pulmonary edema, alongside afterload reduction.",
-          "protocolReference": "MATC: Respiratory Distress (includes Bronchospasm, Pulmonary Edema)"
-        },
-        {
-          "id": "a2-pde5-screen",
-          "shortAction": "Screen for phosphodiesterase-5 inhibitor use (sildenafil, vardenafil, tadalafil) within the past 48 hours before giving nitrates",
-          "protocolExcerpt": "The use of nitrates should be avoided in any patient who has used a phosphodiesterase inhibitor within the past 48 hours. Examples are sildenafil, vardenafil and tadalafil, which are used for erectile dysfunction and pulmonary hypertension",
-          "priority": "critical",
-          "rationale": "Combining nitrates with PDE5 inhibitors can cause profound, refractory hypotension.",
-          "protocolReference": "MATC: Respiratory Distress (includes Bronchospasm, Pulmonary Edema)"
-        },
-        {
-          "id": "a3-high-dose-nitro",
-          "shortAction": "Nitroglycerin 0.8 mg SL (SBP ≥160), may repeat every 5 minutes while SBP >100; consider IV nitro infusion",
-          "protocolExcerpt": "SBP >= 160 mmHg or MAP greater than 120: Nitroglycerin 0.8 mg SL, can repeat every 5 minutes for SBP greater than 100 mmHg. Consider IV nitroglycerin infusion titrated to blood pressure",
-          "priority": "critical",
-          "rationale": "Rapid afterload and preload reduction with high-dose nitrates is the primary treatment for hypertensive pulmonary edema.",
-          "protocolReference": "MATC: Respiratory Distress (includes Bronchospasm, Pulmonary Edema)"
+          "rationale": "Interrupting CPAP can cause rapid decompensation from atelectasis and alveolar collapse.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
         }
       ],
       "transitions": [
@@ -169,7 +180,7 @@
           "if": "CPAP seal maintained, BP improving, transport",
           "condition": "With CPAP and repeated high-dose nitroglycerin, blood pressure and oxygenation continue trending toward goal; crew prepares for transport.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["a1-cpap", "a3-high-dose-nitro"]
+          "triggerActionIds": ["b1"]
         }
       ]
     },
@@ -212,16 +223,7 @@
         "trendTimeSeconds": 40,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
       },
-      "expectedActions": [
-        {
-          "id": "a4-maintain-cpap-seal",
-          "shortAction": "Maintain continuous CPAP mask seal throughout transport until hospital CPAP is ready to take over",
-          "protocolExcerpt": "Once initiated and patient is tolerating mask, DO NOT discontinue CPAP/BiPAP until patient is on the emergency department stretcher and hospital CPAP/BiPAP is immediately available for patient to be switched over, or physician is at bedside and requesting CPAP/BiPAP be discontinued",
-          "priority": "critical",
-          "rationale": "Interrupting CPAP can cause rapid decompensation from atelectasis and alveolar collapse.",
-          "protocolReference": "MATC: Airway Management (Includes RSI)"
-        }
-      ],
+      "expectedActions": [],
       "transitions": []
     },
     {
@@ -265,7 +267,7 @@
       },
       "expectedActions": [
         {
-          "id": "a5-recognize-need-nitro",
+          "id": "c1",
           "shortAction": "Recognize CPAP alone is insufficient; screen for PDE5 use and give high-dose nitroglycerin 0.8 mg SL immediately",
           "protocolExcerpt": "SBP >= 160 mmHg or MAP greater than 120: Nitroglycerin 0.8 mg SL, can repeat every 5 minutes for SBP greater than 100 mmHg",
           "priority": "critical",

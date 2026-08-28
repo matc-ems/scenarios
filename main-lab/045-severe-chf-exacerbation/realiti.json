@@ -57,7 +57,11 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [],
+      "relatedChecklist": [
+        "Initiate CPAP for severe pulmonary edema, before or simultaneous with medication therapy",
+        "Screen for phosphodiesterase-5 inhibitor use (sildenafil, vardenafil, tadalafil) within the past 48 hours before giving nitrates",
+        "Nitroglycerin 0.8 mg SL (SBP ≥160), may repeat every 5 minutes while SBP >100; consider IV nitro infusion"
+      ],
       "relatedSounds": []
     },
     {
@@ -90,9 +94,7 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Initiate CPAP for severe pulmonary edema, before or simultaneous with medication therapy",
-        "Screen for phosphodiesterase-5 inhibitor use (sildenafil, vardenafil, tadalafil) within the past 48 hours before giving nitrates",
-        "Nitroglycerin 0.8 mg SL (SBP ≥160), may repeat every 5 minutes while SBP >100; consider IV nitro infusion"
+        "Maintain continuous CPAP mask seal throughout transport until hospital CPAP is ready to take over"
       ],
       "relatedSounds": []
     },
@@ -125,9 +127,7 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [
-        "Maintain continuous CPAP mask seal throughout transport until hospital CPAP is ready to take over"
-      ],
+      "relatedChecklist": [],
       "relatedSounds": []
     },
     {
