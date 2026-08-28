@@ -57,7 +57,14 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [],
+      "relatedChecklist": [
+        "Perform MARCH primary survey; rule out life threats before focusing on the hip",
+        "Obtain medication history; identify apixaban (anticoagulant) use",
+        "Assess pallor, pulse, capillary refill, sensation, and movement of right leg before splinting",
+        "Splint right hip/leg in position found before any further movement",
+        "Fentanyl 55 mcg IV (55 kg × 1 mcg/kg; max initial dose 100 mcg)",
+        "Titrate opioid cautiously; monitor for hypoventilation given her comorbidities"
+      ],
       "relatedSounds": []
     },
     {
@@ -90,12 +97,8 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Perform MARCH primary survey; rule out life threats before focusing on the hip",
-        "Obtain medication history; identify apixaban (anticoagulant) use",
-        "Assess pallor, pulse, capillary refill, sensation, and movement of right leg before splinting",
-        "Splint right hip/leg in position found before any further movement",
-        "Fentanyl 55 mcg IV (55 kg × 1 mcg/kg; max initial dose 100 mcg)",
-        "Titrate opioid cautiously; monitor for hypoventilation given her comorbidities"
+        "Reassess vital signs and neuro status serially en route; monitor for occult hemorrhage",
+        "Transport to appropriate trauma-capable facility per field triage guideline"
       ],
       "relatedSounds": []
     },
@@ -128,10 +131,7 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [
-        "Reassess vital signs and neuro status serially en route; monitor for occult hemorrhage",
-        "Transport to appropriate trauma-capable facility per field triage guideline"
-      ],
+      "relatedChecklist": [],
       "relatedSounds": []
     },
     {

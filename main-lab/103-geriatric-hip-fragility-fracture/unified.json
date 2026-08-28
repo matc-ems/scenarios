@@ -80,13 +80,70 @@
         "trendTimeSeconds": 0,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [],
+      "expectedActions": [
+        {
+          "id": "a1",
+          "shortAction": "Perform MARCH primary survey; rule out life threats before focusing on the hip",
+          "protocolExcerpt": "Primary survey (Use \"MARCH\" algorithm)",
+          "priority": "critical",
+          "rationale": "Rules out life threats before focusing on the obvious deformity.",
+          "protocolReference": "MATC: General Trauma Management"
+        },
+        {
+          "id": "a2",
+          "shortAction": "Obtain medication history; identify apixaban (anticoagulant) use",
+          "protocolExcerpt": "Obtain medical history from patient or family including: Allergies Medications Past medical and surgical history Last meal Events leading up to the injury",
+          "priority": "critical",
+          "rationale": "Anticoagulant use significantly raises the risk of occult hemorrhage and must drive later reassessment.",
+          "protocolReference": "MATC: General Trauma Management"
+        },
+        {
+          "id": "a3",
+          "shortAction": "Assess pallor, pulse, capillary refill, sensation, and movement of right leg before splinting",
+          "protocolExcerpt": "Vascular status of extremity: Pallor Pulse Capillary refill and skin temperature. Neurologic status of extremity: Sensation to light touch Distal movement of extremity",
+          "priority": "critical",
+          "rationale": "Establishes a neurovascular baseline before and after splinting to detect compromise.",
+          "protocolReference": "MATC: Extremity Trauma/External Hemorrhage Management"
+        },
+        {
+          "id": "a4",
+          "shortAction": "Splint right hip/leg in position found before any further movement",
+          "protocolExcerpt": "Strongly consider pain management before attempting to move a suspected fracture. Use splints as appropriate to limit movement of suspected fracture",
+          "priority": "important",
+          "rationale": "Splinting in position found minimizes pain and further tissue damage.",
+          "protocolReference": "MATC: Extremity Trauma/External Hemorrhage Management"
+        },
+        {
+          "id": "a5",
+          "shortAction": "Fentanyl 55 mcg IV (55 kg × 1 mcg/kg; max initial dose 100 mcg)",
+          "protocolExcerpt": "Fentanyl: 1 mcg/kg IN, IM, IV or IO (maximum initial dose of 100 mcg)",
+          "priority": "important",
+          "rationale": "Adequate analgesia before splinting and transport reduces pain and physiologic stress.",
+          "protocolReference": "MATC: Pain Management"
+        },
+        {
+          "id": "a6",
+          "shortAction": "Titrate opioid cautiously; monitor for hypoventilation given her comorbidities",
+          "protocolExcerpt": "To reduce the risk of adverse effects like respiratory depression, use opioids with caution and judicious dosing in patients with comorbid conditions, beginning with lower doses and gradually increasing based on response",
+          "priority": "supplemental",
+          "rationale": "Elderly patients with polypharmacy are at higher risk for opioid-related respiratory depression.",
+          "protocolReference": "MATC: Pain Management"
+        }
+      ],
       "transitions": [
         {
           "targetPhaseId": "assessed-splinted",
           "if": "Primary survey and pain management completed",
           "condition": "Crew performs a MARCH primary survey, identifies apixaban use during history-taking, splints the deformed right hip in the position found, and provides analgesia before further movement.",
-          "conditionType": "action_taken"
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a2", "a4", "a5"]
+        },
+        {
+          "targetPhaseId": "occult-hemorrhage-missed",
+          "if": "Anticoagulant use not identified, serial monitoring omitted",
+          "condition": "Crew splints and medicates the hip but never obtains a medication history, missing the apixaban use; serial reassessment is skipped en route as a result.",
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["a2"]
         }
       ]
     },
@@ -131,52 +188,20 @@
       },
       "expectedActions": [
         {
-          "id": "a1-march",
-          "shortAction": "Perform MARCH primary survey; rule out life threats before focusing on the hip",
-          "protocolExcerpt": "Primary survey (Use \"MARCH\" algorithm)",
+          "id": "b1",
+          "shortAction": "Reassess vital signs and neuro status serially en route; monitor for occult hemorrhage",
+          "protocolExcerpt": "Monitor patient for deterioration over time with serial vital signs (pulse, blood pressure, respiratory rate, neurologic status assessment) and repeat neurologic status assessment",
           "priority": "critical",
-          "rationale": "Rules out life threats before focusing on the obvious deformity.",
+          "rationale": "Anticoagulated geriatric patients can develop occult hemorrhage without early hypotension.",
           "protocolReference": "MATC: General Trauma Management"
         },
         {
-          "id": "a2-med-history",
-          "shortAction": "Obtain medication history; identify apixaban (anticoagulant) use",
-          "protocolExcerpt": "Obtain medical history from patient or family including: Allergies Medications Past medical and surgical history Last meal Events leading up to the injury",
-          "priority": "critical",
-          "rationale": "Anticoagulant use significantly raises the risk of occult hemorrhage and must drive later reassessment.",
+          "id": "b2",
+          "shortAction": "Transport to appropriate trauma-capable facility per field triage guideline",
+          "protocolExcerpt": "Decisions regarding transport destination should be based on the ACS-COT 2022 National Guideline for the Field Triage of Injured Patients",
+          "priority": "important",
+          "rationale": "Ensures the patient reaches a facility capable of managing a geriatric hip fracture with anticoagulation.",
           "protocolReference": "MATC: General Trauma Management"
-        },
-        {
-          "id": "a3-neurovascular",
-          "shortAction": "Assess pallor, pulse, capillary refill, sensation, and movement of right leg before splinting",
-          "protocolExcerpt": "Vascular status of extremity: Pallor Pulse Capillary refill and skin temperature. Neurologic status of extremity: Sensation to light touch Distal movement of extremity",
-          "priority": "critical",
-          "rationale": "Establishes a neurovascular baseline before and after splinting to detect compromise.",
-          "protocolReference": "MATC: Extremity Trauma/External Hemorrhage Management"
-        },
-        {
-          "id": "a4-splint",
-          "shortAction": "Splint right hip/leg in position found before any further movement",
-          "protocolExcerpt": "Strongly consider pain management before attempting to move a suspected fracture. Use splints as appropriate to limit movement of suspected fracture",
-          "priority": "important",
-          "rationale": "Splinting in position found minimizes pain and further tissue damage.",
-          "protocolReference": "MATC: Extremity Trauma/External Hemorrhage Management"
-        },
-        {
-          "id": "a5-fentanyl",
-          "shortAction": "Fentanyl 55 mcg IV (55 kg × 1 mcg/kg; max initial dose 100 mcg)",
-          "protocolExcerpt": "Fentanyl: 1 mcg/kg IN, IM, IV or IO (maximum initial dose of 100 mcg)",
-          "priority": "important",
-          "rationale": "Adequate analgesia before splinting and transport reduces pain and physiologic stress.",
-          "protocolReference": "MATC: Pain Management"
-        },
-        {
-          "id": "a6-opioid-caution",
-          "shortAction": "Titrate opioid cautiously; monitor for hypoventilation given her comorbidities",
-          "protocolExcerpt": "To reduce the risk of adverse effects like respiratory depression, use opioids with caution and judicious dosing in patients with comorbid conditions, beginning with lower doses and gradually increasing based on response",
-          "priority": "supplemental",
-          "rationale": "Elderly patients with polypharmacy are at higher risk for opioid-related respiratory depression.",
-          "protocolReference": "MATC: Pain Management"
         }
       ],
       "transitions": [
@@ -185,14 +210,7 @@
           "if": "Splinted, medicated, transported with serial monitoring",
           "condition": "Crew recognizes the bleeding risk conferred by apixaban and continues serial vital sign and neurologic reassessment en route.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["a2-med-history"]
-        },
-        {
-          "targetPhaseId": "occult-hemorrhage-missed",
-          "if": "Anticoagulant use not identified, serial monitoring omitted",
-          "condition": "Crew splints and medicates the hip but never obtains a medication history, missing the apixaban use; serial reassessment is skipped en route as a result.",
-          "conditionType": "action_not_taken",
-          "triggerActionIds": ["a2-med-history"]
+          "triggerActionIds": ["b1", "b2"]
         }
       ]
     },
@@ -235,24 +253,7 @@
         "trendTimeSeconds": 40,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [
-        {
-          "id": "a7-serial-reassess",
-          "shortAction": "Reassess vital signs and neuro status serially en route; monitor for occult hemorrhage",
-          "protocolExcerpt": "Monitor patient for deterioration over time with serial vital signs (pulse, blood pressure, respiratory rate, neurologic status assessment) and repeat neurologic status assessment",
-          "priority": "critical",
-          "rationale": "Anticoagulated geriatric patients can develop occult hemorrhage without early hypotension.",
-          "protocolReference": "MATC: General Trauma Management"
-        },
-        {
-          "id": "a8-transport-destination",
-          "shortAction": "Transport to appropriate trauma-capable facility per field triage guideline",
-          "protocolExcerpt": "Decisions regarding transport destination should be based on the ACS-COT 2022 National Guideline for the Field Triage of Injured Patients",
-          "priority": "important",
-          "rationale": "Ensures the patient reaches a facility capable of managing a geriatric hip fracture with anticoagulation.",
-          "protocolReference": "MATC: General Trauma Management"
-        }
-      ],
+      "expectedActions": [],
       "transitions": []
     },
     {
@@ -296,7 +297,7 @@
       },
       "expectedActions": [
         {
-          "id": "a9-recognize-shock",
+          "id": "c1",
           "shortAction": "Recognize occult hemorrhagic shock; establish IV access and initiate fluid bolus",
           "protocolExcerpt": "Patients with compensated shock may not manifest hypotension until severe blood loss has occurred",
           "priority": "critical",
