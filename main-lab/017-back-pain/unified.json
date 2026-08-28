@@ -80,13 +80,54 @@
         "trendTimeSeconds": 0,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [],
+      "expectedActions": [
+        {
+          "id": "a1",
+          "shortAction": "Screen for life-threatening back pain causes: neuro deficit, unequal femoral pulses, pulsatile mass, fever",
+          "protocolExcerpt": "Assess for life-threatening causes of back pain, which may include: Spinal cord compression ... Aortic dissection or ruptured abdominal aortic aneurysm ... Pyelonephritis",
+          "priority": "critical",
+          "rationale": "Rules out spinal cord compression, aortic emergency, and pyelonephritis before treating as isolated musculoskeletal pain.",
+          "protocolReference": "MATC: Back Pain"
+        },
+        {
+          "id": "a2",
+          "shortAction": "Assess pain severity using the Numeric Rating Scale (patient is >12 years old)",
+          "protocolExcerpt": "Determine patient's pain score assessment using standard pain scale ... Greater than 12 years old: Self-report scale: Numeric Rating Scale (NRS)",
+          "priority": "important",
+          "rationale": "Establishes a baseline pain score to guide dosing and measure response to treatment.",
+          "protocolReference": "MATC: Pain Management"
+        },
+        {
+          "id": "a3",
+          "shortAction": "Position patient for comfort while preparing IV access and medication",
+          "protocolExcerpt": "Non-pharmacologic pain management options include Placement of the patient in a position of comfort",
+          "priority": "supplemental",
+          "rationale": "Reduces pain and anxiety while pharmacologic treatment is prepared.",
+          "protocolReference": "MATC: Pain Management"
+        },
+        {
+          "id": "a4",
+          "shortAction": "Morphine 7 mg IV (70 kg × 0.1 mg/kg = 7 mg; max initial dose 10 mg)",
+          "protocolExcerpt": "For Moderate to Severe pain, analgesics include: Morphine sulfate: 0.1 mg/kg IM, IV or IO (maximum initial dose is 10 mg)",
+          "priority": "critical",
+          "rationale": "Weight-based opioid dosing for severe pain not attributable to a life-threatening cause.",
+          "protocolReference": "MATC: Pain Management"
+        }
+      ],
       "transitions": [
         {
           "targetPhaseId": "primary-treatment",
           "if": "Red flags screened, analgesia given",
           "condition": "Crew screens for life-threatening causes of back pain, assesses pain severity on a standard scale, and administers weight-based morphine per the Pain Management Guideline.",
-          "conditionType": "action_taken"
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a1", "a4"]
+        },
+        {
+          "targetPhaseId": "analgesia-withheld",
+          "if": "Analgesia withheld despite severe pain",
+          "condition": "Crew completes the red-flag screen but does not administer analgesia, or significantly delays medication administration, leaving the patient in severe uncontrolled pain.",
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["a4"]
         }
       ]
     },
@@ -131,58 +172,35 @@
       },
       "expectedActions": [
         {
-          "id": "a1-redflag-screen",
-          "shortAction": "Screen for life-threatening back pain causes: neuro deficit, unequal femoral pulses, pulsatile mass, fever",
-          "protocolExcerpt": "Assess for life-threatening causes of back pain, which may include: Spinal cord compression ... Aortic dissection or ruptured abdominal aortic aneurysm ... Pyelonephritis",
-          "priority": "critical",
-          "rationale": "Rules out spinal cord compression, aortic emergency, and pyelonephritis before treating as isolated musculoskeletal pain.",
-          "protocolReference": "MATC: Back Pain"
-        },
-        {
-          "id": "a2-pain-scale",
-          "shortAction": "Assess pain severity using the Numeric Rating Scale (patient is >12 years old)",
-          "protocolExcerpt": "Determine patient's pain score assessment using standard pain scale ... Greater than 12 years old: Self-report scale: Numeric Rating Scale (NRS)",
+          "id": "b1",
+          "shortAction": "Reassess pain score and vital signs after morphine; monitor respiratory status",
+          "protocolExcerpt": "Pain severity scores should be recorded before and after analgesic medication administration and upon arrival at destination",
           "priority": "important",
-          "rationale": "Establishes a baseline pain score to guide dosing and measure response to treatment.",
+          "rationale": "Confirms treatment efficacy and screens for opioid-related respiratory depression.",
           "protocolReference": "MATC: Pain Management"
         },
         {
-          "id": "a3-nonpharm",
-          "shortAction": "Position patient for comfort while preparing IV access and medication",
-          "protocolExcerpt": "Non-pharmacologic pain management options include Placement of the patient in a position of comfort",
-          "priority": "supplemental",
-          "rationale": "Reduces pain and anxiety while pharmacologic treatment is prepared.",
-          "protocolReference": "MATC: Pain Management"
-        },
-        {
-          "id": "a4-morphine",
-          "shortAction": "Morphine 7 mg IV (70 kg × 0.1 mg/kg = 7 mg; max initial dose 10 mg)",
-          "protocolExcerpt": "For Moderate to Severe pain, analgesics include: Morphine sulfate: 0.1 mg/kg IM, IV or IO (maximum initial dose is 10 mg)",
-          "priority": "critical",
-          "rationale": "Weight-based opioid dosing for severe pain not attributable to a life-threatening cause.",
-          "protocolReference": "MATC: Pain Management"
+          "id": "b2",
+          "shortAction": "Transport in position of comfort; reassess vitals and pain en route",
+          "protocolExcerpt": "Transport in position of comfort and reassess as indicated",
+          "priority": "important",
+          "rationale": "Continued reassessment ensures sustained pain control and early detection of adverse effects.",
+          "protocolReference": "MATC: Back Pain"
         }
       ],
       "transitions": [
         {
           "targetPhaseId": "pain-improved",
-          "if": "Morphine given, pain improves",
+          "if": "Pain improved",
           "condition": "IV morphine is administered at the correct weight-based dose; pain score and vital signs improve over the following minutes.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["a4-morphine"]
-        },
-        {
-          "targetPhaseId": "analgesia-withheld",
-          "if": "Analgesia withheld despite severe pain",
-          "condition": "Crew completes the red-flag screen but does not administer analgesia, or significantly delays medication administration, leaving the patient in severe uncontrolled pain.",
-          "conditionType": "action_not_taken",
-          "triggerActionIds": ["a4-morphine"]
+          "triggerActionIds": ["b1", "b2"]
         }
       ]
     },
     {
       "id": "pain-improved",
-      "name": "Morphine given, pain improves",
+      "name": "Pain improved",
       "description": "Following weight-based IV morphine, the patient's pain and vital signs improve. She is transported in a position of comfort with ongoing reassessment.",
       "triggerCondition": "After IV morphine 7 mg is administered, pain score and hemodynamics improve within several minutes; patient remains alert with stable respiratory status.",
       "isDefault": true,
@@ -219,24 +237,7 @@
         "trendTimeSeconds": 40,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [
-        {
-          "id": "a5-reassess",
-          "shortAction": "Reassess pain score and vital signs after morphine; monitor respiratory status",
-          "protocolExcerpt": "Pain severity scores should be recorded before and after analgesic medication administration and upon arrival at destination",
-          "priority": "important",
-          "rationale": "Confirms treatment efficacy and screens for opioid-related respiratory depression.",
-          "protocolReference": "MATC: Pain Management"
-        },
-        {
-          "id": "a6-transport-comfort",
-          "shortAction": "Transport in position of comfort; reassess vitals and pain en route",
-          "protocolExcerpt": "Transport in position of comfort and reassess as indicated",
-          "priority": "important",
-          "rationale": "Continued reassessment ensures sustained pain control and early detection of adverse effects.",
-          "protocolReference": "MATC: Back Pain"
-        }
-      ],
+      "expectedActions": [],
       "transitions": []
     },
     {
@@ -280,7 +281,7 @@
       },
       "expectedActions": [
         {
-          "id": "a7-recover-morphine",
+          "id": "c1",
           "shortAction": "Recognize uncontrolled pain; give morphine 7 mg IV now (70 kg × 0.1 mg/kg; max initial 10 mg)",
           "protocolExcerpt": "For Moderate to Severe pain, analgesics include: Morphine sulfate: 0.1 mg/kg IM, IV or IO (maximum initial dose is 10 mg)",
           "priority": "critical",

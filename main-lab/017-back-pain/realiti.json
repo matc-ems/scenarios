@@ -12,7 +12,7 @@
   "scenarioStory": {
     "history": "Patient was lifting her 2-year-old grandchild out of a crib this morning when she felt a sudden 'pop' and sharp pain in her lower back. Pain has progressively worsened over the past hour, now 9/10, sharp and band-like across the lumbar region without radiation into the legs. She is unable to stand upright or bear weight without severe pain and has been lying on the living room floor since the onset. Denies numbness, denies loss of bowel or bladder control, denies fever.",
     "discussion": "",
-    "course": "Initial Contact: Crew arrives to find a 58-year-old female supine on the floor, rigid with guarding, reporting severe lumbar back pain that began while lifting her grandchild. She is alert, oriented, and cooperative but in visible distress. → Red flags screened, analgesia given: Crew performs a focused assessment for life-threatening causes of back pain, positions the patient for comfort, and administers weight-based IV morphine for severe pain. → Morphine given, pain improves: Following weight-based IV morphine, the patient's pain and vital signs improve. She is transported in a position of comfort with ongoing reassessment."
+    "course": "Initial Contact: Crew arrives to find a 58-year-old female supine on the floor, rigid with guarding, reporting severe lumbar back pain that began while lifting her grandchild. She is alert, oriented, and cooperative but in visible distress. → Red flags screened, analgesia given: Crew performs a focused assessment for life-threatening causes of back pain, positions the patient for comfort, and administers weight-based IV morphine for severe pain. → Pain improved: Following weight-based IV morphine, the patient's pain and vital signs improve. She is transported in a position of comfort with ongoing reassessment."
   },
   "patientInformation": {
     "patientName": "Linda Voss",
@@ -57,7 +57,12 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [],
+      "relatedChecklist": [
+        "Screen for life-threatening back pain causes: neuro deficit, unequal femoral pulses, pulsatile mass, fever",
+        "Assess pain severity using the Numeric Rating Scale (patient is >12 years old)",
+        "Position patient for comfort while preparing IV access and medication",
+        "Morphine 7 mg IV (70 kg × 0.1 mg/kg = 7 mg; max initial dose 10 mg)"
+      ],
       "relatedSounds": []
     },
     {
@@ -90,16 +95,14 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Screen for life-threatening back pain causes: neuro deficit, unequal femoral pulses, pulsatile mass, fever",
-        "Assess pain severity using the Numeric Rating Scale (patient is >12 years old)",
-        "Position patient for comfort while preparing IV access and medication",
-        "Morphine 7 mg IV (70 kg × 0.1 mg/kg = 7 mg; max initial dose 10 mg)"
+        "Reassess pain score and vital signs after morphine; monitor respiratory status",
+        "Transport in position of comfort; reassess vitals and pain en route"
       ],
       "relatedSounds": []
     },
     {
       "type": "ScenarioEvent",
-      "name": "Morphine given, pain improves",
+      "name": "Pain improved",
       "description": "Following weight-based IV morphine, the patient's pain and vital signs improve. She is transported in a position of comfort with ongoing reassessment.",
       "monitorType": 0,
       "trendTime": 40,
@@ -126,10 +129,7 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [
-        "Reassess pain score and vital signs after morphine; monitor respiratory status",
-        "Transport in position of comfort; reassess vitals and pain en route"
-      ],
+      "relatedChecklist": [],
       "relatedSounds": []
     },
     {
