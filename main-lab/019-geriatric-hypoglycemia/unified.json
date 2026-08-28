@@ -79,13 +79,62 @@
         "trendTimeSeconds": 0,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [],
+      "expectedActions": [
+        {
+          "id": "a1",
+          "shortAction": "Confirm blood glucose 28 mg/dL by fingerstick before treatment",
+          "protocolExcerpt": "Monitoring: Check blood glucose level",
+          "priority": "critical",
+          "rationale": "Confirms hypoglycemia and establishes a baseline before dextrose administration.",
+          "protocolReference": "MATC: Hypoglycemia"
+        },
+        {
+          "id": "a2",
+          "shortAction": "Maintain airway positioning and monitor SpO2 given depressed mental status",
+          "protocolExcerpt": "With depressed mental status, initial focus is on airway protection, oxygenation, ventilation, and perfusion",
+          "priority": "important",
+          "rationale": "Unresponsive patients are at risk for airway compromise independent of the glucose correction.",
+          "protocolReference": "MATC: Altered Mental Status"
+        },
+        {
+          "id": "a3",
+          "shortAction": "Use D10% concentration preferentially over D50% given extravasation risk in fragile veins",
+          "protocolExcerpt": "Dextrose 50% can cause local tissue damage if it extravasates from vein and may cause hyperglycemia. Dextrose 50% carries risk for little clinical gain. EMS systems may consider carrying no more than 25% concentration of dextrose for treating hypoglycemia in adults",
+          "priority": "important",
+          "rationale": "Geriatric patients often have fragile, friable veins where D50% extravasation risk is elevated.",
+          "protocolReference": "MATC: Hypoglycemia"
+        },
+        {
+          "id": "a4",
+          "shortAction": "Dextrose 10% IV in incremental doses, max 250 mL (25 g); reassess mental status after each dose",
+          "protocolExcerpt": "Unconscious patient, or patients who are unable to protect their own airway: Dextrose IV – administer in incremental doses until mental status improves or maximum field dosing is reached (if available, D10% is preferred). Maximum field adult dosing: 25 g of 10–50% dextrose IV: 250 mL of 10% dextrose",
+          "priority": "critical",
+          "rationale": "Incremental dosing to a defined maximum avoids overshoot hyperglycemia while correcting hypoglycemia.",
+          "protocolReference": "MATC: Hypoglycemia"
+        },
+        {
+          "id": "a5",
+          "shortAction": "Monitor IV site closely for infiltration throughout dextrose administration",
+          "protocolExcerpt": "Dextrose 50% can cause local tissue damage if it extravasates from vein",
+          "priority": "critical",
+          "rationale": "Undetected infiltration wastes the dose and risks local tissue injury.",
+          "protocolReference": "MATC: Hypoglycemia"
+        }
+      ],
       "transitions": [
         {
           "targetPhaseId": "dextrose-given",
-          "if": "IV obtained and dextrose given",
+          "if": "IV dextrose given",
           "condition": "Crew establishes IV access and administers incremental IV dextrose per protocol after confirming blood glucose 28 mg/dL and recognizing the patient as unresponsive and unable to protect her airway.",
-          "conditionType": "action_taken"
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a1", "a4"]
+        },
+        {
+          "targetPhaseId": "iv-infiltrates",
+          "if": "IV site not monitored, infiltrates",
+          "condition": "The IV site is not monitored during dextrose administration; infiltration occurs, halting the infusion before an adequate dose is delivered.",
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["a5"]
         }
       ]
     },
@@ -129,60 +178,29 @@
       },
       "expectedActions": [
         {
-          "id": "a1-glucose-check",
-          "shortAction": "Confirm blood glucose 28 mg/dL by fingerstick before treatment",
-          "protocolExcerpt": "Monitoring: Check blood glucose level",
-          "priority": "critical",
-          "rationale": "Confirms hypoglycemia and establishes a baseline before dextrose administration.",
-          "protocolReference": "MATC: Hypoglycemia"
-        },
-        {
-          "id": "a2-dextrose",
-          "shortAction": "Dextrose 10% IV in incremental doses, max 250 mL (25 g); reassess mental status after each dose",
-          "protocolExcerpt": "Unconscious patient, or patients who are unable to protect their own airway: Dextrose IV – administer in incremental doses until mental status improves or maximum field dosing is reached (if available, D10% is preferred). Maximum field adult dosing: 25 g of 10–50% dextrose IV: 250 mL of 10% dextrose",
-          "priority": "critical",
-          "rationale": "Incremental dosing to a defined maximum avoids overshoot hyperglycemia while correcting hypoglycemia.",
-          "protocolReference": "MATC: Hypoglycemia"
-        },
-        {
-          "id": "a3-d10-preference",
-          "shortAction": "Use D10% concentration preferentially over D50% given extravasation risk in fragile veins",
-          "protocolExcerpt": "Dextrose 50% can cause local tissue damage if it extravasates from vein and may cause hyperglycemia. Dextrose 50% carries risk for little clinical gain. EMS systems may consider carrying no more than 25% concentration of dextrose for treating hypoglycemia in adults",
+          "id": "b1",
+          "shortAction": "Recheck blood glucose after dextrose; repeat dose if mental status remains abnormal",
+          "protocolExcerpt": "Reassess vital signs (pulse, blood pressure, respiratory rate, neurologic status assessment) and mental status. Repeat check of blood glucose level if previous hypoglycemia and mental status has not returned to normal",
           "priority": "important",
-          "rationale": "Geriatric patients often have fragile, friable veins where D50% extravasation risk is elevated.",
+          "rationale": "Confirms adequate correction and guides whether further dextrose is needed.",
           "protocolReference": "MATC: Hypoglycemia"
         },
         {
-          "id": "a4-airway-priority",
-          "shortAction": "Maintain airway positioning and monitor SpO2 given depressed mental status",
-          "protocolExcerpt": "With depressed mental status, initial focus is on airway protection, oxygenation, ventilation, and perfusion",
-          "priority": "important",
-          "rationale": "Unresponsive patients are at risk for airway compromise independent of the glucose correction.",
-          "protocolReference": "MATC: Altered Mental Status"
-        },
-        {
-          "id": "a5-monitor-iv-site",
-          "shortAction": "Monitor IV site closely for infiltration throughout dextrose administration",
-          "protocolExcerpt": "Dextrose 50% can cause local tissue damage if it extravasates from vein",
+          "id": "b2",
+          "shortAction": "Transport to appropriate facility given initial unresponsiveness requiring IV dextrose",
+          "protocolExcerpt": "If hypoglycemia with continued symptoms, transport to closest appropriate receiving facility",
           "priority": "critical",
-          "rationale": "Undetected infiltration wastes the dose and risks local tissue injury.",
+          "rationale": "A patient who required IV dextrose for unresponsive hypoglycemia warrants hospital evaluation despite improvement, particularly given CKD and insulin dosing risk.",
           "protocolReference": "MATC: Hypoglycemia"
         }
       ],
       "transitions": [
         {
           "targetPhaseId": "improved-transport",
-          "if": "Mental status improves with dextrose",
+          "if": "Mental status improved",
           "condition": "Incremental IV dextrose administration corrects the patient's glucose and mental status improves toward baseline.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["a2-dextrose"]
-        },
-        {
-          "targetPhaseId": "iv-infiltrates",
-          "if": "IV site not monitored, infiltrates",
-          "condition": "The IV site is not monitored during dextrose administration; infiltration occurs, halting the infusion before an adequate dose is delivered.",
-          "conditionType": "action_not_taken",
-          "triggerActionIds": ["a5-monitor-iv-site"]
+          "triggerActionIds": ["b1", "b2"]
         }
       ]
     },
@@ -225,24 +243,7 @@
         "trendTimeSeconds": 45,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [
-        {
-          "id": "a6-recheck-glucose",
-          "shortAction": "Recheck blood glucose after dextrose; repeat dose if mental status remains abnormal",
-          "protocolExcerpt": "Reassess vital signs (pulse, blood pressure, respiratory rate, neurologic status assessment) and mental status. Repeat check of blood glucose level if previous hypoglycemia and mental status has not returned to normal",
-          "priority": "important",
-          "rationale": "Confirms adequate correction and guides whether further dextrose is needed.",
-          "protocolReference": "MATC: Hypoglycemia"
-        },
-        {
-          "id": "a7-transport",
-          "shortAction": "Transport to appropriate facility given initial unresponsiveness requiring IV dextrose",
-          "protocolExcerpt": "If hypoglycemia with continued symptoms, transport to closest appropriate receiving facility",
-          "priority": "critical",
-          "rationale": "A patient who required IV dextrose for unresponsive hypoglycemia warrants hospital evaluation despite improvement, particularly given CKD and insulin dosing risk.",
-          "protocolReference": "MATC: Hypoglycemia"
-        }
-      ],
+      "expectedActions": [],
       "transitions": []
     },
     {
@@ -286,7 +287,7 @@
       },
       "expectedActions": [
         {
-          "id": "a8-recognize-infiltration",
+          "id": "c1",
           "shortAction": "Recognize IV infiltration; stop infusion and remove the IV",
           "protocolExcerpt": "Dextrose 50% can cause local tissue damage if it extravasates from vein",
           "priority": "critical",
@@ -294,7 +295,7 @@
           "protocolReference": "MATC: Hypoglycemia"
         },
         {
-          "id": "a9-glucagon",
+          "id": "c2",
           "shortAction": "Glucagon 1 mg IM given after IV access failure",
           "protocolExcerpt": "Glucagon IM/IN – an option for patients for whom IV access cannot be established. Adult dosing: 1 mg IM/IN (or prefilled 3 mg dry powder IN or prefilled IM autoinjector)",
           "priority": "critical",

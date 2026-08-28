@@ -57,7 +57,13 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [],
+      "relatedChecklist": [
+        "Confirm blood glucose 28 mg/dL by fingerstick before treatment",
+        "Maintain airway positioning and monitor SpO2 given depressed mental status",
+        "Use D10% concentration preferentially over D50% given extravasation risk in fragile veins",
+        "Dextrose 10% IV in incremental doses, max 250 mL (25 g); reassess mental status after each dose",
+        "Monitor IV site closely for infiltration throughout dextrose administration"
+      ],
       "relatedSounds": []
     },
     {
@@ -90,11 +96,8 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Confirm blood glucose 28 mg/dL by fingerstick before treatment",
-        "Dextrose 10% IV in incremental doses, max 250 mL (25 g); reassess mental status after each dose",
-        "Use D10% concentration preferentially over D50% given extravasation risk in fragile veins",
-        "Maintain airway positioning and monitor SpO2 given depressed mental status",
-        "Monitor IV site closely for infiltration throughout dextrose administration"
+        "Recheck blood glucose after dextrose; repeat dose if mental status remains abnormal",
+        "Transport to appropriate facility given initial unresponsiveness requiring IV dextrose"
       ],
       "relatedSounds": []
     },
@@ -127,10 +130,7 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [
-        "Recheck blood glucose after dextrose; repeat dose if mental status remains abnormal",
-        "Transport to appropriate facility given initial unresponsiveness requiring IV dextrose"
-      ],
+      "relatedChecklist": [],
       "relatedSounds": []
     },
     {
@@ -177,7 +177,7 @@
       "icon": 1
     },
     {
-      "title": "Dextrose 10% IV in incremental doses, max 250 mL (25 g); reassess mental status after each dose",
+      "title": "Maintain airway positioning and monitor SpO2 given depressed mental status",
       "type": "Check",
       "value": 0,
       "icon": 1
@@ -189,7 +189,7 @@
       "icon": 1
     },
     {
-      "title": "Maintain airway positioning and monitor SpO2 given depressed mental status",
+      "title": "Dextrose 10% IV in incremental doses, max 250 mL (25 g); reassess mental status after each dose",
       "type": "Check",
       "value": 0,
       "icon": 1
