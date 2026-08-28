@@ -80,19 +80,46 @@
         "trendTimeSeconds": 0,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
       },
-      "expectedActions": [],
+      "expectedActions": [
+        {
+          "id": "a1",
+          "shortAction": "Open airway (jaw thrust/NPA) and begin two-person BVM with PEEP before giving naloxone",
+          "protocolExcerpt": "Therapeutic interventions to support the patient's airway, breathing, and circulation should be initiated prior to the administration of naloxone",
+          "priority": "critical",
+          "rationale": "Airway and ventilation support must not be delayed waiting for naloxone to take effect.",
+          "protocolReference": "MATC: Opioid Poisoning/Overdose"
+        },
+        {
+          "id": "a2",
+          "shortAction": "Naloxone 0.4 mg IV, titrate incrementally to effect (not weight-based; fixed adult range)",
+          "protocolExcerpt": "The typical initial adult dose ranges between Naloxone 0.4–2 mg IV, IM, up to a dose of 4 mg IN or 5 mg ETT. The administration of the initial dose or subsequent doses can be incrementally titrated until respiratory depression is reversed",
+          "priority": "critical",
+          "rationale": "Titrating in small increments reverses respiratory depression while minimizing the risk of precipitated withdrawal.",
+          "protocolReference": "MATC: Opioid Poisoning/Overdose"
+        },
+        {
+          "id": "a3",
+          "shortAction": "Check blood glucose and screen for other causes of AMS (hypoxia, hypotension, head trauma)",
+          "protocolExcerpt": "Assess the patient for other etiologies of altered mental status including hypoxia (pulse oximetry less than 94%), hypoglycemia, hypotension, and traumatic head injury",
+          "priority": "important",
+          "rationale": "A mixed ingestion or coexisting cause may explain incomplete response to naloxone alone.",
+          "protocolReference": "MATC: Opioid Poisoning/Overdose"
+        }
+      ],
       "transitions": [
         {
           "targetPhaseId": "airway-naloxone-titrated",
           "if": "BVM started, naloxone titrated",
           "condition": "Crew opens and supports the airway with BVM ventilation and PEEP before administering naloxone, then titrates naloxone incrementally IV while checking BGL and screening for other causes of altered mental status.",
-          "conditionType": "action_taken"
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a1", "a2"]
         },
         {
           "targetPhaseId": "naloxone-without-airway-support",
           "if": "Naloxone given before airway supported",
           "condition": "Crew administers a full rapid dose of naloxone immediately without first opening the airway or supporting ventilation with BVM.",
-          "conditionType": "action_not_taken"
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["a1"]
         }
       ]
     },
@@ -137,27 +164,19 @@
       },
       "expectedActions": [
         {
-          "id": "a1-airway-first",
-          "shortAction": "Open airway (jaw thrust/NPA) and begin two-person BVM with PEEP before giving naloxone",
-          "protocolExcerpt": "Therapeutic interventions to support the patient's airway, breathing, and circulation should be initiated prior to the administration of naloxone",
+          "id": "b1",
+          "shortAction": "Continue BVM support rather than escalating to RSI, since ventilation remains effective",
+          "protocolExcerpt": "Regardless of the doses of naloxone administered, airway management with provision of adequate oxygenation and ventilation is the primary goal in patients with confirmed or suspected opioid overdose",
           "priority": "critical",
-          "rationale": "Airway and ventilation support must not be delayed waiting for naloxone to take effect.",
+          "rationale": "BVM is meeting oxygenation/ventilation goals, so advanced airway placement is not indicated at this time.",
           "protocolReference": "MATC: Opioid Poisoning/Overdose"
         },
         {
-          "id": "a2-naloxone-titrated",
-          "shortAction": "Naloxone 0.4 mg IV, titrate incrementally to effect (not weight-based; fixed adult range)",
-          "protocolExcerpt": "The typical initial adult dose ranges between Naloxone 0.4–2 mg IV, IM, up to a dose of 4 mg IN or 5 mg ETT. The administration of the initial dose or subsequent doses can be incrementally titrated until respiratory depression is reversed",
-          "priority": "critical",
-          "rationale": "Titrating in small increments reverses respiratory depression while minimizing the risk of precipitated withdrawal.",
-          "protocolReference": "MATC: Opioid Poisoning/Overdose"
-        },
-        {
-          "id": "a3-screen-other-causes",
-          "shortAction": "Check blood glucose and screen for other causes of AMS (hypoxia, hypotension, head trauma)",
-          "protocolExcerpt": "Assess the patient for other etiologies of altered mental status including hypoxia (pulse oximetry less than 94%), hypoglycemia, hypotension, and traumatic head injury",
+          "id": "b2",
+          "shortAction": "Monitor closely for recurrent respiratory depression; naloxone effect is shorter than the opioid's duration",
+          "protocolExcerpt": "The clinical opioid reversal effect of naloxone is limited and may end within an hour whereas opioids often have a duration of 4 hours or longer. Monitor the patient for recurrent respiratory depression and decreased mental status",
           "priority": "important",
-          "rationale": "A mixed ingestion or coexisting cause may explain incomplete response to naloxone alone.",
+          "rationale": "Renarcotization can occur en route once the naloxone dose wears off before the opioid does.",
           "protocolReference": "MATC: Opioid Poisoning/Overdose"
         }
       ],
@@ -167,7 +186,7 @@
           "if": "Partial response, BVM continued",
           "condition": "Respiratory effort improves but remains inadequate to protect the airway independently, consistent with a mixed ingestion; crew continues ventilatory support rather than repeatedly escalating naloxone.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["a1-airway-first", "a2-naloxone-titrated"]
+          "triggerActionIds": ["b1", "b2"]
         }
       ]
     },
@@ -210,24 +229,7 @@
         "trendTimeSeconds": 40,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
       },
-      "expectedActions": [
-        {
-          "id": "a4-continue-bvm",
-          "shortAction": "Continue BVM support rather than escalating to RSI, since ventilation remains effective",
-          "protocolExcerpt": "Regardless of the doses of naloxone administered, airway management with provision of adequate oxygenation and ventilation is the primary goal in patients with confirmed or suspected opioid overdose",
-          "priority": "critical",
-          "rationale": "BVM is meeting oxygenation/ventilation goals, so advanced airway placement is not indicated at this time.",
-          "protocolReference": "MATC: Opioid Poisoning/Overdose"
-        },
-        {
-          "id": "a5-monitor-renarcotization",
-          "shortAction": "Monitor closely for recurrent respiratory depression; naloxone effect is shorter than the opioid's duration",
-          "protocolExcerpt": "The clinical opioid reversal effect of naloxone is limited and may end within an hour whereas opioids often have a duration of 4 hours or longer. Monitor the patient for recurrent respiratory depression and decreased mental status",
-          "priority": "important",
-          "rationale": "Renarcotization can occur en route once the naloxone dose wears off before the opioid does.",
-          "protocolReference": "MATC: Opioid Poisoning/Overdose"
-        }
-      ],
+      "expectedActions": [],
       "transitions": []
     },
     {
@@ -271,7 +273,7 @@
       },
       "expectedActions": [
         {
-          "id": "a6-recover-airway-first",
+          "id": "c1",
           "shortAction": "Recognize precipitated withdrawal from rapid naloxone; resume BVM support and allow agitation to settle",
           "protocolExcerpt": "Patients with altered mental status secondary to an opioid overdose may become agitated or violent following naloxone administration due to opioid withdrawal therefore the goal is to use the lowest dose as possible to avoid precipitating withdrawal",
           "priority": "critical",

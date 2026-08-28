@@ -57,7 +57,11 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [],
+      "relatedChecklist": [
+        "Open airway (jaw thrust/NPA) and begin two-person BVM with PEEP before giving naloxone",
+        "Naloxone 0.4 mg IV, titrate incrementally to effect (not weight-based; fixed adult range)",
+        "Check blood glucose and screen for other causes of AMS (hypoxia, hypotension, head trauma)"
+      ],
       "relatedSounds": []
     },
     {
@@ -90,9 +94,8 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Open airway (jaw thrust/NPA) and begin two-person BVM with PEEP before giving naloxone",
-        "Naloxone 0.4 mg IV, titrate incrementally to effect (not weight-based; fixed adult range)",
-        "Check blood glucose and screen for other causes of AMS (hypoxia, hypotension, head trauma)"
+        "Continue BVM support rather than escalating to RSI, since ventilation remains effective",
+        "Monitor closely for recurrent respiratory depression; naloxone effect is shorter than the opioid's duration"
       ],
       "relatedSounds": []
     },
@@ -125,10 +128,7 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [
-        "Continue BVM support rather than escalating to RSI, since ventilation remains effective",
-        "Monitor closely for recurrent respiratory depression; naloxone effect is shorter than the opioid's duration"
-      ],
+      "relatedChecklist": [],
       "relatedSounds": []
     },
     {
