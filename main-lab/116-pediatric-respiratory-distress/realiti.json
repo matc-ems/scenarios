@@ -57,7 +57,11 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [],
+      "relatedChecklist": [
+        "Titrate supplemental O2 to target 94-98% SpO2",
+        "Albuterol 5 mg nebulized with ipratropium 0.5 mg; repeat albuterol as needed",
+        "Apply continuous pulse oximetry and reassess work of breathing after each treatment"
+      ],
       "relatedSounds": []
     },
     {
@@ -90,9 +94,8 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Titrate supplemental O2 to target 94-98% SpO2",
-        "Albuterol 5 mg nebulized with ipratropium 0.5 mg; repeat albuterol as needed",
-        "Apply continuous pulse oximetry and reassess work of breathing after each treatment"
+        "Epinephrine 0.16 mg IM (16 kg × 0.01 mg/kg; max 0.3 mg), 1 mg/mL concentration",
+        "Reassess work of breathing, SpO2, and EtCO2 waveform after epinephrine"
       ],
       "relatedSounds": []
     },
@@ -126,8 +129,7 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Epinephrine 0.16 mg IM (16 kg × 0.01 mg/kg; max 0.3 mg), 1 mg/mL concentration",
-        "Reassess work of breathing, SpO2, and EtCO2 waveform after epinephrine"
+        "Continue O2, reassess vitals serially en route, transport to pediatric-capable facility"
       ],
       "relatedSounds": []
     },
@@ -160,9 +162,7 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [
-        "Continue O2, reassess vitals serially en route, transport to pediatric-capable facility"
-      ],
+      "relatedChecklist": [],
       "relatedSounds": []
     },
     {
