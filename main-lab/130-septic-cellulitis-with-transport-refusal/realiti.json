@@ -1,0 +1,250 @@
+{
+  "scenarioId": "130-septic-cellulitis-with-transport-refusal",
+  "scenarioName": "130 - Septic Cellulitis with Transport Refusal",
+  "scenarioType": "Vital Signs",
+  "scenarioVersion": 2,
+  "scenarioTime": 900,
+  "scenarioMonitorType": 2,
+  "scenarioDefaultEnergy": 200,
+  "scenarioDefaultPacerThreshold": 55,
+  "isDemo": false,
+  "isALSILegacy": false,
+  "scenarioStory": {
+    "history": "Patient scraped his lateral left ankle on a rose bush while gardening four to five days ago and treated it with hydrogen peroxide. The leg has become progressively more red, swollen, and painful since. This morning he felt hot, was not making much sense to his roommate, and could not get up to use the bathroom without help. He describes himself as tired and worn out but denies any other complaint and consistently downplays how unwell he feels. He is adamant that he does not need a hospital.",
+    "discussion": "",
+    "course": "Initial Contact: Crew finds a 78-year-old male seated in a recliner with a red, swollen, hot left lower leg propped on an ottoman. He is alert and oriented but flushed, lethargic, febrile at 101.8 degrees Fahrenheit, tachycardic at 116, tachypneic at 22, and at the low end of normal for blood pressure. He waves the crew off and insists he does not need a hospital. The roommate reports he could not stand this morning without help. → Rapport built; patient consents to transport: After a persistent but respectful conversation in which the crew lays out the fever, the heart rate, the breathing rate, and what the spreading redness means, Frank sighs and concedes. He is calmer and visibly relieved to have the decision made for him. With consent obtained, the crew can now treat the sepsis rather than negotiate about it. → Fluids started; sepsis alert called: The patient is packaged and transported with a fluid bolus running and a sepsis alert called in. His heart rate has come down modestly with the fluid and he remains alert and cooperative. The crew has converted a refusal into a treated septic patient in an emergency department, which was the whole point of the call."
+  },
+  "patientInformation": {
+    "patientName": "Frank Miller",
+    "patientCondition": "Progressively worsening red, swollen left lower leg with fever and inability to walk unassisted",
+    "patientAge": 78,
+    "patientAgeUnit": "years",
+    "patientAgeCategory": 0,
+    "patientSex": 1,
+    "patientHeight": 175,
+    "patientWeight": 79,
+    "patientPhotoId": 94,
+    "patientAdmitted": 1
+  },
+  "labs": [],
+  "scenarioEvents": [
+    {
+      "type": "ScenarioEvent",
+      "name": "Initial Contact",
+      "description": "Crew finds a 78-year-old male seated in a recliner with a red, swollen, hot left lower leg propped on an ottoman. He is alert and oriented but flushed, lethargic, febrile at 101.8 degrees Fahrenheit, tachycardic at 116, tachypneic at 22, and at the low end of normal for blood pressure. He waves the crew off and insists he does not need a hospital. The roommate reports he could not stand this morning without help.",
+      "monitorType": 0,
+      "trendTime": 0,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 116,
+        "bpSys": 108,
+        "bpDia": 60,
+        "respRate": 22,
+        "spo2": 95,
+        "etco2": 32,
+        "temp": 38.8,
+        "obstruction": 0,
+        "custMeasure1": 132,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Full vitals including temperature; identify the systemic signs of sepsis",
+        "Examine the leg; identify cellulitis as the infection source",
+        "Check blood glucose; correct if less than 60 mg/dL",
+        "Build rapport with calm verbal reassurance before pressing on transport",
+        "Engage the roommate to encourage the patient's cooperation"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Rapport built; patient consents to transport",
+      "description": "After a persistent but respectful conversation in which the crew lays out the fever, the heart rate, the breathing rate, and what the spreading redness means, Frank sighs and concedes. He is calmer and visibly relieved to have the decision made for him. With consent obtained, the crew can now treat the sepsis rather than negotiate about it.",
+      "monitorType": 0,
+      "trendTime": 45,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 110,
+        "bpSys": 110,
+        "bpDia": 62,
+        "respRate": 20,
+        "spo2": 96,
+        "etco2": 33,
+        "temp": 38.8,
+        "obstruction": 0,
+        "custMeasure1": 132,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "IV access; 500 mL isotonic bolus toward MAP 65 (30 mL/kg = 2,370 mL max)",
+        "Acetaminophen 1,000 mg for fever (79 kg x 15 mg/kg = 1,185 mg, cap at 1,000 mg)",
+        "Provide advance notification of suspected sepsis to the receiving hospital",
+        "Document the rapport measures, the risks explained, and the eventual consent"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Fluids started; sepsis alert called",
+      "description": "The patient is packaged and transported with a fluid bolus running and a sepsis alert called in. His heart rate has come down modestly with the fluid and he remains alert and cooperative. The crew has converted a refusal into a treated septic patient in an emergency department, which was the whole point of the call.",
+      "monitorType": 0,
+      "trendTime": 45,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 104,
+        "bpSys": 116,
+        "bpDia": 66,
+        "respRate": 18,
+        "spo2": 97,
+        "etco2": 34,
+        "temp": 38.6,
+        "obstruction": 0,
+        "custMeasure1": 132,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Confrontational approach; refusal hardens",
+      "description": "The conversation has gone badly. Frank is agitated, sitting forward in the recliner and raising his voice. His refusal has hardened from reluctance into an ultimatum and he is threatening to call the police. Meanwhile his heart rate has climbed and his blood pressure has drifted down. The crew now faces a patient refusing care he genuinely needs, with less rapport to work with than they started with.",
+      "monitorType": 0,
+      "trendTime": 40,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 124,
+        "bpSys": 100,
+        "bpDia": 56,
+        "respRate": 24,
+        "spo2": 94,
+        "etco2": 30,
+        "temp": 38.8,
+        "obstruction": 0,
+        "custMeasure1": 132,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Stop arguing; reset with calm verbal reassurance and reestablish rapport",
+        "Reassess mentation and perfusion; worsening sepsis can impair capacity",
+        "Document the findings, the education given, and the refusal in detail"
+      ],
+      "relatedSounds": []
+    }
+  ],
+  "checklist": [
+    {
+      "title": "Full vitals including temperature; identify the systemic signs of sepsis",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Examine the leg; identify cellulitis as the infection source",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Check blood glucose; correct if less than 60 mg/dL",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Build rapport with calm verbal reassurance before pressing on transport",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Engage the roommate to encourage the patient's cooperation",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "IV access; 500 mL isotonic bolus toward MAP 65 (30 mL/kg = 2,370 mL max)",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Acetaminophen 1,000 mg for fever (79 kg x 15 mg/kg = 1,185 mg, cap at 1,000 mg)",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Provide advance notification of suspected sepsis to the receiving hospital",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Document the rapport measures, the risks explained, and the eventual consent",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Stop arguing; reset with calm verbal reassurance and reestablish rapport",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Reassess mentation and perfusion; worsening sepsis can impair capacity",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Document the findings, the education given, and the refusal in detail",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    }
+  ],
+  "media": []
+}

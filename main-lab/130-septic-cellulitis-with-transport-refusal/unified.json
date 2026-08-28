@@ -1,0 +1,440 @@
+{
+  "meta": {
+    "id": "130-septic-cellulitis-with-transport-refusal",
+    "name": "130 - Septic Cellulitis with Transport Refusal",
+    "version": 1,
+    "difficulty": "intermediate",
+    "category": "Medical",
+    "protocols": [
+      "medical-shock",
+      "medical-altered-mental-status",
+      "medical-agitated-violent-behavioral"
+    ],
+    "totalTimeSeconds": 900,
+    "tags": [
+      "medical",
+      "sepsis",
+      "cellulitis",
+      "patient refusal",
+      "therapeutic communication",
+      "patient advocacy",
+      "geriatric",
+      "practice summative"
+    ]
+  },
+  "patient": {
+    "name": "Frank Miller",
+    "age": 78,
+    "ageUnit": "years",
+    "sex": "male",
+    "weight": 79,
+    "weightLbs": 174,
+    "height": 175,
+    "chiefComplaint": "Progressively worsening red, swollen left lower leg with fever and inability to walk unassisted",
+    "history": {
+      "hpi": "Patient scraped his lateral left ankle on a rose bush while gardening four to five days ago and treated it with hydrogen peroxide. The leg has become progressively more red, swollen, and painful since. This morning he felt hot, was not making much sense to his roommate, and could not get up to use the bathroom without help. He describes himself as tired and worn out but denies any other complaint and consistently downplays how unwell he feels. He is adamant that he does not need a hospital.",
+      "pastMedical": [
+        "Type 2 diabetes mellitus",
+        "Hypertension",
+        "Osteoarthritis"
+      ],
+      "medications": [
+        "Metformin 500 mg PO twice daily",
+        "Amlodipine 5 mg PO daily",
+        "Acetaminophen PRN for joint pain"
+      ],
+      "allergies": [
+        "NKDA"
+      ],
+      "lastOralIntake": "Coffee and half a piece of toast this morning; poor intake for the last two days",
+      "events": "Four to five days of progressive redness and swelling from a garden abrasion, with fever and inability to ambulate developing this morning; the roommate called for a welfare check"
+    }
+  },
+  "scene": {
+    "dispatch": "78-year-old male, welfare check, unable to walk on his own, ground-floor apartment",
+    "location": "Clean ground-floor apartment; patient seated in a large recliner in the living room with his left leg propped on an ottoman",
+    "time": "7:33 AM, weekday morning",
+    "safety": "No hazards identified; apartment is tidy with clear access to the patient",
+    "bystanders": "Roommate, Sarah, an elderly woman who called for the welfare check and speaks quietly to the crew away from the patient",
+    "visualCues": [
+      "Left lower leg visibly swollen and red from the knee down, propped on an ottoman",
+      "Patient flushed and appears lethargic despite insisting he is fine",
+      "Waves the crew off dismissively as they approach",
+      "Small crusted-over abrasion visible on the lateral left ankle",
+      "Walker parked out of reach across the room",
+      "Roommate hovering anxiously near the doorway"
+    ]
+  },
+  "phases": [
+    {
+      "id": "initial",
+      "name": "Initial Contact",
+      "description": "Crew finds a 78-year-old male seated in a recliner with a red, swollen, hot left lower leg propped on an ottoman. He is alert and oriented but flushed, lethargic, febrile at 101.8 degrees Fahrenheit, tachycardic at 116, tachypneic at 22, and at the low end of normal for blood pressure. He waves the crew off and insists he does not need a hospital. The roommate reports he could not stand this morning without help.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": {
+          "eye": 4,
+          "verbal": 5,
+          "motor": 6
+        },
+        "airway": "Patent and self-maintained",
+        "breathing": "Slightly fast but not labored; lung sounds clear bilaterally",
+        "circulation": "Radial pulse rapid and full; skin very warm and dry to the touch; flash capillary refill",
+        "skin": {
+          "color": "flushed",
+          "temperature": "hot",
+          "moisture": "dry"
+        },
+        "pupils": "PERRL",
+        "motorFunction": "Strength grossly intact but unable to bear weight on the left leg; required assistance to stand this morning",
+        "otherFindings": [
+          "Alert and oriented to person, place, time, and event (A&O x4)",
+          "Left lower leg red, edematous, firm, and hot compared to the right",
+          "Small crusted abrasion on the lateral left ankle, four to five days old",
+          "Marked tenderness of the affected leg on palpation",
+          "Appears lethargic and flushed but denies feeling unwell",
+          "Downplays fatigue and refuses to acknowledge the fever",
+          "Roommate reports he was not making much sense earlier this morning"
+        ],
+        "patientSpeech": "\"I don't know why she bothered you folks. I'm fine. It's just a bum ankle. I don't need a hospital.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 116,
+        "bpSys": 108,
+        "bpDia": 60,
+        "respRate": 22,
+        "spo2": 95,
+        "etco2": 32,
+        "temp": 38.8,
+        "tempF": 101.8,
+        "obstruction": 0,
+        "glucose": 132,
+        "customMeasures": [],
+        "trendTimeSeconds": 0,
+        "visibility": {
+          "spo2Visible": true,
+          "spo2Attached": true,
+          "rrVisible": true,
+          "etco2Visible": true,
+          "cvpVisible": false
+        }
+      },
+      "expectedActions": [
+        {
+          "id": "a1",
+          "shortAction": "Full vitals including temperature; identify the systemic signs of sepsis",
+          "protocolExcerpt": "Signs of poor perfusion (due to a medical cause) such as one or more of the following: Altered mental status; Delayed capillary refill (> 3 seconds); Flash capillary refill (> 1 second) seen in early septic shock; Decreased urine output; Respiratory rate greater than 20 breaths per minute in adults or elevated in children; Tachycardia or bradycardia for age, out of proportion to temperature.",
+          "priority": "critical",
+          "rationale": "Fever with tachycardia, tachypnea, and a softening blood pressure is the evidence the crew will use to make the case for transport; without the numbers there is no argument.",
+          "protocolReference": "MATC: Shock"
+        },
+        {
+          "id": "a2",
+          "shortAction": "Examine the leg; identify cellulitis as the infection source",
+          "protocolExcerpt": "Extremities/skin: Track marks, hydration, edema, dialysis shunt, temperature to touch (or if able, use a thermometer), signs of trauma. Signs of infection: Fever, cough, skin changes, dysuria.",
+          "priority": "critical",
+          "rationale": "Connecting the local infection to the systemic signs is the clinical judgment the scenario is built on; a red leg alone is not an emergency, a red leg with sepsis is.",
+          "protocolReference": "MATC: Altered Mental Status"
+        },
+        {
+          "id": "a3",
+          "shortAction": "Check blood glucose; correct if less than 60 mg/dL",
+          "protocolExcerpt": "Check blood sugar, and correct if less than 60 mg/dL.",
+          "priority": "important",
+          "rationale": "He is diabetic with poor oral intake for two days; a low glucose would be both a contributor to his lethargy and a rapidly reversible one.",
+          "protocolReference": "MATC: Shock"
+        },
+        {
+          "id": "a4",
+          "shortAction": "Build rapport with calm verbal reassurance before pressing on transport",
+          "protocolExcerpt": "Establish patient rapport: Attempt verbal reassurance and calm patient prior to use of pharmacologic and/or physical management devices.",
+          "priority": "critical",
+          "rationale": "In this call the conversation is the intervention; a dismissive patient will not consent to anything until he feels heard.",
+          "protocolReference": "MATC: Agitated or Violent Patient/Behavioral Emergency"
+        },
+        {
+          "id": "a5",
+          "shortAction": "Engage the roommate to encourage the patient's cooperation",
+          "protocolExcerpt": "Engage family members/loved ones to encourage patient cooperation if their presence does not exacerbate the patient's agitation.",
+          "priority": "important",
+          "rationale": "Sarah already knows he is stubborn and has his trust; she is the most persuasive voice in the room and she is on the crew's side.",
+          "protocolReference": "MATC: Agitated or Violent Patient/Behavioral Emergency"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "consent-obtained",
+          "if": "Rapport built; patient consents to transport",
+          "condition": "Crew obtains a full set of vitals including temperature, examines the leg and connects the cellulitis to the systemic findings, establishes rapport with a respectful and unhurried tone, engages the roommate, and presents the assessment findings as evidence until the patient concedes and agrees to go.",
+          "conditionType": "action_taken",
+          "triggerActionIds": [
+            "a1",
+            "a2",
+            "a4",
+            "a5"
+          ]
+        },
+        {
+          "targetPhaseId": "refusal-hardened",
+          "if": "Confrontational approach; refusal hardens",
+          "condition": "Crew is confrontational, fails to explain the reasoning behind the concern, or gives up on the conversation too early; the patient becomes agitated, his refusal becomes adamant, and he threatens to call the police.",
+          "conditionType": "action_not_taken",
+          "triggerActionIds": [
+            "a4",
+            "a5"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "consent-obtained",
+      "name": "Rapport built; patient consents to transport",
+      "description": "After a persistent but respectful conversation in which the crew lays out the fever, the heart rate, the breathing rate, and what the spreading redness means, Frank sighs and concedes. He is calmer and visibly relieved to have the decision made for him. With consent obtained, the crew can now treat the sepsis rather than negotiate about it.",
+      "triggerCondition": "The crew used its own assessment findings as evidence rather than authority, kept the roommate involved, and gave the patient room to change his mind without losing face; he consents to transport.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": {
+          "eye": 4,
+          "verbal": 5,
+          "motor": 6
+        },
+        "airway": "Patent and self-maintained",
+        "breathing": "Slightly fast at 20/min, unlabored, lung sounds clear",
+        "circulation": "Radial pulse rapid and full; skin remains hot and dry; flash capillary refill",
+        "skin": {
+          "color": "flushed",
+          "temperature": "hot",
+          "moisture": "dry"
+        },
+        "pupils": "PERRL",
+        "motorFunction": "Cooperative with transfer; still cannot bear weight on the left leg",
+        "otherFindings": [
+          "Visibly calmer and cooperative once the decision is made",
+          "Allows full exposure and examination of the affected leg",
+          "Roommate gathering his medications and identification for the crew",
+          "Consents to IV access and treatment"
+        ],
+        "patientSpeech": "\"Alright, alright, you've made your point. If you really think it's that bad... let's go.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 110,
+        "bpSys": 110,
+        "bpDia": 62,
+        "respRate": 20,
+        "spo2": 96,
+        "etco2": 33,
+        "temp": 38.8,
+        "tempF": 101.8,
+        "obstruction": 0,
+        "glucose": 132,
+        "customMeasures": [],
+        "trendTimeSeconds": 45,
+        "visibility": {
+          "spo2Visible": true,
+          "spo2Attached": true,
+          "rrVisible": true,
+          "etco2Visible": true,
+          "cvpVisible": false
+        }
+      },
+      "expectedActions": [
+        {
+          "id": "b1",
+          "shortAction": "IV access; 500 mL isotonic bolus toward MAP 65 (30 mL/kg = 2,370 mL max)",
+          "protocolExcerpt": "Establish IV access. If unable to obtain within two attempts or less than 90 seconds, place an IO needle. Adult: Physiologic target: MAP goal 65 mmHg. Fluid goal of up to 30 mL/kg of isotonic fluid by administering rapid, predetermined boluses (e.g., 500 mL) unless the MAP goal is achieved, or pulmonary edema develops.",
+          "priority": "critical",
+          "rationale": "Early aggressive fluid is the core treatment for suspected septic shock; the boluses are titrated to a MAP goal rather than given as a fixed total.",
+          "protocolReference": "MATC: Shock"
+        },
+        {
+          "id": "b2",
+          "shortAction": "Acetaminophen 1,000 mg for fever (79 kg x 15 mg/kg = 1,185 mg, cap at 1,000 mg)",
+          "protocolExcerpt": "Antipyretics for fever - nonsteroidal anti-inflammatory agents are contraindicated in infants less than 6 months of age: Acetaminophen (15 mg/kg; maximum dose of 1000 mg); Ibuprofen (10 mg/kg; maximum dose of 800 mg).",
+          "priority": "supplemental",
+          "rationale": "The weight-based calculation exceeds the ceiling, so the dose caps at the protocol maximum; this is the kind of math the calculation must show explicitly.",
+          "protocolReference": "MATC: Shock"
+        },
+        {
+          "id": "b3",
+          "shortAction": "Provide advance notification of suspected sepsis to the receiving hospital",
+          "protocolExcerpt": "Provide advanced notification to the hospital.",
+          "priority": "critical",
+          "rationale": "A sepsis alert from the field starts the hospital's clock on cultures and antibiotics before the patient arrives.",
+          "protocolReference": "MATC: Shock"
+        },
+        {
+          "id": "b4",
+          "shortAction": "Document the rapport measures, the risks explained, and the eventual consent",
+          "protocolExcerpt": "Key Documentation Elements: Measures taken to establish patient rapport. Repeated assessment of mental status and trends in the level of patient cooperation.",
+          "priority": "important",
+          "rationale": "A call that turns on persuasion produces a long narrative; the initial refusal, the specific education given, and the change of mind all have to be on the record.",
+          "protocolReference": "MATC: Agitated or Violent Patient/Behavioral Emergency"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "en-route-sepsis-alert",
+          "if": "Fluids started; sepsis alert called",
+          "condition": "Crew establishes IV access, begins a 500 mL isotonic bolus titrated to a MAP of 65, provides an antipyretic, calls a sepsis alert to the receiving facility, and documents the refusal conversation and consent in the narrative.",
+          "conditionType": "action_taken",
+          "triggerActionIds": [
+            "b1",
+            "b3",
+            "b4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "en-route-sepsis-alert",
+      "name": "Fluids started; sepsis alert called",
+      "description": "The patient is packaged and transported with a fluid bolus running and a sepsis alert called in. His heart rate has come down modestly with the fluid and he remains alert and cooperative. The crew has converted a refusal into a treated septic patient in an emergency department, which was the whole point of the call.",
+      "triggerCondition": "With consent obtained, fluid resuscitation begun, and the hospital notified, the remaining work is monitoring and handoff; no further change in presentation is expected in the field.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": {
+          "eye": 4,
+          "verbal": 5,
+          "motor": 6
+        },
+        "airway": "Patent and self-maintained",
+        "breathing": "Unlabored at 18/min, lung sounds remain clear with fluid running",
+        "circulation": "Pulse slower and full; skin still warm but less flushed",
+        "skin": {
+          "color": "less flushed",
+          "temperature": "warm",
+          "moisture": "dry"
+        },
+        "pupils": "PERRL",
+        "motorFunction": "Comfortable on the stretcher with the left leg elevated",
+        "otherFindings": [
+          "500 mL isotonic bolus infusing; lungs rechecked and clear",
+          "Sepsis alert given to the receiving facility with the vitals and the source",
+          "Roommate has provided the medication list and will follow to the hospital",
+          "Reassessment documented at 15-minute intervals"
+        ],
+        "patientSpeech": "\"I suppose I should have called somebody a couple of days ago.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 104,
+        "bpSys": 116,
+        "bpDia": 66,
+        "respRate": 18,
+        "spo2": 97,
+        "etco2": 34,
+        "temp": 38.6,
+        "tempF": 101.5,
+        "obstruction": 0,
+        "glucose": 132,
+        "customMeasures": [],
+        "trendTimeSeconds": 45,
+        "visibility": {
+          "spo2Visible": true,
+          "spo2Attached": true,
+          "rrVisible": true,
+          "etco2Visible": true,
+          "cvpVisible": false
+        }
+      },
+      "expectedActions": [],
+      "transitions": []
+    },
+    {
+      "id": "refusal-hardened",
+      "name": "Confrontational approach; refusal hardens",
+      "description": "The conversation has gone badly. Frank is agitated, sitting forward in the recliner and raising his voice. His refusal has hardened from reluctance into an ultimatum and he is threatening to call the police. Meanwhile his heart rate has climbed and his blood pressure has drifted down. The crew now faces a patient refusing care he genuinely needs, with less rapport to work with than they started with.",
+      "triggerCondition": "A confrontational or dismissive approach, failure to explain the clinical reasoning, or giving up too early has cost the crew the rapport that this call depended on; the patient's agitation compounds his physiologic stress.",
+      "isDefault": false,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": {
+          "eye": 4,
+          "verbal": 5,
+          "motor": 6
+        },
+        "airway": "Patent and self-maintained",
+        "breathing": "Fast at 24/min from agitation and the underlying illness",
+        "circulation": "Radial pulse rapid; skin hot and now becoming diaphoretic with the agitation",
+        "skin": {
+          "color": "flushed",
+          "temperature": "hot",
+          "moisture": "diaphoretic"
+        },
+        "pupils": "PERRL",
+        "motorFunction": "Sitting forward in the chair, gesturing at the door; still unable to bear weight",
+        "otherFindings": [
+          "Refusal has escalated from reluctance to an ultimatum",
+          "Threatening to call the police to remove the crew",
+          "Roommate visibly distressed and stepping back from the conversation",
+          "Blood pressure trending down while heart rate climbs",
+          "No treatment has been delivered"
+        ],
+        "patientSpeech": "\"I told you I'm not going! Get out of my house before I call the police!\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 124,
+        "bpSys": 100,
+        "bpDia": 56,
+        "respRate": 24,
+        "spo2": 94,
+        "etco2": 30,
+        "temp": 38.8,
+        "tempF": 101.8,
+        "obstruction": 0,
+        "glucose": 132,
+        "customMeasures": [],
+        "trendTimeSeconds": 40,
+        "visibility": {
+          "spo2Visible": true,
+          "spo2Attached": true,
+          "rrVisible": true,
+          "etco2Visible": true,
+          "cvpVisible": false
+        }
+      },
+      "expectedActions": [
+        {
+          "id": "c1",
+          "shortAction": "Stop arguing; reset with calm verbal reassurance and reestablish rapport",
+          "protocolExcerpt": "Establish patient rapport: Attempt verbal reassurance and calm patient prior to use of pharmacologic and/or physical management devices. Continued verbal reassurance and calming of patient following use of chemical/physical management devices.",
+          "priority": "critical",
+          "rationale": "Escalating with a patient who has already dug in guarantees the refusal; the only available path back is to lower the temperature and start over.",
+          "protocolReference": "MATC: Agitated or Violent Patient/Behavioral Emergency"
+        },
+        {
+          "id": "c2",
+          "shortAction": "Reassess mentation and perfusion; worsening sepsis can impair capacity",
+          "protocolExcerpt": "Look for treatable causes of altered mental status (AMS): Glasgow Coma Score and/or AVPU. Signs of infection: Fever, cough, skin changes, dysuria.",
+          "priority": "critical",
+          "rationale": "A patient whose judgment is being degraded by his illness is a different legal and clinical problem than a competent patient refusing; that determination has to be made and documented.",
+          "protocolReference": "MATC: Altered Mental Status"
+        },
+        {
+          "id": "c3",
+          "shortAction": "Document the findings, the education given, and the refusal in detail",
+          "protocolExcerpt": "Key Documentation Elements: Measures taken to establish patient rapport. Repeated assessment of mental status and trends in the level of patient cooperation.",
+          "priority": "critical",
+          "rationale": "If the refusal stands, the narrative is the only protection for both the patient and the crew; every finding and every specific risk explained belongs in it.",
+          "protocolReference": "MATC: Agitated or Violent Patient/Behavioral Emergency"
+        }
+      ],
+      "transitions": []
+    }
+  ],
+  "realiti": {
+    "scenarioMonitorType": 2,
+    "scenarioDefaultEnergy": 200,
+    "scenarioDefaultPacerThreshold": 55
+  }
+}
