@@ -81,19 +81,54 @@
         "trendTimeSeconds": 0,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [],
+      "expectedActions": [
+        {
+          "id": "a1",
+          "shortAction": "Nebulized epinephrine 5 mg (5 mL of 1 mg/mL solution); may repeat in 20 minutes",
+          "protocolExcerpt": "Inhaled medications should be administered to all children with croup in respiratory distress with signs of stridor at rest—these medications should be repeated at this dose with unlimited frequency for ongoing respiratory distress. Epinephrine 5 mg (5 mL of 1 mg/mL solution) nebulized (may repeat in 20 minutes as needed)",
+          "priority": "critical",
+          "rationale": "Stridor at rest indicates significant upper airway narrowing requiring nebulized epinephrine per protocol.",
+          "protocolReference": "MATC: Pediatric Respiratory Distress (Croup)"
+        },
+        {
+          "id": "a2",
+          "shortAction": "Dexamethasone 8.4 mg PO (14 kg × 0.6 mg/kg; max 16 mg)",
+          "protocolExcerpt": "Dexamethasone 0.6 mg/kg oral, IV, or IM to maximum dose of 16 mg should be administered to patients with suspected croup",
+          "priority": "critical",
+          "rationale": "Dexamethasone reduces airway inflammation and shortens duration of symptoms in croup.",
+          "protocolReference": "MATC: Pediatric Respiratory Distress (Croup)"
+        },
+        {
+          "id": "a3",
+          "shortAction": "Escalate supplemental oxygen (nasal cannula → face mask → non-rebreather) to target SpO2 94–98%",
+          "protocolExcerpt": "Give supplemental oxygen. Escalate from a nasal cannula to a simple face mask to a non-breather mask to SpO2 94–98%",
+          "priority": "important",
+          "rationale": "Titrated oxygen escalation corrects mild hypoxia without unnecessary invasive intervention.",
+          "protocolReference": "MATC: Pediatric Respiratory Distress (Croup)"
+        },
+        {
+          "id": "a4",
+          "shortAction": "Apply continuous pulse oximetry and EtCO2 monitoring as adjuncts to respiratory assessment",
+          "protocolExcerpt": "Pulse oximetry and EtCO2 should be routinely used as an adjunct to other forms of respiratory monitoring",
+          "priority": "important",
+          "rationale": "Continuous monitoring detects early deterioration or improvement trends.",
+          "protocolReference": "MATC: Pediatric Respiratory Distress (Croup)"
+        }
+      ],
       "transitions": [
         {
           "targetPhaseId": "epi-dex-given",
           "if": "Nebulized epi and dexamethasone given",
           "condition": "Crew recognizes stridor at rest as an indication for inhaled epinephrine and administers nebulized epinephrine along with oral/IM dexamethasone while keeping the child calm in his mother's lap.",
-          "conditionType": "action_taken"
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a1", "a2"]
         },
         {
           "targetPhaseId": "epi-delayed",
           "if": "Nebulized epi delayed",
           "condition": "Crew delays nebulized epinephrine to attempt IV access or other lower-priority tasks first, agitating the child and allowing work of breathing to worsen toward impending respiratory failure.",
-          "conditionType": "action_not_taken"
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["a1"]
         }
       ]
     },
@@ -139,35 +174,19 @@
       },
       "expectedActions": [
         {
-          "id": "a1-neb-epi",
-          "shortAction": "Nebulized epinephrine 5 mg (5 mL of 1 mg/mL solution); may repeat in 20 minutes",
-          "protocolExcerpt": "Inhaled medications should be administered to all children with croup in respiratory distress with signs of stridor at rest—these medications should be repeated at this dose with unlimited frequency for ongoing respiratory distress. Epinephrine 5 mg (5 mL of 1 mg/mL solution) nebulized (may repeat in 20 minutes as needed)",
-          "priority": "critical",
-          "rationale": "Stridor at rest indicates significant upper airway narrowing requiring nebulized epinephrine per protocol.",
-          "protocolReference": "MATC: Pediatric Respiratory Distress (Croup)"
-        },
-        {
-          "id": "a2-dexamethasone",
-          "shortAction": "Dexamethasone 8.4 mg PO (14 kg × 0.6 mg/kg; max 16 mg)",
-          "protocolExcerpt": "Dexamethasone 0.6 mg/kg oral, IV, or IM to maximum dose of 16 mg should be administered to patients with suspected croup",
-          "priority": "critical",
-          "rationale": "Dexamethasone reduces airway inflammation and shortens duration of symptoms in croup.",
-          "protocolReference": "MATC: Pediatric Respiratory Distress (Croup)"
-        },
-        {
-          "id": "a3-o2-escalation",
-          "shortAction": "Escalate supplemental oxygen (nasal cannula → face mask → non-rebreather) to target SpO2 94–98%",
-          "protocolExcerpt": "Give supplemental oxygen. Escalate from a nasal cannula to a simple face mask to a non-breather mask to SpO2 94–98%",
+          "id": "b1",
+          "shortAction": "Transport calmly without lights and sirens; continue to hospital for post-epinephrine observation",
+          "protocolExcerpt": "Routine use of lights and sirens is not recommended during transport. Patients who receive inhaled epinephrine should be transported to definitive care",
           "priority": "important",
-          "rationale": "Titrated oxygen escalation corrects mild hypoxia without unnecessary invasive intervention.",
+          "rationale": "Avoiding lights/sirens reduces patient anxiety, which can worsen upper airway obstruction; all epinephrine-treated croup patients require ED observation for rebound.",
           "protocolReference": "MATC: Pediatric Respiratory Distress (Croup)"
         },
         {
-          "id": "a4-monitoring",
-          "shortAction": "Apply continuous pulse oximetry and EtCO2 monitoring as adjuncts to respiratory assessment",
-          "protocolExcerpt": "Pulse oximetry and EtCO2 should be routinely used as an adjunct to other forms of respiratory monitoring",
+          "id": "b2",
+          "shortAction": "Reassess for rebound stridor at rest before epinephrine effect wanes; repeat dose if it recurs",
+          "protocolExcerpt": "Epinephrine 5 mg (5 mL of 1 mg/mL solution) nebulized (may repeat in 20 minutes as needed)",
           "priority": "important",
-          "rationale": "Continuous monitoring detects early deterioration or improvement trends.",
+          "rationale": "Nebulized epinephrine's effect is temporary; ongoing reassessment catches rebound distress before it becomes severe.",
           "protocolReference": "MATC: Pediatric Respiratory Distress (Croup)"
         }
       ],
@@ -177,7 +196,7 @@
           "if": "Stridor improved, transport initiated",
           "condition": "Stridor and retractions decrease after nebulized epinephrine and dexamethasone; crew transports the child calmly without lights and sirens per protocol.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["a1-neb-epi", "a3-o2-escalation"]
+          "triggerActionIds": ["b1", "b2"]
         }
       ]
     },
@@ -220,24 +239,7 @@
         "trendTimeSeconds": 40,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [
-        {
-          "id": "a5-transport-no-ls",
-          "shortAction": "Transport calmly without lights and sirens; continue to hospital for post-epinephrine observation",
-          "protocolExcerpt": "Routine use of lights and sirens is not recommended during transport. Patients who receive inhaled epinephrine should be transported to definitive care",
-          "priority": "important",
-          "rationale": "Avoiding lights/sirens reduces patient anxiety, which can worsen upper airway obstruction; all epinephrine-treated croup patients require ED observation for rebound.",
-          "protocolReference": "MATC: Pediatric Respiratory Distress (Croup)"
-        },
-        {
-          "id": "a6-reassess-rebound",
-          "shortAction": "Reassess for rebound stridor at rest before epinephrine effect wanes; repeat dose if it recurs",
-          "protocolExcerpt": "Epinephrine 5 mg (5 mL of 1 mg/mL solution) nebulized (may repeat in 20 minutes as needed)",
-          "priority": "important",
-          "rationale": "Nebulized epinephrine's effect is temporary; ongoing reassessment catches rebound distress before it becomes severe.",
-          "protocolReference": "MATC: Pediatric Respiratory Distress (Croup)"
-        }
-      ],
+      "expectedActions": [],
       "transitions": []
     },
     {
@@ -281,7 +283,7 @@
       },
       "expectedActions": [
         {
-          "id": "a7-recognize-impending-failure",
+          "id": "c1",
           "shortAction": "Recognize impending respiratory failure (fatigue, pallor, decreasing stridor/retractions); give nebulized epinephrine immediately",
           "protocolExcerpt": "Impending respiratory failure is indicated by: Change in mental status such as fatigue and listlessness; Pallor; Dusky appearance; Decreased retractions; Decreased breath sounds with decreasing stridor",
           "priority": "critical",

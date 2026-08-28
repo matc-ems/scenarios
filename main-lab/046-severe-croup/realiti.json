@@ -57,7 +57,12 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [],
+      "relatedChecklist": [
+        "Nebulized epinephrine 5 mg (5 mL of 1 mg/mL solution); may repeat in 20 minutes",
+        "Dexamethasone 8.4 mg PO (14 kg × 0.6 mg/kg; max 16 mg)",
+        "Escalate supplemental oxygen (nasal cannula → face mask → non-rebreather) to target SpO2 94–98%",
+        "Apply continuous pulse oximetry and EtCO2 monitoring as adjuncts to respiratory assessment"
+      ],
       "relatedSounds": []
     },
     {
@@ -90,10 +95,8 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Nebulized epinephrine 5 mg (5 mL of 1 mg/mL solution); may repeat in 20 minutes",
-        "Dexamethasone 8.4 mg PO (14 kg × 0.6 mg/kg; max 16 mg)",
-        "Escalate supplemental oxygen (nasal cannula → face mask → non-rebreather) to target SpO2 94–98%",
-        "Apply continuous pulse oximetry and EtCO2 monitoring as adjuncts to respiratory assessment"
+        "Transport calmly without lights and sirens; continue to hospital for post-epinephrine observation",
+        "Reassess for rebound stridor at rest before epinephrine effect wanes; repeat dose if it recurs"
       ],
       "relatedSounds": []
     },
@@ -126,10 +129,7 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [
-        "Transport calmly without lights and sirens; continue to hospital for post-epinephrine observation",
-        "Reassess for rebound stridor at rest before epinephrine effect wanes; repeat dose if it recurs"
-      ],
+      "relatedChecklist": [],
       "relatedSounds": []
     },
     {
