@@ -84,19 +84,69 @@
         "trendTimeSeconds": 0,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [],
+      "expectedActions": [
+        {
+          "id": "a1",
+          "shortAction": "Apply commercial tourniquet 2-3 inches proximal to wound until bleeding stops and distal pulse eliminated",
+          "protocolExcerpt": "If the bleeding site is amenable to tourniquet placement, apply a commercial tourniquet to extremity: Tourniquet should be placed 2–3 inches proximal to wound, not over a joint, and tightened until bleeding stops and distal pulse is eliminated",
+          "priority": "critical",
+          "rationale": "Direct pressure alone has failed to control brisk arterial bleeding; a tourniquet is the definitive next step before shock worsens.",
+          "protocolReference": "MATC: Extremity Trauma/External Hemorrhage Management"
+        },
+        {
+          "id": "a2",
+          "shortAction": "Be prepared to apply a second tourniquet proximal to the first if bleeding continues, given the proximal thigh location",
+          "protocolExcerpt": "If bleeding continues, place a second tourniquet proximal to the first. For thigh wounds, consider placement of two tourniquets, side-by-side, and tighten sequentially",
+          "priority": "important",
+          "rationale": "Proximal thigh wounds may require a second tourniquet due to the large muscle mass and dual blood supply.",
+          "protocolReference": "MATC: Extremity Trauma/External Hemorrhage Management"
+        },
+        {
+          "id": "a3",
+          "shortAction": "Mark and document tourniquet application time prominently on patient and in the patient care report",
+          "protocolExcerpt": "Mark the time of tourniquet placement prominently on the patient and in the patient care report",
+          "priority": "important",
+          "rationale": "Tourniquet time is essential information for receiving trauma surgeons managing limb viability.",
+          "protocolReference": "MATC: Extremity Trauma/External Hemorrhage Management"
+        },
+        {
+          "id": "a4",
+          "shortAction": "Establish IV access and give TXA, within 3 hours of injury with signs of hemorrhagic shock",
+          "protocolExcerpt": "Tranexamic acid (TXA) administration may be considered within three hours of injury and signs of hemorrhagic shock",
+          "priority": "critical",
+          "rationale": "This injury is well within the 3-hour window and the patient shows clear signs of hemorrhagic shock, meeting criteria for TXA consideration.",
+          "protocolReference": "MATC: General Trauma Management"
+        },
+        {
+          "id": "a5",
+          "shortAction": "Give 500 mL crystalloid bolus targeting SBP 90 mmHg since blood products unavailable",
+          "protocolExcerpt": "If SBP less than 90 mmHg or HR greater than 120 BPM, initiate resuscitation: Blood products are recommended if available. If blood products not available, consider 500 mL bolus of IV fluid, repeat as needed for persistent signs and symptoms of shock. Trauma resuscitation target SBP 90 mmHg (palpable radial pulse or alert mental status)",
+          "priority": "critical",
+          "rationale": "SBP is below 90 mmHg, meeting the protocol threshold for fluid resuscitation toward the trauma target.",
+          "protocolReference": "MATC: General Trauma Management"
+        }
+      ],
       "transitions": [
         {
           "targetPhaseId": "hemorrhage-controlled",
           "if": "Tourniquet applied",
           "condition": "Crew immediately recognizes life-threatening extremity hemorrhage on the MARCH primary survey and applies a commercial tourniquet proximal to the wound rather than continuing with direct pressure alone.",
-          "conditionType": "action_taken"
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a1", "a4", "a5"]
         },
         {
           "targetPhaseId": "hemorrhage-uncontrolled",
           "if": "Tourniquet delayed, direct pressure only",
           "condition": "Crew continues with direct pressure and a pressure dressing alone despite ongoing brisk arterial bleeding, delaying tourniquet application.",
-          "conditionType": "action_not_taken"
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["a1"]
+        },
+        {
+          "targetPhaseId": "tourniquet-loosened",
+          "if": "Tourniquet loosened for pain",
+          "condition": "Crew loosens the tourniquet in response to the patient's pain, against protocol guidance not to loosen a tourniquet to relieve discomfort.",
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a1"]
         }
       ]
     },
@@ -141,44 +191,20 @@
       },
       "expectedActions": [
         {
-          "id": "a1-tourniquet",
-          "shortAction": "Apply commercial tourniquet 2-3 inches proximal to wound until bleeding stops and distal pulse eliminated",
-          "protocolExcerpt": "If the bleeding site is amenable to tourniquet placement, apply a commercial tourniquet to extremity: Tourniquet should be placed 2–3 inches proximal to wound, not over a joint, and tightened until bleeding stops and distal pulse is eliminated",
+          "id": "b1",
+          "shortAction": "Minimize scene time and initiate rapid transport to trauma center, goal under 10 minutes",
+          "protocolExcerpt": "Minimize scene time (goal is under 10 minutes) and initiate rapid transport to the highest level of care within the trauma system",
           "priority": "critical",
-          "rationale": "Direct pressure alone has failed to control brisk arterial bleeding; a tourniquet is the definitive next step before shock worsens.",
-          "protocolReference": "MATC: Extremity Trauma/External Hemorrhage Management"
-        },
-        {
-          "id": "a2-second-tourniquet-consideration",
-          "shortAction": "Be prepared to apply a second tourniquet proximal to the first if bleeding continues, given the proximal thigh location",
-          "protocolExcerpt": "If bleeding continues, place a second tourniquet proximal to the first. For thigh wounds, consider placement of two tourniquets, side-by-side, and tighten sequentially",
-          "priority": "important",
-          "rationale": "Proximal thigh wounds may require a second tourniquet due to the large muscle mass and dual blood supply.",
-          "protocolReference": "MATC: Extremity Trauma/External Hemorrhage Management"
-        },
-        {
-          "id": "a3-mark-time",
-          "shortAction": "Mark and document tourniquet application time prominently on patient and in the patient care report",
-          "protocolExcerpt": "Mark the time of tourniquet placement prominently on the patient and in the patient care report",
-          "priority": "important",
-          "rationale": "Tourniquet time is essential information for receiving trauma surgeons managing limb viability.",
-          "protocolReference": "MATC: Extremity Trauma/External Hemorrhage Management"
-        },
-        {
-          "id": "a4-iv-txa",
-          "shortAction": "Establish IV access and give TXA, within 3 hours of injury with signs of hemorrhagic shock",
-          "protocolExcerpt": "Tranexamic acid (TXA) administration may be considered within three hours of injury and signs of hemorrhagic shock",
-          "priority": "critical",
-          "rationale": "This injury is well within the 3-hour window and the patient shows clear signs of hemorrhagic shock, meeting criteria for TXA consideration.",
+          "rationale": "Penetrating trauma with major hemorrhage requires rapid surgical intervention; every minute on scene delays definitive care.",
           "protocolReference": "MATC: General Trauma Management"
         },
         {
-          "id": "a5-fluid-bolus",
-          "shortAction": "Give 500 mL crystalloid bolus targeting SBP 90 mmHg since blood products unavailable",
-          "protocolExcerpt": "If SBP less than 90 mmHg or HR greater than 120 BPM, initiate resuscitation: Blood products are recommended if available. If blood products not available, consider 500 mL bolus of IV fluid, repeat as needed for persistent signs and symptoms of shock. Trauma resuscitation target SBP 90 mmHg (palpable radial pulse or alert mental status)",
-          "priority": "critical",
-          "rationale": "SBP is below 90 mmHg, meeting the protocol threshold for fluid resuscitation toward the trauma target.",
-          "protocolReference": "MATC: General Trauma Management"
+          "id": "b2",
+          "shortAction": "Reassess tourniquet and vitals frequently en route without removing the tourniquet or dressing",
+          "protocolExcerpt": "Without removing the tourniquet or dressing, reassess frequently for signs of ongoing or renewed bleeding, such as: Blood soaking through dressing, Bleeding distal to tourniquet",
+          "priority": "important",
+          "rationale": "Continued vigilance ensures the tourniquet remains effective throughout transport without disturbing hemorrhage control.",
+          "protocolReference": "MATC: Extremity Trauma/External Hemorrhage Management"
         }
       ],
       "transitions": [
@@ -187,14 +213,7 @@
           "if": "Bleeding controlled, TXA and fluids given",
           "condition": "Tourniquet remains effective, TXA and a fluid bolus have been given, and the patient's perfusion is improving. Crew prepares for rapid transport.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["a1-tourniquet", "a4-iv-txa", "a5-fluid-bolus"]
-        },
-        {
-          "targetPhaseId": "tourniquet-loosened",
-          "if": "Tourniquet loosened for pain",
-          "condition": "Crew loosens the tourniquet in response to the patient's pain, against protocol guidance not to loosen a tourniquet to relieve discomfort.",
-          "conditionType": "action_taken",
-          "triggerActionIds": ["a1-tourniquet"]
+          "triggerActionIds": ["b1", "b2"]
         }
       ]
     },
@@ -237,24 +256,7 @@
         "trendTimeSeconds": 40,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [
-        {
-          "id": "a6-scene-time",
-          "shortAction": "Minimize scene time and initiate rapid transport to trauma center, goal under 10 minutes",
-          "protocolExcerpt": "Minimize scene time (goal is under 10 minutes) and initiate rapid transport to the highest level of care within the trauma system",
-          "priority": "critical",
-          "rationale": "Penetrating trauma with major hemorrhage requires rapid surgical intervention; every minute on scene delays definitive care.",
-          "protocolReference": "MATC: General Trauma Management"
-        },
-        {
-          "id": "a7-serial-reassess",
-          "shortAction": "Reassess tourniquet and vitals frequently en route without removing the tourniquet or dressing",
-          "protocolExcerpt": "Without removing the tourniquet or dressing, reassess frequently for signs of ongoing or renewed bleeding, such as: Blood soaking through dressing, Bleeding distal to tourniquet",
-          "priority": "important",
-          "rationale": "Continued vigilance ensures the tourniquet remains effective throughout transport without disturbing hemorrhage control.",
-          "protocolReference": "MATC: Extremity Trauma/External Hemorrhage Management"
-        }
-      ],
+      "expectedActions": [],
       "transitions": []
     },
     {
@@ -298,7 +300,7 @@
       },
       "expectedActions": [
         {
-          "id": "a8-recognize-failure",
+          "id": "c1",
           "shortAction": "Recognize direct pressure has failed; apply commercial tourniquet 2-3 inches proximal to wound immediately",
           "protocolExcerpt": "If direct pressure/pressure dressing is ineffective or impractical: If the bleeding site is amenable to tourniquet placement, apply a commercial tourniquet to extremity",
           "priority": "critical",
@@ -348,7 +350,7 @@
       },
       "expectedActions": [
         {
-          "id": "a9-retighten",
+          "id": "d1",
           "shortAction": "Retighten tourniquet immediately; do not loosen for pain, treat pain with analgesics instead",
           "protocolExcerpt": "Properly-applied tourniquets in conscious patients are painful – treat pain with analgesics, but do not loosen a tourniquet to relieve discomfort. Do not loosen tourniquet to relieve pain",
           "priority": "critical",

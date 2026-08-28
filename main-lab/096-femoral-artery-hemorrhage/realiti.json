@@ -57,7 +57,13 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [],
+      "relatedChecklist": [
+        "Apply commercial tourniquet 2-3 inches proximal to wound until bleeding stops and distal pulse eliminated",
+        "Be prepared to apply a second tourniquet proximal to the first if bleeding continues, given the proximal thigh location",
+        "Mark and document tourniquet application time prominently on patient and in the patient care report",
+        "Establish IV access and give TXA, within 3 hours of injury with signs of hemorrhagic shock",
+        "Give 500 mL crystalloid bolus targeting SBP 90 mmHg since blood products unavailable"
+      ],
       "relatedSounds": []
     },
     {
@@ -90,11 +96,8 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Apply commercial tourniquet 2-3 inches proximal to wound until bleeding stops and distal pulse eliminated",
-        "Be prepared to apply a second tourniquet proximal to the first if bleeding continues, given the proximal thigh location",
-        "Mark and document tourniquet application time prominently on patient and in the patient care report",
-        "Establish IV access and give TXA, within 3 hours of injury with signs of hemorrhagic shock",
-        "Give 500 mL crystalloid bolus targeting SBP 90 mmHg since blood products unavailable"
+        "Minimize scene time and initiate rapid transport to trauma center, goal under 10 minutes",
+        "Reassess tourniquet and vitals frequently en route without removing the tourniquet or dressing"
       ],
       "relatedSounds": []
     },
@@ -127,10 +130,7 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [
-        "Minimize scene time and initiate rapid transport to trauma center, goal under 10 minutes",
-        "Reassess tourniquet and vitals frequently en route without removing the tourniquet or dressing"
-      ],
+      "relatedChecklist": [],
       "relatedSounds": []
     },
     {
