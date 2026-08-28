@@ -120,7 +120,7 @@
           "if": "ASA withheld; symptoms progress",
           "condition": "Crew accepts the patient's 'indigestion' framing at face value, does not recognize the presentation as suspicious for ACS, and does not administer aspirin.",
           "conditionType": "action_not_taken",
-          "triggerActionIds": ["a3-asa"]
+          "triggerActionIds": ["a1-opqrst", "a3-asa"]
         }
       ]
     },
@@ -165,11 +165,11 @@
       },
       "expectedActions": [
         {
-          "id": "a4-reassess-response",
-          "shortAction": "Reassess pain score and full vital signs after aspirin and oxygen",
-          "protocolExcerpt": "Patient Care Goals: Monitor vital signs and cardiac rhythm and be prepared to provide CPR and defibrillation if needed",
+          "id": "a4-serial-reassess",
+          "shortAction": "Reassess vital signs and pain level serially; observe for deterioration",
+          "protocolExcerpt": "Observe for signs of clinical deterioration: dysrhythmias, chest pain, shortness of breath, decreased level of consciousness/syncope, or other signs of shock/hypotension",
           "priority": "critical",
-          "rationale": "Confirms the response to aspirin and oxygen and sets the baseline the crew trends against en route.",
+          "rationale": "ACS patients can deteriorate suddenly; ongoing reassessment catches early warning signs.",
           "protocolReference": "MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)"
         },
         {
@@ -187,7 +187,7 @@
           "if": "Prepared for prompt transport",
           "condition": "Patient is packaged for transport with ongoing reassessment; crew minimizes scene time given suspected ACS.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["a4-reassess-response", "a5-transport-decision"]
+          "triggerActionIds": ["a4-serial-reassess", "a5-transport-decision"]
         }
       ]
     },
@@ -230,24 +230,7 @@
         "trendTimeSeconds": 40,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [
-        {
-          "id": "a6-serial-reassess",
-          "shortAction": "Reassess vital signs and pain level serially en route; observe for deterioration",
-          "protocolExcerpt": "Observe for signs of clinical deterioration: dysrhythmias, chest pain, shortness of breath, decreased level of consciousness/syncope, or other signs of shock/hypotension",
-          "priority": "critical",
-          "rationale": "ACS patients can deteriorate suddenly; ongoing reassessment catches early warning signs.",
-          "protocolReference": "MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)"
-        },
-        {
-          "id": "a7-notify-receiving",
-          "shortAction": "Give early notification to the receiving facility",
-          "protocolExcerpt": "Assessment, Treatment, and Interventions: Early notification to receiving facility of any changes in patient condition or serial EKGs",
-          "priority": "important",
-          "rationale": "Early notification lets the receiving facility activate its cardiac system of care before arrival.",
-          "protocolReference": "MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)"
-        }
-      ],
+      "expectedActions": [],
       "transitions": []
     },
     {
@@ -291,7 +274,7 @@
       },
       "expectedActions": [
         {
-          "id": "a8-recognize-late",
+          "id": "a6-recognize-late",
           "shortAction": "Recognize worsening presentation as ACS; give aspirin 324 mg PO chewable and apply oxygen now",
           "protocolExcerpt": "Observe for signs of clinical deterioration: dysrhythmias, chest pain, shortness of breath, decreased level of consciousness/syncope, or other signs of shock/hypotension",
           "priority": "critical",

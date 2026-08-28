@@ -94,7 +94,7 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Reassess pain score and full vital signs after aspirin and oxygen",
+        "Reassess vital signs and pain level serially; observe for deterioration",
         "Transport promptly, minimizing scene time; base destination on local system of care"
       ],
       "relatedSounds": []
@@ -128,10 +128,7 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [
-        "Reassess vital signs and pain level serially en route; observe for deterioration",
-        "Give early notification to the receiving facility"
-      ],
+      "relatedChecklist": [],
       "relatedSounds": []
     },
     {
@@ -189,25 +186,13 @@
       "icon": 1
     },
     {
-      "title": "Reassess pain score and full vital signs after aspirin and oxygen",
+      "title": "Reassess vital signs and pain level serially; observe for deterioration",
       "type": "Check",
       "value": 0,
       "icon": 1
     },
     {
       "title": "Transport promptly, minimizing scene time; base destination on local system of care",
-      "type": "Check",
-      "value": 0,
-      "icon": 1
-    },
-    {
-      "title": "Reassess vital signs and pain level serially en route; observe for deterioration",
-      "type": "Check",
-      "value": 0,
-      "icon": 1
-    },
-    {
-      "title": "Give early notification to the receiving facility",
       "type": "Check",
       "value": 0,
       "icon": 1
