@@ -57,7 +57,11 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [],
+      "relatedChecklist": [
+        "Recognize hypovolemia from dry mucous membranes, tenting skin, tachycardia, borderline BP",
+        "Check blood glucose to rule out hypoglycemia as a contributing cause",
+        "Establish peripheral IV access, using a proximal/larger vein given fragile skin and small distal veins"
+      ],
       "relatedSounds": []
     },
     {
@@ -90,9 +94,6 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Recognize hypovolemia from dry mucous membranes, tenting skin, tachycardia, borderline BP",
-        "Check blood glucose to rule out hypoglycemia as a contributing cause",
-        "Establish peripheral IV access, using a proximal/larger vein given fragile skin and small distal veins",
         "Administer 500 mL NS bolus IV, pressure-infused over less than 15 minutes, reassess"
       ],
       "relatedSounds": []

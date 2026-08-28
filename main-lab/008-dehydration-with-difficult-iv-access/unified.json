@@ -81,19 +81,46 @@
         "trendTimeSeconds": 0,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [],
+      "expectedActions": [
+        {
+          "id": "a1",
+          "shortAction": "Recognize hypovolemia from dry mucous membranes, tenting skin, tachycardia, borderline BP",
+          "protocolExcerpt": "Signs of poor perfusion (due to a medical cause) such as one or more of the following: Tachycardia or bradycardia for age... Mucous membrane hydration... Skin (turgor, rash)",
+          "priority": "critical",
+          "rationale": "Recognizing volume depletion drives the decision to obtain IV access and give fluids.",
+          "protocolReference": "MATC: Shock"
+        },
+        {
+          "id": "a2",
+          "shortAction": "Check blood glucose to rule out hypoglycemia as a contributing cause",
+          "protocolExcerpt": "Check blood sugar, and correct if less than 60 mg/dL",
+          "priority": "important",
+          "rationale": "Altered baseline mentation and poor intake could reflect hypoglycemia, which must be excluded.",
+          "protocolReference": "MATC: Shock"
+        },
+        {
+          "id": "a3",
+          "shortAction": "Establish peripheral IV access, using a proximal/larger vein given fragile skin and small distal veins",
+          "protocolExcerpt": "Establish IV access. If unable to obtain within two attempts or less than 90 seconds, place an IO needle",
+          "priority": "critical",
+          "rationale": "Reliable IV access is required to deliver fluid resuscitation in a hypovolemic patient.",
+          "protocolReference": "MATC: Shock"
+        }
+      ],
       "transitions": [
         {
           "targetPhaseId": "iv-access-success",
           "if": "IV access obtained within two attempts",
           "condition": "Crew recognizes signs of hypovolemia, checks blood glucose, and successfully establishes peripheral IV access within two attempts and under 90 seconds despite fragile veins.",
-          "conditionType": "action_taken"
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a3"]
         },
         {
           "targetPhaseId": "io-access",
           "if": "IV access fails twice / exceeds 90 seconds",
           "condition": "Crew attempts IV access on the fragile veins but fails after two attempts or exceeds 90 seconds, meeting criteria to place an IO needle instead.",
-          "conditionType": "action_not_taken"
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["a3"]
         }
       ]
     },
@@ -137,31 +164,7 @@
       },
       "expectedActions": [
         {
-          "id": "a1-recognize",
-          "shortAction": "Recognize hypovolemia from dry mucous membranes, tenting skin, tachycardia, borderline BP",
-          "protocolExcerpt": "Signs of poor perfusion (due to a medical cause) such as one or more of the following: Tachycardia or bradycardia for age... Mucous membrane hydration... Skin (turgor, rash)",
-          "priority": "critical",
-          "rationale": "Recognizing volume depletion drives the decision to obtain IV access and give fluids.",
-          "protocolReference": "MATC: Shock"
-        },
-        {
-          "id": "a2-glucose",
-          "shortAction": "Check blood glucose to rule out hypoglycemia as a contributing cause",
-          "protocolExcerpt": "Check blood sugar, and correct if less than 60 mg/dL",
-          "priority": "important",
-          "rationale": "Altered baseline mentation and poor intake could reflect hypoglycemia, which must be excluded.",
-          "protocolReference": "MATC: Shock"
-        },
-        {
-          "id": "a3-iv-access",
-          "shortAction": "Establish peripheral IV access, using a proximal/larger vein given fragile skin and small distal veins",
-          "protocolExcerpt": "Establish IV access. If unable to obtain within two attempts or less than 90 seconds, place an IO needle",
-          "priority": "critical",
-          "rationale": "Reliable IV access is required to deliver fluid resuscitation in a hypovolemic patient.",
-          "protocolReference": "MATC: Shock"
-        },
-        {
-          "id": "a4-fluid-bolus",
+          "id": "b1",
           "shortAction": "Administer 500 mL NS bolus IV, pressure-infused over less than 15 minutes, reassess",
           "protocolExcerpt": "IV fluid volume goal attained by giving boluses that are pressure infused over less than 15 minutes each... Fluid goal of up to 30 mL/kg of isotonic fluid by administering rapid, predetermined boluses (e.g., 500 mL) unless the MAP goal is achieved, or pulmonary edema develops",
           "priority": "critical",
@@ -175,7 +178,7 @@
           "if": "Fluid bolus given and improving",
           "condition": "After the fluid bolus, heart rate and blood pressure trend toward normal and mentation improves toward baseline.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["a4-fluid-bolus"]
+          "triggerActionIds": ["b1"]
         }
       ]
     },
@@ -219,7 +222,7 @@
       },
       "expectedActions": [
         {
-          "id": "a5-io-access",
+          "id": "c1",
           "shortAction": "Place IO needle after two failed IV attempts / 90 seconds elapsed",
           "protocolExcerpt": "Establish IV access. If unable to obtain within two attempts or less than 90 seconds, place an IO needle",
           "priority": "critical",
@@ -227,7 +230,7 @@
           "protocolReference": "MATC: Shock"
         },
         {
-          "id": "a6-fluid-bolus-io",
+          "id": "c2",
           "shortAction": "Administer 500 mL NS bolus via IO, pressure-infused, reassess",
           "protocolExcerpt": "IV fluid volume goal attained by giving boluses that are pressure infused over less than 15 minutes each... Fluid goal of up to 30 mL/kg of isotonic fluid by administering rapid, predetermined boluses (e.g., 500 mL) unless the MAP goal is achieved, or pulmonary edema develops",
           "priority": "critical",
@@ -241,7 +244,7 @@
           "if": "Fluid bolus given and improving",
           "condition": "After the IO fluid bolus, heart rate and blood pressure trend toward normal and mentation improves toward baseline.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["a6-fluid-bolus-io"]
+          "triggerActionIds": ["c2"]
         }
       ]
     },
@@ -285,7 +288,7 @@
       },
       "expectedActions": [
         {
-          "id": "a7-reassess",
+          "id": "d1",
           "shortAction": "Reassess vital signs and mental status; continue fluids toward MAP goal of 65 mmHg",
           "protocolExcerpt": "Physiologic target: MAP goal 65 mmHg",
           "priority": "important",
@@ -293,7 +296,7 @@
           "protocolReference": "MATC: Shock"
         },
         {
-          "id": "a8-notification",
+          "id": "d2",
           "shortAction": "Provide advance notification to the receiving hospital",
           "protocolExcerpt": "Provide advanced notification to the hospital",
           "priority": "supplemental",
