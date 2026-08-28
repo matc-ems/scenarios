@@ -61,7 +61,11 @@
         "Obtain full vital signs: pulse, BP, respiratory rate, neuro status",
         "Take focused SAMPLE history on GI symptoms, oral intake, and urination",
         "Assess skin turgor, mucous membrane hydration, and capillary refill",
-        "Perform airway assessment per Airway Management Guideline"
+        "Perform airway assessment per Airway Management Guideline",
+        "Check blood glucose level",
+        "Recognize tachycardia with a maintained BP as early compensated shock",
+        "Assess for signs of shock and treat per Shock Guideline",
+        "Administer oxygen titrated to a target of 94-98% SpO2"
       ],
       "relatedSounds": []
     },
@@ -95,11 +99,10 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Administer oxygen titrated to a target of 94-98% SpO2",
-        "Check blood glucose level",
-        "Recognize tachycardia with a maintained BP as early compensated shock",
         "Offer isopropyl alcohol wipe inhalation for nausea relief",
-        "Assess for signs of shock and treat per Shock Guideline"
+        "Reassess vital signs and response to therapy",
+        "Provide advance notification to the receiving hospital",
+        "Provide transport to an appropriate receiving facility"
       ],
       "relatedSounds": []
     },
@@ -132,11 +135,7 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [
-        "Provide transport to an appropriate receiving facility",
-        "Reassess vital signs and response to therapy throughout transport",
-        "Provide advance notification to the receiving hospital"
-      ],
+      "relatedChecklist": [],
       "relatedSounds": []
     },
     {
@@ -200,12 +199,6 @@
       "icon": 1
     },
     {
-      "title": "Administer oxygen titrated to a target of 94-98% SpO2",
-      "type": "Check",
-      "value": 0,
-      "icon": 1
-    },
-    {
       "title": "Check blood glucose level",
       "type": "Check",
       "value": 0,
@@ -218,19 +211,31 @@
       "icon": 1
     },
     {
-      "title": "Offer isopropyl alcohol wipe inhalation for nausea relief",
-      "type": "Check",
-      "value": 0,
-      "icon": 1
-    },
-    {
       "title": "Assess for signs of shock and treat per Shock Guideline",
       "type": "Check",
       "value": 0,
       "icon": 1
     },
     {
-      "title": "Recognize hypotension as a late, ominous sign of uncompensated shock; give oxygen and expedite transport",
+      "title": "Administer oxygen titrated to a target of 94-98% SpO2",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Offer isopropyl alcohol wipe inhalation for nausea relief",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Reassess vital signs and response to therapy",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Provide advance notification to the receiving hospital",
       "type": "Check",
       "value": 0,
       "icon": 1
@@ -242,13 +247,7 @@
       "icon": 1
     },
     {
-      "title": "Reassess vital signs and response to therapy throughout transport",
-      "type": "Check",
-      "value": 0,
-      "icon": 1
-    },
-    {
-      "title": "Provide advance notification to the receiving hospital",
+      "title": "Recognize hypotension as a late, ominous sign of uncompensated shock; give oxygen and expedite transport",
       "type": "Check",
       "value": 0,
       "icon": 1

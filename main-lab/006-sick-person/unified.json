@@ -119,22 +119,54 @@
           "priority": "important",
           "rationale": "Ensures airway is protected given ongoing vomiting risk.",
           "protocolReference": "MATC: Abdominal Pain"
+        },
+        {
+          "id": "a5",
+          "shortAction": "Check blood glucose level",
+          "protocolExcerpt": "Obtain glucose level",
+          "priority": "important",
+          "rationale": "Rules out hypoglycemia as a contributor to weakness given poor oral intake.",
+          "protocolReference": "MATC: Nausea-Vomiting"
+        },
+        {
+          "id": "a6",
+          "shortAction": "Recognize tachycardia with a maintained BP as early compensated shock",
+          "protocolExcerpt": "In most adults, tachycardia is the first sign of compensated shock, and may persist for hours",
+          "priority": "critical",
+          "rationale": "Correct recognition of compensated shock drives urgency of oxygen, positioning, and transport decisions.",
+          "protocolReference": "MATC: Shock"
+        },
+        {
+          "id": "a7",
+          "shortAction": "Assess for signs of shock and treat per Shock Guideline",
+          "protocolExcerpt": "Assess for signs of shock If shock is present, provide treatment per appropriate Shock Guideline",
+          "priority": "critical",
+          "rationale": "Confirms recognition of shock physiology so treatment is escalated appropriately.",
+          "protocolReference": "MATC: Abdominal Pain"
+        },
+        {
+          "id": "a8",
+          "shortAction": "Administer oxygen titrated to a target of 94-98% SpO2",
+          "protocolExcerpt": "Administer oxygen as appropriate with a target of achieving 94-98% saturation",
+          "priority": "critical",
+          "rationale": "Supports oxygen delivery to compensate for reduced perfusion in early shock.",
+          "protocolReference": "MATC: Shock"
         }
       ],
       "transitions": [
         {
           "targetPhaseId": "shock-recognized",
-          "if": "Vitals, glucose, and shock signs assessed promptly",
-          "condition": "Crew promptly obtains full vital signs, checks blood glucose, and completes an exam for skin turgor, mucous membrane hydration, and signs of shock per protocol.",
+          "if": "Assessment and O2 completed",
+          "condition": "Crew promptly obtains full vital signs, checks blood glucose, completes an exam for skin turgor, mucous membrane hydration, and signs of shock, and applies oxygen per protocol.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["a1", "a3"]
+          "triggerActionIds": ["a1", "a3", "a5", "a6", "a8"]
         },
         {
           "targetPhaseId": "delayed-shock-progression",
-          "if": "Assessment and oxygen delayed several minutes",
+          "if": "Assessment and O2 delayed",
           "condition": "If full vital signs, oxygen, and shock assessment are delayed while the crew focuses only on the GI complaint, the patient's compensated shock progresses toward hypotension.",
           "conditionType": "time_elapsed",
-          "timeoutSeconds": 300
+          "triggerActionIds": ["a1", "a8"]
         }
       ]
     },
@@ -185,30 +217,6 @@
       "expectedActions": [
         {
           "id": "b1",
-          "shortAction": "Administer oxygen titrated to a target of 94-98% SpO2",
-          "protocolExcerpt": "Administer oxygen as appropriate with a target of achieving 94-98% saturation",
-          "priority": "critical",
-          "rationale": "Supports oxygen delivery to compensate for reduced perfusion in early shock.",
-          "protocolReference": "MATC: Shock"
-        },
-        {
-          "id": "b2",
-          "shortAction": "Check blood glucose level",
-          "protocolExcerpt": "Obtain glucose level",
-          "priority": "important",
-          "rationale": "Rules out hypoglycemia as a contributor to weakness given poor oral intake.",
-          "protocolReference": "MATC: Nausea-Vomiting"
-        },
-        {
-          "id": "b3",
-          "shortAction": "Recognize tachycardia with a maintained BP as early compensated shock",
-          "protocolExcerpt": "In most adults, tachycardia is the first sign of compensated shock, and may persist for hours",
-          "priority": "critical",
-          "rationale": "Correct recognition of compensated shock drives urgency of oxygen, positioning, and transport decisions.",
-          "protocolReference": "MATC: Shock"
-        },
-        {
-          "id": "b4",
           "shortAction": "Offer isopropyl alcohol wipe inhalation for nausea relief",
           "protocolExcerpt": "Isopropyl alcohol: Allow patient to inhale vapor from isopropyl alcohol wipe 3 times q (quaque, every) 15 minutes as tolerated",
           "priority": "supplemental",
@@ -216,21 +224,37 @@
           "protocolReference": "MATC: Nausea-Vomiting"
         },
         {
-          "id": "b5",
-          "shortAction": "Assess for signs of shock and treat per Shock Guideline",
-          "protocolExcerpt": "Assess for signs of shock If shock is present, provide treatment per appropriate Shock Guideline",
+          "id": "b2",
+          "shortAction": "Reassess vital signs and response to therapy",
+          "protocolExcerpt": "Reassess vital signs and response to therapeutic interventions throughout transport",
           "priority": "critical",
-          "rationale": "Confirms recognition of shock physiology so treatment is escalated appropriately.",
+          "rationale": "Confirms the patient is trending toward stability and not deteriorating further en route.",
+          "protocolReference": "MATC: Abdominal Pain"
+        },
+        {
+          "id": "b3",
+          "shortAction": "Provide advance notification to the receiving hospital",
+          "protocolExcerpt": "Provide advance notification to the hospital",
+          "priority": "important",
+          "rationale": "Allows the receiving facility to prepare for a patient in compensated shock from dehydration.",
+          "protocolReference": "MATC: Shock"
+        },
+        {
+          "id": "b4",
+          "shortAction": "Provide transport to an appropriate receiving facility",
+          "protocolExcerpt": "Provide transport to an appropriate receiving facility. Consider specialty destination centers for conditions such as suspected abdominal aortic aneurysm and aortic dissection",
+          "priority": "important",
+          "rationale": "Ensures the patient reaches a facility capable of IV fluid resuscitation and further workup.",
           "protocolReference": "MATC: Abdominal Pain"
         }
       ],
       "transitions": [
         {
           "targetPhaseId": "transport",
-          "if": "Oxygen given and transport initiated",
+          "if": "Transport with reassessment",
           "condition": "Once oxygen is applied and the shock/dehydration picture is recognized, the crew moves the patient to the stretcher and begins transport with ongoing reassessment.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["b1"]
+          "triggerActionIds": ["b2", "b4"]
         }
       ]
     },
@@ -280,7 +304,7 @@
       },
       "expectedActions": [
         {
-          "id": "c-branch1",
+          "id": "c1",
           "shortAction": "Recognize hypotension as a late, ominous sign of uncompensated shock; give oxygen and expedite transport",
           "protocolExcerpt": "Hypotension indicates uncompensated shock, which may progress to cardiopulmonary failure within minutes",
           "priority": "critical",
@@ -334,32 +358,7 @@
           "cvpVisible": false
         }
       },
-      "expectedActions": [
-        {
-          "id": "d1",
-          "shortAction": "Provide transport to an appropriate receiving facility",
-          "protocolExcerpt": "Provide transport to an appropriate receiving facility. Consider specialty destination centers for conditions such as suspected abdominal aortic aneurysm and aortic dissection",
-          "priority": "important",
-          "rationale": "Ensures the patient reaches a facility capable of IV fluid resuscitation and further workup.",
-          "protocolReference": "MATC: Abdominal Pain"
-        },
-        {
-          "id": "d2",
-          "shortAction": "Reassess vital signs and response to therapy throughout transport",
-          "protocolExcerpt": "Reassess vital signs and response to therapeutic interventions throughout transport",
-          "priority": "critical",
-          "rationale": "Confirms the patient is trending toward stability and not deteriorating further en route.",
-          "protocolReference": "MATC: Abdominal Pain"
-        },
-        {
-          "id": "d3",
-          "shortAction": "Provide advance notification to the receiving hospital",
-          "protocolExcerpt": "Provide advance notification to the hospital",
-          "priority": "important",
-          "rationale": "Allows the receiving facility to prepare for a patient in compensated shock from dehydration.",
-          "protocolReference": "MATC: Shock"
-        }
-      ],
+      "expectedActions": [],
       "transitions": []
     }
   ]
