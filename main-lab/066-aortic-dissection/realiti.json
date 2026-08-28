@@ -61,7 +61,12 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [],
+      "relatedChecklist": [
+        "Assess bilateral pulses and blood pressures for asymmetry; recognize as a red flag for aortic emergency",
+        "Obtain vascular access to allow analgesia administration",
+        "Fentanyl 85 mcg IV (85 kg x 1 mcg/kg = 85 mcg; max initial 100 mcg)",
+        "Position of comfort; minimize exertion and handle gently to avoid further BP spikes"
+      ],
       "relatedSounds": []
     },
     {
@@ -98,10 +103,8 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Assess bilateral pulses and blood pressures for asymmetry; recognize as a red flag for aortic emergency",
-        "Obtain vascular access to allow analgesia administration",
-        "Fentanyl 85 mcg IV (85 kg x 1 mcg/kg = 85 mcg; max initial 100 mcg)",
-        "Position of comfort; minimize exertion and handle gently to avoid further BP spikes"
+        "Transport to a specialty destination center for suspected aortic emergency; minimize scene time",
+        "Reassess vital signs and response to analgesia throughout transport"
       ],
       "relatedSounds": []
     },
@@ -138,10 +141,7 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [
-        "Transport to a specialty destination center for suspected aortic emergency; minimize scene time",
-        "Reassess vital signs and response to analgesia throughout transport"
-      ],
+      "relatedChecklist": [],
       "relatedSounds": []
     },
     {
