@@ -81,13 +81,39 @@
         "trendTimeSeconds": 0,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
       },
-      "expectedActions": [],
+      "expectedActions": [
+        {
+          "id": "a1",
+          "shortAction": "Reposition airway (chin-lift/jaw thrust); insert NPA given intact gag reflex",
+          "protocolExcerpt": "If signs of airway obstruction are present and a chin-lift, jaw thrust, positioning, and/or suctioning does not alleviate it, place oropharyngeal airway (if gag reflex is absent) or nasopharyngeal airway",
+          "priority": "critical",
+          "rationale": "The tongue and soft tissue are the source of the obstruction in a post-ictal patient; an NPA is appropriate given an intact gag reflex.",
+          "protocolReference": "MATC: Seizures"
+        },
+        {
+          "id": "a2",
+          "shortAction": "Apply oxygen and place pulse oximetry/waveform capnography to monitor ventilation",
+          "protocolExcerpt": "Place pulse oximeter and/or waveform capnography to monitor oxygenation/ventilation. Administer oxygen as appropriate with a target of achieving 94–98% saturation",
+          "priority": "critical",
+          "rationale": "Capnography and SpO2 guide the decision for airway escalation as the patient fails to improve.",
+          "protocolReference": "MATC: Seizures"
+        },
+        {
+          "id": "a3",
+          "shortAction": "Check blood glucose given ongoing altered mental status after seizure",
+          "protocolExcerpt": "If still actively seizing, check blood glucose level. If less than 60 mg/dL, treat per the Hypoglycemia Guideline",
+          "priority": "important",
+          "rationale": "Rules out hypoglycemia as a treatable cause of persistent AMS/seizure activity.",
+          "protocolReference": "MATC: Seizures"
+        }
+      ],
       "transitions": [
         {
           "targetPhaseId": "airway-adjuncts-glucose",
           "if": "Airway repositioned and glucose checked",
           "condition": "Crew opens the airway with positioning/jaw thrust, places an NPA, applies oxygen, and checks blood glucose per the seizure protocol's actively-seizing/post-ictal workup.",
-          "conditionType": "action_taken"
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a1", "a3"]
         }
       ]
     },
@@ -132,28 +158,36 @@
       },
       "expectedActions": [
         {
-          "id": "a1-airway-position",
-          "shortAction": "Reposition airway (chin-lift/jaw thrust); insert NPA given intact gag reflex",
-          "protocolExcerpt": "If signs of airway obstruction are present and a chin-lift, jaw thrust, positioning, and/or suctioning does not alleviate it, place oropharyngeal airway (if gag reflex is absent) or nasopharyngeal airway",
+          "id": "b1",
+          "shortAction": "Preoxygenate with high-flow O2 and positive pressure ventilation for at least 2 minutes before RSI",
+          "protocolExcerpt": "Patient should be pre-oxygenated with high flow oxygen, and positive pressure ventilation for a minimum of two minutes prior to the procedure",
           "priority": "critical",
-          "rationale": "The tongue and soft tissue are the source of the obstruction in a post-ictal patient; an NPA is appropriate given an intact gag reflex.",
-          "protocolReference": "MATC: Seizures"
+          "rationale": "Adequate preoxygenation extends the safe apnea window during intubation attempts.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
         },
         {
-          "id": "a2-oxygen-monitor",
-          "shortAction": "Apply oxygen and place pulse oximetry/waveform capnography to monitor ventilation",
-          "protocolExcerpt": "Place pulse oximeter and/or waveform capnography to monitor oxygenation/ventilation. Administer oxygen as appropriate with a target of achieving 94–98% saturation",
+          "id": "b2",
+          "shortAction": "Etomidate 22.5 mg IV push (90 kg × 0.25 mg/kg = 22.5 mg) for induction",
+          "protocolExcerpt": "Administer induction sedative agent: Etomidate IV push, 0.2-0.3 mg/kg",
           "priority": "critical",
-          "rationale": "Capnography and SpO2 guide the decision for airway escalation as the patient fails to improve.",
-          "protocolReference": "MATC: Seizures"
+          "rationale": "Etomidate provides rapid induction with minimal hemodynamic effect for RSI.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
         },
         {
-          "id": "a3-glucometry",
-          "shortAction": "Check blood glucose given ongoing altered mental status after seizure",
-          "protocolExcerpt": "If still actively seizing, check blood glucose level. If less than 60 mg/dL, treat per the Hypoglycemia Guideline",
-          "priority": "important",
-          "rationale": "Rules out hypoglycemia as a treatable cause of persistent AMS/seizure activity.",
-          "protocolReference": "MATC: Seizures"
+          "id": "b3",
+          "shortAction": "Rocuronium 90 mg IV push (90 kg × 1 mg/kg = 90 mg) for paralysis",
+          "protocolExcerpt": "Administer paralytic agent: Rocuronium IV push, 1 mg/kg",
+          "priority": "critical",
+          "rationale": "Full paralysis optimizes first-pass intubation success and reduces trauma from resistance.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        },
+        {
+          "id": "b4",
+          "shortAction": "Confirm ETT placement with waveform capnography, breath sounds, and absent gastric sounds",
+          "protocolExcerpt": "Confirm placement of advanced airway (endotracheal tube, SGA) with waveform capnography (most reliable), absent gastric sounds, and bilateral breath sounds",
+          "priority": "critical",
+          "rationale": "Waveform capnography is the most reliable confirmation method and prevents an unrecognized esophageal intubation.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
         }
       ],
       "transitions": [
@@ -161,13 +195,15 @@
           "targetPhaseId": "rsi-performed",
           "if": "RSI performed for airway failure",
           "condition": "Despite basic airway adjuncts, the patient remains GCS 5 with inadequate ventilation (RR 10, EtCO2 48, SpO2 91%) and cannot protect his airway; crew proceeds with RSI per the Airway Management guideline.",
-          "conditionType": "action_taken"
+          "conditionType": "action_taken",
+          "triggerActionIds": ["b3", "b4"]
         },
         {
           "targetPhaseId": "rsi-delayed",
           "if": "RSI delayed despite ongoing failure",
           "condition": "Crew continues basic airway maneuvers alone without escalating to RSI despite persistent hypoventilation and hypoxia.",
-          "conditionType": "action_not_taken"
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["b1", "b3"]
         }
       ]
     },
@@ -212,39 +248,7 @@
       },
       "expectedActions": [
         {
-          "id": "a4-preox",
-          "shortAction": "Preoxygenate with high-flow O2 and positive pressure ventilation for at least 2 minutes before RSI",
-          "protocolExcerpt": "Patient should be pre-oxygenated with high flow oxygen, and positive pressure ventilation for a minimum of two minutes prior to the procedure",
-          "priority": "critical",
-          "rationale": "Adequate preoxygenation extends the safe apnea window during intubation attempts.",
-          "protocolReference": "MATC: Airway Management (Includes RSI)"
-        },
-        {
-          "id": "a5-induction",
-          "shortAction": "Etomidate 22.5 mg IV push (90 kg × 0.25 mg/kg = 22.5 mg) for induction",
-          "protocolExcerpt": "Administer induction sedative agent: Etomidate IV push, 0.2-0.3 mg/kg",
-          "priority": "critical",
-          "rationale": "Etomidate provides rapid induction with minimal hemodynamic effect for RSI.",
-          "protocolReference": "MATC: Airway Management (Includes RSI)"
-        },
-        {
-          "id": "a6-paralytic",
-          "shortAction": "Rocuronium 90 mg IV push (90 kg × 1 mg/kg = 90 mg) for paralysis",
-          "protocolExcerpt": "Administer paralytic agent: Rocuronium IV push, 1 mg/kg",
-          "priority": "critical",
-          "rationale": "Full paralysis optimizes first-pass intubation success and reduces trauma from resistance.",
-          "protocolReference": "MATC: Airway Management (Includes RSI)"
-        },
-        {
-          "id": "a7-confirm-placement",
-          "shortAction": "Confirm ETT placement with waveform capnography, breath sounds, and absent gastric sounds",
-          "protocolExcerpt": "Confirm placement of advanced airway (endotracheal tube, SGA) with waveform capnography (most reliable), absent gastric sounds, and bilateral breath sounds",
-          "priority": "critical",
-          "rationale": "Waveform capnography is the most reliable confirmation method and prevents an unrecognized esophageal intubation.",
-          "protocolReference": "MATC: Airway Management (Includes RSI)"
-        },
-        {
-          "id": "a8-post-intubation-sedation",
+          "id": "c1",
           "shortAction": "Fentanyl 90-180 mcg IV (90 kg × 1-2 mcg/kg) plus midazolam for post-intubation sedation",
           "protocolExcerpt": "Intubated patients should be provided appropriate sedation with sedative or opioid medications... Fentanyl 1-2 mcg/kg And Midazolam 0.02 mg/kg",
           "priority": "important",
@@ -258,7 +262,7 @@
           "if": "Tube secured and ventilation optimized",
           "condition": "ETT is secured, mechanically ventilated with EtCO2 35-45 target, and patient is packaged for transport with continuous monitoring.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["a7-confirm-placement"]
+          "triggerActionIds": ["c1"]
         }
       ]
     },
@@ -303,7 +307,7 @@
       },
       "expectedActions": [
         {
-          "id": "a9-continuous-capnography",
+          "id": "d1",
           "shortAction": "Continuously monitor waveform capnography during transport, reassessing after each patient movement",
           "protocolExcerpt": "Continuously monitor correct airway placement with waveform capnography during treatment and transport, paying particular attention to reassessing after each patient movement",
           "priority": "critical",
@@ -354,7 +358,7 @@
       },
       "expectedActions": [
         {
-          "id": "a10-recognize-failure",
+          "id": "e1",
           "shortAction": "Recognize impending respiratory failure and escalate to BVM/RSI without further delay",
           "protocolExcerpt": "Many airway/breathing issues in seizing patients can be managed without intubation or placement of an advanced airway. Reserve these measures for patients that fail less invasive maneuvers as noted above",
           "priority": "critical",

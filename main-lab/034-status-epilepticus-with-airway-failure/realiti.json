@@ -57,7 +57,11 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [],
+      "relatedChecklist": [
+        "Reposition airway (chin-lift/jaw thrust); insert NPA given intact gag reflex",
+        "Apply oxygen and place pulse oximetry/waveform capnography to monitor ventilation",
+        "Check blood glucose given ongoing altered mental status after seizure"
+      ],
       "relatedSounds": []
     },
     {
@@ -90,9 +94,10 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Reposition airway (chin-lift/jaw thrust); insert NPA given intact gag reflex",
-        "Apply oxygen and place pulse oximetry/waveform capnography to monitor ventilation",
-        "Check blood glucose given ongoing altered mental status after seizure"
+        "Preoxygenate with high-flow O2 and positive pressure ventilation for at least 2 minutes before RSI",
+        "Etomidate 22.5 mg IV push (90 kg × 0.25 mg/kg = 22.5 mg) for induction",
+        "Rocuronium 90 mg IV push (90 kg × 1 mg/kg = 90 mg) for paralysis",
+        "Confirm ETT placement with waveform capnography, breath sounds, and absent gastric sounds"
       ],
       "relatedSounds": []
     },
@@ -126,10 +131,6 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Preoxygenate with high-flow O2 and positive pressure ventilation for at least 2 minutes before RSI",
-        "Etomidate 22.5 mg IV push (90 kg × 0.25 mg/kg = 22.5 mg) for induction",
-        "Rocuronium 90 mg IV push (90 kg × 1 mg/kg = 90 mg) for paralysis",
-        "Confirm ETT placement with waveform capnography, breath sounds, and absent gastric sounds",
         "Fentanyl 90-180 mcg IV (90 kg × 1-2 mcg/kg) plus midazolam for post-intubation sedation"
       ],
       "relatedSounds": []
