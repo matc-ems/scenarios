@@ -57,7 +57,12 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [],
+      "relatedChecklist": [
+        "Initiate CPAP for severe respiratory distress with developing CO2 retention",
+        "Administer albuterol/ipratropium nebulizer in-line with CPAP via T-connector",
+        "Titrate oxygen to a permissive-hypoxia target of SpO2 ≥ 90%, not a normal saturation",
+        "Monitor EtCO2 trend for downward direction rather than expecting full normalization"
+      ],
       "relatedSounds": []
     },
     {
@@ -90,10 +95,7 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Initiate CPAP for severe respiratory distress with developing CO2 retention",
-        "Administer albuterol/ipratropium nebulizer in-line with CPAP via T-connector",
-        "Titrate oxygen to a permissive-hypoxia target of SpO2 ≥ 90%, not a normal saturation",
-        "Monitor EtCO2 trend for downward direction rather than expecting full normalization"
+        "Maintain continuous CPAP mask seal throughout transport until hospital CPAP is ready to take over"
       ],
       "relatedSounds": []
     },
@@ -126,9 +128,7 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [
-        "Maintain continuous CPAP mask seal throughout transport until hospital CPAP is ready to take over"
-      ],
+      "relatedChecklist": [],
       "relatedSounds": []
     },
     {

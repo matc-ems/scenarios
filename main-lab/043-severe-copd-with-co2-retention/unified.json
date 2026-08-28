@@ -82,19 +82,54 @@
         "trendTimeSeconds": 0,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
       },
-      "expectedActions": [],
+      "expectedActions": [
+        {
+          "id": "a1",
+          "shortAction": "Initiate CPAP for severe respiratory distress with developing CO2 retention",
+          "protocolExcerpt": "Non-invasive ventilation (NIV) should be administered for severe respiratory distress via BVM, continuous positive airway pressure (CPAP) or bi-level positive airway pressure (BiPAP)",
+          "priority": "critical",
+          "rationale": "Early NIV addresses both hypoxia and hypercapnia in severe COPD exacerbation before respiratory failure develops.",
+          "protocolReference": "MATC: Respiratory Distress (includes Bronchospasm, Pulmonary Edema)"
+        },
+        {
+          "id": "a2",
+          "shortAction": "Administer albuterol/ipratropium nebulizer in-line with CPAP via T-connector",
+          "protocolExcerpt": "If indicated, bronchodilators should be administered in line with NIV. Nebulized medications may be administered through a CPAP or BiPAP mask. A specialized T-connector with a spring valve assembly is required to allow maintenance of positive airway pressure",
+          "priority": "critical",
+          "rationale": "In-line nebulization allows bronchodilator delivery without breaking the CPAP seal.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        },
+        {
+          "id": "a3",
+          "shortAction": "Titrate oxygen to a permissive-hypoxia target of SpO2 ≥ 90%, not a normal saturation",
+          "protocolExcerpt": "Permissive hypoxia (SPO2 ≥ 90%) may be appropriate in patients with COPD or other complex respiratory pathology. Chronic COPD patients tolerate hypoxia better, and an SPO2 of 90% may relieve their symptoms and be adequate",
+          "priority": "important",
+          "rationale": "Over-oxygenating chronic COPD patients can blunt hypoxic respiratory drive and worsen hypercapnia.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        },
+        {
+          "id": "a4",
+          "shortAction": "Monitor EtCO2 trend for downward direction rather than expecting full normalization",
+          "protocolExcerpt": "Normalization of EtCO2. This means a downward trend in a patient with increased EtCO2. Patients who have end stage COPD may have chronically elevated EtCO2 as high as 50s-60s, and thus tolerate elevated EtCO2 better so normalization may not be a good target",
+          "priority": "important",
+          "rationale": "Chronic CO2 retainers have a different EtCO2 baseline; a downward trend indicates improvement even without normalization.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        }
+      ],
       "transitions": [
         {
           "targetPhaseId": "cpap-duoneb-started",
           "if": "CPAP and in-line duoneb started",
           "condition": "Crew recognizes severe respiratory distress with early CO2 retention and initiates CPAP with in-line albuterol/ipratropium, titrating oxygen to a permissive-hypoxia target appropriate for chronic COPD.",
-          "conditionType": "action_taken"
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a1", "a2"]
         },
         {
           "targetPhaseId": "co2-narcosis-worsens",
           "if": "CPAP delayed, CO2 narcosis worsens",
           "condition": "Crew delays escalation to CPAP, continuing only low-flow oxygen and standard nebulizer treatment while the patient's mental status and EtCO2 continue to deteriorate.",
-          "conditionType": "action_not_taken"
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["a1", "a2"]
         }
       ]
     },
@@ -140,35 +175,11 @@
       },
       "expectedActions": [
         {
-          "id": "a1-cpap",
-          "shortAction": "Initiate CPAP for severe respiratory distress with developing CO2 retention",
-          "protocolExcerpt": "Non-invasive ventilation (NIV) should be administered for severe respiratory distress via BVM, continuous positive airway pressure (CPAP) or bi-level positive airway pressure (BiPAP)",
+          "id": "b1",
+          "shortAction": "Maintain continuous CPAP mask seal throughout transport until hospital CPAP is ready to take over",
+          "protocolExcerpt": "Once initiated and patient is tolerating mask, DO NOT discontinue CPAP/BiPAP until patient is on the emergency department stretcher and hospital CPAP/BiPAP is immediately available for patient to be switched over, or physician is at bedside and requesting CPAP/BiPAP be discontinued. Breaking the mask seal causes a significant decrease in airway pressures and may lead to abrupt decompensation due to atelectasis and alveolar collapse",
           "priority": "critical",
-          "rationale": "Early NIV addresses both hypoxia and hypercapnia in severe COPD exacerbation before respiratory failure develops.",
-          "protocolReference": "MATC: Respiratory Distress (includes Bronchospasm, Pulmonary Edema)"
-        },
-        {
-          "id": "a2-inline-duoneb",
-          "shortAction": "Administer albuterol/ipratropium nebulizer in-line with CPAP via T-connector",
-          "protocolExcerpt": "If indicated, bronchodilators should be administered in line with NIV. Nebulized medications may be administered through a CPAP or BiPAP mask. A specialized T-connector with a spring valve assembly is required to allow maintenance of positive airway pressure",
-          "priority": "critical",
-          "rationale": "In-line nebulization allows bronchodilator delivery without breaking the CPAP seal.",
-          "protocolReference": "MATC: Airway Management (Includes RSI)"
-        },
-        {
-          "id": "a3-permissive-hypoxia",
-          "shortAction": "Titrate oxygen to a permissive-hypoxia target of SpO2 ≥ 90%, not a normal saturation",
-          "protocolExcerpt": "Permissive hypoxia (SPO2 ≥ 90%) may be appropriate in patients with COPD or other complex respiratory pathology. Chronic COPD patients tolerate hypoxia better, and an SPO2 of 90% may relieve their symptoms and be adequate",
-          "priority": "important",
-          "rationale": "Over-oxygenating chronic COPD patients can blunt hypoxic respiratory drive and worsen hypercapnia.",
-          "protocolReference": "MATC: Airway Management (Includes RSI)"
-        },
-        {
-          "id": "a4-etco2-trend",
-          "shortAction": "Monitor EtCO2 trend for downward direction rather than expecting full normalization",
-          "protocolExcerpt": "Normalization of EtCO2. This means a downward trend in a patient with increased EtCO2. Patients who have end stage COPD may have chronically elevated EtCO2 as high as 50s-60s, and thus tolerate elevated EtCO2 better so normalization may not be a good target",
-          "priority": "important",
-          "rationale": "Chronic CO2 retainers have a different EtCO2 baseline; a downward trend indicates improvement even without normalization.",
+          "rationale": "Breaking the CPAP seal, even briefly, can cause rapid decompensation and lose the gains made in oxygenation and ventilation.",
           "protocolReference": "MATC: Airway Management (Includes RSI)"
         }
       ],
@@ -178,7 +189,7 @@
           "if": "CPAP seal maintained, improved and transported",
           "condition": "Mental status and EtCO2 continue improving on CPAP with in-line duoneb; crew maintains a continuous seal for transport.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["a1-cpap", "a2-inline-duoneb"]
+          "triggerActionIds": ["b1"]
         }
       ]
     },
@@ -221,16 +232,7 @@
         "trendTimeSeconds": 40,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
       },
-      "expectedActions": [
-        {
-          "id": "a5-maintain-seal",
-          "shortAction": "Maintain continuous CPAP mask seal throughout transport until hospital CPAP is ready to take over",
-          "protocolExcerpt": "Once initiated and patient is tolerating mask, DO NOT discontinue CPAP/BiPAP until patient is on the emergency department stretcher and hospital CPAP/BiPAP is immediately available for patient to be switched over, or physician is at bedside and requesting CPAP/BiPAP be discontinued. Breaking the mask seal causes a significant decrease in airway pressures and may lead to abrupt decompensation due to atelectasis and alveolar collapse",
-          "priority": "critical",
-          "rationale": "Breaking the CPAP seal, even briefly, can cause rapid decompensation and lose the gains made in oxygenation and ventilation.",
-          "protocolReference": "MATC: Airway Management (Includes RSI)"
-        }
-      ],
+      "expectedActions": [],
       "transitions": []
     },
     {
@@ -274,7 +276,7 @@
       },
       "expectedActions": [
         {
-          "id": "a6-recognize-narcosis",
+          "id": "c1",
           "shortAction": "Recognize CO2 narcosis (worsening somnolence, rising EtCO2, falling RR); initiate CPAP with in-line duoneb immediately",
           "protocolExcerpt": "Non-invasive ventilation (NIV) should be administered for severe respiratory distress via BVM, continuous positive airway pressure (CPAP) or bi-level positive airway pressure (BiPAP). If indicated, bronchodilators should be administered in line with NIV",
           "priority": "critical",
