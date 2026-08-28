@@ -81,13 +81,46 @@
         "trendTimeSeconds": 0,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
       },
-      "expectedActions": [],
+      "expectedActions": [
+        {
+          "id": "a1",
+          "shortAction": "Check blood glucose; correct if less than 60 mg/dL (result 118 mg/dL, no correction needed)",
+          "protocolExcerpt": "Check blood sugar, and correct if less than 60 mg/dL",
+          "priority": "critical",
+          "rationale": "Hypoglycemia is a rapidly reversible cause of AMS that must be excluded early.",
+          "protocolReference": "MATC: Altered Mental Status"
+        },
+        {
+          "id": "a2",
+          "shortAction": "Identify chronic steroid dependence (prednisone 10 mg daily) as an adrenal suppression risk factor",
+          "protocolExcerpt": "History of GI bleeding ... Adrenal insufficiency ... Presence of a central line or port",
+          "priority": "important",
+          "rationale": "Chronic steroid use predisposes to relative adrenal insufficiency, which can worsen fluid-refractory shock if unrecognized.",
+          "protocolReference": "MATC: Shock"
+        },
+        {
+          "id": "a3",
+          "shortAction": "Establish IV access; begin 500 mL isotonic fluid bolus, pressure infused over less than 15 min toward MAP 65 mmHg",
+          "protocolExcerpt": "Establish IV access. If unable to obtain within two attempts or less than 90 seconds, place an IO needle. IV fluid volume goal attained by giving boluses that are pressure infused over less than 15 minutes each ... Physiologic target: MAP goal 65 mmHg. Fluid goal of up to 30 mL/kg of isotonic fluid by administering rapid, predetermined boluses (e.g., 500 mL) unless the MAP goal is achieved",
+          "priority": "critical",
+          "rationale": "Early, aggressive fluid resuscitation is essential in suspected septic shock.",
+          "protocolReference": "MATC: Shock"
+        }
+      ],
       "transitions": [
         {
           "targetPhaseId": "assessed-fluids-started",
           "if": "BGL checked, IV fluids started",
           "condition": "Crew checks blood glucose to rule out hypoglycemia as a cause of AMS, establishes IV access, and begins a pressure-infused isotonic fluid bolus toward a MAP goal of 65 mmHg.",
-          "conditionType": "action_taken"
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a1", "a2", "a3"]
+        },
+        {
+          "targetPhaseId": "steroid-history-missed",
+          "if": "Steroid history not identified",
+          "condition": "The crew focuses only on fluid resuscitation and does not review the medication administration record, missing the patient's chronic steroid dependence and the indication for hydrocortisone.",
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["a2"]
         }
       ]
     },
@@ -132,27 +165,19 @@
       },
       "expectedActions": [
         {
-          "id": "a1-bgl",
-          "shortAction": "Check blood glucose; correct if less than 60 mg/dL (result 118 mg/dL, no correction needed)",
-          "protocolExcerpt": "Check blood sugar, and correct if less than 60 mg/dL",
+          "id": "b1",
+          "shortAction": "Hydrocortisone succinate 100 mg IV (58 kg × 2 mg/kg = 116 mg → cap at 100 mg max)",
+          "protocolExcerpt": "If there is a history of adrenal insufficiency, long-term steroid dependence, or fluid-refractory shock requiring vasopressors give: Hydrocortisone succinate, 2 mg/kg (maximum 100 mg) IV/IM (preferred)",
           "priority": "critical",
-          "rationale": "Hypoglycemia is a rapidly reversible cause of AMS that must be excluded early.",
-          "protocolReference": "MATC: Altered Mental Status"
-        },
-        {
-          "id": "a2-iv-fluids",
-          "shortAction": "Establish IV access; begin 500 mL isotonic fluid bolus, pressure infused over less than 15 min toward MAP 65 mmHg",
-          "protocolExcerpt": "Establish IV access. If unable to obtain within two attempts or less than 90 seconds, place an IO needle. IV fluid volume goal attained by giving boluses that are pressure infused over less than 15 minutes each ... Physiologic target: MAP goal 65 mmHg. Fluid goal of up to 30 mL/kg of isotonic fluid by administering rapid, predetermined boluses (e.g., 500 mL) unless the MAP goal is achieved",
-          "priority": "critical",
-          "rationale": "Early, aggressive fluid resuscitation is essential in suspected septic shock.",
+          "rationale": "Chronic steroid use can suppress the adrenal axis, blunting the physiologic stress response and worsening shock unless stress-dose steroid is given.",
           "protocolReference": "MATC: Shock"
         },
         {
-          "id": "a3-steroid-history",
-          "shortAction": "Identify chronic steroid dependence (prednisone 10 mg daily) as an adrenal suppression risk factor",
-          "protocolExcerpt": "History of GI bleeding ... Adrenal insufficiency ... Presence of a central line or port",
+          "id": "b2",
+          "shortAction": "Provide advanced notification to receiving hospital of suspected septic shock",
+          "protocolExcerpt": "Provide advanced notification to the hospital",
           "priority": "important",
-          "rationale": "Chronic steroid use predisposes to relative adrenal insufficiency, which can worsen fluid-refractory shock if unrecognized.",
+          "rationale": "Allows the hospital to prepare sepsis resources (labs, antibiotics, possible ICU bed) before arrival.",
           "protocolReference": "MATC: Shock"
         }
       ],
@@ -162,14 +187,7 @@
           "if": "Fluid-refractory shock, hydrocortisone given",
           "condition": "Despite an initial fluid bolus, the patient remains hypotensive. Given her known long-term steroid dependence, the crew administers hydrocortisone rather than proceeding straight to a vasopressor.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["a3-steroid-history"]
-        },
-        {
-          "targetPhaseId": "steroid-history-missed",
-          "if": "Steroid history not identified",
-          "condition": "The crew focuses only on fluid resuscitation and does not review the medication administration record, missing the patient's chronic steroid dependence and the indication for hydrocortisone.",
-          "conditionType": "action_not_taken",
-          "triggerActionIds": ["a3-steroid-history"]
+          "triggerActionIds": ["b1", "b2"]
         }
       ]
     },
@@ -214,19 +232,11 @@
       },
       "expectedActions": [
         {
-          "id": "a4-hydrocortisone",
-          "shortAction": "Hydrocortisone succinate 100 mg IV (58 kg × 2 mg/kg = 116 mg → cap at 100 mg max)",
-          "protocolExcerpt": "If there is a history of adrenal insufficiency, long-term steroid dependence, or fluid-refractory shock requiring vasopressors give: Hydrocortisone succinate, 2 mg/kg (maximum 100 mg) IV/IM (preferred)",
-          "priority": "critical",
-          "rationale": "Chronic steroid use can suppress the adrenal axis, blunting the physiologic stress response and worsening shock unless stress-dose steroid is given.",
-          "protocolReference": "MATC: Shock"
-        },
-        {
-          "id": "a5-advance-notification",
-          "shortAction": "Provide advanced notification to receiving hospital of suspected septic shock",
-          "protocolExcerpt": "Provide advanced notification to the hospital",
+          "id": "c1",
+          "shortAction": "Reassess full vital signs and neurologic status at least every 15 minutes en route",
+          "protocolExcerpt": "Full vital signs (pulse, blood pressure, respiratory rate, neurologic status assessment) with reassessment q 15 minutes or more frequently as appropriate",
           "priority": "important",
-          "rationale": "Allows the hospital to prepare sepsis resources (labs, antibiotics, possible ICU bed) before arrival.",
+          "rationale": "Septic patients can deteriorate again even after initial improvement.",
           "protocolReference": "MATC: Shock"
         }
       ],
@@ -236,7 +246,7 @@
           "if": "Perfusion improves, transport continues",
           "condition": "Following hydrocortisone and continued fluid resuscitation, blood pressure and mental status trend toward baseline; crew continues reassessment en route.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["a4-hydrocortisone"]
+          "triggerActionIds": ["c1"]
         }
       ]
     },
@@ -279,16 +289,7 @@
         "trendTimeSeconds": 50,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
       },
-      "expectedActions": [
-        {
-          "id": "a6-reassess",
-          "shortAction": "Reassess full vital signs and neurologic status at least every 15 minutes en route",
-          "protocolExcerpt": "Full vital signs (pulse, blood pressure, respiratory rate, neurologic status assessment) with reassessment q 15 minutes or more frequently as appropriate",
-          "priority": "important",
-          "rationale": "Septic patients can deteriorate again even after initial improvement.",
-          "protocolReference": "MATC: Shock"
-        }
-      ],
+      "expectedActions": [],
       "transitions": []
     },
     {
@@ -332,7 +333,7 @@
       },
       "expectedActions": [
         {
-          "id": "a7-recover-history",
+          "id": "d1",
           "shortAction": "Review medication administration record; identify prednisone use and give hydrocortisone 100 mg IV alongside norepinephrine",
           "protocolExcerpt": "If there is a history of adrenal insufficiency, long-term steroid dependence, or fluid-refractory shock requiring vasopressors give: Hydrocortisone succinate, 2 mg/kg (maximum 100 mg) IV/IM (preferred)",
           "priority": "critical",

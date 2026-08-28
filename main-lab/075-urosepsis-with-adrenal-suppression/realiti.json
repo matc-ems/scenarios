@@ -57,7 +57,11 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [],
+      "relatedChecklist": [
+        "Check blood glucose; correct if less than 60 mg/dL (result 118 mg/dL, no correction needed)",
+        "Identify chronic steroid dependence (prednisone 10 mg daily) as an adrenal suppression risk factor",
+        "Establish IV access; begin 500 mL isotonic fluid bolus, pressure infused over less than 15 min toward MAP 65 mmHg"
+      ],
       "relatedSounds": []
     },
     {
@@ -90,9 +94,8 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Check blood glucose; correct if less than 60 mg/dL (result 118 mg/dL, no correction needed)",
-        "Establish IV access; begin 500 mL isotonic fluid bolus, pressure infused over less than 15 min toward MAP 65 mmHg",
-        "Identify chronic steroid dependence (prednisone 10 mg daily) as an adrenal suppression risk factor"
+        "Hydrocortisone succinate 100 mg IV (58 kg × 2 mg/kg = 116 mg → cap at 100 mg max)",
+        "Provide advanced notification to receiving hospital of suspected septic shock"
       ],
       "relatedSounds": []
     },
@@ -126,8 +129,7 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Hydrocortisone succinate 100 mg IV (58 kg × 2 mg/kg = 116 mg → cap at 100 mg max)",
-        "Provide advanced notification to receiving hospital of suspected septic shock"
+        "Reassess full vital signs and neurologic status at least every 15 minutes en route"
       ],
       "relatedSounds": []
     },
@@ -160,9 +162,7 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [
-        "Reassess full vital signs and neurologic status at least every 15 minutes en route"
-      ],
+      "relatedChecklist": [],
       "relatedSounds": []
     },
     {
@@ -208,13 +208,13 @@
       "icon": 1
     },
     {
-      "title": "Establish IV access; begin 500 mL isotonic fluid bolus, pressure infused over less than 15 min toward MAP 65 mmHg",
+      "title": "Identify chronic steroid dependence (prednisone 10 mg daily) as an adrenal suppression risk factor",
       "type": "Check",
       "value": 0,
       "icon": 1
     },
     {
-      "title": "Identify chronic steroid dependence (prednisone 10 mg daily) as an adrenal suppression risk factor",
+      "title": "Establish IV access; begin 500 mL isotonic fluid bolus, pressure infused over less than 15 min toward MAP 65 mmHg",
       "type": "Check",
       "value": 0,
       "icon": 1
