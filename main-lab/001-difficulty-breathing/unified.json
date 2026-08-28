@@ -140,7 +140,7 @@
       "transitions": [
         {
           "targetPhaseId": "o2-positioning-given",
-          "if": "Position and O2 given",
+          "if": "O2 and positioning given",
           "condition": "Crew places the patient in a tripod position of comfort and applies supplemental oxygen via nasal cannula, titrating toward 94–98% SpO2, within the first few minutes of contact.",
           "conditionType": "action_taken",
           "triggerActionIds": ["a4", "a5"]
@@ -219,7 +219,7 @@
       "transitions": [
         {
           "targetPhaseId": "transport-ready",
-          "if": "Reassessment shows improvement",
+          "if": "Reassessment performed",
           "condition": "Reassessment after oxygen therapy demonstrates improving SpO2, decreasing respiratory rate, and reduced work of breathing; crew continues monitoring and oxygen en route to transport.",
           "conditionType": "action_taken",
           "triggerActionIds": ["b1", "b2", "b3"]
