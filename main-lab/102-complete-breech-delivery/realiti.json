@@ -57,7 +57,11 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [],
+      "relatedChecklist": [
+        "Allow buttocks, feet, and trunk to deliver spontaneously without traction",
+        "Assess for prolapsed cord after trunk delivers",
+        "Support fetal body without traction; keep fetus elevated off the umbilical cord"
+      ],
       "relatedSounds": []
     },
     {
@@ -90,9 +94,8 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Allow buttocks, feet, and trunk to deliver spontaneously without traction",
-        "Assess for prolapsed cord after trunk delivers",
-        "Support fetal body without traction; keep fetus elevated off the umbilical cord"
+        "Insert gloved hand, form a V with index/ring fingers on fetal cheeks to flex chin to chest and open airway",
+        "Do not routinely suction the newborn's airway, even with a bulb syringe"
       ],
       "relatedSounds": []
     },
@@ -126,8 +129,9 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Insert gloved hand, form a V with index/ring fingers on fetal cheeks to flex chin to chest and open airway",
-        "Do not routinely suction the newborn's airway, even with a bulb syringe"
+        "Dry, warm, and stimulate newborn; place skin-to-skin on maternal chest",
+        "Clamp cord ~5-6 inches from abdomen after a 1-minute delay, then cut between clamps",
+        "Record APGAR score at 1 and 5 minutes once neonate is stabilized"
       ],
       "relatedSounds": []
     },
@@ -160,11 +164,7 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [
-        "Dry, warm, and stimulate newborn; place skin-to-skin on maternal chest",
-        "Clamp cord ~5-6 inches from abdomen after a 1-minute delay, then cut between clamps",
-        "Record APGAR score at 1 and 5 minutes once neonate is stabilized"
-      ],
+      "relatedChecklist": [],
       "relatedSounds": []
     },
     {

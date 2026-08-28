@@ -80,13 +80,46 @@
         "trendTimeSeconds": 0,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [],
+      "expectedActions": [
+        {
+          "id": "a1",
+          "shortAction": "Allow buttocks, feet, and trunk to deliver spontaneously without traction",
+          "protocolExcerpt": "Place mother supine, allow the buttocks, feet, and trunk to deliver spontaneously, then support the body while the head is delivered",
+          "priority": "critical",
+          "rationale": "Traction on a breech fetus before spontaneous descent risks nuchal arm entrapment and cervical injury.",
+          "protocolReference": "MATC: OB/GYN Childbirth"
+        },
+        {
+          "id": "a2",
+          "shortAction": "Assess for prolapsed cord after trunk delivers",
+          "protocolExcerpt": "Assess for presence of prolapsed cord and treat as above",
+          "priority": "critical",
+          "rationale": "Cord compression during breech delivery is a leading cause of fetal hypoxia.",
+          "protocolReference": "MATC: OB/GYN Childbirth"
+        },
+        {
+          "id": "a3",
+          "shortAction": "Support fetal body without traction; keep fetus elevated off the umbilical cord",
+          "protocolExcerpt": "Once the legs are delivered support the body to avoid hyperextension of the head; keep the fetus elevated off the umbilical cord... NEVER pull on the body, especially a preterm or previable baby – just support the baby's body while mother pushes when she feels the urge to",
+          "priority": "critical",
+          "rationale": "Pulling on the body or letting the fetus hang below the introitus can compress the cord or hyperextend the head.",
+          "protocolReference": "MATC: OB/GYN Childbirth"
+        }
+      ],
       "transitions": [
         {
           "targetPhaseId": "hands-off-delivery",
-          "if": "Buttocks and trunk allowed to deliver spontaneously",
+          "if": "Buttocks and trunk delivered hands-off",
           "condition": "Crew recognizes complete breech presentation, positions mother supine, and allows the buttocks, feet, and trunk to deliver spontaneously without traction per protocol.",
-          "conditionType": "action_taken"
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a1", "a3"]
+        },
+        {
+          "targetPhaseId": "traction-applied",
+          "if": "Traction applied to speed delivery",
+          "condition": "Instead of allowing spontaneous descent, the crew pulls on the fetal trunk to hasten delivery, extending the arms above the head and obstructing further descent.",
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a1", "a3"]
         }
       ]
     },
@@ -132,27 +165,19 @@
       },
       "expectedActions": [
         {
-          "id": "a1-hands-off",
-          "shortAction": "Allow buttocks, feet, and trunk to deliver spontaneously without traction",
-          "protocolExcerpt": "Place mother supine, allow the buttocks, feet, and trunk to deliver spontaneously, then support the body while the head is delivered",
+          "id": "b1",
+          "shortAction": "Insert gloved hand, form a V with index/ring fingers on fetal cheeks to flex chin to chest and open airway",
+          "protocolExcerpt": "If head fails to deliver, place gloved hand into vagina with fingers between infant's face and uterine wall to create an open airway. Place your index and ring fingers on the baby's cheeks forming a \"V\" taking care not to block the mouth and allowing the chin to be tilted toward the chest flexing the neck",
           "priority": "critical",
-          "rationale": "Traction on a breech fetus before spontaneous descent risks nuchal arm entrapment and cervical injury.",
+          "rationale": "Flexing the chin opens a passive airway and prevents suffocation while the head remains undelivered.",
           "protocolReference": "MATC: OB/GYN Childbirth"
         },
         {
-          "id": "a2-assess-cord",
-          "shortAction": "Assess for prolapsed cord after trunk delivers",
-          "protocolExcerpt": "Assess for presence of prolapsed cord and treat as above",
-          "priority": "critical",
-          "rationale": "Cord compression during breech delivery is a leading cause of fetal hypoxia.",
-          "protocolReference": "MATC: OB/GYN Childbirth"
-        },
-        {
-          "id": "a3-support-body",
-          "shortAction": "Support fetal body without traction; keep fetus elevated off the umbilical cord",
-          "protocolExcerpt": "Once the legs are delivered support the body to avoid hyperextension of the head; keep the fetus elevated off the umbilical cord... NEVER pull on the body, especially a preterm or previable baby – just support the baby's body while mother pushes when she feels the urge to",
-          "priority": "critical",
-          "rationale": "Pulling on the body or letting the fetus hang below the introitus can compress the cord or hyperextend the head.",
+          "id": "b2",
+          "shortAction": "Do not routinely suction the newborn's airway, even with a bulb syringe",
+          "protocolExcerpt": "Do not routinely suction the infant's airway (even with a bulb syringe) during delivery",
+          "priority": "important",
+          "rationale": "Routine suctioning can cause vagal bradycardia and is not shown to improve outcomes.",
           "protocolReference": "MATC: OB/GYN Childbirth"
         }
       ],
@@ -162,14 +187,7 @@
           "if": "Head delivered with jaw-flexion support",
           "condition": "The head does not descend spontaneously within moments, so crew performs the protocol's head-entrapment maneuver to open the airway and complete delivery.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["a3-support-body"]
-        },
-        {
-          "targetPhaseId": "traction-applied",
-          "if": "Traction applied to speed delivery",
-          "condition": "Instead of allowing spontaneous descent, the crew pulls on the fetal trunk to hasten delivery, extending the arms above the head and obstructing further descent.",
-          "conditionType": "action_taken",
-          "triggerActionIds": ["a3-support-body"]
+          "triggerActionIds": ["b1"]
         }
       ]
     },
@@ -214,19 +232,27 @@
       },
       "expectedActions": [
         {
-          "id": "a4-jaw-flexion",
-          "shortAction": "Insert gloved hand, form a V with index/ring fingers on fetal cheeks to flex chin to chest and open airway",
-          "protocolExcerpt": "If head fails to deliver, place gloved hand into vagina with fingers between infant's face and uterine wall to create an open airway. Place your index and ring fingers on the baby's cheeks forming a \"V\" taking care not to block the mouth and allowing the chin to be tilted toward the chest flexing the neck",
+          "id": "c1",
+          "shortAction": "Dry, warm, and stimulate newborn; place skin-to-skin on maternal chest",
+          "protocolExcerpt": "Dry, warm, and stimulate infant, wrap in towel and place on maternal chest unless resuscitation needed",
           "priority": "critical",
-          "rationale": "Flexing the chin opens a passive airway and prevents suffocation while the head remains undelivered.",
+          "rationale": "Newborns lose heat rapidly and stimulation promotes respiratory effort.",
           "protocolReference": "MATC: OB/GYN Childbirth"
         },
         {
-          "id": "a5-no-suction",
-          "shortAction": "Do not routinely suction the newborn's airway, even with a bulb syringe",
-          "protocolExcerpt": "Do not routinely suction the infant's airway (even with a bulb syringe) during delivery",
+          "id": "c2",
+          "shortAction": "Clamp cord ~5-6 inches from abdomen after a 1-minute delay, then cut between clamps",
+          "protocolExcerpt": "After 1 minute, clamp cord about 5–6 inches from the abdomen with two clamps; cut the cord between the clamps",
           "priority": "important",
-          "rationale": "Routine suctioning can cause vagal bradycardia and is not shown to improve outcomes.",
+          "rationale": "Delayed cord clamping improves neonatal blood volume and iron stores.",
+          "protocolReference": "MATC: OB/GYN Childbirth"
+        },
+        {
+          "id": "c3",
+          "shortAction": "Record APGAR score at 1 and 5 minutes once neonate is stabilized",
+          "protocolExcerpt": "Record APGAR scores at 1 and 5 minutes once neonate is stabilized",
+          "priority": "important",
+          "rationale": "APGAR scoring standardizes neonatal status communication to the receiving facility.",
           "protocolReference": "MATC: OB/GYN Childbirth"
         }
       ],
@@ -236,7 +262,7 @@
           "if": "Newborn dried, warmed, and stabilized",
           "condition": "Newborn is delivered completely, dried, warmed, and placed skin-to-skin; crew prepares for cord clamping and transport.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["a4-jaw-flexion"]
+          "triggerActionIds": ["c1", "c3"]
         }
       ]
     },
@@ -280,32 +306,7 @@
         "trendTimeSeconds": 40,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [
-        {
-          "id": "a6-dry-warm",
-          "shortAction": "Dry, warm, and stimulate newborn; place skin-to-skin on maternal chest",
-          "protocolExcerpt": "Dry, warm, and stimulate infant, wrap in towel and place on maternal chest unless resuscitation needed",
-          "priority": "critical",
-          "rationale": "Newborns lose heat rapidly and stimulation promotes respiratory effort.",
-          "protocolReference": "MATC: OB/GYN Childbirth"
-        },
-        {
-          "id": "a7-clamp-cord",
-          "shortAction": "Clamp cord ~5-6 inches from abdomen after a 1-minute delay, then cut between clamps",
-          "protocolExcerpt": "After 1 minute, clamp cord about 5–6 inches from the abdomen with two clamps; cut the cord between the clamps",
-          "priority": "important",
-          "rationale": "Delayed cord clamping improves neonatal blood volume and iron stores.",
-          "protocolReference": "MATC: OB/GYN Childbirth"
-        },
-        {
-          "id": "a8-apgar",
-          "shortAction": "Record APGAR score at 1 and 5 minutes once neonate is stabilized",
-          "protocolExcerpt": "Record APGAR scores at 1 and 5 minutes once neonate is stabilized",
-          "priority": "important",
-          "rationale": "APGAR scoring standardizes neonatal status communication to the receiving facility.",
-          "protocolReference": "MATC: OB/GYN Childbirth"
-        }
-      ],
+      "expectedActions": [],
       "transitions": []
     },
     {
@@ -349,7 +350,7 @@
       },
       "expectedActions": [
         {
-          "id": "a9-rotate-trunk",
+          "id": "d1",
           "shortAction": "Recognize obstructed delivery from traction; rotate fetal trunk to free the extended arm(s), then resume hands-off support",
           "protocolExcerpt": "When delivering breech, you may need to rotate the baby's trunk clockwise; or sweep the legs from the vagina",
           "priority": "critical",
