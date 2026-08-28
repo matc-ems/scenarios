@@ -57,7 +57,13 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [],
+      "relatedChecklist": [
+        "Assess distal pulse, sensation, and movement of right arm before splinting",
+        "Assess pain using Numeric Rating Scale (patient is 22 years old)",
+        "Morphine 8 mg IV (82 kg × 0.1 mg/kg = 8.2 mg, rounded to 8 mg; max initial dose 10 mg)",
+        "Splint shoulder/arm in position found; do not force reduction",
+        "Monitor SpO2 and respiratory rate closely after morphine for signs of hypoventilation"
+      ],
       "relatedSounds": []
     },
     {
@@ -90,11 +96,8 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Assess distal pulse, sensation, and movement of right arm before splinting",
-        "Assess pain using Numeric Rating Scale (patient is 22 years old)",
-        "Morphine 8 mg IV (82 kg × 0.1 mg/kg = 8.2 mg, rounded to 8 mg; max initial dose 10 mg)",
-        "Splint shoulder/arm in position found; do not force reduction",
-        "Monitor SpO2 and respiratory rate closely after morphine for signs of hypoventilation"
+        "Reassess pain score and vital signs after morphine administration",
+        "Transport in position of comfort with continued reassessment"
       ],
       "relatedSounds": []
     },
@@ -127,10 +130,7 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [
-        "Reassess pain score and vital signs after morphine administration",
-        "Transport in position of comfort with continued reassessment"
-      ],
+      "relatedChecklist": [],
       "relatedSounds": []
     },
     {
