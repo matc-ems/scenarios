@@ -57,7 +57,12 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [],
+      "relatedChecklist": [
+        "Escalate therapy from supplemental O2 to CPAP for severe respiratory distress",
+        "Titrate oxygen/CPAP settings to target SpO2 94-98%",
+        "Coach and reassure patient through CPAP mask placement to achieve tolerance",
+        "Place waveform capnography in-line with CPAP to monitor ventilatory status"
+      ],
       "relatedSounds": []
     },
     {
@@ -90,10 +95,6 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Escalate therapy from supplemental O2 to CPAP for severe respiratory distress",
-        "Titrate oxygen/CPAP settings to target SpO2 94-98%",
-        "Coach and reassure patient through CPAP mask placement to achieve tolerance",
-        "Place waveform capnography in-line with CPAP to monitor ventilatory status",
         "Maintain continuous, uninterrupted CPAP mask seal through transport to ED bedside"
       ],
       "relatedSounds": []

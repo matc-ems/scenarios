@@ -81,13 +81,47 @@
         "trendTimeSeconds": 0,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [],
+      "expectedActions": [
+        {
+          "id": "a1",
+          "shortAction": "Escalate therapy from supplemental O2 to CPAP for severe respiratory distress",
+          "protocolExcerpt": "Non-invasive ventilation (NIV) should be administered for severe respiratory distress via BVM, continuous positive airway pressure (CPAP) or bi-level positive airway pressure (BiPAP)",
+          "priority": "critical",
+          "rationale": "CPAP recruits alveoli and reduces preload, directly addressing pulmonary edema physiology.",
+          "protocolReference": "MATC: Respiratory Distress (includes Bronchospasm, Pulmonary Edema)"
+        },
+        {
+          "id": "a2",
+          "shortAction": "Titrate oxygen/CPAP settings to target SpO2 94-98%",
+          "protocolExcerpt": "Give supplemental oxygen for dyspnea to a target of 94–98% saturation. Escalate from a nasal cannula as needed to reach this goal",
+          "priority": "important",
+          "rationale": "Avoids both hypoxia and unnecessary over-oxygenation.",
+          "protocolReference": "MATC: Respiratory Distress (includes Bronchospasm, Pulmonary Edema)"
+        },
+        {
+          "id": "a3",
+          "shortAction": "Coach and reassure patient through CPAP mask placement to achieve tolerance",
+          "protocolExcerpt": "The key to successful use of NIV in a patient who has not used it before is coaching and explanation of the process and reassurance of the patient",
+          "priority": "important",
+          "rationale": "First-time CPAP patients often resist the mask without verbal coaching, delaying effective therapy.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        },
+        {
+          "id": "a4",
+          "shortAction": "Place waveform capnography in-line with CPAP to monitor ventilatory status",
+          "protocolExcerpt": "Should be used in spontaneously breathing patients who are: on NIV",
+          "priority": "supplemental",
+          "rationale": "Continuous capnography helps detect early deterioration on NIV before pulse oximetry changes.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        }
+      ],
       "transitions": [
         {
           "targetPhaseId": "cpap-started",
           "if": "CPAP initiated and coached",
           "condition": "Crew recognizes severe respiratory distress from pulmonary edema and escalates therapy to CPAP, coaching the patient through mask placement.",
-          "conditionType": "action_taken"
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a1", "a3"]
         }
       ]
     },
@@ -132,39 +166,7 @@
       },
       "expectedActions": [
         {
-          "id": "a1-cpap-escalate",
-          "shortAction": "Escalate therapy from supplemental O2 to CPAP for severe respiratory distress",
-          "protocolExcerpt": "Non-invasive ventilation (NIV) should be administered for severe respiratory distress via BVM, continuous positive airway pressure (CPAP) or bi-level positive airway pressure (BiPAP)",
-          "priority": "critical",
-          "rationale": "CPAP recruits alveoli and reduces preload, directly addressing pulmonary edema physiology.",
-          "protocolReference": "MATC: Respiratory Distress (includes Bronchospasm, Pulmonary Edema)"
-        },
-        {
-          "id": "a2-titrate-spo2",
-          "shortAction": "Titrate oxygen/CPAP settings to target SpO2 94-98%",
-          "protocolExcerpt": "Give supplemental oxygen for dyspnea to a target of 94–98% saturation. Escalate from a nasal cannula as needed to reach this goal",
-          "priority": "important",
-          "rationale": "Avoids both hypoxia and unnecessary over-oxygenation.",
-          "protocolReference": "MATC: Respiratory Distress (includes Bronchospasm, Pulmonary Edema)"
-        },
-        {
-          "id": "a3-coach-patient",
-          "shortAction": "Coach and reassure patient through CPAP mask placement to achieve tolerance",
-          "protocolExcerpt": "The key to successful use of NIV in a patient who has not used it before is coaching and explanation of the process and reassurance of the patient",
-          "priority": "important",
-          "rationale": "First-time CPAP patients often resist the mask without verbal coaching, delaying effective therapy.",
-          "protocolReference": "MATC: Airway Management (Includes RSI)"
-        },
-        {
-          "id": "a4-capnography-inline",
-          "shortAction": "Place waveform capnography in-line with CPAP to monitor ventilatory status",
-          "protocolExcerpt": "Should be used in spontaneously breathing patients who are: on NIV",
-          "priority": "supplemental",
-          "rationale": "Continuous capnography helps detect early deterioration on NIV before pulse oximetry changes.",
-          "protocolReference": "MATC: Airway Management (Includes RSI)"
-        },
-        {
-          "id": "a5-maintain-seal",
+          "id": "b1",
           "shortAction": "Maintain continuous, uninterrupted CPAP mask seal through transport to ED bedside",
           "protocolExcerpt": "Once initiated and patient is tolerating mask, DO NOT discontinue CPAP/BiPAP until patient is on the emergency department stretcher and hospital CPAP/BiPAP is immediately available for patient to be switched over, or physician is at bedside and requesting CPAP/BiPAP be discontinued. Breaking the mask seal causes a significant decrease in airway pressures and may lead to abrupt decompensation due to atelectasis and alveolar collapse.",
           "priority": "critical",
@@ -178,14 +180,14 @@
           "if": "CPAP seal maintained continuously",
           "condition": "The CPAP mask seal is maintained without interruption through packaging and transport, allowing continued alveolar recruitment and preload reduction.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["a5-maintain-seal"]
+          "triggerActionIds": ["b1"]
         },
         {
           "targetPhaseId": "seal-broken",
           "if": "CPAP seal broken en route",
           "condition": "The crew breaks the CPAP mask seal during transport (e.g., to let the patient talk or during movement) rather than maintaining continuous pressure, causing an abrupt loss of PEEP.",
           "conditionType": "action_not_taken",
-          "triggerActionIds": ["a5-maintain-seal"]
+          "triggerActionIds": ["b1"]
         }
       ]
     },
@@ -230,7 +232,7 @@
       },
       "expectedActions": [
         {
-          "id": "a6-reassess",
+          "id": "c1",
           "shortAction": "Reassess vital signs and work of breathing after CPAP; document response to therapy",
           "protocolExcerpt": "Subsequent vital signs and physical exam to assess for change after the interventions",
           "priority": "important",
@@ -281,7 +283,7 @@
       },
       "expectedActions": [
         {
-          "id": "a7-reseal-cpap",
+          "id": "d1",
           "shortAction": "Immediately reapply CPAP mask and reestablish a continuous seal",
           "protocolExcerpt": "Breaking the mask seal causes a significant decrease in airway pressures and may lead to abrupt decompensation due to atelectasis and alveolar collapse.",
           "priority": "critical",
