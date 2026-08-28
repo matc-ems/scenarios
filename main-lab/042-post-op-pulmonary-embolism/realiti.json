@@ -57,7 +57,12 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [],
+      "relatedChecklist": [
+        "Apply high-flow oxygen via non-rebreather, titrate to 94-98% SpO2",
+        "Apply cardiac monitor, pulse oximetry, and EtCO2; obtain 12-lead ECG",
+        "Establish IV access; place IO if unsuccessful within 2 attempts or 90 seconds",
+        "Provide advance notification to receiving hospital of suspected obstructive shock"
+      ],
       "relatedSounds": []
     },
     {
@@ -90,10 +95,7 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Apply high-flow oxygen via non-rebreather, titrate to 94-98% SpO2",
-        "Apply cardiac monitor, pulse oximetry, and EtCO2; obtain 12-lead ECG",
-        "Establish IV access; place IO if unsuccessful within 2 attempts or 90 seconds",
-        "Provide advance notification to receiving hospital of suspected obstructive shock"
+        "Serially reassess vitals and perfusion en route; withhold aggressive fluid boluses"
       ],
       "relatedSounds": []
     },
@@ -126,9 +128,7 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [
-        "Serially reassess vitals and perfusion en route; withhold aggressive fluid boluses"
-      ],
+      "relatedChecklist": [],
       "relatedSounds": []
     },
     {

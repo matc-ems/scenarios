@@ -81,13 +81,54 @@
         "trendTimeSeconds": 0,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [],
+      "expectedActions": [
+        {
+          "id": "a1",
+          "shortAction": "Apply high-flow oxygen via non-rebreather, titrate to 94-98% SpO2",
+          "protocolExcerpt": "Give supplemental oxygen for dyspnea to a target of 94–98% saturation. Escalate from a nasal cannula as needed to reach this goal",
+          "priority": "critical",
+          "rationale": "Corrects hypoxia from V/Q mismatch caused by pulmonary vascular obstruction.",
+          "protocolReference": "MATC: Respiratory Distress (includes Bronchospasm, Pulmonary Edema)"
+        },
+        {
+          "id": "a2",
+          "shortAction": "Apply cardiac monitor, pulse oximetry, and EtCO2; obtain 12-lead ECG",
+          "protocolExcerpt": "Cardiac monitor. Pulse oximetry and EtCO2 (reading of less than 25 mmHg may be sign of poor perfusion). EKG",
+          "priority": "critical",
+          "rationale": "A low EtCO2 with tachypnea and an S1Q3T3 pattern supports obstructive shock from suspected PE and guides ongoing monitoring.",
+          "protocolReference": "MATC: Shock"
+        },
+        {
+          "id": "a3",
+          "shortAction": "Establish IV access; place IO if unsuccessful within 2 attempts or 90 seconds",
+          "protocolExcerpt": "Establish IV access. If unable to obtain within two attempts or less than 90 seconds, place an IO needle",
+          "priority": "important",
+          "rationale": "Vascular access is needed for potential fluid or vasopressor therapy if the patient decompensates.",
+          "protocolReference": "MATC: Shock"
+        },
+        {
+          "id": "a4",
+          "shortAction": "Provide advance notification to receiving hospital of suspected obstructive shock",
+          "protocolExcerpt": "Provide advanced notification to the hospital",
+          "priority": "important",
+          "rationale": "Early notification allows the receiving facility to prepare for possible PE-directed therapy.",
+          "protocolReference": "MATC: Shock"
+        }
+      ],
       "transitions": [
         {
           "targetPhaseId": "o2-monitor-established",
           "if": "O2, monitor, and IV access established",
           "condition": "Crew applies supplemental oxygen, places the patient on a cardiac monitor with pulse oximetry and EtCO2, obtains a 12-lead, and establishes IV access.",
-          "conditionType": "action_taken"
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a1", "a2", "a3"]
+        },
+        {
+          "targetPhaseId": "shock-unrecognized",
+          "if": "Right heart strain unrecognized, no reassessment",
+          "condition": "Crew treats only the dyspnea without recognizing the obstructive shock pattern (JVD, S1Q3T3, low EtCO2) and fails to reassess perfusion; blood pressure continues to drift downward unnoticed.",
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["a2"]
         }
       ]
     },
@@ -133,35 +174,11 @@
       },
       "expectedActions": [
         {
-          "id": "a1-o2",
-          "shortAction": "Apply high-flow oxygen via non-rebreather, titrate to 94-98% SpO2",
-          "protocolExcerpt": "Give supplemental oxygen for dyspnea to a target of 94–98% saturation. Escalate from a nasal cannula as needed to reach this goal",
+          "id": "b1",
+          "shortAction": "Serially reassess vitals and perfusion en route; withhold aggressive fluid boluses",
+          "protocolExcerpt": "Recognition of cardiogenic shock - If the patient condition deteriorates after fluid administration, rales or hepatomegaly develop, then consider cardiogenic shock and withholding further fluid administration",
           "priority": "critical",
-          "rationale": "Corrects hypoxia from V/Q mismatch caused by pulmonary vascular obstruction.",
-          "protocolReference": "MATC: Respiratory Distress (includes Bronchospasm, Pulmonary Edema)"
-        },
-        {
-          "id": "a2-monitor",
-          "shortAction": "Apply cardiac monitor, pulse oximetry, and EtCO2; obtain 12-lead ECG",
-          "protocolExcerpt": "Cardiac monitor. Pulse oximetry and EtCO2 (reading of less than 25 mmHg may be sign of poor perfusion). EKG",
-          "priority": "critical",
-          "rationale": "A low EtCO2 with tachypnea and an S1Q3T3 pattern supports obstructive shock from suspected PE and guides ongoing monitoring.",
-          "protocolReference": "MATC: Shock"
-        },
-        {
-          "id": "a3-iv",
-          "shortAction": "Establish IV access; place IO if unsuccessful within 2 attempts or 90 seconds",
-          "protocolExcerpt": "Establish IV access. If unable to obtain within two attempts or less than 90 seconds, place an IO needle",
-          "priority": "important",
-          "rationale": "Vascular access is needed for potential fluid or vasopressor therapy if the patient decompensates.",
-          "protocolReference": "MATC: Shock"
-        },
-        {
-          "id": "a4-notify",
-          "shortAction": "Provide advance notification to receiving hospital of suspected obstructive shock",
-          "protocolExcerpt": "Provide advanced notification to the hospital",
-          "priority": "important",
-          "rationale": "Early notification allows the receiving facility to prepare for possible PE-directed therapy.",
+          "rationale": "Obstructive shock from PE behaves like cardiogenic shock physiologically; large fluid boluses can worsen right heart strain.",
           "protocolReference": "MATC: Shock"
         }
       ],
@@ -171,14 +188,7 @@
           "if": "Supportive care maintained, hospital notified",
           "condition": "Oxygenation is maintained, vital signs remain relatively stable without further hypotension, and the patient is transported with advance notification to the receiving hospital.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["a1-o2", "a4-notify"]
-        },
-        {
-          "targetPhaseId": "shock-unrecognized",
-          "if": "Right heart strain unrecognized, no reassessment",
-          "condition": "Crew treats only the dyspnea without recognizing the obstructive shock pattern (JVD, S1Q3T3, low EtCO2) and fails to reassess perfusion; blood pressure continues to drift downward unnoticed.",
-          "conditionType": "action_not_taken",
-          "triggerActionIds": ["a2-monitor"]
+          "triggerActionIds": ["b1"]
         }
       ]
     },
@@ -221,16 +231,7 @@
         "trendTimeSeconds": 40,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
       },
-      "expectedActions": [
-        {
-          "id": "a5-reassess",
-          "shortAction": "Serially reassess vitals and perfusion en route; withhold aggressive fluid boluses",
-          "protocolExcerpt": "Recognition of cardiogenic shock - If the patient condition deteriorates after fluid administration, rales or hepatomegaly develop, then consider cardiogenic shock and withholding further fluid administration",
-          "priority": "critical",
-          "rationale": "Obstructive shock from PE behaves like cardiogenic shock physiologically; large fluid boluses can worsen right heart strain.",
-          "protocolReference": "MATC: Shock"
-        }
-      ],
+      "expectedActions": [],
       "transitions": []
     },
     {
@@ -274,7 +275,7 @@
       },
       "expectedActions": [
         {
-          "id": "a6-vasopressor",
+          "id": "c1",
           "shortAction": "Start norepinephrine 0.05-0.5 mcg/kg/min IV (70 kg patient), titrate to MAP 65",
           "protocolExcerpt": "Vasopressors (shock unresponsive to IV fluids) titrated to physiologic targets: Cardiogenic, hypovolemic, obstructive shock and distributive shock: Norepinephrine 0.05–0.5 mcg/kg/minute",
           "priority": "critical",
