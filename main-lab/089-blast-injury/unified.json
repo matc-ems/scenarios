@@ -81,19 +81,46 @@
         "trendTimeSeconds": 0,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [],
+      "expectedActions": [
+        {
+          "id": "a1",
+          "shortAction": "Perform MARCH primary survey prioritizing hemorrhage control over burns/hearing loss",
+          "protocolExcerpt": "Optimal trauma care requires a structured approach to the patient emphasizing first control of massive hemorrhage using MARCH (Massive hemorrhage, Airway, Respiratory/Breathing, Circulation, Head injury/Hypothermia)",
+          "priority": "critical",
+          "rationale": "The visible burns and hearing complaint are distracting but not immediately life-threatening; uncontrolled hemorrhage is.",
+          "protocolReference": "MATC: General Trauma Management"
+        },
+        {
+          "id": "a2",
+          "shortAction": "Apply commercial tourniquet 2-3 in proximal to right thigh wound; mark placement time",
+          "protocolExcerpt": "Tourniquet should be placed 2–3 inches proximal to wound, not over a joint, and tightened until bleeding stops and distal pulse is eliminated Mark the time of tourniquet placement prominently on the patient and in the patient care report",
+          "priority": "critical",
+          "rationale": "Survival is markedly improved when a tourniquet is placed before shock develops.",
+          "protocolReference": "MATC: Extremity Trauma/External Hemorrhage Management"
+        },
+        {
+          "id": "a3",
+          "shortAction": "Continually reassess for blast lung injury and possible airway burn",
+          "protocolExcerpt": "Continually reassess for blast lung injury. Consider possible thermal or chemical burns to the airway",
+          "priority": "important",
+          "rationale": "Blast overpressure injury can cause delayed-onset pulmonary barotrauma that isn't apparent on first contact.",
+          "protocolReference": "MATC: Blast Injuries"
+        }
+      ],
       "transitions": [
         {
           "targetPhaseId": "hemorrhage-controlled",
           "if": "Massive hemorrhage controlled first",
           "condition": "Crew performs a MARCH primary survey, prioritizing hemorrhage control before addressing the burns or hearing loss, and applies a tourniquet to the actively bleeding right thigh wound.",
-          "conditionType": "action_taken"
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a1", "a2"]
         },
         {
           "targetPhaseId": "hemorrhage-uncontrolled",
           "if": "Tourniquet delayed for burns/hearing",
           "condition": "Crew is distracted by the visible burns and the patient's hearing loss/confusion, delaying tourniquet application on the actively bleeding thigh wound while blood loss continues.",
-          "conditionType": "action_not_taken"
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["a2"]
         }
       ]
     },
@@ -138,27 +165,27 @@
       },
       "expectedActions": [
         {
-          "id": "a1-march",
-          "shortAction": "Perform MARCH primary survey prioritizing hemorrhage control over burns/hearing loss",
-          "protocolExcerpt": "Optimal trauma care requires a structured approach to the patient emphasizing first control of massive hemorrhage using MARCH (Massive hemorrhage, Airway, Respiratory/Breathing, Circulation, Head injury/Hypothermia)",
+          "id": "b1",
+          "shortAction": "Needle decompression right 2nd ICS midclavicular line for tension pneumothorax",
+          "protocolExcerpt": "If the patient has evidence of tension pneumothorax, perform needle decompression consider tension pneumothorax and perform needle decompression of side without breath sounds or side opposite tracheal deviation; may need second or third needle decompression on same side if there is a rush of air but patient again has symptoms",
           "priority": "critical",
-          "rationale": "The visible burns and hearing complaint are distracting but not immediately life-threatening; uncontrolled hemorrhage is.",
+          "rationale": "Untreated tension pneumothorax rapidly progresses to obstructive shock and cardiac arrest.",
           "protocolReference": "MATC: General Trauma Management"
         },
         {
-          "id": "a2-tourniquet",
-          "shortAction": "Apply commercial tourniquet 2-3 in proximal to right thigh wound; mark placement time",
-          "protocolExcerpt": "Tourniquet should be placed 2–3 inches proximal to wound, not over a joint, and tightened until bleeding stops and distal pulse is eliminated Mark the time of tourniquet placement prominently on the patient and in the patient care report",
-          "priority": "critical",
-          "rationale": "Survival is markedly improved when a tourniquet is placed before shock develops.",
-          "protocolReference": "MATC: Extremity Trauma/External Hemorrhage Management"
+          "id": "b2",
+          "shortAction": "Establish IV access; administer NS per Burns Guideline given TBSA and shock signs",
+          "protocolExcerpt": "Establish IV access with two large bore IVs or IOs If the patient is burned, administer normal saline (NS) or lactated Ringer's (LR) per the Burns Guideline",
+          "priority": "important",
+          "rationale": "IV access supports both fluid resuscitation for the burns and readiness for shock management.",
+          "protocolReference": "MATC: Blast Injuries"
         },
         {
-          "id": "a3-blast-reassess",
-          "shortAction": "Continually reassess for blast lung injury and possible airway burn",
-          "protocolExcerpt": "Continually reassess for blast lung injury. Consider possible thermal or chemical burns to the airway",
+          "id": "b3",
+          "shortAction": "Rapid total-body exposure exam including log roll; keep patient warm",
+          "protocolExcerpt": "Rapid evaluation of entire skin surface, including back (log roll), to identify blunt or penetrating injuries Keep patient warm to prevent hypothermia",
           "priority": "important",
-          "rationale": "Blast overpressure injury can cause delayed-onset pulmonary barotrauma that isn't apparent on first contact.",
+          "rationale": "Blast injuries can hide additional penetrating wounds that aren't obvious on initial survey.",
           "protocolReference": "MATC: Blast Injuries"
         }
       ],
@@ -168,7 +195,14 @@
           "if": "Breath sounds reassessed on right",
           "condition": "Crew proceeds to reassess breath sounds bilaterally, noting decreased sounds on the right consistent with barotrauma, and prepares for needle decompression if tension physiology develops.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["a3-blast-reassess"]
+          "triggerActionIds": ["b1"]
+        },
+        {
+          "targetPhaseId": "tension-pneumo-missed",
+          "if": "Decompression delayed despite worsening signs",
+          "condition": "Crew continues focusing on burn dressing and IV access while the patient's respiratory distress, hypotension, and tracheal deviation worsen without needle decompression.",
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["b1"]
         }
       ]
     },
@@ -213,28 +247,20 @@
       },
       "expectedActions": [
         {
-          "id": "a4-decompress",
-          "shortAction": "Needle decompression right 2nd ICS midclavicular line for tension pneumothorax",
-          "protocolExcerpt": "If the patient has evidence of tension pneumothorax, perform needle decompression consider tension pneumothorax and perform needle decompression of side without breath sounds or side opposite tracheal deviation; may need second or third needle decompression on same side if there is a rush of air but patient again has symptoms",
-          "priority": "critical",
-          "rationale": "Untreated tension pneumothorax rapidly progresses to obstructive shock and cardiac arrest.",
+          "id": "c1",
+          "shortAction": "Transport to trauma center with burn capability per field triage guideline; minimize scene time",
+          "protocolExcerpt": "Primary transport to a trauma or burn center is preferable, whenever possible Decisions regarding transport destination should be based on the ACS-COT 2022 National Guideline for the Field Triage of Injured Patients",
+          "priority": "important",
+          "rationale": "Multi-system blast injury with burns requires a facility capable of managing both trauma and burn care.",
+          "protocolReference": "MATC: Blast Injuries"
+        },
+        {
+          "id": "c2",
+          "shortAction": "Reassess vitals, breath sounds, and tourniquet serially en route",
+          "protocolExcerpt": "Monitor patient for deterioration over time with serial vital signs (pulse, blood pressure, respiratory rate, neurologic status assessment) and repeat neurologic status assessment Tourniquet should be reassessed at every stage of patient movement to ensure ongoing hemorrhage control.",
+          "priority": "important",
+          "rationale": "Blast patients can deteriorate from occult injuries not apparent on the initial survey.",
           "protocolReference": "MATC: General Trauma Management"
-        },
-        {
-          "id": "a5-iv-fluids",
-          "shortAction": "Establish IV access; administer NS per Burns Guideline given TBSA and shock signs",
-          "protocolExcerpt": "Establish IV access with two large bore IVs or IOs If the patient is burned, administer normal saline (NS) or lactated Ringer's (LR) per the Burns Guideline",
-          "priority": "important",
-          "rationale": "IV access supports both fluid resuscitation for the burns and readiness for shock management.",
-          "protocolReference": "MATC: Blast Injuries"
-        },
-        {
-          "id": "a6-exposure",
-          "shortAction": "Rapid total-body exposure exam including log roll; keep patient warm",
-          "protocolExcerpt": "Rapid evaluation of entire skin surface, including back (log roll), to identify blunt or penetrating injuries Keep patient warm to prevent hypothermia",
-          "priority": "important",
-          "rationale": "Blast injuries can hide additional penetrating wounds that aren't obvious on initial survey.",
-          "protocolReference": "MATC: Blast Injuries"
         }
       ],
       "transitions": [
@@ -243,14 +269,7 @@
           "if": "Decompression relieves pressure, packaged for transport",
           "condition": "Needle decompression produces an audible rush of air; breath sounds and vitals improve. The patient is packaged with the tourniquet visible, burns dressed, and fluids running for transport to a trauma/burn center.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["a4-decompress"]
-        },
-        {
-          "targetPhaseId": "tension-pneumo-missed",
-          "if": "Decompression delayed despite worsening signs",
-          "condition": "Crew continues focusing on burn dressing and IV access while the patient's respiratory distress, hypotension, and tracheal deviation worsen without needle decompression.",
-          "conditionType": "action_not_taken",
-          "triggerActionIds": ["a4-decompress"]
+          "triggerActionIds": ["c1", "c2"]
         }
       ]
     },
@@ -293,24 +312,7 @@
         "trendTimeSeconds": 40,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [
-        {
-          "id": "a7-transport",
-          "shortAction": "Transport to trauma center with burn capability per field triage guideline; minimize scene time",
-          "protocolExcerpt": "Primary transport to a trauma or burn center is preferable, whenever possible Decisions regarding transport destination should be based on the ACS-COT 2022 National Guideline for the Field Triage of Injured Patients",
-          "priority": "important",
-          "rationale": "Multi-system blast injury with burns requires a facility capable of managing both trauma and burn care.",
-          "protocolReference": "MATC: Blast Injuries"
-        },
-        {
-          "id": "a8-serial-reassess",
-          "shortAction": "Reassess vitals, breath sounds, and tourniquet serially en route",
-          "protocolExcerpt": "Monitor patient for deterioration over time with serial vital signs (pulse, blood pressure, respiratory rate, neurologic status assessment) and repeat neurologic status assessment Tourniquet should be reassessed at every stage of patient movement to ensure ongoing hemorrhage control.",
-          "priority": "important",
-          "rationale": "Blast patients can deteriorate from occult injuries not apparent on the initial survey.",
-          "protocolReference": "MATC: General Trauma Management"
-        }
-      ],
+      "expectedActions": [],
       "transitions": []
     },
     {
@@ -354,7 +356,7 @@
       },
       "expectedActions": [
         {
-          "id": "a9-rescue-tourniquet",
+          "id": "d1",
           "shortAction": "Recognize hemorrhagic shock; apply tourniquet immediately, consider TXA",
           "protocolExcerpt": "First stop severe external and extremity hemorrhage with extremity tourniquets or appropriate wound packing with hemostatic gauze. Consider tranexamic acid (TXA) for injury associated with hemorrhagic shock if within three hours of injury",
           "priority": "critical",
@@ -405,7 +407,7 @@
       },
       "expectedActions": [
         {
-          "id": "a10-rescue-decompress",
+          "id": "e1",
           "shortAction": "Recognize tension pneumothorax; needle decompress right 2nd ICS immediately",
           "protocolExcerpt": "If absent or diminished breath sounds in a hypotensive trauma patient, especially those with chest trauma and/or tracheal deviation, consider tension pneumothorax and perform needle decompression of side without breath sounds or side opposite tracheal deviation",
           "priority": "critical",
