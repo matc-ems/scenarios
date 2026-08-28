@@ -57,7 +57,10 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [],
+      "relatedChecklist": [
+        "Obtain detailed caregiver history establishing patient's baseline function and today's change",
+        "Work through AEIOU-TIPS differential: check glucose, look for signs of infection and other treatable causes"
+      ],
       "relatedSounds": []
     },
     {
@@ -90,8 +93,9 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Obtain detailed caregiver history establishing patient's baseline function and today's change",
-        "Work through AEIOU-TIPS differential: check glucose, look for signs of infection and other treatable causes"
+        "IV access established; 500 mL isotonic fluid bolus pressure-infused over <15 min toward MAP goal",
+        "Acetaminophen 870 mg IV/PO (58 kg × 15 mg/kg = 870 mg; max 1000 mg)",
+        "Provide advance notification to receiving hospital of suspected septic source"
       ],
       "relatedSounds": []
     },
@@ -125,9 +129,7 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "IV access established; 500 mL isotonic fluid bolus pressure-infused over <15 min toward MAP goal",
-        "Acetaminophen 870 mg IV/PO (58 kg × 15 mg/kg = 870 mg; max 1000 mg)",
-        "Provide advance notification to receiving hospital of suspected septic source"
+        "Reassess full vital signs and mental status serially en route, comparing to caregiver-confirmed baseline"
       ],
       "relatedSounds": []
     },
@@ -160,9 +162,7 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [
-        "Reassess full vital signs and mental status serially en route, comparing to caregiver-confirmed baseline"
-      ],
+      "relatedChecklist": [],
       "relatedSounds": []
     },
     {

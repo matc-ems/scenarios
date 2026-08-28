@@ -80,19 +80,38 @@
         "trendTimeSeconds": 0,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [],
+      "expectedActions": [
+        {
+          "id": "a1",
+          "shortAction": "Obtain detailed caregiver history establishing patient's baseline function and today's change",
+          "protocolExcerpt": "History from bystanders and caregivers. Age of the patient. Development age and baseline functional status.",
+          "priority": "critical",
+          "rationale": "In a nonverbal patient with a chronic baseline condition, the caregiver is the only source for identifying a true change from baseline.",
+          "protocolReference": "MATC: Altered Mental Status"
+        },
+        {
+          "id": "a2",
+          "shortAction": "Work through AEIOU-TIPS differential: check glucose, look for signs of infection and other treatable causes",
+          "protocolExcerpt": "Blood glucose level. Signs of infection: Fever, cough, skin changes, dysuria.",
+          "priority": "critical",
+          "rationale": "A systematic differential prevents anchoring on the patient's chronic diagnosis and missing a treatable acute cause.",
+          "protocolReference": "MATC: Altered Mental Status"
+        }
+      ],
       "transitions": [
         {
           "targetPhaseId": "baseline-history-obtained",
           "if": "Caregiver history and baseline obtained",
           "condition": "Crew takes a thorough history from the home health aide, establishing the patient's neurologic and functional baseline, and identifies today's change from that baseline along with fever and a possible catheter-associated infection source.",
-          "conditionType": "action_taken"
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a1", "a2"]
         },
         {
           "targetPhaseId": "baseline-history-skipped",
           "if": "Baseline history not obtained",
           "condition": "Crew treats the patient's presentation as consistent with his usual cerebral palsy baseline without asking the caregiver what is normal for him, missing the fever and the change in responsiveness.",
-          "conditionType": "action_not_taken"
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["a1"]
         }
       ]
     },
@@ -137,20 +156,28 @@
       },
       "expectedActions": [
         {
-          "id": "a1-caregiver-history",
-          "shortAction": "Obtain detailed caregiver history establishing patient's baseline function and today's change",
-          "protocolExcerpt": "History from bystanders and caregivers. Age of the patient. Development age and baseline functional status.",
+          "id": "b1",
+          "shortAction": "IV access established; 500 mL isotonic fluid bolus pressure-infused over <15 min toward MAP goal",
+          "protocolExcerpt": "Establish IV access. If unable to obtain within two attempts or less than 90 seconds, place an IO needle. IV fluid volume goal attained by giving boluses that are pressure infused over less than 15 minutes each... Fluid goal of up to 30 mL/kg of isotonic fluid by administering rapid, predetermined boluses (e.g., 500 mL) unless the MAP goal is achieved, or pulmonary edema develops.",
           "priority": "critical",
-          "rationale": "In a nonverbal patient with a chronic baseline condition, the caregiver is the only source for identifying a true change from baseline.",
-          "protocolReference": "MATC: Altered Mental Status"
+          "rationale": "Early fluid resuscitation is the primary treatment for suspected septic (distributive) shock.",
+          "protocolReference": "MATC: Shock"
         },
         {
-          "id": "a2-aeiou-tips-workup",
-          "shortAction": "Work through AEIOU-TIPS differential: check glucose, look for signs of infection and other treatable causes",
-          "protocolExcerpt": "Blood glucose level. Signs of infection: Fever, cough, skin changes, dysuria.",
-          "priority": "critical",
-          "rationale": "A systematic differential prevents anchoring on the patient's chronic diagnosis and missing a treatable acute cause.",
-          "protocolReference": "MATC: Altered Mental Status"
+          "id": "b2",
+          "shortAction": "Acetaminophen 870 mg IV/PO (58 kg × 15 mg/kg = 870 mg; max 1000 mg)",
+          "protocolExcerpt": "Antipyretics for fever – nonsteroidal anti-inflammatory agents are contraindicated in infants less than 6 months of age. Acetaminophen (15 mg/kg; maximum dose of 1000 mg).",
+          "priority": "important",
+          "rationale": "Fever control supports comfort and reduces metabolic demand in a septic patient.",
+          "protocolReference": "MATC: Shock"
+        },
+        {
+          "id": "b3",
+          "shortAction": "Provide advance notification to receiving hospital of suspected septic source",
+          "protocolExcerpt": "Provide advanced notification to the hospital.",
+          "priority": "important",
+          "rationale": "Early notification allows the receiving facility to prepare sepsis-pathway resources before arrival.",
+          "protocolReference": "MATC: Shock"
         }
       ],
       "transitions": [
@@ -158,7 +185,8 @@
           "targetPhaseId": "fluids-antipyretic-given",
           "if": "IV fluids and antipyretic given",
           "condition": "Crew establishes IV access, administers an isotonic fluid bolus toward the MAP goal, and gives weight-based acetaminophen for fever, then provides advance notification to the hospital of suspected sepsis.",
-          "conditionType": "action_taken"
+          "conditionType": "action_taken",
+          "triggerActionIds": ["b1", "b2", "b3"]
         }
       ]
     },
@@ -203,27 +231,11 @@
       },
       "expectedActions": [
         {
-          "id": "a3-iv-fluid-bolus",
-          "shortAction": "IV access established; 500 mL isotonic fluid bolus pressure-infused over <15 min toward MAP goal",
-          "protocolExcerpt": "Establish IV access. If unable to obtain within two attempts or less than 90 seconds, place an IO needle. IV fluid volume goal attained by giving boluses that are pressure infused over less than 15 minutes each... Fluid goal of up to 30 mL/kg of isotonic fluid by administering rapid, predetermined boluses (e.g., 500 mL) unless the MAP goal is achieved, or pulmonary edema develops.",
-          "priority": "critical",
-          "rationale": "Early fluid resuscitation is the primary treatment for suspected septic (distributive) shock.",
-          "protocolReference": "MATC: Shock"
-        },
-        {
-          "id": "a4-acetaminophen",
-          "shortAction": "Acetaminophen 870 mg IV/PO (58 kg × 15 mg/kg = 870 mg; max 1000 mg)",
-          "protocolExcerpt": "Antipyretics for fever – nonsteroidal anti-inflammatory agents are contraindicated in infants less than 6 months of age. Acetaminophen (15 mg/kg; maximum dose of 1000 mg).",
+          "id": "c1",
+          "shortAction": "Reassess full vital signs and mental status serially en route, comparing to caregiver-confirmed baseline",
+          "protocolExcerpt": "Full vital signs (pulse, blood pressure, respiratory rate, neurologic status assessment) with reassessment q 15 minutes or more frequently as appropriate.",
           "priority": "important",
-          "rationale": "Fever control supports comfort and reduces metabolic demand in a septic patient.",
-          "protocolReference": "MATC: Shock"
-        },
-        {
-          "id": "a5-hospital-notification",
-          "shortAction": "Provide advance notification to receiving hospital of suspected septic source",
-          "protocolExcerpt": "Provide advanced notification to the hospital.",
-          "priority": "important",
-          "rationale": "Early notification allows the receiving facility to prepare sepsis-pathway resources before arrival.",
+          "rationale": "Serial reassessment against a caregiver-established baseline confirms the trend toward improvement rather than assuming resolution.",
           "protocolReference": "MATC: Shock"
         }
       ],
@@ -232,7 +244,8 @@
           "targetPhaseId": "perfusion-improves-transport",
           "if": "Perfusion improves, transport initiated",
           "condition": "Heart rate trends down and mentation trends back toward the caregiver-confirmed baseline as fluids and antipyretic take effect; patient is transported with serial reassessment.",
-          "conditionType": "action_taken"
+          "conditionType": "action_taken",
+          "triggerActionIds": ["c1"]
         }
       ]
     },
@@ -274,16 +287,7 @@
         "trendTimeSeconds": 50,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [
-        {
-          "id": "a6-serial-reassessment",
-          "shortAction": "Reassess full vital signs and mental status serially en route, comparing to caregiver-confirmed baseline",
-          "protocolExcerpt": "Full vital signs (pulse, blood pressure, respiratory rate, neurologic status assessment) with reassessment q 15 minutes or more frequently as appropriate.",
-          "priority": "important",
-          "rationale": "Serial reassessment against a caregiver-established baseline confirms the trend toward improvement rather than assuming resolution.",
-          "protocolReference": "MATC: Shock"
-        }
-      ],
+      "expectedActions": [],
       "transitions": []
     },
     {
@@ -327,7 +331,7 @@
       },
       "expectedActions": [
         {
-          "id": "a7-recognize-decompensation",
+          "id": "d1",
           "shortAction": "Recognize uncompensated shock (SBP <90); initiate IV fluid bolus and advance hospital notification",
           "protocolExcerpt": "Hypotension for age (lowest acceptable systolic blood pressure in mmHg): Greater than 10 years old: 90. Establish IV access... IV fluid volume goal attained by giving boluses that are pressure infused over less than 15 minutes each.",
           "priority": "critical",
