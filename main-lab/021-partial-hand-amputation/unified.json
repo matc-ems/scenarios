@@ -81,13 +81,46 @@
         "trendTimeSeconds": 0,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [],
+      "expectedActions": [
+        {
+          "id": "a1",
+          "shortAction": "Reassess improvised belt tourniquet; apply commercial tourniquet 2-3 in proximal to wound until bleeding stops",
+          "protocolExcerpt": "If improvised tourniquet has been placed by bystander, reassess, and consider placing commercial tourniquet proximal to it. Tourniquet should be placed 2–3 inches proximal to wound, not over a joint, and tightened until bleeding stops and distal pulse is eliminated",
+          "priority": "critical",
+          "rationale": "The improvised belt tourniquet is not confirmed fully occlusive; a properly applied commercial tourniquet ensures definitive hemorrhage control.",
+          "protocolReference": "MATC: Extremity Trauma/External Hemorrhage Management"
+        },
+        {
+          "id": "a2",
+          "shortAction": "Mark tourniquet placement time on the patient and in the patient care report",
+          "protocolExcerpt": "Mark the time of tourniquet placement prominently on the patient and in the patient care report",
+          "priority": "important",
+          "rationale": "Tourniquet time is critical information for receiving trauma teams regarding limb ischemia time.",
+          "protocolReference": "MATC: Extremity Trauma/External Hemorrhage Management"
+        },
+        {
+          "id": "a3",
+          "shortAction": "Ketamine 22.5 mg IV (90 kg x 0.25 mg/kg = 22.5 mg; max initial 25 mg, max cumulative 100 mg)",
+          "protocolExcerpt": "Ketamine: 0.25 mg/kg IM, IV or IO (maximum initial dose 25 mg; maximum cumulative dose 100 mg)",
+          "priority": "critical",
+          "rationale": "Severe traumatic pain warrants weight-based opioid-class analgesia per protocol dosing.",
+          "protocolReference": "MATC: Pain Management"
+        }
+      ],
       "transitions": [
         {
           "targetPhaseId": "hemorrhage-pain-managed",
           "if": "Hemorrhage control and analgesia initiated",
           "condition": "Crew assesses the improvised tourniquet, upgrades to a commercial tourniquet, and provides weight-based ketamine analgesia.",
-          "conditionType": "action_taken"
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a1", "a3"]
+        },
+        {
+          "targetPhaseId": "tourniquet-delayed",
+          "if": "Tourniquet delayed",
+          "condition": "The crew delays upgrading the improvised tourniquet, and the improvised belt continues to allow slow ongoing blood loss.",
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["a1"]
         }
       ]
     },
@@ -133,58 +166,35 @@
       },
       "expectedActions": [
         {
-          "id": "a1-tourniquet-upgrade",
-          "shortAction": "Reassess improvised belt tourniquet; apply commercial tourniquet 2-3 in proximal to wound until bleeding stops",
-          "protocolExcerpt": "If improvised tourniquet has been placed by bystander, reassess, and consider placing commercial tourniquet proximal to it. Tourniquet should be placed 2–3 inches proximal to wound, not over a joint, and tightened until bleeding stops and distal pulse is eliminated",
-          "priority": "critical",
-          "rationale": "The improvised belt tourniquet is not confirmed fully occlusive; a properly applied commercial tourniquet ensures definitive hemorrhage control.",
-          "protocolReference": "MATC: Extremity Trauma/External Hemorrhage Management"
-        },
-        {
-          "id": "a2-mark-time",
-          "shortAction": "Mark tourniquet placement time on the patient and in the patient care report",
-          "protocolExcerpt": "Mark the time of tourniquet placement prominently on the patient and in the patient care report",
-          "priority": "important",
-          "rationale": "Tourniquet time is critical information for receiving trauma teams regarding limb ischemia time.",
-          "protocolReference": "MATC: Extremity Trauma/External Hemorrhage Management"
-        },
-        {
-          "id": "a3-ketamine",
-          "shortAction": "Ketamine 22.5 mg IV (90 kg x 0.25 mg/kg = 22.5 mg; max initial 25 mg, max cumulative 100 mg)",
-          "protocolExcerpt": "Ketamine: 0.25 mg/kg IM, IV or IO (maximum initial dose 25 mg; maximum cumulative dose 100 mg)",
-          "priority": "critical",
-          "rationale": "Severe traumatic pain warrants weight-based opioid-class analgesia per protocol dosing.",
-          "protocolReference": "MATC: Pain Management"
-        },
-        {
-          "id": "a4-amputated-part-care",
+          "id": "b1",
           "shortAction": "Wrap amputated hand in saline-moistened gauze, seal in a bag, then place that bag on ice in a second bag",
           "protocolExcerpt": "Amputated body parts should be transported with patient for possible re-implantation. It should remain cool but dry. Place the amputated part in a plastic bag. Place the bag with the amputated part on ice in a second bag. Do not let the amputated part come into direct contact with the ice",
           "priority": "important",
           "rationale": "Proper cooling without direct ice contact preserves tissue viability for possible re-implantation.",
+          "protocolReference": "MATC: Extremity Trauma/External Hemorrhage Management"
+        },
+        {
+          "id": "b2",
+          "shortAction": "Reassess tourniquet and pain level en route without loosening the tourniquet",
+          "protocolExcerpt": "Without removing the tourniquet or dressing, reassess frequently for signs of ongoing or renewed bleeding, such as: Blood soaking through dressing; Bleeding distal to tourniquet",
+          "priority": "important",
+          "rationale": "Ongoing reassessment confirms the tourniquet remains effective without disturbing hemorrhage control.",
           "protocolReference": "MATC: Extremity Trauma/External Hemorrhage Management"
         }
       ],
       "transitions": [
         {
           "targetPhaseId": "stable-transport",
-          "if": "Tourniquet secured and ketamine given",
+          "if": "Stable for transport",
           "condition": "Commercial tourniquet is confirmed occlusive with bleeding stopped, ketamine has reduced the patient's pain, and the amputated part is packaged for transport.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["a1-tourniquet-upgrade", "a3-ketamine"]
-        },
-        {
-          "targetPhaseId": "tourniquet-delayed",
-          "if": "Tourniquet placement delayed",
-          "condition": "The crew delays upgrading the improvised tourniquet, and the improvised belt continues to allow slow ongoing blood loss.",
-          "conditionType": "action_not_taken",
-          "triggerActionIds": ["a1-tourniquet-upgrade"]
+          "triggerActionIds": ["b1", "b2"]
         }
       ]
     },
     {
       "id": "stable-transport",
-      "name": "Tourniquet secured and ketamine given",
+      "name": "Stable for transport",
       "description": "Bleeding is controlled with a properly applied and time-marked commercial tourniquet, pain is well managed with ketamine, and the patient is packaged for prompt transport with the amputated part.",
       "triggerCondition": "After definitive tourniquet placement and ketamine administration, the patient's pain and hemodynamics improve and the crew prepares for transport.",
       "isDefault": true,
@@ -221,16 +231,7 @@
         "trendTimeSeconds": 40,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [
-        {
-          "id": "a5-reassess",
-          "shortAction": "Reassess tourniquet and pain level en route without loosening the tourniquet",
-          "protocolExcerpt": "Without removing the tourniquet or dressing, reassess frequently for signs of ongoing or renewed bleeding, such as: Blood soaking through dressing; Bleeding distal to tourniquet",
-          "priority": "important",
-          "rationale": "Ongoing reassessment confirms the tourniquet remains effective without disturbing hemorrhage control.",
-          "protocolReference": "MATC: Extremity Trauma/External Hemorrhage Management"
-        }
-      ],
+      "expectedActions": [],
       "transitions": []
     },
     {
@@ -274,7 +275,7 @@
       },
       "expectedActions": [
         {
-          "id": "a6-urgent-tourniquet",
+          "id": "c1",
           "shortAction": "Apply commercial tourniquet immediately; hemorrhagic shock developing from delayed hemorrhage control",
           "protocolExcerpt": "Survival is markedly improved when a tourniquet is placed *before* shock develops",
           "priority": "critical",

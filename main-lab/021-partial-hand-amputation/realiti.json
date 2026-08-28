@@ -12,7 +12,7 @@
   "scenarioStory": {
     "history": "Right hand caught in a metal stamping press at work. Coworkers immediately shut down and locked out the machine and freed the hand, which is partially amputated at the wrist with a narrow skin bridge intact. A coworker trained in first aid applied a leather belt as an improvised tourniquet proximal to the wrist before EMS arrival and retrieved the amputated portion.",
     "discussion": "",
-    "course": "Initial Contact: Crew arrives to find a 47-year-old male seated on the floor, alert and in severe distress, with his right hand partially amputated at the wrist. An improvised belt tourniquet is in place proximal to the injury, applied by a coworker before EMS arrival. → Hemorrhage control and analgesia initiated: Crew reassesses the improvised belt tourniquet, replaces it with a properly applied commercial tourniquet, marks the time of placement, administers weight-based ketamine for pain, and packages the amputated part for transport. → Tourniquet secured and ketamine given: Bleeding is controlled with a properly applied and time-marked commercial tourniquet, pain is well managed with ketamine, and the patient is packaged for prompt transport with the amputated part."
+    "course": "Initial Contact: Crew arrives to find a 47-year-old male seated on the floor, alert and in severe distress, with his right hand partially amputated at the wrist. An improvised belt tourniquet is in place proximal to the injury, applied by a coworker before EMS arrival. → Hemorrhage control and analgesia initiated: Crew reassesses the improvised belt tourniquet, replaces it with a properly applied commercial tourniquet, marks the time of placement, administers weight-based ketamine for pain, and packages the amputated part for transport. → Stable for transport: Bleeding is controlled with a properly applied and time-marked commercial tourniquet, pain is well managed with ketamine, and the patient is packaged for prompt transport with the amputated part."
   },
   "patientInformation": {
     "patientName": "Marcus Webb",
@@ -57,7 +57,11 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [],
+      "relatedChecklist": [
+        "Reassess improvised belt tourniquet; apply commercial tourniquet 2-3 in proximal to wound until bleeding stops",
+        "Mark tourniquet placement time on the patient and in the patient care report",
+        "Ketamine 22.5 mg IV (90 kg x 0.25 mg/kg = 22.5 mg; max initial 25 mg, max cumulative 100 mg)"
+      ],
       "relatedSounds": []
     },
     {
@@ -90,16 +94,14 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Reassess improvised belt tourniquet; apply commercial tourniquet 2-3 in proximal to wound until bleeding stops",
-        "Mark tourniquet placement time on the patient and in the patient care report",
-        "Ketamine 22.5 mg IV (90 kg x 0.25 mg/kg = 22.5 mg; max initial 25 mg, max cumulative 100 mg)",
-        "Wrap amputated hand in saline-moistened gauze, seal in a bag, then place that bag on ice in a second bag"
+        "Wrap amputated hand in saline-moistened gauze, seal in a bag, then place that bag on ice in a second bag",
+        "Reassess tourniquet and pain level en route without loosening the tourniquet"
       ],
       "relatedSounds": []
     },
     {
       "type": "ScenarioEvent",
-      "name": "Tourniquet secured and ketamine given",
+      "name": "Stable for transport",
       "description": "Bleeding is controlled with a properly applied and time-marked commercial tourniquet, pain is well managed with ketamine, and the patient is packaged for prompt transport with the amputated part.",
       "monitorType": 0,
       "trendTime": 40,
@@ -126,9 +128,7 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [
-        "Reassess tourniquet and pain level en route without loosening the tourniquet"
-      ],
+      "relatedChecklist": [],
       "relatedSounds": []
     },
     {
