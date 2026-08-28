@@ -80,13 +80,54 @@
         "trendTimeSeconds": 0,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [],
+      "expectedActions": [
+        {
+          "id": "a1",
+          "shortAction": "Perform MARCH primary survey to rule out other life threats before focusing on OB findings",
+          "protocolExcerpt": "Primary survey (Use \"MARCH\" algorithm)",
+          "priority": "critical",
+          "rationale": "Post-MVC patients need a structured trauma survey even when the OB presentation is prominent.",
+          "protocolReference": "MATC: General Trauma Management"
+        },
+        {
+          "id": "a2",
+          "shortAction": "Position patient left lateral recumbent given third-trimester shock",
+          "protocolExcerpt": "If signs of shock or orthostasis: Position patient supine or in the left lateral recumbent position if third trimester and keep patient warm",
+          "priority": "critical",
+          "rationale": "Left lateral positioning relieves aortocaval compression from the gravid uterus, improving venous return.",
+          "protocolReference": "MATC: Obstetrical and Gynecological Conditions"
+        },
+        {
+          "id": "a3",
+          "shortAction": "Establish large-bore IV; begin crystalloid resuscitation, 1-2 L wide open",
+          "protocolExcerpt": "Place large bore IV. Volume resuscitation: crystalloid 1–2 liters IV wide open",
+          "priority": "critical",
+          "rationale": "Aggressive volume resuscitation is indicated for suspected abruption with hemorrhagic shock, which may be concealed.",
+          "protocolReference": "MATC: Obstetrical and Gynecological Conditions"
+        },
+        {
+          "id": "a4",
+          "shortAction": "Save all passed vaginal tissue/pads for receiving team assessment",
+          "protocolExcerpt": "Save all possible tissue so that the receiving team can assess",
+          "priority": "supplemental",
+          "rationale": "Passed tissue and blood loss quantity inform the receiving OB team's assessment.",
+          "protocolReference": "MATC: Obstetrical and Gynecological Conditions"
+        }
+      ],
       "transitions": [
         {
           "targetPhaseId": "positioned-fluids",
           "if": "Left lateral positioning and IV fluids started",
           "condition": "Crew recognizes signs of shock in a third-trimester patient, positions her in the left lateral recumbent position, and establishes large-bore IV access with crystalloid resuscitation.",
-          "conditionType": "action_taken"
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a2", "a3"]
+        },
+        {
+          "targetPhaseId": "supine-branch",
+          "if": "Left lateral positioning not maintained",
+          "condition": "Crew fails to maintain the patient in the left lateral position during packaging and transport, allowing the gravid uterus to compress the inferior vena cava.",
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["a2"]
         }
       ]
     },
@@ -132,35 +173,19 @@
       },
       "expectedActions": [
         {
-          "id": "a1-march",
-          "shortAction": "Perform MARCH primary survey to rule out other life threats before focusing on OB findings",
-          "protocolExcerpt": "Primary survey (Use \"MARCH\" algorithm)",
-          "priority": "critical",
-          "rationale": "Post-MVC patients need a structured trauma survey even when the OB presentation is prominent.",
-          "protocolReference": "MATC: General Trauma Management"
-        },
-        {
-          "id": "a2-position",
-          "shortAction": "Position patient left lateral recumbent given third-trimester shock",
-          "protocolExcerpt": "If signs of shock or orthostasis: Position patient supine or in the left lateral recumbent position if third trimester and keep patient warm",
-          "priority": "critical",
-          "rationale": "Left lateral positioning relieves aortocaval compression from the gravid uterus, improving venous return.",
+          "id": "b1",
+          "shortAction": "Reassess vital signs and response to fluid resuscitation serially en route",
+          "protocolExcerpt": "Reassess vital signs and response to fluid resuscitation",
+          "priority": "important",
+          "rationale": "Ongoing concealed hemorrhage can recur even after initial improvement.",
           "protocolReference": "MATC: Obstetrical and Gynecological Conditions"
         },
         {
-          "id": "a3-iv-fluids",
-          "shortAction": "Establish large-bore IV; begin crystalloid resuscitation, 1-2 L wide open",
-          "protocolExcerpt": "Place large bore IV. Volume resuscitation: crystalloid 1–2 liters IV wide open",
+          "id": "b2",
+          "shortAction": "Transport emergently to closest appropriate facility; notify en route",
+          "protocolExcerpt": "Disposition – transport emergently to closest appropriate receiving facility – notify en route if possible so the receiving team may prepare",
           "priority": "critical",
-          "rationale": "Aggressive volume resuscitation is indicated for suspected abruption with hemorrhagic shock, which may be concealed.",
-          "protocolReference": "MATC: Obstetrical and Gynecological Conditions"
-        },
-        {
-          "id": "a4-preserve-tissue",
-          "shortAction": "Save all passed vaginal tissue/pads for receiving team assessment",
-          "protocolExcerpt": "Save all possible tissue so that the receiving team can assess",
-          "priority": "supplemental",
-          "rationale": "Passed tissue and blood loss quantity inform the receiving OB team's assessment.",
+          "rationale": "Advance notification allows the OB/trauma team to prepare for emergent delivery if needed.",
           "protocolReference": "MATC: Obstetrical and Gynecological Conditions"
         }
       ],
@@ -170,14 +195,7 @@
           "if": "Perfusion improves, transport initiated",
           "condition": "Vital signs trend toward normal after fluid resuscitation and left lateral positioning; crew initiates emergent transport with advance notification to the receiving OB unit.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["a2-position", "a3-iv-fluids"]
-        },
-        {
-          "targetPhaseId": "supine-branch",
-          "if": "Left lateral positioning not maintained",
-          "condition": "Crew fails to maintain the patient in the left lateral position during packaging and transport, allowing the gravid uterus to compress the inferior vena cava.",
-          "conditionType": "action_not_taken",
-          "triggerActionIds": ["a2-position"]
+          "triggerActionIds": ["b1", "b2"]
         }
       ]
     },
@@ -220,24 +238,7 @@
         "trendTimeSeconds": 40,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [
-        {
-          "id": "a5-reassess",
-          "shortAction": "Reassess vital signs and response to fluid resuscitation serially en route",
-          "protocolExcerpt": "Reassess vital signs and response to fluid resuscitation",
-          "priority": "important",
-          "rationale": "Ongoing concealed hemorrhage can recur even after initial improvement.",
-          "protocolReference": "MATC: Obstetrical and Gynecological Conditions"
-        },
-        {
-          "id": "a6-transport",
-          "shortAction": "Transport emergently to closest appropriate facility; notify en route",
-          "protocolExcerpt": "Disposition – transport emergently to closest appropriate receiving facility – notify en route if possible so the receiving team may prepare",
-          "priority": "critical",
-          "rationale": "Advance notification allows the OB/trauma team to prepare for emergent delivery if needed.",
-          "protocolReference": "MATC: Obstetrical and Gynecological Conditions"
-        }
-      ],
+      "expectedActions": [],
       "transitions": []
     },
     {
@@ -281,7 +282,7 @@
       },
       "expectedActions": [
         {
-          "id": "a7-recognize-supine",
+          "id": "c1",
           "shortAction": "Recognize supine hypotension; reposition left lateral or manually displace uterus left",
           "protocolExcerpt": "Patients in third trimester of pregnancy should be transported on left side or with uterus manually displaced to left if hypotensive",
           "priority": "critical",
