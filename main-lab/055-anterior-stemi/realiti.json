@@ -60,7 +60,8 @@
       "relatedChecklist": [
         "Perform rapid focused assessment; recognize signs/symptoms consistent with ACS",
         "Assess cardiac rhythm; address any pulseless, symptomatic tachycardia, or symptomatic bradycardia first",
-        "Obtain complete SAMPLE history including full medication list"
+        "Obtain complete SAMPLE history including full medication list",
+        "Acquire 12-lead EKG within 10 minutes of patient contact; identify STEMI"
       ],
       "relatedSounds": []
     },
@@ -94,10 +95,11 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Acquire 12-lead EKG within 10 minutes of patient contact; identify STEMI",
         "Activate STEMI alert; transmit 12-lead and provide advance notification to receiving hospital",
         "Aspirin 324 mg PO, chewable non-enteric-coated (within 162-325 mg range)",
-        "Establish IV access"
+        "Establish IV access",
+        "Screen for PDE5 inhibitor use before considering nitroglycerin; withhold NTG given sildenafil 12 hours ago",
+        "Fentanyl 95 mcg IV for pain unresponsive to nitrates being contraindicated (95 kg × 1 mcg/kg = 95 mcg; max initial dose 100 mcg)"
       ],
       "relatedSounds": []
     },
@@ -131,9 +133,8 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Screen for PDE5 inhibitor use before considering nitroglycerin; withhold NTG given sildenafil 12 hours ago",
-        "Fentanyl 95 mcg IV for pain unresponsive to nitrates being contraindicated (95 kg × 1 mcg/kg = 95 mcg; max initial dose 100 mcg)",
-        "Reassess pain score and vital signs after analgesic administration; document response"
+        "Reassess pain score and vital signs after analgesic administration; document response",
+        "Transport to appropriate PCI-capable facility per regional STEMI system of care"
       ],
       "relatedSounds": []
     },
@@ -168,7 +169,6 @@
       "relatedLabs": [],
       "relatedChecklist": [
         "Perform serial 12-lead EKGs, especially with any clinical change",
-        "Transport to appropriate PCI-capable facility per regional STEMI system of care",
         "Provide early notification to receiving facility of any condition changes or serial EKG findings"
       ],
       "relatedSounds": []
@@ -325,12 +325,6 @@
       "icon": 1
     },
     {
-      "title": "Immediately acquire 12-lead EKG; recognize delayed diagnosis increases morbidity/mortality risk",
-      "type": "Check",
-      "value": 0,
-      "icon": 1
-    },
-    {
       "title": "Screen for PDE5 inhibitor use before considering nitroglycerin; withhold NTG given sildenafil 12 hours ago",
       "type": "Check",
       "value": 0,
@@ -343,7 +337,19 @@
       "icon": 1
     },
     {
+      "title": "Immediately acquire 12-lead EKG; recognize delayed diagnosis increases morbidity/mortality risk",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
       "title": "Reassess pain score and vital signs after analgesic administration; document response",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Transport to appropriate PCI-capable facility per regional STEMI system of care",
       "type": "Check",
       "value": 0,
       "icon": 1
@@ -362,12 +368,6 @@
     },
     {
       "title": "Perform serial 12-lead EKGs, especially with any clinical change",
-      "type": "Check",
-      "value": 0,
-      "icon": 1
-    },
-    {
-      "title": "Transport to appropriate PCI-capable facility per regional STEMI system of care",
       "type": "Check",
       "value": 0,
       "icon": 1

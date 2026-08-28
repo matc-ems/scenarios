@@ -82,7 +82,7 @@
       },
       "expectedActions": [
         {
-          "id": "ea-initial-1",
+          "id": "a1",
           "shortAction": "Perform rapid focused assessment; recognize signs/symptoms consistent with ACS",
           "protocolExcerpt": "Signs and symptoms include chest pain, congestive heart failure (CHF), syncope, shock, symptoms similar to a patient's previous MI",
           "priority": "critical",
@@ -90,7 +90,7 @@
           "protocolReference": "MATC: Chest Pain/ACS/STEMI"
         },
         {
-          "id": "ea-initial-2",
+          "id": "a2",
           "shortAction": "Assess cardiac rhythm; address any pulseless, symptomatic tachycardia, or symptomatic bradycardia first",
           "protocolExcerpt": "Assess the patient's cardiac rhythm and immediately address pulseless rhythms, symptomatic tachycardia, or symptomatic bradycardia",
           "priority": "critical",
@@ -98,28 +98,36 @@
           "protocolReference": "MATC: Chest Pain/ACS/STEMI"
         },
         {
-          "id": "ea-initial-3",
+          "id": "a3",
           "shortAction": "Obtain complete SAMPLE history including full medication list",
           "protocolExcerpt": "A complete medication list should be obtained from each patient. It is especially important for the treating physician and healthcare providers to be informed if the patient is taking beta-blockers, calcium channel blockers, clonidine, digoxin, blood thinners (anticoagulants), and medications for the treatment of erectile dysfunction or pulmonary hypertension",
           "priority": "important",
           "rationale": "Sildenafil use is a critical nitrate contraindication that must be identified before NTG is considered",
+          "protocolReference": "MATC: Chest Pain/ACS/STEMI"
+        },
+        {
+          "id": "a4",
+          "shortAction": "Acquire 12-lead EKG within 10 minutes of patient contact; identify STEMI",
+          "protocolExcerpt": "The 12-lead EKG is the primary diagnostic tool that identifies a STEMI; it is imperative that EMS clinicians routinely acquire a 12-lead EKG within 10 minutes for all patients exhibiting signs and symptoms of ACS",
+          "priority": "critical",
+          "rationale": "Meeting the 10-minute benchmark is a core STEMI performance measure",
           "protocolReference": "MATC: Chest Pain/ACS/STEMI"
         }
       ],
       "transitions": [
         {
           "targetPhaseId": "stemi-recognized",
-          "if": "12-lead acquired within 10 minutes",
+          "if": "12-lead acquired, STEMI Anterior recognized",
           "condition": "Crew acquires and interprets a 12-lead EKG within 10 minutes of patient contact, identifying anterior ST elevation consistent with STEMI",
           "conditionType": "action_taken",
-          "triggerActionIds": []
+          "triggerActionIds": ["a1", "a4"]
         },
         {
           "targetPhaseId": "12lead-delayed",
-          "if": "12-lead delayed beyond 10 minutes",
+          "if": "12-lead delayed",
           "condition": "Crew fails to acquire a 12-lead EKG within 10 minutes of patient contact, delaying STEMI recognition and hospital notification",
           "conditionType": "time_elapsed",
-          "timeoutSeconds": 600
+          "triggerActionIds": ["a4"]
         }
       ]
     },
@@ -160,15 +168,7 @@
       },
       "expectedActions": [
         {
-          "id": "ea-stemi-1",
-          "shortAction": "Acquire 12-lead EKG within 10 minutes of patient contact; identify STEMI",
-          "protocolExcerpt": "The 12-lead EKG is the primary diagnostic tool that identifies a STEMI; it is imperative that EMS clinicians routinely acquire a 12-lead EKG within 10 minutes for all patients exhibiting signs and symptoms of ACS",
-          "priority": "critical",
-          "rationale": "Meeting the 10-minute benchmark is a core STEMI performance measure",
-          "protocolReference": "MATC: Chest Pain/ACS/STEMI"
-        },
-        {
-          "id": "ea-stemi-2",
+          "id": "b1",
           "shortAction": "Activate STEMI alert; transmit 12-lead and provide advance notification to receiving hospital",
           "protocolExcerpt": "Advance notification should be provided to the receiving hospital for patients identified as having a STEMI",
           "priority": "critical",
@@ -176,7 +176,7 @@
           "protocolReference": "MATC: Chest Pain/ACS/STEMI"
         },
         {
-          "id": "ea-stemi-3",
+          "id": "b2",
           "shortAction": "Aspirin 324 mg PO, chewable non-enteric-coated (within 162-325 mg range)",
           "protocolExcerpt": "Administer aspirin; chewable, non-enteric-coated aspirin preferred (162–325 mg)",
           "priority": "critical",
@@ -184,28 +184,44 @@
           "protocolReference": "MATC: Chest Pain/ACS/STEMI"
         },
         {
-          "id": "ea-stemi-4",
+          "id": "b3",
           "shortAction": "Establish IV access",
           "protocolExcerpt": "Establish IV access",
           "priority": "critical",
           "rationale": "Vascular access needed for medications and in case of deterioration",
           "protocolReference": "MATC: Chest Pain/ACS/STEMI"
+        },
+        {
+          "id": "b4",
+          "shortAction": "Screen for PDE5 inhibitor use before considering nitroglycerin; withhold NTG given sildenafil 12 hours ago",
+          "protocolExcerpt": "The use of nitrates should be avoided in any patient who has used a phosphodiesterase inhibitor within the past 48 hours. Examples include sildenafil (Viagra®, Revatio®), vardenafil (Levitra®, Staxyn®), tadalafil (Cialis®, Adcirca®) which are used for erectile dysfunction and pulmonary hypertension",
+          "priority": "critical",
+          "rationale": "Nitrates combined with PDE5 inhibitors can cause severe, refractory hypotension",
+          "protocolReference": "MATC: Chest Pain/ACS/STEMI"
+        },
+        {
+          "id": "b5",
+          "shortAction": "Fentanyl 95 mcg IV for pain unresponsive to nitrates being contraindicated (95 kg × 1 mcg/kg = 95 mcg; max initial dose 100 mcg)",
+          "protocolExcerpt": "Fentanyl: 1 mcg/kg IN, IM, IV or IO (maximum initial dose of 100 mcg)",
+          "priority": "critical",
+          "rationale": "Opiate analgesia is the appropriate alternative when nitrates are contraindicated",
+          "protocolReference": "MATC: Pain Management"
         }
       ],
       "transitions": [
         {
           "targetPhaseId": "pde5-screened",
-          "if": "PDE5 inhibitor use identified before NTG given",
+          "if": "PDE5 use identified, NTG withheld, fentanyl given",
           "condition": "Crew reviews medication history, identifies sildenafil use within the past 48 hours, and correctly withholds nitroglycerin",
           "conditionType": "action_taken",
-          "triggerActionIds": ["ea-initial-3"]
+          "triggerActionIds": ["b4", "b5"]
         },
         {
           "targetPhaseId": "ntg-unscreened",
           "if": "NTG given without PDE5 screen",
           "condition": "Crew administers sublingual nitroglycerin without first screening for phosphodiesterase inhibitor use, precipitating profound hypotension",
           "conditionType": "action_not_taken",
-          "triggerActionIds": ["ea-initial-3"]
+          "triggerActionIds": ["b4"]
         }
       ]
     },
@@ -246,7 +262,7 @@
       },
       "expectedActions": [
         {
-          "id": "ea-delayed-1",
+          "id": "e1",
           "shortAction": "Immediately acquire 12-lead EKG; recognize delayed diagnosis increases morbidity/mortality risk",
           "protocolExcerpt": "Ischemic burden time is a risk for morbidity and mortality, EMS can help decrease first medical contact to intervention time/reflow by efficient scripting/training of safely minimizing scene time",
           "priority": "critical",
@@ -257,10 +273,10 @@
       "transitions": [
         {
           "targetPhaseId": "vf-arrest",
-          "if": "STEMI recognition remains delayed, patient deteriorates",
+          "if": "STEMI progresses to VF arrest",
           "condition": "STEMI goes unrecognized and untreated as ischemia progresses, precipitating ventricular fibrillation and cardiac arrest",
           "conditionType": "time_elapsed",
-          "timeoutSeconds": 300
+          "triggerActionIds": ["e1"]
         }
       ]
     },
@@ -301,37 +317,29 @@
       },
       "expectedActions": [
         {
-          "id": "ea-screen-1",
-          "shortAction": "Screen for PDE5 inhibitor use before considering nitroglycerin; withhold NTG given sildenafil 12 hours ago",
-          "protocolExcerpt": "The use of nitrates should be avoided in any patient who has used a phosphodiesterase inhibitor within the past 48 hours. Examples include sildenafil (Viagra®, Revatio®), vardenafil (Levitra®, Staxyn®), tadalafil (Cialis®, Adcirca®) which are used for erectile dysfunction and pulmonary hypertension",
-          "priority": "critical",
-          "rationale": "Nitrates combined with PDE5 inhibitors can cause severe, refractory hypotension",
-          "protocolReference": "MATC: Chest Pain/ACS/STEMI"
-        },
-        {
-          "id": "ea-screen-2",
-          "shortAction": "Fentanyl 95 mcg IV for pain unresponsive to nitrates being contraindicated (95 kg × 1 mcg/kg = 95 mcg; max initial dose 100 mcg)",
-          "protocolExcerpt": "Fentanyl: 1 mcg/kg IN, IM, IV or IO (maximum initial dose of 100 mcg)",
-          "priority": "critical",
-          "rationale": "Opiate analgesia is the appropriate alternative when nitrates are contraindicated",
-          "protocolReference": "MATC: Pain Management"
-        },
-        {
-          "id": "ea-screen-3",
+          "id": "c1",
           "shortAction": "Reassess pain score and vital signs after analgesic administration; document response",
           "protocolExcerpt": "Pain severity scores should be recorded before and after analgesic medication administration and upon arrival at destination",
           "priority": "important",
           "rationale": "Ongoing reassessment guides need for repeat dosing and detects adverse effects",
           "protocolReference": "MATC: Pain Management"
+        },
+        {
+          "id": "c2",
+          "shortAction": "Transport to appropriate PCI-capable facility per regional STEMI system of care",
+          "protocolExcerpt": "Transport and destination decisions should be based on local resources and system of care",
+          "priority": "critical",
+          "rationale": "Timely PCI is the definitive treatment for STEMI",
+          "protocolReference": "MATC: Chest Pain/ACS/STEMI"
         }
       ],
       "transitions": [
         {
           "targetPhaseId": "transport-ready",
-          "if": "Pain controlled, patient stable for transport",
+          "if": "Transport to PCI center",
           "condition": "Pain improves with fentanyl, vital signs remain stable, and the patient is prepared for transport to a PCI-capable facility",
           "conditionType": "action_taken",
-          "triggerActionIds": ["ea-screen-2"]
+          "triggerActionIds": ["c1", "c2"]
         }
       ]
     },
@@ -372,7 +380,7 @@
       },
       "expectedActions": [
         {
-          "id": "ea-ntgerr-1",
+          "id": "f1",
           "shortAction": "Recognize NTG-induced hypotension; hold further nitrates and position patient supine",
           "protocolExcerpt": "Care should always be taken when giving nitroglycerin when the patient's blood pressure is marginal. If used in this setting, the clinician should weigh the risk and benefit of nitrate administration over the administration of an opiate analgesic and be ready to respond to hypotension with fluid bolus or pressor",
           "priority": "critical",
@@ -380,7 +388,7 @@
           "protocolReference": "MATC: Chest Pain/ACS/STEMI"
         },
         {
-          "id": "ea-ntgerr-2",
+          "id": "f2",
           "shortAction": "IV fluid bolus to treat NTG/PDE5-induced hypotension; reassess blood pressure closely",
           "protocolExcerpt": "Care should always be taken when giving nitroglycerin when the patient's blood pressure is marginal... be ready to respond to hypotension with fluid bolus or pressor",
           "priority": "critical",
@@ -427,7 +435,7 @@
       },
       "expectedActions": [
         {
-          "id": "ea-transport-1",
+          "id": "d1",
           "shortAction": "Perform serial 12-lead EKGs, especially with any clinical change",
           "protocolExcerpt": "Perform serial 12-lead EKGs (especially if clinical changes are noted)",
           "priority": "important",
@@ -435,15 +443,7 @@
           "protocolReference": "MATC: Chest Pain/ACS/STEMI"
         },
         {
-          "id": "ea-transport-2",
-          "shortAction": "Transport to appropriate PCI-capable facility per regional STEMI system of care",
-          "protocolExcerpt": "Transport and destination decisions should be based on local resources and system of care",
-          "priority": "critical",
-          "rationale": "Timely PCI is the definitive treatment for STEMI",
-          "protocolReference": "MATC: Chest Pain/ACS/STEMI"
-        },
-        {
-          "id": "ea-transport-3",
+          "id": "d2",
           "shortAction": "Provide early notification to receiving facility of any condition changes or serial EKG findings",
           "protocolExcerpt": "Early notification to receiving facility of any changes in patient condition or serial EKGs",
           "priority": "important",
@@ -490,7 +490,7 @@
       },
       "expectedActions": [
         {
-          "id": "ea-arrest-1",
+          "id": "g1",
           "shortAction": "Recognize pulselessness; begin high-quality chest compressions immediately",
           "protocolExcerpt": "Once pulselessness is discovered, treatment should be initiated immediately, and any further history must be obtained by bystanders while treatment is ongoing",
           "priority": "critical",
@@ -498,7 +498,7 @@
           "protocolReference": "MATC: Cardiac Arrest"
         },
         {
-          "id": "ea-arrest-2",
+          "id": "g2",
           "shortAction": "Defibrillate coarse VF per biphasic protocol (e.g., Zoll 120 J, 150 J, 200 J escalating)",
           "protocolExcerpt": "Defibrillation dosing should follow manufacturer's recommendation in the case of biphasic defibrillators. If the manufacturer's recommendation is unknown, use highest setting possible. Zoll Adult – 120 J, 150 J, 200 J",
           "priority": "critical",
@@ -506,7 +506,7 @@
           "protocolReference": "MATC: Cardiac Arrest"
         },
         {
-          "id": "ea-arrest-3",
+          "id": "g3",
           "shortAction": "Resume chest compressions immediately after each shock; no pause for pulse checks for 2 minutes",
           "protocolExcerpt": "Chest compressions should resume immediately after defibrillation attempts with no pauses for pulse checks for 2 minutes regardless of the rhythm displayed on the cardiac monitor",
           "priority": "critical",
@@ -514,7 +514,7 @@
           "protocolReference": "MATC: Cardiac Arrest"
         },
         {
-          "id": "ea-arrest-4",
+          "id": "g4",
           "shortAction": "Establish IV/IO access; administer Epinephrine 1 mg IV/IO during CPR",
           "protocolExcerpt": "If feasible, IV or IO access should be obtained. Administer Epinephrine 1mg during the first or second round of compressions",
           "priority": "critical",
@@ -522,7 +522,7 @@
           "protocolReference": "MATC: Cardiac Arrest"
         },
         {
-          "id": "ea-arrest-5",
+          "id": "g5",
           "shortAction": "Amiodarone 300 mg IV/IO for shock-refractory VF; may repeat 150 mg in 4-6 minutes",
           "protocolExcerpt": "Amiodarone 300mg, followed by 150mg 4-6 min later if still in refractory VF and pulseless VT",
           "priority": "important",
