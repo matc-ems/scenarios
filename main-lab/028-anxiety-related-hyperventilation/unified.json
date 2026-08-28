@@ -81,13 +81,54 @@
         "trendTimeSeconds": 0,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
       },
-      "expectedActions": [],
+      "expectedActions": [
+        {
+          "id": "a1",
+          "shortAction": "Obtain full vital signs, SpO2, and waveform capnography to rule out hypoxia or true respiratory pathology",
+          "protocolExcerpt": "Full set of vital signs (pulse, blood pressure, respiratory rate, neurologic status assessment), temperature, and O2 saturation. Consider temperature and waveform capnography",
+          "priority": "critical",
+          "rationale": "Objective data is required before attributing tachypnea to anxiety.",
+          "protocolReference": "MATC: Respiratory Distress"
+        },
+        {
+          "id": "a2",
+          "shortAction": "Auscultate breath sounds and assess air entry; confirm clear, symmetric, no wheeze",
+          "protocolExcerpt": "Air entry (normal vs. diminished, prolonged expiratory phase) Breath sounds (wheezes, crackles, rales, rhonchi, diminished, clear)",
+          "priority": "critical",
+          "rationale": "Rules out bronchospasm or other organic causes of rapid breathing.",
+          "protocolReference": "MATC: Respiratory Distress"
+        },
+        {
+          "id": "a3",
+          "shortAction": "Obtain focused history: onset, triggers, and concurrent symptoms to identify a psychogenic cause",
+          "protocolExcerpt": "Onset of symptoms Concurrent symptoms (e.g., fever, cough, rhinorrhea, tongue/lip swelling, rash, labored breathing, foreign body aspiration) Usual triggers of symptoms (e.g., cigarette smoke, change in weather, upper respiratory infections, exercise)",
+          "priority": "important",
+          "rationale": "A clear psychological trigger with no red-flag symptoms supports an anxiety etiology.",
+          "protocolReference": "MATC: Respiratory Distress"
+        },
+        {
+          "id": "a4",
+          "shortAction": "Provide verbal reassurance and coached breathing; place patient in position of comfort",
+          "protocolExcerpt": "Placement of the patient in a position of comfort ... Verbal reassurance to control anxiety",
+          "priority": "important",
+          "rationale": "Non-pharmacologic coaching is the primary BLS intervention for anxiety-driven hyperventilation.",
+          "protocolReference": "MATC: Pain Management"
+        }
+      ],
       "transitions": [
         {
           "targetPhaseId": "assessment-reassurance",
           "if": "Full assessment and reassurance provided",
           "condition": "Crew performs a full assessment including vital signs, breath sounds, SpO2, capnography, and history of onset/triggers, then provides verbal reassurance and coaching while ruling out organic causes of tachypnea.",
-          "conditionType": "action_taken"
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a1", "a2", "a4"]
+        },
+        {
+          "targetPhaseId": "organic-cause-missed",
+          "if": "Anxiety assumed without full assessment",
+          "condition": "Crew attributes the rapid breathing to anxiety without performing breath sound auscultation or SpO2/capnography trending; an evolving true respiratory process goes unrecognized.",
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["a1", "a2"]
         }
       ]
     },
@@ -132,35 +173,11 @@
       },
       "expectedActions": [
         {
-          "id": "a1-full-vs-capno",
-          "shortAction": "Obtain full vital signs, SpO2, and waveform capnography to rule out hypoxia or true respiratory pathology",
-          "protocolExcerpt": "Full set of vital signs (pulse, blood pressure, respiratory rate, neurologic status assessment), temperature, and O2 saturation. Consider temperature and waveform capnography",
-          "priority": "critical",
-          "rationale": "Objective data is required before attributing tachypnea to anxiety.",
-          "protocolReference": "MATC: Respiratory Distress"
-        },
-        {
-          "id": "a2-breath-sounds",
-          "shortAction": "Auscultate breath sounds and assess air entry; confirm clear, symmetric, no wheeze",
-          "protocolExcerpt": "Air entry (normal vs. diminished, prolonged expiratory phase) Breath sounds (wheezes, crackles, rales, rhonchi, diminished, clear)",
-          "priority": "critical",
-          "rationale": "Rules out bronchospasm or other organic causes of rapid breathing.",
-          "protocolReference": "MATC: Respiratory Distress"
-        },
-        {
-          "id": "a3-history",
-          "shortAction": "Obtain focused history: onset, triggers, and concurrent symptoms to identify a psychogenic cause",
-          "protocolExcerpt": "Onset of symptoms Concurrent symptoms (e.g., fever, cough, rhinorrhea, tongue/lip swelling, rash, labored breathing, foreign body aspiration) Usual triggers of symptoms (e.g., cigarette smoke, change in weather, upper respiratory infections, exercise)",
-          "priority": "important",
-          "rationale": "A clear psychological trigger with no red-flag symptoms supports an anxiety etiology.",
-          "protocolReference": "MATC: Respiratory Distress"
-        },
-        {
-          "id": "a4-reassurance",
-          "shortAction": "Provide verbal reassurance and coached breathing; place patient in position of comfort",
-          "protocolExcerpt": "Placement of the patient in a position of comfort ... Verbal reassurance to control anxiety",
-          "priority": "important",
-          "rationale": "Non-pharmacologic coaching is the primary BLS intervention for anxiety-driven hyperventilation.",
+          "id": "b1",
+          "shortAction": "Reassess vital signs and transport in position of comfort",
+          "protocolExcerpt": "Transport in position of comfort and reassess as indicated",
+          "priority": "supplemental",
+          "rationale": "Confirms sustained improvement and documents resolution prior to arrival.",
           "protocolReference": "MATC: Pain Management"
         }
       ],
@@ -170,14 +187,7 @@
           "if": "Breathing slows, symptoms resolve",
           "condition": "With coaching, reassurance, and confirmation of normal exam findings, the patient's respiratory rate and heart rate normalize and tingling resolves.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["a4-reassurance"]
-        },
-        {
-          "targetPhaseId": "organic-cause-missed",
-          "if": "Anxiety assumed without full assessment",
-          "condition": "Crew attributes the rapid breathing to anxiety without performing breath sound auscultation or SpO2/capnography trending; an evolving true respiratory process goes unrecognized.",
-          "conditionType": "action_not_taken",
-          "triggerActionIds": ["a1-full-vs-capno", "a2-breath-sounds"]
+          "triggerActionIds": ["b1"]
         }
       ]
     },
@@ -220,16 +230,7 @@
         "trendTimeSeconds": 40,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
       },
-      "expectedActions": [
-        {
-          "id": "a5-reassess-transport",
-          "shortAction": "Reassess vital signs and transport in position of comfort",
-          "protocolExcerpt": "Transport in position of comfort and reassess as indicated",
-          "priority": "supplemental",
-          "rationale": "Confirms sustained improvement and documents resolution prior to arrival.",
-          "protocolReference": "MATC: Pain Management"
-        }
-      ],
+      "expectedActions": [],
       "transitions": []
     },
     {
@@ -273,7 +274,7 @@
       },
       "expectedActions": [
         {
-          "id": "a6-recognize-missed-exam",
+          "id": "c1",
           "shortAction": "Recognize incomplete assessment; auscultate breath sounds and reassess SpO2 for true hypoxia/wheeze",
           "protocolExcerpt": "Signs of distress include: Apprehension, anxiety, combativeness Hypoxia (less than 90% oxygen saturation)",
           "priority": "critical",

@@ -57,7 +57,12 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [],
+      "relatedChecklist": [
+        "Obtain full vital signs, SpO2, and waveform capnography to rule out hypoxia or true respiratory pathology",
+        "Auscultate breath sounds and assess air entry; confirm clear, symmetric, no wheeze",
+        "Obtain focused history: onset, triggers, and concurrent symptoms to identify a psychogenic cause",
+        "Provide verbal reassurance and coached breathing; place patient in position of comfort"
+      ],
       "relatedSounds": []
     },
     {
@@ -90,10 +95,7 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Obtain full vital signs, SpO2, and waveform capnography to rule out hypoxia or true respiratory pathology",
-        "Auscultate breath sounds and assess air entry; confirm clear, symmetric, no wheeze",
-        "Obtain focused history: onset, triggers, and concurrent symptoms to identify a psychogenic cause",
-        "Provide verbal reassurance and coached breathing; place patient in position of comfort"
+        "Reassess vital signs and transport in position of comfort"
       ],
       "relatedSounds": []
     },
@@ -126,9 +128,7 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [
-        "Reassess vital signs and transport in position of comfort"
-      ],
+      "relatedChecklist": [],
       "relatedSounds": []
     },
     {
