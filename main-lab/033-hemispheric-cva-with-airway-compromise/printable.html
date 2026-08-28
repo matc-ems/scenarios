@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>033 - Hemispheric CVA with Airway Compromise — Printable</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fff;--card:#fff;--card-border:#d6d3d1;--text:#1c1917;--text-secondary:#44403c;--text-muted:#78716c;--green:#166534;--red:#b91c1c;--red-light:#fef2f2;--red-border:#fecaca;--orange:#c2410c;--yellow:#a16207;--blue:#1e40af;--radius:8px;--radius-sm:6px}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'DM Sans','Helvetica Neue',Arial,sans-serif;background:#f5f5f4;color:var(--text);line-height:1.5;padding:24px;font-size:12pt}
+.sheet{max-width:800px;margin:0 auto;background:#fff;padding:28px 32px;box-shadow:0 1px 4px rgba(0,0,0,.08);border-radius:10px}
+.scenario-name{font-size:11pt;color:var(--text-secondary)}
+.card{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);margin-bottom:14px;overflow:hidden;break-inside:avoid}
+.card-title{font-size:9pt;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--text-muted);padding:10px 14px 6px;border-bottom:1px solid #f5f5f4}
+.card-content{padding:10px 14px 12px}
+.scene-row{padding:6px 0;border-bottom:1px solid #f5f5f4;display:grid;grid-template-columns:110px 1fr;gap:10px}
+.scene-row:last-child{border-bottom:none}
+.scene-label{font-family:'DM Mono',ui-monospace,monospace;font-size:8pt;font-weight:500;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted)}
+.scene-value{font-size:11pt;color:var(--text-secondary)}
+.cue-list{list-style:none;margin:0}
+.cue-list li{font-size:11pt;color:var(--text-secondary);padding:3px 0 3px 14px;position:relative}
+.cue-list li::before{content:'→';position:absolute;left:0;color:var(--text-muted);font-size:10pt}
+.sample-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:#e7e5e4}
+.sample-cell{background:#fff;padding:9px 12px}
+.sample-cell:nth-child(1),.sample-cell:nth-child(6){grid-column:1/-1}
+.sample-letter{font-family:'DM Mono',ui-monospace,monospace;font-size:11pt;font-weight:700;color:var(--green);margin-right:4px}
+.sample-name{font-size:8pt;font-weight:600;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted);margin-bottom:3px}
+.sample-text{font-size:10.5pt;color:var(--text-secondary);line-height:1.45}
+.patient-chips{display:flex;gap:8px;flex-wrap:wrap}
+.patient-chip{font-size:10pt;padding:4px 10px;background:#f5f5f4;border-radius:6px;color:var(--text-secondary)}
+.patient-chip strong{color:var(--text);font-weight:700}
+.phase-section{break-before:auto;page-break-before:auto;margin-top:12px}
+.phase-section .phase-card{break-after:avoid;page-break-after:avoid}
+.phase-card{border-left:4px solid var(--text)}
+.phase-card-branch{border-left-color:var(--red)}
+.branch-tag{display:inline-block;font-family:'DM Mono',ui-monospace,monospace;font-size:8pt;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--red);background:var(--red-light);padding:2px 8px;border-radius:4px;margin-bottom:6px}
+.phase-title{font-size:16pt;font-weight:700;margin-bottom:4px}
+.phase-trigger{font-family:'DM Mono',ui-monospace,monospace;font-size:9pt;color:var(--yellow);margin-bottom:6px}
+.phase-desc{font-size:11pt;color:var(--text-secondary);line-height:1.5}
+.ecg-label{font-family:'DM Mono',ui-monospace,monospace;font-size:10pt;color:var(--text-secondary);padding:8px 12px;background:#fafaf9;border-bottom:1px solid #f0efec}
+.vitals-grid{display:flex;flex-wrap:wrap;gap:4px 18px;padding:8px 14px}
+.vital-cell{background:transparent;padding:0;text-align:left;display:flex;align-items:baseline;gap:4px}
+.vital-cell.full-width{grid-column:auto}
+.vital-name{font-family:'DM Mono',ui-monospace,monospace;font-size:8pt;font-weight:600;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted)}
+.vital-val{font-family:'DM Mono',ui-monospace,monospace;font-size:11pt;font-weight:700;color:var(--text);line-height:1.1}
+.vital-unit{font-family:'DM Mono',ui-monospace,monospace;font-size:8pt;color:var(--text-muted)}
+.loc-block{margin-bottom:10px}
+.avpu-bar{display:flex;border:1px solid var(--card-border);border-radius:6px;overflow:hidden;margin-bottom:10px}
+.avpu-seg{flex:1;text-align:center;padding:6px 4px;font-family:'DM Mono',ui-monospace,monospace;font-size:10pt;font-weight:700;color:var(--text-muted);background:#fafaf9}
+.avpu-seg.sel-a{background:#ecfccb;color:var(--green)}
+.avpu-seg.sel-v{background:#fef3c7;color:var(--yellow)}
+.avpu-seg.sel-p{background:#ffedd5;color:var(--orange)}
+.avpu-seg.sel-u{background:var(--red-light);color:var(--red)}
+.gcs-detail{display:flex;flex-wrap:wrap;gap:6px 16px;padding:8px 14px;border:1px solid var(--card-border);border-radius:6px;margin-bottom:10px;align-items:baseline}
+.gcs-item{display:flex;align-items:baseline;gap:4px;padding:0;border:none}
+.gcs-item:last-of-type{border-bottom:none}
+.gcs-part{order:1;font-family:'DM Mono',ui-monospace,monospace;font-size:8pt;font-weight:600;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted)}
+.gcs-score{order:2;font-family:'DM Mono',ui-monospace,monospace;font-size:11pt;font-weight:700;color:var(--text)}
+.gcs-desc{order:3;font-size:9.5pt;color:var(--text-muted);font-style:italic}
+.gcs-desc::before{content:'('}
+.gcs-desc::after{content:')'}
+.gcs-total-row{display:flex;align-items:baseline;gap:4px;order:-1;padding:0;margin:0;border:none;font-family:'DM Mono',ui-monospace,monospace;font-size:8pt;font-weight:600;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted)}
+.gcs-total-row .gcs-total{font-family:'DM Mono',ui-monospace,monospace;font-size:12pt;font-weight:700;color:var(--text)}
+.finding-row{padding:6px 0;border-bottom:1px solid #f5f5f4;display:grid;grid-template-columns:100px 1fr;gap:10px}
+.finding-row:last-child{border-bottom:none}
+.finding-label{font-family:'DM Mono',ui-monospace,monospace;font-size:8pt;font-weight:500;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted)}
+.finding-value{font-size:10.5pt;color:var(--text-secondary)}
+.finding-speech{font-style:italic;color:var(--text-muted)}
+.findings-notes{list-style:none;margin:0}
+.findings-notes li{font-size:10pt;color:var(--text-secondary);padding:2px 0 2px 12px;position:relative}
+.findings-notes li::before{content:'·';position:absolute;left:2px;font-weight:700;color:var(--text-muted)}
+.action-row{display:flex;gap:10px;padding:10px 0;border-bottom:1px solid #f5f5f4;break-inside:avoid}
+.action-row:last-child{border-bottom:none}
+.action-box{width:14px;height:14px;border:1.5px solid var(--text-muted);border-radius:3px;flex-shrink:0;margin-top:3px}
+.action-body{flex:1;min-width:0}
+.action-head{display:flex;align-items:flex-start;gap:8px;margin-bottom:4px}
+.action-priority{display:inline-block;font-family:'DM Mono',ui-monospace,monospace;font-size:7.5pt;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:2px 6px;border-radius:3px;flex-shrink:0;margin-top:2px}
+.p-critical{background:var(--red-light);color:var(--red)}
+.p-important{background:#fff7ed;color:var(--orange)}
+.p-supp{background:#f5f5f4;color:var(--text-muted)}
+.action-text{font-size:11pt;font-weight:600;color:var(--text);line-height:1.35}
+.action-rationale{display:none}
+.action-excerpt{font-size:9.5pt;color:var(--text-secondary);line-height:1.5;font-style:italic;border-left:2px solid var(--card-border);padding:2px 0 2px 9px;margin:5px 0 4px 0}
+.action-ref{font-family:'DM Mono',ui-monospace,monospace;font-size:8pt;color:var(--text-muted);font-weight:600;text-transform:uppercase;letter-spacing:.5px;margin-top:2px}
+.action-head{margin-bottom:0}
+.action-row{padding:8px 0}
+@media print{
+  body{background:#fff;padding:0;font-size:10pt}
+  .sheet{box-shadow:none;max-width:none;padding:0.4in;border-radius:0}
+  .card{break-inside:avoid;margin-bottom:8px}
+  .card-title{padding:6px 10px 3px}
+  .card-content{padding:6px 10px 8px}
+}
+</style>
+</head>
+<body>
+<div class="sheet">
+  <div class="card"><div class="card-title">Scenario</div><div class="card-content"><div class="scenario-name">033 - Hemispheric CVA with Airway Compromise</div></div></div>
+  <div class="card"><div class="card-title">Patient</div><div class="card-content"><div class="patient-chips"><span class="patient-chip"><strong>Eleanor Vance</strong></span><span class="patient-chip">68 years female</span><span class="patient-chip">154 lbs (70 kg)</span><span class="patient-chip">5'5"</span><span class="patient-chip">CC: Altered mental status, found vomiting and unresponsive to voice</span></div></div></div>
+  <div class="card"><div class="card-title">Scene</div><div class="card-content">
+    <div class="scene-row"><div class="scene-label">Dispatch</div><div class="scene-value">68-year-old female, altered mental status, residence</div></div>
+    <div class="scene-row"><div class="scene-label">Location</div><div class="scene-value">Single-family home, living room, patient supine on couch with emesis visible on her clothing and couch cushion</div></div>
+    <div class="scene-row"><div class="scene-label">Time</div><div class="scene-value">3:15 PM, weekday</div></div>
+    <div class="scene-row"><div class="scene-label">Safety</div><div class="scene-value">No hazards to crew noted</div></div>
+    <div class="scene-row"><div class="scene-label">Bystanders</div><div class="scene-value">Daughter present, witnessed the decline, gives history but is distraught</div></div>
+  </div></div><div class="card"><div class="card-title">Visual Cues on Arrival</div><div class="card-content"><ul class="cue-list"><li>Left facial droop</li><li>Vomitus on patient's clothing, couch, and floor near her head</li><li>Right-sided flaccid arm and leg</li><li>Patient makes no purposeful response to voice, only withdraws to sternal rub</li><li>Apixaban pill bottle visible on side table</li></ul></div></div>
+  <div class="card">
+    <div class="card-title">SAMPLE History</div>
+    <div class="card-content" style="padding:0">
+      <div class="sample-grid">
+        <div class="sample-cell"><div class="sample-name"><span class="sample-letter">S</span> Signs &amp; Symptoms</div><div class="sample-text">Daughter reports patient was talking normally about 40 minutes ago, then developed slurred speech and a droopy left side of her face. Daughter stepped out of the room briefly and returned to find the patient vomiting on the couch and no longer responding to her name or voice, only withdrawing slightly to a sternal rub.</div></div>
+        <div class="sample-cell"><div class="sample-name"><span class="sample-letter">A</span> Allergies</div><div class="sample-text">NKDA</div></div>
+        <div class="sample-cell"><div class="sample-name"><span class="sample-letter">M</span> Medications</div><div class="sample-text">Apixaban 5 mg PO BID, Metoprolol 50 mg PO daily, Atorvastatin 40 mg PO daily</div></div>
+        <div class="sample-cell"><div class="sample-name"><span class="sample-letter">P</span> Past Medical</div><div class="sample-text">Hypertension, Atrial fibrillation, Hyperlipidemia</div></div>
+        <div class="sample-cell"><div class="sample-name"><span class="sample-letter">L</span> Last Intake</div><div class="sample-text">Lunch approximately 2 hours prior to onset</div></div>
+        <div class="sample-cell"><div class="sample-name"><span class="sample-letter">E</span> Events</div><div class="sample-text">Daughter witnessed rapid decline from slurred speech and facial droop to vomiting and unresponsiveness within minutes; called 911 immediately</div></div>
+      </div>
+    </div>
+  </div>
+  <section class="phase-section">
+    <div class="card phase-card">
+      <div class="card-content">
+        
+        <div class="phase-title">Initial Contact</div>
+        
+        <div class="phase-desc">Crew arrives to find a 68-year-old female supine on the couch, unresponsive to voice, with visible emesis and gurgling respirations. Left facial droop and right-sided flaccid hemiparesis are noted on primary survey.</div>
+      </div>
+    </div>
+    <div class="card">
+    <div class="card-title">Vital Signs</div>
+    <div class="card-content" style="padding:0">
+      <div class="ecg-label">⏦ Sinus Rhythm</div>
+      <div class="vitals-grid">
+        <div class="vital-cell"><div class="vital-name">HR</div><div class="vital-val">92</div><div class="vital-unit">bpm</div></div>
+        <div class="vital-cell"><div class="vital-name">BP</div><div class="vital-val">178/96</div><div class="vital-unit">mmHg</div></div>
+        <div class="vital-cell"><div class="vital-name">SpO₂</div><div class="vital-val">89%</div></div>
+        <div class="vital-cell"><div class="vital-name">RR</div><div class="vital-val">10</div><div class="vital-unit">/min</div></div>
+        <div class="vital-cell"><div class="vital-name">EtCO₂</div><div class="vital-val">0</div><div class="vital-unit">mmHg</div></div>
+        <div class="vital-cell"><div class="vital-name">Temp</div><div class="vital-val">98.6°</div><div class="vital-unit">F</div></div>
+        <div class="vital-cell full-width"><div class="vital-name">Glucose</div><div class="vital-val">112</div><div class="vital-unit">mg/dL</div></div>
+      </div>
+    </div>
+  </div>
+    <div class="card">
+    <div class="card-title">Clinical Findings</div>
+    <div class="card-content">
+      
+    <div class="loc-block">
+      <div class="avpu-bar"><div class="avpu-seg">A</div><div class="avpu-seg">V</div><div class="avpu-seg sel-p">P</div><div class="avpu-seg">U</div></div>
+      <div class="gcs-detail">
+    <div class="gcs-item"><span class="gcs-part">Eyes</span><span class="gcs-desc">No response</span><span class="gcs-score">1</span></div>
+    <div class="gcs-item"><span class="gcs-part">Verbal</span><span class="gcs-desc">No response</span><span class="gcs-score">1</span></div>
+    <div class="gcs-item"><span class="gcs-part">Motor</span><span class="gcs-desc">Withdraws from pain</span><span class="gcs-score">4</span></div>
+    <div class="gcs-total-row">Total GCS <span class="gcs-total">6</span></div>
+  </div>
+    </div>
+      <div class="finding-row"><div class="finding-label">Airway</div><div class="finding-value">Gurgling respirations, visible emesis in and around mouth, poor gag response</div></div><div class="finding-row"><div class="finding-label">Breathing</div><div class="finding-value">Irregular, shallow, 10/min with intermittent snoring quality</div></div><div class="finding-row"><div class="finding-label">Circulation</div><div class="finding-value">Radial pulses present, skin pale and diaphoretic</div></div><div class="finding-row"><div class="finding-label">Skin</div><div class="finding-value">pale · warm · diaphoretic</div></div><div class="finding-row"><div class="finding-label">Pupils</div><div class="finding-value">Left pupil sluggish, right pupil reactive</div></div><div class="finding-row"><div class="finding-label">Motor</div><div class="finding-value">Right arm and leg flaccid, no movement to painful stimulus; left side withdraws to sternal rub</div></div><div class="finding-row"><div class="finding-label">Speech</div><div class="finding-value"><span class="finding-speech">"No verbal response, only occasional moaning to painful stimulus"</span></div></div><div class="finding-row"><div class="finding-label">Other</div><div class="finding-value"><ul class="findings-notes"><li>Left facial droop</li><li>Vomitus visible in oropharynx and on clothing</li><li>No purposeful response to voice</li></ul></div></div>
+    </div>
+  </div>
+    
+  </section><section class="phase-section">
+    <div class="card phase-card">
+      <div class="card-content">
+        
+        <div class="phase-title">Airway suctioned and RSI performed</div>
+        <div class="phase-trigger">Trigger: After the primary survey identifies an unprotected airway with ongoing emesis and altered mental status, the crew suctions immediately, gathers the last-known-well time and stroke scale findings from the daughter, checks BGL to rule out a stroke mimic, and proceeds directly to RSI given the airway compromise.</div>
+        <div class="phase-desc">Crew suctions the oropharynx, completes a rapid stroke assessment (LKW time, stroke scale, BGL), and performs RSI to protect the airway given the patient's loss of protective reflexes and active vomiting.</div>
+      </div>
+    </div>
+    <div class="card">
+    <div class="card-title">Vital Signs</div>
+    <div class="card-content" style="padding:0">
+      <div class="ecg-label">⏦ Sinus Rhythm</div>
+      <div class="vitals-grid">
+        <div class="vital-cell"><div class="vital-name">HR</div><div class="vital-val">88</div><div class="vital-unit">bpm</div></div>
+        <div class="vital-cell"><div class="vital-name">BP</div><div class="vital-val">164/90</div><div class="vital-unit">mmHg</div></div>
+        <div class="vital-cell"><div class="vital-name">SpO₂</div><div class="vital-val">98%</div></div>
+        <div class="vital-cell"><div class="vital-name">RR</div><div class="vital-val">12</div><div class="vital-unit">/min</div></div>
+        <div class="vital-cell"><div class="vital-name">EtCO₂</div><div class="vital-val">38</div><div class="vital-unit">mmHg</div></div>
+        <div class="vital-cell"><div class="vital-name">Temp</div><div class="vital-val">98.6°</div><div class="vital-unit">F</div></div>
+        <div class="vital-cell full-width"><div class="vital-name">Glucose</div><div class="vital-val">112</div><div class="vital-unit">mg/dL</div></div>
+      </div>
+    </div>
+  </div>
+    <div class="card">
+    <div class="card-title">Clinical Findings</div>
+    <div class="card-content">
+      
+    <div class="loc-block">
+      <div class="avpu-bar"><div class="avpu-seg">A</div><div class="avpu-seg">V</div><div class="avpu-seg">P</div><div class="avpu-seg sel-u">U</div></div>
+      <div class="gcs-detail">
+    <div class="gcs-item"><span class="gcs-part">Eyes</span><span class="gcs-desc">No response</span><span class="gcs-score">1</span></div>
+    <div class="gcs-item"><span class="gcs-part">Verbal</span><span class="gcs-desc">No response</span><span class="gcs-score">1</span></div>
+    <div class="gcs-item"><span class="gcs-part">Motor</span><span class="gcs-desc">Withdraws from pain</span><span class="gcs-score">4</span></div>
+    <div class="gcs-total-row">Total GCS <span class="gcs-total">6</span></div>
+  </div>
+    </div>
+      <div class="finding-row"><div class="finding-label">Airway</div><div class="finding-value">Oropharynx suctioned clear, ET tube placed and secured</div></div><div class="finding-row"><div class="finding-label">Breathing</div><div class="finding-value">Ventilated via BVM at 10-12/min, bilateral breath sounds equal</div></div><div class="finding-row"><div class="finding-label">Circulation</div><div class="finding-value">Radial pulses present, skin still diaphoretic</div></div><div class="finding-row"><div class="finding-label">Skin</div><div class="finding-value">pale · warm · diaphoretic</div></div><div class="finding-row"><div class="finding-label">Pupils</div><div class="finding-value">Left pupil sluggish, right pupil reactive</div></div><div class="finding-row"><div class="finding-label">Motor</div><div class="finding-value">Right-sided flaccid hemiparesis unchanged</div></div><div class="finding-row"><div class="finding-label">Speech</div><div class="finding-value"><span class="finding-speech">"No verbal response; sedated and paralyzed post-RSI"</span></div></div><div class="finding-row"><div class="finding-label">Other</div><div class="finding-value"><ul class="findings-notes"><li>Last known well: approximately 45 minutes ago per daughter</li><li>Stroke scale positive for facial droop and right-sided weakness</li><li>BGL 112 mg/dL, ruling out hypoglycemia as a mimic</li><li>ET tube secured at appropriate depth</li></ul></div></div>
+    </div>
+  </div>
+    <div class="card">
+    <div class="card-title">Expected Actions</div>
+    <div class="card-content" style="padding:0 16px 12px"><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-critical">critical</span><div class="action-text">Suction oropharynx immediately to clear emesis and reduce aspiration risk</div></div>
+        <div class="action-excerpt">Suctioning to limit aspiration is a priority, since it is associated with development of hospital acquired pneumonia and related increases in ICU stay and mortality.</div>
+        <div class="action-ref">↳ MATC: Airway Management (Includes RSI)</div>
+      </div>
+    </div><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-critical">critical</span><div class="action-text">Perform validated stroke scale and determine last known well time</div></div>
+        <div class="action-excerpt">Use a validated prehospital stroke scale that may include, but is not limited to: Facial smile/grimace – ask patient to smile, Arm drift – close eyes and hold out arms for count of 10 seconds, Speech – ask patient to say &quot;You can't teach an old dog new tricks&quot; ... Determine &quot;last known well&quot; time</div>
+        <div class="action-ref">↳ MATC: Suspected Stroke/Transient Ischemic Attack</div>
+      </div>
+    </div><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-critical">critical</span><div class="action-text">Check blood glucose to rule out hypoglycemia as a stroke mimic</div></div>
+        <div class="action-excerpt">Check blood glucose level (BGL) - Treat only if glucose less than 60 mg/dL</div>
+        <div class="action-ref">↳ MATC: Suspected Stroke/Transient Ischemic Attack</div>
+      </div>
+    </div><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-critical">critical</span><div class="action-text">Recognize loss of protective airway reflexes; proceed to RSI for airway protection</div></div>
+        <div class="action-excerpt">Other indications may include potential airway obstruction, severe inhalation burns, multiple traumatic injuries, altered mental status with loss of normal protective airway reflexes</div>
+        <div class="action-ref">↳ MATC: Airway Management (Includes RSI)</div>
+      </div>
+    </div><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-critical">critical</span><div class="action-text">Preoxygenate with high-flow O2 and positive pressure ventilation for at least 2 minutes before RSI</div></div>
+        <div class="action-excerpt">Patient should be pre-oxygenated with high flow oxygen, and positive pressure ventilation for a minimum of two minutes prior to the procedure.</div>
+        <div class="action-ref">↳ MATC: Airway Management (Includes RSI)</div>
+      </div>
+    </div><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-critical">critical</span><div class="action-text">Etomidate 21 mg IV push (70 kg × 0.3 mg/kg) as induction agent</div></div>
+        <div class="action-excerpt">Administer induction sedative agent: Etomidate IV push, 0.2-0.3 mg/kg</div>
+        <div class="action-ref">↳ MATC: Airway Management (Includes RSI)</div>
+      </div>
+    </div><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-critical">critical</span><div class="action-text">Succinylcholine 105 mg IV push (70 kg × 1.5 mg/kg) as paralytic agent</div></div>
+        <div class="action-excerpt">Administer paralytic agent: Succinylcholine IV push, 1-2 mg/kg</div>
+        <div class="action-ref">↳ MATC: Airway Management (Includes RSI)</div>
+      </div>
+    </div><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-critical">critical</span><div class="action-text">Confirm ET tube placement with waveform capnography, breath sounds, and absent gastric sounds</div></div>
+        <div class="action-excerpt">Confirm placement of advanced airway (endotracheal tube, SGA) with waveform capnography (most reliable), absent gastric sounds, and bilateral breath sounds</div>
+        <div class="action-ref">↳ MATC: Airway Management (Includes RSI)</div>
+      </div>
+    </div></div>
+  </div>
+  </section><section class="phase-section">
+    <div class="card phase-card">
+      <div class="card-content">
+        
+        <div class="phase-title">Tube confirmed and stroke alert transmitted</div>
+        <div class="phase-trigger">Trigger: After successful RSI and tube confirmation, the crew notifies the receiving stroke center early given the suspected large vessel occlusion, elevates the head of the stretcher per protocol, and transports.</div>
+        <div class="phase-desc">Patient is intubated, sedated, and ventilated with continuous waveform capnography. Early stroke center notification has been transmitted and the patient is positioned with head of stretcher elevated to reduce aspiration risk during transport.</div>
+      </div>
+    </div>
+    <div class="card">
+    <div class="card-title">Vital Signs</div>
+    <div class="card-content" style="padding:0">
+      <div class="ecg-label">⏦ Sinus Rhythm</div>
+      <div class="vitals-grid">
+        <div class="vital-cell"><div class="vital-name">HR</div><div class="vital-val">84</div><div class="vital-unit">bpm</div></div>
+        <div class="vital-cell"><div class="vital-name">BP</div><div class="vital-val">156/86</div><div class="vital-unit">mmHg</div></div>
+        <div class="vital-cell"><div class="vital-name">SpO₂</div><div class="vital-val">99%</div></div>
+        <div class="vital-cell"><div class="vital-name">RR</div><div class="vital-val">12</div><div class="vital-unit">/min</div></div>
+        <div class="vital-cell"><div class="vital-name">EtCO₂</div><div class="vital-val">37</div><div class="vital-unit">mmHg</div></div>
+        <div class="vital-cell"><div class="vital-name">Temp</div><div class="vital-val">98.6°</div><div class="vital-unit">F</div></div>
+        <div class="vital-cell full-width"><div class="vital-name">Glucose</div><div class="vital-val">112</div><div class="vital-unit">mg/dL</div></div>
+      </div>
+    </div>
+  </div>
+    <div class="card">
+    <div class="card-title">Clinical Findings</div>
+    <div class="card-content">
+      
+    <div class="loc-block">
+      <div class="avpu-bar"><div class="avpu-seg">A</div><div class="avpu-seg">V</div><div class="avpu-seg">P</div><div class="avpu-seg sel-u">U</div></div>
+      <div class="gcs-detail">
+    <div class="gcs-item"><span class="gcs-part">Eyes</span><span class="gcs-desc">No response</span><span class="gcs-score">1</span></div>
+    <div class="gcs-item"><span class="gcs-part">Verbal</span><span class="gcs-desc">No response</span><span class="gcs-score">1</span></div>
+    <div class="gcs-item"><span class="gcs-part">Motor</span><span class="gcs-desc">Withdraws from pain</span><span class="gcs-score">4</span></div>
+    <div class="gcs-total-row">Total GCS <span class="gcs-total">6</span></div>
+  </div>
+    </div>
+      <div class="finding-row"><div class="finding-label">Airway</div><div class="finding-value">Secured with ET tube, confirmed placement</div></div><div class="finding-row"><div class="finding-label">Breathing</div><div class="finding-value">Ventilated at 10-12/min via BVM, EtCO2 stable 35-40</div></div><div class="finding-row"><div class="finding-label">Circulation</div><div class="finding-value">Radial pulses present, skin warm and drying</div></div><div class="finding-row"><div class="finding-label">Skin</div><div class="finding-value">pink · warm · dry</div></div><div class="finding-row"><div class="finding-label">Pupils</div><div class="finding-value">Left pupil sluggish, right pupil reactive, unchanged</div></div><div class="finding-row"><div class="finding-label">Motor</div><div class="finding-value">Right-sided flaccid hemiparesis unchanged</div></div><div class="finding-row"><div class="finding-label">Speech</div><div class="finding-value"><span class="finding-speech">"None — sedated, paralyzed, and intubated"</span></div></div><div class="finding-row"><div class="finding-label">Other</div><div class="finding-value"><ul class="findings-notes"><li>Head of stretcher elevated 30 degrees</li><li>Continuous waveform capnography confirms tube position</li><li>Stroke center notified of suspected LVO</li></ul></div></div>
+    </div>
+  </div>
+    <div class="card">
+    <div class="card-title">Expected Actions</div>
+    <div class="card-content" style="padding:0 16px 12px"><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-important">important</span><div class="action-text">Elevate head of stretcher 15-30 degrees, maintain neutral neck alignment during transport</div></div>
+        <div class="action-excerpt">Prevent aspiration – elevate head of stretcher 15–30 degrees if systolic BP greater than 100 mmHg - Maintain head and neck in neutral alignment, without flexing the neck</div>
+        <div class="action-ref">↳ MATC: Suspected Stroke/Transient Ischemic Attack</div>
+      </div>
+    </div><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-important">important</span><div class="action-text">Transmit early stroke center notification for suspected large vessel occlusion</div></div>
+        <div class="action-excerpt">Early hospital notification per local stroke plan that should include any suspected large vessel occlusion (LVO) stroke</div>
+        <div class="action-ref">↳ MATC: Suspected Stroke/Transient Ischemic Attack</div>
+      </div>
+    </div></div>
+  </div>
+  </section><section class="phase-section">
+    <div class="card phase-card phase-card-branch">
+      <div class="card-content">
+        <div class="branch-tag">Improper Care Branch</div>
+        <div class="phase-title">Suctioning and RSI delayed</div>
+        <div class="phase-trigger">Trigger: Crew delays suctioning and airway management to complete the stroke assessment first; the patient has another emesis episode with the airway unprotected, leading to aspiration and a further drop in SpO2.</div>
+        <div class="phase-desc">The crew prioritizes history-taking and the stroke scale without first clearing the airway. The patient vomits again and aspirates before suction or RSI is initiated, worsening oxygenation.</div>
+      </div>
+    </div>
+    <div class="card">
+    <div class="card-title">Vital Signs</div>
+    <div class="card-content" style="padding:0">
+      <div class="ecg-label">⏦ Sinus Tachycardia</div>
+      <div class="vitals-grid">
+        <div class="vital-cell"><div class="vital-name">HR</div><div class="vital-val">118</div><div class="vital-unit">bpm</div></div>
+        <div class="vital-cell"><div class="vital-name">BP</div><div class="vital-val">168/94</div><div class="vital-unit">mmHg</div></div>
+        <div class="vital-cell"><div class="vital-name">SpO₂</div><div class="vital-val">78%</div></div>
+        <div class="vital-cell"><div class="vital-name">RR</div><div class="vital-val">8</div><div class="vital-unit">/min</div></div>
+        <div class="vital-cell"><div class="vital-name">EtCO₂</div><div class="vital-val">0</div><div class="vital-unit">mmHg</div></div>
+        <div class="vital-cell"><div class="vital-name">Temp</div><div class="vital-val">98.6°</div><div class="vital-unit">F</div></div>
+        <div class="vital-cell full-width"><div class="vital-name">Glucose</div><div class="vital-val">112</div><div class="vital-unit">mg/dL</div></div>
+      </div>
+    </div>
+  </div>
+    <div class="card">
+    <div class="card-title">Clinical Findings</div>
+    <div class="card-content">
+      
+    <div class="loc-block">
+      <div class="avpu-bar"><div class="avpu-seg">A</div><div class="avpu-seg">V</div><div class="avpu-seg sel-p">P</div><div class="avpu-seg">U</div></div>
+      <div class="gcs-detail">
+    <div class="gcs-item"><span class="gcs-part">Eyes</span><span class="gcs-desc">No response</span><span class="gcs-score">1</span></div>
+    <div class="gcs-item"><span class="gcs-part">Verbal</span><span class="gcs-desc">No response</span><span class="gcs-score">1</span></div>
+    <div class="gcs-item"><span class="gcs-part">Motor</span><span class="gcs-desc">Flexion (decorticate)</span><span class="gcs-score">3</span></div>
+    <div class="gcs-total-row">Total GCS <span class="gcs-total">5</span></div>
+  </div>
+    </div>
+      <div class="finding-row"><div class="finding-label">Airway</div><div class="finding-value">Audible gurgling worsens, further emesis aspirated</div></div><div class="finding-row"><div class="finding-label">Breathing</div><div class="finding-value">Increasingly irregular, 8/min, shallow</div></div><div class="finding-row"><div class="finding-label">Circulation</div><div class="finding-value">Radial pulses present, skin now mottled and diaphoretic</div></div><div class="finding-row"><div class="finding-label">Skin</div><div class="finding-value">mottled · cool · diaphoretic</div></div><div class="finding-row"><div class="finding-label">Pupils</div><div class="finding-value">Left pupil sluggish, right pupil reactive</div></div><div class="finding-row"><div class="finding-label">Motor</div><div class="finding-value">Right-sided flaccid hemiparesis unchanged, left-side response now diminished</div></div><div class="finding-row"><div class="finding-label">Speech</div><div class="finding-value"><span class="finding-speech">"No verbal response, minimal response to painful stimulus"</span></div></div><div class="finding-row"><div class="finding-label">Other</div><div class="finding-value"><ul class="findings-notes"><li>Repeat emesis aspirated with airway still unprotected</li><li>SpO2 dropping despite supplemental oxygen</li><li>Increasing rhonchi on auscultation</li></ul></div></div>
+    </div>
+  </div>
+    <div class="card">
+    <div class="card-title">Expected Actions</div>
+    <div class="card-content" style="padding:0 16px 12px"><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-critical">critical</span><div class="action-text">Immediately suction airway and prepare for emergent RSI given worsening hypoxia</div></div>
+        <div class="action-excerpt">Suctioning to limit aspiration is a priority, since it is associated with development of hospital acquired pneumonia and related increases in ICU stay and mortality.</div>
+        <div class="action-ref">↳ MATC: Airway Management (Includes RSI)</div>
+      </div>
+    </div></div>
+  </div>
+  </section>
+</div>
+</body>
+</html>

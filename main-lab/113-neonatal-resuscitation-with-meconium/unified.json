@@ -1,0 +1,300 @@
+{
+  "meta": {
+    "id": "113-neonatal-resuscitation-with-meconium",
+    "name": "113 - Neonatal Resuscitation with Meconium",
+    "version": 1,
+    "difficulty": "advanced",
+    "category": "OB/GYN",
+    "protocols": ["obgyn-neonatal-resuscitation", "obgyn-childbirth"],
+    "totalTimeSeconds": 600,
+    "tags": ["OB", "neonatal resuscitation", "NRP", "meconium", "921"]
+  },
+  "patient": {
+    "name": "Baby Thompson",
+    "age": 1,
+    "ageUnit": "minutes",
+    "sex": "male",
+    "weight": 3.2,
+    "weightLbs": 7.1,
+    "height": 50,
+    "chiefComplaint": "Term newborn, meconium-stained fluid at delivery, floppy and not breathing",
+    "history": {
+      "hpi": "Just-delivered term male infant, approximately 39 weeks gestation by mother's dates. Amniotic fluid was thick and meconium-stained at rupture of membranes. Immediately after delivery of the body, the infant is floppy with poor tone, weak/absent respiratory effort, and no crying.",
+      "pastMedical": [],
+      "medications": [],
+      "allergies": ["NKDA"],
+      "lastOralIntake": "N/A — newly born",
+      "events": "Delivered on scene by crew moments ago following an otherwise uncomplicated labor; meconium noted at rupture of membranes prompted immediate post-delivery assessment"
+    }
+  },
+  "scene": {
+    "dispatch": "Crew on scene for imminent delivery, newborn now delivered, requesting newborn assessment",
+    "location": "Single-family home, bedroom, mother on the bed, newborn on a prepared warming surface at bedside",
+    "time": "9:41 PM, weekday",
+    "safety": "No hazards to crew noted; second crew member available for two-person newborn care",
+    "bystanders": "Mother present, anxious, second EMS provider assisting with mother's ongoing care",
+    "visualCues": [
+      "Newborn on warming surface, thick meconium staining visible on skin and umbilical cord",
+      "Infant limp with minimal movement",
+      "No audible cry, chest wall not moving with visible effort",
+      "Warming supplies and BVM with appropriately sized mask already staged"
+    ]
+  },
+  "phases": [
+    {
+      "id": "initial",
+      "name": "Initial Contact",
+      "description": "A term male newborn has just delivered through thick meconium-stained fluid and presents floppy with poor tone and absent respiratory effort, meeting criteria for immediate resuscitation rather than routine care.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Unresponsive",
+        "gcs": { "eye": 1, "verbal": 1, "motor": 1 },
+        "airway": "Meconium staining visible around mouth and nose, no spontaneous airway clearing",
+        "breathing": "Absent respiratory effort, no chest rise",
+        "circulation": "Weak, slow pulse palpable at umbilical stump",
+        "skin": { "color": "cyanotic", "temperature": "cool", "moisture": "wet with amniotic fluid" },
+        "pupils": "Not clinically assessed at this age",
+        "motorFunction": "Poor tone, limp extremities",
+        "otherFindings": [
+          "Thick meconium staining on skin and cord",
+          "No cry, no spontaneous movement",
+          "Heart rate estimated at approximately 55 bpm on auscultation",
+          "Term gestation by maternal dates"
+        ],
+        "patientSpeech": ""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Bradycardia",
+        "ecgWaveform": 9,
+        "hr": 55,
+        "bpSys": 0,
+        "bpDia": 0,
+        "respRate": 0,
+        "spo2": 60,
+        "etco2": 0,
+        "temp": 36.2,
+        "tempF": 97.2,
+        "obstruction": 0,
+        "glucose": 0,
+        "customMeasures": [],
+        "trendTimeSeconds": 0,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [],
+      "transitions": [
+        {
+          "targetPhaseId": "dry-warm-position",
+          "if": "Dried, warmed, positioned, airway cleared",
+          "condition": "Crew immediately dries, warms, and stimulates the infant while positioning the airway in sniffing position and clearing meconium from the mouth and nose given signs of respiratory distress with airway obstruction.",
+          "conditionType": "action_taken"
+        },
+        {
+          "targetPhaseId": "resuscitation-delayed",
+          "if": "Resuscitation sequence delayed",
+          "condition": "Crew delays initiating the dry-warm-stimulate and airway-clearing sequence, allowing ongoing apnea and bradycardia.",
+          "conditionType": "action_not_taken"
+        }
+      ]
+    },
+    {
+      "id": "dry-warm-position",
+      "name": "Dried, warmed, positioned, airway cleared",
+      "description": "Crew dries and warms the infant, positions the airway in the sniffing position, and suctions the mouth then nose given visible meconium and signs of airway obstruction. The infant remains apneic with a heart rate below 100.",
+      "triggerCondition": "Given the floppy tone, absent respiratory effort, and visible meconium, the crew proceeds directly to warming, airway positioning, and targeted suctioning rather than routine skin-to-skin care.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Unresponsive",
+        "gcs": { "eye": 1, "verbal": 1, "motor": 1 },
+        "airway": "Cleared of visible meconium after suctioning mouth then nose",
+        "breathing": "Still absent respiratory effort after stimulation",
+        "circulation": "Pulse palpable, slow",
+        "skin": { "color": "cyanotic", "temperature": "warming", "moisture": "drying" },
+        "pupils": "Not clinically assessed at this age",
+        "motorFunction": "Poor tone, minimal response to stimulation",
+        "otherFindings": [
+          "Infant dried and wrapped, head covered where possible",
+          "Airway suctioned mouth then nose, meconium cleared",
+          "No spontaneous respiratory effort despite stimulation",
+          "Heart rate approximately 58 bpm on reassessment"
+        ],
+        "patientSpeech": ""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Bradycardia",
+        "ecgWaveform": 9,
+        "hr": 58,
+        "bpSys": 0,
+        "bpDia": 0,
+        "respRate": 0,
+        "spo2": 62,
+        "etco2": 0,
+        "temp": 36.4,
+        "tempF": 97.5,
+        "obstruction": 30,
+        "glucose": 0,
+        "customMeasures": [],
+        "trendTimeSeconds": 15,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a1-dry-warm",
+          "shortAction": "Dry, warm, and stimulate infant; wrap in dry towel, cover head",
+          "protocolExcerpt": "Wrap infant in dry towel or thermal blanket to keep infant as warm as possible during resuscitation; keep head covered if possible",
+          "priority": "critical",
+          "rationale": "Hypothermia worsens outcomes in a compromised newborn and stimulation may itself trigger respiratory effort.",
+          "protocolReference": "MATC: Neonatal Resuscitation"
+        },
+        {
+          "id": "a2-position-suction",
+          "shortAction": "Position airway in sniffing position; suction mouth then nose given visible meconium",
+          "protocolExcerpt": "If weak cry, signs of respiratory distress, poor tone, or preterm gestation then position airway (sniffing position) and clear airway as needed. If signs of respiratory distress with airway obstruction, suction mouth then nose; routine suctioning is not recommended",
+          "priority": "critical",
+          "rationale": "Meconium with airway obstruction and poor tone meets the protocol's criteria for targeted suctioning, unlike a vigorous newborn.",
+          "protocolReference": "MATC: Neonatal Resuscitation"
+        },
+        {
+          "id": "a3-monitor",
+          "shortAction": "Apply cardiac monitor and pulse oximetry to guide resuscitation",
+          "protocolExcerpt": "Apply cardiac monitor, if available",
+          "priority": "important",
+          "rationale": "Heart rate trend is the primary indicator of resuscitation effectiveness going forward.",
+          "protocolReference": "MATC: Neonatal Resuscitation"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "ppv-initiated",
+          "if": "PPV initiated for HR under 100",
+          "condition": "Despite warming, positioning, and airway clearing, the infant remains apneic with a heart rate below 100 bpm, meeting criteria for positive pressure ventilation.",
+          "conditionType": "vital_threshold",
+          "triggerActionIds": ["a3-monitor"]
+        }
+      ]
+    },
+    {
+      "id": "ppv-initiated",
+      "name": "PPV initiated for HR under 100",
+      "description": "Crew initiates BVM positive pressure ventilation at 40-60 breaths per minute with room air, reassessing heart rate every 30 seconds. Heart rate improves toward normal with effective ventilation.",
+      "triggerCondition": "With heart rate persistently below 100 bpm and no spontaneous respiratory effort, the crew begins positive pressure ventilation per the Evaluate step of the resuscitation sequence.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Verbal",
+        "gcs": { "eye": 1, "verbal": 1, "motor": 2 },
+        "airway": "Patent with BVM ventilation, good chest rise",
+        "breathing": "Assisted via BVM at 40-60/min, chest rise present with each breath",
+        "circulation": "Pulse strengthening",
+        "skin": { "color": "trunk improving, extremities still cyanotic (acrocyanosis)", "temperature": "warm", "moisture": "dry" },
+        "pupils": "Not clinically assessed at this age",
+        "motorFunction": "Increasing tone and movement",
+        "otherFindings": [
+          "Heart rate improving with each 30-second reassessment",
+          "Chest rise adequate with squeeze-release technique",
+          "SpO2 trending upward toward age-appropriate target",
+          "Beginning weak spontaneous respiratory effort"
+        ],
+        "patientSpeech": ""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Rhythm",
+        "ecgWaveform": 9,
+        "hr": 118,
+        "bpSys": 60,
+        "bpDia": 35,
+        "respRate": 8,
+        "spo2": 78,
+        "etco2": 0,
+        "temp": 36.6,
+        "tempF": 97.9,
+        "obstruction": 10,
+        "glucose": 0,
+        "customMeasures": [],
+        "trendTimeSeconds": 30,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a4-ppv",
+          "shortAction": "Initiate BVM ventilation with room air at 40-60 breaths/min for 90 seconds",
+          "protocolExcerpt": "Initiate BVM ventilation with room air at 40–60 breaths per minute for 90 seconds with room air",
+          "priority": "critical",
+          "rationale": "Effective PPV is the single most important intervention for a newborn with bradycardia and apnea.",
+          "protocolReference": "MATC: Neonatal Resuscitation"
+        },
+        {
+          "id": "a5-reassess-hr",
+          "shortAction": "Evaluate heart rate every 30 seconds during ventilation",
+          "protocolExcerpt": "Primary indicator of effective ventilation is improvement in heart rate. Evaluate heart rate every 30 seconds",
+          "priority": "critical",
+          "rationale": "Heart rate response determines whether to continue current management or escalate to compressions/epinephrine.",
+          "protocolReference": "MATC: Neonatal Resuscitation"
+        },
+        {
+          "id": "a6-minimum-volume",
+          "shortAction": "Use minimum rate/volume needed for chest rise and HR change (squeeze-release technique)",
+          "protocolExcerpt": "Rates and volumes of ventilation required can be variable, only use the minimum necessary rate and volume to achieve chest rise and a change in heart rate; can control rate and volume by saying \"squeeze, release\"",
+          "priority": "important",
+          "rationale": "Excessive volume/pressure risks pneumothorax in the newborn lung.",
+          "protocolReference": "MATC: Neonatal Resuscitation"
+        }
+      ],
+      "transitions": []
+    },
+    {
+      "id": "resuscitation-delayed",
+      "name": "Resuscitation sequence delayed",
+      "description": "Crew delays the dry-warm-stimulate and airway-clearing sequence, allowing the infant to remain apneic and bradycardic without intervention.",
+      "triggerCondition": "Distracted by maternal care or uncertain how to proceed with a meconium-stained, floppy newborn, the crew delays initiating the resuscitation sequence.",
+      "isDefault": false,
+      "clinicalPresentation": {
+        "avpu": "Unresponsive",
+        "gcs": { "eye": 1, "verbal": 1, "motor": 1 },
+        "airway": "Meconium still visible, unaddressed",
+        "breathing": "Still absent, no intervention initiated",
+        "circulation": "Pulse weakening further",
+        "skin": { "color": "cyanotic, worsening", "temperature": "cooling", "moisture": "wet" },
+        "pupils": "Not clinically assessed at this age",
+        "motorFunction": "No improvement, remains limp",
+        "otherFindings": [
+          "No drying, warming, or airway clearing yet performed",
+          "Heart rate trending downward on reassessment",
+          "Ongoing heat loss from wet skin"
+        ],
+        "patientSpeech": ""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Bradycardia",
+        "ecgWaveform": 9,
+        "hr": 45,
+        "bpSys": 0,
+        "bpDia": 0,
+        "respRate": 0,
+        "spo2": 52,
+        "etco2": 0,
+        "temp": 35.8,
+        "tempF": 96.4,
+        "obstruction": 40,
+        "glucose": 0,
+        "customMeasures": [],
+        "trendTimeSeconds": 30,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a7-recover-sequence",
+          "shortAction": "Immediately begin dry-warm-stimulate, position airway, and suction mouth then nose",
+          "protocolExcerpt": "Most newborns require only drying, warming, and stimulating to help them transition from fetal respiration to newborn respiration. The resuscitation sequence can be remembered as Dry, Warm, and Stimulate – Ventilate – Evaluate – and Resuscitate",
+          "priority": "critical",
+          "rationale": "Ongoing delay compounds hypothermia and worsening bradycardia; the resuscitation sequence must begin without further delay.",
+          "protocolReference": "MATC: Neonatal Resuscitation"
+        }
+      ],
+      "transitions": []
+    }
+  ],
+  "realiti": {
+    "scenarioMonitorType": 2,
+    "scenarioDefaultEnergy": 200,
+    "scenarioDefaultPacerThreshold": 55
+  }
+}

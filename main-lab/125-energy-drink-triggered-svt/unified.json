@@ -1,0 +1,347 @@
+{
+  "meta": {
+    "id": "125-energy-drink-triggered-svt",
+    "name": "125 - Energy Drink-Triggered SVT",
+    "version": 1,
+    "difficulty": "intermediate",
+    "category": "Cardiac",
+    "protocols": ["cv-tachycardia", "medical-pain-management"],
+    "totalTimeSeconds": 600,
+    "tags": ["cardiac", "SVT", "cardioversion", "sedation", "midterm"]
+  },
+  "patient": {
+    "name": "David Ferraro",
+    "age": 45,
+    "ageUnit": "years",
+    "sex": "male",
+    "weight": 88,
+    "weightLbs": 194,
+    "height": 178,
+    "chiefComplaint": "Sudden onset palpitations and lightheadedness",
+    "history": {
+      "hpi": "Patient reports sudden onset of palpitations and lightheadedness approximately 10 minutes ago while working. Describes his heart as 'racing' and feels like he might pass out when standing. Denies chest pain, denies any prior episodes like this.",
+      "pastMedical": [],
+      "medications": [],
+      "allergies": ["NKDA"],
+      "lastOralIntake": "Multiple energy drinks and coffee throughout the shift, last approximately 30 minutes prior to onset",
+      "events": "Coworker called 911 after the patient became pale, diaphoretic, and reported his heart racing; patient has remained seated to avoid syncope"
+    }
+  },
+  "scene": {
+    "dispatch": "45-year-old male, chest discomfort and dizziness, workplace",
+    "location": "Manufacturing warehouse breakroom",
+    "time": "2:15 PM, weekday",
+    "safety": "No hazards to crew noted; coworkers present and cooperative",
+    "bystanders": "Coworker reports patient suddenly became pale and complained of his heart racing after drinking several energy drinks during his shift; coworker called 911 immediately",
+    "visualCues": [
+      "Patient seated, gripping the edge of a table",
+      "Visible rapid neck pulsation",
+      "Pale, diaphoretic skin",
+      "Several empty energy drink cans on the table nearby"
+    ]
+  },
+  "phases": [
+    {
+      "id": "initial",
+      "name": "Initial Contact",
+      "description": "Crew arrives to find a 45-year-old male seated, pale and diaphoretic, reporting sudden-onset palpitations and near-syncope. Radial pulse is rapid and weak.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent, speaking full sentences",
+        "breathing": "Nonlabored, 20/min",
+        "circulation": "Radial pulse rapid and weak, regular; skin pale, cool, diaphoretic",
+        "skin": { "color": "pale", "temperature": "cool", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Strength intact bilaterally",
+        "otherFindings": [
+          "Heart rate too fast to count manually, palpated as regular",
+          "Reports feeling like he might pass out when standing",
+          "No chest pain, no prior cardiac history"
+        ],
+        "patientSpeech": "\"My heart is racing so fast, I feel like I'm going to pass out.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Supraventricular Tachycardia",
+        "ecgWaveform": 4,
+        "hr": 188,
+        "bpSys": 82,
+        "bpDia": 54,
+        "respRate": 20,
+        "spo2": 96,
+        "etco2": 0,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 0,
+        "glucose": 98,
+        "customMeasures": [],
+        "trendTimeSeconds": 0,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [],
+      "transitions": [
+        {
+          "targetPhaseId": "instability-recognized",
+          "if": "Unstable pathway recognized",
+          "condition": "Crew completes the initial assessment (oxygen, monitor, 12-lead, IV access, blood glucose) and identifies hemodynamic instability (hypotension, near-syncope) meeting criteria for the unstable SVT pathway.",
+          "conditionType": "action_taken"
+        }
+      ]
+    },
+    {
+      "id": "instability-recognized",
+      "name": "Unstable pathway recognized",
+      "description": "Crew establishes monitoring, IV access, and checks blood glucose while recognizing that the patient's hypotension and near-syncope place him in the unstable regular narrow complex tachycardia pathway, which calls for synchronized cardioversion rather than stable pharmacologic therapy.",
+      "triggerCondition": "After completing the initial assessment steps common to all tachycardia patients (oxygen, monitoring, 12-lead, IV access, blood glucose check), the crew recognizes the patient's hypotension (82/54) and near-syncope as signs of hemodynamic instability, meeting protocol criteria for the unstable SVT pathway.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "Nonlabored, 20/min",
+        "circulation": "Radial pulse rapid, weak, regular; skin pale, cool, diaphoretic",
+        "skin": { "color": "pale", "temperature": "cool", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Strength intact bilaterally",
+        "otherFindings": [
+          "12-lead confirms regular narrow complex tachycardia",
+          "IV established, blood glucose 98 mg/dL, ruling out hypoglycemia",
+          "Continues to report lightheadedness when upright"
+        ],
+        "patientSpeech": "\"It's not slowing down, I still feel dizzy.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Supraventricular Tachycardia",
+        "ecgWaveform": 4,
+        "hr": 190,
+        "bpSys": 80,
+        "bpDia": 52,
+        "respRate": 20,
+        "spo2": 95,
+        "etco2": 0,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 0,
+        "glucose": 98,
+        "customMeasures": [],
+        "trendTimeSeconds": 25,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a1-assessment",
+          "shortAction": "Establish O2, cardiac monitor, 12-lead EKG, and IV access",
+          "protocolExcerpt": "Manage airway as necessary. Administer oxygen as appropriate with a target of achieving 94–98% saturation. Initiate monitoring and perform 12-lead EKG. Establish IV access.",
+          "priority": "critical",
+          "rationale": "Confirms the rhythm on 12-lead and establishes access needed for sedation prior to cardioversion.",
+          "protocolReference": "MATC: Tachycardia with a Pulse"
+        },
+        {
+          "id": "a2-bgl",
+          "shortAction": "Check blood glucose to rule out hypoglycemia as a contributing cause",
+          "protocolExcerpt": "Check blood glucose and treat hypoglycemia per the Hypoglycemia Guideline",
+          "priority": "important",
+          "rationale": "Hypoglycemia is a listed reversible cause of tachycardia that must be excluded.",
+          "protocolReference": "MATC: Tachycardia with a Pulse"
+        },
+        {
+          "id": "a3-recognize-unstable",
+          "shortAction": "Recognize hypotension and near-syncope as unstable SVT; bypass the stable pharmacologic pathway",
+          "protocolExcerpt": "Regular Narrow Complex Tachycardia – Unstable: Deliver a synchronized shock based on manufacturer's recommendations.",
+          "priority": "critical",
+          "rationale": "Vagal maneuvers and adenosine belong to the stable pathway; using them here delays definitive treatment for an unstable patient.",
+          "protocolReference": "MATC: Tachycardia with a Pulse"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "sedation-cardioversion",
+          "if": "Sedation given, cardioversion performed",
+          "condition": "Crew proceeds directly to procedural sedation followed by synchronized cardioversion per the unstable pathway, without attempting vagal maneuvers or adenosine.",
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a3-recognize-unstable"]
+        },
+        {
+          "targetPhaseId": "delayed-vagal-adenosine",
+          "if": "Vagal/adenosine attempted despite instability",
+          "condition": "Crew instead attempts vagal maneuvers and/or adenosine as though the patient were hemodynamically stable, delaying definitive synchronized cardioversion.",
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["a3-recognize-unstable"]
+        }
+      ]
+    },
+    {
+      "id": "sedation-cardioversion",
+      "name": "Sedation given, cardioversion performed",
+      "description": "Crew administers weight-based ketamine for procedural sedation, then delivers a synchronized cardioversion per manufacturer recommendation.",
+      "triggerCondition": "After confirming the unstable SVT pathway, the crew sedates the responsive patient with ketamine prior to delivering a synchronized shock, per protocol's direction to consider sedation and analgesia for responsive patients undergoing cardioversion.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Verbal",
+        "gcs": { "eye": 3, "verbal": 4, "motor": 6 },
+        "airway": "Patent, protective reflexes intact",
+        "breathing": "Spontaneous, adequate depth, mildly slowed",
+        "circulation": "Radial pulse rapid, weak, regular; skin pale, cool, diaphoretic",
+        "skin": { "color": "pale", "temperature": "cool", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Strength intact bilaterally",
+        "otherFindings": [
+          "Sedated with ketamine, responds to voice",
+          "Pads placed, synchronized mode confirmed on defibrillator"
+        ],
+        "patientSpeech": "\"Mmm... okay...\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Supraventricular Tachycardia",
+        "ecgWaveform": 4,
+        "hr": 185,
+        "bpSys": 78,
+        "bpDia": 50,
+        "respRate": 18,
+        "spo2": 94,
+        "etco2": 0,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 0,
+        "glucose": 98,
+        "customMeasures": [],
+        "trendTimeSeconds": 20,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a4-ketamine",
+          "shortAction": "Ketamine 22 mg IV for procedural sedation (88 kg × 0.25 mg/kg = 22 mg; max initial 25 mg)",
+          "protocolExcerpt": "Ketamine: 0.25 mg/kg IM, IV or IO (maximum initial dose 25 mg; maximum cumulative dose 100 mg)",
+          "priority": "critical",
+          "rationale": "Provides sedation and analgesia for a responsive patient prior to cardioversion, as directed by the tachycardia protocol.",
+          "protocolReference": "MATC: Pain Management"
+        },
+        {
+          "id": "a5-cardioversion",
+          "shortAction": "Deliver synchronized cardioversion per manufacturer's energy recommendation",
+          "protocolExcerpt": "Regular Narrow Complex Tachycardia – Unstable: Deliver a synchronized shock based on manufacturer's recommendations. For responsive patients, consider sedation and analgesia.",
+          "priority": "critical",
+          "rationale": "Definitive treatment for unstable SVT unresponsive to reflex compensation.",
+          "protocolReference": "MATC: Tachycardia with a Pulse"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "converted-transport",
+          "if": "Converted to sinus rhythm",
+          "condition": "Synchronized cardioversion successfully converts the rhythm to sinus, with rapid improvement in blood pressure and mental status.",
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a5-cardioversion"]
+        }
+      ]
+    },
+    {
+      "id": "converted-transport",
+      "name": "Converted to sinus rhythm",
+      "description": "Rhythm converts to sinus following synchronized cardioversion; blood pressure and mental status improve. Crew reassesses vitals, obtains a post-conversion 12-lead, and prepares for transport.",
+      "triggerCondition": "Following synchronized cardioversion, the patient converts to sinus rhythm with resolution of hypotension and near-syncope.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent, speaking full sentences",
+        "breathing": "Nonlabored, 16/min",
+        "circulation": "Strong, regular radial pulses; skin warm and dry",
+        "skin": { "color": "pink", "temperature": "warm", "moisture": "dry" },
+        "pupils": "PERRL",
+        "motorFunction": "Strength intact bilaterally",
+        "otherFindings": [
+          "Reports resolution of palpitations",
+          "No further lightheadedness"
+        ],
+        "patientSpeech": "\"That's so much better, my heart feels normal now.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Rhythm",
+        "ecgWaveform": 9,
+        "hr": 92,
+        "bpSys": 118,
+        "bpDia": 76,
+        "respRate": 16,
+        "spo2": 98,
+        "etco2": 0,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 0,
+        "glucose": 98,
+        "customMeasures": [],
+        "trendTimeSeconds": 15,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a6-reassess",
+          "shortAction": "Reassess vitals and rhythm; obtain post-conversion 12-lead EKG",
+          "protocolExcerpt": "Initial rhythm and all rhythm changes ... Obtain monitor strips after each intervention",
+          "priority": "important",
+          "rationale": "Confirms successful conversion and documents rhythm change for handoff.",
+          "protocolReference": "MATC: Tachycardia with a Pulse"
+        }
+      ],
+      "transitions": []
+    },
+    {
+      "id": "delayed-vagal-adenosine",
+      "name": "Vagal/adenosine attempted despite instability",
+      "description": "Crew treats the tachycardia as though stable, attempting vagal maneuvers and adenosine despite the patient's hypotension and near-syncope. Time is lost while the patient's perfusion continues to decline.",
+      "triggerCondition": "Crew follows the stable pharmacologic pathway (vagal maneuvers, adenosine) despite the patient's hypotension and near-syncope meeting unstable criteria, delaying definitive synchronized cardioversion.",
+      "isDefault": false,
+      "clinicalPresentation": {
+        "avpu": "Verbal",
+        "gcs": { "eye": 3, "verbal": 4, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "Nonlabored but patient increasingly lethargic",
+        "circulation": "Weak, thready radial pulses; skin pale, cool, diaphoretic",
+        "skin": { "color": "pale", "temperature": "cool", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Strength intact bilaterally",
+        "otherFindings": [
+          "Adenosine given without effect",
+          "Blood pressure trending down",
+          "Patient becoming less responsive"
+        ],
+        "patientSpeech": "\"I feel really dizzy... everything's getting dark...\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Supraventricular Tachycardia",
+        "ecgWaveform": 4,
+        "hr": 192,
+        "bpSys": 68,
+        "bpDia": 44,
+        "respRate": 22,
+        "spo2": 92,
+        "etco2": 0,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 0,
+        "glucose": 98,
+        "customMeasures": [],
+        "trendTimeSeconds": 45,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a7-recover",
+          "shortAction": "Abandon the stable pathway; sedate and perform synchronized cardioversion immediately",
+          "protocolExcerpt": "Regular Narrow Complex Tachycardia – Unstable: Deliver a synchronized shock based on manufacturer's recommendations. For responsive patients, consider sedation and analgesia.",
+          "priority": "critical",
+          "rationale": "Continued deterioration confirms the unstable pathway was indicated from the outset; cardioversion should not be delayed further.",
+          "protocolReference": "MATC: Tachycardia with a Pulse"
+        }
+      ],
+      "transitions": []
+    }
+  ],
+  "realiti": {
+    "scenarioMonitorType": 2,
+    "scenarioDefaultEnergy": 200,
+    "scenarioDefaultPacerThreshold": 55
+  }
+}

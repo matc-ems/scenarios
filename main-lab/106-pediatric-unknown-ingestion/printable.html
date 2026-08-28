@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>106 - Pediatric Unknown Ingestion — Printable</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fff;--card:#fff;--card-border:#d6d3d1;--text:#1c1917;--text-secondary:#44403c;--text-muted:#78716c;--green:#166534;--red:#b91c1c;--red-light:#fef2f2;--red-border:#fecaca;--orange:#c2410c;--yellow:#a16207;--blue:#1e40af;--radius:8px;--radius-sm:6px}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'DM Sans','Helvetica Neue',Arial,sans-serif;background:#f5f5f4;color:var(--text);line-height:1.5;padding:24px;font-size:12pt}
+.sheet{max-width:800px;margin:0 auto;background:#fff;padding:28px 32px;box-shadow:0 1px 4px rgba(0,0,0,.08);border-radius:10px}
+.scenario-name{font-size:11pt;color:var(--text-secondary)}
+.card{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);margin-bottom:14px;overflow:hidden;break-inside:avoid}
+.card-title{font-size:9pt;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--text-muted);padding:10px 14px 6px;border-bottom:1px solid #f5f5f4}
+.card-content{padding:10px 14px 12px}
+.scene-row{padding:6px 0;border-bottom:1px solid #f5f5f4;display:grid;grid-template-columns:110px 1fr;gap:10px}
+.scene-row:last-child{border-bottom:none}
+.scene-label{font-family:'DM Mono',ui-monospace,monospace;font-size:8pt;font-weight:500;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted)}
+.scene-value{font-size:11pt;color:var(--text-secondary)}
+.cue-list{list-style:none;margin:0}
+.cue-list li{font-size:11pt;color:var(--text-secondary);padding:3px 0 3px 14px;position:relative}
+.cue-list li::before{content:'→';position:absolute;left:0;color:var(--text-muted);font-size:10pt}
+.sample-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:#e7e5e4}
+.sample-cell{background:#fff;padding:9px 12px}
+.sample-cell:nth-child(1),.sample-cell:nth-child(6){grid-column:1/-1}
+.sample-letter{font-family:'DM Mono',ui-monospace,monospace;font-size:11pt;font-weight:700;color:var(--green);margin-right:4px}
+.sample-name{font-size:8pt;font-weight:600;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted);margin-bottom:3px}
+.sample-text{font-size:10.5pt;color:var(--text-secondary);line-height:1.45}
+.patient-chips{display:flex;gap:8px;flex-wrap:wrap}
+.patient-chip{font-size:10pt;padding:4px 10px;background:#f5f5f4;border-radius:6px;color:var(--text-secondary)}
+.patient-chip strong{color:var(--text);font-weight:700}
+.phase-section{break-before:auto;page-break-before:auto;margin-top:12px}
+.phase-section .phase-card{break-after:avoid;page-break-after:avoid}
+.phase-card{border-left:4px solid var(--text)}
+.phase-card-branch{border-left-color:var(--red)}
+.branch-tag{display:inline-block;font-family:'DM Mono',ui-monospace,monospace;font-size:8pt;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--red);background:var(--red-light);padding:2px 8px;border-radius:4px;margin-bottom:6px}
+.phase-title{font-size:16pt;font-weight:700;margin-bottom:4px}
+.phase-trigger{font-family:'DM Mono',ui-monospace,monospace;font-size:9pt;color:var(--yellow);margin-bottom:6px}
+.phase-desc{font-size:11pt;color:var(--text-secondary);line-height:1.5}
+.ecg-label{font-family:'DM Mono',ui-monospace,monospace;font-size:10pt;color:var(--text-secondary);padding:8px 12px;background:#fafaf9;border-bottom:1px solid #f0efec}
+.vitals-grid{display:flex;flex-wrap:wrap;gap:4px 18px;padding:8px 14px}
+.vital-cell{background:transparent;padding:0;text-align:left;display:flex;align-items:baseline;gap:4px}
+.vital-cell.full-width{grid-column:auto}
+.vital-name{font-family:'DM Mono',ui-monospace,monospace;font-size:8pt;font-weight:600;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted)}
+.vital-val{font-family:'DM Mono',ui-monospace,monospace;font-size:11pt;font-weight:700;color:var(--text);line-height:1.1}
+.vital-unit{font-family:'DM Mono',ui-monospace,monospace;font-size:8pt;color:var(--text-muted)}
+.loc-block{margin-bottom:10px}
+.avpu-bar{display:flex;border:1px solid var(--card-border);border-radius:6px;overflow:hidden;margin-bottom:10px}
+.avpu-seg{flex:1;text-align:center;padding:6px 4px;font-family:'DM Mono',ui-monospace,monospace;font-size:10pt;font-weight:700;color:var(--text-muted);background:#fafaf9}
+.avpu-seg.sel-a{background:#ecfccb;color:var(--green)}
+.avpu-seg.sel-v{background:#fef3c7;color:var(--yellow)}
+.avpu-seg.sel-p{background:#ffedd5;color:var(--orange)}
+.avpu-seg.sel-u{background:var(--red-light);color:var(--red)}
+.gcs-detail{display:flex;flex-wrap:wrap;gap:6px 16px;padding:8px 14px;border:1px solid var(--card-border);border-radius:6px;margin-bottom:10px;align-items:baseline}
+.gcs-item{display:flex;align-items:baseline;gap:4px;padding:0;border:none}
+.gcs-item:last-of-type{border-bottom:none}
+.gcs-part{order:1;font-family:'DM Mono',ui-monospace,monospace;font-size:8pt;font-weight:600;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted)}
+.gcs-score{order:2;font-family:'DM Mono',ui-monospace,monospace;font-size:11pt;font-weight:700;color:var(--text)}
+.gcs-desc{order:3;font-size:9.5pt;color:var(--text-muted);font-style:italic}
+.gcs-desc::before{content:'('}
+.gcs-desc::after{content:')'}
+.gcs-total-row{display:flex;align-items:baseline;gap:4px;order:-1;padding:0;margin:0;border:none;font-family:'DM Mono',ui-monospace,monospace;font-size:8pt;font-weight:600;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted)}
+.gcs-total-row .gcs-total{font-family:'DM Mono',ui-monospace,monospace;font-size:12pt;font-weight:700;color:var(--text)}
+.finding-row{padding:6px 0;border-bottom:1px solid #f5f5f4;display:grid;grid-template-columns:100px 1fr;gap:10px}
+.finding-row:last-child{border-bottom:none}
+.finding-label{font-family:'DM Mono',ui-monospace,monospace;font-size:8pt;font-weight:500;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted)}
+.finding-value{font-size:10.5pt;color:var(--text-secondary)}
+.finding-speech{font-style:italic;color:var(--text-muted)}
+.findings-notes{list-style:none;margin:0}
+.findings-notes li{font-size:10pt;color:var(--text-secondary);padding:2px 0 2px 12px;position:relative}
+.findings-notes li::before{content:'·';position:absolute;left:2px;font-weight:700;color:var(--text-muted)}
+.action-row{display:flex;gap:10px;padding:10px 0;border-bottom:1px solid #f5f5f4;break-inside:avoid}
+.action-row:last-child{border-bottom:none}
+.action-box{width:14px;height:14px;border:1.5px solid var(--text-muted);border-radius:3px;flex-shrink:0;margin-top:3px}
+.action-body{flex:1;min-width:0}
+.action-head{display:flex;align-items:flex-start;gap:8px;margin-bottom:4px}
+.action-priority{display:inline-block;font-family:'DM Mono',ui-monospace,monospace;font-size:7.5pt;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:2px 6px;border-radius:3px;flex-shrink:0;margin-top:2px}
+.p-critical{background:var(--red-light);color:var(--red)}
+.p-important{background:#fff7ed;color:var(--orange)}
+.p-supp{background:#f5f5f4;color:var(--text-muted)}
+.action-text{font-size:11pt;font-weight:600;color:var(--text);line-height:1.35}
+.action-rationale{display:none}
+.action-excerpt{font-size:9.5pt;color:var(--text-secondary);line-height:1.5;font-style:italic;border-left:2px solid var(--card-border);padding:2px 0 2px 9px;margin:5px 0 4px 0}
+.action-ref{font-family:'DM Mono',ui-monospace,monospace;font-size:8pt;color:var(--text-muted);font-weight:600;text-transform:uppercase;letter-spacing:.5px;margin-top:2px}
+.action-head{margin-bottom:0}
+.action-row{padding:8px 0}
+@media print{
+  body{background:#fff;padding:0;font-size:10pt}
+  .sheet{box-shadow:none;max-width:none;padding:0.4in;border-radius:0}
+  .card{break-inside:avoid;margin-bottom:8px}
+  .card-title{padding:6px 10px 3px}
+  .card-content{padding:6px 10px 8px}
+}
+</style>
+</head>
+<body>
+<div class="sheet">
+  <div class="card"><div class="card-title">Scenario</div><div class="card-content"><div class="scenario-name">106 - Pediatric Unknown Ingestion</div></div></div>
+  <div class="card"><div class="card-title">Patient</div><div class="card-content"><div class="patient-chips"><span class="patient-chip"><strong>Liam Castillo</strong></span><span class="patient-chip">3 years male</span><span class="patient-chip">31 lbs (14 kg)</span><span class="patient-chip">3'1"</span><span class="patient-chip">CC: Unknown ingestion, found with grandmother's pill bottle</span></div></div></div>
+  <div class="card"><div class="card-title">Scene</div><div class="card-content">
+    <div class="scene-row"><div class="scene-label">Dispatch</div><div class="scene-value">3-year-old male, possible ingestion, conscious and breathing, residence</div></div>
+    <div class="scene-row"><div class="scene-label">Location</div><div class="scene-value">Grandmother's home, upstairs bathroom, child found sitting on floor near an open medication bottle</div></div>
+    <div class="scene-row"><div class="scene-label">Time</div><div class="scene-value">2:15 PM, weekday afternoon</div></div>
+    <div class="scene-row"><div class="scene-label">Safety</div><div class="scene-value">No hazards to crew; scene calm, grandmother distraught</div></div>
+    <div class="scene-row"><div class="scene-label">Bystanders</div><div class="scene-value">Grandmother present, called 911 immediately, brought the pill bottle to hand to EMS</div></div>
+  </div></div><div class="card"><div class="card-title">Visual Cues on Arrival</div><div class="card-content"><ul class="cue-list"><li>Open bottle labeled diltiazem ER 240mg, prescribed to grandmother</li><li>Several loose pills scattered on the bathroom floor near the child</li><li>Child appears alert and playful at this time</li><li>No vomiting or oral burns visible</li></ul></div></div>
+  <div class="card">
+    <div class="card-title">SAMPLE History</div>
+    <div class="card-content" style="padding:0">
+      <div class="sample-grid">
+        <div class="sample-cell"><div class="sample-name"><span class="sample-letter">S</span> Signs &amp; Symptoms</div><div class="sample-text">Grandmother was babysitting and stepped out of the room for approximately 10-15 minutes. She returned to find her grandson sitting on the bathroom floor with her diltiazem bottle open and several loose pills scattered on the floor; she cannot say how many, if any, he actually swallowed. She called 911 immediately. Time since possible ingestion is uncertain, estimated 15-45 minutes.</div></div>
+        <div class="sample-cell"><div class="sample-name"><span class="sample-letter">A</span> Allergies</div><div class="sample-text">NKDA</div></div>
+        
+        
+        <div class="sample-cell"><div class="sample-name"><span class="sample-letter">L</span> Last Intake</div><div class="sample-text">Snack and juice approximately 1 hour prior to the incident</div></div>
+        <div class="sample-cell"><div class="sample-name"><span class="sample-letter">E</span> Events</div><div class="sample-text">Grandmother found child with her open diltiazem ER 240mg bottle; unknown quantity missing; called 911 immediately</div></div>
+      </div>
+    </div>
+  </div>
+  <section class="phase-section">
+    <div class="card phase-card">
+      <div class="card-content">
+        
+        <div class="phase-title">Initial Contact</div>
+        
+        <div class="phase-desc">Crew arrives to find a 3-year-old male who appears alert and playful, sitting near his grandmother's open diltiazem bottle with several pills unaccounted for. Vital signs are currently near normal for age, but the exact quantity and timing of ingestion are unknown.</div>
+      </div>
+    </div>
+    <div class="card">
+    <div class="card-title">Vital Signs</div>
+    <div class="card-content" style="padding:0">
+      <div class="ecg-label">⏦ Sinus Rhythm</div>
+      <div class="vitals-grid">
+        <div class="vital-cell"><div class="vital-name">HR</div><div class="vital-val">108</div><div class="vital-unit">bpm</div></div>
+        <div class="vital-cell"><div class="vital-name">BP</div><div class="vital-val">98/62</div><div class="vital-unit">mmHg</div></div>
+        <div class="vital-cell"><div class="vital-name">SpO₂</div><div class="vital-val">99%</div></div>
+        <div class="vital-cell"><div class="vital-name">RR</div><div class="vital-val">24</div><div class="vital-unit">/min</div></div>
+        <div class="vital-cell"><div class="vital-name">EtCO₂</div><div class="vital-val">0</div><div class="vital-unit">mmHg</div></div>
+        <div class="vital-cell"><div class="vital-name">Temp</div><div class="vital-val">98.6°</div><div class="vital-unit">F</div></div>
+        <div class="vital-cell full-width"><div class="vital-name">Glucose</div><div class="vital-val">96</div><div class="vital-unit">mg/dL</div></div>
+      </div>
+    </div>
+  </div>
+    <div class="card">
+    <div class="card-title">Clinical Findings</div>
+    <div class="card-content">
+      
+    <div class="loc-block">
+      <div class="avpu-bar"><div class="avpu-seg sel-a">A</div><div class="avpu-seg">V</div><div class="avpu-seg">P</div><div class="avpu-seg">U</div></div>
+      <div class="gcs-detail">
+    <div class="gcs-item"><span class="gcs-part">Eyes</span><span class="gcs-desc">Spontaneous</span><span class="gcs-score">4</span></div>
+    <div class="gcs-item"><span class="gcs-part">Verbal</span><span class="gcs-desc">Oriented</span><span class="gcs-score">5</span></div>
+    <div class="gcs-item"><span class="gcs-part">Motor</span><span class="gcs-desc">Obeys commands</span><span class="gcs-score">6</span></div>
+    <div class="gcs-total-row">Total GCS <span class="gcs-total">15</span></div>
+  </div>
+    </div>
+      <div class="finding-row"><div class="finding-label">Airway</div><div class="finding-value">Patent, crying and talking</div></div><div class="finding-row"><div class="finding-label">Breathing</div><div class="finding-value">Nonlabored, symmetric chest rise, 24/min</div></div><div class="finding-row"><div class="finding-label">Circulation</div><div class="finding-value">Radial and pedal pulses present, skin warm and pink</div></div><div class="finding-row"><div class="finding-label">Skin</div><div class="finding-value">pink · warm · dry</div></div><div class="finding-row"><div class="finding-label">Pupils</div><div class="finding-value">PERRL</div></div><div class="finding-row"><div class="finding-label">Motor</div><div class="finding-value">Moving all extremities spontaneously, age-appropriate activity</div></div><div class="finding-row"><div class="finding-label">Speech</div><div class="finding-value"><span class="finding-speech">"&quot;I wanna go outside and play!&quot;"</span></div></div><div class="finding-row"><div class="finding-label">Other</div><div class="finding-value"><ul class="findings-notes"><li>No oral burns or excessive salivation noted</li><li>No vomiting at this time</li><li>Grandmother unable to confirm how many pills, if any, were swallowed</li><li>Diltiazem ER 240mg bottle brought to EMS, partially full</li></ul></div></div>
+    </div>
+  </div>
+    
+  </section><section class="phase-section">
+    <div class="card phase-card">
+      <div class="card-content">
+        
+        <div class="phase-title">History obtained, charcoal and IV access initiated</div>
+        <div class="phase-trigger">Trigger: After obtaining an accurate exposure history and confirming the child is alert with an intact airway and within the first hour of possible ingestion, the crew proceeds with activated charcoal, IV access, and continuous monitoring per the universal poisoning and CCB overdose guidelines.</div>
+        <div class="phase-desc">Crew confirms the ingestion history and timing, identifies the medication as a calcium channel blocker (diltiazem), and since the child remains alert and within the first hour of possible ingestion, administers weight-based activated charcoal and establishes IV access while placing continuous cardiac and pulse oximetry monitoring.</div>
+      </div>
+    </div>
+    <div class="card">
+    <div class="card-title">Vital Signs</div>
+    <div class="card-content" style="padding:0">
+      <div class="ecg-label">⏦ Sinus Rhythm</div>
+      <div class="vitals-grid">
+        <div class="vital-cell"><div class="vital-name">HR</div><div class="vital-val">104</div><div class="vital-unit">bpm</div></div>
+        <div class="vital-cell"><div class="vital-name">BP</div><div class="vital-val">96/60</div><div class="vital-unit">mmHg</div></div>
+        <div class="vital-cell"><div class="vital-name">SpO₂</div><div class="vital-val">99%</div></div>
+        <div class="vital-cell"><div class="vital-name">RR</div><div class="vital-val">22</div><div class="vital-unit">/min</div></div>
+        <div class="vital-cell"><div class="vital-name">EtCO₂</div><div class="vital-val">0</div><div class="vital-unit">mmHg</div></div>
+        <div class="vital-cell"><div class="vital-name">Temp</div><div class="vital-val">98.6°</div><div class="vital-unit">F</div></div>
+        <div class="vital-cell full-width"><div class="vital-name">Glucose</div><div class="vital-val">94</div><div class="vital-unit">mg/dL</div></div>
+      </div>
+    </div>
+  </div>
+    <div class="card">
+    <div class="card-title">Clinical Findings</div>
+    <div class="card-content">
+      
+    <div class="loc-block">
+      <div class="avpu-bar"><div class="avpu-seg sel-a">A</div><div class="avpu-seg">V</div><div class="avpu-seg">P</div><div class="avpu-seg">U</div></div>
+      <div class="gcs-detail">
+    <div class="gcs-item"><span class="gcs-part">Eyes</span><span class="gcs-desc">Spontaneous</span><span class="gcs-score">4</span></div>
+    <div class="gcs-item"><span class="gcs-part">Verbal</span><span class="gcs-desc">Oriented</span><span class="gcs-score">5</span></div>
+    <div class="gcs-item"><span class="gcs-part">Motor</span><span class="gcs-desc">Obeys commands</span><span class="gcs-score">6</span></div>
+    <div class="gcs-total-row">Total GCS <span class="gcs-total">15</span></div>
+  </div>
+    </div>
+      <div class="finding-row"><div class="finding-label">Airway</div><div class="finding-value">Patent</div></div><div class="finding-row"><div class="finding-label">Breathing</div><div class="finding-value">Nonlabored, 22/min</div></div><div class="finding-row"><div class="finding-label">Circulation</div><div class="finding-value">Radial pulses present, skin warm and pink</div></div><div class="finding-row"><div class="finding-label">Skin</div><div class="finding-value">pink · warm · dry</div></div><div class="finding-row"><div class="finding-label">Pupils</div><div class="finding-value">PERRL</div></div><div class="finding-row"><div class="finding-label">Motor</div><div class="finding-value">Moving all extremities spontaneously</div></div><div class="finding-row"><div class="finding-label">Speech</div><div class="finding-value"><span class="finding-speech">"&quot;That drink tastes yucky.&quot;"</span></div></div><div class="finding-row"><div class="finding-label">Other</div><div class="finding-value"><ul class="findings-notes"><li>Activated charcoal 14 g PO given and tolerated</li><li>IV access obtained, continuous cardiac monitoring attached</li><li>Pill bottle and remaining tablets counted and brought to hospital</li></ul></div></div>
+    </div>
+  </div>
+    <div class="card">
+    <div class="card-title">Expected Actions</div>
+    <div class="card-content" style="padding:0 16px 12px"><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-critical">critical</span><div class="action-text">Obtain ingestion history: agent, quantity, timing; bring bottle/pills to ED</div></div>
+        <div class="action-excerpt">When indicated, identify specific medication taken (including immediate release vs sustained release), time of ingestion, dose, and quantity. When appropriate, bring all medications (prescribed and not prescribed) found in the environment</div>
+        <div class="action-ref">↳ MATC: Poisoning/Overdose Universal Care</div>
+      </div>
+    </div><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-important">important</span><div class="action-text">Activated charcoal 14 g PO (14 kg x 1 g/kg), given within first hour, airway protected</div></div>
+        <div class="action-excerpt">Consider activated charcoal without sorbitol (1 g/kg) PO only if within the first hour of ingestion, if indicated per the time of ingestion. If risk of rapid decreasing mental status, do not administer oral agent without adequately protecting the airway</div>
+        <div class="action-ref">↳ MATC: Calcium Channel Blocker Poisoning/Overdose</div>
+      </div>
+    </div><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-critical">critical</span><div class="action-text">Attach continuous cardiac monitor and pulse oximetry; establish IV access</div></div>
+        <div class="action-excerpt">Apply a cardiac monitor, examine rhythm strip for arrhythmias, and consider obtaining a 12-lead EKG. ... Monitor pulse oximetry and EtCO2 for respiratory decompensation</div>
+        <div class="action-ref">↳ MATC: Calcium Channel Blocker Poisoning/Overdose</div>
+      </div>
+    </div></div>
+  </div>
+  </section><section class="phase-section">
+    <div class="card phase-card">
+      <div class="card-content">
+        
+        <div class="phase-title">Bradycardia and hypotension develop, calcium given</div>
+        <div class="phase-trigger">Trigger: Approximately 20 minutes after the initial contact, the child's heart rate and blood pressure begin to fall, consistent with delayed absorption from an extended-release calcium channel blocker; the crew recognizes symptomatic bradycardia and proceeds with calcium gluconate per protocol.</div>
+        <div class="phase-desc">As predicted for a sustained-release calcium channel blocker ingestion, the child develops delayed-onset symptomatic bradycardia and hypotension. The crew recognizes this, considers atropine per protocol sequence, and administers weight-based calcium gluconate.</div>
+      </div>
+    </div>
+    <div class="card">
+    <div class="card-title">Vital Signs</div>
+    <div class="card-content" style="padding:0">
+      <div class="ecg-label">⏦ Sinus Bradycardia</div>
+      <div class="vitals-grid">
+        <div class="vital-cell"><div class="vital-name">HR</div><div class="vital-val">58</div><div class="vital-unit">bpm</div></div>
+        <div class="vital-cell"><div class="vital-name">BP</div><div class="vital-val">78/48</div><div class="vital-unit">mmHg</div></div>
+        <div class="vital-cell"><div class="vital-name">SpO₂</div><div class="vital-val">97%</div></div>
+        <div class="vital-cell"><div class="vital-name">RR</div><div class="vital-val">20</div><div class="vital-unit">/min</div></div>
+        <div class="vital-cell"><div class="vital-name">EtCO₂</div><div class="vital-val">0</div><div class="vital-unit">mmHg</div></div>
+        <div class="vital-cell"><div class="vital-name">Temp</div><div class="vital-val">98.6°</div><div class="vital-unit">F</div></div>
+        <div class="vital-cell full-width"><div class="vital-name">Glucose</div><div class="vital-val">110</div><div class="vital-unit">mg/dL</div></div>
+      </div>
+    </div>
+  </div>
+    <div class="card">
+    <div class="card-title">Clinical Findings</div>
+    <div class="card-content">
+      
+    <div class="loc-block">
+      <div class="avpu-bar"><div class="avpu-seg sel-a">A</div><div class="avpu-seg">V</div><div class="avpu-seg">P</div><div class="avpu-seg">U</div></div>
+      <div class="gcs-detail">
+    <div class="gcs-item"><span class="gcs-part">Eyes</span><span class="gcs-desc">Spontaneous</span><span class="gcs-score">4</span></div>
+    <div class="gcs-item"><span class="gcs-part">Verbal</span><span class="gcs-desc">Oriented</span><span class="gcs-score">5</span></div>
+    <div class="gcs-item"><span class="gcs-part">Motor</span><span class="gcs-desc">Obeys commands</span><span class="gcs-score">6</span></div>
+    <div class="gcs-total-row">Total GCS <span class="gcs-total">15</span></div>
+  </div>
+    </div>
+      <div class="finding-row"><div class="finding-label">Airway</div><div class="finding-value">Patent</div></div><div class="finding-row"><div class="finding-label">Breathing</div><div class="finding-value">Nonlabored, 20/min</div></div><div class="finding-row"><div class="finding-label">Circulation</div><div class="finding-value">Radial pulses weak, skin pale and cool</div></div><div class="finding-row"><div class="finding-label">Skin</div><div class="finding-value">pale · cool · dry</div></div><div class="finding-row"><div class="finding-label">Pupils</div><div class="finding-value">PERRL</div></div><div class="finding-row"><div class="finding-label">Motor</div><div class="finding-value">Moving all extremities, less active than before</div></div><div class="finding-row"><div class="finding-label">Speech</div><div class="finding-value"><span class="finding-speech">"&quot;I feel sleepy...&quot;"</span></div></div><div class="finding-row"><div class="finding-label">Other</div><div class="finding-value"><ul class="findings-notes"><li>Child now quieter and less interactive than on initial contact</li><li>Calcium gluconate 840 mg IV given over 10 minutes (14 kg x 60 mg/kg)</li><li>Atropine trialed first per protocol sequence with minimal effect</li></ul></div></div>
+    </div>
+  </div>
+    <div class="card">
+    <div class="card-title">Expected Actions</div>
+    <div class="card-content" style="padding:0 16px 12px"><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-important">important</span><div class="action-text">Atropine 0.28 mg IV (14 kg x 0.02 mg/kg; max 0.5 mg), q5min to total 1 mg</div></div>
+        <div class="action-excerpt">Consider atropine sulfate for symptomatic bradycardia. Pediatric: atropine 0.02 mg/kg (0.5 mg maximum) q 5 minutes, maximum total dose 1 mg</div>
+        <div class="action-ref">↳ MATC: Calcium Channel Blocker Poisoning/Overdose</div>
+      </div>
+    </div><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-critical">critical</span><div class="action-text">Calcium gluconate 840 mg IV over 10 min (14 kg x 60 mg/kg)</div></div>
+        <div class="action-excerpt">Calcium gluconate. Pediatric: Calcium gluconate 60 mg/kg IVP over 10 minutes</div>
+        <div class="action-ref">↳ MATC: Calcium Channel Blocker Poisoning/Overdose</div>
+      </div>
+    </div><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-important">important</span><div class="action-text">IV fluid bolus 280 mL NS (14 kg x 20 mL/kg) for hypoperfusion</div></div>
+        <div class="action-excerpt">Consider IV fluid bolus (normal saline or lactated Ringer's) 20 mL/kg up to 2 liters</div>
+        <div class="action-ref">↳ MATC: Calcium Channel Blocker Poisoning/Overdose</div>
+      </div>
+    </div></div>
+  </div>
+  </section><section class="phase-section">
+    <div class="card phase-card">
+      <div class="card-content">
+        
+        <div class="phase-title">Heart rate and perfusion improve, transport</div>
+        <div class="phase-trigger">Trigger: After calcium gluconate and a fluid bolus, heart rate and perfusion trend toward normal; the crew initiates transport while continuing to monitor closely for rebound toxicity.</div>
+        <div class="phase-desc">The child's heart rate and blood pressure improve following calcium gluconate and a fluid bolus. He is packaged and transported to a pediatric-capable facility with continuous monitoring, as delayed re-deterioration remains possible with extended-release agents.</div>
+      </div>
+    </div>
+    <div class="card">
+    <div class="card-title">Vital Signs</div>
+    <div class="card-content" style="padding:0">
+      <div class="ecg-label">⏦ Sinus Rhythm</div>
+      <div class="vitals-grid">
+        <div class="vital-cell"><div class="vital-name">HR</div><div class="vital-val">92</div><div class="vital-unit">bpm</div></div>
+        <div class="vital-cell"><div class="vital-name">BP</div><div class="vital-val">92/58</div><div class="vital-unit">mmHg</div></div>
+        <div class="vital-cell"><div class="vital-name">SpO₂</div><div class="vital-val">99%</div></div>
+        <div class="vital-cell"><div class="vital-name">RR</div><div class="vital-val">22</div><div class="vital-unit">/min</div></div>
+        <div class="vital-cell"><div class="vital-name">EtCO₂</div><div class="vital-val">0</div><div class="vital-unit">mmHg</div></div>
+        <div class="vital-cell"><div class="vital-name">Temp</div><div class="vital-val">98.6°</div><div class="vital-unit">F</div></div>
+        <div class="vital-cell full-width"><div class="vital-name">Glucose</div><div class="vital-val">104</div><div class="vital-unit">mg/dL</div></div>
+      </div>
+    </div>
+  </div>
+    <div class="card">
+    <div class="card-title">Clinical Findings</div>
+    <div class="card-content">
+      
+    <div class="loc-block">
+      <div class="avpu-bar"><div class="avpu-seg sel-a">A</div><div class="avpu-seg">V</div><div class="avpu-seg">P</div><div class="avpu-seg">U</div></div>
+      <div class="gcs-detail">
+    <div class="gcs-item"><span class="gcs-part">Eyes</span><span class="gcs-desc">Spontaneous</span><span class="gcs-score">4</span></div>
+    <div class="gcs-item"><span class="gcs-part">Verbal</span><span class="gcs-desc">Oriented</span><span class="gcs-score">5</span></div>
+    <div class="gcs-item"><span class="gcs-part">Motor</span><span class="gcs-desc">Obeys commands</span><span class="gcs-score">6</span></div>
+    <div class="gcs-total-row">Total GCS <span class="gcs-total">15</span></div>
+  </div>
+    </div>
+      <div class="finding-row"><div class="finding-label">Airway</div><div class="finding-value">Patent</div></div><div class="finding-row"><div class="finding-label">Breathing</div><div class="finding-value">Nonlabored, 22/min</div></div><div class="finding-row"><div class="finding-label">Circulation</div><div class="finding-value">Radial pulses stronger, skin warming</div></div><div class="finding-row"><div class="finding-label">Skin</div><div class="finding-value">pink · warm · dry</div></div><div class="finding-row"><div class="finding-label">Pupils</div><div class="finding-value">PERRL</div></div><div class="finding-row"><div class="finding-label">Motor</div><div class="finding-value">Moving all extremities, more interactive</div></div><div class="finding-row"><div class="finding-label">Speech</div><div class="finding-value"><span class="finding-speech">"&quot;Can I have my toy back?&quot;"</span></div></div><div class="finding-row"><div class="finding-label">Other</div><div class="finding-value"><ul class="findings-notes"><li>Child more alert and interactive again</li><li>Continuous ECG and vital sign monitoring maintained en route</li><li>Grandmother accompanying in the ambulance with medication bottle for the ED</li></ul></div></div>
+    </div>
+  </div>
+    <div class="card">
+    <div class="card-title">Expected Actions</div>
+    <div class="card-content" style="padding:0 16px 12px"><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-critical">critical</span><div class="action-text">Repeat vital signs and ECG frequently en route for delayed re-deterioration</div></div>
+        <div class="action-excerpt">Repeat evaluation and documentation of signs and symptoms as patient clinical conditions may deteriorate rapidly. ... Serial frequent assessments are essential as these patients often have rapid deterioration with profound hypotension</div>
+        <div class="action-ref">↳ MATC: Calcium Channel Blocker Poisoning/Overdose</div>
+      </div>
+    </div><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-important">important</span><div class="action-text">Contact poison control / medical control for ongoing guidance</div></div>
+        <div class="action-excerpt">The regional poison center should be engaged as early as reasonably possible to aid in appropriate therapy and to track patient outcomes to improve knowledge of toxic effects</div>
+        <div class="action-ref">↳ MATC: Poisoning/Overdose Universal Care</div>
+      </div>
+    </div></div>
+  </div>
+  </section><section class="phase-section">
+    <div class="card phase-card phase-card-branch">
+      <div class="card-content">
+        <div class="branch-tag">Improper Care Branch</div>
+        <div class="phase-title">Charcoal given despite declining mental status</div>
+        <div class="phase-trigger">Trigger: Crew gives activated charcoal despite the child's declining alertness and without airway protection, against the protocol's explicit caution, resulting in vomiting and aspiration.</div>
+        <div class="phase-desc">The crew administers activated charcoal after the child's mental status has already begun to decline, without first protecting the airway. The child vomits and aspirates a portion of the charcoal, causing acute desaturation and coughing.</div>
+      </div>
+    </div>
+    <div class="card">
+    <div class="card-title">Vital Signs</div>
+    <div class="card-content" style="padding:0">
+      <div class="ecg-label">⏦ Sinus Tachycardia</div>
+      <div class="vitals-grid">
+        <div class="vital-cell"><div class="vital-name">HR</div><div class="vital-val">132</div><div class="vital-unit">bpm</div></div>
+        <div class="vital-cell"><div class="vital-name">BP</div><div class="vital-val">94/60</div><div class="vital-unit">mmHg</div></div>
+        <div class="vital-cell"><div class="vital-name">SpO₂</div><div class="vital-val">89%</div></div>
+        <div class="vital-cell"><div class="vital-name">RR</div><div class="vital-val">30</div><div class="vital-unit">/min</div></div>
+        <div class="vital-cell"><div class="vital-name">EtCO₂</div><div class="vital-val">0</div><div class="vital-unit">mmHg</div></div>
+        <div class="vital-cell"><div class="vital-name">Temp</div><div class="vital-val">98.6°</div><div class="vital-unit">F</div></div>
+        <div class="vital-cell full-width"><div class="vital-name">Glucose</div><div class="vital-val">98</div><div class="vital-unit">mg/dL</div></div>
+      </div>
+    </div>
+  </div>
+    <div class="card">
+    <div class="card-title">Clinical Findings</div>
+    <div class="card-content">
+      
+    <div class="loc-block">
+      <div class="avpu-bar"><div class="avpu-seg">A</div><div class="avpu-seg sel-v">V</div><div class="avpu-seg">P</div><div class="avpu-seg">U</div></div>
+      <div class="gcs-detail">
+    <div class="gcs-item"><span class="gcs-part">Eyes</span><span class="gcs-desc">To speech</span><span class="gcs-score">3</span></div>
+    <div class="gcs-item"><span class="gcs-part">Verbal</span><span class="gcs-desc">Confused</span><span class="gcs-score">4</span></div>
+    <div class="gcs-item"><span class="gcs-part">Motor</span><span class="gcs-desc">Obeys commands</span><span class="gcs-score">6</span></div>
+    <div class="gcs-total-row">Total GCS <span class="gcs-total">13</span></div>
+  </div>
+    </div>
+      <div class="finding-row"><div class="finding-label">Airway</div><div class="finding-value">Coughing, charcoal-stained emesis in oropharynx</div></div><div class="finding-row"><div class="finding-label">Breathing</div><div class="finding-value">Labored, coarse breath sounds, 30/min</div></div><div class="finding-row"><div class="finding-label">Circulation</div><div class="finding-value">Radial pulses present, skin pale</div></div><div class="finding-row"><div class="finding-label">Skin</div><div class="finding-value">pale · cool · diaphoretic</div></div><div class="finding-row"><div class="finding-label">Pupils</div><div class="finding-value">PERRL</div></div><div class="finding-row"><div class="finding-label">Motor</div><div class="finding-value">Less responsive, coughing intermittently</div></div><div class="finding-row"><div class="finding-label">Speech</div><div class="finding-value"><span class="finding-speech">"&quot;*coughing*&quot;"</span></div></div><div class="finding-row"><div class="finding-label">Other</div><div class="finding-value"><ul class="findings-notes"><li>Charcoal-stained vomitus visible in the airway</li><li>New coarse breath sounds bilaterally</li><li>SpO2 trending down</li></ul></div></div>
+    </div>
+  </div>
+    <div class="card">
+    <div class="card-title">Expected Actions</div>
+    <div class="card-content" style="padding:0 16px 12px"><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-critical">critical</span><div class="action-text">Suction airway, position for airway protection, support oxygenation</div></div>
+        <div class="action-excerpt">If risk of rapid decreasing mental status, do not administer oral agent without adequately protecting the airway</div>
+        <div class="action-ref">↳ MATC: Calcium Channel Blocker Poisoning/Overdose</div>
+      </div>
+    </div></div>
+  </div>
+  </section><section class="phase-section">
+    <div class="card phase-card phase-card-branch">
+      <div class="card-content">
+        <div class="branch-tag">Improper Care Branch</div>
+        <div class="phase-title">Calcium withheld despite worsening bradycardia</div>
+        <div class="phase-trigger">Trigger: Crew withholds calcium gluconate despite persistent symptomatic bradycardia and hypotension; perfusion continues to deteriorate.</div>
+        <div class="phase-desc">Without calcium gluconate, the child's bradycardia and hypotension worsen progressively, moving toward refractory shock that will require glucagon and transcutaneous pacing as rescue measures.</div>
+      </div>
+    </div>
+    <div class="card">
+    <div class="card-title">Vital Signs</div>
+    <div class="card-content" style="padding:0">
+      <div class="ecg-label">⏦ Sinus Bradycardia</div>
+      <div class="vitals-grid">
+        <div class="vital-cell"><div class="vital-name">HR</div><div class="vital-val">44</div><div class="vital-unit">bpm</div></div>
+        <div class="vital-cell"><div class="vital-name">BP</div><div class="vital-val">62/38</div><div class="vital-unit">mmHg</div></div>
+        <div class="vital-cell"><div class="vital-name">SpO₂</div><div class="vital-val">94%</div></div>
+        <div class="vital-cell"><div class="vital-name">RR</div><div class="vital-val">18</div><div class="vital-unit">/min</div></div>
+        <div class="vital-cell"><div class="vital-name">EtCO₂</div><div class="vital-val">0</div><div class="vital-unit">mmHg</div></div>
+        <div class="vital-cell"><div class="vital-name">Temp</div><div class="vital-val">98.1°</div><div class="vital-unit">F</div></div>
+        <div class="vital-cell full-width"><div class="vital-name">Glucose</div><div class="vital-val">118</div><div class="vital-unit">mg/dL</div></div>
+      </div>
+    </div>
+  </div>
+    <div class="card">
+    <div class="card-title">Clinical Findings</div>
+    <div class="card-content">
+      
+    <div class="loc-block">
+      <div class="avpu-bar"><div class="avpu-seg">A</div><div class="avpu-seg sel-v">V</div><div class="avpu-seg">P</div><div class="avpu-seg">U</div></div>
+      <div class="gcs-detail">
+    <div class="gcs-item"><span class="gcs-part">Eyes</span><span class="gcs-desc">To speech</span><span class="gcs-score">3</span></div>
+    <div class="gcs-item"><span class="gcs-part">Verbal</span><span class="gcs-desc">Confused</span><span class="gcs-score">4</span></div>
+    <div class="gcs-item"><span class="gcs-part">Motor</span><span class="gcs-desc">Obeys commands</span><span class="gcs-score">6</span></div>
+    <div class="gcs-total-row">Total GCS <span class="gcs-total">13</span></div>
+  </div>
+    </div>
+      <div class="finding-row"><div class="finding-label">Airway</div><div class="finding-value">Patent</div></div><div class="finding-row"><div class="finding-label">Breathing</div><div class="finding-value">Nonlabored but shallow, 18/min</div></div><div class="finding-row"><div class="finding-label">Circulation</div><div class="finding-value">Radial pulses weak and thready, skin mottled</div></div><div class="finding-row"><div class="finding-label">Skin</div><div class="finding-value">mottled · cool · clammy</div></div><div class="finding-row"><div class="finding-label">Pupils</div><div class="finding-value">PERRL</div></div><div class="finding-row"><div class="finding-label">Motor</div><div class="finding-value">Lethargic, minimal spontaneous movement</div></div><div class="finding-row"><div class="finding-label">Speech</div><div class="finding-value"><span class="finding-speech">"(minimal verbal response)"</span></div></div><div class="finding-row"><div class="finding-label">Other</div><div class="finding-value"><ul class="findings-notes"><li>Perfusion continuing to worsen without calcium administration</li><li>Grandmother increasingly distressed</li></ul></div></div>
+    </div>
+  </div>
+    <div class="card">
+    <div class="card-title">Expected Actions</div>
+    <div class="card-content" style="padding:0 16px 12px"><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-critical">critical</span><div class="action-text">Glucagon 0.5 mg IV (patient &lt;25 kg), calcium gluconate, consider pacing</div></div>
+        <div class="action-excerpt">If atropine, calcium, and vasopressors have failed in the symptomatic bradycardia patient, consider: Pediatric: Glucagon 0.5 mg IVP (less than 25 kg); q 5 minutes as necessary. Consider transcutaneous pacing if refractory to initial pharmacologic interventions</div>
+        <div class="action-ref">↳ MATC: Calcium Channel Blocker Poisoning/Overdose</div>
+      </div>
+    </div></div>
+  </div>
+  </section>
+</div>
+</body>
+</html>

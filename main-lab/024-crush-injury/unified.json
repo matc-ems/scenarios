@@ -1,0 +1,308 @@
+{
+  "meta": {
+    "id": "024-crush-injury",
+    "name": "024 - Crush Injury",
+    "version": 1,
+    "difficulty": "advanced",
+    "category": "Trauma",
+    "protocols": ["trauma-crush-injury", "medical-pain-management"],
+    "totalTimeSeconds": 1200,
+    "tags": ["ALS", "crush injury", "crush syndrome", "pain management", "med math", "914"]
+  },
+  "patient": {
+    "name": "Darnell Ostrowski",
+    "age": 38,
+    "ageUnit": "years",
+    "sex": "male",
+    "weight": 80,
+    "weightLbs": 176,
+    "height": 178,
+    "chiefComplaint": "Leg pinned under industrial equipment, severe pain",
+    "history": {
+      "hpi": "Patient was working on a loading dock when a pallet jack loaded with heavy equipment rolled and pinned his left lower leg against a steel post. Coworkers were unable to free him; fire department is using airbags and cribbing for extrication. He has been pinned for approximately 20 minutes and reports 10/10 pain in the leg, denies loss of consciousness, denies other injuries.",
+      "pastMedical": ["None"],
+      "medications": ["None"],
+      "allergies": ["NKDA"],
+      "lastOralIntake": "Coffee approximately 3 hours prior",
+      "events": "Coworkers called 911 immediately after the equipment pinned his leg; fire crew on scene beginning extrication"
+    }
+  },
+  "scene": {
+    "dispatch": "38-year-old male, industrial accident, leg entrapped under equipment, conscious and breathing, warehouse loading dock",
+    "location": "Warehouse loading dock, patient supine on concrete with left lower leg pinned beneath a loaded pallet jack against a steel support post",
+    "time": "1:15 PM, weekday",
+    "safety": "Fire department on scene with airbags and cribbing to stabilize the load before extrication; crew must stay clear of the load path until cleared by fire",
+    "bystanders": "Two coworkers present, witnessed the equipment roll onto his leg, called 911 immediately",
+    "visualCues": [
+      "Left lower leg visibly pinned beneath the pallet jack frame",
+      "Patient diaphoretic and grimacing, guarding the leg",
+      "Fire crew positioning airbags for controlled lift",
+      "No visible external hemorrhage from the trapped limb"
+    ]
+  },
+  "phases": [
+    {
+      "id": "initial",
+      "name": "Initial Contact",
+      "description": "Crew arrives to find a 38-year-old male with his left lower leg pinned under a pallet jack for approximately 20 minutes. He is alert, in severe pain, with fire crew preparing for extrication.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent, speaking full sentences between grimaces",
+        "breathing": "Nonlabored, 22/min",
+        "circulation": "Radial pulses present bilaterally, distal left foot pulse palpable but diminished compared to right",
+        "skin": { "color": "pale", "temperature": "diaphoretic", "moisture": "moist" },
+        "pupils": "PERRL",
+        "motorFunction": "Strength intact in both arms and right leg; unable to assess left foot movement due to entrapment and pain",
+        "otherFindings": [
+          "Left lower leg pinned under pallet jack for approximately 20 minutes",
+          "Pain 10/10, out of proportion to visible injury",
+          "No active external hemorrhage visible from trapped limb",
+          "Distal left foot pulse diminished, capillary refill delayed compared to right"
+        ],
+        "patientSpeech": "\"Please just get this thing off my leg, it hurts so bad.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 116,
+        "bpSys": 148,
+        "bpDia": 92,
+        "respRate": 22,
+        "spo2": 97,
+        "etco2": 0,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 0,
+        "glucose": 98,
+        "customMeasures": [],
+        "trendTimeSeconds": 0,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [],
+      "transitions": [
+        {
+          "targetPhaseId": "pre-extrication-care",
+          "if": "IV fluids and pain control given before release",
+          "condition": "Crew establishes IV access, administers a 1000 mL normal saline bolus, attaches the cardiac monitor, and administers weight-based morphine for pain, all prior to fire crew releasing the pinned limb.",
+          "conditionType": "action_taken"
+        }
+      ]
+    },
+    {
+      "id": "pre-extrication-care",
+      "name": "IV fluids and pain control given before release",
+      "description": "Crew establishes IV access, administers a normal saline bolus, attaches the cardiac monitor to watch for hyperkalemic changes, and provides weight-based morphine for pain while fire crew completes extrication preparations. Sodium bicarbonate is considered given the prolonged entrapment time.",
+      "triggerCondition": "Recognizing the crush mechanism and 20-minute entrapment time, the crew treats before the limb is released: IV access, fluid resuscitation, cardiac monitoring, and analgesia are all established prior to extrication.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "Nonlabored, 18/min",
+        "circulation": "Radial pulses present bilaterally, distal left foot pulse diminished but present",
+        "skin": { "color": "pale", "temperature": "diaphoretic", "moisture": "moist" },
+        "pupils": "PERRL",
+        "motorFunction": "Unable to assess left foot movement due to entrapment",
+        "otherFindings": [
+          "IV established, 1000 mL NS bolus running",
+          "Cardiac monitor attached, no ectopy noted",
+          "Pain improved to 5/10 after morphine",
+          "Fire crew completing airbag lift, ready for release"
+        ],
+        "patientSpeech": "\"That helps a little, thank you.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 104,
+        "bpSys": 128,
+        "bpDia": 80,
+        "respRate": 18,
+        "spo2": 98,
+        "etco2": 0,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 0,
+        "glucose": 98,
+        "customMeasures": [],
+        "trendTimeSeconds": 40,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a1-iv-fluids",
+          "shortAction": "Establish IV access; administer 1000 mL normal saline bolus before limb release",
+          "protocolExcerpt": "Establish IV access. IV fluids should be administered prior to releasing the crushed body part. Administer 1000 mL normal saline (NS) bolus. Avoid lactated Ringer's solution as it contains potassium. Crush injury without adequate fluid resuscitation develops into crush syndrome",
+          "priority": "critical",
+          "rationale": "Pre-treatment fluid loading blunts the hyperkalemic and hypovolemic reperfusion surge that occurs when the crushed limb is released.",
+          "protocolReference": "MATC: Crush Injury/Crush Syndrome"
+        },
+        {
+          "id": "a2-monitor",
+          "shortAction": "Attach cardiac monitor; watch for hyperkalemia changes before and after release",
+          "protocolExcerpt": "Attach cardiac monitor. Obtain/interpret 12-lead EKG, if available. Carefully monitor for dysrhythmias or signs of hyperkalemia before and immediately after release of pressure and during transport (e.g., peaked T waves, wide QRS, lengthening QT interval, loss of P wave)",
+          "priority": "critical",
+          "rationale": "Sudden potassium release on reperfusion can trigger lethal dysrhythmias immediately after extrication.",
+          "protocolReference": "MATC: Crush Injury/Crush Syndrome"
+        },
+        {
+          "id": "a3-morphine",
+          "shortAction": "Morphine 8 mg IV (80 kg × 0.1 mg/kg = 8 mg; max initial dose 10 mg); reassess BP after dosing",
+          "protocolExcerpt": "Morphine sulfate: 0.1 mg/kg IM, IV or IO (maximum initial dose is 10 mg)",
+          "priority": "important",
+          "rationale": "Weight-based morphine controls severe entrapment pain; reassessing blood pressure after dosing screens for opioid-associated hypotension per protocol caution.",
+          "protocolReference": "MATC: Pain Management"
+        },
+        {
+          "id": "a4-bicarb",
+          "shortAction": "Consider sodium bicarbonate 50 mEq IV over 5 min (80 kg × 1 mEq/kg = 80 mEq → cap at 50 mEq max)",
+          "protocolExcerpt": "For significant crush injuries or prolonged entrapment of an extremity, consider sodium bicarbonate 1 mEq/kg (maximum dose of 50 mEq) IV bolus over 5 minutes",
+          "priority": "important",
+          "rationale": "Twenty minutes of entrapment meets the threshold for prophylactic bicarbonate to buffer the acidosis and hyperkalemia of reperfusion.",
+          "protocolReference": "MATC: Crush Injury/Crush Syndrome"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "post-extrication",
+          "if": "Limb released after adequate pre-treatment",
+          "condition": "Fire crew releases the limb after fluids, monitoring, and analgesia are established; patient remains hemodynamically stable through extrication and continued fluid resuscitation begins.",
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a1-iv-fluids", "a2-monitor"]
+        },
+        {
+          "targetPhaseId": "hyperkalemia-onset",
+          "if": "Limb released before fluids given",
+          "condition": "Fire crew releases the limb before IV fluids and cardiac monitoring are established; the patient develops acute hyperkalemic ECG changes and hypotension from unbuffered reperfusion.",
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["a1-iv-fluids"]
+        }
+      ]
+    },
+    {
+      "id": "post-extrication",
+      "name": "Limb released after adequate pre-treatment",
+      "description": "The limb is released with fluids, monitoring, and analgesia already in place. Crew continues resuscitation with ongoing normal saline and closely watches the cardiac monitor for delayed hyperkalemic changes en route to a trauma center.",
+      "triggerCondition": "After the limb is released following adequate pre-extrication treatment, the patient remains hemodynamically stable and the crew continues post-extrication resuscitation and monitoring during transport.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "Nonlabored, 16/min",
+        "circulation": "Radial and pedal pulses present bilaterally, distal left foot capillary refill improving",
+        "skin": { "color": "pink", "temperature": "warm", "moisture": "dry" },
+        "pupils": "PERRL",
+        "motorFunction": "Sensation intact distal to injury, mild weakness in left foot dorsiflexion",
+        "otherFindings": [
+          "Left lower leg with visible crush marks, no active hemorrhage",
+          "Pain 4/10, tolerable with current analgesia",
+          "No ectopy or peaked T waves on continuous monitor"
+        ],
+        "patientSpeech": "\"It's still sore but so much better now that it's off.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Rhythm",
+        "ecgWaveform": 9,
+        "hr": 92,
+        "bpSys": 118,
+        "bpDia": 74,
+        "respRate": 16,
+        "spo2": 98,
+        "etco2": 0,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 0,
+        "glucose": 98,
+        "customMeasures": [],
+        "trendTimeSeconds": 30,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a5-post-fluids",
+          "shortAction": "Continue normal saline at 500–1000 mL/hr post extrication; reassess pain and repeat morphine if indicated after 5 minutes",
+          "protocolExcerpt": "Consider the following post extrication: Continued resuscitation with normal saline (500–1000 mL/hr for adults, 10 mL/kg/hr for children)",
+          "priority": "critical",
+          "rationale": "Ongoing resuscitation continues to buffer the metabolic load released from the injured muscle after reperfusion.",
+          "protocolReference": "MATC: Crush Injury/Crush Syndrome"
+        },
+        {
+          "id": "a6-transport",
+          "shortAction": "Transport in position of comfort; reassess pain scale and vital signs en route",
+          "protocolExcerpt": "Transport in position of comfort and reassess as indicated",
+          "priority": "important",
+          "rationale": "Serial reassessment catches delayed hyperkalemic or hypovolemic deterioration before arrival.",
+          "protocolReference": "MATC: Pain Management"
+        }
+      ],
+      "transitions": []
+    },
+    {
+      "id": "hyperkalemia-onset",
+      "name": "Limb released before fluids given",
+      "description": "The limb was released before IV fluids and monitoring were established. Reperfusion floods the circulation with potassium and acidic byproducts, producing peaked T waves, a widening QRS, and hypotension.",
+      "triggerCondition": "Extrication proceeded before IV fluid resuscitation and cardiac monitoring were in place, allowing an unbuffered reperfusion injury with acute hyperkalemic ECG changes and hemodynamic compromise.",
+      "isDefault": false,
+      "clinicalPresentation": {
+        "avpu": "Verbal",
+        "gcs": { "eye": 3, "verbal": 4, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "Labored, 26/min",
+        "circulation": "Radial pulses weak and thready, distal left foot pulse absent",
+        "skin": { "color": "pale", "temperature": "cool", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Sluggish response to voice, decreased strength in left leg",
+        "otherFindings": [
+          "Peaked T waves and widening QRS on the monitor",
+          "Hypotension developing immediately after limb release",
+          "Increasing lethargy since extrication"
+        ],
+        "patientSpeech": "\"I feel really dizzy all of a sudden...\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Hyperkalemia Changes",
+        "ecgWaveform": 20,
+        "hr": 132,
+        "bpSys": 84,
+        "bpDia": 52,
+        "respRate": 26,
+        "spo2": 94,
+        "etco2": 0,
+        "temp": 37.1,
+        "tempF": 98.8,
+        "obstruction": 0,
+        "glucose": 96,
+        "customMeasures": [],
+        "trendTimeSeconds": 15,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a7-calcium",
+          "shortAction": "Calcium chloride 1 g IV/IO over 5 min (ensure IV patency, do not exceed 1 mL/min) for hyperkalemic ECG changes",
+          "protocolExcerpt": "If EKG suggestive of hyperkalemia or if findings of hyperkalemia, administer IV fluids and consider administration of: Calcium chloride – 1 gm IV/IO over 5 minutes, ensure IV patency and do not exceed 1 mL per minute",
+          "priority": "critical",
+          "rationale": "Calcium stabilizes the cardiac membrane against the arrhythmogenic effects of the acute potassium surge.",
+          "protocolReference": "MATC: Crush Injury/Crush Syndrome"
+        },
+        {
+          "id": "a8-bicarb-rescue",
+          "shortAction": "Sodium bicarbonate 50 mEq IV over 5 min (80 kg × 1 mEq/kg = 80 mEq → cap at 50 mEq max) for hyperkalemic changes",
+          "protocolExcerpt": "If not already administered, for significant crush injuries with EKG suggestive of hyperkalemia, administer sodium bicarbonate 1 mEq/kg (max dose of 50 mEq) IV bolus over 5 minutes",
+          "priority": "critical",
+          "rationale": "Bicarbonate shifts potassium intracellularly, rapidly lowering the arrhythmia risk while additional treatment is arranged.",
+          "protocolReference": "MATC: Crush Injury/Crush Syndrome"
+        }
+      ],
+      "transitions": []
+    }
+  ],
+  "realiti": {
+    "scenarioMonitorType": 2,
+    "scenarioDefaultEnergy": 200,
+    "scenarioDefaultPacerThreshold": 55
+  }
+}

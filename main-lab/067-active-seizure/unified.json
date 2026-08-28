@@ -1,0 +1,295 @@
+{
+  "meta": {
+    "id": "067-active-seizure",
+    "name": "067 - Active Seizure",
+    "version": 1,
+    "difficulty": "intermediate",
+    "category": "Medical",
+    "protocols": ["medical-seizures"],
+    "totalTimeSeconds": 600,
+    "tags": ["seizure", "status epilepticus", "benzodiazepine", "airway management", "919"]
+  },
+  "patient": {
+    "name": "Monica Reyes",
+    "age": 28,
+    "ageUnit": "years",
+    "sex": "female",
+    "weight": 65,
+    "weightLbs": 143,
+    "height": 165,
+    "chiefComplaint": "Seizure activity, ongoing convulsions",
+    "history": {
+      "hpi": "Coworker witnessed patient collapse at her desk into generalized tonic-clonic convulsions and called 911 immediately. Seizure activity has been continuous for approximately 6 minutes by the time EMS arrives. Coworker reports patient has a known seizure disorder but mentioned running out of her medication earlier in the week.",
+      "pastMedical": ["Epilepsy, diagnosed age 16, previously well-controlled on levetiracetam"],
+      "medications": ["Levetiracetam 1000 mg PO BID (ran out of refill 2 days ago)"],
+      "allergies": ["NKDA"],
+      "lastOralIntake": "Turkey sandwich and coffee approximately 2 hours prior to onset",
+      "events": "Coworker witnessed patient collapse at her desk into generalized convulsions and called 911 immediately; seizure has been continuous for approximately 6 minutes by the time EMS arrives."
+    }
+  },
+  "scene": {
+    "dispatch": "28-year-old female, seizure activity, patient reportedly still convulsing, office building",
+    "location": "Open-plan office, third floor conference room; patient on carpeted floor",
+    "time": "10:15 AM, weekday",
+    "safety": "No scene hazards; coworkers have cleared chairs and furniture away from the patient",
+    "bystanders": "Coworker present, witnessed onset, called 911, reports patient has a seizure history but ran out of medication",
+    "visualCues": [
+      "Patient supine on carpet, generalized tonic-clonic movements",
+      "Oral secretions with slight blood tinge from cheek bite",
+      "Cyanosis around lips during tonic phase",
+      "Empty prescription bottle for levetiracetam nearby in patient's bag, last filled 3 weeks ago"
+    ]
+  },
+  "phases": [
+    {
+      "id": "initial",
+      "name": "Initial Contact",
+      "description": "Crew arrives to find a 28-year-old female actively seizing on the floor, generalized tonic-clonic movements ongoing, per bystander for approximately 6 minutes already.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Unresponsive",
+        "gcs": { "eye": 1, "verbal": 1, "motor": 2 },
+        "airway": "Compromised during tonic phase; clenched jaw, oral secretions, perioral cyanosis",
+        "breathing": "Irregular, apneic episodes during tonic phase, RR approximately 8",
+        "circulation": "Radial pulses palpable, rapid",
+        "skin": { "color": "cyanotic (perioral)", "temperature": "warm", "moisture": "diaphoretic" },
+        "pupils": "Unable to assess during active convulsion",
+        "motorFunction": "Generalized tonic-clonic movements, all extremities",
+        "otherFindings": [
+          "Continuous generalized tonic-clonic activity ongoing since before EMS arrival, approximately 6 minutes total per bystander",
+          "Oral secretions with minor blood tinge, no active hemorrhage",
+          "No incontinence noted"
+        ],
+        "patientSpeech": ""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 128,
+        "bpSys": 142,
+        "bpDia": 88,
+        "respRate": 8,
+        "spo2": 88,
+        "etco2": 0,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 15,
+        "glucose": 95,
+        "customMeasures": [],
+        "trendTimeSeconds": 0,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [],
+      "transitions": [
+        {
+          "targetPhaseId": "midazolam-given",
+          "if": "Positioned and IM midazolam given",
+          "condition": "Crew positions the patient laterally to protect the airway, clears the surrounding area, suctions oral secretions, applies oxygen, and administers IM midazolam without delaying for IV access, per the protocol's preferred route for actively seizing patients.",
+          "conditionType": "action_taken"
+        }
+      ]
+    },
+    {
+      "id": "midazolam-given",
+      "name": "Positioned and IM midazolam given",
+      "description": "Crew protects the airway, applies oxygen, checks blood glucose while still seizing, and administers weight-based IM midazolam without delaying for IV access.",
+      "triggerCondition": "After positioning the patient laterally to protect the airway and clearing the area of hazards, the crew recognizes ongoing seizure activity exceeding 5 minutes and administers IM midazolam without delaying for IV access, per the protocol's preferred route.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Unresponsive",
+        "gcs": { "eye": 1, "verbal": 1, "motor": 3 },
+        "airway": "Positioned laterally, secretions suctioned, patent",
+        "breathing": "Improving, RR 14, less irregular",
+        "circulation": "Radial pulses strong, tachycardic",
+        "skin": { "color": "pale", "temperature": "warm", "moisture": "diaphoretic" },
+        "pupils": "Sluggish but reactive bilaterally",
+        "motorFunction": "Convulsive movements decreasing in intensity",
+        "otherFindings": [
+          "Seizure activity beginning to wane approximately 90 seconds after IM midazolam",
+          "Blood glucose checked while still seizing: 95 mg/dL, no hypoglycemia"
+        ],
+        "patientSpeech": ""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 116,
+        "bpSys": 138,
+        "bpDia": 84,
+        "respRate": 14,
+        "spo2": 94,
+        "etco2": 38,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 5,
+        "glucose": 95,
+        "customMeasures": [],
+        "trendTimeSeconds": 30,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a1-position-suction",
+          "shortAction": "Position patient laterally; suction oral secretions to maintain airway patency",
+          "protocolExcerpt": "If signs of airway obstruction are present and a chin-lift, jaw thrust, positioning, and/or suctioning does not alleviate it, place oropharyngeal airway (if gag reflex is absent) or nasopharyngeal airway",
+          "priority": "critical",
+          "rationale": "Positioning and suctioning protect the airway from aspiration during ongoing convulsions.",
+          "protocolReference": "MATC: Seizures"
+        },
+        {
+          "id": "a2-oxygen",
+          "shortAction": "Apply oxygen targeting 94-98% SpO2; assist ventilations with BVM if inadequate",
+          "protocolExcerpt": "Administer oxygen as appropriate with a target of achieving 94-98% saturation. Use bag-valve-mask (BVM) ventilation if oxygenation/ventilation are compromised",
+          "priority": "critical",
+          "rationale": "Postictal and ictal hypoventilation risk hypoxia if not supported.",
+          "protocolReference": "MATC: Seizures"
+        },
+        {
+          "id": "a3-midazolam",
+          "shortAction": "Midazolam 10 mg IM (65 kg x 0.2 mg/kg = 13 mg, capped at 10 mg max; no IV access)",
+          "protocolExcerpt": "If vascular access is absent: Midazolam 0.2 mg/kg (maximum dose 10 mg), IM preferred, or IN",
+          "priority": "critical",
+          "rationale": "IM/IN routes are preferred over delaying treatment to obtain IV access in an actively seizing patient.",
+          "protocolReference": "MATC: Seizures"
+        },
+        {
+          "id": "a4-glucometry",
+          "shortAction": "Check blood glucose while still actively seizing",
+          "protocolExcerpt": "If still actively seizing, check blood glucose level. If less than 60 mg/dL, treat per the Hypoglycemia Guideline",
+          "priority": "important",
+          "rationale": "Hypoglycemia is a reversible cause of seizure that must be identified early.",
+          "protocolReference": "MATC: Seizures"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "seizure-resolved",
+          "if": "Seizure resolves after midazolam",
+          "condition": "Approximately 90 seconds after IM midazolam, convulsive movements cease and the patient transitions into a postictal state with spontaneous, though initially depressed, respirations.",
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a3-midazolam"]
+        },
+        {
+          "targetPhaseId": "second-dose-needed",
+          "if": "Seizure continues past 5 minutes",
+          "condition": "Five minutes after the initial IM midazolam dose, convulsive activity persists without improvement, meeting criteria to consider a second benzodiazepine dose while weighing the elevated risk of airway compromise from repeat dosing.",
+          "conditionType": "time_elapsed",
+          "timeoutSeconds": 300
+        }
+      ]
+    },
+    {
+      "id": "seizure-resolved",
+      "name": "Seizure resolves after midazolam",
+      "description": "Convulsive activity has stopped; patient is postictal with confusion, depressed but spontaneous respirations, and gradually returning responsiveness.",
+      "triggerCondition": "Approximately 90 seconds after IM midazolam, convulsive movements cease and the patient transitions into a postictal state with spontaneous, though depressed, respirations.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Verbal",
+        "gcs": { "eye": 3, "verbal": 3, "motor": 5 },
+        "airway": "Patent, managing own secretions",
+        "breathing": "Improving, RR 16, adequate tidal volume",
+        "circulation": "Radial pulses strong, rate normalizing",
+        "skin": { "color": "pink", "temperature": "warm", "moisture": "moist" },
+        "pupils": "PERRL",
+        "motorFunction": "Purposeful movement slowly returning; follows simple commands inconsistently",
+        "otherFindings": [
+          "Postictal confusion, does not recall the event",
+          "No further convulsive activity observed"
+        ],
+        "patientSpeech": "\"Where... what happened? I feel so tired.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Rhythm",
+        "ecgWaveform": 9,
+        "hr": 98,
+        "bpSys": 128,
+        "bpDia": 78,
+        "respRate": 16,
+        "spo2": 97,
+        "etco2": 40,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 0,
+        "glucose": 95,
+        "customMeasures": [],
+        "trendTimeSeconds": 40,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a5-reassess",
+          "shortAction": "Reassess airway patency, breathing effectiveness, and neurologic status for transport",
+          "protocolExcerpt": "Airway patency. Breath sounds, respiratory rate, and effectiveness of ventilation. Neurologic status (GCS, nystagmus, pupil size, focal neurologic deficit, or signs of stroke)",
+          "priority": "critical",
+          "rationale": "Postictal patients require ongoing reassessment as mental status and airway control return.",
+          "protocolReference": "MATC: Seizures"
+        }
+      ],
+      "transitions": []
+    },
+    {
+      "id": "second-dose-needed",
+      "name": "Seizure continues past 5 minutes",
+      "description": "Convulsive activity persists five minutes after the first IM midazolam dose. Ventilation is becoming inadequate and the crew must weigh the risk of a repeat benzodiazepine dose against progressive hypoxia.",
+      "triggerCondition": "Five minutes after the initial IM midazolam dose, convulsive activity persists without improvement, meeting criteria to consider a second benzodiazepine dose — though repeat dosing carries an elevated risk of respiratory depression that the crew must weigh.",
+      "isDefault": false,
+      "clinicalPresentation": {
+        "avpu": "Unresponsive",
+        "gcs": { "eye": 1, "verbal": 1, "motor": 3 },
+        "airway": "Increasingly compromised, shallow irregular respirations, progressing cyanosis",
+        "breathing": "RR 6, shallow, ineffective tidal volume",
+        "circulation": "Radial pulses rapid, thready",
+        "skin": { "color": "cyanotic", "temperature": "warm", "moisture": "diaphoretic" },
+        "pupils": "Sluggish bilaterally",
+        "motorFunction": "Ongoing generalized convulsive movements",
+        "otherFindings": [
+          "Continuous seizure activity now exceeding 10 minutes total",
+          "SpO2 declining despite supplemental oxygen"
+        ],
+        "patientSpeech": ""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 132,
+        "bpSys": 150,
+        "bpDia": 95,
+        "respRate": 6,
+        "spo2": 84,
+        "etco2": 55,
+        "temp": 37.2,
+        "tempF": 98.9,
+        "obstruction": 20,
+        "glucose": 95,
+        "customMeasures": [],
+        "trendTimeSeconds": 20,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a6-risk-benefit",
+          "shortAction": "Weigh risk/benefit of a second benzodiazepine dose; consider medical direction consult",
+          "protocolExcerpt": "Trained personnel should be able to give medication without contacting medical direction, however, more than two doses of benzodiazepines are associated with high-risk of airway compromise. Use caution, weigh risks/benefits of deferring treatment until hospital, and/or consider consultation with medical direction if patient has received two doses of benzodiazepines by bystanders and/or prehospital clinicians",
+          "priority": "critical",
+          "rationale": "Repeat benzodiazepine dosing significantly raises the risk of respiratory depression requiring airway intervention.",
+          "protocolReference": "MATC: Seizures"
+        },
+        {
+          "id": "a7-airway-escalation",
+          "shortAction": "Prepare for advanced airway management if ventilation remains inadequate despite BVM support",
+          "protocolExcerpt": "Many airway/breathing issues in seizing patients can be managed without intubation or placement of an advanced airway. Reserve these measures for patients that fail less invasive maneuvers as noted above",
+          "priority": "critical",
+          "rationale": "Advanced airway measures are reserved for failure of less invasive maneuvers, which this patient is approaching.",
+          "protocolReference": "MATC: Seizures"
+        }
+      ],
+      "transitions": []
+    }
+  ],
+  "realiti": {
+    "scenarioMonitorType": 2,
+    "scenarioDefaultEnergy": 200,
+    "scenarioDefaultPacerThreshold": 55
+  }
+}

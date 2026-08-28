@@ -1,0 +1,251 @@
+{
+  "scenarioId": "002-altered-mental-status",
+  "scenarioName": "002 - Altered Mental Status",
+  "scenarioType": "Vital Signs",
+  "scenarioVersion": 2,
+  "scenarioTime": 600,
+  "scenarioMonitorType": 2,
+  "scenarioDefaultEnergy": 200,
+  "scenarioDefaultPacerThreshold": 55,
+  "isDemo": false,
+  "isALSILegacy": false,
+  "scenarioStory": {
+    "history": "Husband states his wife has not been herself since this morning. He last saw her acting normally around 7:00 AM when she took her morning insulin injection. He found her slumped in a kitchen chair at approximately 9:45 AM, sweaty, and slurring her words when he tried to talk to her. She skipped breakfast because she got a phone call. An insulin pen and a used glucose test strip wrapper are on the kitchen table next to her.",
+    "discussion": "",
+    "course": "Initial Contact: Crew arrives to find a 54-year-old female seated at the kitchen table, diaphoretic, with slurred speech and a slowed response to voice. Husband is present and provides history of insulin use and a skipped breakfast. → Oral glucose given: After 25 g of oral glucose, the patient's speech clears and she becomes oriented. Husband confirms this is consistent with prior low blood sugar episodes. → Transport initiated: Patient is packaged and transported, remaining alert and oriented with stable vital signs en route."
+  },
+  "patientInformation": {
+    "patientName": "Linda Petersen",
+    "patientCondition": "Altered mental status, husband reports \"not acting right\" since this morning",
+    "patientAge": 54,
+    "patientAgeUnit": "years",
+    "patientAgeCategory": 0,
+    "patientSex": 2,
+    "patientHeight": 165,
+    "patientWeight": 70,
+    "patientPhotoId": 65,
+    "patientAdmitted": 1
+  },
+  "labs": [],
+  "scenarioEvents": [
+    {
+      "type": "ScenarioEvent",
+      "name": "Initial Contact",
+      "description": "Crew arrives to find a 54-year-old female seated at the kitchen table, diaphoretic, with slurred speech and a slowed response to voice. Husband is present and provides history of insulin use and a skipped breakfast.",
+      "monitorType": 0,
+      "trendTime": 0,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 112,
+        "bpSys": 148,
+        "bpDia": 92,
+        "respRate": 18,
+        "spo2": 97,
+        "etco2": 36,
+        "temp": 36.5,
+        "obstruction": 0,
+        "custMeasure1": 42,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Primary survey; ensure airway remains patent, reposition as needed",
+        "Assess AVPU and Glasgow Coma Score",
+        "Obtain blood glucose level",
+        "Perform validated stroke scale (facial droop, arm drift, speech)",
+        "Obtain SAMPLE history and last known well time from husband",
+        "Administer oral glucose gel 25 g PO (BGL 42 mg/dL, patient able to swallow)"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Oral glucose given",
+      "description": "After 25 g of oral glucose, the patient's speech clears and she becomes oriented. Husband confirms this is consistent with prior low blood sugar episodes.",
+      "monitorType": 0,
+      "trendTime": 40,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 88,
+        "bpSys": 132,
+        "bpDia": 84,
+        "respRate": 16,
+        "spo2": 98,
+        "etco2": 35,
+        "temp": 36.7,
+        "obstruction": 0,
+        "custMeasure1": 96,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Reassess vital signs and mental status after glucose administration",
+        "Transport to hospital; not all safe-release criteria are met"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Transport initiated",
+      "description": "Patient is packaged and transported, remaining alert and oriented with stable vital signs en route.",
+      "monitorType": 0,
+      "trendTime": 20,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 82,
+        "bpSys": 126,
+        "bpDia": 80,
+        "respRate": 16,
+        "spo2": 99,
+        "etco2": 34,
+        "temp": 36.8,
+        "obstruction": 0,
+        "custMeasure1": 110,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Continue reassessment of mental status and vitals en route to prevent complications"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Oral glucose delayed",
+      "description": "With glucose unchecked or oral glucose withheld, the patient's mental status continues to deteriorate. She is now unresponsive and unable to protect her own airway.",
+      "monitorType": 0,
+      "trendTime": 45,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 130,
+        "bpSys": 96,
+        "bpDia": 58,
+        "respRate": 22,
+        "spo2": 94,
+        "etco2": 40,
+        "temp": 36.3,
+        "obstruction": 0,
+        "custMeasure1": 28,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Recognize patient can no longer safely receive oral glucose",
+        "Position patient for airway protection; apply high-flow oxygen",
+        "Initiate immediate transport to closest appropriate receiving facility"
+      ],
+      "relatedSounds": []
+    }
+  ],
+  "checklist": [
+    {
+      "title": "Primary survey; ensure airway remains patent, reposition as needed",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Assess AVPU and Glasgow Coma Score",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Obtain blood glucose level",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Perform validated stroke scale (facial droop, arm drift, speech)",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Obtain SAMPLE history and last known well time from husband",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Administer oral glucose gel 25 g PO (BGL 42 mg/dL, patient able to swallow)",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Reassess vital signs and mental status after glucose administration",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Transport to hospital; not all safe-release criteria are met",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Continue reassessment of mental status and vitals en route to prevent complications",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Recognize patient can no longer safely receive oral glucose",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Position patient for airway protection; apply high-flow oxygen",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Initiate immediate transport to closest appropriate receiving facility",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    }
+  ],
+  "media": []
+}

@@ -1,0 +1,244 @@
+{
+  "scenarioId": "005-found-down",
+  "scenarioName": "005 - Found Down",
+  "scenarioType": "Vital Signs",
+  "scenarioVersion": 2,
+  "scenarioTime": 900,
+  "scenarioMonitorType": 2,
+  "scenarioDefaultEnergy": 200,
+  "scenarioDefaultPacerThreshold": 55,
+  "isDemo": false,
+  "isALSILegacy": false,
+  "scenarioStory": {
+    "history": "Coworker noticed the patient did not respond to a page for a 2:00 PM meeting. When she checked on him roughly ten minutes later, she found him slumped forward in his desk chair, not responding to her voice, but breathing on his own with loud snoring respirations. No known witnessed collapse, no reported seizure activity, no vomiting noted by the coworker.",
+    "discussion": "",
+    "course": "Initial Contact: Crew arrives to find a 47-year-old male slumped forward in his desk chair. He does not respond to his name or verbal commands but is breathing with loud, snoring respirations. A coworker is present with limited history. → Primary survey completed: The crew has completed a rapid primary survey and confirmed a blood glucose of 38 mg/dL. The patient remains unresponsive to voice, breathing but unable to protect his own airway, so oral glucose cannot be safely given. → Rapid transport initiated: The patient is packaged, positioned laterally, receiving supplemental oxygen, and en route to the closest appropriate receiving facility with an ALS intercept requested for dextrose administration. Vital signs and mental status are reassessed en route."
+  },
+  "patientInformation": {
+    "patientName": "Gary Holloman",
+    "patientCondition": "Unresponsive, found slumped at his desk",
+    "patientAge": 47,
+    "patientAgeUnit": "years",
+    "patientAgeCategory": 0,
+    "patientSex": 1,
+    "patientHeight": 178,
+    "patientWeight": 90,
+    "patientPhotoId": 57,
+    "patientAdmitted": 1
+  },
+  "labs": [],
+  "scenarioEvents": [
+    {
+      "type": "ScenarioEvent",
+      "name": "Initial Contact",
+      "description": "Crew arrives to find a 47-year-old male slumped forward in his desk chair. He does not respond to his name or verbal commands but is breathing with loud, snoring respirations. A coworker is present with limited history.",
+      "monitorType": 0,
+      "trendTime": 0,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 112,
+        "bpSys": 128,
+        "bpDia": 82,
+        "respRate": 18,
+        "spo2": 91,
+        "etco2": 0,
+        "temp": 36.9,
+        "obstruction": 15,
+        "custMeasure1": 38,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Assess airway patency; reposition patient to open airway",
+        "Assess breathing for respiratory depression; check SpO2",
+        "Determine AVPU and Glasgow Coma Score",
+        "Check blood glucose level"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Primary survey completed",
+      "description": "The crew has completed a rapid primary survey and confirmed a blood glucose of 38 mg/dL. The patient remains unresponsive to voice, breathing but unable to protect his own airway, so oral glucose cannot be safely given.",
+      "monitorType": 0,
+      "trendTime": 20,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 110,
+        "bpSys": 126,
+        "bpDia": 80,
+        "respRate": 18,
+        "spo2": 92,
+        "etco2": 0,
+        "temp": 36.9,
+        "obstruction": 0,
+        "custMeasure1": 38,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Recognize oral glucose contraindicated; patient cannot protect his airway",
+        "Administer oxygen, titrate toward SpO2 94–98%",
+        "Position patient laterally to protect airway and limit aspiration risk"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Rapid transport initiated",
+      "description": "The patient is packaged, positioned laterally, receiving supplemental oxygen, and en route to the closest appropriate receiving facility with an ALS intercept requested for dextrose administration. Vital signs and mental status are reassessed en route.",
+      "monitorType": 0,
+      "trendTime": 30,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 104,
+        "bpSys": 126,
+        "bpDia": 80,
+        "respRate": 16,
+        "spo2": 96,
+        "etco2": 0,
+        "temp": 36.9,
+        "obstruction": 0,
+        "custMeasure1": 38,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Transport to closest appropriate receiving facility",
+        "Reassess vital signs and mental status en route"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Primary survey delayed",
+      "description": "Assessment and airway repositioning were delayed. The patient's positional airway obstruction has progressed: breathing is now irregular with audible gurgling, and oxygenation is dropping.",
+      "monitorType": 0,
+      "trendTime": 30,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 130,
+        "bpSys": 118,
+        "bpDia": 74,
+        "respRate": 10,
+        "spo2": 82,
+        "etco2": 0,
+        "temp": 36.9,
+        "obstruction": 70,
+        "custMeasure1": 38,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Suction airway immediately to clear pooled secretions",
+        "Open airway with head tilt/chin lift and reposition immediately"
+      ],
+      "relatedSounds": []
+    }
+  ],
+  "checklist": [
+    {
+      "title": "Assess airway patency; reposition patient to open airway",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Assess breathing for respiratory depression; check SpO2",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Determine AVPU and Glasgow Coma Score",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Check blood glucose level",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Recognize oral glucose contraindicated; patient cannot protect his airway",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Administer oxygen, titrate toward SpO2 94–98%",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Position patient laterally to protect airway and limit aspiration risk",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Transport to closest appropriate receiving facility",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Reassess vital signs and mental status en route",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Suction airway immediately to clear pooled secretions",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Open airway with head tilt/chin lift and reposition immediately",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    }
+  ],
+  "media": []
+}

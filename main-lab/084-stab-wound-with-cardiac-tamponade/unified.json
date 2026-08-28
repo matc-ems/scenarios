@@ -1,0 +1,299 @@
+{
+  "meta": {
+    "id": "084-stab-wound-with-cardiac-tamponade",
+    "name": "084 - Stab Wound with Cardiac Tamponade",
+    "version": 1,
+    "difficulty": "advanced",
+    "category": "Trauma",
+    "protocols": ["trauma-general", "medical-shock"],
+    "totalTimeSeconds": 780,
+    "tags": ["trauma", "penetrating", "chest", "tamponade", "obstructive shock", "920"]
+  },
+  "patient": {
+    "name": "Marcus Delaney",
+    "age": 22,
+    "ageUnit": "years",
+    "sex": "male",
+    "weight": 80,
+    "weightLbs": 176,
+    "height": 178,
+    "chiefComplaint": "Stab wound to the left chest",
+    "history": {
+      "hpi": "Bystanders report the patient was stabbed once during an altercation outside a bar approximately 10 minutes ago. He walked a short distance before collapsing to the ground and now appears anxious and short of breath. He denies loss of consciousness. A single puncture wound is visible over the left 4th intercostal space, parasternal, with minimal external bleeding.",
+      "pastMedical": [],
+      "medications": [],
+      "allergies": ["NKDA"],
+      "lastOralIntake": "Beer and appetizers approximately 1 hour prior to injury",
+      "events": "Single stab wound to left anterior chest during an altercation; patient collapsed shortly after, bystanders called 911"
+    }
+  },
+  "scene": {
+    "dispatch": "22-year-old male, stabbing, conscious and breathing, outside a bar",
+    "location": "Sidewalk outside a bar entrance, patient supine, small pool of blood near the chest wound",
+    "time": "11:48 PM, weekend night",
+    "safety": "Police on scene, altercation participants dispersed, scene secured",
+    "bystanders": "Several bystanders present, one called 911 and reports the stabbing was witnessed",
+    "visualCues": [
+      "Single puncture wound, left 4th intercostal space parasternal, minimal external bleeding",
+      "Patient anxious, leaning forward, guarding his chest",
+      "Jugular veins visibly distended",
+      "Skin pale and diaphoretic"
+    ]
+  },
+  "phases": [
+    {
+      "id": "initial",
+      "name": "Initial Contact",
+      "description": "Crew arrives to find a 22-year-old male with a single stab wound to the left anterior chest. He is anxious, tachycardic, and hypotensive with distended neck veins. Breath sounds are equal bilaterally.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent, speaking in short sentences",
+        "breathing": "Tachypneic, breath sounds equal and present bilaterally, no tracheal deviation",
+        "circulation": "Radial pulses weak and rapid, narrow pulse pressure",
+        "skin": { "color": "pale", "temperature": "cool", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Moves all extremities, guarding chest with left arm",
+        "otherFindings": [
+          "Jugular venous distention noted at 45 degrees",
+          "Heart sounds difficult to auscultate, appear muffled/distant",
+          "Single puncture wound left 4th ICS parasternal, minimal external bleeding",
+          "Anxious, restless, leaning forward for comfort"
+        ],
+        "patientSpeech": "\"I can't... catch my breath... it hurts to breathe.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 128,
+        "bpSys": 84,
+        "bpDia": 68,
+        "respRate": 24,
+        "spo2": 96,
+        "etco2": 0,
+        "temp": 36.9,
+        "tempF": 98.4,
+        "obstruction": 0,
+        "glucose": 98,
+        "customMeasures": [],
+        "trendTimeSeconds": 0,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [],
+      "transitions": [
+        {
+          "targetPhaseId": "recognized-obstructive",
+          "if": "Tamponade recognized, dressing and transport initiated",
+          "condition": "Crew completes the MARCH primary survey, notes equal bilateral breath sounds ruling out tension pneumothorax, recognizes JVD + muffled heart sounds + hypotension as concerning for cardiac tamponade, applies a semi-occlusive dressing, and initiates rapid transport.",
+          "conditionType": "action_taken"
+        },
+        {
+          "targetPhaseId": "needle-decompression-wrong",
+          "if": "Needle decompression attempted despite equal breath sounds",
+          "condition": "Crew assumes tension pneumothorax without confirming absent/diminished breath sounds and performs needle decompression, delaying recognition of tamponade and rapid transport.",
+          "conditionType": "action_not_taken"
+        }
+      ]
+    },
+    {
+      "id": "recognized-obstructive",
+      "name": "Tamponade recognized, dressing and transport initiated",
+      "description": "The crew performs a MARCH primary survey, confirms breath sounds are equal bilaterally (against tension pneumothorax), places a semi-occlusive dressing over the open chest wound, establishes IV access, and prepares for immediate transport given the high likelihood of cardiac tamponade requiring surgical intervention.",
+      "triggerCondition": "After completing the primary survey and finding equal bilateral breath sounds with no tracheal deviation, the crew correctly attributes the JVD, muffled heart sounds, and hypotension (Beck's triad) to obstructive shock from suspected cardiac tamponade rather than tension pneumothorax, and prioritizes rapid transport over any on-scene intervention MATC does not authorize for tamponade.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "Tachypneic, breath sounds remain equal bilaterally",
+        "circulation": "Radial pulses weak and rapid, IV established",
+        "skin": { "color": "pale", "temperature": "cool", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Moves all extremities",
+        "otherFindings": [
+          "Semi-occlusive dressing applied over chest wound",
+          "IV established, judicious fluid bolus given",
+          "JVD and muffled heart sounds persist",
+          "Crew preparing for immediate transport, minimizing scene time"
+        ],
+        "patientSpeech": "\"Please... just get me to the hospital.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 124,
+        "bpSys": 86,
+        "bpDia": 70,
+        "respRate": 22,
+        "spo2": 97,
+        "etco2": 0,
+        "temp": 36.9,
+        "tempF": 98.4,
+        "obstruction": 0,
+        "glucose": 98,
+        "customMeasures": [],
+        "trendTimeSeconds": 25,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a1-march",
+          "shortAction": "Perform MARCH primary survey: hemorrhage, airway, breathing, circulation, head/hypothermia",
+          "protocolExcerpt": "Primary survey (Use \"MARCH\" algorithm)",
+          "priority": "critical",
+          "rationale": "Confirms no other immediately correctable life threat before focusing on the chest wound.",
+          "protocolReference": "MATC: General Trauma Management"
+        },
+        {
+          "id": "a2-recognize-tamponade",
+          "shortAction": "Recognize JVD, muffled heart sounds, and hypotension as obstructive shock (tamponade)",
+          "protocolExcerpt": "Obstructive (pulmonary embolism (PE), tension pneumothorax, cardiac tamponade)",
+          "priority": "critical",
+          "rationale": "Differentiating tamponade from tension pneumothorax changes the appropriate field intervention.",
+          "protocolReference": "MATC: Shock"
+        },
+        {
+          "id": "a3-dressing",
+          "shortAction": "Apply semi-occlusive dressing over the open chest wound",
+          "protocolExcerpt": "For open chest wound, place semi-occlusive dressing",
+          "priority": "critical",
+          "rationale": "Prevents an open wound from converting to a communicating pneumothorax.",
+          "protocolReference": "MATC: General Trauma Management"
+        },
+        {
+          "id": "a4-iv-bolus",
+          "shortAction": "Establish IV access; 500 mL crystalloid bolus (SBP <90 mmHg, HR >120)",
+          "protocolExcerpt": "If SBP less than 90 mmHg or heart rate greater than 120 BPM, initiate resuscitation... consider 500 mL bolus of IV fluid, repeat as needed for persistent signs and symptoms of shock",
+          "priority": "important",
+          "rationale": "Supports preload in obstructive shock while definitive care (pericardiocentesis/thoracotomy) is unavailable in the field.",
+          "protocolReference": "MATC: General Trauma Management"
+        },
+        {
+          "id": "a5-rapid-transport",
+          "shortAction": "Minimize scene time (<10 min); initiate rapid transport to trauma center",
+          "protocolExcerpt": "Patients with major hemorrhage, hemodynamic instability, penetrating torso trauma, or signs of traumatic brain injury often require rapid surgical intervention. Minimize scene time (goal is under 10 minutes) and initiate rapid transport to the highest level of care within the trauma system",
+          "priority": "critical",
+          "rationale": "Cardiac tamponade requires emergent surgical decompression that cannot be provided in the field.",
+          "protocolReference": "MATC: General Trauma Management"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "transport",
+          "if": "En route with serial reassessment",
+          "condition": "Patient is packaged and transport is underway with continued serial vital sign reassessment.",
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a5-rapid-transport"]
+        }
+      ]
+    },
+    {
+      "id": "transport",
+      "name": "En route with serial reassessment",
+      "description": "The patient is en route to a trauma center with continuous monitoring. Vitals remain tenuous but stable with the fluid bolus; the crew reassesses frequently for signs of decompensation.",
+      "triggerCondition": "After the dressing, IV access, and fluid bolus are completed, the patient is packaged and transport is underway with continued serial vital sign reassessment for further decompensation.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "Tachypneic, breath sounds equal bilaterally",
+        "circulation": "Radial pulses weak but present, IV patent",
+        "skin": { "color": "pale", "temperature": "cool", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Moves all extremities",
+        "otherFindings": [
+          "JVD and muffled heart sounds unchanged",
+          "No new tracheal deviation",
+          "Dressing intact, no active external bleeding"
+        ],
+        "patientSpeech": "\"Am I gonna be okay?\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 122,
+        "bpSys": 88,
+        "bpDia": 70,
+        "respRate": 22,
+        "spo2": 97,
+        "etco2": 0,
+        "temp": 36.9,
+        "tempF": 98.4,
+        "obstruction": 0,
+        "glucose": 98,
+        "customMeasures": [],
+        "trendTimeSeconds": 30,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a6-serial-reassess",
+          "shortAction": "Reassess vitals and breath sounds serially en route for decompensation",
+          "protocolExcerpt": "Monitor patient for deterioration over time with serial vital signs (pulse, blood pressure, respiratory rate, neurologic status assessment) and repeat neurologic status assessment",
+          "priority": "important",
+          "rationale": "Tamponade physiology can decompensate abruptly; frequent reassessment catches early deterioration.",
+          "protocolReference": "MATC: General Trauma Management"
+        }
+      ],
+      "transitions": []
+    },
+    {
+      "id": "needle-decompression-wrong",
+      "name": "Needle decompression attempted despite equal breath sounds",
+      "description": "The crew assumes tension pneumothorax and performs needle decompression without confirming absent or diminished breath sounds. The patient's condition does not improve, and time is lost that should have gone toward rapid transport for a suspected cardiac tamponade.",
+      "triggerCondition": "The crew attributes the JVD and hypotension to tension pneumothorax without first confirming absent or diminished breath sounds, and performs an unindicated needle decompression, delaying recognition of tamponade and delaying transport.",
+      "isDefault": false,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "Breath sounds remain equal bilaterally after decompression attempt, no rush of air noted",
+        "circulation": "Radial pulses weak and rapid, unchanged",
+        "skin": { "color": "pale", "temperature": "cool", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Moves all extremities",
+        "otherFindings": [
+          "Needle decompression performed, no improvement in vitals",
+          "JVD and muffled heart sounds persist unchanged",
+          "Scene time now exceeding 10 minutes"
+        ],
+        "patientSpeech": "\"That didn't help... I still can't breathe right.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 134,
+        "bpSys": 78,
+        "bpDia": 64,
+        "respRate": 26,
+        "spo2": 94,
+        "etco2": 0,
+        "temp": 36.9,
+        "tempF": 98.4,
+        "obstruction": 0,
+        "glucose": 98,
+        "customMeasures": [],
+        "trendTimeSeconds": 40,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a7-recognize-error",
+          "shortAction": "Confirm breath sounds equal bilaterally; abandon tension pneumothorax pathway, initiate rapid transport",
+          "protocolExcerpt": "If absent or diminished breath sounds in a hypotensive trauma patient, especially those with chest trauma and/or tracheal deviation, consider tension pneumothorax and perform needle decompression of side without breath sounds",
+          "priority": "critical",
+          "rationale": "Needle decompression is only indicated with absent/diminished breath sounds; equal bilateral sounds argue against tension pneumothorax and the crew should redirect to rapid transport.",
+          "protocolReference": "MATC: General Trauma Management"
+        }
+      ],
+      "transitions": []
+    }
+  ],
+  "realiti": {
+    "scenarioMonitorType": 2,
+    "scenarioDefaultEnergy": 200,
+    "scenarioDefaultPacerThreshold": 55
+  }
+}

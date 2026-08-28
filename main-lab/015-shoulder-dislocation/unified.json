@@ -1,0 +1,308 @@
+{
+  "meta": {
+    "id": "015-shoulder-dislocation",
+    "name": "015 - Shoulder Dislocation",
+    "version": 1,
+    "difficulty": "beginner",
+    "category": "Trauma",
+    "protocols": ["trauma-general", "trauma-extremity-hemorrhage", "medical-pain-management"],
+    "totalTimeSeconds": 600,
+    "tags": ["ALS", "med-math", "pain-management", "morphine", "orthopedic", "914b"]
+  },
+  "patient": {
+    "name": "Connor Whitfield",
+    "age": 22,
+    "ageUnit": "years",
+    "sex": "male",
+    "weight": 82,
+    "weightLbs": 181,
+    "height": 185,
+    "chiefComplaint": "Right shoulder pain and deformity after a rugby collision",
+    "history": {
+      "hpi": "Patient was tackled during a rugby match and landed on an outstretched right arm. He immediately felt his shoulder \"pop out\" and has been unable to move it since. Reports severe pain rated 9/10, worse with any attempted movement. Denies numbness initially but now reports mild tingling in the fingertips.",
+      "pastMedical": [],
+      "medications": [],
+      "allergies": ["NKDA"],
+      "lastOralIntake": "Sports drink and a banana approximately 1 hour prior to injury",
+      "events": "Teammates called 911 immediately after the collision; patient has been seated on the sideline holding his arm since"
+    }
+  },
+  "scene": {
+    "dispatch": "22-year-old male, injury, rugby field, arm injury",
+    "location": "Outdoor rugby field, patient seated on the sideline supported by teammates",
+    "time": "2:15 PM, Saturday, clear weather",
+    "safety": "No hazards to crew; game paused, teammates and coach present",
+    "bystanders": "Teammates and coach present, witnessed the collision, called 911 immediately",
+    "visualCues": [
+      "Patient seated, holding right arm against his body with left hand",
+      "Visible squaring/loss of normal shoulder contour on the right",
+      "Patient guarding the arm, resistant to any movement",
+      "No open wounds or active bleeding",
+      "Right hand fingertips slightly pale compared to left"
+    ]
+  },
+  "phases": [
+    {
+      "id": "initial",
+      "name": "Initial Contact",
+      "description": "Crew arrives to find a 22-year-old male seated on the sideline, holding his right arm, with an obviously deformed right shoulder following a rugby collision.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent, speaking full sentences",
+        "breathing": "Nonlabored, symmetric chest rise, 18/min",
+        "circulation": "Radial pulse present and strong bilaterally, mild pallor to right fingertips",
+        "skin": { "color": "pink", "temperature": "warm", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Unable to move right shoulder/arm due to pain; grip strength intact but painful; left arm fully intact",
+        "otherFindings": [
+          "Right shoulder 9/10 pain, worse with any movement",
+          "Squared-off deformity to right shoulder contour",
+          "Mild tingling reported in right fingertips",
+          "No open wounds"
+        ],
+        "patientSpeech": "\"It's killing me, please don't touch it — my fingers feel kind of tingly too.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 112,
+        "bpSys": 138,
+        "bpDia": 84,
+        "respRate": 18,
+        "spo2": 99,
+        "etco2": 0,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 0,
+        "glucose": 96,
+        "customMeasures": [],
+        "trendTimeSeconds": 0,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [],
+      "transitions": [
+        {
+          "targetPhaseId": "assessed-splinted",
+          "if": "Neurovascular assessed, splinted, pain treated",
+          "condition": "Crew assesses distal pulse/sensation/motor function of the right arm, splints the shoulder in position found, and administers weight-based IV morphine with vital sign monitoring.",
+          "conditionType": "action_taken"
+        }
+      ]
+    },
+    {
+      "id": "assessed-splinted",
+      "name": "Neurovascular assessed, splinted, pain treated",
+      "description": "Crew completes a focused assessment of the extremity, confirms distal pulse/sensation/movement, splints the shoulder in the position found, and administers IV morphine dosed to the patient's weight while monitoring vital signs for respiratory depression or hypotension.",
+      "triggerCondition": "After confirming no other injuries on primary survey, the crew recognizes the shoulder deformity as a suspected dislocation, assesses neurovascular status, splints the extremity, and treats the patient's severe pain with weight-based IV morphine per protocol.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "Nonlabored, 16/min",
+        "circulation": "Radial and distal pulses present bilaterally, fingertip color improving",
+        "skin": { "color": "pink", "temperature": "warm", "moisture": "dry" },
+        "pupils": "PERRL",
+        "motorFunction": "Sensation intact to light touch, distal pulses strong; unable to actively move shoulder due to splinting",
+        "otherFindings": [
+          "Right shoulder splinted in position found",
+          "Pain improving with morphine administration",
+          "No new neurovascular deficits after splinting"
+        ],
+        "patientSpeech": "\"That's already helping a lot, thank you.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Rhythm",
+        "ecgWaveform": 9,
+        "hr": 96,
+        "bpSys": 128,
+        "bpDia": 78,
+        "respRate": 14,
+        "spo2": 99,
+        "etco2": 0,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 0,
+        "glucose": 96,
+        "customMeasures": [],
+        "trendTimeSeconds": 30,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a1-neurovascular",
+          "shortAction": "Assess distal pulse, sensation, and movement of right arm before splinting",
+          "protocolExcerpt": "Vascular status of extremity: Pallor, Pulse, Capillary refill and skin temperature. Neurologic status of extremity: Sensation to light touch, Distal movement of extremity",
+          "priority": "critical",
+          "rationale": "Establishes a neurovascular baseline before splinting to detect vascular or nerve compromise from the dislocation.",
+          "protocolReference": "MATC: Extremity Trauma/External Hemorrhage Management"
+        },
+        {
+          "id": "a2-painscale",
+          "shortAction": "Assess pain using Numeric Rating Scale (patient is 22 years old)",
+          "protocolExcerpt": "Greater than 12 years old: Self-report scale: Numeric Rating Scale (NRS)",
+          "priority": "important",
+          "rationale": "Establishes a baseline pain score to guide dosing and document response to treatment.",
+          "protocolReference": "MATC: Pain Management"
+        },
+        {
+          "id": "a3-morphine",
+          "shortAction": "Morphine 8 mg IV (82 kg × 0.1 mg/kg = 8.2 mg, rounded to 8 mg; max initial dose 10 mg)",
+          "protocolExcerpt": "For Moderate to Severe pain, analgesics include: Morphine sulfate: 0.1 mg/kg IM, IV or IO (maximum initial dose is 10 mg)",
+          "priority": "critical",
+          "rationale": "Weight-based opioid dosing for severe (9/10) pain from an acute dislocation.",
+          "protocolReference": "MATC: Pain Management"
+        },
+        {
+          "id": "a4-splint",
+          "shortAction": "Splint shoulder/arm in position found; do not force reduction",
+          "protocolExcerpt": "Use splints as appropriate to limit movement of suspected fracture",
+          "priority": "important",
+          "rationale": "Immobilizing in the position found limits further pain and soft tissue injury without attempting field reduction.",
+          "protocolReference": "MATC: Extremity Trauma/External Hemorrhage Management"
+        },
+        {
+          "id": "a5-monitor-opioid",
+          "shortAction": "Monitor SpO2 and respiratory rate closely after morphine for signs of hypoventilation",
+          "protocolExcerpt": "Use of non-invasive capnography is an earlier predictor of hypoventilation than pulse oximetry if opioid medications are administered",
+          "priority": "critical",
+          "rationale": "Opioids carry a respiratory depression risk requiring close post-dose monitoring.",
+          "protocolReference": "MATC: Pain Management"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "transport",
+          "if": "Pain reassessed, BP stable, ready for transport",
+          "condition": "Pain score has decreased, vital signs remain stable with no signs of hypotension or respiratory depression, and the extremity is splinted for transport.",
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a3-morphine", "a5-monitor-opioid"]
+        },
+        {
+          "targetPhaseId": "hypotension-unmonitored",
+          "if": "Morphine given without BP reassessment",
+          "condition": "Crew administers the weight-based morphine dose but fails to reassess blood pressure afterward, missing the onset of opioid-related hypotension.",
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["a5-monitor-opioid"]
+        }
+      ]
+    },
+    {
+      "id": "transport",
+      "name": "Pain reassessed, BP stable, ready for transport",
+      "description": "Patient is splinted, pain is improving, and vital signs remain stable. Crew transports in a position of comfort with continued reassessment.",
+      "triggerCondition": "After morphine administration and splinting, the crew reassesses pain score and vital signs, confirms hemodynamic stability, and prepares the patient for transport.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "Nonlabored, 14/min",
+        "circulation": "Radial and distal pulses strong bilaterally",
+        "skin": { "color": "pink", "temperature": "warm", "moisture": "dry" },
+        "pupils": "PERRL",
+        "motorFunction": "Sensation and distal pulses intact",
+        "otherFindings": [
+          "Pain improved to 3/10",
+          "No signs of respiratory depression",
+          "Splint intact, extremity well-padded"
+        ],
+        "patientSpeech": "\"Much better now, thanks.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Rhythm",
+        "ecgWaveform": 9,
+        "hr": 84,
+        "bpSys": 122,
+        "bpDia": 76,
+        "respRate": 14,
+        "spo2": 99,
+        "etco2": 0,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 0,
+        "glucose": 96,
+        "customMeasures": [],
+        "trendTimeSeconds": 40,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a6-reassess-pain",
+          "shortAction": "Reassess pain score and vital signs after morphine administration",
+          "protocolExcerpt": "Pain severity scores should be recorded before and after analgesic medication administration and upon arrival at destination",
+          "priority": "important",
+          "rationale": "Documents medication effectiveness and supports the decision on whether repeat dosing is needed.",
+          "protocolReference": "MATC: Pain Management"
+        },
+        {
+          "id": "a7-transport-comfort",
+          "shortAction": "Transport in position of comfort with continued reassessment",
+          "protocolExcerpt": "Transport in position of comfort and reassess as indicated",
+          "priority": "important",
+          "rationale": "Minimizes ongoing pain and monitors for delayed medication effects en route.",
+          "protocolReference": "MATC: Pain Management"
+        }
+      ],
+      "transitions": []
+    },
+    {
+      "id": "hypotension-unmonitored",
+      "name": "Morphine given without BP reassessment",
+      "description": "The crew administered morphine but did not reassess blood pressure or respiratory status afterward. The patient becomes hypotensive and mildly drowsy, an under-recognized opioid effect that a timely reassessment would have caught.",
+      "triggerCondition": "Crew fails to reassess vital signs after morphine administration, missing early evidence of opioid-related hypotension and mild sedation.",
+      "isDefault": false,
+      "clinicalPresentation": {
+        "avpu": "Verbal",
+        "gcs": { "eye": 3, "verbal": 5, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "Nonlabored but slightly slowed, 10/min",
+        "circulation": "Radial pulse weaker and thready",
+        "skin": { "color": "pale", "temperature": "cool", "moisture": "diaphoretic" },
+        "pupils": "PERRL, sluggish",
+        "motorFunction": "Sensation and distal pulses intact but patient is drowsy and slow to respond",
+        "otherFindings": [
+          "Patient more drowsy than expected for dose given",
+          "Blood pressure not reassessed since morphine administration",
+          "Mild slurring of speech"
+        ],
+        "patientSpeech": "\"I feel... kinda dizzy... and sleepy...\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Rhythm",
+        "ecgWaveform": 9,
+        "hr": 88,
+        "bpSys": 86,
+        "bpDia": 54,
+        "respRate": 10,
+        "spo2": 94,
+        "etco2": 0,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 0,
+        "glucose": 96,
+        "customMeasures": [],
+        "trendTimeSeconds": 30,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a8-recognize-opioid-effect",
+          "shortAction": "Recognize opioid-related hypotension/sedation; reassess vitals and titrate care",
+          "protocolExcerpt": "Administer opioids with caution to patients with Glasgow Coma Score (GCS) less than 15, hypotension, identified medication allergy, hypoxia (SPO2 less than 90%) after maximal supplemental oxygen therapy, or signs of hypoventilation",
+          "priority": "critical",
+          "rationale": "Delayed recognition of opioid-related hypotension and sedation risks further deterioration en route.",
+          "protocolReference": "MATC: Pain Management"
+        }
+      ],
+      "transitions": []
+    }
+  ],
+  "realiti": {
+    "scenarioMonitorType": 2,
+    "scenarioDefaultEnergy": 200,
+    "scenarioDefaultPacerThreshold": 55
+  }
+}

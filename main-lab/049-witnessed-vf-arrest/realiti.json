@@ -1,0 +1,413 @@
+{
+  "scenarioId": "049-witnessed-vf-arrest",
+  "scenarioName": "049 - Witnessed VF Arrest",
+  "scenarioType": "Vital Signs",
+  "scenarioVersion": 2,
+  "scenarioTime": 900,
+  "scenarioMonitorType": 2,
+  "scenarioDefaultEnergy": 120,
+  "scenarioDefaultPacerThreshold": 55,
+  "isDemo": false,
+  "isALSILegacy": false,
+  "scenarioStory": {
+    "history": "62-year-old male was playing in a recreational softball game when teammates report he suddenly grabbed his chest, said he felt \"lightheaded,\" and collapsed to the ground while standing near first base. A teammate who is an off-duty ICU nurse recognized the collapse as cardiac arrest, called 911, and began chest compressions immediately — no more than 15-20 seconds after the patient went down. No AED was available on site. Bystander CPR has been ongoing since collapse.",
+    "discussion": "",
+    "course": "Initial Contact: Crew arrives to find a 62-year-old male supine on the infield, unresponsive, with a bystander performing chest compressions. Rapid assessment confirms no pulse, no respirations, and agonal/absent breathing. → CPR & Pads Applied: Crew has taken over high-quality chest compressions from the bystander and applied defibrillator pads. Monitor confirms coarse ventricular fibrillation. → First Shock Delivered: Crew delivers the first defibrillation and immediately resumes chest compressions for a full 2-minute cycle without pausing for a pulse check. → ROSC Achieved: After one 2-minute cycle of CPR following the single shock, the pulse/rhythm check reveals an organized sinus tachycardia with a palpable carotid pulse. Compressions are stopped and post-ROSC care begins. → Post-ROSC Care & Transport: Patient remains unresponsive but hemodynamically improving. Crew titrates oxygenation and ventilation, acquires a 12-lead EKG to screen for STEMI, checks glucose, and prepares for transport to an appropriate receiving facility."
+  },
+  "patientInformation": {
+    "patientName": "Gary Thompson",
+    "patientCondition": "Cardiac arrest – witnessed collapse",
+    "patientAge": 62,
+    "patientAgeUnit": "years",
+    "patientAgeCategory": 0,
+    "patientSex": 1,
+    "patientHeight": 178,
+    "patientWeight": 90,
+    "patientPhotoId": 75,
+    "patientAdmitted": 1
+  },
+  "labs": [],
+  "scenarioEvents": [
+    {
+      "type": "ScenarioEvent",
+      "name": "Initial Contact",
+      "description": "Crew arrives to find a 62-year-old male supine on the infield, unresponsive, with a bystander performing chest compressions. Rapid assessment confirms no pulse, no respirations, and agonal/absent breathing.",
+      "monitorType": 0,
+      "trendTime": 0,
+      "jumpTime": 0,
+      "defibShock": true,
+      "defibDisarm": false,
+      "parameters": {
+        "ecgWaveform": 18,
+        "hr": 0,
+        "bpSys": 0,
+        "bpDia": 0,
+        "respRate": 0,
+        "spo2": 0,
+        "etco2": 0,
+        "temp": 37,
+        "obstruction": 0,
+        "custMeasure1": 104,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": false,
+        "spo2Attached": false,
+        "rrVisible": false,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Confirm pulselessness and apnea rapidly; do not delay treatment for full assessment"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "CPR & Pads Applied",
+      "description": "Crew has taken over high-quality chest compressions from the bystander and applied defibrillator pads. Monitor confirms coarse ventricular fibrillation.",
+      "monitorType": 0,
+      "trendTime": 15,
+      "jumpTime": 0,
+      "defibShock": true,
+      "defibDisarm": false,
+      "parameters": {
+        "ecgWaveform": 18,
+        "hr": 0,
+        "bpSys": 0,
+        "bpDia": 0,
+        "respRate": 0,
+        "spo2": 0,
+        "etco2": 0,
+        "temp": 37,
+        "obstruction": 0,
+        "custMeasure1": 104,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": false,
+        "spo2Attached": false,
+        "rrVisible": false,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Take over compressions from bystander; apply pads and analyze rhythm without delay",
+        "Maintain compression rate 100-120/min, depth 2-2.4 inches, allow full chest recoil",
+        "Apply passive oxygenation via NRB with OPA for first compression cycles; do not interrupt compressions"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "First Shock Delivered",
+      "description": "Crew delivers the first defibrillation and immediately resumes chest compressions for a full 2-minute cycle without pausing for a pulse check.",
+      "monitorType": 0,
+      "trendTime": 15,
+      "jumpTime": 0,
+      "defibShock": true,
+      "defibDisarm": false,
+      "parameters": {
+        "ecgWaveform": 18,
+        "hr": 0,
+        "bpSys": 0,
+        "bpDia": 0,
+        "respRate": 0,
+        "spo2": 0,
+        "etco2": 0,
+        "temp": 37,
+        "obstruction": 0,
+        "custMeasure1": 104,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": false,
+        "spo2Attached": false,
+        "rrVisible": false,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Defibrillate at 120 J (first shock, Zoll biphasic per protocol)",
+        "Resume compressions immediately post-shock; no pulse check for 2 minutes",
+        "Obtain IV/IO access without interrupting chest compressions",
+        "Pre-charge defibrillator during compressions to minimize peri-shock pause"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "ROSC Achieved",
+      "description": "After one 2-minute cycle of CPR following the single shock, the pulse/rhythm check reveals an organized sinus tachycardia with a palpable carotid pulse. Compressions are stopped and post-ROSC care begins.",
+      "monitorType": 0,
+      "trendTime": 20,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 118,
+        "bpSys": 96,
+        "bpDia": 58,
+        "respRate": 10,
+        "spo2": 91,
+        "etco2": 38,
+        "temp": 37,
+        "obstruction": 0,
+        "custMeasure1": 104,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Recognize ROSC; stop compressions once organized rhythm with pulse confirmed",
+        "Support airway/breathing and circulation; identify likely cause of arrest",
+        "Monitor closely for re-arrest via cardiac monitor, EtCO2, and perfusion signs"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Post-ROSC Care & Transport",
+      "description": "Patient remains unresponsive but hemodynamically improving. Crew titrates oxygenation and ventilation, acquires a 12-lead EKG to screen for STEMI, checks glucose, and prepares for transport to an appropriate receiving facility.",
+      "monitorType": 0,
+      "trendTime": 40,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 104,
+        "bpSys": 108,
+        "bpDia": 64,
+        "respRate": 10,
+        "spo2": 96,
+        "etco2": 40,
+        "temp": 37.1,
+        "obstruction": 0,
+        "custMeasure1": 104,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Titrate oxygen to SpO2 94-98%; avoid hyperoxygenation",
+        "Ventilate 8-10 breaths/min; target EtCO2 35-45 mmHg, avoid hyperventilation",
+        "Acquire 12-lead EKG within 10 minutes to screen for STEMI; transmit and notify receiving hospital if positive",
+        "Transport to a cath-capable facility if STEMI or reversible cardiac cause identified",
+        "Check blood glucose; treat per Hypoglycemia Guideline if low, notify hospital if high",
+        "Avoid hyperthermia; do not apply warm blankets or excessive heat exposure"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Compressions Delayed",
+      "description": "Crew pauses to perform a full assessment before taking over compressions, allowing a prolonged hands-off interval. Perfusion continues to deteriorate as fibrillation coarseness begins to diminish.",
+      "monitorType": 0,
+      "trendTime": 30,
+      "jumpTime": 0,
+      "defibShock": true,
+      "defibDisarm": false,
+      "parameters": {
+        "ecgWaveform": 18,
+        "hr": 0,
+        "bpSys": 0,
+        "bpDia": 0,
+        "respRate": 0,
+        "spo2": 0,
+        "etco2": 0,
+        "temp": 37,
+        "obstruction": 0,
+        "custMeasure1": 104,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": false,
+        "spo2Attached": false,
+        "rrVisible": false,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Recognize delay; immediately resume compressions and apply pads without further assessment"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Refractory VF",
+      "description": "The 2-minute rhythm/pulse check following the first shock shows persistent coarse VF with no pulse, requiring escalation to a second shock, epinephrine, and consideration of antiarrhythmic therapy.",
+      "monitorType": 0,
+      "trendTime": 20,
+      "jumpTime": 0,
+      "defibShock": true,
+      "defibDisarm": false,
+      "parameters": {
+        "ecgWaveform": 18,
+        "hr": 0,
+        "bpSys": 0,
+        "bpDia": 0,
+        "respRate": 0,
+        "spo2": 0,
+        "etco2": 0,
+        "temp": 37,
+        "obstruction": 0,
+        "custMeasure1": 104,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": false,
+        "spo2Attached": false,
+        "rrVisible": false,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Deliver second defibrillation at 150 J (Zoll biphasic escalation)",
+        "Epinephrine 1 mg IV/IO (fixed adult dose, 0.1 mg/kg capped at max 1 mg); repeat q3-5min",
+        "Consider Amiodarone 300 mg IV/IO for shock-refractory VF/pulseless VT"
+      ],
+      "relatedSounds": []
+    }
+  ],
+  "checklist": [
+    {
+      "title": "Confirm pulselessness and apnea rapidly; do not delay treatment for full assessment",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Take over compressions from bystander; apply pads and analyze rhythm without delay",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Maintain compression rate 100-120/min, depth 2-2.4 inches, allow full chest recoil",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Apply passive oxygenation via NRB with OPA for first compression cycles; do not interrupt compressions",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Defibrillate at 120 J (first shock, Zoll biphasic per protocol)",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Resume compressions immediately post-shock; no pulse check for 2 minutes",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Obtain IV/IO access without interrupting chest compressions",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Pre-charge defibrillator during compressions to minimize peri-shock pause",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Recognize ROSC; stop compressions once organized rhythm with pulse confirmed",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Support airway/breathing and circulation; identify likely cause of arrest",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Monitor closely for re-arrest via cardiac monitor, EtCO2, and perfusion signs",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Titrate oxygen to SpO2 94-98%; avoid hyperoxygenation",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Ventilate 8-10 breaths/min; target EtCO2 35-45 mmHg, avoid hyperventilation",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Acquire 12-lead EKG within 10 minutes to screen for STEMI; transmit and notify receiving hospital if positive",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Transport to a cath-capable facility if STEMI or reversible cardiac cause identified",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Check blood glucose; treat per Hypoglycemia Guideline if low, notify hospital if high",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Avoid hyperthermia; do not apply warm blankets or excessive heat exposure",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Recognize delay; immediately resume compressions and apply pads without further assessment",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Deliver second defibrillation at 150 J (Zoll biphasic escalation)",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Epinephrine 1 mg IV/IO (fixed adult dose, 0.1 mg/kg capped at max 1 mg); repeat q3-5min",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Consider Amiodarone 300 mg IV/IO for shock-refractory VF/pulseless VT",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    }
+  ],
+  "media": []
+}

@@ -1,0 +1,304 @@
+{
+  "scenarioId": "059-posterior-stemi",
+  "scenarioName": "059 - Posterior STEMI",
+  "scenarioType": "Vital Signs",
+  "scenarioVersion": 2,
+  "scenarioTime": 900,
+  "scenarioMonitorType": 2,
+  "scenarioDefaultEnergy": 120,
+  "scenarioDefaultPacerThreshold": 55,
+  "isDemo": false,
+  "isALSILegacy": false,
+  "scenarioStory": {
+    "history": "Onset of epigastric burning and mid-back discomfort approximately 45 minutes prior to EMS arrival while eating dinner; associated diaphoresis, nausea, and mild dyspnea. Patient initially attributed symptoms to heartburn and took antacids without relief. Denies classic substernal chest pressure or radiation to the left arm.",
+    "discussion": "",
+    "course": "Initial Contact: Patient is alert and conversant, complaining of epigastric burning and mid-back discomfort he attributes to indigestion. He is diaphoretic, pale, and mildly tachypneic. Nothing about the presentation screams 'chest pain,' which is exactly the trap of a posterior STEMI equivalent. → Posterior STEMI recognized: Posterior STEMI equivalent confirmed; crew proceeds with STEMI protocol treatment and hospital notification. → STEMI activated, transport to PCI center: Patient packaged for transport; repeat 12-lead performed en route showing persistent posterior injury pattern; hospital catheterization lab activated."
+  },
+  "patientInformation": {
+    "patientName": "Robert Nowicki",
+    "patientCondition": "Epigastric/mid-back discomfort with diaphoresis",
+    "patientAge": 60,
+    "patientAgeUnit": "years",
+    "patientAgeCategory": 0,
+    "patientSex": 1,
+    "patientHeight": 178,
+    "patientWeight": 95,
+    "patientPhotoId": 72,
+    "patientAdmitted": 1
+  },
+  "labs": [],
+  "scenarioEvents": [
+    {
+      "type": "ScenarioEvent",
+      "name": "Initial Contact",
+      "description": "Patient is alert and conversant, complaining of epigastric burning and mid-back discomfort he attributes to indigestion. He is diaphoretic, pale, and mildly tachypneic. Nothing about the presentation screams 'chest pain,' which is exactly the trap of a posterior STEMI equivalent.",
+      "monitorType": 0,
+      "trendTime": 0,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 104,
+        "bpSys": 128,
+        "bpDia": 82,
+        "respRate": 20,
+        "spo2": 96,
+        "etco2": 0,
+        "temp": 37,
+        "obstruction": 0,
+        "custMeasure1": 118,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Perform focused history/physical; recognize atypical anginal-equivalent symptoms (epigastric/back pain, diaphoresis) as possible ACS",
+        "Acquire 12-lead EKG within 10 minutes of patient contact"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Posterior STEMI recognized",
+      "description": "Posterior STEMI equivalent confirmed; crew proceeds with STEMI protocol treatment and hospital notification.",
+      "monitorType": 0,
+      "trendTime": 20,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 26,
+        "hr": 108,
+        "bpSys": 122,
+        "bpDia": 78,
+        "respRate": 20,
+        "spo2": 96,
+        "etco2": 0,
+        "temp": 37,
+        "obstruction": 0,
+        "custMeasure1": 118,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Obtain posterior leads (V7-V9); initial EKG is non-diagnostic in appearance but suspicious",
+        "Activate STEMI system of care; give advance notification to receiving PCI-capable hospital",
+        "Aspirin 324 mg PO, chewed, non-enteric-coated",
+        "Establish IV access",
+        "Nitroglycerin 0.4 mg SL (SBP 122 mmHg, above 100 mmHg threshold); may repeat q3-5 min; screened negative for PDE5 inhibitor use",
+        "Continue cardiac monitoring; watch for dysrhythmias or clinical deterioration"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "STEMI activated, transport to PCI center",
+      "description": "Patient packaged for transport; repeat 12-lead performed en route showing persistent posterior injury pattern; hospital catheterization lab activated.",
+      "monitorType": 0,
+      "trendTime": 30,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 26,
+        "hr": 100,
+        "bpSys": 118,
+        "bpDia": 76,
+        "respRate": 18,
+        "spo2": 97,
+        "etco2": 0,
+        "temp": 37,
+        "obstruction": 0,
+        "custMeasure1": 118,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Perform serial 12-lead EKGs en route; reassess for interval changes",
+        "Provide early notification to receiving facility of any changes in patient condition or serial EKGs",
+        "Fentanyl 95 mcg IV (95 kg x 1 mcg/kg = 95 mcg; max initial dose 100 mcg) for discomfort unresponsive to nitrates"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Posterior STEMI missed",
+      "description": "Without recognition of the posterior STEMI pattern, the patient's ongoing ischemia worsens over the next several minutes; discomfort intensifies and he becomes more diaphoretic and anxious.",
+      "monitorType": 0,
+      "trendTime": 40,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 118,
+        "bpSys": 108,
+        "bpDia": 70,
+        "respRate": 24,
+        "spo2": 94,
+        "etco2": 0,
+        "temp": 37,
+        "obstruction": 0,
+        "custMeasure1": 118,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "VF arrest - missed STEMI",
+      "description": "Cardiac arrest secondary to acute ischemia; crew must immediately recognize arrest and begin high-quality CPR with defibrillation.",
+      "monitorType": 0,
+      "trendTime": 15,
+      "jumpTime": 0,
+      "defibShock": true,
+      "defibDisarm": false,
+      "parameters": {
+        "ecgWaveform": 18,
+        "hr": 0,
+        "bpSys": 0,
+        "bpDia": 0,
+        "respRate": 0,
+        "spo2": 0,
+        "etco2": 0,
+        "temp": 37,
+        "obstruction": 0,
+        "custMeasure1": 118,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": false,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Recognize cardiac arrest; begin immediate high-quality chest compressions",
+        "Defibrillate at 120 J (Zoll biphasic) as soon as VF is confirmed",
+        "Epinephrine 1 mg IV/IO push (95 kg x 0.1 mg/kg = 9.5 mg, capped at protocol max 1 mg)",
+        "Resume chest compressions immediately post-shock without a pulse check, for 2 minutes"
+      ],
+      "relatedSounds": []
+    }
+  ],
+  "checklist": [
+    {
+      "title": "Perform focused history/physical; recognize atypical anginal-equivalent symptoms (epigastric/back pain, diaphoresis) as possible ACS",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Acquire 12-lead EKG within 10 minutes of patient contact",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Obtain posterior leads (V7-V9); initial EKG is non-diagnostic in appearance but suspicious",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Activate STEMI system of care; give advance notification to receiving PCI-capable hospital",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Aspirin 324 mg PO, chewed, non-enteric-coated",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Establish IV access",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Nitroglycerin 0.4 mg SL (SBP 122 mmHg, above 100 mmHg threshold); may repeat q3-5 min; screened negative for PDE5 inhibitor use",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Continue cardiac monitoring; watch for dysrhythmias or clinical deterioration",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Perform serial 12-lead EKGs en route; reassess for interval changes",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Provide early notification to receiving facility of any changes in patient condition or serial EKGs",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Fentanyl 95 mcg IV (95 kg x 1 mcg/kg = 95 mcg; max initial dose 100 mcg) for discomfort unresponsive to nitrates",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Recognize cardiac arrest; begin immediate high-quality chest compressions",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Defibrillate at 120 J (Zoll biphasic) as soon as VF is confirmed",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Epinephrine 1 mg IV/IO push (95 kg x 0.1 mg/kg = 9.5 mg, capped at protocol max 1 mg)",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Resume chest compressions immediately post-shock without a pulse check, for 2 minutes",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    }
+  ],
+  "media": []
+}

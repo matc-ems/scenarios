@@ -1,0 +1,229 @@
+{
+  "scenarioId": "023-pediatric-femur-fracture",
+  "scenarioName": "023 - Pediatric Femur Fracture",
+  "scenarioType": "Vital Signs",
+  "scenarioVersion": 2,
+  "scenarioTime": 720,
+  "scenarioMonitorType": 2,
+  "scenarioDefaultEnergy": 200,
+  "scenarioDefaultPacerThreshold": 55,
+  "isDemo": false,
+  "isALSILegacy": false,
+  "scenarioStory": {
+    "history": "Patient was riding her bicycle down a residential street, lost control while braking, and fell directly onto her right thigh, striking the frame of the bike. She reports immediate severe pain and has been unable to move or bear weight on the leg since the fall. Denies head strike, loss of consciousness, or other injuries.",
+    "discussion": "",
+    "course": "Initial Contact: Crew arrives to find an 11-year-old female lying on the pavement with an obviously deformed right thigh, crying and guarding the leg. She is alert, oriented, and in severe distress from pain. → Fentanyl given before splinting: Crew confirms the injury is isolated with intact distal pulses and sensation, treats pain first with weight-based intranasal fentanyl, then splints the leg in the position found once pain is controlled. → Splinted and pain improved, transport: Patient is packaged with the right leg splinted and pain well controlled, ready for transport with serial reassessment of pain and neurovascular status."
+  },
+  "patientInformation": {
+    "patientName": "Ava Thompson",
+    "patientCondition": "Severe right thigh pain after a bicycle crash",
+    "patientAge": 11,
+    "patientAgeUnit": "years",
+    "patientAgeCategory": 1,
+    "patientSex": 2,
+    "patientHeight": 145,
+    "patientWeight": 36,
+    "patientPhotoId": 14,
+    "patientAdmitted": 1
+  },
+  "labs": [],
+  "scenarioEvents": [
+    {
+      "type": "ScenarioEvent",
+      "name": "Initial Contact",
+      "description": "Crew arrives to find an 11-year-old female lying on the pavement with an obviously deformed right thigh, crying and guarding the leg. She is alert, oriented, and in severe distress from pain.",
+      "monitorType": 0,
+      "trendTime": 0,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 128,
+        "bpSys": 108,
+        "bpDia": 70,
+        "respRate": 22,
+        "spo2": 99,
+        "etco2": 0,
+        "temp": 37,
+        "obstruction": 0,
+        "custMeasure1": 90,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Fentanyl given before splinting",
+      "description": "Crew confirms the injury is isolated with intact distal pulses and sensation, treats pain first with weight-based intranasal fentanyl, then splints the leg in the position found once pain is controlled.",
+      "monitorType": 0,
+      "trendTime": 30,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 98,
+        "bpSys": 110,
+        "bpDia": 72,
+        "respRate": 20,
+        "spo2": 99,
+        "etco2": 0,
+        "temp": 37,
+        "obstruction": 0,
+        "custMeasure1": 90,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Perform MARCH primary survey; confirm isolated extremity injury, no other life threats",
+        "Assess distal pulse, sensation, and movement of right leg before treatment",
+        "Assess pain using Wong-Baker Faces scale (age-appropriate self-report tool)",
+        "Fentanyl 36 mcg IN (36 kg × 1 mcg/kg; max initial dose 100 mcg)",
+        "Splint right leg in position found after analgesia; apply ice pack, not directly on skin",
+        "Reassess distal pulse, sensation, and movement after splinting"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Splinted and pain improved, transport",
+      "description": "Patient is packaged with the right leg splinted and pain well controlled, ready for transport with serial reassessment of pain and neurovascular status.",
+      "monitorType": 0,
+      "trendTime": 30,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 92,
+        "bpSys": 112,
+        "bpDia": 74,
+        "respRate": 18,
+        "spo2": 99,
+        "etco2": 0,
+        "temp": 37,
+        "obstruction": 0,
+        "custMeasure1": 90,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Reassess pain and vitals; may repeat fentanyl 36 mcg IN if pain persists >5 min after first dose",
+        "Transport in position of comfort; reassess as indicated"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Splinted before fentanyl given",
+      "description": "Crew moves directly to splinting the deformed leg without treating pain first, causing a sharp increase in pain and distress before fentanyl is ultimately administered.",
+      "monitorType": 0,
+      "trendTime": 20,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 142,
+        "bpSys": 120,
+        "bpDia": 78,
+        "respRate": 26,
+        "spo2": 98,
+        "etco2": 0,
+        "temp": 37,
+        "obstruction": 0,
+        "custMeasure1": 90,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Give fentanyl 36 mcg IN (36 kg × 1 mcg/kg; max 100 mcg) now to regain control of pain"
+      ],
+      "relatedSounds": []
+    }
+  ],
+  "checklist": [
+    {
+      "title": "Perform MARCH primary survey; confirm isolated extremity injury, no other life threats",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Assess distal pulse, sensation, and movement of right leg before treatment",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Assess pain using Wong-Baker Faces scale (age-appropriate self-report tool)",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Fentanyl 36 mcg IN (36 kg × 1 mcg/kg; max initial dose 100 mcg)",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Splint right leg in position found after analgesia; apply ice pack, not directly on skin",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Reassess distal pulse, sensation, and movement after splinting",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Reassess pain and vitals; may repeat fentanyl 36 mcg IN if pain persists >5 min after first dose",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Transport in position of comfort; reassess as indicated",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Give fentanyl 36 mcg IN (36 kg × 1 mcg/kg; max 100 mcg) now to regain control of pain",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    }
+  ],
+  "media": []
+}

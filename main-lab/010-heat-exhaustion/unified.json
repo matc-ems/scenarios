@@ -1,0 +1,316 @@
+{
+  "meta": {
+    "id": "010-heat-exhaustion",
+    "name": "010 - Heat Exhaustion",
+    "version": 1,
+    "difficulty": "beginner",
+    "category": "Medical",
+    "protocols": ["env-hyperthermia-heat-exposure", "medical-shock"],
+    "totalTimeSeconds": 900,
+    "tags": ["ALS", "environmental", "heat exhaustion", "IV access", "914"]
+  },
+  "patient": {
+    "name": "Marcus Delgado",
+    "age": 19,
+    "ageUnit": "years",
+    "sex": "male",
+    "weight": 78,
+    "weightLbs": 172,
+    "height": 178,
+    "chiefComplaint": "Collapsed while working outdoors, weak and dizzy",
+    "history": {
+      "hpi": "Patient was framing a roof in direct sun for approximately 5 hours with minimal water breaks when coworkers noticed him become unsteady and sit down abruptly. He then reported feeling dizzy, nauseated, and cramping in both calves before near-syncope. No head strike or fall from height; he lowered himself to the ground.",
+      "pastMedical": [],
+      "medications": [],
+      "allergies": ["NKDA"],
+      "lastOralIntake": "One bottle of water around 7:00 AM; no food since the previous evening; ambient temperature reported approximately 95°F with high humidity",
+      "events": "Coworkers called 911 after the patient became unsteady, sat down, and reported symptoms; they moved him to a shaded break area and gave him water prior to EMS arrival"
+    }
+  },
+  "scene": {
+    "dispatch": "19-year-old male, construction site, collapse, conscious and breathing",
+    "location": "Outdoor residential construction site, patient now in the shaded break trailer area",
+    "time": "1:15 PM, weekday, sunny, ambient temperature approximately 95°F",
+    "safety": "Active construction site; crew cleared a safe path, no ongoing hazards to EMS",
+    "bystanders": "Coworkers present, witnessed the collapse, moved patient to shade and gave water",
+    "visualCues": [
+      "Patient seated on the ground in shade, leaning against a cooler",
+      "Flushed, diaphoretic skin",
+      "Empty water bottle nearby",
+      "Tool belt and hard hat removed by coworkers",
+      "Visible heat shimmer off nearby pavement"
+    ]
+  },
+  "phases": [
+    {
+      "id": "initial",
+      "name": "Initial Contact",
+      "description": "Crew arrives to find a 19-year-old male construction worker sitting in the shade, flushed and diaphoretic, complaining of dizziness, weakness, and bilateral calf cramping after prolonged sun exposure with minimal fluid intake.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent, speaking full sentences though slightly slow",
+        "breathing": "Mildly tachypneic, nonlabored, 22/min",
+        "circulation": "Radial pulses rapid and thready, skin flushed and diaphoretic",
+        "skin": { "color": "flushed", "temperature": "hot", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Moves all extremities, complains of bilateral calf cramping",
+        "otherFindings": [
+          "Orthostatic symptoms when previously attempting to stand per coworkers",
+          "Nausea without vomiting",
+          "Reports dizziness and generalized weakness",
+          "Denies chest pain or head injury"
+        ],
+        "patientSpeech": "\"I just got really dizzy and my legs started cramping bad... I feel so weak.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 128,
+        "bpSys": 98,
+        "bpDia": 62,
+        "respRate": 22,
+        "spo2": 97,
+        "etco2": 0,
+        "temp": 38.7,
+        "tempF": 101.7,
+        "obstruction": 0,
+        "glucose": 92,
+        "customMeasures": [],
+        "trendTimeSeconds": 0,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [],
+      "transitions": [
+        {
+          "targetPhaseId": "cooling-iv-started",
+          "if": "Cooling started and IV access obtained",
+          "condition": "Crew moves the patient to a cooler area, removes excess clothing, checks blood glucose, places him on the cardiac monitor, establishes IV access, and begins a normal saline fluid bolus for signs of compensated shock from dehydration.",
+          "conditionType": "action_taken"
+        }
+      ]
+    },
+    {
+      "id": "cooling-iv-started",
+      "name": "Cooling started and IV access obtained",
+      "description": "Crew initiates active cooling measures and gains IV access, administering an isotonic fluid bolus for presumed dehydration-related compensated shock while continuing to monitor for improvement or progression toward heat stroke.",
+      "triggerCondition": "After recognizing tachycardia, orthostatic symptoms, and heat exposure risk factors, the crew moves the patient to a cooler shaded area, removes restrictive clothing, checks blood glucose, places him on the cardiac monitor, and establishes IV access for a fluid bolus.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "Nonlabored, 20/min",
+        "circulation": "Radial pulses rapid but stronger after positioning supine, skin remains flushed and diaphoretic",
+        "skin": { "color": "flushed", "temperature": "warm", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Intact, cramping improving slightly with position and rest",
+        "otherFindings": [
+          "IV established in left AC",
+          "Cooling measures in progress: shade, clothing loosened, misting with tepid water",
+          "Sipping cool water tolerated well"
+        ],
+        "patientSpeech": "\"That water and the fan feel really good.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 118,
+        "bpSys": 100,
+        "bpDia": 64,
+        "respRate": 20,
+        "spo2": 98,
+        "etco2": 0,
+        "temp": 38.3,
+        "tempF": 100.9,
+        "obstruction": 0,
+        "glucose": 92,
+        "customMeasures": [],
+        "trendTimeSeconds": 30,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a1-cooling",
+          "shortAction": "Move to cool shaded area, remove excess clothing, begin evaporative cooling (mist + fan)",
+          "protocolExcerpt": "Move victim to a cool area and shield from the sun or any external heat source. Remove as much clothing as is practical and loosen any restrictive garments. Continually misting the exposed skin with tepid water while fanning the victim",
+          "priority": "critical",
+          "rationale": "Reduces core temperature and halts progression toward heat stroke.",
+          "protocolReference": "MATC: Hyperthermia/Heat Exposure"
+        },
+        {
+          "id": "a2-oral-fluids",
+          "shortAction": "Offer small sips of cool oral fluids since patient is alert and tolerating PO",
+          "protocolExcerpt": "If alert and oriented, give small sips of cool liquids",
+          "priority": "important",
+          "rationale": "Supports rehydration in a patient who can safely protect his airway and swallow.",
+          "protocolReference": "MATC: Hyperthermia/Heat Exposure"
+        },
+        {
+          "id": "a3-glucose",
+          "shortAction": "Check blood glucose; treat per Hypoglycemia guideline if less than 60 mg/dL",
+          "protocolExcerpt": "Check blood sugar, and correct if less than 60 mg/dL",
+          "priority": "important",
+          "rationale": "Rules out hypoglycemia as a contributor to weakness and dizziness.",
+          "protocolReference": "MATC: Shock"
+        },
+        {
+          "id": "a4-monitor",
+          "shortAction": "Place patient on cardiac monitor; obtain continuous vital signs",
+          "protocolExcerpt": "Place on cardiac monitor and record ongoing vital signs (pulse, blood pressure, respiratory rate, neurologic status assessment)",
+          "priority": "important",
+          "rationale": "Heat illness carries arrhythmia risk independent of cause.",
+          "protocolReference": "MATC: Hyperthermia/Heat Exposure"
+        },
+        {
+          "id": "a5-iv-access",
+          "shortAction": "Establish IV access; convert to IO if unsuccessful within 2 attempts or 90 seconds",
+          "protocolExcerpt": "Establish IV access. If unable to obtain within two attempts or less than 90 seconds, place an IO needle",
+          "priority": "critical",
+          "rationale": "Vascular access is required to correct dehydration-related compensated shock.",
+          "protocolReference": "MATC: Shock"
+        },
+        {
+          "id": "a6-fluid-bolus",
+          "shortAction": "Normal saline bolus 500 mL IV, up to 30 mL/kg total (78 kg × 30 mL/kg = 2,340 mL) titrated to MAP 65 mmHg",
+          "protocolExcerpt": "Fluid goal of up to 30 mL/kg of isotonic fluid by administering rapid, predetermined boluses (e.g., 500 mL) unless the MAP goal is achieved, or pulmonary edema develops.",
+          "priority": "critical",
+          "rationale": "Restores intravascular volume and perfusion in orthostatic, tachycardic dehydration.",
+          "protocolReference": "MATC: Shock"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "improved-ready-transport",
+          "if": "Cooling and fluids improve perfusion",
+          "condition": "Active cooling and the IV fluid bolus are performed promptly; the patient's tachycardia, blood pressure, and cramping improve, and he remains alert and oriented throughout.",
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a1-cooling", "a5-iv-access", "a6-fluid-bolus"]
+        },
+        {
+          "targetPhaseId": "cooling-iv-delayed",
+          "if": "Cooling and IV access delayed",
+          "condition": "Crew delays active cooling and IV access; without prompt intervention the patient's core temperature continues to climb and mental status begins to decline.",
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["a1-cooling", "a5-iv-access"]
+        }
+      ]
+    },
+    {
+      "id": "improved-ready-transport",
+      "name": "Cooling and fluids improve perfusion",
+      "description": "The patient's vital signs trend toward normal following cooling measures and the fluid bolus; cramping resolves and he remains alert throughout, ready for transport for further evaluation.",
+      "triggerCondition": "Active cooling and the IV fluid bolus improve the patient's tachycardia, blood pressure, and subjective symptoms; he is packaged for transport with continued monitoring.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "Nonlabored, 18/min",
+        "circulation": "Radial pulses stronger and regular, skin cooling and less diaphoretic",
+        "skin": { "color": "pink", "temperature": "warm", "moisture": "dry" },
+        "pupils": "PERRL",
+        "motorFunction": "Cramping resolved, moves all extremities without difficulty",
+        "otherFindings": [
+          "Repeat orthostatic symptoms resolved",
+          "Tolerating oral fluids well",
+          "No new complaints"
+        ],
+        "patientSpeech": "\"I feel a lot better now, thanks.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Rhythm",
+        "ecgWaveform": 9,
+        "hr": 96,
+        "bpSys": 112,
+        "bpDia": 70,
+        "respRate": 18,
+        "spo2": 99,
+        "etco2": 0,
+        "temp": 37.6,
+        "tempF": 99.7,
+        "obstruction": 0,
+        "glucose": 90,
+        "customMeasures": [],
+        "trendTimeSeconds": 40,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a7-reassess",
+          "shortAction": "Reassess vital signs and mental status; confirm downtrending temperature",
+          "protocolExcerpt": "Cooling efforts should continue until the patient's temperature is less than 102.2°F (39°C) or, if continuous temperature monitoring is not available, until the patient demonstrates improvement in mental status",
+          "priority": "important",
+          "rationale": "Confirms the cooling and fluid interventions are working before ending active treatment.",
+          "protocolReference": "MATC: Hyperthermia/Heat Exposure"
+        },
+        {
+          "id": "a8-transport",
+          "shortAction": "Transport for further evaluation; continue cooling and fluids en route",
+          "protocolExcerpt": "All patients suffering from life threatening heat illness (including heat stroke) should be transported to the hospital",
+          "priority": "important",
+          "rationale": "Heat exhaustion can recur or progress and warrants hospital evaluation.",
+          "protocolReference": "MATC: Hyperthermia/Heat Exposure"
+        }
+      ],
+      "transitions": []
+    },
+    {
+      "id": "cooling-iv-delayed",
+      "name": "Cooling and IV access delayed",
+      "description": "Delayed cooling and IV access allow the patient's condition to worsen: rising temperature, increasing tachycardia, and new mental status changes indicate progression from heat exhaustion toward heat stroke.",
+      "triggerCondition": "Crew delays initiating cooling measures and IV access, focusing on lower-priority tasks; without prompt cooling and fluid resuscitation, the patient's core temperature climbs and mental status begins to decline, indicating early progression toward heat stroke.",
+      "isDefault": false,
+      "clinicalPresentation": {
+        "avpu": "Verbal",
+        "gcs": { "eye": 3, "verbal": 4, "motor": 6 },
+        "airway": "Patent but slower to respond verbally",
+        "breathing": "Tachypneic, 26/min",
+        "circulation": "Weak, thready pulses, skin hot and now becoming dry (loss of sweating)",
+        "skin": { "color": "flushed", "temperature": "hot", "moisture": "dry" },
+        "pupils": "PERRL",
+        "motorFunction": "Follows commands slowly, increasing confusion",
+        "otherFindings": [
+          "Core temperature rising toward the heat stroke threshold",
+          "New confusion, slower to answer questions",
+          "Cramping now diffuse and worsening"
+        ],
+        "patientSpeech": "\"...what... where am I...\" (slurred, confused)"
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 142,
+        "bpSys": 88,
+        "bpDia": 56,
+        "respRate": 26,
+        "spo2": 95,
+        "etco2": 0,
+        "temp": 39.6,
+        "tempF": 103.3,
+        "obstruction": 0,
+        "glucose": 88,
+        "customMeasures": [],
+        "trendTimeSeconds": 50,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a9-recognize-heat-stroke",
+          "shortAction": "Recognize progression toward heat stroke (new AMS + rising temp); begin immediate active cooling and IV fluids",
+          "protocolExcerpt": "Heat Stroke: occurs when the cooling mechanism of the body ceases due to temperature overload and/or electrolyte imbalances. Patient core temperature is usually greater than 104°F. When no thermometer is available, it is distinguished from heat exhaustion by altered level of consciousness, seizures, or coma. If core temperature is greater than 104°F (40°C) or if altered mental status is present, begin active cooling by: Ice bath immersion provides the most rapid cooling mechanism",
+          "priority": "critical",
+          "rationale": "New altered mental status with rising temperature marks the transition from heat exhaustion to the more dangerous heat stroke, requiring immediate aggressive cooling.",
+          "protocolReference": "MATC: Hyperthermia/Heat Exposure"
+        }
+      ],
+      "transitions": []
+    }
+  ],
+  "realiti": {
+    "scenarioMonitorType": 2,
+    "scenarioDefaultEnergy": 200,
+    "scenarioDefaultPacerThreshold": 55
+  }
+}

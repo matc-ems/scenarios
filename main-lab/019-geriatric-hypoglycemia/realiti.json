@@ -1,0 +1,229 @@
+{
+  "scenarioId": "019-geriatric-hypoglycemia",
+  "scenarioName": "019 - Geriatric Hypoglycemia",
+  "scenarioType": "Vital Signs",
+  "scenarioVersion": 2,
+  "scenarioTime": 900,
+  "scenarioMonitorType": 2,
+  "scenarioDefaultEnergy": 200,
+  "scenarioDefaultPacerThreshold": 55,
+  "isDemo": false,
+  "isALSILegacy": false,
+  "scenarioStory": {
+    "history": "Home health aide arrived for a scheduled visit and found the patient unresponsive in her recliner, empty coffee cup nearby. Aide reports the patient is a type 2 diabetic on insulin who ate poorly yesterday and skipped breakfast this morning. No witnessed seizure activity reported.",
+    "discussion": "",
+    "course": "Initial Contact: Crew arrives to find a 79-year-old female unresponsive in a recliner. She does not respond to verbal stimuli and withdraws only to painful stimuli. A fingerstick glucose is obtained and reads 28 mg/dL. → IV dextrose given: Crew establishes IV access, confirms hypoglycemia with fingerstick glucose 28 mg/dL, and administers incremental IV dextrose given the patient's inability to protect her airway. D10% is used preferentially over D50% given her fragile, geriatric veins. → Mental status improved: After incremental IV dextrose administration, the patient's mental status improves and she becomes alert and oriented to person and place. Repeat glucose is checked and she is prepared for transport given her diabetes and initial unresponsiveness."
+  },
+  "patientInformation": {
+    "patientName": "Eleanor Whitfield",
+    "patientCondition": "Unresponsive, found by home health aide",
+    "patientAge": 79,
+    "patientAgeUnit": "years",
+    "patientAgeCategory": 0,
+    "patientSex": 2,
+    "patientHeight": 157,
+    "patientWeight": 62,
+    "patientPhotoId": 95,
+    "patientAdmitted": 1
+  },
+  "labs": [],
+  "scenarioEvents": [
+    {
+      "type": "ScenarioEvent",
+      "name": "Initial Contact",
+      "description": "Crew arrives to find a 79-year-old female unresponsive in a recliner. She does not respond to verbal stimuli and withdraws only to painful stimuli. A fingerstick glucose is obtained and reads 28 mg/dL.",
+      "monitorType": 0,
+      "trendTime": 0,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 112,
+        "bpSys": 98,
+        "bpDia": 60,
+        "respRate": 14,
+        "spo2": 94,
+        "etco2": 0,
+        "temp": 36.2,
+        "obstruction": 0,
+        "custMeasure1": 28,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "IV dextrose given",
+      "description": "Crew establishes IV access, confirms hypoglycemia with fingerstick glucose 28 mg/dL, and administers incremental IV dextrose given the patient's inability to protect her airway. D10% is used preferentially over D50% given her fragile, geriatric veins.",
+      "monitorType": 0,
+      "trendTime": 20,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 108,
+        "bpSys": 100,
+        "bpDia": 62,
+        "respRate": 14,
+        "spo2": 95,
+        "etco2": 0,
+        "temp": 36.3,
+        "obstruction": 0,
+        "custMeasure1": 28,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Confirm blood glucose 28 mg/dL by fingerstick before treatment",
+        "Dextrose 10% IV in incremental doses, max 250 mL (25 g); reassess mental status after each dose",
+        "Use D10% concentration preferentially over D50% given extravasation risk in fragile veins",
+        "Maintain airway positioning and monitor SpO2 given depressed mental status",
+        "Monitor IV site closely for infiltration throughout dextrose administration"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Mental status improved",
+      "description": "After incremental IV dextrose administration, the patient's mental status improves and she becomes alert and oriented to person and place. Repeat glucose is checked and she is prepared for transport given her diabetes and initial unresponsiveness.",
+      "monitorType": 0,
+      "trendTime": 45,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 88,
+        "bpSys": 128,
+        "bpDia": 76,
+        "respRate": 16,
+        "spo2": 98,
+        "etco2": 0,
+        "temp": 36.5,
+        "obstruction": 0,
+        "custMeasure1": 118,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Recheck blood glucose after dextrose; repeat dose if mental status remains abnormal",
+        "Transport to appropriate facility given initial unresponsiveness requiring IV dextrose"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "IV site not monitored, infiltrates",
+      "description": "The IV site is not monitored during dextrose administration; the site swells and the infusion is recognized as infiltrated after an inadequate dose has been delivered. With IV access lost, the crew must switch to IM glucagon.",
+      "monitorType": 0,
+      "trendTime": 30,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 114,
+        "bpSys": 96,
+        "bpDia": 58,
+        "respRate": 14,
+        "spo2": 93,
+        "etco2": 0,
+        "temp": 36.2,
+        "obstruction": 0,
+        "custMeasure1": 28,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Recognize IV infiltration; stop infusion and remove the IV",
+        "Glucagon 1 mg IM given after IV access failure"
+      ],
+      "relatedSounds": []
+    }
+  ],
+  "checklist": [
+    {
+      "title": "Confirm blood glucose 28 mg/dL by fingerstick before treatment",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Dextrose 10% IV in incremental doses, max 250 mL (25 g); reassess mental status after each dose",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Use D10% concentration preferentially over D50% given extravasation risk in fragile veins",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Maintain airway positioning and monitor SpO2 given depressed mental status",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Monitor IV site closely for infiltration throughout dextrose administration",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Recheck blood glucose after dextrose; repeat dose if mental status remains abnormal",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Transport to appropriate facility given initial unresponsiveness requiring IV dextrose",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Recognize IV infiltration; stop infusion and remove the IV",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Glucagon 1 mg IM given after IV access failure",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    }
+  ],
+  "media": []
+}

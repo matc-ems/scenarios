@@ -1,0 +1,302 @@
+{
+  "meta": {
+    "id": "112-prolapsed-umbilical-cord",
+    "name": "112 - Prolapsed Umbilical Cord",
+    "version": 1,
+    "difficulty": "advanced",
+    "category": "OB/GYN",
+    "protocols": ["obgyn-childbirth"],
+    "totalTimeSeconds": 720,
+    "tags": ["OB", "delivery", "prolapsed cord", "obstetric emergency", "921"]
+  },
+  "patient": {
+    "name": "Renata Solis",
+    "age": 30,
+    "ageUnit": "years",
+    "sex": "female",
+    "weight": 72,
+    "weightLbs": 159,
+    "height": 165,
+    "chiefComplaint": "38 weeks pregnant, sudden gush of fluid followed by feeling something in the vagina",
+    "history": {
+      "hpi": "G2P1 at 38 weeks gestation. Patient reports her water broke approximately 10 minutes ago with a large gush of clear fluid, immediately followed by a sensation of something protruding from the vagina and an urge to push. She is now on hands and knees per her husband's instruction after he saw a loop of umbilical cord at the vaginal opening. Contractions are strong and about 3 minutes apart.",
+      "pastMedical": ["Uncomplicated first pregnancy/vaginal delivery 3 years ago", "Gestational hypertension, diet-controlled"],
+      "medications": ["Prenatal vitamins"],
+      "allergies": ["NKDA"],
+      "lastOralIntake": "Light dinner approximately 3 hours ago",
+      "events": "Membranes ruptured spontaneously at home; husband saw the cord and called 911 immediately, placed patient in knee-chest position on instruction from the dispatcher"
+    }
+  },
+  "scene": {
+    "dispatch": "30-year-old female, pregnant, water broke, patient reports something protruding, residence",
+    "location": "Single-family home, master bedroom, patient positioned on hands and knees on the bed per dispatcher pre-arrival instructions",
+    "time": "3:14 AM, weekday",
+    "safety": "No hazards to crew noted; adequate lighting available in bedroom",
+    "bystanders": "Husband present, followed dispatcher's pre-arrival instructions to place patient in knee-chest position",
+    "visualCues": [
+      "Patient in knee-chest position on the bed, visibly anxious",
+      "Loop of pulsating umbilical cord visible at the vaginal opening",
+      "Clear amniotic fluid soaking the sheets",
+      "Strong contractions visibly gripping the patient every few minutes",
+      "Husband kneeling beside the bed holding patient's hand"
+    ]
+  },
+  "phases": [
+    {
+      "id": "initial",
+      "name": "Initial Contact",
+      "description": "Crew arrives to find a 30-year-old G2P1 female at 38 weeks in the knee-chest position with a visible, pulsating loop of umbilical cord protruding from the vaginal opening. Strong contractions are ongoing.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent, speaking in full sentences between contractions",
+        "breathing": "Nonlabored, 20/min, increased rate during contractions",
+        "circulation": "Radial pulses strong and regular",
+        "skin": { "color": "pink", "temperature": "warm", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Intact throughout",
+        "otherFindings": [
+          "Pulsating loop of umbilical cord visible at introitus",
+          "No fetal head or presenting part visible yet",
+          "Contractions approximately every 3 minutes, strong",
+          "Patient maintaining knee-chest position with assistance"
+        ],
+        "patientSpeech": "\"Something's coming out of me, please help, is my baby okay?\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 112,
+        "bpSys": 128,
+        "bpDia": 78,
+        "respRate": 22,
+        "spo2": 98,
+        "etco2": 0,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 0,
+        "glucose": 92,
+        "customMeasures": [],
+        "trendTimeSeconds": 0,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [],
+      "transitions": [
+        {
+          "targetPhaseId": "manual-elevation",
+          "if": "Cord manually elevated off presenting part",
+          "condition": "Crew immediately recognizes the prolapsed cord as an obstetric emergency and places a gloved hand into the vagina to gently lift the presenting part off the cord to relieve compression.",
+          "conditionType": "action_taken"
+        },
+        {
+          "targetPhaseId": "elevation-delayed",
+          "if": "Manual elevation delayed",
+          "condition": "Crew focuses on packaging for transport or other assessment before performing manual elevation of the presenting part off the cord.",
+          "conditionType": "action_not_taken"
+        }
+      ]
+    },
+    {
+      "id": "manual-elevation",
+      "name": "Cord manually elevated off presenting part",
+      "description": "Crew places a gloved hand into the vagina and gently lifts the fetal presenting part off the cord to relieve compression, assesses for cord pulsations, and wraps the exposed cord in moist sterile gauze.",
+      "triggerCondition": "Recognizing the classic presentation of prolapsed cord (visible pulsating cord at the introitus with ruptured membranes), the crew immediately performs manual elevation to relieve cord compression before any further assessment or packaging.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "Nonlabored, 20/min",
+        "circulation": "Radial pulses strong and regular",
+        "skin": { "color": "pink", "temperature": "warm", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Intact",
+        "otherFindings": [
+          "Cord pulsations palpable and strong once compression relieved",
+          "Prolapsed cord wrapped in moist sterile gauze",
+          "Presenting part held off the cord with sustained manual pressure",
+          "Patient maintained in knee-chest position"
+        ],
+        "patientSpeech": "\"Okay, okay, I can feel your hand, just tell me what to do.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 106,
+        "bpSys": 126,
+        "bpDia": 76,
+        "respRate": 20,
+        "spo2": 99,
+        "etco2": 0,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 0,
+        "glucose": 92,
+        "customMeasures": [],
+        "trendTimeSeconds": 30,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a1-manual-elevation",
+          "shortAction": "Place gloved hand into vagina; gently lift presenting part off the prolapsed cord",
+          "protocolExcerpt": "Prolapsed Umbilical Cord: Place gloved hand into vagina and gently lift head/body off the cord",
+          "priority": "critical",
+          "rationale": "Relieves compression of the cord between the fetal presenting part and the maternal pelvis, restoring fetal blood flow.",
+          "protocolReference": "MATC: OB/GYN Childbirth"
+        },
+        {
+          "id": "a2-assess-pulsations",
+          "shortAction": "Assess cord for pulsations after relieving compression",
+          "protocolExcerpt": "Assess for pulsations in cord, if no pulses are felt, lift the presenting part off the cord",
+          "priority": "critical",
+          "rationale": "Confirms whether manual elevation has restored fetal circulation through the cord.",
+          "protocolReference": "MATC: OB/GYN Childbirth"
+        },
+        {
+          "id": "a3-wrap-cord",
+          "shortAction": "Wrap the prolapsed cord in moist sterile gauze",
+          "protocolExcerpt": "Wrap the prolapsed cord in moist sterile gauze",
+          "priority": "important",
+          "rationale": "Prevents desiccation and further trauma to the exposed cord during transport.",
+          "protocolReference": "MATC: OB/GYN Childbirth"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "positioning-transport",
+          "if": "Position optimized, rapid transport initiated",
+          "condition": "With the cord decompressed and pulsating well, the crew optimizes maternal positioning and initiates immediate transport while maintaining manual elevation throughout.",
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a1-manual-elevation"]
+        }
+      ]
+    },
+    {
+      "id": "positioning-transport",
+      "name": "Position optimized, rapid transport initiated",
+      "description": "Crew maintains sustained manual elevation of the presenting part off the cord, positions the mother in extreme Trendelenburg or knee-chest with hips elevated, applies high-flow oxygen, and expedites transport with advance notification to the receiving facility.",
+      "triggerCondition": "With cord pulsations confirmed and the presenting part held off the cord, the crew optimizes positioning to further relieve compression and moves immediately to transport given the time-critical nature of the emergency.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "Nonlabored, 18/min on high-flow O2",
+        "circulation": "Radial pulses strong and regular",
+        "skin": { "color": "pink", "temperature": "warm", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Intact",
+        "otherFindings": [
+          "Extreme Trendelenburg with hips elevated maintained during transport",
+          "Manual elevation of presenting part sustained continuously",
+          "High-flow oxygen applied to mother",
+          "Receiving facility notified and OB team prepared for emergent cesarean"
+        ],
+        "patientSpeech": "\"Please don't stop, please don't let go.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 102,
+        "bpSys": 124,
+        "bpDia": 74,
+        "respRate": 18,
+        "spo2": 99,
+        "etco2": 0,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 0,
+        "glucose": 92,
+        "customMeasures": [],
+        "trendTimeSeconds": 40,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a4-positioning",
+          "shortAction": "Place mother in prone knee-chest or extreme Trendelenburg with hips elevated",
+          "protocolExcerpt": "If previous techniques are not successful, mother should be placed in prone knee-chest position or extreme Trendelenburg with hips elevated",
+          "priority": "important",
+          "rationale": "Uses gravity to further shift the presenting part away from the cord and reduce compression.",
+          "protocolReference": "MATC: OB/GYN Childbirth"
+        },
+        {
+          "id": "a5-oxygen-transport",
+          "shortAction": "Apply high-flow oxygen to mother; expedite transport to appropriate receiving facility",
+          "protocolExcerpt": "If complications of delivery occur, apply high flow oxygen to mother and expedite transport to the appropriate receiving facility. Maternal resuscitation is critical for best fetal outcome",
+          "priority": "critical",
+          "rationale": "Maximizes fetal oxygen delivery and gets the patient to definitive care (likely emergent cesarean) as quickly as possible.",
+          "protocolReference": "MATC: OB/GYN Childbirth"
+        },
+        {
+          "id": "a6-notify",
+          "shortAction": "Contact medical direction/receiving facility to prepare team for prolapsed cord",
+          "protocolExcerpt": "Notify medical direction/receiving facility if: Prolapsed umbilical cord",
+          "priority": "important",
+          "rationale": "Allows the receiving OB team to prepare for immediate emergent delivery on arrival.",
+          "protocolReference": "MATC: OB/GYN Childbirth"
+        }
+      ],
+      "transitions": []
+    },
+    {
+      "id": "elevation-delayed",
+      "name": "Manual elevation delayed",
+      "description": "Crew delays manual elevation of the presenting part off the cord in favor of packaging or other assessment, allowing sustained cord compression during ongoing strong contractions.",
+      "triggerCondition": "The crew becomes focused on positioning for transport or other assessment steps before addressing the cord compression directly, leaving the presenting part to continue compressing the cord during contractions.",
+      "isDefault": false,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "Nonlabored, 22/min, increasingly anxious",
+        "circulation": "Radial pulses strong and regular",
+        "skin": { "color": "pink", "temperature": "warm", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Intact",
+        "otherFindings": [
+          "Cord pulsations noticeably weaker on repeat check",
+          "Contraction just occurred with visible cord compression",
+          "Patient increasingly distressed",
+          "No manual elevation yet performed"
+        ],
+        "patientSpeech": "\"Why aren't you doing anything, is my baby moving?\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 118,
+        "bpSys": 130,
+        "bpDia": 80,
+        "respRate": 24,
+        "spo2": 97,
+        "etco2": 0,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 0,
+        "glucose": 92,
+        "customMeasures": [],
+        "trendTimeSeconds": 20,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a7-recover-elevation",
+          "shortAction": "Immediately place gloved hand into vagina to lift presenting part off cord",
+          "protocolExcerpt": "Prolapsed Umbilical Cord: Place gloved hand into vagina and gently lift head/body off the cord. Assess for pulsations in cord, if no pulses are felt, lift the presenting part off the cord",
+          "priority": "critical",
+          "rationale": "Weakening cord pulsations indicate worsening fetal compromise from ongoing compression; manual elevation must be performed without further delay.",
+          "protocolReference": "MATC: OB/GYN Childbirth"
+        }
+      ],
+      "transitions": []
+    }
+  ],
+  "realiti": {
+    "scenarioMonitorType": 2,
+    "scenarioDefaultEnergy": 200,
+    "scenarioDefaultPacerThreshold": 55
+  }
+}

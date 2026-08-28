@@ -1,0 +1,356 @@
+{
+  "meta": {
+    "id": "111-footling-breech-delivery",
+    "name": "111 - Footling Breech Delivery",
+    "version": 1,
+    "difficulty": "advanced",
+    "category": "OB/GYN",
+    "protocols": ["obgyn-childbirth"],
+    "totalTimeSeconds": 600,
+    "tags": ["OB", "breech", "delivery", "footling", "921"]
+  },
+  "patient": {
+    "name": "Emily Cortez",
+    "age": 24,
+    "ageUnit": "years",
+    "sex": "female",
+    "weight": 65,
+    "weightLbs": 143,
+    "height": 165,
+    "chiefComplaint": "Active labor, 37 weeks, footling breech presentation, already crowning",
+    "history": {
+      "hpi": "24-year-old G2P1 at 37 weeks gestation called 911 after a sudden urge to push at home. Contractions have been roughly 2 minutes apart for the last 20 minutes. On exam, a single fetal foot is visible at the vaginal opening rather than the head.",
+      "pastMedical": ["Uncomplicated prior vaginal delivery 3 years ago", "Gestational hypertension, diet-controlled"],
+      "medications": ["Prenatal vitamins"],
+      "allergies": ["NKDA"],
+      "lastOralIntake": "Light breakfast approximately 4 hours prior",
+      "events": "Patient felt a sudden urge to push at home; husband called 911 when he saw a foot presenting at the vaginal opening"
+    }
+  },
+  "scene": {
+    "dispatch": "24-year-old female, active labor, patient states baby is coming, residence",
+    "location": "Second-floor apartment bedroom, patient on bed",
+    "time": "3:15 AM, weekday",
+    "safety": "No hazards to crew noted",
+    "bystanders": "Husband present, anxious, assisting patient",
+    "visualCues": [
+      "Single fetal foot visible at the vaginal introitus",
+      "Strong contractions visibly gripping the patient every 2 minutes",
+      "Prenatal records folder on the nightstand showing 37-week gestation"
+    ]
+  },
+  "phases": [
+    {
+      "id": "initial",
+      "name": "Initial Contact",
+      "description": "Crew arrives to find a 24-year-old female in active labor with a single fetal foot presenting at the vaginal opening — a footling breech — with strong contractions every 2 minutes.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent, speaking full sentences between contractions",
+        "breathing": "Nonlabored, 22/min, breathing heavily during contractions",
+        "circulation": "Radial pulses strong and regular",
+        "skin": { "color": "flushed", "temperature": "warm", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Intact, patient positioning herself for delivery",
+        "otherFindings": [
+          "Single fetal foot presenting at vaginal introitus",
+          "Contractions every 2 minutes, strong",
+          "No prolapsed cord visible at this time"
+        ],
+        "patientSpeech": "\"It's coming, I can feel it, please help me — something feels different this time!\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 108,
+        "bpSys": 128,
+        "bpDia": 78,
+        "respRate": 22,
+        "spo2": 98,
+        "etco2": 0,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 0,
+        "glucose": 90,
+        "customMeasures": [],
+        "trendTimeSeconds": 0,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [],
+      "transitions": [
+        {
+          "targetPhaseId": "footling-delivery",
+          "if": "Hands-off breech technique used",
+          "condition": "Crew recognizes footling breech presentation and positions the mother supine, allowing the buttocks, feet, and trunk to deliver spontaneously without applying traction.",
+          "conditionType": "action_taken"
+        }
+      ]
+    },
+    {
+      "id": "footling-delivery",
+      "name": "Hands-off breech technique used",
+      "description": "The crew allows the buttocks, feet, and trunk to deliver spontaneously without pulling, continuously checking for a prolapsed cord and supporting the fetal body to prevent hyperextension of the head.",
+      "triggerCondition": "Crew recognizes the footling breech presentation and, per protocol, allows spontaneous delivery of the lower body without traction while assessing for cord complications.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "Nonlabored between contractions, 20/min",
+        "circulation": "Radial pulses strong and regular",
+        "skin": { "color": "flushed", "temperature": "warm", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Intact",
+        "otherFindings": [
+          "Buttocks, feet, and trunk delivered spontaneously without traction",
+          "Umbilical cord palpated, pulsatile, no prolapse",
+          "Fetal body supported and kept elevated off the cord"
+        ],
+        "patientSpeech": "\"Is the baby okay? Please don't pull!\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 112,
+        "bpSys": 126,
+        "bpDia": 76,
+        "respRate": 24,
+        "spo2": 98,
+        "etco2": 0,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 0,
+        "glucose": 90,
+        "customMeasures": [],
+        "trendTimeSeconds": 20,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a1-hands-off",
+          "shortAction": "Position mother supine; allow buttocks, feet, and trunk to deliver spontaneously without traction",
+          "protocolExcerpt": "Breech Birth: Place mother supine, allow the buttocks, feet, and trunk to deliver spontaneously, then support the body while the head is delivered",
+          "priority": "critical",
+          "rationale": "Pulling on a breech fetus risks nuchal arm entrapment, cervical spine injury, or head entrapment.",
+          "protocolReference": "MATC: OB/GYN Childbirth"
+        },
+        {
+          "id": "a2-cord-check",
+          "shortAction": "Assess for prolapsed cord as the trunk delivers; treat immediately if present",
+          "protocolExcerpt": "Assess for presence of prolapsed cord and treat as above",
+          "priority": "critical",
+          "rationale": "Footling breech carries a higher risk of cord prolapse than cephalic or complete breech presentations.",
+          "protocolReference": "MATC: OB/GYN Childbirth"
+        },
+        {
+          "id": "a3-support-body",
+          "shortAction": "Support fetal body without pulling; keep fetus elevated off the umbilical cord",
+          "protocolExcerpt": "Once the legs are delivered support the body to avoid hyperextension of the head; keep the fetus elevated off the umbilical cord",
+          "priority": "critical",
+          "rationale": "Prevents head hyperextension and cord compression during the vulnerable trunk-to-head interval.",
+          "protocolReference": "MATC: OB/GYN Childbirth"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "head-delivery",
+          "if": "Head delivered with jaw-flexion technique",
+          "condition": "The head does not deliver spontaneously after the trunk, requiring the crew to create an airway and flex the fetal head per the protocol's breech head-delivery technique.",
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a3-support-body"]
+        },
+        {
+          "targetPhaseId": "traction-applied",
+          "if": "Traction applied on fetal body",
+          "condition": "Instead of allowing spontaneous descent, the crew pulls on the fetal trunk to hasten delivery, risking nuchal arm entrapment or cervical injury.",
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["a1-hands-off"]
+        }
+      ]
+    },
+    {
+      "id": "head-delivery",
+      "name": "Head delivered with jaw-flexion technique",
+      "description": "The fetal head fails to deliver spontaneously after the trunk. The crew creates an airway with a gloved hand and flexes the head using the jaw-flexion (Mauriceau-style) maneuver described in protocol.",
+      "triggerCondition": "After trunk delivery, the head does not deliver spontaneously, requiring the crew to place a gloved hand into the vagina to create an airway and flex the fetal head toward the chest.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "Nonlabored, 20/min",
+        "circulation": "Radial pulses strong and regular",
+        "skin": { "color": "flushed", "temperature": "warm", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Intact",
+        "otherFindings": [
+          "Fetal head delivered using jaw-flexion technique",
+          "Newborn crying immediately after head delivery",
+          "Cord clamped and cut after 1 minute per protocol"
+        ],
+        "patientSpeech": "\"I hear crying — is that my baby?\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 104,
+        "bpSys": 122,
+        "bpDia": 74,
+        "respRate": 20,
+        "spo2": 99,
+        "etco2": 0,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 0,
+        "glucose": 90,
+        "customMeasures": [],
+        "trendTimeSeconds": 30,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a4-jaw-flexion",
+          "shortAction": "Insert gloved hand, form a 'V' with index/ring fingers on infant's cheeks, flex chin to chest to create an airway and deliver the head",
+          "protocolExcerpt": "If head fails to deliver, place gloved hand into vagina with fingers between infant's face and uterine wall to create an open airway. Place your index and ring fingers on the baby's cheeks forming a \"V\" taking care not to block the mouth and allowing the chin to be tilted toward the chest flexing the neck",
+          "priority": "critical",
+          "rationale": "Creates an airway for the fetal face and flexes the head to allow safe passage through the birth canal.",
+          "protocolReference": "MATC: OB/GYN Childbirth"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "stabilized-transport",
+          "if": "Newborn dried, warmed, APGAR scored",
+          "condition": "Newborn is delivered, dried, warmed, and stimulated; APGAR scoring and transport preparation begin.",
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a4-jaw-flexion"]
+        }
+      ]
+    },
+    {
+      "id": "stabilized-transport",
+      "name": "Newborn dried, warmed, APGAR scored",
+      "description": "The newborn is delivered, dried, warmed, and placed on the maternal chest. APGAR scores are recorded and the crew prepares mother and newborn for transport, notifying medical direction of the breech presentation.",
+      "triggerCondition": "After successful delivery of the head, the newborn is dried, warmed, and stimulated, then APGAR scored and prepared for transport with the mother.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "Nonlabored, 18/min",
+        "circulation": "Radial pulses strong and regular",
+        "skin": { "color": "pink", "temperature": "warm", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Intact",
+        "otherFindings": [
+          "Newborn crying vigorously, pink centrally, active movement",
+          "Cord clamped and cut, placenta not yet delivered",
+          "Fundus being gently massaged"
+        ],
+        "patientSpeech": "\"Thank you, thank you so much.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Rhythm",
+        "ecgWaveform": 9,
+        "hr": 92,
+        "bpSys": 118,
+        "bpDia": 72,
+        "respRate": 18,
+        "spo2": 99,
+        "etco2": 0,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 0,
+        "glucose": 90,
+        "customMeasures": [],
+        "trendTimeSeconds": 40,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a5-dry-warm",
+          "shortAction": "Dry, warm, and stimulate newborn; wrap in towel and place on maternal chest",
+          "protocolExcerpt": "Dry, warm, and stimulate infant, wrap in towel and place on maternal chest unless resuscitation needed",
+          "priority": "critical",
+          "rationale": "Prevents neonatal hypothermia and promotes spontaneous respiratory effort.",
+          "protocolReference": "MATC: OB/GYN Childbirth"
+        },
+        {
+          "id": "a6-apgar",
+          "shortAction": "Record APGAR score at 1 and 5 minutes once neonate is stabilized",
+          "protocolExcerpt": "Resuscitation takes priority over recording APGAR scores. Record APGAR scores at 1 and 5 minutes once neonate is stabilized",
+          "priority": "important",
+          "rationale": "Documents neonatal transition status and guides any escalation to resuscitation.",
+          "protocolReference": "MATC: OB/GYN Childbirth"
+        },
+        {
+          "id": "a7-notify",
+          "shortAction": "Notify medical direction/receiving facility of the breech presentation prior to arrival",
+          "protocolExcerpt": "Notify medical direction/receiving facility if: ... Breech presentation",
+          "priority": "important",
+          "rationale": "Allows the receiving facility to prepare an OB/neonatal team in advance.",
+          "protocolReference": "MATC: OB/GYN Childbirth"
+        }
+      ],
+      "transitions": []
+    },
+    {
+      "id": "traction-applied",
+      "name": "Traction applied on fetal body",
+      "description": "The crew pulls on the fetal trunk attempting to hasten delivery instead of allowing spontaneous descent, creating risk of nuchal arm entrapment or cervical spine injury to the fetus.",
+      "triggerCondition": "Instead of a hands-off approach, the crew applies traction to the fetal body during descent, against the explicit protocol warning.",
+      "isDefault": false,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "Labored with contraction, 26/min",
+        "circulation": "Radial pulses strong, tachycardic",
+        "skin": { "color": "flushed", "temperature": "warm", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Intact",
+        "otherFindings": [
+          "Delivery progress stalled after excessive traction applied to fetal trunk",
+          "Arm now entrapped behind the fetal neck, delaying head delivery",
+          "Mother distressed by increased pain"
+        ],
+        "patientSpeech": "\"Something's wrong, it hurts so much more now!\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 124,
+        "bpSys": 134,
+        "bpDia": 82,
+        "respRate": 26,
+        "spo2": 97,
+        "etco2": 0,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 0,
+        "glucose": 90,
+        "customMeasures": [],
+        "trendTimeSeconds": 20,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a8-stop-traction",
+          "shortAction": "Recognize impaired progress; stop traction and revert to a hands-off, support-only technique",
+          "protocolExcerpt": "NEVER pull on the body, especially a preterm or previable baby – just support the baby's body while mother pushes when she feels the urge to",
+          "priority": "critical",
+          "rationale": "Traction is the direct cause of nuchal arm entrapment; stopping it and allowing maternal effort to resume progress is the correction.",
+          "protocolReference": "MATC: OB/GYN Childbirth"
+        }
+      ],
+      "transitions": []
+    }
+  ],
+  "realiti": {
+    "scenarioMonitorType": 2,
+    "scenarioDefaultEnergy": 200,
+    "scenarioDefaultPacerThreshold": 55
+  }
+}

@@ -1,0 +1,373 @@
+{
+  "meta": {
+    "id": "087-pedestrian-vs-auto",
+    "name": "087 - Pedestrian vs. Auto",
+    "version": 1,
+    "difficulty": "advanced",
+    "category": "Trauma",
+    "protocols": [
+      "trauma-general",
+      "trauma-spinal-care",
+      "medical-pain-management"
+    ],
+    "totalTimeSeconds": 900,
+    "tags": ["trauma", "pedestrian struck", "flail chest", "MVC", "920", "multi-system"]
+  },
+  "patient": {
+    "name": "Renata Cole",
+    "age": 52,
+    "ageUnit": "years",
+    "sex": "female",
+    "weight": 70,
+    "weightLbs": 154,
+    "height": 165,
+    "chiefComplaint": "Struck by vehicle, severe chest and body pain",
+    "history": {
+      "hpi": "Bystanders report the patient was crossing an intersection when she was struck by a sedan traveling an estimated 40 mph; she was thrown approximately 15 feet and landed on the pavement. On arrival she is awake, in severe distress, complaining of chest and left flank pain, with visibly paradoxical movement of the left lateral chest wall with each breath. Denies loss of consciousness per bystanders, though she is disoriented to time.",
+      "pastMedical": ["Hypertension"],
+      "medications": ["Amlodipine 5 mg PO daily"],
+      "allergies": ["NKDA"],
+      "lastOralIntake": "Lunch approximately 3 hours prior",
+      "events": "Struck by a vehicle while crossing an intersection; thrown roughly 15 feet on impact"
+    }
+  },
+  "scene": {
+    "dispatch": "52-year-old female, pedestrian struck by vehicle, conscious, intersection",
+    "location": "Urban intersection, patient supine on pavement near the crosswalk, vehicle stopped nearby with a shattered windshield",
+    "time": "5:48 PM, weekday, dusk",
+    "safety": "Scene secured by police, traffic diverted; patient in the roadway near the curb lane",
+    "bystanders": "Multiple witnesses report the vehicle was traveling at high speed and did not brake before impact; patient was thrown approximately 15 feet",
+    "visualCues": [
+      "Patient supine on pavement, visibly in distress",
+      "Paradoxical inward movement of the left lateral chest wall with each breath",
+      "Bruising and abrasions across the left chest and flank",
+      "Deformity of the left lower leg",
+      "Shattered windshield on the involved vehicle consistent with head/torso impact"
+    ]
+  },
+  "phases": [
+    {
+      "id": "initial",
+      "name": "Initial Contact",
+      "description": "Crew arrives to find a 52-year-old female pedestrian struck by a vehicle at high speed, thrown approximately 15 feet. She is alert but tachypneic and in severe pain, with visible paradoxical movement of the left chest wall consistent with a flail segment.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 4, "motor": 6 },
+        "airway": "Patent, speaking in short phrases due to pain",
+        "breathing": "Tachypneic, shallow, paradoxical inward movement of left lateral chest wall on inspiration",
+        "circulation": "Radial pulses present but rapid, skin pale and diaphoretic",
+        "skin": { "color": "pale", "temperature": "cool", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Moves all extremities, guarding left chest and left lower leg",
+        "otherFindings": [
+          "Paradoxical chest wall movement over the left lateral ribs",
+          "Left chest and flank bruising with tenderness on palpation",
+          "Deformity of the left lower leg, distal pulses intact",
+          "Disoriented to time, oriented to person and place",
+          "Pain 9/10, worse with breathing"
+        ],
+        "patientSpeech": "\"It hurts... I can't breathe right... please help me.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 124,
+        "bpSys": 118,
+        "bpDia": 76,
+        "respRate": 28,
+        "spo2": 90,
+        "etco2": 0,
+        "temp": 36.4,
+        "tempF": 97.5,
+        "obstruction": 0,
+        "glucose": 108,
+        "customMeasures": [],
+        "trendTimeSeconds": 0,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [],
+      "transitions": [
+        {
+          "targetPhaseId": "primary-survey-smr",
+          "if": "Primary survey and SMR completed",
+          "condition": "Crew performs a MARCH primary survey, identifies the flail segment and hypoxia, applies supplemental oxygen, and initiates spinal motion restriction given the severe distracting chest and leg injuries.",
+          "conditionType": "action_taken"
+        }
+      ]
+    },
+    {
+      "id": "primary-survey-smr",
+      "name": "Primary survey and SMR completed",
+      "description": "Crew completes the MARCH primary survey, applies high-flow oxygen for hypoxia, palpates the chest wall confirming flail segment without tracheal deviation or absent breath sounds, and initiates cervical collar and spinal motion restriction given the severe distracting injuries.",
+      "triggerCondition": "After the massive-hemorrhage and airway checks are clear, the crew's breathing assessment confirms paradoxical chest wall movement without signs of tension pneumothorax; the severe, painful chest and leg injuries meet spinal motion restriction criteria as distracting injuries.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 4, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "Tachypneic, paradoxical left chest wall movement persists, breath sounds present bilaterally, no tracheal deviation",
+        "circulation": "Radial pulses present, rapid, IV access established",
+        "skin": { "color": "pale", "temperature": "cool", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Moves all extremities, guarding left chest and left lower leg",
+        "otherFindings": [
+          "Cervical collar applied for spinal motion restriction",
+          "High-flow oxygen applied, SpO2 improving",
+          "IV access established in right forearm",
+          "Chest wall instability and crepitus confirmed on palpation, no tracheal deviation"
+        ],
+        "patientSpeech": "\"The oxygen helps a little... my chest still hurts so bad.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 118,
+        "bpSys": 116,
+        "bpDia": 74,
+        "respRate": 26,
+        "spo2": 95,
+        "etco2": 0,
+        "temp": 36.4,
+        "tempF": 97.5,
+        "obstruction": 0,
+        "glucose": 108,
+        "customMeasures": [],
+        "trendTimeSeconds": 30,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a1-march",
+          "shortAction": "Perform MARCH primary survey: hemorrhage, airway, breathing, circulation, head/hypothermia",
+          "protocolExcerpt": "Primary survey (Use \"MARCH\" algorithm)",
+          "priority": "critical",
+          "rationale": "Structured survey rapidly identifies the life-threatening flail chest and rules out tension pneumothorax before other injuries are addressed.",
+          "protocolReference": "MATC: General Trauma Management"
+        },
+        {
+          "id": "a2-chest-assess",
+          "shortAction": "Palpate chest wall for instability/crepitus; auscultate breath sounds bilaterally",
+          "protocolExcerpt": "Chest – See Initial Treatment: Palpate for instability/crepitus. Listen to breath sounds. Inspect for penetrating or soft tissue injuries",
+          "priority": "critical",
+          "rationale": "Confirms the flail segment and rules out an evolving tension pneumothorax before it becomes hemodynamically significant.",
+          "protocolReference": "MATC: General Trauma Management"
+        },
+        {
+          "id": "a3-o2",
+          "shortAction": "Apply high-flow supplemental oxygen to target SpO2 greater than 94%",
+          "protocolExcerpt": "Monitor oxygen saturation (SpO2) and, if indicated, provide supplemental oxygen to maintain SPO2 greater than 94% and respiratory support if needed",
+          "priority": "critical",
+          "rationale": "Hypoxia from the flail segment and underlying pulmonary contusion requires immediate correction.",
+          "protocolReference": "MATC: General Trauma Management"
+        },
+        {
+          "id": "a4-smr",
+          "shortAction": "Apply cervical collar and initiate spinal motion restriction for distracting injuries",
+          "protocolExcerpt": "Place patient in cervical collar and initiate spinal motion restriction in adults if there are any of the following: Another severe or painful distracting injury",
+          "priority": "critical",
+          "rationale": "The severe chest and leg injuries meet SMR criteria as distracting injuries even without a specific neck complaint.",
+          "protocolReference": "MATC: Spinal Care"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "fluid-pain-managed",
+          "if": "Fluid bolus and fentanyl given",
+          "condition": "Given the persistent tachycardia above 120 bpm, crew initiates a 500 mL crystalloid bolus per resuscitation criteria and administers weight-based fentanyl for severe pain.",
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a3-o2", "a4-smr"]
+        },
+        {
+          "targetPhaseId": "tension-pneumo-branch",
+          "if": "Chest reassessment skipped",
+          "condition": "Crew moves on to splinting and transport without reassessing breath sounds; an evolving tension pneumothorax on the injured side goes unrecognized until the patient rapidly decompensates.",
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["a2-chest-assess"]
+        }
+      ]
+    },
+    {
+      "id": "fluid-pain-managed",
+      "name": "Fluid bolus and fentanyl given",
+      "description": "Crew initiates a 500 mL crystalloid bolus for persistent tachycardia and administers weight-based fentanyl for severe pain, reassessing vitals and pain score after each intervention.",
+      "triggerCondition": "With HR persistently above 120 bpm meeting resuscitation criteria and pain remaining severe, the crew starts a fluid bolus and administers fentanyl, reassessing the response.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "Improved tidal volume, paradoxical movement less pronounced with positioning",
+        "circulation": "Radial pulses stronger, skin warming slightly",
+        "skin": { "color": "pink", "temperature": "cool", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Moves all extremities, guarding decreased",
+        "otherFindings": [
+          "Pain improved to 4/10 after fentanyl",
+          "500 mL crystalloid bolus completed",
+          "Left lower leg splinted in position found"
+        ],
+        "patientSpeech": "\"That's a lot better, thank you. I can breathe a little easier.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 108,
+        "bpSys": 122,
+        "bpDia": 78,
+        "respRate": 22,
+        "spo2": 96,
+        "etco2": 0,
+        "temp": 36.5,
+        "tempF": 97.7,
+        "obstruction": 0,
+        "glucose": 106,
+        "customMeasures": [],
+        "trendTimeSeconds": 40,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a5-fluid-bolus",
+          "shortAction": "500 mL crystalloid IV bolus for HR >120 bpm; reassess and repeat as needed",
+          "protocolExcerpt": "If SBP less than 90 mmHg or HR greater than 120 BPM, initiate resuscitation: consider 500 mL bolus of IV fluid, repeat as needed for persistent signs and symptoms of shock",
+          "priority": "critical",
+          "rationale": "Persistent tachycardia above 120 bpm meets the protocol's resuscitation threshold even with a normal systolic blood pressure.",
+          "protocolReference": "MATC: General Trauma Management"
+        },
+        {
+          "id": "a6-fentanyl",
+          "shortAction": "Fentanyl 70 mcg IV (70 kg × 1 mcg/kg; max initial dose 100 mcg)",
+          "protocolExcerpt": "Fentanyl: 1 mcg/kg IN, IM, IV or IO (maximum initial dose of 100 mcg)",
+          "priority": "important",
+          "rationale": "Severe pain (9/10) from the flail chest and leg injury warrants weight-based opioid analgesia.",
+          "protocolReference": "MATC: Pain Management"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "transport",
+          "if": "Reassessed and prepared for transport",
+          "condition": "With pain controlled and perfusion improving, the patient is packaged and prepared for rapid transport with serial reassessment en route.",
+          "conditionType": "action_taken"
+        }
+      ]
+    },
+    {
+      "id": "transport",
+      "name": "Reassessed and prepared for transport",
+      "description": "Patient is packaged with spinal motion restriction, splinted leg, oxygen, and IV access, and transported with continued serial reassessment given the multi-system mechanism.",
+      "triggerCondition": "After fluid and pain management, the patient's perfusion and comfort have improved; crew initiates rapid transport with ongoing serial vital sign monitoring.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "Improved, mild residual paradoxical movement with deep breaths",
+        "circulation": "Radial and pedal pulses strong bilaterally",
+        "skin": { "color": "pink", "temperature": "warm", "moisture": "dry" },
+        "pupils": "PERRL",
+        "motorFunction": "Moves all extremities, sensation intact distal to splinted leg",
+        "otherFindings": [
+          "Pain 3/10 en route",
+          "No new neurologic deficits",
+          "Splint and dressings intact"
+        ],
+        "patientSpeech": "\"I feel more comfortable now. How much longer to the hospital?\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Rhythm",
+        "ecgWaveform": 9,
+        "hr": 96,
+        "bpSys": 124,
+        "bpDia": 80,
+        "respRate": 20,
+        "spo2": 97,
+        "etco2": 0,
+        "temp": 36.6,
+        "tempF": 97.9,
+        "obstruction": 0,
+        "glucose": 106,
+        "customMeasures": [],
+        "trendTimeSeconds": 30,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a7-serial-reassess",
+          "shortAction": "Reassess vital signs and breath sounds serially en route; monitor for delayed tension pneumothorax",
+          "protocolExcerpt": "Repeat primary assessment or secondary assessment should be conducted en route to the trauma center. If patient develops difficulty with ventilation, reassess breath sounds for development of tension pneumothorax",
+          "priority": "critical",
+          "rationale": "Flail chest and pulmonary contusion can decompensate en route even after initial stabilization.",
+          "protocolReference": "MATC: General Trauma Management"
+        },
+        {
+          "id": "a8-transport-decision",
+          "shortAction": "Transport to appropriate trauma center per field triage guideline; minimize scene time",
+          "protocolExcerpt": "Decisions regarding transport destination should be based on the ACS-COT 2022 National Guideline for the Field Triage of Injured Patients",
+          "priority": "important",
+          "rationale": "High-speed pedestrian-struck mechanism with multi-system trauma warrants transport to the highest level of trauma care.",
+          "protocolReference": "MATC: General Trauma Management"
+        }
+      ],
+      "transitions": []
+    },
+    {
+      "id": "tension-pneumo-branch",
+      "name": "Chest reassessment skipped",
+      "description": "Without ongoing chest reassessment, an evolving tension pneumothorax on the injured side goes unrecognized. The patient rapidly decompensates with absent breath sounds, tracheal deviation, and hypotension, requiring emergent needle decompression.",
+      "triggerCondition": "Crew proceeds to splinting and transport without reassessing breath sounds after the initial survey; the flail segment's underlying lung injury progresses to tension pneumothorax unrecognized until the patient decompensates.",
+      "isDefault": false,
+      "clinicalPresentation": {
+        "avpu": "Verbal",
+        "gcs": { "eye": 3, "verbal": 4, "motor": 6 },
+        "airway": "Patent, increasing respiratory distress",
+        "breathing": "Severely labored, absent breath sounds on the left, tracheal deviation to the right",
+        "circulation": "Weak, thready radial pulses",
+        "skin": { "color": "pale", "temperature": "cool", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Moves all extremities weakly",
+        "otherFindings": [
+          "Jugular venous distention noted",
+          "Absent breath sounds on the left",
+          "Tracheal deviation to the right",
+          "Rapidly worsening respiratory distress"
+        ],
+        "patientSpeech": "\"I... can't... breathe...\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 138,
+        "bpSys": 78,
+        "bpDia": 48,
+        "respRate": 34,
+        "spo2": 80,
+        "etco2": 0,
+        "temp": 36.4,
+        "tempF": 97.5,
+        "obstruction": 60,
+        "glucose": 106,
+        "customMeasures": [],
+        "trendTimeSeconds": 20,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a9-needle-decompression",
+          "shortAction": "Needle decompression of left chest for tension pneumothorax with hypotension and tracheal deviation",
+          "protocolExcerpt": "If absent or diminished breath sounds in a hypotensive trauma patient, especially those with chest trauma and/or tracheal deviation, consider tension pneumothorax and perform needle decompression of side without breath sounds or side opposite tracheal deviation; may need second or third needle decompression on same side if there is a rush of air but patient again has symptoms",
+          "priority": "critical",
+          "rationale": "Absent breath sounds, tracheal deviation, JVD, and hypotension are classic signs of tension pneumothorax requiring emergent decompression.",
+          "protocolReference": "MATC: General Trauma Management"
+        }
+      ],
+      "transitions": []
+    }
+  ],
+  "realiti": {
+    "scenarioMonitorType": 2,
+    "scenarioDefaultEnergy": 200,
+    "scenarioDefaultPacerThreshold": 55
+  }
+}

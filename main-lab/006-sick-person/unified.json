@@ -1,0 +1,366 @@
+{
+  "meta": {
+    "id": "006-sick-person",
+    "name": "006 - Sick Person",
+    "version": 1,
+    "difficulty": "intermediate",
+    "category": "Medical",
+    "protocols": ["medical-shock", "medical-nausea-vomiting", "medical-abdominal-pain"],
+    "totalTimeSeconds": 900,
+    "createdAt": "2026-08-22",
+    "tags": ["BLS", "dehydration", "compensated-shock", "gastroenteritis", "vital-signs", "module-913"]
+  },
+  "patient": {
+    "name": "Denise Whitfield",
+    "age": 36,
+    "ageUnit": "years",
+    "sex": "female",
+    "weight": 65,
+    "weightLbs": 143,
+    "height": 165,
+    "chiefComplaint": "Weakness and inability to stand after several days of vomiting and diarrhea",
+    "history": {
+      "hpi": "Patient reports three days of intermittent vomiting and watery diarrhea, worsening over the last 24 hours. She has been unable to keep fluids down since last night and now feels too weak and dizzy to stand without help. She nearly fell when she tried to stand for her husband this afternoon. Denies blood in vomit or stool, denies abdominal trauma, denies chest pain. Reports feeling warm but has not taken her temperature.",
+      "pastMedical": ["Hypothyroidism"],
+      "medications": ["Levothyroxine 75 mcg daily"],
+      "allergies": ["NKDA"],
+      "lastOralIntake": "A few sips of water this morning; last full meal two days ago",
+      "events": "Husband called 911 after finding patient too weak to get up off the bathroom floor"
+    }
+  },
+  "scene": {
+    "dispatch": "Respond to a residence for a 36-year-old female, sick person, family reports she is too weak to stand",
+    "location": "Single-family home, upstairs bathroom; patient found sitting on the floor next to the toilet",
+    "time": "Friday, 2:15 PM",
+    "safety": "No scene hazards noted; husband present and cooperative",
+    "bystanders": "Husband present, reports she has been sick for three days and got progressively weaker today; states she nearly fainted when she tried to stand up an hour ago",
+    "visualCues": [
+      "Small basin next to patient with a small amount of bilious emesis",
+      "Patient appears pale, lethargic, and slumped against the wall",
+      "Dry, cracked lips",
+      "Husband holding her upright, worried expression"
+    ]
+  },
+  "phases": [
+    {
+      "id": "initial",
+      "name": "Initial Contact",
+      "description": "Crew finds a 36-year-old female sitting on the bathroom floor, pale and weak, supported by her husband. She reports three days of vomiting and diarrhea and nearly collapsed when she last tried to stand.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent, speaking in full sentences",
+        "breathing": "Non-labored, mildly tachypneic",
+        "circulation": "Radial pulse present, rapid and thready",
+        "skin": { "color": "Pale", "temperature": "Warm", "moisture": "Dry" },
+        "pupils": "PERRL",
+        "motorFunction": "Weak but moves all extremities purposefully; unable to stand without assistance",
+        "otherFindings": [
+          "Tenting present on skin turgor check at the forearm",
+          "Dry mucous membranes and cracked lips",
+          "Sunken eyes",
+          "Nearly fainted when she attempted to stand for her husband earlier"
+        ],
+        "patientSpeech": "\"I just can't stop throwing up... I feel so dizzy and weak, I couldn't even stand up.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 118,
+        "bpSys": 108,
+        "bpDia": 72,
+        "respRate": 18,
+        "spo2": 97,
+        "etco2": 0,
+        "temp": 37.9,
+        "tempF": 100.2,
+        "obstruction": 0,
+        "glucose": 92,
+        "customMeasures": [],
+        "trendTimeSeconds": 0,
+        "visibility": {
+          "spo2Visible": true,
+          "spo2Attached": true,
+          "rrVisible": true,
+          "etco2Visible": false,
+          "cvpVisible": false
+        }
+      },
+      "expectedActions": [
+        {
+          "id": "a1",
+          "shortAction": "Obtain full vital signs: pulse, BP, respiratory rate, neuro status",
+          "protocolExcerpt": "Check vital signs",
+          "priority": "critical",
+          "rationale": "Baseline vitals establish whether the patient is in compensated shock and drive reassessment comparisons.",
+          "protocolReference": "MATC: Shock"
+        },
+        {
+          "id": "a2",
+          "shortAction": "Take focused SAMPLE history on GI symptoms, oral intake, and urination",
+          "protocolExcerpt": "History and physical examination focused on potential causes of nausea and vomiting (e.g., gastrointestinal, cardiovascular, obstetric, gynecologic, hypoglycemia, hyperglycemia, neurologic, oncologic, psychogenic, or toxidrome)",
+          "priority": "important",
+          "rationale": "Identifies volume-loss source and rules out other causes of weakness/dizziness.",
+          "protocolReference": "MATC: Nausea-Vomiting"
+        },
+        {
+          "id": "a3",
+          "shortAction": "Assess skin turgor, mucous membrane hydration, and capillary refill",
+          "protocolExcerpt": "Skin (turgor, rash) Mucous membrane hydration",
+          "priority": "critical",
+          "rationale": "Skin tenting and dry mucous membranes are direct exam findings for dehydration/hypovolemia.",
+          "protocolReference": "MATC: Shock"
+        },
+        {
+          "id": "a4",
+          "shortAction": "Perform airway assessment per Airway Management Guideline",
+          "protocolExcerpt": "Perform airway assessment and management per the Airway Management Guideline",
+          "priority": "important",
+          "rationale": "Ensures airway is protected given ongoing vomiting risk.",
+          "protocolReference": "MATC: Abdominal Pain"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "shock-recognized",
+          "if": "Vitals, glucose, and shock signs assessed promptly",
+          "condition": "Crew promptly obtains full vital signs, checks blood glucose, and completes an exam for skin turgor, mucous membrane hydration, and signs of shock per protocol.",
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a1", "a3"]
+        },
+        {
+          "targetPhaseId": "delayed-shock-progression",
+          "if": "Assessment and oxygen delayed several minutes",
+          "condition": "If full vital signs, oxygen, and shock assessment are delayed while the crew focuses only on the GI complaint, the patient's compensated shock progresses toward hypotension.",
+          "conditionType": "time_elapsed",
+          "timeoutSeconds": 300
+        }
+      ]
+    },
+    {
+      "id": "shock-recognized",
+      "name": "Assessment and O2 completed",
+      "description": "Crew completes a full assessment, recognizes the tachycardia and skin findings as compensated shock from volume loss, and applies oxygen while preparing for transport.",
+      "triggerCondition": "Crew obtains full vital signs, checks blood glucose, and completes the shock/skin/mucous membrane exam within the first few minutes; tachycardia with a still-normal blood pressure is recognized as early compensated shock from dehydration.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "Non-labored on supplemental oxygen",
+        "circulation": "Radial pulse present, rapid, slightly stronger than initial exam",
+        "skin": { "color": "Pale", "temperature": "Warm", "moisture": "Dry" },
+        "pupils": "PERRL",
+        "motorFunction": "Weak, cooperative, still unable to stand unassisted",
+        "otherFindings": [
+          "Skin tenting persists but patient reports feeling slightly less dizzy",
+          "Tolerating isopropyl alcohol inhalation for nausea"
+        ],
+        "patientSpeech": "\"That's a little better, my stomach still feels awful though.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 114,
+        "bpSys": 110,
+        "bpDia": 74,
+        "respRate": 16,
+        "spo2": 98,
+        "etco2": 0,
+        "temp": 37.8,
+        "tempF": 100.0,
+        "obstruction": 0,
+        "glucose": 92,
+        "customMeasures": [],
+        "trendTimeSeconds": 30,
+        "visibility": {
+          "spo2Visible": true,
+          "spo2Attached": true,
+          "rrVisible": true,
+          "etco2Visible": false,
+          "cvpVisible": false
+        }
+      },
+      "expectedActions": [
+        {
+          "id": "b1",
+          "shortAction": "Administer oxygen titrated to a target of 94-98% SpO2",
+          "protocolExcerpt": "Administer oxygen as appropriate with a target of achieving 94-98% saturation",
+          "priority": "critical",
+          "rationale": "Supports oxygen delivery to compensate for reduced perfusion in early shock.",
+          "protocolReference": "MATC: Shock"
+        },
+        {
+          "id": "b2",
+          "shortAction": "Check blood glucose level",
+          "protocolExcerpt": "Obtain glucose level",
+          "priority": "important",
+          "rationale": "Rules out hypoglycemia as a contributor to weakness given poor oral intake.",
+          "protocolReference": "MATC: Nausea-Vomiting"
+        },
+        {
+          "id": "b3",
+          "shortAction": "Recognize tachycardia with a maintained BP as early compensated shock",
+          "protocolExcerpt": "In most adults, tachycardia is the first sign of compensated shock, and may persist for hours",
+          "priority": "critical",
+          "rationale": "Correct recognition of compensated shock drives urgency of oxygen, positioning, and transport decisions.",
+          "protocolReference": "MATC: Shock"
+        },
+        {
+          "id": "b4",
+          "shortAction": "Offer isopropyl alcohol wipe inhalation for nausea relief",
+          "protocolExcerpt": "Isopropyl alcohol: Allow patient to inhale vapor from isopropyl alcohol wipe 3 times q (quaque, every) 15 minutes as tolerated",
+          "priority": "supplemental",
+          "rationale": "Non-pharmacologic antiemetic option appropriate at the BLS level.",
+          "protocolReference": "MATC: Nausea-Vomiting"
+        },
+        {
+          "id": "b5",
+          "shortAction": "Assess for signs of shock and treat per Shock Guideline",
+          "protocolExcerpt": "Assess for signs of shock If shock is present, provide treatment per appropriate Shock Guideline",
+          "priority": "critical",
+          "rationale": "Confirms recognition of shock physiology so treatment is escalated appropriately.",
+          "protocolReference": "MATC: Abdominal Pain"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "transport",
+          "if": "Oxygen given and transport initiated",
+          "condition": "Once oxygen is applied and the shock/dehydration picture is recognized, the crew moves the patient to the stretcher and begins transport with ongoing reassessment.",
+          "conditionType": "action_taken",
+          "triggerActionIds": ["b1"]
+        }
+      ]
+    },
+    {
+      "id": "delayed-shock-progression",
+      "name": "Assessment and O2 delayed",
+      "description": "Crew spends several minutes focused only on the vomiting/diarrhea complaint without completing vital signs or applying oxygen; the patient's compensated shock progresses toward hypotension.",
+      "triggerCondition": "Full vital sign assessment, oxygen administration, and shock recognition are delayed more than several minutes while the crew focuses only on the GI complaint; per protocol, tachycardia is the early sign of compensated shock and hypotension is a late, ominous sign that the patient is now progressing toward uncompensated shock.",
+      "isDefault": false,
+      "clinicalPresentation": {
+        "avpu": "Verbal",
+        "gcs": { "eye": 3, "verbal": 4, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "Rapid and shallow",
+        "circulation": "Weak, thready, rapid pulse; blood pressure now falling",
+        "skin": { "color": "Pale/mottled", "temperature": "Cool", "moisture": "Diaphoretic" },
+        "pupils": "PERRL, sluggish",
+        "motorFunction": "Lethargic, slow to respond, minimal spontaneous movement",
+        "otherFindings": [
+          "Capillary refill delayed greater than 3 seconds",
+          "Patient now slow to answer questions and slumping in the chair"
+        ],
+        "patientSpeech": "\"I feel like... I'm gonna pass out...\" (slow, slurred)"
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 148,
+        "bpSys": 82,
+        "bpDia": 54,
+        "respRate": 26,
+        "spo2": 94,
+        "etco2": 0,
+        "temp": 37.9,
+        "tempF": 100.2,
+        "obstruction": 0,
+        "glucose": 90,
+        "customMeasures": [],
+        "trendTimeSeconds": 45,
+        "visibility": {
+          "spo2Visible": true,
+          "spo2Attached": true,
+          "rrVisible": true,
+          "etco2Visible": false,
+          "cvpVisible": false
+        }
+      },
+      "expectedActions": [
+        {
+          "id": "c-branch1",
+          "shortAction": "Recognize hypotension as a late, ominous sign of uncompensated shock; give oxygen and expedite transport",
+          "protocolExcerpt": "Hypotension indicates uncompensated shock, which may progress to cardiopulmonary failure within minutes",
+          "priority": "critical",
+          "rationale": "Delayed recognition allowed progression to uncompensated shock; immediate oxygen and rapid transport are now urgent.",
+          "protocolReference": "MATC: Shock"
+        }
+      ],
+      "transitions": []
+    },
+    {
+      "id": "transport",
+      "name": "Transport with reassessment",
+      "description": "Patient is moved to the stretcher on oxygen and transported, with vital signs and mental status reassessed en route.",
+      "triggerCondition": "Oxygen has been applied and the crew has recognized compensated shock from dehydration; the patient is now packaged and transported with ongoing reassessment.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "Non-labored on oxygen",
+        "circulation": "Radial pulse present, rate improving",
+        "skin": { "color": "Pale", "temperature": "Warm", "moisture": "Dry" },
+        "pupils": "PERRL",
+        "motorFunction": "Weak but cooperative, resting on stretcher",
+        "otherFindings": [
+          "Reports feeling somewhat less dizzy while supine on oxygen",
+          "Skin tenting still present but less pronounced"
+        ],
+        "patientSpeech": "\"Thank you... I still feel weak but a little better lying down.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 108,
+        "bpSys": 112,
+        "bpDia": 74,
+        "respRate": 16,
+        "spo2": 99,
+        "etco2": 0,
+        "temp": 37.7,
+        "tempF": 99.9,
+        "obstruction": 0,
+        "glucose": 94,
+        "customMeasures": [],
+        "trendTimeSeconds": 40,
+        "visibility": {
+          "spo2Visible": true,
+          "spo2Attached": true,
+          "rrVisible": true,
+          "etco2Visible": false,
+          "cvpVisible": false
+        }
+      },
+      "expectedActions": [
+        {
+          "id": "d1",
+          "shortAction": "Provide transport to an appropriate receiving facility",
+          "protocolExcerpt": "Provide transport to an appropriate receiving facility. Consider specialty destination centers for conditions such as suspected abdominal aortic aneurysm and aortic dissection",
+          "priority": "important",
+          "rationale": "Ensures the patient reaches a facility capable of IV fluid resuscitation and further workup.",
+          "protocolReference": "MATC: Abdominal Pain"
+        },
+        {
+          "id": "d2",
+          "shortAction": "Reassess vital signs and response to therapy throughout transport",
+          "protocolExcerpt": "Reassess vital signs and response to therapeutic interventions throughout transport",
+          "priority": "critical",
+          "rationale": "Confirms the patient is trending toward stability and not deteriorating further en route.",
+          "protocolReference": "MATC: Abdominal Pain"
+        },
+        {
+          "id": "d3",
+          "shortAction": "Provide advance notification to the receiving hospital",
+          "protocolExcerpt": "Provide advance notification to the hospital",
+          "priority": "important",
+          "rationale": "Allows the receiving facility to prepare for a patient in compensated shock from dehydration.",
+          "protocolReference": "MATC: Shock"
+        }
+      ],
+      "transitions": []
+    }
+  ]
+}

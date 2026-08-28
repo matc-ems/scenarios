@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>060 - High-Grade AV Block — Printable</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fff;--card:#fff;--card-border:#d6d3d1;--text:#1c1917;--text-secondary:#44403c;--text-muted:#78716c;--green:#166534;--red:#b91c1c;--red-light:#fef2f2;--red-border:#fecaca;--orange:#c2410c;--yellow:#a16207;--blue:#1e40af;--radius:8px;--radius-sm:6px}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'DM Sans','Helvetica Neue',Arial,sans-serif;background:#f5f5f4;color:var(--text);line-height:1.5;padding:24px;font-size:12pt}
+.sheet{max-width:800px;margin:0 auto;background:#fff;padding:28px 32px;box-shadow:0 1px 4px rgba(0,0,0,.08);border-radius:10px}
+.scenario-name{font-size:11pt;color:var(--text-secondary)}
+.card{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);margin-bottom:14px;overflow:hidden;break-inside:avoid}
+.card-title{font-size:9pt;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--text-muted);padding:10px 14px 6px;border-bottom:1px solid #f5f5f4}
+.card-content{padding:10px 14px 12px}
+.scene-row{padding:6px 0;border-bottom:1px solid #f5f5f4;display:grid;grid-template-columns:110px 1fr;gap:10px}
+.scene-row:last-child{border-bottom:none}
+.scene-label{font-family:'DM Mono',ui-monospace,monospace;font-size:8pt;font-weight:500;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted)}
+.scene-value{font-size:11pt;color:var(--text-secondary)}
+.cue-list{list-style:none;margin:0}
+.cue-list li{font-size:11pt;color:var(--text-secondary);padding:3px 0 3px 14px;position:relative}
+.cue-list li::before{content:'→';position:absolute;left:0;color:var(--text-muted);font-size:10pt}
+.sample-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:#e7e5e4}
+.sample-cell{background:#fff;padding:9px 12px}
+.sample-cell:nth-child(1),.sample-cell:nth-child(6){grid-column:1/-1}
+.sample-letter{font-family:'DM Mono',ui-monospace,monospace;font-size:11pt;font-weight:700;color:var(--green);margin-right:4px}
+.sample-name{font-size:8pt;font-weight:600;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted);margin-bottom:3px}
+.sample-text{font-size:10.5pt;color:var(--text-secondary);line-height:1.45}
+.patient-chips{display:flex;gap:8px;flex-wrap:wrap}
+.patient-chip{font-size:10pt;padding:4px 10px;background:#f5f5f4;border-radius:6px;color:var(--text-secondary)}
+.patient-chip strong{color:var(--text);font-weight:700}
+.phase-section{break-before:auto;page-break-before:auto;margin-top:12px}
+.phase-section .phase-card{break-after:avoid;page-break-after:avoid}
+.phase-card{border-left:4px solid var(--text)}
+.phase-card-branch{border-left-color:var(--red)}
+.branch-tag{display:inline-block;font-family:'DM Mono',ui-monospace,monospace;font-size:8pt;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--red);background:var(--red-light);padding:2px 8px;border-radius:4px;margin-bottom:6px}
+.phase-title{font-size:16pt;font-weight:700;margin-bottom:4px}
+.phase-trigger{font-family:'DM Mono',ui-monospace,monospace;font-size:9pt;color:var(--yellow);margin-bottom:6px}
+.phase-desc{font-size:11pt;color:var(--text-secondary);line-height:1.5}
+.ecg-label{font-family:'DM Mono',ui-monospace,monospace;font-size:10pt;color:var(--text-secondary);padding:8px 12px;background:#fafaf9;border-bottom:1px solid #f0efec}
+.vitals-grid{display:flex;flex-wrap:wrap;gap:4px 18px;padding:8px 14px}
+.vital-cell{background:transparent;padding:0;text-align:left;display:flex;align-items:baseline;gap:4px}
+.vital-cell.full-width{grid-column:auto}
+.vital-name{font-family:'DM Mono',ui-monospace,monospace;font-size:8pt;font-weight:600;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted)}
+.vital-val{font-family:'DM Mono',ui-monospace,monospace;font-size:11pt;font-weight:700;color:var(--text);line-height:1.1}
+.vital-unit{font-family:'DM Mono',ui-monospace,monospace;font-size:8pt;color:var(--text-muted)}
+.loc-block{margin-bottom:10px}
+.avpu-bar{display:flex;border:1px solid var(--card-border);border-radius:6px;overflow:hidden;margin-bottom:10px}
+.avpu-seg{flex:1;text-align:center;padding:6px 4px;font-family:'DM Mono',ui-monospace,monospace;font-size:10pt;font-weight:700;color:var(--text-muted);background:#fafaf9}
+.avpu-seg.sel-a{background:#ecfccb;color:var(--green)}
+.avpu-seg.sel-v{background:#fef3c7;color:var(--yellow)}
+.avpu-seg.sel-p{background:#ffedd5;color:var(--orange)}
+.avpu-seg.sel-u{background:var(--red-light);color:var(--red)}
+.gcs-detail{display:flex;flex-wrap:wrap;gap:6px 16px;padding:8px 14px;border:1px solid var(--card-border);border-radius:6px;margin-bottom:10px;align-items:baseline}
+.gcs-item{display:flex;align-items:baseline;gap:4px;padding:0;border:none}
+.gcs-item:last-of-type{border-bottom:none}
+.gcs-part{order:1;font-family:'DM Mono',ui-monospace,monospace;font-size:8pt;font-weight:600;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted)}
+.gcs-score{order:2;font-family:'DM Mono',ui-monospace,monospace;font-size:11pt;font-weight:700;color:var(--text)}
+.gcs-desc{order:3;font-size:9.5pt;color:var(--text-muted);font-style:italic}
+.gcs-desc::before{content:'('}
+.gcs-desc::after{content:')'}
+.gcs-total-row{display:flex;align-items:baseline;gap:4px;order:-1;padding:0;margin:0;border:none;font-family:'DM Mono',ui-monospace,monospace;font-size:8pt;font-weight:600;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted)}
+.gcs-total-row .gcs-total{font-family:'DM Mono',ui-monospace,monospace;font-size:12pt;font-weight:700;color:var(--text)}
+.finding-row{padding:6px 0;border-bottom:1px solid #f5f5f4;display:grid;grid-template-columns:100px 1fr;gap:10px}
+.finding-row:last-child{border-bottom:none}
+.finding-label{font-family:'DM Mono',ui-monospace,monospace;font-size:8pt;font-weight:500;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted)}
+.finding-value{font-size:10.5pt;color:var(--text-secondary)}
+.finding-speech{font-style:italic;color:var(--text-muted)}
+.findings-notes{list-style:none;margin:0}
+.findings-notes li{font-size:10pt;color:var(--text-secondary);padding:2px 0 2px 12px;position:relative}
+.findings-notes li::before{content:'·';position:absolute;left:2px;font-weight:700;color:var(--text-muted)}
+.action-row{display:flex;gap:10px;padding:10px 0;border-bottom:1px solid #f5f5f4;break-inside:avoid}
+.action-row:last-child{border-bottom:none}
+.action-box{width:14px;height:14px;border:1.5px solid var(--text-muted);border-radius:3px;flex-shrink:0;margin-top:3px}
+.action-body{flex:1;min-width:0}
+.action-head{display:flex;align-items:flex-start;gap:8px;margin-bottom:4px}
+.action-priority{display:inline-block;font-family:'DM Mono',ui-monospace,monospace;font-size:7.5pt;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:2px 6px;border-radius:3px;flex-shrink:0;margin-top:2px}
+.p-critical{background:var(--red-light);color:var(--red)}
+.p-important{background:#fff7ed;color:var(--orange)}
+.p-supp{background:#f5f5f4;color:var(--text-muted)}
+.action-text{font-size:11pt;font-weight:600;color:var(--text);line-height:1.35}
+.action-rationale{display:none}
+.action-excerpt{font-size:9.5pt;color:var(--text-secondary);line-height:1.5;font-style:italic;border-left:2px solid var(--card-border);padding:2px 0 2px 9px;margin:5px 0 4px 0}
+.action-ref{font-family:'DM Mono',ui-monospace,monospace;font-size:8pt;color:var(--text-muted);font-weight:600;text-transform:uppercase;letter-spacing:.5px;margin-top:2px}
+.action-head{margin-bottom:0}
+.action-row{padding:8px 0}
+@media print{
+  body{background:#fff;padding:0;font-size:10pt}
+  .sheet{box-shadow:none;max-width:none;padding:0.4in;border-radius:0}
+  .card{break-inside:avoid;margin-bottom:8px}
+  .card-title{padding:6px 10px 3px}
+  .card-content{padding:6px 10px 8px}
+}
+</style>
+</head>
+<body>
+<div class="sheet">
+  <div class="card"><div class="card-title">Scenario</div><div class="card-content"><div class="scenario-name">060 - High-Grade AV Block</div></div></div>
+  <div class="card"><div class="card-title">Patient</div><div class="card-content"><div class="patient-chips"><span class="patient-chip"><strong>Eleanor Voss</strong></span><span class="patient-chip">79 years female</span><span class="patient-chip">143 lbs (65 kg)</span><span class="patient-chip">5'4"</span><span class="patient-chip">CC: Syncope, generalized weakness</span></div></div></div>
+  <div class="card"><div class="card-title">Scene</div><div class="card-content">
+    <div class="scene-row"><div class="scene-label">Dispatch</div><div class="scene-value">79-year-old female, fall, possible fainting episode</div></div>
+    <div class="scene-row"><div class="scene-label">Location</div><div class="scene-value">Single-family home, kitchen; patient now seated in a kitchen chair</div></div>
+    <div class="scene-row"><div class="scene-label">Time</div><div class="scene-value">Saturday morning, approximately 0830</div></div>
+    <div class="scene-row"><div class="scene-label">Safety</div><div class="scene-value">Scene safe, no hazards noted, cooperative bystander present</div></div>
+    <div class="scene-row"><div class="scene-label">Bystanders</div><div class="scene-value">Husband present, witnessed the event, reports she was standing for only a few seconds before going down</div></div>
+  </div></div><div class="card"><div class="card-title">Visual Cues on Arrival</div><div class="card-content"><ul class="cue-list"><li>Patient seated in kitchen chair, pale and diaphoretic</li><li>Husband anxiously relaying details of the event</li><li>Radial pulse slow and regular, palpable at approximately 30-35 bpm</li><li>No visible trauma, lacerations, or deformity noted on initial survey</li></ul></div></div>
+  <div class="card">
+    <div class="card-title">SAMPLE History</div>
+    <div class="card-content" style="padding:0">
+      <div class="sample-grid">
+        <div class="sample-cell"><div class="sample-name"><span class="sample-letter">S</span> Signs &amp; Symptoms</div><div class="sample-text">79-year-old female stood up from the breakfast table, reported feeling suddenly dizzy and lightheaded, and briefly lost consciousness. Husband caught her partially before she slid to the kitchen floor. She regained consciousness within approximately 20 seconds without any postictal confusion. She now complains of persistent dizziness, weakness, and mild nausea; denies chest pain, denies head strike, denies tongue biting or incontinence.</div></div>
+        <div class="sample-cell"><div class="sample-name"><span class="sample-letter">A</span> Allergies</div><div class="sample-text">NKDA</div></div>
+        <div class="sample-cell"><div class="sample-name"><span class="sample-letter">M</span> Medications</div><div class="sample-text">Lisinopril 20 mg daily, Atorvastatin 40 mg daily, Levothyroxine 88 mcg daily, Aspirin 81 mg daily</div></div>
+        <div class="sample-cell"><div class="sample-name"><span class="sample-letter">P</span> Past Medical</div><div class="sample-text">Hypertension, Hyperlipidemia, Hypothyroidism, Osteoarthritis</div></div>
+        <div class="sample-cell"><div class="sample-name"><span class="sample-letter">L</span> Last Intake</div><div class="sample-text">Toast and coffee approximately 30 minutes prior to onset</div></div>
+        <div class="sample-cell"><div class="sample-name"><span class="sample-letter">E</span> Events</div><div class="sample-text">Stood up from the breakfast table, felt dizzy, and briefly lost consciousness; husband partially caught her before she slid to the floor; no seizure activity witnessed</div></div>
+      </div>
+    </div>
+  </div>
+  <section class="phase-section">
+    <div class="card phase-card">
+      <div class="card-content">
+        
+        <div class="phase-title">Initial Contact</div>
+        
+        <div class="phase-desc">Crew arrives to find a 79-year-old female seated in a kitchen chair, pale and diaphoretic, alert but reporting dizziness and weakness following a brief syncopal episode. Radial pulse is slow and regular. 12-lead EKG is indicated given her age, cardiac history risk factors, and syncope presentation.</div>
+      </div>
+    </div>
+    <div class="card">
+    <div class="card-title">Vital Signs</div>
+    <div class="card-content" style="padding:0">
+      <div class="ecg-label">⏦ Third Degree Heart Block</div>
+      <div class="vitals-grid">
+        <div class="vital-cell"><div class="vital-name">HR</div><div class="vital-val">34</div><div class="vital-unit">bpm</div></div>
+        <div class="vital-cell"><div class="vital-name">BP</div><div class="vital-val">82/54</div><div class="vital-unit">mmHg</div></div>
+        <div class="vital-cell"><div class="vital-name">SpO₂</div><div class="vital-val">93%</div></div>
+        <div class="vital-cell"><div class="vital-name">RR</div><div class="vital-val">18</div><div class="vital-unit">/min</div></div>
+        <div class="vital-cell"><div class="vital-name">EtCO₂</div><div class="vital-val">36</div><div class="vital-unit">mmHg</div></div>
+        <div class="vital-cell"><div class="vital-name">Temp</div><div class="vital-val">98.1°</div><div class="vital-unit">F</div></div>
+        <div class="vital-cell full-width"><div class="vital-name">Glucose</div><div class="vital-val">104</div><div class="vital-unit">mg/dL</div></div>
+      </div>
+    </div>
+  </div>
+    <div class="card">
+    <div class="card-title">Clinical Findings</div>
+    <div class="card-content">
+      
+    <div class="loc-block">
+      <div class="avpu-bar"><div class="avpu-seg sel-a">A</div><div class="avpu-seg">V</div><div class="avpu-seg">P</div><div class="avpu-seg">U</div></div>
+      <div class="gcs-detail">
+    <div class="gcs-item"><span class="gcs-part">Eyes</span><span class="gcs-desc">Spontaneous</span><span class="gcs-score">4</span></div>
+    <div class="gcs-item"><span class="gcs-part">Verbal</span><span class="gcs-desc">Oriented</span><span class="gcs-score">5</span></div>
+    <div class="gcs-item"><span class="gcs-part">Motor</span><span class="gcs-desc">Obeys commands</span><span class="gcs-score">6</span></div>
+    <div class="gcs-total-row">Total GCS <span class="gcs-total">15</span></div>
+  </div>
+    </div>
+      <div class="finding-row"><div class="finding-label">Airway</div><div class="finding-value">Patent, speaking in full sentences</div></div><div class="finding-row"><div class="finding-label">Breathing</div><div class="finding-value">Non-labored, equal bilateral breath sounds</div></div><div class="finding-row"><div class="finding-label">Circulation</div><div class="finding-value">Radial pulse slow, regular, weak; skin pale and diaphoretic</div></div><div class="finding-row"><div class="finding-label">Skin</div><div class="finding-value">pale · cool · diaphoretic</div></div><div class="finding-row"><div class="finding-label">Pupils</div><div class="finding-value">PERRL</div></div><div class="finding-row"><div class="finding-label">Motor</div><div class="finding-value">Grossly intact, moves all extremities</div></div><div class="finding-row"><div class="finding-label">Speech</div><div class="finding-value"><span class="finding-speech">"I just felt so dizzy when I stood up, and then everything went dark for a second. I feel so weak."</span></div></div><div class="finding-row"><div class="finding-label">Other</div><div class="finding-value"><ul class="findings-notes"><li>No visible trauma or head strike</li><li>Mild nausea reported</li><li>Denies chest pain</li></ul></div></div>
+    </div>
+  </div>
+    <div class="card">
+    <div class="card-title">Expected Actions</div>
+    <div class="card-content" style="padding:0 16px 12px"><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-critical">critical</span><div class="action-text">Manage airway as necessary; position patient of comfort</div></div>
+        <div class="action-excerpt">Manage airway as necessary</div>
+        <div class="action-ref">↳ MATC: Bradycardia</div>
+      </div>
+    </div><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-important">important</span><div class="action-text">Administer oxygen titrated to 94-98% SpO2</div></div>
+        <div class="action-excerpt">Administer oxygen as appropriate with a target of achieving 94–98% saturation</div>
+        <div class="action-ref">↳ MATC: Bradycardia</div>
+      </div>
+    </div><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-critical">critical</span><div class="action-text">Initiate cardiac monitoring and acquire 12-lead EKG</div></div>
+        <div class="action-excerpt">Initiate monitoring and perform 12-lead EKG</div>
+        <div class="action-ref">↳ MATC: Bradycardia</div>
+      </div>
+    </div><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-important">important</span><div class="action-text">Establish IV access</div></div>
+        <div class="action-excerpt">Establish IV access</div>
+        <div class="action-ref">↳ MATC: Bradycardia</div>
+      </div>
+    </div><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-important">important</span><div class="action-text">Check blood glucose level</div></div>
+        <div class="action-excerpt">Check blood glucose and treat hypoglycemia per the Hypoglycemia Guideline and Hyperglycemia Guideline</div>
+        <div class="action-ref">↳ MATC: Bradycardia</div>
+      </div>
+    </div><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-important">important</span><div class="action-text">Screen geriatric fall patient for occult trauma from the fall</div></div>
+        <div class="action-excerpt">Geriatric patients suffering falls from standing may sustain significant injury and should be diligently screened for trauma</div>
+        <div class="action-ref">↳ MATC: Adult and Pediatric Syncope and Near Syncope</div>
+      </div>
+    </div></div>
+  </div>
+  </section><section class="phase-section">
+    <div class="card phase-card">
+      <div class="card-content">
+        
+        <div class="phase-title">Instability recognized</div>
+        <div class="phase-trigger">Trigger: After the 12-lead EKG is acquired and IV access obtained, the crew confirms third-degree AV block. The patient remains symptomatic (dizziness, weakness) with a systolic BP now in the high 70s, meeting criteria for additional bradycardia therapies.</div>
+        <div class="phase-desc">12-lead confirms complete (third-degree) AV block with a ventricular escape rate of 32. Blood pressure has dropped further and the patient is becoming more fatigued with recurrent lightheadedness, consistent with ongoing hemodynamic instability.</div>
+      </div>
+    </div>
+    <div class="card">
+    <div class="card-title">Vital Signs</div>
+    <div class="card-content" style="padding:0">
+      <div class="ecg-label">⏦ Third Degree Heart Block</div>
+      <div class="vitals-grid">
+        <div class="vital-cell"><div class="vital-name">HR</div><div class="vital-val">32</div><div class="vital-unit">bpm</div></div>
+        <div class="vital-cell"><div class="vital-name">BP</div><div class="vital-val">78/50</div><div class="vital-unit">mmHg</div></div>
+        <div class="vital-cell"><div class="vital-name">SpO₂</div><div class="vital-val">93%</div></div>
+        <div class="vital-cell"><div class="vital-name">RR</div><div class="vital-val">20</div><div class="vital-unit">/min</div></div>
+        <div class="vital-cell"><div class="vital-name">EtCO₂</div><div class="vital-val">37</div><div class="vital-unit">mmHg</div></div>
+        <div class="vital-cell"><div class="vital-name">Temp</div><div class="vital-val">98.1°</div><div class="vital-unit">F</div></div>
+        <div class="vital-cell full-width"><div class="vital-name">Glucose</div><div class="vital-val">104</div><div class="vital-unit">mg/dL</div></div>
+      </div>
+    </div>
+  </div>
+    <div class="card">
+    <div class="card-title">Clinical Findings</div>
+    <div class="card-content">
+      
+    <div class="loc-block">
+      <div class="avpu-bar"><div class="avpu-seg sel-a">A</div><div class="avpu-seg">V</div><div class="avpu-seg">P</div><div class="avpu-seg">U</div></div>
+      <div class="gcs-detail">
+    <div class="gcs-item"><span class="gcs-part">Eyes</span><span class="gcs-desc">Spontaneous</span><span class="gcs-score">4</span></div>
+    <div class="gcs-item"><span class="gcs-part">Verbal</span><span class="gcs-desc">Oriented</span><span class="gcs-score">5</span></div>
+    <div class="gcs-item"><span class="gcs-part">Motor</span><span class="gcs-desc">Obeys commands</span><span class="gcs-score">6</span></div>
+    <div class="gcs-total-row">Total GCS <span class="gcs-total">15</span></div>
+  </div>
+    </div>
+      <div class="finding-row"><div class="finding-label">Airway</div><div class="finding-value">Patent</div></div><div class="finding-row"><div class="finding-label">Breathing</div><div class="finding-value">Non-labored, slightly increased effort</div></div><div class="finding-row"><div class="finding-label">Circulation</div><div class="finding-value">Radial pulse slow, thready; skin pale, cool, diaphoretic</div></div><div class="finding-row"><div class="finding-label">Skin</div><div class="finding-value">pale · cool · diaphoretic</div></div><div class="finding-row"><div class="finding-label">Pupils</div><div class="finding-value">PERRL</div></div><div class="finding-row"><div class="finding-label">Motor</div><div class="finding-value">Grossly intact</div></div><div class="finding-row"><div class="finding-label">Speech</div><div class="finding-value"><span class="finding-speech">"I feel like I might pass out again... everything is spinning."</span></div></div><div class="finding-row"><div class="finding-label">Other</div><div class="finding-value"><ul class="findings-notes"><li>Reports recurrent lightheadedness when moved</li><li>Increasingly fatigued</li></ul></div></div>
+    </div>
+  </div>
+    <div class="card">
+    <div class="card-title">Expected Actions</div>
+    <div class="card-content" style="padding:0 16px 12px"><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-critical">critical</span><div class="action-text">Recognize symptomatic bradycardia with hemodynamic instability (HR 32, BP 78/50, recurrent near-syncope)</div></div>
+        <div class="action-excerpt">Inclusion Criteria: Heart rate less than 60 beats per minute (BPM) with either symptoms (altered mental status (AMS), chest pain (CP), congestive heart failure (CHF), seizure, syncope, shock, pallor, diaphoresis) or evidence of hemodynamic instability</div>
+        <div class="action-ref">↳ MATC: Bradycardia</div>
+      </div>
+    </div><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-critical">critical</span><div class="action-text">Atropine 1 mg IV push (fixed dose; may repeat q3-5 min, max total 3 mg)</div></div>
+        <div class="action-excerpt">Consider the following additional therapies if bradycardia and symptoms or hemodynamic instability continue: Atropine 1 mg IV q 3–5 minutes (maximum total dose of 3 mg)</div>
+        <div class="action-ref">↳ MATC: Bradycardia</div>
+      </div>
+    </div><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-supp">supplemental</span><div class="action-text">Reassess vital signs closely following atropine administration</div></div>
+        <div class="action-excerpt">Ongoing vital signs</div>
+        <div class="action-ref">↳ MATC: Adult and Pediatric Syncope and Near Syncope</div>
+      </div>
+    </div></div>
+  </div>
+  </section><section class="phase-section">
+    <div class="card phase-card">
+      <div class="card-content">
+        
+        <div class="phase-title">Atropine ineffective</div>
+        <div class="phase-trigger">Trigger: One dose of atropine 1 mg IV is given and reassessment shows no chronotropic response (HR unchanged, BP trending lower); the crew recognizes that third-degree block typically does not respond to atropine and proceeds directly to transcutaneous pacing.</div>
+        <div class="phase-desc">Atropine produces no meaningful change in heart rate or blood pressure, as expected with third-degree AV block. The crew moves directly to transcutaneous pacing with appropriate sedation/analgesia.</div>
+      </div>
+    </div>
+    <div class="card">
+    <div class="card-title">Vital Signs</div>
+    <div class="card-content" style="padding:0">
+      <div class="ecg-label">⏦ Third Degree Heart Block</div>
+      <div class="vitals-grid">
+        <div class="vital-cell"><div class="vital-name">HR</div><div class="vital-val">33</div><div class="vital-unit">bpm</div></div>
+        <div class="vital-cell"><div class="vital-name">BP</div><div class="vital-val">76/48</div><div class="vital-unit">mmHg</div></div>
+        <div class="vital-cell"><div class="vital-name">SpO₂</div><div class="vital-val">92%</div></div>
+        <div class="vital-cell"><div class="vital-name">RR</div><div class="vital-val">20</div><div class="vital-unit">/min</div></div>
+        <div class="vital-cell"><div class="vital-name">EtCO₂</div><div class="vital-val">38</div><div class="vital-unit">mmHg</div></div>
+        <div class="vital-cell"><div class="vital-name">Temp</div><div class="vital-val">97.9°</div><div class="vital-unit">F</div></div>
+        <div class="vital-cell full-width"><div class="vital-name">Glucose</div><div class="vital-val">104</div><div class="vital-unit">mg/dL</div></div>
+      </div>
+    </div>
+  </div>
+    <div class="card">
+    <div class="card-title">Clinical Findings</div>
+    <div class="card-content">
+      
+    <div class="loc-block">
+      <div class="avpu-bar"><div class="avpu-seg">A</div><div class="avpu-seg sel-v">V</div><div class="avpu-seg">P</div><div class="avpu-seg">U</div></div>
+      <div class="gcs-detail">
+    <div class="gcs-item"><span class="gcs-part">Eyes</span><span class="gcs-desc">To speech</span><span class="gcs-score">3</span></div>
+    <div class="gcs-item"><span class="gcs-part">Verbal</span><span class="gcs-desc">Confused</span><span class="gcs-score">4</span></div>
+    <div class="gcs-item"><span class="gcs-part">Motor</span><span class="gcs-desc">Obeys commands</span><span class="gcs-score">6</span></div>
+    <div class="gcs-total-row">Total GCS <span class="gcs-total">13</span></div>
+  </div>
+    </div>
+      <div class="finding-row"><div class="finding-label">Airway</div><div class="finding-value">Patent</div></div><div class="finding-row"><div class="finding-label">Breathing</div><div class="finding-value">Non-labored</div></div><div class="finding-row"><div class="finding-label">Circulation</div><div class="finding-value">Radial pulse weak, thready; skin pale, cool, diaphoretic, worsening</div></div><div class="finding-row"><div class="finding-label">Skin</div><div class="finding-value">pale · cool · diaphoretic</div></div><div class="finding-row"><div class="finding-label">Pupils</div><div class="finding-value">PERRL</div></div><div class="finding-row"><div class="finding-label">Motor</div><div class="finding-value">Grossly intact, follows commands slowly</div></div><div class="finding-row"><div class="finding-label">Speech</div><div class="finding-value"><span class="finding-speech">"So dizzy... I don't feel right."</span></div></div><div class="finding-row"><div class="finding-label">Other</div><div class="finding-value"><ul class="findings-notes"><li>Increasingly lightheaded</li><li>Answers only with prompting</li></ul></div></div>
+    </div>
+  </div>
+    <div class="card">
+    <div class="card-title">Expected Actions</div>
+    <div class="card-content" style="padding:0 16px 12px"><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-critical">critical</span><div class="action-text">Recognize third-degree block unlikely to respond to atropine; proceed to TCP without delay</div></div>
+        <div class="action-excerpt">Third-degree heart block or the denervated heart (as in cardiac transplant) may not respond to atropine and in these cases, proceed quickly to chronotropic agents (such as epinephrine or dopamine) or transcutaneous pacing</div>
+        <div class="action-ref">↳ MATC: Bradycardia</div>
+      </div>
+    </div><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-critical">critical</span><div class="action-text">Initiate transcutaneous pacing</div></div>
+        <div class="action-excerpt">Transcutaneous Pacing – If pacing is performed, consider sedation or pain control</div>
+        <div class="action-ref">↳ MATC: Bradycardia</div>
+      </div>
+    </div><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-important">important</span><div class="action-text">Provide sedation/analgesia with pacing for patient comfort</div></div>
+        <div class="action-excerpt">If pacing is performed, consider sedation or pain control</div>
+        <div class="action-ref">↳ MATC: Bradycardia</div>
+      </div>
+    </div></div>
+  </div>
+  </section><section class="phase-section">
+    <div class="card phase-card">
+      <div class="card-content">
+        
+        <div class="phase-title">Paced and stabilized</div>
+        <div class="phase-trigger">Trigger: Transcutaneous pacing is initiated at an appropriate rate and output, capture is confirmed on the monitor and by palpable pulse matching the paced rate, and sedation/analgesia has been administered.</div>
+        <div class="phase-desc">Transcutaneous pacing achieves reliable electrical and mechanical capture at a rate of 70. Perfusion and mentation improve. Patient is prepared for transport with continuous monitoring.</div>
+      </div>
+    </div>
+    <div class="card">
+    <div class="card-title">Vital Signs</div>
+    <div class="card-content" style="padding:0">
+      <div class="ecg-label">⏦ Third Degree Heart Block</div>
+      <div class="vitals-grid">
+        <div class="vital-cell"><div class="vital-name">HR</div><div class="vital-val">70</div><div class="vital-unit">bpm</div></div>
+        <div class="vital-cell"><div class="vital-name">BP</div><div class="vital-val">96/60</div><div class="vital-unit">mmHg</div></div>
+        <div class="vital-cell"><div class="vital-name">SpO₂</div><div class="vital-val">96%</div></div>
+        <div class="vital-cell"><div class="vital-name">RR</div><div class="vital-val">16</div><div class="vital-unit">/min</div></div>
+        <div class="vital-cell"><div class="vital-name">EtCO₂</div><div class="vital-val">34</div><div class="vital-unit">mmHg</div></div>
+        <div class="vital-cell"><div class="vital-name">Temp</div><div class="vital-val">98.1°</div><div class="vital-unit">F</div></div>
+        <div class="vital-cell full-width"><div class="vital-name">Glucose</div><div class="vital-val">104</div><div class="vital-unit">mg/dL</div></div>
+      </div>
+    </div>
+  </div>
+    <div class="card">
+    <div class="card-title">Clinical Findings</div>
+    <div class="card-content">
+      
+    <div class="loc-block">
+      <div class="avpu-bar"><div class="avpu-seg sel-a">A</div><div class="avpu-seg">V</div><div class="avpu-seg">P</div><div class="avpu-seg">U</div></div>
+      <div class="gcs-detail">
+    <div class="gcs-item"><span class="gcs-part">Eyes</span><span class="gcs-desc">Spontaneous</span><span class="gcs-score">4</span></div>
+    <div class="gcs-item"><span class="gcs-part">Verbal</span><span class="gcs-desc">Oriented</span><span class="gcs-score">5</span></div>
+    <div class="gcs-item"><span class="gcs-part">Motor</span><span class="gcs-desc">Obeys commands</span><span class="gcs-score">6</span></div>
+    <div class="gcs-total-row">Total GCS <span class="gcs-total">15</span></div>
+  </div>
+    </div>
+      <div class="finding-row"><div class="finding-label">Airway</div><div class="finding-value">Patent</div></div><div class="finding-row"><div class="finding-label">Breathing</div><div class="finding-value">Non-labored</div></div><div class="finding-row"><div class="finding-label">Circulation</div><div class="finding-value">Palpable radial pulse matching paced rate of 70; skin improving color, less diaphoretic</div></div><div class="finding-row"><div class="finding-label">Skin</div><div class="finding-value">pink · cool · slightly diaphoretic</div></div><div class="finding-row"><div class="finding-label">Pupils</div><div class="finding-value">PERRL</div></div><div class="finding-row"><div class="finding-label">Motor</div><div class="finding-value">Grossly intact</div></div><div class="finding-row"><div class="finding-label">Speech</div><div class="finding-value"><span class="finding-speech">"That's better... I don't feel as dizzy now."</span></div></div><div class="finding-row"><div class="finding-label">Other</div><div class="finding-value"><ul class="findings-notes"><li>Sedated but arousable and appropriate</li><li>Tolerating pacing without significant discomfort</li></ul></div></div>
+    </div>
+  </div>
+    <div class="card">
+    <div class="card-title">Expected Actions</div>
+    <div class="card-content" style="padding:0 16px 12px"><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-critical">critical</span><div class="action-text">Confirm mechanical and electrical capture; titrate pacer output/rate for adequate perfusion</div></div>
+        <div class="action-excerpt">Correct application and use of cardiac pacing</div>
+        <div class="action-ref">↳ MATC: Bradycardia</div>
+      </div>
+    </div><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-important">important</span><div class="action-text">Reassess vital signs and mental status after capture achieved</div></div>
+        <div class="action-excerpt">Ongoing vital signs</div>
+        <div class="action-ref">↳ MATC: Adult and Pediatric Syncope and Near Syncope</div>
+      </div>
+    </div><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-important">important</span><div class="action-text">Transport with continuous cardiac monitoring for further evaluation</div></div>
+        <div class="action-excerpt">Transfer for further evaluation</div>
+        <div class="action-ref">↳ MATC: Adult and Pediatric Syncope and Near Syncope</div>
+      </div>
+    </div></div>
+  </div>
+  </section><section class="phase-section">
+    <div class="card phase-card phase-card-branch">
+      <div class="card-content">
+        <div class="branch-tag">Improper Care Branch</div>
+        <div class="phase-title">Pacing delayed</div>
+        <div class="phase-trigger">Trigger: Atropine fails to improve heart rate or perfusion, but the crew delays escalating to transcutaneous pacing (e.g., repeating atropine or awaiting orders) for several minutes rather than proceeding directly to pacing as indicated for impending hemodynamic collapse.</div>
+        <div class="phase-desc">Transcutaneous pacing is delayed after atropine fails, allowing the patient to continue decompensating. Heart rate and blood pressure fall further, and mental status deteriorates toward unresponsiveness.</div>
+      </div>
+    </div>
+    <div class="card">
+    <div class="card-title">Vital Signs</div>
+    <div class="card-content" style="padding:0">
+      <div class="ecg-label">⏦ Third Degree Heart Block</div>
+      <div class="vitals-grid">
+        <div class="vital-cell"><div class="vital-name">HR</div><div class="vital-val">18</div><div class="vital-unit">bpm</div></div>
+        <div class="vital-cell"><div class="vital-name">BP</div><div class="vital-val">58/30</div><div class="vital-unit">mmHg</div></div>
+        <div class="vital-cell"><div class="vital-name">SpO₂</div><div class="vital-val">85%</div></div>
+        <div class="vital-cell"><div class="vital-name">RR</div><div class="vital-val">8</div><div class="vital-unit">/min</div></div>
+        <div class="vital-cell"><div class="vital-name">EtCO₂</div><div class="vital-val">25</div><div class="vital-unit">mmHg</div></div>
+        <div class="vital-cell"><div class="vital-name">Temp</div><div class="vital-val">97.7°</div><div class="vital-unit">F</div></div>
+        <div class="vital-cell full-width"><div class="vital-name">Glucose</div><div class="vital-val">104</div><div class="vital-unit">mg/dL</div></div>
+      </div>
+    </div>
+  </div>
+    <div class="card">
+    <div class="card-title">Clinical Findings</div>
+    <div class="card-content">
+      
+    <div class="loc-block">
+      <div class="avpu-bar"><div class="avpu-seg">A</div><div class="avpu-seg">V</div><div class="avpu-seg">P</div><div class="avpu-seg sel-u">U</div></div>
+      <div class="gcs-detail">
+    <div class="gcs-item"><span class="gcs-part">Eyes</span><span class="gcs-desc">No response</span><span class="gcs-score">1</span></div>
+    <div class="gcs-item"><span class="gcs-part">Verbal</span><span class="gcs-desc">No response</span><span class="gcs-score">1</span></div>
+    <div class="gcs-item"><span class="gcs-part">Motor</span><span class="gcs-desc">Withdraws from pain</span><span class="gcs-score">4</span></div>
+    <div class="gcs-total-row">Total GCS <span class="gcs-total">6</span></div>
+  </div>
+    </div>
+      <div class="finding-row"><div class="finding-label">Airway</div><div class="finding-value">Patent but at risk without stimulation</div></div><div class="finding-row"><div class="finding-label">Breathing</div><div class="finding-value">Shallow, slow</div></div><div class="finding-row"><div class="finding-label">Circulation</div><div class="finding-value">Radial pulse absent, carotid pulse weak and slow; skin ashen, cool, diaphoretic</div></div><div class="finding-row"><div class="finding-label">Skin</div><div class="finding-value">ashen · cool · diaphoretic</div></div><div class="finding-row"><div class="finding-label">Pupils</div><div class="finding-value">Sluggish</div></div><div class="finding-row"><div class="finding-label">Motor</div><div class="finding-value">Responds only to painful stimuli</div></div><div class="finding-row"><div class="finding-label">Other</div><div class="finding-value"><ul class="findings-notes"><li>No longer answering questions</li><li>Approaching pulseless state</li></ul></div></div>
+    </div>
+  </div>
+    <div class="card">
+    <div class="card-title">Expected Actions</div>
+    <div class="card-content" style="padding:0 16px 12px"><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-critical">critical</span><div class="action-text">Recognize impending hemodynamic collapse; proceed directly to TCP without further delay</div></div>
+        <div class="action-excerpt">In cases of impending hemodynamic collapse, proceed directly to transcutaneous pacing</div>
+        <div class="action-ref">↳ MATC: Bradycardia</div>
+      </div>
+    </div><div class="action-row">
+      <div class="action-box"></div>
+      <div class="action-body">
+        <div class="action-head"><span class="action-priority p-critical">critical</span><div class="action-text">Recognize decreasing level of consciousness and worsening shock as signs of critical hypoperfusion</div></div>
+        <div class="action-excerpt">Observe for signs of decreased end-organ perfusion: chest pain (CP), shortness of breath (SOB), decreased level of consciousness, syncope, or other signs of shock/hypotension</div>
+        <div class="action-ref">↳ MATC: Bradycardia</div>
+      </div>
+    </div></div>
+  </div>
+  </section>
+</div>
+</body>
+</html>

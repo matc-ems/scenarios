@@ -1,0 +1,208 @@
+{
+  "scenarioId": "121-mixed-overdose-with-partial-naloxone-response",
+  "scenarioName": "121 - Mixed Overdose with Partial Naloxone Response",
+  "scenarioType": "Vital Signs",
+  "scenarioVersion": 2,
+  "scenarioTime": 720,
+  "scenarioMonitorType": 2,
+  "scenarioDefaultEnergy": 200,
+  "scenarioDefaultPacerThreshold": 55,
+  "isDemo": false,
+  "isALSILegacy": false,
+  "scenarioStory": {
+    "history": "Roommate returned home and found the patient unresponsive on the bathroom floor, next to a spoon and a syringe. Roommate estimates he was last seen normal about an hour ago. Patient is unresponsive to voice, breathing is slow and shallow with occasional snoring respirations.",
+    "discussion": "",
+    "course": "Initial Contact: Crew finds a 32-year-old male unresponsive on the bathroom floor with slow, shallow, snoring respirations, cyanotic lips, and pinpoint pupils. Drug paraphernalia and an unlabeled pill bottle are visible, raising concern for a mixed ingestion rather than opioids alone. → BVM started, naloxone titrated: Crew opens the airway with a jaw thrust, inserts an NPA, and begins two-person BVM ventilation with PEEP prior to giving naloxone. Naloxone is then titrated in small incremental doses IV while the crew checks blood glucose and screens for other causes of altered mental status. → Partial response, BVM continued: Respiratory drive improves partially but the patient still cannot protect his own airway reliably. The crew continues bag-valve-mask support with supplemental naloxone titration as needed, avoiding advanced airway placement since BVM remains effective, and transports with continuous reassessment for recurrent respiratory depression."
+  },
+  "patientInformation": {
+    "patientName": "Derek Sullivan",
+    "patientCondition": "Found unresponsive, shallow breathing",
+    "patientAge": 32,
+    "patientAgeUnit": "years",
+    "patientAgeCategory": 0,
+    "patientSex": 1,
+    "patientHeight": 178,
+    "patientWeight": 80,
+    "patientPhotoId": 39,
+    "patientAdmitted": 1
+  },
+  "labs": [],
+  "scenarioEvents": [
+    {
+      "type": "ScenarioEvent",
+      "name": "Initial Contact",
+      "description": "Crew finds a 32-year-old male unresponsive on the bathroom floor with slow, shallow, snoring respirations, cyanotic lips, and pinpoint pupils. Drug paraphernalia and an unlabeled pill bottle are visible, raising concern for a mixed ingestion rather than opioids alone.",
+      "monitorType": 0,
+      "trendTime": 0,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 56,
+        "bpSys": 100,
+        "bpDia": 60,
+        "respRate": 6,
+        "spo2": 82,
+        "etco2": 58,
+        "temp": 36.5,
+        "obstruction": 30,
+        "custMeasure1": 95,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "BVM started, naloxone titrated",
+      "description": "Crew opens the airway with a jaw thrust, inserts an NPA, and begins two-person BVM ventilation with PEEP prior to giving naloxone. Naloxone is then titrated in small incremental doses IV while the crew checks blood glucose and screens for other causes of altered mental status.",
+      "monitorType": 0,
+      "trendTime": 30,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 72,
+        "bpSys": 108,
+        "bpDia": 64,
+        "respRate": 10,
+        "spo2": 94,
+        "etco2": 48,
+        "temp": 36.6,
+        "obstruction": 10,
+        "custMeasure1": 95,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Open airway (jaw thrust/NPA) and begin two-person BVM with PEEP before giving naloxone",
+        "Naloxone 0.4 mg IV, titrate incrementally to effect (not weight-based; fixed adult range)",
+        "Check blood glucose and screen for other causes of AMS (hypoxia, hypotension, head trauma)"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Partial response, BVM continued",
+      "description": "Respiratory drive improves partially but the patient still cannot protect his own airway reliably. The crew continues bag-valve-mask support with supplemental naloxone titration as needed, avoiding advanced airway placement since BVM remains effective, and transports with continuous reassessment for recurrent respiratory depression.",
+      "monitorType": 0,
+      "trendTime": 40,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 78,
+        "bpSys": 112,
+        "bpDia": 68,
+        "respRate": 8,
+        "spo2": 96,
+        "etco2": 44,
+        "temp": 36.7,
+        "obstruction": 0,
+        "custMeasure1": 95,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Continue BVM support rather than escalating to RSI, since ventilation remains effective",
+        "Monitor closely for recurrent respiratory depression; naloxone effect is shorter than the opioid's duration"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Naloxone given before airway supported",
+      "description": "The crew pushes a full rapid dose of naloxone immediately, without first opening the airway or providing BVM support. The patient remains hypoxic during the delay, and as the naloxone takes effect he becomes acutely agitated from precipitated withdrawal while still poorly oxygenated.",
+      "monitorType": 0,
+      "trendTime": 20,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 118,
+        "bpSys": 132,
+        "bpDia": 84,
+        "respRate": 22,
+        "spo2": 85,
+        "etco2": 60,
+        "temp": 36.5,
+        "obstruction": 20,
+        "custMeasure1": 95,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Recognize precipitated withdrawal from rapid naloxone; resume BVM support and allow agitation to settle"
+      ],
+      "relatedSounds": []
+    }
+  ],
+  "checklist": [
+    {
+      "title": "Open airway (jaw thrust/NPA) and begin two-person BVM with PEEP before giving naloxone",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Naloxone 0.4 mg IV, titrate incrementally to effect (not weight-based; fixed adult range)",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Check blood glucose and screen for other causes of AMS (hypoxia, hypotension, head trauma)",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Continue BVM support rather than escalating to RSI, since ventilation remains effective",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Monitor closely for recurrent respiratory depression; naloxone effect is shorter than the opioid's duration",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Recognize precipitated withdrawal from rapid naloxone; resume BVM support and allow agitation to settle",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    }
+  ],
+  "media": []
+}

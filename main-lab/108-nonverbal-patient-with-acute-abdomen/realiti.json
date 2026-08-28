@@ -1,0 +1,262 @@
+{
+  "scenarioId": "108-nonverbal-patient-with-acute-abdomen",
+  "scenarioName": "108 - Nonverbal Patient with Acute Abdomen",
+  "scenarioType": "Vital Signs",
+  "scenarioVersion": 2,
+  "scenarioTime": 900,
+  "scenarioMonitorType": 2,
+  "scenarioDefaultEnergy": 200,
+  "scenarioDefaultPacerThreshold": 55,
+  "isDemo": false,
+  "isALSILegacy": false,
+  "scenarioStory": {
+    "history": "Mother reports patient has been holding his abdomen, moaning, and refusing to eat since early afternoon, with unusual withdrawal from his normal routine and resistance to being touched near the stomach. No vomiting reported at home. No fever noted, though she did not take his temperature.",
+    "discussion": "",
+    "course": "Initial Contact: 16-year-old male with autism spectrum disorder (nonverbal) presents curled on his side, guarding his abdomen, moaning and rocking. His mother is present and serves as primary historian and communication support. → History and FLACC pain score obtained: Crew slows its pace, follows the mother's guidance on approach, and completes a structured assessment using caregiver-reported history and an observational pain scale rather than a self-report scale. → FLACC-guided analgesia given: Crew administers intranasal fentanyl dosed to the patient's weight, choosing the IN route to avoid a distressing IV attempt, then prepares for transport. → Transport initiated with mother present: Patient is transported with his mother present to support communication and comfort; crew continues serial reassessment en route given the persistent abdominal rigidity concerning for a surgical abdomen."
+  },
+  "patientInformation": {
+    "patientName": "Ethan Voss",
+    "patientCondition": "Abdominal pain and guarding; nonverbal, communicating distress through vocalizations and behavior only",
+    "patientAge": 16,
+    "patientAgeUnit": "years",
+    "patientAgeCategory": 1,
+    "patientSex": 1,
+    "patientHeight": 170,
+    "patientWeight": 65,
+    "patientPhotoId": 20,
+    "patientAdmitted": 1
+  },
+  "labs": [],
+  "scenarioEvents": [
+    {
+      "type": "ScenarioEvent",
+      "name": "Initial Contact",
+      "description": "16-year-old male with autism spectrum disorder (nonverbal) presents curled on his side, guarding his abdomen, moaning and rocking. His mother is present and serves as primary historian and communication support.",
+      "monitorType": 0,
+      "trendTime": 0,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 116,
+        "bpSys": 126,
+        "bpDia": 80,
+        "respRate": 22,
+        "spo2": 97,
+        "etco2": 0,
+        "temp": 38.2,
+        "obstruction": 0,
+        "custMeasure1": 96,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "History and FLACC pain score obtained",
+      "description": "Crew slows its pace, follows the mother's guidance on approach, and completes a structured assessment using caregiver-reported history and an observational pain scale rather than a self-report scale.",
+      "monitorType": 0,
+      "trendTime": 30,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 112,
+        "bpSys": 124,
+        "bpDia": 78,
+        "respRate": 20,
+        "spo2": 97,
+        "etco2": 0,
+        "temp": 38.2,
+        "obstruction": 0,
+        "custMeasure1": 96,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Assess pain using the FLACC observational scale (nonverbal/cognitive impairment)",
+        "Obtain full vital signs (pulse, BP, RR, neurologic status)",
+        "Assess for signs of ischemic/perforated bowel: rigidity, distension, guarding, fever",
+        "Obtain vascular access to allow analgesia administration"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "FLACC-guided analgesia given",
+      "description": "Crew administers intranasal fentanyl dosed to the patient's weight, choosing the IN route to avoid a distressing IV attempt, then prepares for transport.",
+      "monitorType": 0,
+      "trendTime": 30,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 104,
+        "bpSys": 120,
+        "bpDia": 76,
+        "respRate": 18,
+        "spo2": 98,
+        "etco2": 0,
+        "temp": 38.1,
+        "obstruction": 0,
+        "custMeasure1": 96,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Fentanyl 65 mcg IN (65 kg × 1 mcg/kg; max 100 mcg)",
+        "Reassess FLACC pain score and vital signs after analgesia",
+        "Position of comfort; minimize unfamiliar stimulation per mother's guidance"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Transport initiated with mother present",
+      "description": "Patient is transported with his mother present to support communication and comfort; crew continues serial reassessment en route given the persistent abdominal rigidity concerning for a surgical abdomen.",
+      "monitorType": 0,
+      "trendTime": 40,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 98,
+        "bpSys": 118,
+        "bpDia": 74,
+        "respRate": 16,
+        "spo2": 98,
+        "etco2": 0,
+        "temp": 38,
+        "obstruction": 0,
+        "custMeasure1": 96,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Transport to appropriate receiving facility; reassess vitals and pain en route"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "FLACC skipped, pain untreated",
+      "description": "Without a structured pain assessment, the patient's distress escalates — increased rocking, resistance to touch, and rising heart rate — making the abdominal exam harder to trust and delaying recognition of his true pain level.",
+      "monitorType": 0,
+      "trendTime": 45,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 132,
+        "bpSys": 130,
+        "bpDia": 84,
+        "respRate": 26,
+        "spo2": 96,
+        "etco2": 0,
+        "temp": 38.3,
+        "obstruction": 0,
+        "custMeasure1": 96,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Recognize escalating distress as undertreated pain; FLACC score and fentanyl 65 mcg IN"
+      ],
+      "relatedSounds": []
+    }
+  ],
+  "checklist": [
+    {
+      "title": "Assess pain using the FLACC observational scale (nonverbal/cognitive impairment)",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Obtain full vital signs (pulse, BP, RR, neurologic status)",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Assess for signs of ischemic/perforated bowel: rigidity, distension, guarding, fever",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Obtain vascular access to allow analgesia administration",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Fentanyl 65 mcg IN (65 kg × 1 mcg/kg; max 100 mcg)",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Reassess FLACC pain score and vital signs after analgesia",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Position of comfort; minimize unfamiliar stimulation per mother's guidance",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Transport to appropriate receiving facility; reassess vitals and pain en route",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Recognize escalating distress as undertreated pain; FLACC score and fentanyl 65 mcg IN",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    }
+  ],
+  "media": []
+}

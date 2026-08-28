@@ -1,0 +1,375 @@
+{
+  "meta": {
+    "id": "022-breakthrough-abdominal-pain",
+    "name": "022 - Breakthrough Abdominal Pain",
+    "version": 1,
+    "difficulty": "intermediate",
+    "category": "Medical",
+    "protocols": ["medical-pain-management", "medical-abdominal-pain", "medical-end-of-life-hospice"],
+    "totalTimeSeconds": 900,
+    "tags": ["ALS", "hospice", "pain management", "med math", "opioid tolerance", "914b"]
+  },
+  "patient": {
+    "name": "Carol Ann Whitfield",
+    "age": 62,
+    "ageUnit": "years",
+    "sex": "female",
+    "weight": 68,
+    "weightLbs": 150,
+    "height": 165,
+    "chiefComplaint": "Severe breakthrough abdominal pain, hospice patient with metastatic pancreatic cancer",
+    "history": {
+      "hpi": "Patient is enrolled in home hospice for metastatic pancreatic cancer. Daughter and primary caregiver reports the patient's abdominal pain has been escalating over the last two hours, rated 9/10, unrelieved by two doses of her prescribed breakthrough oxycodone. Patient is awake, oriented, and able to communicate her wishes; she states she wants relief from the pain and does not want to go without it out of fear of side effects.",
+      "pastMedical": ["Metastatic pancreatic cancer, enrolled in home hospice", "Chronic opioid tolerance from long-term pain management", "Hypertension"],
+      "medications": ["Extended-release morphine sulfate 60 mg PO twice daily (home regimen)", "Oxycodone 10 mg PO PRN breakthrough pain (two doses taken in past hour without relief)", "Ondansetron 4 mg PO PRN nausea", "Lisinopril 10 mg PO daily"],
+      "allergies": ["NKDA"],
+      "lastOralIntake": "Sips of water this morning; no solid food due to pain and nausea",
+      "events": "Daughter called the hospice line and then 911 after breakthrough oxycodone failed to control escalating pain"
+    }
+  },
+  "scene": {
+    "dispatch": "62-year-old female, abdominal pain, hospice patient, residence",
+    "location": "Single-story home, patient in a hospital bed set up in the living room",
+    "time": "9:15 PM, weekday evening",
+    "safety": "No hazards to crew noted; hospice equipment (oxygen concentrator, medication box) present at bedside",
+    "bystanders": "Daughter present as primary caregiver, gives history and confirms hospice enrollment and home medication regimen",
+    "visualCues": [
+      "Patient grimacing, guarding abdomen, knees drawn up",
+      "Hospice comfort kit and medication log visible on nightstand",
+      "DNR/POLST form posted on refrigerator per caregiver",
+      "Emaciated appearance consistent with advanced malignancy",
+      "Home oxygen concentrator present but not currently in use"
+    ]
+  },
+  "phases": [
+    {
+      "id": "initial",
+      "name": "Initial Contact",
+      "description": "Crew arrives to find a 62-year-old hospice patient with metastatic pancreatic cancer, awake and oriented, reporting severe abdominal pain unrelieved by her prescribed breakthrough oxycodone.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent, speaking in short sentences due to pain",
+        "breathing": "Nonlabored, mildly tachypneic from pain, 22/min",
+        "circulation": "Radial pulses present bilaterally, skin warm and dry",
+        "skin": { "color": "pale", "temperature": "warm", "moisture": "dry" },
+        "pupils": "PERRL",
+        "motorFunction": "Strength intact in all extremities",
+        "otherFindings": [
+          "Abdominal pain 9/10, diffuse with guarding",
+          "Emaciated, chronically ill appearance",
+          "No fever, no vomiting at this time",
+          "Fully alert and able to converse about her care wishes"
+        ],
+        "patientSpeech": "\"Please, I need something for this pain, the pills aren't touching it.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 112,
+        "bpSys": 142,
+        "bpDia": 88,
+        "respRate": 22,
+        "spo2": 97,
+        "etco2": 0,
+        "temp": 37.1,
+        "tempF": 98.8,
+        "obstruction": 0,
+        "glucose": 96,
+        "customMeasures": [],
+        "trendTimeSeconds": 0,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [],
+      "transitions": [
+        {
+          "targetPhaseId": "assessment",
+          "if": "Pain and life-threat assessment performed",
+          "condition": "Crew obtains a pain scale score, screens the abdomen for life-threatening causes, obtains vascular access, and engages the hospice care framework before administering analgesia.",
+          "conditionType": "action_taken"
+        }
+      ]
+    },
+    {
+      "id": "assessment",
+      "name": "Pain and life-threat assessment performed",
+      "description": "Crew performs a focused abdominal assessment to rule out a life-threatening surgical cause, scores the patient's pain, obtains IV access, and confirms the patient's hospice status and capacity to direct her own care.",
+      "triggerCondition": "After the primary survey confirms no immediate airway or breathing compromise, the crew proceeds with a structured pain and abdominal assessment, consistent with treating this as hospice-related breakthrough pain rather than an undifferentiated surgical abdomen.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "Nonlabored, 20/min",
+        "circulation": "Radial pulses present bilaterally, 20g IV established left forearm",
+        "skin": { "color": "pale", "temperature": "warm", "moisture": "dry" },
+        "pupils": "PERRL",
+        "motorFunction": "Strength intact in all extremities",
+        "otherFindings": [
+          "Pain scale (NRS) 9/10, diffuse abdominal tenderness without rebound or rigidity",
+          "No fever, no distension, no pulsatile mass",
+          "Confirms hospice enrollment and wants pain relief, no advance directive changes"
+        ],
+        "patientSpeech": "\"I'm hospice, I just want the pain to stop. I know what I want.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 110,
+        "bpSys": 140,
+        "bpDia": 86,
+        "respRate": 20,
+        "spo2": 97,
+        "etco2": 38,
+        "temp": 37.1,
+        "tempF": 98.8,
+        "obstruction": 0,
+        "glucose": 96,
+        "customMeasures": [],
+        "trendTimeSeconds": 30,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a1-pain-scale",
+          "shortAction": "Assess pain using Numeric Rating Scale (NRS); document 9/10 baseline",
+          "protocolExcerpt": "Greater than 12 years old: Self-report scale: Numeric Rating Scale (NRS)",
+          "priority": "critical",
+          "rationale": "A documented baseline pain score is required to gauge response to analgesia.",
+          "protocolReference": "MATC: Pain Management"
+        },
+        {
+          "id": "a2-abdominal-screen",
+          "shortAction": "Assess abdomen for life-threatening causes (rigidity, rebound, pulsatile mass, distension)",
+          "protocolExcerpt": "Assess for life-threatening causes of abdominal pain, which may include: Signs and symptoms of ischemic, necrotic, or perforated bowel: Severe tenderness, Abdominal pain with motion or palpation of the abdomen, Fever, Bloody stool",
+          "priority": "critical",
+          "rationale": "Even in a known hospice patient, a new surgical abdomen must be excluded before attributing pain solely to the underlying malignancy.",
+          "protocolReference": "MATC: Abdominal Pain"
+        },
+        {
+          "id": "a3-iv-access",
+          "shortAction": "Establish IV access to allow analgesia administration",
+          "protocolExcerpt": "Obtain vascular access as necessary to provide analgesia and/or fluid resuscitation",
+          "priority": "critical",
+          "rationale": "IV access enables titratable opioid dosing rather than relying on the ineffective oral breakthrough dose.",
+          "protocolReference": "MATC: Abdominal Pain"
+        },
+        {
+          "id": "a4-hospice-engage",
+          "shortAction": "Confirm hospice enrollment and consult patient directly on treatment wishes",
+          "protocolExcerpt": "Engage with the patient's hospice or end-of-life care team or their primary care physician if possible. If not a viable option, contact medical direction. If the patient can communicate and has the capacity to make decisions regarding treatment and transport, consult directly with the patient before treatment and/or transport",
+          "priority": "important",
+          "rationale": "The patient is alert and has decision-making capacity, so her stated wishes for pain relief should directly guide care.",
+          "protocolReference": "MATC: End-of-Life Care/Hospice Care"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "hydromorphone-given",
+          "if": "Hydromorphone given despite opioid tolerance",
+          "condition": "Crew administers weight-based hydromorphone per protocol, applies capnography, and does not withhold analgesia despite the patient's chronic opioid tolerance.",
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a3-iv-access"]
+        },
+        {
+          "targetPhaseId": "opioid-withheld",
+          "if": "Opioid withheld over resp depression concern",
+          "condition": "Crew delays or withholds hydromorphone out of concern for respiratory depression despite the patient's normal respiratory status and hospice comfort-focused goals of care.",
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["a3-iv-access"]
+        }
+      ]
+    },
+    {
+      "id": "hydromorphone-given",
+      "name": "Hydromorphone given despite opioid tolerance",
+      "description": "Crew administers weight-based hydromorphone with continuous capnography monitoring, recognizing that her chronic opioid tolerance and hospice comfort-focused goals of care mean the dose should not be withheld out of fear of respiratory depression.",
+      "triggerCondition": "After IV access is secured and no life-threatening surgical cause is identified, the crew proceeds with protocol-dosed hydromorphone, applying capnography as the recommended early monitor for opioid-related hypoventilation.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "Nonlabored, 18/min",
+        "circulation": "Radial pulses present bilaterally, warm and dry",
+        "skin": { "color": "pink", "temperature": "warm", "moisture": "dry" },
+        "pupils": "PERRL, slightly miotic",
+        "motorFunction": "Strength intact in all extremities",
+        "otherFindings": [
+          "Pain improving, 6/10 at 5-minute reassessment",
+          "Capnography waveform normal, EtCO2 within normal limits",
+          "No signs of hypoventilation or oversedation"
+        ],
+        "patientSpeech": "\"That's helping, thank you. Still hurts but it's more bearable.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Rhythm",
+        "ecgWaveform": 9,
+        "hr": 98,
+        "bpSys": 132,
+        "bpDia": 82,
+        "respRate": 18,
+        "spo2": 98,
+        "etco2": 40,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 0,
+        "glucose": 96,
+        "customMeasures": [],
+        "trendTimeSeconds": 30,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a5-hydromorphone",
+          "shortAction": "Hydromorphone 1 mg IV (68 kg × 0.015 mg/kg = 1.02 mg; max initial 2 mg, max cumulative 4 mg)",
+          "protocolExcerpt": "Hydromorphone: 0.015 mg/kg IM, IV, or IO (maximum initial dose 2 mg; maximum cumulative dose of 4 mg)",
+          "priority": "critical",
+          "rationale": "Weight-based initial dosing per protocol, with room to titrate further given her opioid tolerance.",
+          "protocolReference": "MATC: Pain Management"
+        },
+        {
+          "id": "a6-capnography",
+          "shortAction": "Apply continuous waveform capnography as early monitor for opioid-induced hypoventilation",
+          "protocolExcerpt": "Use of non-invasive capnography is an earlier predictor of hypoventilation than pulse oximetry if opioid medications are administered",
+          "priority": "important",
+          "rationale": "EtCO2 trending detects hypoventilation before SpO2 drops, especially important with additional opioid dosing.",
+          "protocolReference": "MATC: Pain Management"
+        },
+        {
+          "id": "a7-do-not-withhold",
+          "shortAction": "Administer full protocol-dosed analgesia; do not withhold for fear of respiratory depression",
+          "protocolExcerpt": "Do not withhold opioids for fear of respiratory depression as patient comfort is the primary goal for hospice and end-of-life care",
+          "priority": "critical",
+          "rationale": "Hospice goals of care explicitly prioritize comfort over theoretical respiratory depression risk in a patient without current respiratory compromise.",
+          "protocolReference": "MATC: End-of-Life Care/Hospice Care"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "transport",
+          "if": "Pain reassessed, repeat dose given if needed",
+          "condition": "Patient is reassessed at 5 minutes; if pain remains significant, a repeat hydromorphone dose is given per protocol repeat-dosing guidance and the patient is transported in a position of comfort.",
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a5-hydromorphone"]
+        }
+      ]
+    },
+    {
+      "id": "transport",
+      "name": "Pain reassessed, repeat dose given if needed",
+      "description": "Pain is reassessed five minutes after the initial dose; because it remains only partially controlled, a repeat weight-based hydromorphone dose is given within the protocol's cumulative maximum, and the patient is transported in a position of comfort with her daughter accompanying.",
+      "triggerCondition": "At the five-minute reassessment interval specified by the Pain Management guideline, persistent pain prompts a repeat dose before transport.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "Nonlabored, 16/min",
+        "circulation": "Radial pulses present bilaterally, warm and dry",
+        "skin": { "color": "pink", "temperature": "warm", "moisture": "dry" },
+        "pupils": "PERRL, mildly miotic",
+        "motorFunction": "Strength intact in all extremities",
+        "otherFindings": [
+          "Pain now 3/10, patient resting more comfortably",
+          "No signs of oversedation, appropriately conversant",
+          "Positioned semi-fowler's per her comfort preference"
+        ],
+        "patientSpeech": "\"That's much better. Thank you for listening to me.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Rhythm",
+        "ecgWaveform": 9,
+        "hr": 88,
+        "bpSys": 126,
+        "bpDia": 78,
+        "respRate": 16,
+        "spo2": 98,
+        "etco2": 39,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 0,
+        "glucose": 96,
+        "customMeasures": [],
+        "trendTimeSeconds": 40,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a8-repeat-dose",
+          "shortAction": "Repeat hydromorphone 1 mg IV after 5 min (cumulative 2 mg; max cumulative 4 mg)",
+          "protocolExcerpt": "If indicated based on pain assessment, and vital signs allow, repeat pain medication administration (excluding acetaminophen and nonsteroidal anti-inflammatory medicines) after 5 minutes of the previous dose",
+          "priority": "important",
+          "rationale": "Persistent 6/10 pain after the first dose and stable vital signs support a repeat dose within the cumulative maximum.",
+          "protocolReference": "MATC: Pain Management"
+        },
+        {
+          "id": "a9-reassess-transport",
+          "shortAction": "Reassess pain score and vitals; transport in position of comfort",
+          "protocolExcerpt": "Transport in position of comfort and reassess as indicated",
+          "priority": "important",
+          "rationale": "Ongoing reassessment confirms adequate analgesia without oversedation en route.",
+          "protocolReference": "MATC: Pain Management"
+        }
+      ],
+      "transitions": []
+    },
+    {
+      "id": "opioid-withheld",
+      "name": "Opioid withheld over resp depression concern",
+      "description": "The crew hesitates to give hydromorphone, citing concern for respiratory depression, despite the patient's normal respiratory status, established chronic opioid tolerance, and clearly stated hospice comfort goals. Her pain escalates and she becomes increasingly distressed.",
+      "triggerCondition": "Crew delays administering analgesia out of a general concern for opioid-related respiratory depression, without regard to the hospice protocol's explicit guidance not to withhold opioids on that basis when comfort is the goal of care.",
+      "isDefault": false,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "Nonlabored but rapid from pain, 26/min",
+        "circulation": "Radial pulses present bilaterally, skin warm and diaphoretic",
+        "skin": { "color": "flushed", "temperature": "warm", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Strength intact in all extremities",
+        "otherFindings": [
+          "Pain unchanged at 9-10/10, patient crying and pleading for relief",
+          "Increasing agitation and distress",
+          "Daughter becoming visibly upset at delay in treatment"
+        ],
+        "patientSpeech": "\"Please, why won't you help me, I told you what I want.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 124,
+        "bpSys": 156,
+        "bpDia": 94,
+        "respRate": 26,
+        "spo2": 97,
+        "etco2": 34,
+        "temp": 37.2,
+        "tempF": 99.0,
+        "obstruction": 0,
+        "glucose": 96,
+        "customMeasures": [],
+        "trendTimeSeconds": 40,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "b1-recognize-comfort-priority",
+          "shortAction": "Recognize hospice guidance: do not withhold opioids for fear of respiratory depression",
+          "protocolExcerpt": "Do not withhold opioids for fear of respiratory depression as patient comfort is the primary goal for hospice and end-of-life care",
+          "priority": "critical",
+          "rationale": "Continued withholding contradicts the explicit hospice protocol directive and leaves the patient in unrelieved severe pain.",
+          "protocolReference": "MATC: End-of-Life Care/Hospice Care"
+        }
+      ],
+      "transitions": []
+    }
+  ],
+  "realiti": {
+    "scenarioMonitorType": 2,
+    "scenarioDefaultEnergy": 200,
+    "scenarioDefaultPacerThreshold": 55
+  }
+}

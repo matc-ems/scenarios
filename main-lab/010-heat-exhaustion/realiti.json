@@ -1,0 +1,229 @@
+{
+  "scenarioId": "010-heat-exhaustion",
+  "scenarioName": "010 - Heat Exhaustion",
+  "scenarioType": "Vital Signs",
+  "scenarioVersion": 2,
+  "scenarioTime": 900,
+  "scenarioMonitorType": 2,
+  "scenarioDefaultEnergy": 200,
+  "scenarioDefaultPacerThreshold": 55,
+  "isDemo": false,
+  "isALSILegacy": false,
+  "scenarioStory": {
+    "history": "Patient was framing a roof in direct sun for approximately 5 hours with minimal water breaks when coworkers noticed him become unsteady and sit down abruptly. He then reported feeling dizzy, nauseated, and cramping in both calves before near-syncope. No head strike or fall from height; he lowered himself to the ground.",
+    "discussion": "",
+    "course": "Initial Contact: Crew arrives to find a 19-year-old male construction worker sitting in the shade, flushed and diaphoretic, complaining of dizziness, weakness, and bilateral calf cramping after prolonged sun exposure with minimal fluid intake. → Cooling started and IV access obtained: Crew initiates active cooling measures and gains IV access, administering an isotonic fluid bolus for presumed dehydration-related compensated shock while continuing to monitor for improvement or progression toward heat stroke. → Cooling and fluids improve perfusion: The patient's vital signs trend toward normal following cooling measures and the fluid bolus; cramping resolves and he remains alert throughout, ready for transport for further evaluation."
+  },
+  "patientInformation": {
+    "patientName": "Marcus Delgado",
+    "patientCondition": "Collapsed while working outdoors, weak and dizzy",
+    "patientAge": 19,
+    "patientAgeUnit": "years",
+    "patientAgeCategory": 0,
+    "patientSex": 1,
+    "patientHeight": 178,
+    "patientWeight": 78,
+    "patientPhotoId": 23,
+    "patientAdmitted": 1
+  },
+  "labs": [],
+  "scenarioEvents": [
+    {
+      "type": "ScenarioEvent",
+      "name": "Initial Contact",
+      "description": "Crew arrives to find a 19-year-old male construction worker sitting in the shade, flushed and diaphoretic, complaining of dizziness, weakness, and bilateral calf cramping after prolonged sun exposure with minimal fluid intake.",
+      "monitorType": 0,
+      "trendTime": 0,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 128,
+        "bpSys": 98,
+        "bpDia": 62,
+        "respRate": 22,
+        "spo2": 97,
+        "etco2": 0,
+        "temp": 38.7,
+        "obstruction": 0,
+        "custMeasure1": 92,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Cooling started and IV access obtained",
+      "description": "Crew initiates active cooling measures and gains IV access, administering an isotonic fluid bolus for presumed dehydration-related compensated shock while continuing to monitor for improvement or progression toward heat stroke.",
+      "monitorType": 0,
+      "trendTime": 30,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 118,
+        "bpSys": 100,
+        "bpDia": 64,
+        "respRate": 20,
+        "spo2": 98,
+        "etco2": 0,
+        "temp": 38.3,
+        "obstruction": 0,
+        "custMeasure1": 92,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Move to cool shaded area, remove excess clothing, begin evaporative cooling (mist + fan)",
+        "Offer small sips of cool oral fluids since patient is alert and tolerating PO",
+        "Check blood glucose; treat per Hypoglycemia guideline if less than 60 mg/dL",
+        "Place patient on cardiac monitor; obtain continuous vital signs",
+        "Establish IV access; convert to IO if unsuccessful within 2 attempts or 90 seconds",
+        "Normal saline bolus 500 mL IV, up to 30 mL/kg total (78 kg × 30 mL/kg = 2,340 mL) titrated to MAP 65 mmHg"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Cooling and fluids improve perfusion",
+      "description": "The patient's vital signs trend toward normal following cooling measures and the fluid bolus; cramping resolves and he remains alert throughout, ready for transport for further evaluation.",
+      "monitorType": 0,
+      "trendTime": 40,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 96,
+        "bpSys": 112,
+        "bpDia": 70,
+        "respRate": 18,
+        "spo2": 99,
+        "etco2": 0,
+        "temp": 37.6,
+        "obstruction": 0,
+        "custMeasure1": 90,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Reassess vital signs and mental status; confirm downtrending temperature",
+        "Transport for further evaluation; continue cooling and fluids en route"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Cooling and IV access delayed",
+      "description": "Delayed cooling and IV access allow the patient's condition to worsen: rising temperature, increasing tachycardia, and new mental status changes indicate progression from heat exhaustion toward heat stroke.",
+      "monitorType": 0,
+      "trendTime": 50,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 142,
+        "bpSys": 88,
+        "bpDia": 56,
+        "respRate": 26,
+        "spo2": 95,
+        "etco2": 0,
+        "temp": 39.6,
+        "obstruction": 0,
+        "custMeasure1": 88,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Recognize progression toward heat stroke (new AMS + rising temp); begin immediate active cooling and IV fluids"
+      ],
+      "relatedSounds": []
+    }
+  ],
+  "checklist": [
+    {
+      "title": "Move to cool shaded area, remove excess clothing, begin evaporative cooling (mist + fan)",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Offer small sips of cool oral fluids since patient is alert and tolerating PO",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Check blood glucose; treat per Hypoglycemia guideline if less than 60 mg/dL",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Place patient on cardiac monitor; obtain continuous vital signs",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Establish IV access; convert to IO if unsuccessful within 2 attempts or 90 seconds",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Normal saline bolus 500 mL IV, up to 30 mL/kg total (78 kg × 30 mL/kg = 2,340 mL) titrated to MAP 65 mmHg",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Reassess vital signs and mental status; confirm downtrending temperature",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Transport for further evaluation; continue cooling and fluids en route",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Recognize progression toward heat stroke (new AMS + rising temp); begin immediate active cooling and IV fluids",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    }
+  ],
+  "media": []
+}

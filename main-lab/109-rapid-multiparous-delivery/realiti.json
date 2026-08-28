@@ -1,0 +1,182 @@
+{
+  "scenarioId": "109-rapid-multiparous-delivery",
+  "scenarioName": "109 - Rapid Multiparous Delivery",
+  "scenarioType": "Vital Signs",
+  "scenarioVersion": 2,
+  "scenarioTime": 600,
+  "scenarioMonitorType": 2,
+  "scenarioDefaultEnergy": 200,
+  "scenarioDefaultPacerThreshold": 55,
+  "isDemo": false,
+  "isALSILegacy": false,
+  "scenarioStory": {
+    "history": "G2P1 at 39 weeks gestation. Labor started about 90 minutes ago and progressed unusually fast for her second pregnancy. Contractions are now less than 2 minutes apart and she reports an overwhelming urge to push and a feeling that the baby is coming now.",
+    "discussion": "",
+    "course": "Initial Contact: Crew arrives to find a 29-year-old G2P1 female at 39 weeks with crowning visible and strong, frequent contractions. Delivery is clearly imminent. → Controlled delivery performed: Crew supports the infant's head with gentle counterpressure to prevent explosive delivery, checks for a nuchal cord, and guides delivery of the anterior and posterior shoulders. → Newborn dried, warmed, and scored: Newborn delivers with a strong cry and good tone. Crew dries, warms, and stimulates the infant, delays cord clamping appropriately, and calculates APGAR scores at 1 and 5 minutes."
+  },
+  "patientInformation": {
+    "patientName": "Maria Guzman",
+    "patientCondition": "39 weeks pregnant, strong urge to push, contractions very close together",
+    "patientAge": 29,
+    "patientAgeUnit": "years",
+    "patientAgeCategory": 0,
+    "patientSex": 2,
+    "patientHeight": 163,
+    "patientWeight": 74,
+    "patientPhotoId": 35,
+    "patientAdmitted": 1
+  },
+  "labs": [],
+  "scenarioEvents": [
+    {
+      "type": "ScenarioEvent",
+      "name": "Initial Contact",
+      "description": "Crew arrives to find a 29-year-old G2P1 female at 39 weeks with crowning visible and strong, frequent contractions. Delivery is clearly imminent.",
+      "monitorType": 0,
+      "trendTime": 0,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 108,
+        "bpSys": 122,
+        "bpDia": 76,
+        "respRate": 22,
+        "spo2": 98,
+        "etco2": 0,
+        "temp": 37,
+        "obstruction": 0,
+        "custMeasure1": 90,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Controlled delivery performed",
+      "description": "Crew supports the infant's head with gentle counterpressure to prevent explosive delivery, checks for a nuchal cord, and guides delivery of the anterior and posterior shoulders.",
+      "monitorType": 0,
+      "trendTime": 20,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 112,
+        "bpSys": 124,
+        "bpDia": 78,
+        "respRate": 24,
+        "spo2": 98,
+        "etco2": 0,
+        "temp": 37,
+        "obstruction": 0,
+        "custMeasure1": 90,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Support head with gentle counterpressure for slow, controlled delivery",
+        "Check for nuchal cord after head delivers; slip over head if present",
+        "Guide head down for anterior shoulder, then up for posterior shoulder"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Newborn dried, warmed, and scored",
+      "description": "Newborn delivers with a strong cry and good tone. Crew dries, warms, and stimulates the infant, delays cord clamping appropriately, and calculates APGAR scores at 1 and 5 minutes.",
+      "monitorType": 0,
+      "trendTime": 40,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 96,
+        "bpSys": 118,
+        "bpDia": 72,
+        "respRate": 18,
+        "spo2": 98,
+        "etco2": 0,
+        "temp": 37,
+        "obstruction": 0,
+        "custMeasure1": 90,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Do not routinely suction infant's airway, even with bulb syringe",
+        "Clamp cord in two places about 5-6 inches from abdomen after 1 minute; cut between clamps",
+        "Dry, warm, and stimulate infant; wrap in towel and place on maternal chest",
+        "Calculate APGAR score at 1 and 5 minutes"
+      ],
+      "relatedSounds": []
+    }
+  ],
+  "checklist": [
+    {
+      "title": "Support head with gentle counterpressure for slow, controlled delivery",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Check for nuchal cord after head delivers; slip over head if present",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Guide head down for anterior shoulder, then up for posterior shoulder",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Do not routinely suction infant's airway, even with bulb syringe",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Clamp cord in two places about 5-6 inches from abdomen after 1 minute; cut between clamps",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Dry, warm, and stimulate infant; wrap in towel and place on maternal chest",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Calculate APGAR score at 1 and 5 minutes",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    }
+  ],
+  "media": []
+}

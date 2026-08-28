@@ -1,0 +1,326 @@
+{
+  "scenarioId": "053-unwitnessed-vf-arrest",
+  "scenarioName": "053 - Unwitnessed VF Arrest",
+  "scenarioType": "Vital Signs",
+  "scenarioVersion": 2,
+  "scenarioTime": 600,
+  "scenarioMonitorType": 2,
+  "scenarioDefaultEnergy": 200,
+  "scenarioDefaultPacerThreshold": 55,
+  "isDemo": false,
+  "isALSILegacy": false,
+  "scenarioStory": {
+    "history": "Per wife, patient was found unresponsive on the living room floor when she returned home from running errands; exact down time is unknown but she last saw him alive and well approximately 20 minutes prior. She immediately called 911 and began compression-only CPR per dispatcher instructions.",
+    "discussion": "",
+    "course": "Initial Contact: Crew arrives to find a 55-year-old male supine on the living room floor with bystander CPR in progress. The patient is unresponsive, apneic aside from occasional agonal gasps, and pulseless. The cardiac monitor shows coarse ventricular fibrillation. → Single shock, ROSC achieved: At the end of the first 2-minute compression cycle following a single defibrillation, the rhythm check reveals an organized rhythm with a palpable carotid pulse. EtCO2 rises abruptly and the patient begins to gasp spontaneously — return of spontaneous circulation has occurred. → Post-ROSC stabilization and transport: Airway is secured, ventilation and oxygenation are optimized, and the 12-lead shows no STEMI. The patient remains hemodynamically borderline and is prepared for transport with close monitoring for re-arrest."
+  },
+  "patientInformation": {
+    "patientName": "Gary Thompson",
+    "patientCondition": "Unresponsive, found in cardiac arrest",
+    "patientAge": 55,
+    "patientAgeUnit": "years",
+    "patientAgeCategory": 0,
+    "patientSex": 1,
+    "patientHeight": 178,
+    "patientWeight": 90.7,
+    "patientPhotoId": 66,
+    "patientAdmitted": 1
+  },
+  "labs": [],
+  "scenarioEvents": [
+    {
+      "type": "ScenarioEvent",
+      "name": "Initial Contact",
+      "description": "Crew arrives to find a 55-year-old male supine on the living room floor with bystander CPR in progress. The patient is unresponsive, apneic aside from occasional agonal gasps, and pulseless. The cardiac monitor shows coarse ventricular fibrillation.",
+      "monitorType": 0,
+      "trendTime": 0,
+      "jumpTime": 0,
+      "defibShock": true,
+      "defibDisarm": false,
+      "parameters": {
+        "ecgWaveform": 18,
+        "hr": 0,
+        "bpSys": 0,
+        "bpDia": 0,
+        "respRate": 0,
+        "spo2": 0,
+        "etco2": 15,
+        "temp": 37,
+        "obstruction": 0,
+        "custMeasure1": 95,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": false,
+        "spo2Attached": false,
+        "rrVisible": false,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Confirm pulselessness and apnea; recognize cardiac arrest",
+        "Take over high-quality chest compressions from bystander without interruption",
+        "Apply defibrillator pads and analyze rhythm without pausing compressions unnecessarily",
+        "Defibrillate once at 120 J biphasic (Zoll first-shock energy) for coarse VF",
+        "Resume chest compressions immediately post-shock with no pulse check for 2 minutes",
+        "Establish IV or IO access without interrupting chest compressions",
+        "Manage airway with high-flow O2/BVM without interrupting compressions"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Single shock, ROSC achieved",
+      "description": "At the end of the first 2-minute compression cycle following a single defibrillation, the rhythm check reveals an organized rhythm with a palpable carotid pulse. EtCO2 rises abruptly and the patient begins to gasp spontaneously — return of spontaneous circulation has occurred.",
+      "monitorType": 0,
+      "trendTime": 15,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 118,
+        "bpSys": 88,
+        "bpDia": 54,
+        "respRate": 8,
+        "spo2": 91,
+        "etco2": 45,
+        "temp": 37,
+        "obstruction": 0,
+        "custMeasure1": 95,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Recognize ROSC via palpable pulse and abrupt EtCO2 rise; stop compressions",
+        "Titrate oxygen to target SpO2 94-98%; avoid hyperoxygenation",
+        "Ventilate at 8-10 breaths/min, avoid hyperventilation, target EtCO2 35-45 mmHg",
+        "Obtain 12-lead ECG to assess for STEMI or reversible cause of arrest",
+        "Address hypotension (SBP 88 mmHg, below 90 mmHg threshold) per Shock Guideline",
+        "Check blood glucose"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Post-ROSC stabilization and transport",
+      "description": "Airway is secured, ventilation and oxygenation are optimized, and the 12-lead shows no STEMI. The patient remains hemodynamically borderline and is prepared for transport with close monitoring for re-arrest.",
+      "monitorType": 0,
+      "trendTime": 30,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 104,
+        "bpSys": 96,
+        "bpDia": 60,
+        "respRate": 10,
+        "spo2": 96,
+        "etco2": 40,
+        "temp": 37,
+        "obstruction": 0,
+        "custMeasure1": 95,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Reassess vitals and rhythm frequently; monitor closely for re-arrest",
+        "Transport to a facility capable of emergent cardiac catheterization (PCI-capable/STEMI receiving)",
+        "Avoid hyperthermia; do not apply warm blankets or excessive heat exposure"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Compressions delayed",
+      "description": "Rescuers pause chest compressions for a prolonged pulse check and delay resumption after the shock. Without immediate high-quality compressions, coronary perfusion pressure falls and the fibrillation waveform deteriorates from coarse to fine, reducing the likelihood of a successful subsequent shock.",
+      "monitorType": 0,
+      "trendTime": 40,
+      "jumpTime": 0,
+      "defibShock": true,
+      "defibDisarm": false,
+      "parameters": {
+        "ecgWaveform": 18,
+        "hr": 0,
+        "bpSys": 0,
+        "bpDia": 0,
+        "respRate": 0,
+        "spo2": 0,
+        "etco2": 8,
+        "temp": 37,
+        "obstruction": 0,
+        "custMeasure1": 95,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": false,
+        "spo2Attached": false,
+        "rrVisible": false,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Resume high-quality compressions immediately to prevent further deterioration"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Hyperventilation after ROSC",
+      "description": "Providers ventilate the patient at an excessive rate after ROSC. EtCO2 falls well below target, venous return drops, and the patient's blood pressure deteriorates, placing him at high risk of re-arrest.",
+      "monitorType": 0,
+      "trendTime": 30,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 132,
+        "bpSys": 72,
+        "bpDia": 42,
+        "respRate": 24,
+        "spo2": 90,
+        "etco2": 18,
+        "temp": 37,
+        "obstruction": 0,
+        "custMeasure1": 95,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Reduce ventilation rate to 8-10 breaths/min targeting EtCO2 35-45 mmHg to prevent re-arrest"
+      ],
+      "relatedSounds": []
+    }
+  ],
+  "checklist": [
+    {
+      "title": "Confirm pulselessness and apnea; recognize cardiac arrest",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Take over high-quality chest compressions from bystander without interruption",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Apply defibrillator pads and analyze rhythm without pausing compressions unnecessarily",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Defibrillate once at 120 J biphasic (Zoll first-shock energy) for coarse VF",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Resume chest compressions immediately post-shock with no pulse check for 2 minutes",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Establish IV or IO access without interrupting chest compressions",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Manage airway with high-flow O2/BVM without interrupting compressions",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Recognize ROSC via palpable pulse and abrupt EtCO2 rise; stop compressions",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Titrate oxygen to target SpO2 94-98%; avoid hyperoxygenation",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Ventilate at 8-10 breaths/min, avoid hyperventilation, target EtCO2 35-45 mmHg",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Obtain 12-lead ECG to assess for STEMI or reversible cause of arrest",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Address hypotension (SBP 88 mmHg, below 90 mmHg threshold) per Shock Guideline",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Check blood glucose",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Reassess vitals and rhythm frequently; monitor closely for re-arrest",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Transport to a facility capable of emergent cardiac catheterization (PCI-capable/STEMI receiving)",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Avoid hyperthermia; do not apply warm blankets or excessive heat exposure",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Resume high-quality compressions immediately to prevent further deterioration",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Reduce ventilation rate to 8-10 breaths/min targeting EtCO2 35-45 mmHg to prevent re-arrest",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    }
+  ],
+  "media": []
+}

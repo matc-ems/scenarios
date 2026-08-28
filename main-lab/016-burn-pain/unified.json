@@ -1,0 +1,315 @@
+{
+  "meta": {
+    "id": "016-burn-pain",
+    "name": "016 - Burn Pain",
+    "version": 1,
+    "difficulty": "intermediate",
+    "category": "Trauma",
+    "protocols": ["trauma-burns", "medical-pain-management"],
+    "totalTimeSeconds": 720,
+    "tags": ["ALS", "med-math", "burns", "pain-management", "fentanyl", "914b"]
+  },
+  "patient": {
+    "name": "Marcus Whitfield",
+    "age": 41,
+    "ageUnit": "years",
+    "sex": "male",
+    "weight": 90,
+    "weightLbs": 198,
+    "height": 178,
+    "chiefComplaint": "Burn to right forearm, severe pain",
+    "history": {
+      "hpi": "Patient was cooking in his kitchen when a grease-filled pan flared up and splashed hot grease onto his right forearm. His spouse ran cool water over the area for a few minutes before EMS arrival. He reports immediate, severe burning pain that has not improved, rated 9 out of 10. Denies loss of consciousness, denies other injuries, denies any facial or airway involvement.",
+      "pastMedical": [],
+      "medications": [],
+      "allergies": ["NKDA"],
+      "lastOralIntake": "Lunch approximately 1 hour prior to the incident",
+      "events": "Grease fire flare-up while cooking; spouse called 911 immediately after cooling the burn with water"
+    }
+  },
+  "scene": {
+    "dispatch": "41-year-old male, burn injury, residence, conscious and breathing",
+    "location": "Single-family home, kitchen, patient seated at the kitchen table holding his right arm",
+    "time": "6:15 PM, weekday",
+    "safety": "Stove burner off, no active fire, small grease spill on floor near stove - slip hazard",
+    "bystanders": "Spouse present, witnessed the flare-up and cooled the burn with water before EMS arrival",
+    "visualCues": [
+      "Reddened, blistered partial-thickness burn to right forearm, approximately 4-5% TBSA",
+      "Blisters intact, wound moist with mottled pink-white appearance",
+      "No soot, singed hair, or facial involvement",
+      "Patient guarding right arm against his chest, grimacing, rocking in chair"
+    ]
+  },
+  "phases": [
+    {
+      "id": "initial",
+      "name": "Initial Contact",
+      "description": "Crew arrives to find a 41-year-old male seated at his kitchen table, guarding a visibly burned right forearm. He is alert, oriented, and in severe distress from pain.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent, speaking full sentences",
+        "breathing": "Nonlabored, symmetric chest rise, 22/min",
+        "circulation": "Radial pulses present bilaterally, strong and regular",
+        "skin": { "color": "flushed", "temperature": "warm", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Strength intact in all extremities; guarding right forearm",
+        "otherFindings": [
+          "Partial-thickness burn to right forearm, ~4-5% TBSA, blisters intact",
+          "No airway, facial, or circumferential involvement",
+          "Pain 9/10 on numeric rating scale",
+          "No other trauma noted"
+        ],
+        "patientSpeech": "\"It hurts so bad, please do something, it's burning!\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 116,
+        "bpSys": 142,
+        "bpDia": 88,
+        "respRate": 22,
+        "spo2": 98,
+        "etco2": 0,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 0,
+        "glucose": 98,
+        "customMeasures": [],
+        "trendTimeSeconds": 0,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [],
+      "transitions": [
+        {
+          "targetPhaseId": "burn-care-fentanyl",
+          "if": "Burn cared for, fentanyl given",
+          "condition": "Crew performs burn wound care (stop the burning, dry dressing, TBSA/pain assessment), establishes IV access avoiding burned skin, and administers weight-based fentanyl for severe pain.",
+          "conditionType": "action_taken"
+        },
+        {
+          "targetPhaseId": "pain-delayed",
+          "if": "Pain management delayed",
+          "condition": "Crew addresses the wound but does not establish IV access or administer analgesia despite the patient's reported 9/10 pain.",
+          "conditionType": "action_not_taken"
+        }
+      ]
+    },
+    {
+      "id": "burn-care-fentanyl",
+      "name": "Burn cared for, fentanyl given",
+      "description": "Crew completes burn wound care, establishes IV access on unburned skin, and administers weight-based IV fentanyl for severe pain, applying capnography to monitor for opioid-related hypoventilation.",
+      "triggerCondition": "After stopping the burning process and covering the wound with a dry dressing, the crew reassesses the patient's pain at 9/10 and proceeds with IV access and weight-based fentanyl analgesia per protocol.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "Nonlabored, 16/min",
+        "circulation": "Radial pulses present bilaterally, strong and regular",
+        "skin": { "color": "pink", "temperature": "warm", "moisture": "dry" },
+        "pupils": "PERRL",
+        "motorFunction": "Strength intact in all extremities",
+        "otherFindings": [
+          "Right forearm covered with dry dressing, jewelry removed",
+          "IV established in left forearm, avoiding burn site",
+          "Pain improved to 5/10 after initial fentanyl dose",
+          "Waveform capnography applied"
+        ],
+        "patientSpeech": "\"That's a little better, but it still really hurts.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Rhythm",
+        "ecgWaveform": 9,
+        "hr": 96,
+        "bpSys": 134,
+        "bpDia": 84,
+        "respRate": 16,
+        "spo2": 99,
+        "etco2": 36,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 0,
+        "glucose": 98,
+        "customMeasures": [],
+        "trendTimeSeconds": 30,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a1-stop-burning",
+          "shortAction": "Stop the burning: remove jewelry and any non-adherent wet clothing from right forearm",
+          "protocolExcerpt": "Stop the burning: Remove wet clothing (if not stuck to the patient); Remove jewelry; Leave blisters intact",
+          "priority": "critical",
+          "rationale": "Ongoing contact with wet clothing or constricting jewelry continues tissue damage and can cause swelling complications.",
+          "protocolReference": "MATC: Burns"
+        },
+        {
+          "id": "a2-dressing",
+          "shortAction": "Cover burn with dry, clean dressing; do not apply gels or ointments",
+          "protocolExcerpt": "Minimize burn wound contamination: Cover burns with dry dressing or clean sheet. Do not apply gels or ointments",
+          "priority": "important",
+          "rationale": "Dry coverage reduces contamination risk and pain from air exposure without interfering with burn center evaluation.",
+          "protocolReference": "MATC: Burns"
+        },
+        {
+          "id": "a3-tbsa-pain",
+          "shortAction": "Estimate TBSA (~4-5%) via Rule of Nines and document baseline pain score of 9/10",
+          "protocolExcerpt": "Estimate TBSA burned and depth of burn Use \"Rule of 9's\" Document pain scale",
+          "priority": "important",
+          "rationale": "TBSA and pain documentation guide transport destination decisions and track treatment effectiveness.",
+          "protocolReference": "MATC: Burns"
+        },
+        {
+          "id": "a4-iv-access",
+          "shortAction": "Establish IV access on unburned skin (left forearm), avoiding the burned right forearm",
+          "protocolExcerpt": "Establish IV access, avoid placement through burned skin",
+          "priority": "critical",
+          "rationale": "IV placement through burned tissue risks infection and unreliable access.",
+          "protocolReference": "MATC: Burns"
+        },
+        {
+          "id": "a5-fentanyl",
+          "shortAction": "Fentanyl 90 mcg IV (90 kg × 1 mcg/kg = 90 mcg; max initial dose 100 mcg)",
+          "protocolExcerpt": "For Moderate to Severe pain, analgesics include: Fentanyl: 1 mcg/kg IN, IM, IV or IO (maximum initial dose of 100 mcg)",
+          "priority": "critical",
+          "rationale": "Weight-based fentanyl controls severe burn pain rated 9/10 while remaining under the protocol maximum initial dose.",
+          "protocolReference": "MATC: Pain Management"
+        },
+        {
+          "id": "a6-capnography",
+          "shortAction": "Apply waveform capnography to monitor for early hypoventilation after opioid administration",
+          "protocolExcerpt": "Use of non-invasive capnography is an earlier predictor of hypoventilation than pulse oximetry if opioid medications are administered",
+          "priority": "important",
+          "rationale": "Capnography detects opioid-induced hypoventilation before pulse oximetry desaturation occurs.",
+          "protocolReference": "MATC: Pain Management"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "repeat-dose-transport",
+          "if": "Pain reassessed, repeat fentanyl given",
+          "condition": "Five minutes after the initial dose, reassessment shows pain remains above 4/10 with stable vital signs, meeting criteria to repeat the fentanyl dose before transport.",
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a5-fentanyl"]
+        }
+      ]
+    },
+    {
+      "id": "repeat-dose-transport",
+      "name": "Pain reassessed, repeat fentanyl given",
+      "description": "Pain remains significant on reassessment, so a repeat weight-based fentanyl dose is given per protocol. Pain improves and the patient is transported in a position of comfort with continued monitoring.",
+      "triggerCondition": "Five minutes after the initial fentanyl dose, the patient's pain remains at 5/10 with stable vital signs, meeting protocol criteria for a repeat dose prior to transport.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "Nonlabored, 16/min",
+        "circulation": "Radial pulses present bilaterally, strong and regular",
+        "skin": { "color": "pink", "temperature": "warm", "moisture": "dry" },
+        "pupils": "PERRL",
+        "motorFunction": "Strength intact in all extremities",
+        "otherFindings": [
+          "Pain improved to 2/10 after repeat fentanyl dose",
+          "No signs of hypoventilation, EtCO2 within normal range",
+          "Packaged for transport in position of comfort"
+        ],
+        "patientSpeech": "\"Wow, that's a lot better, thank you.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Rhythm",
+        "ecgWaveform": 9,
+        "hr": 90,
+        "bpSys": 130,
+        "bpDia": 80,
+        "respRate": 16,
+        "spo2": 99,
+        "etco2": 34,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 0,
+        "glucose": 98,
+        "customMeasures": [],
+        "trendTimeSeconds": 40,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a7-repeat-fentanyl",
+          "shortAction": "Repeat fentanyl 90 mcg IV (90 kg × 1 mcg/kg = 90 mcg) 5 minutes after first dose for persistent pain",
+          "protocolExcerpt": "If indicated based on pain assessment, and vital signs allow, repeat pain medication administration (excluding acetaminophen and nonsteroidal anti-inflammatory medicines) after 5 minutes of the previous dose",
+          "priority": "critical",
+          "rationale": "Persistent pain above 4/10 with stable vitals meets protocol criteria to repeat the weight-based dose.",
+          "protocolReference": "MATC: Pain Management"
+        },
+        {
+          "id": "a8-reassess-transport",
+          "shortAction": "Reassess pain score and vital signs; transport in position of comfort",
+          "protocolExcerpt": "Transport in position of comfort and reassess as indicated",
+          "priority": "important",
+          "rationale": "Ongoing reassessment confirms analgesic effectiveness and detects any adverse response en route.",
+          "protocolReference": "MATC: Pain Management"
+        }
+      ],
+      "transitions": []
+    },
+    {
+      "id": "pain-delayed",
+      "name": "Pain management delayed",
+      "description": "The crew addresses the burn wound but does not establish IV access or administer fentanyl, leaving the patient's severe pain unmanaged. He becomes increasingly anxious and tachycardic.",
+      "triggerCondition": "Despite reported 9/10 pain, the crew does not establish IV access or administer analgesia, leaving the burn pain unmanaged.",
+      "isDefault": false,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "Nonlabored, rapid, 24/min",
+        "circulation": "Radial pulses present bilaterally, strong and rapid",
+        "skin": { "color": "flushed", "temperature": "warm", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Strength intact in all extremities; guarding right forearm, restless",
+        "otherFindings": [
+          "Pain remains 9/10, unaddressed",
+          "Patient increasingly anxious and restless",
+          "No IV access established, no analgesia given"
+        ],
+        "patientSpeech": "\"Please, it still hurts so bad, isn't there something you can give me?\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 128,
+        "bpSys": 150,
+        "bpDia": 92,
+        "respRate": 24,
+        "spo2": 97,
+        "etco2": 0,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 0,
+        "glucose": 98,
+        "customMeasures": [],
+        "trendTimeSeconds": 30,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a9-recognize-delay",
+          "shortAction": "Recognize unmanaged severe pain (9/10); establish IV access and give fentanyl 90 mcg IV per protocol",
+          "protocolExcerpt": "For Moderate to Severe pain, analgesics include: Fentanyl: 1 mcg/kg IN, IM, IV or IO (maximum initial dose of 100 mcg)",
+          "priority": "critical",
+          "rationale": "Correcting the delay restores appropriate pain control and prevents escalating physiologic stress from untreated severe pain.",
+          "protocolReference": "MATC: Pain Management"
+        }
+      ],
+      "transitions": []
+    }
+  ],
+  "realiti": {
+    "scenarioMonitorType": 2,
+    "scenarioDefaultEnergy": 200,
+    "scenarioDefaultPacerThreshold": 55
+  }
+}

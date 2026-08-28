@@ -1,0 +1,340 @@
+{
+  "meta": {
+    "id": "076-septic-shock-from-pneumonia",
+    "name": "076 - Septic Shock from Pneumonia",
+    "version": 1,
+    "difficulty": "advanced",
+    "category": "Medical",
+    "protocols": ["medical-shock", "resp-respiratory-distress", "resp-airway-management"],
+    "totalTimeSeconds": 900,
+    "tags": ["sepsis", "pneumonia", "shock", "CPAP", "geriatric", "919"]
+  },
+  "patient": {
+    "name": "Harold Deitrich",
+    "age": 71,
+    "ageUnit": "years",
+    "sex": "male",
+    "weight": 85,
+    "weightLbs": 187,
+    "height": 175,
+    "chiefComplaint": "Difficulty breathing and confusion",
+    "history": {
+      "hpi": "Wife reports three days of productive cough with yellow-green sputum and fever, worsening over the last 24 hours. This morning he became increasingly short of breath and confused, prompting the 911 call.",
+      "pastMedical": ["COPD", "Type 2 diabetes", "Hypertension"],
+      "medications": ["Tiotropium inhaler", "Metformin 1000 mg PO BID", "Amlodipine 5 mg PO daily"],
+      "allergies": ["NKDA"],
+      "lastOralIntake": "Small amount of broth this morning, poor intake overall today",
+      "events": "Wife called 911 after noting worsening confusion and labored breathing over the past hour"
+    }
+  },
+  "scene": {
+    "dispatch": "71-year-old male, difficulty breathing, residence",
+    "location": "Single-family home, living room, patient in recliner",
+    "time": "8:10 AM, weekday",
+    "safety": "No hazards to crew noted",
+    "bystanders": "Wife present, provides history of three days of worsening productive cough and fever",
+    "visualCues": [
+      "Patient slumped in recliner, visibly working to breathe",
+      "Productive cough with yellow-green sputum in a nearby tissue",
+      "Skin flushed and diaphoretic",
+      "Wife holding a thermometer showing 103.1°F from earlier this morning"
+    ]
+  },
+  "phases": [
+    {
+      "id": "initial",
+      "name": "Initial Contact",
+      "description": "Crew arrives to find a 71-year-old male with three days of worsening productive cough and fever, now hypoxic, tachypneic, confused, and hypotensive, consistent with severe sepsis from a pulmonary source.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Verbal",
+        "gcs": { "eye": 3, "verbal": 4, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "Labored, 28/min, coarse crackles right base",
+        "circulation": "Radial pulses weak and rapid, flash capillary refill",
+        "skin": { "color": "flushed", "temperature": "warm", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Follows simple commands inconsistently",
+        "otherFindings": [
+          "Productive cough with yellow-green sputum",
+          "Coarse crackles auscultated at the right lung base",
+          "Accessory muscle use present"
+        ],
+        "patientSpeech": "\"Can't... catch my breath...\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 124,
+        "bpSys": 84,
+        "bpDia": 50,
+        "respRate": 28,
+        "spo2": 86,
+        "etco2": 26,
+        "temp": 39.5,
+        "tempF": 103.1,
+        "obstruction": 0,
+        "glucose": 142,
+        "customMeasures": [],
+        "trendTimeSeconds": 0,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
+      },
+      "expectedActions": [],
+      "transitions": [
+        {
+          "targetPhaseId": "o2-fluids-started",
+          "if": "O2 and IV fluids started",
+          "condition": "Crew administers supplemental oxygen targeting 94-98% saturation, establishes IV access, and begins an isotonic fluid bolus toward a MAP goal of 65 mmHg before considering CPAP.",
+          "conditionType": "action_taken"
+        }
+      ]
+    },
+    {
+      "id": "o2-fluids-started",
+      "name": "O2 and IV fluids started",
+      "description": "Crew begins supplemental oxygen and IV fluid resuscitation for suspected septic shock from a pulmonary source, sequencing fluids before adding positive-pressure support given the patient's hypotension.",
+      "triggerCondition": "Crew starts supplemental oxygen, establishes IV access, and begins a rapid isotonic fluid bolus toward a MAP goal of 65 mmHg, prioritizing volume resuscitation before escalating to CPAP given the hypotension.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Verbal",
+        "gcs": { "eye": 3, "verbal": 4, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "Labored, 26/min, coarse crackles right base",
+        "circulation": "Radial pulses weak and rapid",
+        "skin": { "color": "flushed", "temperature": "warm", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Follows commands more consistently",
+        "otherFindings": [
+          "18-gauge IV established",
+          "500 mL isotonic bolus infusing under pressure",
+          "Oxygen via non-rebreather"
+        ],
+        "patientSpeech": "\"Still... hard to breathe...\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 118,
+        "bpSys": 88,
+        "bpDia": 52,
+        "respRate": 26,
+        "spo2": 90,
+        "etco2": 28,
+        "temp": 39.3,
+        "tempF": 102.7,
+        "obstruction": 0,
+        "glucose": 140,
+        "customMeasures": [],
+        "trendTimeSeconds": 30,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a1-o2",
+          "shortAction": "Administer supplemental oxygen via non-rebreather targeting SpO2 94-98%",
+          "protocolExcerpt": "Administer oxygen as appropriate with a target of achieving 94–98% saturation",
+          "priority": "critical",
+          "rationale": "Corrects hypoxia from the pneumonia while workup continues.",
+          "protocolReference": "MATC: Shock"
+        },
+        {
+          "id": "a2-iv-fluids",
+          "shortAction": "Establish IV access; begin 500 mL isotonic fluid bolus, pressure infused over less than 15 min toward MAP 65 mmHg",
+          "protocolExcerpt": "Establish IV access. IV fluid volume goal attained by giving boluses that are pressure infused over less than 15 minutes each ... Physiologic target: MAP goal 65 mmHg. Fluid goal of up to 30 mL/kg of isotonic fluid by administering rapid, predetermined boluses (e.g., 500 mL) unless the MAP goal is achieved, or pulmonary edema develops",
+          "priority": "critical",
+          "rationale": "Volume resuscitation is first-line for septic shock and should generally precede positive-pressure ventilation in a hypotensive patient.",
+          "protocolReference": "MATC: Shock"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "pressor-started",
+          "if": "Fluid-refractory shock, norepinephrine started",
+          "condition": "Despite the fluid bolus and oxygen, the patient remains hypotensive and hypoxic; crew starts norepinephrine while carefully adding CPAP for the ongoing hypoxia.",
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a2-iv-fluids"]
+        },
+        {
+          "targetPhaseId": "cpap-before-fluids",
+          "if": "CPAP applied before adequate fluid resuscitation",
+          "condition": "Crew applies CPAP for the hypoxia before an adequate fluid bolus has been given, adding positive intrathoracic pressure to an already volume-depleted, hypotensive patient.",
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["a2-iv-fluids"]
+        }
+      ]
+    },
+    {
+      "id": "pressor-started",
+      "name": "Fluid-refractory shock, norepinephrine started",
+      "description": "With persistent hypotension despite fluids, the crew starts norepinephrine and carefully adds CPAP for the ongoing hypoxia, watching closely for any hemodynamic effect from the added intrathoracic pressure.",
+      "triggerCondition": "The patient remains hypotensive after the initial fluid bolus; crew starts a norepinephrine infusion for fluid-refractory shock and cautiously applies CPAP for the persistent hypoxia, monitoring blood pressure closely.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 4, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "Improved with CPAP, 20/min",
+        "circulation": "Radial pulses improving",
+        "skin": { "color": "flushed", "temperature": "warm", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Follows commands appropriately",
+        "otherFindings": [
+          "CPAP mask sealed, tolerating well",
+          "Norepinephrine infusing",
+          "Second fluid bolus completed"
+        ],
+        "patientSpeech": "\"That's... a little better...\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 108,
+        "bpSys": 96,
+        "bpDia": 58,
+        "respRate": 20,
+        "spo2": 95,
+        "etco2": 32,
+        "temp": 39.0,
+        "tempF": 102.2,
+        "obstruction": 0,
+        "glucose": 136,
+        "customMeasures": [],
+        "trendTimeSeconds": 40,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a3-norepinephrine",
+          "shortAction": "Norepinephrine infusion 1.7 mcg/min (85 kg × 0.02 mcg/kg/min), titrate to MAP 65 mmHg",
+          "protocolExcerpt": "Vasopressors (shock unresponsive to IV fluids) titrated to physiologic targets ... Norepinephrine 0.05–0.5 mcg/kg/minute — Preference in both neurogenic and infectious (sepsis) causes of distributive shock",
+          "priority": "critical",
+          "rationale": "Norepinephrine is preferred for fluid-refractory septic shock.",
+          "protocolReference": "MATC: Shock"
+        },
+        {
+          "id": "a4-cpap-after-fluids",
+          "shortAction": "Apply CPAP for persistent hypoxia only after adequate fluid resuscitation and pressor support are underway",
+          "protocolExcerpt": "Non-invasive ventilation (NIV) should be considered early for severe respiratory distress or impending respiratory failure. NIV options include continuous positive airway pressure (CPAP)",
+          "priority": "important",
+          "rationale": "Sequencing CPAP after volume/pressor support reduces the risk of a sudden preload drop in a hypotensive patient.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "transport-improving",
+          "if": "Perfusion and oxygenation improve, transport continues",
+          "condition": "With fluids, norepinephrine, and CPAP in place, perfusion and oxygenation trend toward normal; crew continues reassessment en route.",
+          "conditionType": "action_taken"
+        }
+      ]
+    },
+    {
+      "id": "transport-improving",
+      "name": "Perfusion and oxygenation improve, transport continues",
+      "description": "With combined fluid, pressor, and respiratory support, the patient's perfusion and oxygenation trend toward normal. The crew continues serial reassessment and maintains the CPAP seal throughout transport.",
+      "triggerCondition": "After norepinephrine titration and continued CPAP, vital signs and mental status improve; crew maintains ongoing reassessment and CPAP seal en route.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "16/min on CPAP, improved air entry",
+        "circulation": "Radial pulses stronger",
+        "skin": { "color": "pink", "temperature": "warm", "moisture": "dry" },
+        "pupils": "PERRL",
+        "motorFunction": "Follows commands appropriately",
+        "otherFindings": [
+          "Advanced notification given to receiving hospital",
+          "CPAP seal maintained continuously",
+          "Serial vitals trending toward normal"
+        ],
+        "patientSpeech": "\"I can breathe a bit easier now.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 102,
+        "bpSys": 106,
+        "bpDia": 64,
+        "respRate": 16,
+        "spo2": 97,
+        "etco2": 35,
+        "temp": 38.6,
+        "tempF": 101.5,
+        "obstruction": 0,
+        "glucose": 132,
+        "customMeasures": [],
+        "trendTimeSeconds": 50,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a5-reassess",
+          "shortAction": "Reassess full vital signs and CPAP seal at least every 15 minutes en route",
+          "protocolExcerpt": "Full vital signs (pulse, blood pressure, respiratory rate, neurologic status assessment) with reassessment q 15 minutes or more frequently as appropriate",
+          "priority": "important",
+          "rationale": "Ongoing reassessment catches early re-deterioration and ensures the CPAP mask seal is maintained.",
+          "protocolReference": "MATC: Shock"
+        }
+      ],
+      "transitions": []
+    },
+    {
+      "id": "cpap-before-fluids",
+      "name": "CPAP applied before adequate fluid resuscitation",
+      "description": "CPAP is applied for the hypoxia before an adequate fluid bolus has been completed. The added positive intrathoracic pressure further reduces preload in this volume-depleted septic patient, worsening hypotension.",
+      "triggerCondition": "CPAP is started for the ongoing hypoxia before the fluid bolus is complete; the added intrathoracic pressure drops venous return and worsens the existing hypotension.",
+      "isDefault": false,
+      "clinicalPresentation": {
+        "avpu": "Verbal",
+        "gcs": { "eye": 3, "verbal": 4, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "Improved mechanically on CPAP, 22/min",
+        "circulation": "Radial pulses weaker than before CPAP",
+        "skin": { "color": "pale", "temperature": "cool", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Follows commands inconsistently",
+        "otherFindings": [
+          "CPAP mask sealed",
+          "Blood pressure has fallen further since CPAP initiation",
+          "Fluid bolus still infusing, not yet complete"
+        ],
+        "patientSpeech": "\"Feel... dizzy...\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 128,
+        "bpSys": 74,
+        "bpDia": 44,
+        "respRate": 22,
+        "spo2": 93,
+        "etco2": 24,
+        "temp": 39.2,
+        "tempF": 102.6,
+        "obstruction": 0,
+        "glucose": 138,
+        "customMeasures": [],
+        "trendTimeSeconds": 20,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a6-recognize-preload-drop",
+          "shortAction": "Recognize CPAP-related preload drop; complete fluid resuscitation and reconsider CPAP pressure/pause if hypotension worsens",
+          "protocolExcerpt": "Increased intrathoracic pressure can progressively decrease cardiac output and is most notable when PEEP is greater than 15 cmH2O. The higher the level of PEEP (over 5 cmH2O), the more likely the patient will experience a variety of adverse consequences, both ventilatory and hemodynamic",
+          "priority": "critical",
+          "rationale": "Positive intrathoracic pressure reduces venous return; in a volume-depleted septic patient this can worsen hypotension unless adequate fluid resuscitation precedes or accompanies it.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        }
+      ],
+      "transitions": []
+    }
+  ],
+  "realiti": {
+    "scenarioMonitorType": 2,
+    "scenarioDefaultEnergy": 200,
+    "scenarioDefaultPacerThreshold": 55
+  }
+}

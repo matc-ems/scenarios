@@ -1,0 +1,208 @@
+{
+  "scenarioId": "065-pulmonary-embolism-with-right-heart-strain",
+  "scenarioName": "065 - Pulmonary Embolism with Right Heart Strain",
+  "scenarioType": "Vital Signs",
+  "scenarioVersion": 2,
+  "scenarioTime": 780,
+  "scenarioMonitorType": 2,
+  "scenarioDefaultEnergy": 200,
+  "scenarioDefaultPacerThreshold": 55,
+  "isDemo": false,
+  "isALSILegacy": false,
+  "scenarioStory": {
+    "history": "Patient is post-operative day 5 from a left total knee arthroplasty, largely sedentary at home since discharge. While getting up from the couch to do her prescribed walking exercises, she suddenly became short of breath with sharp, pleuritic left-sided chest pain. She denies any preceding trauma or new activity beyond standing. She reports her left calf has felt \"tight and sore\" for the past two days, which she attributed to post-surgical swelling.",
+    "discussion": "",
+    "course": "Initial Contact: Crew arrives to find a 52-year-old post-surgical female sitting upright, tachypneic and anxious, with sudden-onset pleuritic chest pain and dyspnea. → O2 given, 12-lead performed: Crew places the patient on high-flow oxygen, establishes cardiac monitoring, and obtains a 12-lead ECG, recognizing sinus tachycardia with an S1Q3T3 pattern suggestive of right heart strain from obstructive shock. → Supportive care and transport initiated: Patient remains hemodynamically stable on high-flow O2 with IV access established. Crew provides advance notification of suspected PE/obstructive shock and transports promptly, avoiding large-volume fluid boluses that could worsen right heart strain."
+  },
+  "patientInformation": {
+    "patientName": "Diane Castellano",
+    "patientCondition": "Sudden shortness of breath and sharp chest pain that worsens with breathing",
+    "patientAge": 52,
+    "patientAgeUnit": "years",
+    "patientAgeCategory": 0,
+    "patientSex": 2,
+    "patientHeight": 165,
+    "patientWeight": 78,
+    "patientPhotoId": 63,
+    "patientAdmitted": 1
+  },
+  "labs": [],
+  "scenarioEvents": [
+    {
+      "type": "ScenarioEvent",
+      "name": "Initial Contact",
+      "description": "Crew arrives to find a 52-year-old post-surgical female sitting upright, tachypneic and anxious, with sudden-onset pleuritic chest pain and dyspnea.",
+      "monitorType": 0,
+      "trendTime": 0,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 122,
+        "bpSys": 108,
+        "bpDia": 70,
+        "respRate": 28,
+        "spo2": 89,
+        "etco2": 32,
+        "temp": 37,
+        "obstruction": 0,
+        "custMeasure1": 96,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "O2 given, 12-lead performed",
+      "description": "Crew places the patient on high-flow oxygen, establishes cardiac monitoring, and obtains a 12-lead ECG, recognizing sinus tachycardia with an S1Q3T3 pattern suggestive of right heart strain from obstructive shock.",
+      "monitorType": 0,
+      "trendTime": 30,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 45,
+        "hr": 118,
+        "bpSys": 106,
+        "bpDia": 68,
+        "respRate": 26,
+        "spo2": 93,
+        "etco2": 30,
+        "temp": 37,
+        "obstruction": 0,
+        "custMeasure1": 96,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Apply supplemental O2 titrated to 94-98% saturation; attach cardiac monitor and pulse oximetry",
+        "Obtain 12-lead ECG; recognize S1Q3T3 strain pattern consistent with obstructive shock from PE",
+        "Establish IV access; if unsuccessful within 2 attempts or 90 seconds, place IO"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Supportive care and transport initiated",
+      "description": "Patient remains hemodynamically stable on high-flow O2 with IV access established. Crew provides advance notification of suspected PE/obstructive shock and transports promptly, avoiding large-volume fluid boluses that could worsen right heart strain.",
+      "monitorType": 0,
+      "trendTime": 40,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 45,
+        "hr": 112,
+        "bpSys": 108,
+        "bpDia": 70,
+        "respRate": 24,
+        "spo2": 94,
+        "etco2": 31,
+        "temp": 37,
+        "obstruction": 0,
+        "custMeasure1": 96,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Provide advance hospital notification for suspected PE with obstructive shock physiology",
+        "Avoid large-volume fluid boluses; reassess for signs of worsening right heart strain"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Attributed to anxiety, no 12-lead",
+      "description": "The crew attributes the sudden dyspnea and chest pain to anxiety or post-surgical pain, without escalating oxygen delivery or obtaining a 12-lead ECG. The unrecognized obstructive process progresses, and the patient becomes progressively more hypoxic and tachycardic.",
+      "monitorType": 0,
+      "trendTime": 30,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 138,
+        "bpSys": 92,
+        "bpDia": 58,
+        "respRate": 34,
+        "spo2": 82,
+        "etco2": 22,
+        "temp": 37,
+        "obstruction": 0,
+        "custMeasure1": 96,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Recognize worsening hypoxia and falling EtCO2 as poor perfusion; escalate O2, monitor, and IV access immediately"
+      ],
+      "relatedSounds": []
+    }
+  ],
+  "checklist": [
+    {
+      "title": "Apply supplemental O2 titrated to 94-98% saturation; attach cardiac monitor and pulse oximetry",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Obtain 12-lead ECG; recognize S1Q3T3 strain pattern consistent with obstructive shock from PE",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Establish IV access; if unsuccessful within 2 attempts or 90 seconds, place IO",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Provide advance hospital notification for suspected PE with obstructive shock physiology",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Avoid large-volume fluid boluses; reassess for signs of worsening right heart strain",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Recognize worsening hypoxia and falling EtCO2 as poor perfusion; escalate O2, monitor, and IV access immediately",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    }
+  ],
+  "media": []
+}

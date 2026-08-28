@@ -1,0 +1,357 @@
+{
+  "meta": {
+    "id": "071-sulfonylurea-potentiated-hypoglycemia",
+    "name": "071 - Sulfonylurea-Potentiated Hypoglycemia",
+    "version": 1,
+    "difficulty": "intermediate",
+    "category": "Medical",
+    "protocols": ["medical-altered-mental-status", "medical-hypoglycemia"],
+    "totalTimeSeconds": 900,
+    "tags": ["AMS", "hypoglycemia", "medication interaction", "sulfonylurea", "geriatric", "systematic workup", "919"]
+  },
+  "patient": {
+    "name": "Robert Aldana",
+    "age": 65,
+    "ageUnit": "years",
+    "sex": "male",
+    "weight": 85,
+    "weightLbs": 187,
+    "height": 178,
+    "chiefComplaint": "Altered mental status, found confused by home health aide",
+    "history": {
+      "hpi": "Home health aide arrived for a routine visit and found the patient sitting in his recliner, confused and not making sense, unable to state the day or where he was. Aide reports he felt warm to the touch and seemed unusually diaphoretic. He was last known well and normal the previous evening. No witnessed seizure activity, no reported trauma.",
+      "pastMedical": ["Type 2 diabetes mellitus, diet + glipizide", "Hypertension", "Chronic kidney disease stage 2"],
+      "medications": ["Glipizide 10 mg PO daily", "Lisinopril 20 mg PO daily", "Trimethoprim-sulfamethoxazole DS PO BID, started 2 days ago for a urinary tract infection"],
+      "allergies": ["NKDA"],
+      "lastOralIntake": "Aide reports he ate a light breakfast around 8 AM; unclear how much he actually finished",
+      "events": "Home health aide found patient acutely confused during a scheduled visit and called 911"
+    }
+  },
+  "scene": {
+    "dispatch": "65-year-old male, altered mental status, residence",
+    "location": "Single-story home, patient found seated in a recliner in the living room",
+    "time": "11:15 AM, weekday",
+    "safety": "No hazards noted; home health aide present and cooperative",
+    "bystanders": "Home health aide present, reports patient was confused and warm to the touch on arrival, called 911 immediately",
+    "visualCues": [
+      "Patient diaphoretic, slouched in recliner",
+      "Pill organizer on side table with glipizide and a new antibiotic bottle",
+      "Glucometer visible on kitchen counter, unused today",
+      "Half-eaten breakfast plate on side table"
+    ]
+  },
+  "phases": [
+    {
+      "id": "initial",
+      "name": "Initial Contact",
+      "description": "Crew arrives to find a 65-year-old male with altered mental status, diaphoresis, and a reported fever. The presentation is ambiguous — could be infection, medication effect, or a metabolic cause — and warrants a systematic AEIOU-TIPS workup rather than anchoring on any single cause.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Verbal",
+        "gcs": { "eye": 3, "verbal": 3, "motor": 6 },
+        "airway": "Patent, speaking in fragmented sentences",
+        "breathing": "Nonlabored, 18/min",
+        "circulation": "Radial pulses present, tachycardic",
+        "skin": { "color": "pale", "temperature": "cool", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Intact but sluggish; mild hand tremor",
+        "otherFindings": [
+          "Confused, unable to state the day or his location",
+          "Diaphoretic with cool, clammy skin",
+          "Mild tremor noted in hands",
+          "Aide reports patient felt warm/feverish this morning"
+        ],
+        "patientSpeech": "\"I... I don't know where... my keys...\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 110,
+        "bpSys": 136,
+        "bpDia": 82,
+        "respRate": 18,
+        "spo2": 96,
+        "etco2": 0,
+        "temp": 38.1,
+        "tempF": 100.6,
+        "obstruction": 0,
+        "glucose": 42,
+        "customMeasures": [],
+        "trendTimeSeconds": 0,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [],
+      "transitions": [
+        {
+          "targetPhaseId": "bgl-checked",
+          "if": "BGL checked per systematic workup",
+          "condition": "Crew follows the AEIOU-TIPS differential and checks blood glucose as a first-line treatable cause of AMS, rather than anchoring on the reported fever as the sole explanation.",
+          "conditionType": "action_taken"
+        },
+        {
+          "targetPhaseId": "bgl-skipped-worsening",
+          "if": "Infection assumed, BGL not checked",
+          "condition": "Crew attributes the AMS to the reported fever and begins treating for presumed infection/sepsis without checking blood glucose.",
+          "conditionType": "action_not_taken"
+        }
+      ]
+    },
+    {
+      "id": "bgl-checked",
+      "name": "BGL checked per systematic workup",
+      "description": "Following the AEIOU-TIPS differential, the crew checks blood glucose and finds severe hypoglycemia (42 mg/dL), despite the patient's fever raising suspicion for infection as a distractor.",
+      "triggerCondition": "Rather than assuming the fever explains the altered mental status, the crew performs a systematic assessment that includes a point-of-care glucose check, revealing hypoglycemia as a contributing — and immediately treatable — cause.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Verbal",
+        "gcs": { "eye": 3, "verbal": 3, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "Nonlabored, 18/min",
+        "circulation": "Radial pulses present, tachycardic",
+        "skin": { "color": "pale", "temperature": "cool", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Intact but sluggish; mild hand tremor",
+        "otherFindings": [
+          "Point-of-care glucose obtained: 42 mg/dL, confirming hypoglycemia",
+          "Confusion persists, not yet treated",
+          "Fever and diaphoresis still present"
+        ],
+        "patientSpeech": "\"I... I don't know where... my keys...\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 112,
+        "bpSys": 134,
+        "bpDia": 82,
+        "respRate": 18,
+        "spo2": 96,
+        "etco2": 0,
+        "temp": 38.1,
+        "tempF": 100.6,
+        "obstruction": 0,
+        "glucose": 42,
+        "customMeasures": [],
+        "trendTimeSeconds": 20,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a1-check-bgl",
+          "shortAction": "Perform AEIOU-TIPS workup; check blood glucose as a first treatable cause (reveals 42 mg/dL)",
+          "protocolExcerpt": "Assessment: Blood glucose level",
+          "priority": "critical",
+          "rationale": "Hypoglycemia is rapidly reversible and must be ruled out before anchoring on any other single cause of AMS, including an apparent fever.",
+          "protocolReference": "MATC: Altered Mental Status"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "dextrose-given",
+          "if": "Dextrose given",
+          "condition": "Crew administers IV dextrose per the Hypoglycemia guideline for a blood glucose of 42 mg/dL.",
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a1-check-bgl"]
+        }
+      ]
+    },
+    {
+      "id": "dextrose-given",
+      "name": "Dextrose given, mental status improving",
+      "description": "Crew administers incremental IV dextrose per protocol. Mental status begins to clear as the blood glucose corrects, though the fever persists, confirming this is a mixed picture rather than a single cause.",
+      "triggerCondition": "IV dextrose is administered in incremental doses per the Hypoglycemia guideline, and the patient's mental status begins to improve as glucose normalizes, while the underlying fever remains unchanged.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 4, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "Nonlabored, 16/min",
+        "circulation": "Radial pulses present, rate improving",
+        "skin": { "color": "pink", "temperature": "warm", "moisture": "diaphoresis resolving" },
+        "pupils": "PERRL",
+        "motorFunction": "Intact, tremor resolved",
+        "otherFindings": [
+          "Mental status clearing, now oriented to person and place",
+          "Diaphoresis improving",
+          "Still reports feeling warm, denies pain"
+        ],
+        "patientSpeech": "\"Where... oh, I'm home. What happened?\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Rhythm",
+        "ecgWaveform": 9,
+        "hr": 96,
+        "bpSys": 128,
+        "bpDia": 80,
+        "respRate": 16,
+        "spo2": 97,
+        "etco2": 0,
+        "temp": 38.1,
+        "tempF": 100.6,
+        "obstruction": 0,
+        "glucose": 118,
+        "customMeasures": [],
+        "trendTimeSeconds": 30,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a2-dextrose-iv",
+          "shortAction": "Dextrose 10% 100 mL IV (10 g); reassess mental status, repeat incrementally to max 25 g (250 mL D10%)",
+          "protocolExcerpt": "Dextrose IV – administer in incremental doses until mental status improves or maximum field dosing is reached (if available, D10% is preferred) ... Maximum field adult dosing: 25 g of 10–50% dextrose IV ... 250 mL of 10% dextrose",
+          "priority": "critical",
+          "rationale": "Incremental D10% dosing corrects hypoglycemia while minimizing overshoot hyperglycemia and local tissue injury risk from more concentrated dextrose.",
+          "protocolReference": "MATC: Hypoglycemia"
+        },
+        {
+          "id": "a3-reassess-post-dextrose",
+          "shortAction": "Reassess vital signs and mental status after dextrose administration",
+          "protocolExcerpt": "Reassess vital signs (pulse, blood pressure, respiratory rate, neurologic status assessment) and mental status",
+          "priority": "important",
+          "rationale": "Confirms adequate response to treatment and identifies whether repeat dosing or further workup is needed.",
+          "protocolReference": "MATC: Hypoglycemia"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "transport-combined-workup",
+          "if": "Improved, transport initiated",
+          "condition": "Mental status normalizes after dextrose, but the crew recognizes the sulfonylurea-antibiotic interaction and persistent fever mean transport is required rather than release.",
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a2-dextrose-iv", "a3-reassess-post-dextrose"]
+        }
+      ]
+    },
+    {
+      "id": "transport-combined-workup",
+      "name": "Transport for combined hypoglycemia/infection workup",
+      "description": "Mental status has returned to baseline, but the crew recognizes this is not a simple, isolated hypoglycemic episode: the glipizide-Bactrim interaction risks recurrent hypoglycemia, and the persistent fever needs hospital evaluation for a possible urinary source.",
+      "triggerCondition": "After successful dextrose correction, the crew evaluates against the criteria for release-without-transport and finds them unmet — both the sulfonylurea's long half-life and the ongoing fever are disqualifying factors requiring hospital transport.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 4, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "Nonlabored, 16/min",
+        "circulation": "Radial pulses present, normal rate",
+        "skin": { "color": "pink", "temperature": "warm", "moisture": "dry" },
+        "pupils": "PERRL",
+        "motorFunction": "Intact",
+        "otherFindings": [
+          "Oriented x3, mental status at baseline per aide",
+          "Fever persists despite corrected glucose",
+          "Mild suprapubic tenderness on exam consistent with reported UTI"
+        ],
+        "patientSpeech": "\"I feel much clearer now, thank you.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Rhythm",
+        "ecgWaveform": 9,
+        "hr": 92,
+        "bpSys": 124,
+        "bpDia": 78,
+        "respRate": 16,
+        "spo2": 98,
+        "etco2": 0,
+        "temp": 38.2,
+        "tempF": 100.8,
+        "obstruction": 0,
+        "glucose": 132,
+        "customMeasures": [],
+        "trendTimeSeconds": 30,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a4-sulfonylurea-risk",
+          "shortAction": "Recognize glipizide's long half-life; transport despite improvement (recurrent hypoglycemia risk)",
+          "protocolExcerpt": "Sulfonylureas (e.g., glyburide, glipizide) have long half-lives ranging from 12–60 hrs. Patients with corrected hypoglycemia who are taking these agents are at particular risk for recurrent symptoms and frequently require hospital admission",
+          "priority": "critical",
+          "rationale": "A single dextrose dose does not eliminate the risk of recurrent hypoglycemia from a long-acting sulfonylurea potentiated by a drug interaction.",
+          "protocolReference": "MATC: Hypoglycemia"
+        },
+        {
+          "id": "a5-release-criteria-not-met",
+          "shortAction": "Recognize fever as a disqualifying co-morbid symptom; do not consider release, transport",
+          "protocolExcerpt": "If symptoms of hypoglycemia resolve after treatment, release without transport should only be considered if all the following are true: ... No major co-morbid symptoms exist, like chest pain, shortness of breath, seizures, intoxication",
+          "priority": "important",
+          "rationale": "The persistent fever is a co-morbid symptom that independently disqualifies this patient from release-without-transport.",
+          "protocolReference": "MATC: Hypoglycemia"
+        },
+        {
+          "id": "a6-continue-infection-assessment",
+          "shortAction": "Continue assessment for infection source (fever, dysuria) en route; transport for combined workup",
+          "protocolExcerpt": "Signs of infection: Fever, cough, skin changes, dysuria",
+          "priority": "supplemental",
+          "rationale": "The fever and suprapubic tenderness warrant hospital evaluation for the UTI as a concurrent, independent problem.",
+          "protocolReference": "MATC: Altered Mental Status"
+        }
+      ],
+      "transitions": []
+    },
+    {
+      "id": "bgl-skipped-worsening",
+      "name": "Infection assumed, BGL not checked",
+      "description": "The crew attributes the altered mental status solely to the reported fever and begins IV fluids for suspected sepsis without checking blood glucose. The untreated hypoglycemia progresses, with mental status further declining.",
+      "triggerCondition": "By anchoring on infection as the sole explanation for AMS and skipping the systematic AEIOU-TIPS workup, the crew misses the treatable hypoglycemia; blood glucose continues to fall despite fluid administration, and mental status worsens toward an increasing risk of seizure or airway compromise.",
+      "isDefault": false,
+      "clinicalPresentation": {
+        "avpu": "Pain",
+        "gcs": { "eye": 2, "verbal": 2, "motor": 5 },
+        "airway": "Patent, but increasingly obtunded",
+        "breathing": "Nonlabored, 22/min",
+        "circulation": "Weak radial pulses, tachycardic",
+        "skin": { "color": "pale", "temperature": "cool", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Withdraws to pain only, increased tremor",
+        "otherFindings": [
+          "Mental status worsening despite IV fluids for presumed sepsis",
+          "Increasing diaphoresis and tremor",
+          "No improvement with fluid bolus alone"
+        ],
+        "patientSpeech": "(incomprehensible mumbling)"
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 128,
+        "bpSys": 118,
+        "bpDia": 76,
+        "respRate": 22,
+        "spo2": 94,
+        "etco2": 0,
+        "temp": 38.3,
+        "tempF": 100.9,
+        "obstruction": 0,
+        "glucose": 28,
+        "customMeasures": [],
+        "trendTimeSeconds": 40,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a7-recognize-missed-bgl",
+          "shortAction": "Recognize non-improvement with fluids alone; check blood glucose (missed on initial workup)",
+          "protocolExcerpt": "Assessment: Blood glucose level",
+          "priority": "critical",
+          "rationale": "Failure to improve with fluids for presumed sepsis should prompt reconsideration of the full AEIOU-TIPS differential, including glucose.",
+          "protocolReference": "MATC: Altered Mental Status"
+        },
+        {
+          "id": "a8-rescue-dextrose",
+          "shortAction": "Administer rescue Dextrose 10% 100 mL IV (10 g) once hypoglycemia identified; reassess",
+          "protocolExcerpt": "Dextrose IV – administer in incremental doses until mental status improves or maximum field dosing is reached (if available, D10% is preferred)",
+          "priority": "critical",
+          "rationale": "Delayed correction of hypoglycemia increases risk of seizure and further neurologic injury.",
+          "protocolReference": "MATC: Hypoglycemia"
+        }
+      ],
+      "transitions": []
+    }
+  ],
+  "realiti": {
+    "scenarioMonitorType": 2,
+    "scenarioDefaultEnergy": 200,
+    "scenarioDefaultPacerThreshold": 55
+  }
+}

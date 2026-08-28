@@ -1,0 +1,349 @@
+{
+  "meta": {
+    "id": "107-bariatric-chest-pain",
+    "name": "107 - Bariatric Chest Pain",
+    "version": 1,
+    "difficulty": "intermediate",
+    "category": "Cardiac",
+    "protocols": ["cv-chest-pain-acs-stemi"],
+    "totalTimeSeconds": 1080,
+    "tags": ["bariatric", "chest pain", "ACS", "special populations", "logistics", "921"]
+  },
+  "patient": {
+    "name": "Gerald Wick",
+    "age": 54,
+    "ageUnit": "years",
+    "sex": "male",
+    "weight": 295,
+    "weightLbs": 650,
+    "height": 178,
+    "chiefComplaint": "Chest pain and shortness of breath",
+    "history": {
+      "hpi": "Patient reports substernal chest pressure that started about 40 minutes ago while resting on the couch, radiating to the left arm, associated with diaphoresis and nausea. He was unable to stand on his own after the pain started and has remained on the couch since. Wife called 911.",
+      "pastMedical": ["Hypertension", "Type 2 diabetes", "Obstructive sleep apnea (home CPAP)", "Hyperlipidemia"],
+      "medications": ["Lisinopril 20 mg PO daily", "Metformin 1000 mg PO BID", "Atorvastatin 40 mg PO daily"],
+      "allergies": ["NKDA"],
+      "lastOralIntake": "Dinner approximately 3 hours prior to symptom onset",
+      "events": "Sudden chest pressure while seated on the couch; unable to stand due to pain and body habitus, wife called 911"
+    }
+  },
+  "scene": {
+    "dispatch": "54-year-old male, chest pain, difficulty breathing, residence",
+    "location": "Single-story home, living room, patient seated/slumped on a couch; narrow hallway and doorway between the living room and front entrance",
+    "time": "9:15 PM, weekday",
+    "safety": "No scene hazards; patient's size limits available floor space to work and precludes use of the standard cot without a bariatric stretcher and additional personnel",
+    "bystanders": "Wife present, called 911, reports the pain started suddenly while he was resting",
+    "visualCues": [
+      "Patient markedly obese, seated on a reinforced couch, unable to stand independently",
+      "Diaphoretic, pale, visibly uncomfortable, clutching chest",
+      "Standard BP cuff visibly too small for his upper arm",
+      "Narrow hallway to the front door with a small step down at the threshold",
+      "Home CPAP machine visible on a nightstand"
+    ]
+  },
+  "phases": [
+    {
+      "id": "initial",
+      "name": "Initial Contact",
+      "description": "Crew arrives to find a 650 lb male seated on his couch, diaphoretic and in visible distress with substernal chest pressure radiating to the left arm. His size limits standard equipment and will require additional resources to safely assess, treat, and extricate.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent, speaking in full sentences with effort",
+        "breathing": "Mildly labored, 22/min, chest wall excursion limited by body habitus",
+        "circulation": "Radial pulses present but difficult to palpate, diaphoretic",
+        "skin": { "color": "pale", "temperature": "cool", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Strength intact in all extremities; unable to stand independently due to pain and body habitus",
+        "otherFindings": [
+          "Substernal chest pressure 8/10, radiating to left arm",
+          "Standard-size BP cuff does not fit; large adult/thigh cuff required",
+          "Auscultation and 12-lead electrode placement complicated by pannus and body habitus",
+          "Denies prior cardiac history"
+        ],
+        "patientSpeech": "\"It feels like an elephant sitting on my chest... I can't catch my breath.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 112,
+        "bpSys": 162,
+        "bpDia": 96,
+        "respRate": 22,
+        "spo2": 93,
+        "etco2": 0,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 0,
+        "glucose": 138,
+        "customMeasures": [],
+        "trendTimeSeconds": 0,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [],
+      "transitions": [
+        {
+          "targetPhaseId": "assessed-treated",
+          "if": "12-lead and ASA obtained despite challenges",
+          "condition": "Crew adapts assessment technique to the patient's body habitus — using a properly sized thigh cuff for blood pressure, repositioning electrodes around the pannus for a diagnostic-quality 12-lead, and establishing IV access — and administers aspirin.",
+          "conditionType": "action_taken"
+        }
+      ]
+    },
+    {
+      "id": "assessed-treated",
+      "name": "12-lead and ASA obtained despite challenges",
+      "description": "Crew obtains a diagnostic-quality 12-lead EKG using a modified electrode arrangement around the pannus, applies a properly sized cuff for accurate blood pressure, establishes IV access, administers supplemental oxygen and aspirin, and requests a bariatric stretcher and additional personnel for extrication.",
+      "triggerCondition": "After adapting standard equipment and technique to the patient's body habitus, the crew completes a diagnostic 12-lead within the target window and administers guideline-directed initial ACS therapy while additional resources are en route.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "22/min, mildly labored",
+        "circulation": "Radial pulses palpable, diaphoresis persists",
+        "skin": { "color": "pale", "temperature": "cool", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Intact in all extremities",
+        "otherFindings": [
+          "12-lead obtained with modified electrode positioning, sinus tachycardia with nonspecific ST changes, no clear STEMI",
+          "Aspirin 324 mg chewed and swallowed",
+          "IV access established in the right forearm after two attempts",
+          "Bariatric stretcher and second crew requested"
+        ],
+        "patientSpeech": "\"The chewy aspirin tastes awful but I took it all.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 108,
+        "bpSys": 156,
+        "bpDia": 92,
+        "respRate": 20,
+        "spo2": 95,
+        "etco2": 0,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 0,
+        "glucose": 138,
+        "customMeasures": [],
+        "trendTimeSeconds": 30,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a1-12lead",
+          "shortAction": "Obtain diagnostic-quality 12-lead EKG within 10 minutes despite body habitus",
+          "protocolExcerpt": "The 12-lead EKG is the primary diagnostic tool that identifies a STEMI; it is imperative that EMS clinicians routinely acquire a 12-lead EKG within 10 minutes for all patients exhibiting signs and symptoms of ACS",
+          "priority": "critical",
+          "rationale": "Timely 12-lead acquisition drives STEMI recognition and hospital notification even when electrode placement is technically difficult.",
+          "protocolReference": "MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)"
+        },
+        {
+          "id": "a2-asa",
+          "shortAction": "Administer aspirin 324 mg chewable, non-enteric-coated PO",
+          "protocolExcerpt": "Administer aspirin; chewable, non-enteric-coated aspirin preferred (162–325 mg)",
+          "priority": "critical",
+          "rationale": "Early aspirin reduces mortality in suspected ACS and should not be delayed by equipment challenges.",
+          "protocolReference": "MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)"
+        },
+        {
+          "id": "a3-iv",
+          "shortAction": "Establish IV access",
+          "protocolExcerpt": "Establish IV access",
+          "priority": "important",
+          "rationale": "Vascular access is needed for further medication administration if the patient deteriorates.",
+          "protocolReference": "MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)"
+        },
+        {
+          "id": "a4-o2",
+          "shortAction": "Administer supplemental O2 titrated to 94–98% saturation",
+          "protocolExcerpt": "If the patient is dyspneic, hypoxemic, or has obvious signs of heart failure, EMS clinicians should administer oxygen as appropriate with a target of achieving 94–98% saturation",
+          "priority": "important",
+          "rationale": "The patient's SpO2 is below target and he shows dyspnea, meeting the criteria for supplemental oxygen.",
+          "protocolReference": "MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "nitro-given",
+          "if": "PDE5 screen done, nitro given",
+          "condition": "Crew confirms the patient's blood pressure and no recent PDE5 inhibitor use before administering sublingual nitroglycerin.",
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a1-12lead", "a2-asa"]
+        },
+        {
+          "targetPhaseId": "resources-not-requested",
+          "if": "Extrication attempted without bariatric resources",
+          "condition": "Crew attempts to move the patient to the standard cot without a bariatric stretcher and additional personnel, resulting in prolonged physical exertion for the patient during the move.",
+          "conditionType": "action_not_taken"
+        }
+      ]
+    },
+    {
+      "id": "nitro-given",
+      "name": "PDE5 screen done, nitro given",
+      "description": "With systolic blood pressure confirmed above 100 mmHg and no recent PDE5 inhibitor use, the crew administers sublingual nitroglycerin. The patient's pain begins to improve.",
+      "triggerCondition": "After confirming an adequate blood pressure and screening for PDE5 inhibitor use, the crew administers nitroglycerin per protocol, reassessing blood pressure before any repeat dose.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "18/min, improved",
+        "circulation": "Radial pulses palpable, diaphoresis lessening",
+        "skin": { "color": "pink", "temperature": "cool", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Intact in all extremities",
+        "otherFindings": [
+          "Denies PDE5 inhibitor use in the past 48 hours",
+          "Nitroglycerin 0.4 mg SL given, SBP reassessed and remains above 100 mmHg",
+          "Pain improved from 8/10 to 5/10"
+        ],
+        "patientSpeech": "\"That's a little better already, thank you.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 102,
+        "bpSys": 144,
+        "bpDia": 86,
+        "respRate": 18,
+        "spo2": 96,
+        "etco2": 0,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 0,
+        "glucose": 138,
+        "customMeasures": [],
+        "trendTimeSeconds": 30,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a5-pde5-screen",
+          "shortAction": "Screen for PDE5 inhibitor use (sildenafil, vardenafil, tadalafil) before nitro",
+          "protocolExcerpt": "The use of nitrates should be avoided in any patient who has used a phosphodiesterase inhibitor within the past 48 hours. Examples include sildenafil (Viagra®, Revatio®), vardenafil (Levitra®, Staxyn®), tadalafil (Cialis®, Adcirca®) which are used for erectile dysfunction and pulmonary hypertension",
+          "priority": "critical",
+          "rationale": "Nitrates combined with PDE5 inhibitors can cause severe, refractory hypotension.",
+          "protocolReference": "MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)"
+        },
+        {
+          "id": "a6-nitro",
+          "shortAction": "Nitroglycerin 0.4 mg SL; may repeat q3–5 min if SBP > 100 mmHg",
+          "protocolExcerpt": "Nitroglycerin 0.4 mg sublingual (SL), can repeat q (quaque, every) 3–5 minutes if SBP greater than 100 mmHg",
+          "priority": "critical",
+          "rationale": "Nitroglycerin reduces preload and can relieve ischemic pain once safety criteria are confirmed.",
+          "protocolReference": "MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "transport",
+          "if": "Bariatric resources arrive, extrication coordinated",
+          "condition": "The bariatric stretcher and additional personnel arrive; the crew coordinates a safe, low-exertion extrication through the widened doorway and initiates transport.",
+          "conditionType": "action_taken"
+        }
+      ]
+    },
+    {
+      "id": "transport",
+      "name": "Bariatric resources arrive, extrication coordinated",
+      "description": "With the bariatric stretcher and additional personnel on scene, the crew safely extricates the patient with minimal exertion, continues serial vital sign reassessment, and transports with early notification to the receiving facility.",
+      "triggerCondition": "Once adequate personnel and equipment are on scene, the patient is safely moved without further physical strain, and the crew transports while continuing to monitor for clinical changes.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "16/min, unlabored",
+        "circulation": "Radial pulses strong",
+        "skin": { "color": "pink", "temperature": "warm", "moisture": "dry" },
+        "pupils": "PERRL",
+        "motorFunction": "Intact in all extremities",
+        "otherFindings": [
+          "Pain now 3/10",
+          "Extricated on bariatric stretcher without further exertion",
+          "Serial vitals stable and trending toward baseline"
+        ],
+        "patientSpeech": "\"Much easier this way, thank you all.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Rhythm",
+        "ecgWaveform": 9,
+        "hr": 88,
+        "bpSys": 136,
+        "bpDia": 82,
+        "respRate": 16,
+        "spo2": 98,
+        "etco2": 0,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 0,
+        "glucose": 138,
+        "customMeasures": [],
+        "trendTimeSeconds": 40,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a7-transport",
+          "shortAction": "Transport to appropriate facility with early notification of EKG findings",
+          "protocolExcerpt": "Transport and destination decisions should be based on local resources and system of care. Early notification to receiving facility of any changes in patient condition or serial EKGs",
+          "priority": "important",
+          "rationale": "Early hospital notification allows the receiving team to prepare and minimizes delays to definitive care.",
+          "protocolReference": "MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)"
+        }
+      ],
+      "transitions": []
+    },
+    {
+      "id": "resources-not-requested",
+      "name": "Extrication attempted without bariatric resources",
+      "description": "The crew attempts to move the patient onto the standard cot without a bariatric stretcher or additional personnel. The extended physical exertion required increases myocardial oxygen demand, worsening his chest pain and vital signs.",
+      "triggerCondition": "Crew delays requesting a bariatric stretcher and additional personnel, attempting to move the patient with standard equipment; the extended physical exertion and delay increase myocardial oxygen demand and worsen the patient's chest pain and vital signs.",
+      "isDefault": false,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "26/min, labored",
+        "circulation": "Radial pulses weak, more diaphoretic",
+        "skin": { "color": "pale", "temperature": "cool", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Intact in all extremities",
+        "otherFindings": [
+          "Chest pain worsened to 10/10 during the attempted move",
+          "Crew and patient both at risk of injury from the unsafe lift",
+          "Move aborted partway, patient repositioned back on the couch"
+        ],
+        "patientSpeech": "\"Stop, stop — it hurts so much worse now!\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 126,
+        "bpSys": 176,
+        "bpDia": 102,
+        "respRate": 26,
+        "spo2": 90,
+        "etco2": 0,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 0,
+        "glucose": 138,
+        "customMeasures": [],
+        "trendTimeSeconds": 20,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [],
+      "transitions": []
+    }
+  ],
+  "realiti": {
+    "scenarioMonitorType": 2,
+    "scenarioDefaultEnergy": 200,
+    "scenarioDefaultPacerThreshold": 55
+  }
+}

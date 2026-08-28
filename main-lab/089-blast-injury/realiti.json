@@ -1,0 +1,302 @@
+{
+  "scenarioId": "089-blast-injury",
+  "scenarioName": "089 - Blast Injury",
+  "scenarioType": "Vital Signs",
+  "scenarioVersion": 2,
+  "scenarioTime": 900,
+  "scenarioMonitorType": 2,
+  "scenarioDefaultEnergy": 200,
+  "scenarioDefaultPacerThreshold": 55,
+  "isDemo": false,
+  "isALSILegacy": false,
+  "scenarioStory": {
+    "history": "Patient was working near a propane tank that exploded, throwing him several feet. He has an actively bleeding shrapnel wound to the right thigh, partial-thickness burns to his face and forearms, and reports ringing in his ears with difficulty hearing questions. He is anxious and repeatedly asks crew to speak up.",
+    "discussion": "",
+    "course": "Initial Contact: Crew arrives to find a 33-year-old male with an actively bleeding right thigh wound from shrapnel, partial-thickness burns to the face and forearms, and apparent hearing loss/tinnitus from the blast overpressure. He is alert but anxious and has difficulty hearing questions. → Massive hemorrhage controlled first: Crew immediately applies a tourniquet to the actively bleeding right thigh wound before addressing the burns or hearing complaint, following the MARCH massive-hemorrhage-first priority, then continues the primary survey. → Breath sounds reassessed on right: With hemorrhage controlled, the crew reassesses breathing and finds progressively diminished breath sounds on the right with rising respiratory distress, tachycardia, and borderline hypotension — early tension physiology from blast barotrauma — and performs needle decompression while managing the burns and IV fluids. → Decompression relieves pressure, packaged for transport: Needle decompression relieves the tension physiology; breath sounds and vitals improve. The crew completes burn dressing, secures IV fluids, and packages the patient with a clearly marked tourniquet for transport to a trauma center with burn capability."
+  },
+  "patientInformation": {
+    "patientName": "Marcus Delgado",
+    "patientCondition": "Explosion victim with bleeding leg wound, burns, and hearing loss",
+    "patientAge": 33,
+    "patientAgeUnit": "years",
+    "patientAgeCategory": 0,
+    "patientSex": 1,
+    "patientHeight": 178,
+    "patientWeight": 85,
+    "patientPhotoId": 40,
+    "patientAdmitted": 1
+  },
+  "labs": [],
+  "scenarioEvents": [
+    {
+      "type": "ScenarioEvent",
+      "name": "Initial Contact",
+      "description": "Crew arrives to find a 33-year-old male with an actively bleeding right thigh wound from shrapnel, partial-thickness burns to the face and forearms, and apparent hearing loss/tinnitus from the blast overpressure. He is alert but anxious and has difficulty hearing questions.",
+      "monitorType": 0,
+      "trendTime": 0,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 118,
+        "bpSys": 108,
+        "bpDia": 70,
+        "respRate": 24,
+        "spo2": 94,
+        "etco2": 0,
+        "temp": 37,
+        "obstruction": 0,
+        "custMeasure1": 100,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Massive hemorrhage controlled first",
+      "description": "Crew immediately applies a tourniquet to the actively bleeding right thigh wound before addressing the burns or hearing complaint, following the MARCH massive-hemorrhage-first priority, then continues the primary survey.",
+      "monitorType": 0,
+      "trendTime": 30,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 108,
+        "bpSys": 112,
+        "bpDia": 72,
+        "respRate": 22,
+        "spo2": 95,
+        "etco2": 0,
+        "temp": 37,
+        "obstruction": 0,
+        "custMeasure1": 100,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Perform MARCH primary survey prioritizing hemorrhage control over burns/hearing loss",
+        "Apply commercial tourniquet 2-3 in proximal to right thigh wound; mark placement time",
+        "Continually reassess for blast lung injury and possible airway burn"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Breath sounds reassessed on right",
+      "description": "With hemorrhage controlled, the crew reassesses breathing and finds progressively diminished breath sounds on the right with rising respiratory distress, tachycardia, and borderline hypotension — early tension physiology from blast barotrauma — and performs needle decompression while managing the burns and IV fluids.",
+      "monitorType": 0,
+      "trendTime": 30,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 124,
+        "bpSys": 100,
+        "bpDia": 64,
+        "respRate": 28,
+        "spo2": 90,
+        "etco2": 0,
+        "temp": 37,
+        "obstruction": 0,
+        "custMeasure1": 100,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Needle decompression right 2nd ICS midclavicular line for tension pneumothorax",
+        "Establish IV access; administer NS per Burns Guideline given TBSA and shock signs",
+        "Rapid total-body exposure exam including log roll; keep patient warm"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Decompression relieves pressure, packaged for transport",
+      "description": "Needle decompression relieves the tension physiology; breath sounds and vitals improve. The crew completes burn dressing, secures IV fluids, and packages the patient with a clearly marked tourniquet for transport to a trauma center with burn capability.",
+      "monitorType": 0,
+      "trendTime": 40,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 104,
+        "bpSys": 112,
+        "bpDia": 74,
+        "respRate": 20,
+        "spo2": 97,
+        "etco2": 0,
+        "temp": 37,
+        "obstruction": 0,
+        "custMeasure1": 100,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Transport to trauma center with burn capability per field triage guideline; minimize scene time",
+        "Reassess vitals, breath sounds, and tourniquet serially en route"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Tourniquet delayed for burns/hearing",
+      "description": "The crew is drawn to the dramatic-looking burns and the patient's hearing loss/confusion, delaying tourniquet application on the actively bleeding thigh wound. Ongoing blood loss drives the patient into hemorrhagic shock.",
+      "monitorType": 0,
+      "trendTime": 40,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 138,
+        "bpSys": 84,
+        "bpDia": 54,
+        "respRate": 26,
+        "spo2": 91,
+        "etco2": 0,
+        "temp": 36.6,
+        "obstruction": 0,
+        "custMeasure1": 100,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Recognize hemorrhagic shock; apply tourniquet immediately, consider TXA"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Decompression delayed despite worsening signs",
+      "description": "The crew continues focusing on burn dressing and IV access while the patient's respiratory distress, hypotension, and tracheal deviation worsen without needle decompression — a progressing, untreated tension pneumothorax.",
+      "monitorType": 0,
+      "trendTime": 40,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 140,
+        "bpSys": 78,
+        "bpDia": 50,
+        "respRate": 34,
+        "spo2": 84,
+        "etco2": 0,
+        "temp": 36.8,
+        "obstruction": 0,
+        "custMeasure1": 100,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Recognize tension pneumothorax; needle decompress right 2nd ICS immediately"
+      ],
+      "relatedSounds": []
+    }
+  ],
+  "checklist": [
+    {
+      "title": "Perform MARCH primary survey prioritizing hemorrhage control over burns/hearing loss",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Apply commercial tourniquet 2-3 in proximal to right thigh wound; mark placement time",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Continually reassess for blast lung injury and possible airway burn",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Needle decompression right 2nd ICS midclavicular line for tension pneumothorax",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Establish IV access; administer NS per Burns Guideline given TBSA and shock signs",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Rapid total-body exposure exam including log roll; keep patient warm",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Transport to trauma center with burn capability per field triage guideline; minimize scene time",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Reassess vitals, breath sounds, and tourniquet serially en route",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Recognize hemorrhagic shock; apply tourniquet immediately, consider TXA",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Recognize tension pneumothorax; needle decompress right 2nd ICS immediately",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    }
+  ],
+  "media": []
+}

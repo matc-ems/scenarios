@@ -1,0 +1,262 @@
+{
+  "scenarioId": "035-alcohol-intoxication-with-vomiting",
+  "scenarioName": "035 - Alcohol Intoxication with Vomiting",
+  "scenarioType": "Vital Signs",
+  "scenarioVersion": 2,
+  "scenarioTime": 900,
+  "scenarioMonitorType": 2,
+  "scenarioDefaultEnergy": 200,
+  "scenarioDefaultPacerThreshold": 55,
+  "isDemo": false,
+  "isALSILegacy": false,
+  "scenarioStory": {
+    "history": "Friends report patient was drinking heavily at a party and became progressively less responsive over the last hour. He vomited twice on the couch and is now not rousing to voice, only moaning to sternal rub. No witnessed trauma, no known drug use, friends deny any pills taken.",
+    "discussion": "",
+    "course": "Initial Contact: Crew finds a 29-year-old male supine on a couch, minimally responsive to painful stimuli, with vomitus visible near his head and slow, shallow respirations. → Positioned and suctioned for airway protection: The patient is positioned to protect against aspiration, suctioned, placed on oxygen, and monitored while the crew recognizes a sedative-hypnotic toxidrome consistent with severe alcohol intoxication. → RSI performed for airway protection: With protective airway reflexes lost and ongoing emesis risk, the crew performs rapid sequence intubation to secure a definitive airway. → Ventilation and monitoring maintained: The patient is intubated, sedated, and ventilated at an appropriate rate and volume, with continuous waveform capnography confirming ongoing correct tube placement en route."
+  },
+  "patientInformation": {
+    "patientName": "Derek Alvarado",
+    "patientCondition": "Found down, unresponsive, vomiting",
+    "patientAge": 29,
+    "patientAgeUnit": "years",
+    "patientAgeCategory": 0,
+    "patientSex": 1,
+    "patientHeight": 178,
+    "patientWeight": 82,
+    "patientPhotoId": 35,
+    "patientAdmitted": 1
+  },
+  "labs": [],
+  "scenarioEvents": [
+    {
+      "type": "ScenarioEvent",
+      "name": "Initial Contact",
+      "description": "Crew finds a 29-year-old male supine on a couch, minimally responsive to painful stimuli, with vomitus visible near his head and slow, shallow respirations.",
+      "monitorType": 0,
+      "trendTime": 0,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 118,
+        "bpSys": 108,
+        "bpDia": 64,
+        "respRate": 10,
+        "spo2": 89,
+        "etco2": 0,
+        "temp": 36.2,
+        "obstruction": 20,
+        "custMeasure1": 96,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Positioned and suctioned for airway protection",
+      "description": "The patient is positioned to protect against aspiration, suctioned, placed on oxygen, and monitored while the crew recognizes a sedative-hypnotic toxidrome consistent with severe alcohol intoxication.",
+      "monitorType": 0,
+      "trendTime": 30,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 112,
+        "bpSys": 106,
+        "bpDia": 62,
+        "respRate": 11,
+        "spo2": 93,
+        "etco2": 0,
+        "temp": 36.2,
+        "obstruction": 20,
+        "custMeasure1": 96,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Position in recovery position, suction airway to clear vomitus",
+        "Apply continuous pulse oximetry and waveform capnography monitoring",
+        "Recognize sedative-hypnotic toxidrome; obtain IV access, check BGL"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "RSI performed for airway protection",
+      "description": "With protective airway reflexes lost and ongoing emesis risk, the crew performs rapid sequence intubation to secure a definitive airway.",
+      "monitorType": 0,
+      "trendTime": 40,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 104,
+        "bpSys": 110,
+        "bpDia": 66,
+        "respRate": 11,
+        "spo2": 98,
+        "etco2": 38,
+        "temp": 36.2,
+        "obstruction": 0,
+        "custMeasure1": 96,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Preoxygenate with high-flow O2 and positive pressure ventilation for ≥2 minutes before RSI",
+        "Etomidate 20.5 mg IV (82 kg × 0.25 mg/kg = 20.5 mg) for induction",
+        "Rocuronium 82 mg IV (82 kg × 1 mg/kg = 82 mg) for paralysis",
+        "Confirm tube placement with waveform capnography and bilateral breath sounds; secure tube"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Ventilation and monitoring maintained",
+      "description": "The patient is intubated, sedated, and ventilated at an appropriate rate and volume, with continuous waveform capnography confirming ongoing correct tube placement en route.",
+      "monitorType": 0,
+      "trendTime": 40,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 92,
+        "bpSys": 116,
+        "bpDia": 70,
+        "respRate": 11,
+        "spo2": 100,
+        "etco2": 40,
+        "temp": 36.3,
+        "obstruction": 0,
+        "custMeasure1": 96,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Ventilate 10-12 breaths/min, 6-8 mL/kg tidal volume, target EtCO2 35-45 mmHg"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Intubation attempted without suction ready",
+      "description": "The crew proceeds to laryngoscopy without suction immediately available; the patient vomits during the attempt, and gastric contents are aspirated before the airway can be cleared.",
+      "monitorType": 0,
+      "trendTime": 20,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 128,
+        "bpSys": 100,
+        "bpDia": 58,
+        "respRate": 8,
+        "spo2": 82,
+        "etco2": 0,
+        "temp": 36.2,
+        "obstruction": 40,
+        "custMeasure1": 96,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Immediately suction airway, consider SALAD technique, reoxygenate before re-attempting"
+      ],
+      "relatedSounds": []
+    }
+  ],
+  "checklist": [
+    {
+      "title": "Position in recovery position, suction airway to clear vomitus",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Apply continuous pulse oximetry and waveform capnography monitoring",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Recognize sedative-hypnotic toxidrome; obtain IV access, check BGL",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Preoxygenate with high-flow O2 and positive pressure ventilation for ≥2 minutes before RSI",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Etomidate 20.5 mg IV (82 kg × 0.25 mg/kg = 20.5 mg) for induction",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Rocuronium 82 mg IV (82 kg × 1 mg/kg = 82 mg) for paralysis",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Confirm tube placement with waveform capnography and bilateral breath sounds; secure tube",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Ventilate 10-12 breaths/min, 6-8 mL/kg tidal volume, target EtCO2 35-45 mmHg",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Immediately suction airway, consider SALAD technique, reoxygenate before re-attempting",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    }
+  ],
+  "media": []
+}

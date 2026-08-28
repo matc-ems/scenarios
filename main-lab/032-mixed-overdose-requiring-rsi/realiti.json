@@ -1,0 +1,243 @@
+{
+  "scenarioId": "032-mixed-overdose-requiring-rsi",
+  "scenarioName": "032 - Mixed Overdose Requiring RSI",
+  "scenarioType": "Vital Signs",
+  "scenarioVersion": 2,
+  "scenarioTime": 900,
+  "scenarioMonitorType": 2,
+  "scenarioDefaultEnergy": 200,
+  "scenarioDefaultPacerThreshold": 55,
+  "isDemo": false,
+  "isALSILegacy": false,
+  "scenarioStory": {
+    "history": "Roommate returned home to find the patient unresponsive on the bathroom floor with an uncapped hypodermic needle and an empty alprazolam pill bottle nearby. Patient was last seen normal approximately 45 minutes prior. Roommate reports a history of polysubstance use and recent relapse.",
+    "discussion": "",
+    "course": "Initial Contact: Crew finds a 44-year-old male unresponsive on the bathroom floor with pinpoint pupils, cyanotic lips, and slow, shallow respirations. Drug paraphernalia and an empty pill bottle are visible nearby. → Airway supported, naloxone titrated: Crew supports ventilation with BVM and oxygen, then administers titrated naloxone. Mental status and respirations improve only partially, consistent with a mixed overdose (benzodiazepine co-ingestion) rather than pure opioid toxicity. → RSI performed, tube secured: After adequate preoxygenation, the crew performs RSI: premedication, induction, paralysis, intubation, and placement confirmation with waveform capnography. The patient is now ventilated with a secured advanced airway."
+  },
+  "patientInformation": {
+    "patientName": "Marcus Delgado",
+    "patientCondition": "Unresponsive, shallow breathing",
+    "patientAge": 44,
+    "patientAgeUnit": "years",
+    "patientAgeCategory": 0,
+    "patientSex": 1,
+    "patientHeight": 178,
+    "patientWeight": 82,
+    "patientPhotoId": 53,
+    "patientAdmitted": 1
+  },
+  "labs": [],
+  "scenarioEvents": [
+    {
+      "type": "ScenarioEvent",
+      "name": "Initial Contact",
+      "description": "Crew finds a 44-year-old male unresponsive on the bathroom floor with pinpoint pupils, cyanotic lips, and slow, shallow respirations. Drug paraphernalia and an empty pill bottle are visible nearby.",
+      "monitorType": 0,
+      "trendTime": 0,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 54,
+        "bpSys": 108,
+        "bpDia": 68,
+        "respRate": 6,
+        "spo2": 82,
+        "etco2": 0,
+        "temp": 36.9,
+        "obstruction": 0,
+        "custMeasure1": 96,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Airway supported, naloxone titrated",
+      "description": "Crew supports ventilation with BVM and oxygen, then administers titrated naloxone. Mental status and respirations improve only partially, consistent with a mixed overdose (benzodiazepine co-ingestion) rather than pure opioid toxicity.",
+      "monitorType": 0,
+      "trendTime": 30,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 64,
+        "bpSys": 112,
+        "bpDia": 70,
+        "respRate": 8,
+        "spo2": 90,
+        "etco2": 52,
+        "temp": 36.9,
+        "obstruction": 0,
+        "custMeasure1": 96,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Assess airway, breathing, circulation, and mental status",
+        "Support airway and ventilation with BVM and oxygen before naloxone",
+        "Naloxone 0.4 mg IV, titrate up to 2 mg IV until adequate respiratory effort",
+        "Recognize respiratory depression persists despite naloxone; prepare for RSI",
+        "Preoxygenate with high-flow O2 and positive pressure ventilation ≥2 minutes before RSI"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "RSI performed, tube secured",
+      "description": "After adequate preoxygenation, the crew performs RSI: premedication, induction, paralysis, intubation, and placement confirmation with waveform capnography. The patient is now ventilated with a secured advanced airway.",
+      "monitorType": 0,
+      "trendTime": 45,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 78,
+        "bpSys": 122,
+        "bpDia": 78,
+        "respRate": 12,
+        "spo2": 98,
+        "etco2": 40,
+        "temp": 36.9,
+        "obstruction": 0,
+        "custMeasure1": 96,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Fentanyl 82 mcg IV (82 kg × 1 mcg/kg) 2-3 minutes before intubation",
+        "Ketamine 123 mg IV push (82 kg × 1.5 mg/kg) for induction sedation",
+        "Rocuronium 82 mg IV push (82 kg × 1 mg/kg) for paralysis",
+        "Intubate; confirm placement with waveform capnography and bilateral breath sounds",
+        "Secure tube; ventilate at 10-12 breaths/min, target EtCO2 35-45 mmHg"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "RSI attempted without preoxygenation",
+      "description": "The crew moves directly to sedation and paralysis without completing adequate preoxygenation. During the intubation attempt, the patient desaturates and becomes bradycardic — peri-intubation hypoxia.",
+      "monitorType": 0,
+      "trendTime": 20,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 38,
+        "bpSys": 96,
+        "bpDia": 58,
+        "respRate": 0,
+        "spo2": 78,
+        "etco2": 0,
+        "temp": 36.9,
+        "obstruction": 0,
+        "custMeasure1": 96,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Stop attempt at desaturation <90%; resume BVM ventilation with PEEP"
+      ],
+      "relatedSounds": []
+    }
+  ],
+  "checklist": [
+    {
+      "title": "Assess airway, breathing, circulation, and mental status",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Support airway and ventilation with BVM and oxygen before naloxone",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Naloxone 0.4 mg IV, titrate up to 2 mg IV until adequate respiratory effort",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Recognize respiratory depression persists despite naloxone; prepare for RSI",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Preoxygenate with high-flow O2 and positive pressure ventilation ≥2 minutes before RSI",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Fentanyl 82 mcg IV (82 kg × 1 mcg/kg) 2-3 minutes before intubation",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Ketamine 123 mg IV push (82 kg × 1.5 mg/kg) for induction sedation",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Rocuronium 82 mg IV push (82 kg × 1 mg/kg) for paralysis",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Intubate; confirm placement with waveform capnography and bilateral breath sounds",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Secure tube; ventilate at 10-12 breaths/min, target EtCO2 35-45 mmHg",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Stop attempt at desaturation <90%; resume BVM ventilation with PEEP",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    }
+  ],
+  "media": []
+}

@@ -1,0 +1,269 @@
+{
+  "scenarioId": "074-hemorrhagic-stroke",
+  "scenarioName": "074 - Hemorrhagic Stroke",
+  "scenarioType": "Vital Signs",
+  "scenarioVersion": 2,
+  "scenarioTime": 900,
+  "scenarioMonitorType": 2,
+  "scenarioDefaultEnergy": 200,
+  "scenarioDefaultPacerThreshold": 55,
+  "isDemo": false,
+  "isALSILegacy": false,
+  "scenarioStory": {
+    "history": "Coworker reports the patient suddenly grabbed his head, described it as \"the worst headache of my life,\" and vomited twice within minutes. Over the next several minutes he became progressively less responsive, now only groaning to voice.",
+    "discussion": "",
+    "course": "Initial Contact: Crew arrives to find a 58-year-old male with a witnessed sudden-onset severe headache, vomiting, and rapidly declining level of consciousness, now responsive only to voice with groaning. → Stroke scale, BGL, and LKW established: Crew completes a validated stroke scale, checks blood glucose to exclude a mimic, and documents the witnessed last-known-well time, while closely monitoring the patient's rapidly declining level of consciousness and vomiting for signs of impending airway compromise. → RSI performed for airway protection: Recognizing loss of protective airway reflexes with active vomiting and a GCS of 9, the crew proceeds with rapid sequence intubation, suctioning the soiled airway first and pre-oxygenating before the procedure. → Tube secured, ventilation continued to transport: With the airway secured, the crew continues manual ventilation targeting an EtCO2 of 35-45 mmHg, continuously monitors tube placement, and transports emergently to a comprehensive stroke center capable of neurosurgical intervention."
+  },
+  "patientInformation": {
+    "patientName": "Gregory Alston",
+    "patientCondition": "Sudden severe headache with vomiting and declining responsiveness",
+    "patientAge": 58,
+    "patientAgeUnit": "years",
+    "patientAgeCategory": 0,
+    "patientSex": 1,
+    "patientHeight": 178,
+    "patientWeight": 90,
+    "patientPhotoId": 70,
+    "patientAdmitted": 1
+  },
+  "labs": [],
+  "scenarioEvents": [
+    {
+      "type": "ScenarioEvent",
+      "name": "Initial Contact",
+      "description": "Crew arrives to find a 58-year-old male with a witnessed sudden-onset severe headache, vomiting, and rapidly declining level of consciousness, now responsive only to voice with groaning.",
+      "monitorType": 0,
+      "trendTime": 0,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 54,
+        "bpSys": 202,
+        "bpDia": 108,
+        "respRate": 22,
+        "spo2": 94,
+        "etco2": 30,
+        "temp": 37,
+        "obstruction": 0,
+        "custMeasure1": 108,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Stroke scale, BGL, and LKW established",
+      "description": "Crew completes a validated stroke scale, checks blood glucose to exclude a mimic, and documents the witnessed last-known-well time, while closely monitoring the patient's rapidly declining level of consciousness and vomiting for signs of impending airway compromise.",
+      "monitorType": 0,
+      "trendTime": 30,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 48,
+        "bpSys": 210,
+        "bpDia": 112,
+        "respRate": 20,
+        "spo2": 91,
+        "etco2": 28,
+        "temp": 37,
+        "obstruction": 0,
+        "custMeasure1": 108,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Perform validated prehospital stroke scale despite declining mentation; positive for asymmetric pupils and unresponsiveness",
+        "Check blood glucose to rule out hypoglycemia as a mimic (result 108 mg/dL, no treatment needed)",
+        "Establish witnessed last-known-well time from coworker"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "RSI performed for airway protection",
+      "description": "Recognizing loss of protective airway reflexes with active vomiting and a GCS of 9, the crew proceeds with rapid sequence intubation, suctioning the soiled airway first and pre-oxygenating before the procedure.",
+      "monitorType": 0,
+      "trendTime": 20,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 46,
+        "bpSys": 206,
+        "bpDia": 110,
+        "respRate": 12,
+        "spo2": 97,
+        "etco2": 33,
+        "temp": 37,
+        "obstruction": 0,
+        "custMeasure1": 106,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Suction soiled airway prior to intubation attempt",
+        "Fentanyl 90 mcg IV premedication (90 kg × 1 mcg/kg), 2-3 minutes prior to intubation",
+        "Etomidate 22.5 mg IV push (90 kg × 0.25 mg/kg)",
+        "Rocuronium 90 mg IV push (90 kg × 1 mg/kg)",
+        "Confirm tube placement with waveform capnography, bilateral breath sounds, and absent gastric sounds"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Tube secured, ventilation continued to transport",
+      "description": "With the airway secured, the crew continues manual ventilation targeting an EtCO2 of 35-45 mmHg, continuously monitors tube placement, and transports emergently to a comprehensive stroke center capable of neurosurgical intervention.",
+      "monitorType": 0,
+      "trendTime": 40,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 50,
+        "bpSys": 198,
+        "bpDia": 104,
+        "respRate": 12,
+        "spo2": 98,
+        "etco2": 38,
+        "temp": 37,
+        "obstruction": 0,
+        "custMeasure1": 106,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Ventilate to maintain EtCO2 35-45 mmHg; reserve mild hyperventilation for overt herniation signs only"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Airway protection delayed",
+      "description": "The crew continues the stroke workup without escalating airway management despite a declining GCS and active vomiting. The patient's gag reflex is lost and emesis is aspirated, causing acute desaturation.",
+      "monitorType": 0,
+      "trendTime": 20,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 42,
+        "bpSys": 214,
+        "bpDia": 116,
+        "respRate": 10,
+        "spo2": 78,
+        "etco2": 22,
+        "temp": 37,
+        "obstruction": 30,
+        "custMeasure1": 106,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Emergently suction airway, then proceed to RSI without further delay"
+      ],
+      "relatedSounds": []
+    }
+  ],
+  "checklist": [
+    {
+      "title": "Perform validated prehospital stroke scale despite declining mentation; positive for asymmetric pupils and unresponsiveness",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Check blood glucose to rule out hypoglycemia as a mimic (result 108 mg/dL, no treatment needed)",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Establish witnessed last-known-well time from coworker",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Suction soiled airway prior to intubation attempt",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Fentanyl 90 mcg IV premedication (90 kg × 1 mcg/kg), 2-3 minutes prior to intubation",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Etomidate 22.5 mg IV push (90 kg × 0.25 mg/kg)",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Rocuronium 90 mg IV push (90 kg × 1 mg/kg)",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Confirm tube placement with waveform capnography, bilateral breath sounds, and absent gastric sounds",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Ventilate to maintain EtCO2 35-45 mmHg; reserve mild hyperventilation for overt herniation signs only",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Emergently suction airway, then proceed to RSI without further delay",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    }
+  ],
+  "media": []
+}

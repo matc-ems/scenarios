@@ -1,0 +1,305 @@
+{
+  "scenarioId": "051-unstable-svt-with-hypotension",
+  "scenarioName": "051 - Unstable SVT with Hypotension",
+  "scenarioType": "Vital Signs",
+  "scenarioVersion": 2,
+  "scenarioTime": 900,
+  "scenarioMonitorType": 2,
+  "scenarioDefaultEnergy": 200,
+  "scenarioDefaultPacerThreshold": 55,
+  "isDemo": false,
+  "isALSILegacy": false,
+  "scenarioStory": {
+    "history": "48-year-old female at work reports sudden onset of palpitations and lightheadedness approximately 10 minutes prior to EMS arrival while seated at her desk. No preceding chest pain, exertion, or trauma. Denies prior similar episodes. Coworkers report she became pale, diaphoretic, and increasingly confused over the last few minutes before EMS arrival.",
+    "discussion": "",
+    "course": "Initial Contact: 48-year-old female found seated, pale, diaphoretic, and confused with a rapid, regular narrow-complex tachycardia at 210 and hypotension. Crew must rapidly recognize unstable SVT and prepare for definitive treatment. → Vagal maneuvers attempted: Vagal maneuvers performed without conversion; SVT persists with continued hypotension and worsening mentation. Adenosine is given as a bridge while cardioversion is prepared. → Adenosine failed, cardioversion performed: Adenosine failed to convert the rhythm; hemodynamic status continues to deteriorate. Crew proceeds to deliver synchronized cardioversion per the unstable pathway. → Converted to sinus rhythm: Following synchronized cardioversion, the patient converts to sinus rhythm with prompt improvement in perfusion and mental status."
+  },
+  "patientInformation": {
+    "patientName": "Linda Marsh",
+    "patientCondition": "Palpitations and dizziness",
+    "patientAge": 48,
+    "patientAgeUnit": "years",
+    "patientAgeCategory": 0,
+    "patientSex": 2,
+    "patientHeight": 163,
+    "patientWeight": 70,
+    "patientPhotoId": 58,
+    "patientAdmitted": 1
+  },
+  "labs": [],
+  "scenarioEvents": [
+    {
+      "type": "ScenarioEvent",
+      "name": "Initial Contact",
+      "description": "48-year-old female found seated, pale, diaphoretic, and confused with a rapid, regular narrow-complex tachycardia at 210 and hypotension. Crew must rapidly recognize unstable SVT and prepare for definitive treatment.",
+      "monitorType": 0,
+      "trendTime": 0,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 4,
+        "hr": 210,
+        "bpSys": 78,
+        "bpDia": 50,
+        "respRate": 22,
+        "spo2": 95,
+        "etco2": 32,
+        "temp": 37,
+        "obstruction": 0,
+        "custMeasure1": 98,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Manage airway; administer O2 to target SpO2 94–98%",
+        "Initiate cardiac monitoring and obtain 12-lead EKG",
+        "Establish IV access",
+        "Check blood glucose (obtained 98 mg/dL, rules out hypoglycemia as a contributing cause)",
+        "Recognize hemodynamic instability (BP 78/50, altered mentation) as unstable SVT; prepare for synchronized cardioversion",
+        "Attempt vagal maneuvers (e.g., modified Valsalva) while preparing for cardioversion"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Vagal maneuvers attempted",
+      "description": "Vagal maneuvers performed without conversion; SVT persists with continued hypotension and worsening mentation. Adenosine is given as a bridge while cardioversion is prepared.",
+      "monitorType": 0,
+      "trendTime": 20,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 4,
+        "hr": 208,
+        "bpSys": 76,
+        "bpDia": 48,
+        "respRate": 24,
+        "spo2": 94,
+        "etco2": 30,
+        "temp": 37,
+        "obstruction": 0,
+        "custMeasure1": 98,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Adenosine 6 mg IV rapid push via proximal site, immediately followed by 10 mL saline flush (fixed adult dose)",
+        "Apply defibrillator/cardioversion pads; prepare synchronized cardioversion; consider sedation/analgesia for responsive patient",
+        "Reassess vital signs and mental status after adenosine"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Adenosine failed, cardioversion performed",
+      "description": "Adenosine failed to convert the rhythm; hemodynamic status continues to deteriorate. Crew proceeds to deliver synchronized cardioversion per the unstable pathway.",
+      "monitorType": 0,
+      "trendTime": 30,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 4,
+        "hr": 206,
+        "bpSys": 72,
+        "bpDia": 46,
+        "respRate": 26,
+        "spo2": 92,
+        "etco2": 28,
+        "temp": 37,
+        "obstruction": 0,
+        "custMeasure1": 98,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Sedate per local sedation protocol prior to cardioversion (patient remains responsive to pain)",
+        "Deliver synchronized cardioversion at manufacturer-recommended initial energy setting",
+        "Document cardioversion time, synchronization, joules, and rhythm response; obtain monitor strip post-shock"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Converted to sinus rhythm",
+      "description": "Following synchronized cardioversion, the patient converts to sinus rhythm with prompt improvement in perfusion and mental status.",
+      "monitorType": 0,
+      "trendTime": 15,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 96,
+        "bpSys": 114,
+        "bpDia": 74,
+        "respRate": 18,
+        "spo2": 98,
+        "etco2": 36,
+        "temp": 37,
+        "obstruction": 0,
+        "custMeasure1": 98,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Reassess vital signs, mental status, and 12-lead EKG post-conversion",
+        "Continue cardiac monitoring and transport; document rhythm changes throughout"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Cardioversion delayed",
+      "description": "Cardioversion is delayed while the crew continues pharmacologic attempts; the patient's perfusion continues to deteriorate toward hemodynamic collapse.",
+      "monitorType": 0,
+      "trendTime": 45,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 4,
+        "hr": 212,
+        "bpSys": 58,
+        "bpDia": 38,
+        "respRate": 28,
+        "spo2": 88,
+        "etco2": 24,
+        "temp": 37,
+        "obstruction": 0,
+        "custMeasure1": 98,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Recognize ongoing decompensation; expedite synchronized cardioversion without further delay"
+      ],
+      "relatedSounds": []
+    }
+  ],
+  "checklist": [
+    {
+      "title": "Manage airway; administer O2 to target SpO2 94–98%",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Initiate cardiac monitoring and obtain 12-lead EKG",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Establish IV access",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Check blood glucose (obtained 98 mg/dL, rules out hypoglycemia as a contributing cause)",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Recognize hemodynamic instability (BP 78/50, altered mentation) as unstable SVT; prepare for synchronized cardioversion",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Attempt vagal maneuvers (e.g., modified Valsalva) while preparing for cardioversion",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Adenosine 6 mg IV rapid push via proximal site, immediately followed by 10 mL saline flush (fixed adult dose)",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Apply defibrillator/cardioversion pads; prepare synchronized cardioversion; consider sedation/analgesia for responsive patient",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Reassess vital signs and mental status after adenosine",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Sedate per local sedation protocol prior to cardioversion (patient remains responsive to pain)",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Deliver synchronized cardioversion at manufacturer-recommended initial energy setting",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Document cardioversion time, synchronization, joules, and rhythm response; obtain monitor strip post-shock",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Reassess vital signs, mental status, and 12-lead EKG post-conversion",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Continue cardiac monitoring and transport; document rhythm changes throughout",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Recognize ongoing decompensation; expedite synchronized cardioversion without further delay",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    }
+  ],
+  "media": []
+}

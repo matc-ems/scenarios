@@ -1,0 +1,222 @@
+{
+  "scenarioId": "044-pneumonia-with-septic-shock",
+  "scenarioName": "044 - Pneumonia with Septic Shock",
+  "scenarioType": "Vital Signs",
+  "scenarioVersion": 2,
+  "scenarioTime": 900,
+  "scenarioMonitorType": 2,
+  "scenarioDefaultEnergy": 200,
+  "scenarioDefaultPacerThreshold": 55,
+  "isDemo": false,
+  "isALSILegacy": false,
+  "scenarioStory": {
+    "history": "Daughter reports the patient has had a productive cough and fever for four days, treated at home with over-the-counter medications. Today she became much more short of breath and confused, prompting the 911 call. No recent hospitalizations.",
+    "discussion": "",
+    "course": "Initial Contact: Crew finds a 64-year-old female with a 4-day history of productive cough and fever, now tachypneic, hypoxic, and mildly confused, with warm flushed skin and borderline hypotension consistent with early septic shock from pneumonia. → CPAP and IV fluids started: Crew initiates CPAP for severe hypoxic respiratory distress while establishing IV access and beginning fluid resuscitation toward a MAP goal, checking glucose, and providing advanced notification to the receiving hospital for suspected sepsis. → Perfusion improving, transport initiated: With continued CPAP and fluid resuscitation, oxygenation and mental status improve. Crew maintains the CPAP seal throughout transport and considers coordinating empiric antibiotics if transport time is prolonged."
+  },
+  "patientInformation": {
+    "patientName": "Carol Denniston",
+    "patientCondition": "Worsening cough and shortness of breath with fever",
+    "patientAge": 64,
+    "patientAgeUnit": "years",
+    "patientAgeCategory": 0,
+    "patientSex": 2,
+    "patientHeight": 163,
+    "patientWeight": 70,
+    "patientPhotoId": 77,
+    "patientAdmitted": 1
+  },
+  "labs": [],
+  "scenarioEvents": [
+    {
+      "type": "ScenarioEvent",
+      "name": "Initial Contact",
+      "description": "Crew finds a 64-year-old female with a 4-day history of productive cough and fever, now tachypneic, hypoxic, and mildly confused, with warm flushed skin and borderline hypotension consistent with early septic shock from pneumonia.",
+      "monitorType": 0,
+      "trendTime": 0,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 118,
+        "bpSys": 86,
+        "bpDia": 52,
+        "respRate": 32,
+        "spo2": 84,
+        "etco2": 24,
+        "temp": 39.4,
+        "obstruction": 0,
+        "custMeasure1": 142,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "CPAP and IV fluids started",
+      "description": "Crew initiates CPAP for severe hypoxic respiratory distress while establishing IV access and beginning fluid resuscitation toward a MAP goal, checking glucose, and providing advanced notification to the receiving hospital for suspected sepsis.",
+      "monitorType": 0,
+      "trendTime": 30,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 108,
+        "bpSys": 96,
+        "bpDia": 58,
+        "respRate": 26,
+        "spo2": 92,
+        "etco2": 30,
+        "temp": 39.2,
+        "obstruction": 0,
+        "custMeasure1": 138,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Initiate CPAP for severe hypoxic respiratory distress",
+        "Establish IV access; if unsuccessful within 2 attempts or 90 seconds, place an IO needle",
+        "Administer isotonic fluid bolus (500 mL) toward a MAP goal of 65 mmHg, up to 30 mL/kg total",
+        "Check blood glucose; correct if less than 60 mg/dL",
+        "Provide advanced notification to the receiving hospital for suspected sepsis"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Perfusion improving, transport initiated",
+      "description": "With continued CPAP and fluid resuscitation, oxygenation and mental status improve. Crew maintains the CPAP seal throughout transport and considers coordinating empiric antibiotics if transport time is prolonged.",
+      "monitorType": 0,
+      "trendTime": 40,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 102,
+        "bpSys": 104,
+        "bpDia": 64,
+        "respRate": 22,
+        "spo2": 94,
+        "etco2": 34,
+        "temp": 38.9,
+        "obstruction": 0,
+        "custMeasure1": 132,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Maintain continuous CPAP mask seal throughout transport until hospital CPAP is ready to take over",
+        "Consider empiric antibiotics per regional coordination if prolonged transport time anticipated"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Fluids withheld, shock progresses",
+      "description": "Crew focuses only on CPAP and respiratory support without establishing IV access or beginning fluid resuscitation. The patient's mental status and blood pressure continue to decline as septic shock becomes uncompensated.",
+      "monitorType": 0,
+      "trendTime": 50,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 128,
+        "bpSys": 76,
+        "bpDia": 42,
+        "respRate": 28,
+        "spo2": 91,
+        "etco2": 26,
+        "temp": 39.3,
+        "obstruction": 0,
+        "custMeasure1": 140,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Recognize uncompensated septic shock; establish IV/IO access immediately and begin fluid resuscitation"
+      ],
+      "relatedSounds": []
+    }
+  ],
+  "checklist": [
+    {
+      "title": "Initiate CPAP for severe hypoxic respiratory distress",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Establish IV access; if unsuccessful within 2 attempts or 90 seconds, place an IO needle",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Administer isotonic fluid bolus (500 mL) toward a MAP goal of 65 mmHg, up to 30 mL/kg total",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Check blood glucose; correct if less than 60 mg/dL",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Provide advanced notification to the receiving hospital for suspected sepsis",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Maintain continuous CPAP mask seal throughout transport until hospital CPAP is ready to take over",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Consider empiric antibiotics per regional coordination if prolonged transport time anticipated",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Recognize uncompensated septic shock; establish IV/IO access immediately and begin fluid resuscitation",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    }
+  ],
+  "media": []
+}

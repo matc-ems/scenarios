@@ -1,0 +1,413 @@
+{
+  "scenarioId": "055-anterior-stemi",
+  "scenarioName": "055 - Anterior STEMI",
+  "scenarioType": "Vital Signs",
+  "scenarioVersion": 2,
+  "scenarioTime": 900,
+  "scenarioMonitorType": 2,
+  "scenarioDefaultEnergy": 200,
+  "scenarioDefaultPacerThreshold": 55,
+  "isDemo": false,
+  "isALSILegacy": false,
+  "scenarioStory": {
+    "history": "Patient was mowing his lawn approximately 30 minutes ago when he developed sudden-onset crushing substernal chest pain, 9/10, radiating to his left arm and jaw, associated with diaphoresis and nausea. Pain has not improved with rest. Denies similar pain before today.",
+    "discussion": "",
+    "course": "Initial Contact: 58-year-old male found sitting in his backyard with acute-onset crushing chest pain radiating to the left arm and jaw, diaphoretic and anxious, pain 9/10. Vitals show sinus tachycardia and mild hypertension consistent with an acute cardiac event, though the 12-lead has not yet been acquired. → 12-lead acquired, STEMI Anterior recognized: 12-lead EKG acquired within the target window shows ST-segment elevation across V1-V4 consistent with an anterior STEMI. Crew activates the STEMI system of care with advance hospital notification, gives aspirin, and establishes IV access. → PDE5 use identified, NTG withheld, fentanyl given: Crew identifies the patient's sildenafil use within the past 48 hours and correctly withholds nitroglycerin due to the risk of profound, refractory hypotension. Fentanyl is administered for ongoing severe pain. → Transport to PCI center: Pain is controlled, vital signs are stable, and serial 12-lead EKGs continue to show the anterior STEMI pattern. The patient is packaged and transported to the PCI-capable receiving facility with continued monitoring and hospital updates."
+  },
+  "patientInformation": {
+    "patientName": "Robert Hensley",
+    "patientCondition": "Crushing chest pain",
+    "patientAge": 58,
+    "patientAgeUnit": "years",
+    "patientAgeCategory": 0,
+    "patientSex": 1,
+    "patientHeight": 178,
+    "patientWeight": 95,
+    "patientPhotoId": 70,
+    "patientAdmitted": 1
+  },
+  "labs": [],
+  "scenarioEvents": [
+    {
+      "type": "ScenarioEvent",
+      "name": "Initial Contact",
+      "description": "58-year-old male found sitting in his backyard with acute-onset crushing chest pain radiating to the left arm and jaw, diaphoretic and anxious, pain 9/10. Vitals show sinus tachycardia and mild hypertension consistent with an acute cardiac event, though the 12-lead has not yet been acquired.",
+      "monitorType": 0,
+      "trendTime": 0,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 112,
+        "bpSys": 158,
+        "bpDia": 96,
+        "respRate": 22,
+        "spo2": 95,
+        "etco2": 34,
+        "temp": 37,
+        "obstruction": 0,
+        "custMeasure1": 138,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Perform rapid focused assessment; recognize signs/symptoms consistent with ACS",
+        "Assess cardiac rhythm; address any pulseless, symptomatic tachycardia, or symptomatic bradycardia first",
+        "Obtain complete SAMPLE history including full medication list"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "12-lead acquired, STEMI Anterior recognized",
+      "description": "12-lead EKG acquired within the target window shows ST-segment elevation across V1-V4 consistent with an anterior STEMI. Crew activates the STEMI system of care with advance hospital notification, gives aspirin, and establishes IV access.",
+      "monitorType": 0,
+      "trendTime": 20,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 23,
+        "hr": 114,
+        "bpSys": 160,
+        "bpDia": 98,
+        "respRate": 22,
+        "spo2": 95,
+        "etco2": 34,
+        "temp": 37,
+        "obstruction": 0,
+        "custMeasure1": 138,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Acquire 12-lead EKG within 10 minutes of patient contact; identify STEMI",
+        "Activate STEMI alert; transmit 12-lead and provide advance notification to receiving hospital",
+        "Aspirin 324 mg PO, chewable non-enteric-coated (within 162-325 mg range)",
+        "Establish IV access"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "PDE5 use identified, NTG withheld, fentanyl given",
+      "description": "Crew identifies the patient's sildenafil use within the past 48 hours and correctly withholds nitroglycerin due to the risk of profound, refractory hypotension. Fentanyl is administered for ongoing severe pain.",
+      "monitorType": 0,
+      "trendTime": 30,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 23,
+        "hr": 100,
+        "bpSys": 148,
+        "bpDia": 90,
+        "respRate": 18,
+        "spo2": 97,
+        "etco2": 36,
+        "temp": 37,
+        "obstruction": 0,
+        "custMeasure1": 138,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Screen for PDE5 inhibitor use before considering nitroglycerin; withhold NTG given sildenafil 12 hours ago",
+        "Fentanyl 95 mcg IV for pain unresponsive to nitrates being contraindicated (95 kg × 1 mcg/kg = 95 mcg; max initial dose 100 mcg)",
+        "Reassess pain score and vital signs after analgesic administration; document response"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Transport to PCI center",
+      "description": "Pain is controlled, vital signs are stable, and serial 12-lead EKGs continue to show the anterior STEMI pattern. The patient is packaged and transported to the PCI-capable receiving facility with continued monitoring and hospital updates.",
+      "monitorType": 0,
+      "trendTime": 40,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 23,
+        "hr": 92,
+        "bpSys": 138,
+        "bpDia": 84,
+        "respRate": 16,
+        "spo2": 98,
+        "etco2": 38,
+        "temp": 37,
+        "obstruction": 0,
+        "custMeasure1": 138,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Perform serial 12-lead EKGs, especially with any clinical change",
+        "Transport to appropriate PCI-capable facility per regional STEMI system of care",
+        "Provide early notification to receiving facility of any condition changes or serial EKG findings"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "12-lead delayed",
+      "description": "Crew becomes distracted by scene management and does not acquire the 12-lead EKG within the 10-minute target window. STEMI recognition and hospital notification are delayed, prolonging total ischemic time.",
+      "monitorType": 0,
+      "trendTime": 50,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 23,
+        "hr": 128,
+        "bpSys": 142,
+        "bpDia": 88,
+        "respRate": 26,
+        "spo2": 92,
+        "etco2": 32,
+        "temp": 37,
+        "obstruction": 0,
+        "custMeasure1": 138,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Immediately acquire 12-lead EKG; recognize delayed diagnosis increases morbidity/mortality risk"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "NTG given without PDE5 screen",
+      "description": "Nitroglycerin is given without first screening for recent PDE5 inhibitor use. Because the patient took sildenafil approximately 12 hours earlier, he develops profound, refractory hypotension requiring immediate intervention.",
+      "monitorType": 0,
+      "trendTime": 15,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 23,
+        "hr": 130,
+        "bpSys": 72,
+        "bpDia": 40,
+        "respRate": 24,
+        "spo2": 90,
+        "etco2": 28,
+        "temp": 37,
+        "obstruction": 0,
+        "custMeasure1": 138,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Recognize NTG-induced hypotension; hold further nitrates and position patient supine",
+        "IV fluid bolus to treat NTG/PDE5-induced hypotension; reassess blood pressure closely"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "STEMI progresses to VF arrest",
+      "description": "Prolonged, unrecognized anterior STEMI progresses to ventricular fibrillation. The patient becomes pulseless and unresponsive, requiring immediate high-quality CPR and defibrillation.",
+      "monitorType": 0,
+      "trendTime": 15,
+      "jumpTime": 0,
+      "defibShock": true,
+      "defibDisarm": false,
+      "parameters": {
+        "ecgWaveform": 18,
+        "hr": 0,
+        "bpSys": 0,
+        "bpDia": 0,
+        "respRate": 0,
+        "spo2": 0,
+        "etco2": 18,
+        "temp": 37,
+        "obstruction": 0,
+        "custMeasure1": 138,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": false,
+        "spo2Attached": true,
+        "rrVisible": false,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Recognize pulselessness; begin high-quality chest compressions immediately",
+        "Defibrillate coarse VF per biphasic protocol (e.g., Zoll 120 J, 150 J, 200 J escalating)",
+        "Resume chest compressions immediately after each shock; no pause for pulse checks for 2 minutes",
+        "Establish IV/IO access; administer Epinephrine 1 mg IV/IO during CPR",
+        "Amiodarone 300 mg IV/IO for shock-refractory VF; may repeat 150 mg in 4-6 minutes"
+      ],
+      "relatedSounds": []
+    }
+  ],
+  "checklist": [
+    {
+      "title": "Perform rapid focused assessment; recognize signs/symptoms consistent with ACS",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Assess cardiac rhythm; address any pulseless, symptomatic tachycardia, or symptomatic bradycardia first",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Obtain complete SAMPLE history including full medication list",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Acquire 12-lead EKG within 10 minutes of patient contact; identify STEMI",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Activate STEMI alert; transmit 12-lead and provide advance notification to receiving hospital",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Aspirin 324 mg PO, chewable non-enteric-coated (within 162-325 mg range)",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Establish IV access",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Immediately acquire 12-lead EKG; recognize delayed diagnosis increases morbidity/mortality risk",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Screen for PDE5 inhibitor use before considering nitroglycerin; withhold NTG given sildenafil 12 hours ago",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Fentanyl 95 mcg IV for pain unresponsive to nitrates being contraindicated (95 kg × 1 mcg/kg = 95 mcg; max initial dose 100 mcg)",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Reassess pain score and vital signs after analgesic administration; document response",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Recognize NTG-induced hypotension; hold further nitrates and position patient supine",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "IV fluid bolus to treat NTG/PDE5-induced hypotension; reassess blood pressure closely",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Perform serial 12-lead EKGs, especially with any clinical change",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Transport to appropriate PCI-capable facility per regional STEMI system of care",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Provide early notification to receiving facility of any condition changes or serial EKG findings",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Recognize pulselessness; begin high-quality chest compressions immediately",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Defibrillate coarse VF per biphasic protocol (e.g., Zoll 120 J, 150 J, 200 J escalating)",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Resume chest compressions immediately after each shock; no pause for pulse checks for 2 minutes",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Establish IV/IO access; administer Epinephrine 1 mg IV/IO during CPR",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Amiodarone 300 mg IV/IO for shock-refractory VF; may repeat 150 mg in 4-6 minutes",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    }
+  ],
+  "media": []
+}

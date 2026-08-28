@@ -1,0 +1,306 @@
+{
+  "scenarioId": "056-inferior-stemi-with-rv-involvement",
+  "scenarioName": "056 - Inferior STEMI with RV Involvement",
+  "scenarioType": "Vital Signs",
+  "scenarioVersion": 2,
+  "scenarioTime": 900,
+  "scenarioMonitorType": 2,
+  "scenarioDefaultEnergy": 200,
+  "scenarioDefaultPacerThreshold": 55,
+  "isDemo": false,
+  "isALSILegacy": false,
+  "scenarioStory": {
+    "history": "Sudden onset of substernal chest pressure (8/10) radiating to the jaw while mowing the lawn approximately 25 minutes ago, associated with nausea, diaphoresis, and lightheadedness. Pain has not improved with rest. Denies prior episodes like this.",
+    "discussion": "",
+    "course": "Initial Contact: 64-year-old male found seated, pale and diaphoretic, reporting 8/10 substernal chest pressure radiating to the jaw with associated nausea and dizziness. Radial pulses are weak. Initial vitals reveal marginal hypotension and relative bradycardia, both classic for right ventricular involvement in an inferior STEMI. → 12-Lead and V4R Acquired: The 12-lead confirms an inferior STEMI (ST elevation II, III, aVF) and the right-sided V4R lead confirms RV involvement. The crew must recognize that this patient's hypotension is preload-dependent and that fluid resuscitation must precede any nitrate administration. → Fluid Bolus Given: Following the 500 mL fluid bolus, the patient's blood pressure and heart rate improve modestly. Chest pain persists at 6/10. Given the still-marginal blood pressure, the crew weighs opiate analgesia over nitroglycerin per protocol and continues STEMI transport. → Transport En Route: The patient remains hemodynamically stable en route to the STEMI-capable facility. Pain is improved with morphine, blood pressure and heart rate remain adequate, and the receiving hospital has been notified for cath lab activation."
+  },
+  "patientInformation": {
+    "patientName": "Gerald Whitfield",
+    "patientCondition": "Chest pain and dizziness",
+    "patientAge": 64,
+    "patientAgeUnit": "years",
+    "patientAgeCategory": 0,
+    "patientSex": 1,
+    "patientHeight": 178,
+    "patientWeight": 90,
+    "patientPhotoId": 77,
+    "patientAdmitted": 1
+  },
+  "labs": [],
+  "scenarioEvents": [
+    {
+      "type": "ScenarioEvent",
+      "name": "Initial Contact",
+      "description": "64-year-old male found seated, pale and diaphoretic, reporting 8/10 substernal chest pressure radiating to the jaw with associated nausea and dizziness. Radial pulses are weak. Initial vitals reveal marginal hypotension and relative bradycardia, both classic for right ventricular involvement in an inferior STEMI.",
+      "monitorType": 0,
+      "trendTime": 0,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 24,
+        "hr": 54,
+        "bpSys": 82,
+        "bpDia": 54,
+        "respRate": 20,
+        "spo2": 95,
+        "etco2": 34,
+        "temp": 36.8,
+        "obstruction": 0,
+        "custMeasure1": 118,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Apply oxygen only if hypoxemic, titrate to SpO2 94-98%",
+        "Acquire 12-lead EKG within 10 minutes of patient contact",
+        "Aspirin 324 mg PO, chewable non-enteric-coated",
+        "Establish IV access"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "12-Lead and V4R Acquired",
+      "description": "The 12-lead confirms an inferior STEMI (ST elevation II, III, aVF) and the right-sided V4R lead confirms RV involvement. The crew must recognize that this patient's hypotension is preload-dependent and that fluid resuscitation must precede any nitrate administration.",
+      "monitorType": 0,
+      "trendTime": 25,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 24,
+        "hr": 52,
+        "bpSys": 80,
+        "bpDia": 52,
+        "respRate": 20,
+        "spo2": 95,
+        "etco2": 33,
+        "temp": 36.8,
+        "obstruction": 0,
+        "custMeasure1": 118,
+        "custMeasureLabel1": "mg/dL",
+        "custMeasure2": 2,
+        "custMeasureLabel2": "V4R ST Elevation",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Recognize inferior STEMI with RV involvement; withhold nitroglycerin until fluids given",
+        "Administer 500 mL NS IV bolus, pressure-infused over <15 min (up to 30 mL/kg goal = 2,700 mL for 90 kg patient)",
+        "Provide advance STEMI notification to receiving hospital"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Fluid Bolus Given",
+      "description": "Following the 500 mL fluid bolus, the patient's blood pressure and heart rate improve modestly. Chest pain persists at 6/10. Given the still-marginal blood pressure, the crew weighs opiate analgesia over nitroglycerin per protocol and continues STEMI transport.",
+      "monitorType": 0,
+      "trendTime": 40,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 24,
+        "hr": 64,
+        "bpSys": 96,
+        "bpDia": 60,
+        "respRate": 18,
+        "spo2": 96,
+        "etco2": 35,
+        "temp": 36.8,
+        "obstruction": 0,
+        "custMeasure1": 118,
+        "custMeasureLabel1": "mg/dL",
+        "custMeasure2": 2,
+        "custMeasureLabel2": "V4R ST Elevation",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Reassess vital signs and repeat 12-lead after fluid bolus",
+        "Morphine 9 mg IV (90 kg x 0.1 mg/kg; max initial dose 10 mg), used cautiously given borderline BP",
+        "Continue transport to STEMI-capable facility with early notification of changes"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Transport En Route",
+      "description": "The patient remains hemodynamically stable en route to the STEMI-capable facility. Pain is improved with morphine, blood pressure and heart rate remain adequate, and the receiving hospital has been notified for cath lab activation.",
+      "monitorType": 0,
+      "trendTime": 45,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 24,
+        "hr": 68,
+        "bpSys": 104,
+        "bpDia": 66,
+        "respRate": 16,
+        "spo2": 97,
+        "etco2": 36,
+        "temp": 36.8,
+        "obstruction": 0,
+        "custMeasure1": 116,
+        "custMeasureLabel1": "mg/dL",
+        "custMeasure2": 1,
+        "custMeasureLabel2": "V4R ST Elevation",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Continue serial vital sign reassessment en route, transmit final 12-lead to receiving facility"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Nitro Given Without Fluids",
+      "description": "Sublingual nitroglycerin was administered for chest pain before the RV-infarct hypotension was corrected with fluids. Venous return drops sharply, causing a precipitous fall in blood pressure and a compensatory rise in heart rate.",
+      "monitorType": 0,
+      "trendTime": 15,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 24,
+        "hr": 102,
+        "bpSys": 62,
+        "bpDia": 38,
+        "respRate": 20,
+        "spo2": 90,
+        "etco2": 28,
+        "temp": 36.7,
+        "obstruction": 0,
+        "custMeasure1": 118,
+        "custMeasureLabel1": "mg/dL",
+        "custMeasure2": 2,
+        "custMeasureLabel2": "V4R ST Elevation",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Recognize nitrate-induced hypotension from RV infarct; place patient supine",
+        "Rapid 500 mL NS IV fluid bolus, pressure-infused, repeat as needed toward 30 mL/kg (2,700 mL) goal",
+        "Consider norepinephrine 0.05-0.5 mcg/kg/min IV if hypotension is fluid-refractory"
+      ],
+      "relatedSounds": []
+    }
+  ],
+  "checklist": [
+    {
+      "title": "Apply oxygen only if hypoxemic, titrate to SpO2 94-98%",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Acquire 12-lead EKG within 10 minutes of patient contact",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Aspirin 324 mg PO, chewable non-enteric-coated",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Establish IV access",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Recognize inferior STEMI with RV involvement; withhold nitroglycerin until fluids given",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Administer 500 mL NS IV bolus, pressure-infused over <15 min (up to 30 mL/kg goal = 2,700 mL for 90 kg patient)",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Provide advance STEMI notification to receiving hospital",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Reassess vital signs and repeat 12-lead after fluid bolus",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Morphine 9 mg IV (90 kg x 0.1 mg/kg; max initial dose 10 mg), used cautiously given borderline BP",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Continue transport to STEMI-capable facility with early notification of changes",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Continue serial vital sign reassessment en route, transmit final 12-lead to receiving facility",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Recognize nitrate-induced hypotension from RV infarct; place patient supine",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Rapid 500 mL NS IV fluid bolus, pressure-infused, repeat as needed toward 30 mL/kg (2,700 mL) goal",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Consider norepinephrine 0.05-0.5 mcg/kg/min IV if hypotension is fluid-refractory",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    }
+  ],
+  "media": []
+}

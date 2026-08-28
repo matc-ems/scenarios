@@ -1,0 +1,284 @@
+{
+  "meta": {
+    "id": "047-near-fatal-adolescent-asthma",
+    "name": "047 - Near-Fatal Adolescent Asthma",
+    "version": 1,
+    "difficulty": "advanced",
+    "category": "Respiratory",
+    "protocols": ["resp-respiratory-distress", "resp-airway-management"],
+    "totalTimeSeconds": 900,
+    "tags": ["asthma", "silent chest", "IM epinephrine", "magnesium sulfate", "adolescent", "915"]
+  },
+  "patient": {
+    "name": "Ava Sorenson",
+    "age": 16,
+    "ageUnit": "years",
+    "sex": "female",
+    "weight": 55,
+    "weightLbs": 121,
+    "height": 163,
+    "chiefComplaint": "Severe difficulty breathing, known asthmatic",
+    "history": {
+      "hpi": "Mother reports the patient has had a worsening asthma flare over the past several hours despite using her rescue inhaler more than 10 times. She has become progressively more short of breath and is now confused and difficult to arouse. She has a history of a prior ICU admission for asthma.",
+      "pastMedical": ["Severe persistent asthma", "Prior ICU admission for asthma at age 13", "Two prior intubations for asthma"],
+      "medications": ["Albuterol MDI PRN (used excessively today)", "Fluticasone/salmeterol inhaler BID", "Montelukast 10 mg PO daily"],
+      "allergies": ["NKDA"],
+      "lastOralIntake": "Breakfast this morning",
+      "events": "Mother called 911 after the patient became confused and increasingly difficult to arouse despite repeated rescue inhaler use"
+    }
+  },
+  "scene": {
+    "dispatch": "16-year-old female, difficulty breathing, residence",
+    "location": "Single-family home, bedroom, patient slumped in a chair, rescue inhaler on the floor nearby",
+    "time": "8:45 PM, weekday",
+    "safety": "No hazards to crew noted",
+    "bystanders": "Mother present, extremely distressed, providing history",
+    "visualCues": [
+      "Patient slumped in a chair, minimal visible chest movement",
+      "Cyanotic lips and fingertips",
+      "Empty rescue inhaler on the floor",
+      "No audible wheeze despite obvious distress — silent chest",
+      "Slow to respond to mother's voice"
+    ]
+  },
+  "phases": [
+    {
+      "id": "initial",
+      "name": "Initial Contact",
+      "description": "Crew finds a 16-year-old female with known severe asthma who is altered, cyanotic, and has a silent chest — minimal air movement despite obvious severe distress — after excessive rescue inhaler use without relief.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Verbal",
+        "gcs": { "eye": 3, "verbal": 3, "motor": 5 },
+        "airway": "Patent but minimal air movement audible",
+        "breathing": "Silent chest, minimal chest rise, decreasing retractions from fatigue",
+        "circulation": "Radial pulses present, tachycardic",
+        "skin": { "color": "cyanotic", "temperature": "cool", "moisture": "diaphoretic" },
+        "pupils": "PERRL, sluggish",
+        "motorFunction": "Responds to voice, slow and confused",
+        "otherFindings": [
+          "No audible wheeze despite obvious severe distress — a silent chest indicates minimal air movement, not improvement",
+          "Used rescue inhaler more than 10 times today without relief",
+          "History of prior ICU admission and two prior intubations for asthma",
+          "Increasing confusion and difficulty arousing per mother"
+        ],
+        "patientSpeech": "Barely responsive, unable to speak in words"
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 138,
+        "bpSys": 108,
+        "bpDia": 68,
+        "respRate": 8,
+        "spo2": 76,
+        "etco2": 65,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 85,
+        "glucose": 104,
+        "customMeasures": [],
+        "trendTimeSeconds": 0,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
+      },
+      "expectedActions": [],
+      "transitions": [
+        {
+          "targetPhaseId": "aggressive-treatment",
+          "if": "IM epi and mag sulfate given",
+          "condition": "Crew recognizes impending respiratory failure from near-fatal asthma and escalates immediately to IM epinephrine, IV magnesium sulfate, and continuous nebulized bronchodilators.",
+          "conditionType": "action_taken"
+        },
+        {
+          "targetPhaseId": "respiratory-failure-rsi",
+          "if": "Escalation delayed, respiratory failure requiring RSI",
+          "condition": "Crew continues standard nebulizer treatment alone without escalating to IM epinephrine or magnesium sulfate, and the patient progresses to frank respiratory failure and arrest requiring RSI.",
+          "conditionType": "action_not_taken"
+        }
+      ]
+    },
+    {
+      "id": "aggressive-treatment",
+      "name": "IM epi and mag sulfate given",
+      "description": "Crew recognizes the silent chest and altered mental status as signs of impending respiratory failure and escalates immediately: continuous nebulized albuterol/ipratropium, IM epinephrine as adjunctive therapy, and IV magnesium sulfate over 10-15 minutes.",
+      "triggerCondition": "A silent chest with altered mental status and no improvement with inhaled therapy alone meets criteria for adjunctive IM epinephrine and magnesium sulfate per protocol.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Verbal",
+        "gcs": { "eye": 3, "verbal": 4, "motor": 5 },
+        "airway": "Patent, air movement beginning to return",
+        "breathing": "Faint wheeze now audible — improving from silent chest",
+        "circulation": "Radial pulses present, tachycardic",
+        "skin": { "color": "less cyanotic", "temperature": "cool", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "More responsive to voice",
+        "otherFindings": [
+          "Continuous albuterol/ipratropium nebulizer running",
+          "IM epinephrine given as adjunctive therapy",
+          "IV magnesium sulfate infusing over 10-15 minutes",
+          "Audible wheeze returning — a reassuring sign after a silent chest"
+        ],
+        "patientSpeech": "Weak, single-word responses"
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 126,
+        "bpSys": 112,
+        "bpDia": 70,
+        "respRate": 14,
+        "spo2": 88,
+        "etco2": 52,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 45,
+        "glucose": 104,
+        "customMeasures": [],
+        "trendTimeSeconds": 30,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a1-continuous-neb",
+          "shortAction": "Continuous albuterol 5 mg + ipratropium 0.5 mg nebulized, repeated with unlimited frequency for ongoing distress",
+          "protocolExcerpt": "Albuterol 5 mg nebulized (or 6 puffs metered dose inhaler) should be administered to all patients in respiratory distress with signs of bronchospasm. Repeat at this dose with unlimited frequency for ongoing respiratory distress. Ipratropium 0.5 mg nebulized should be given up to 3 doses in conjunction with albuterol",
+          "priority": "critical",
+          "rationale": "Continuous bronchodilator therapy is the foundation of severe asthma management and should not be interrupted.",
+          "protocolReference": "MATC: Respiratory Distress (includes Bronchospasm, Pulmonary Edema)"
+        },
+        {
+          "id": "a2-im-epi",
+          "shortAction": "Epinephrine 0.3 mg IM (1 mg/mL) (55 kg × 0.01 mg/kg = 0.55 mg → capped at max 0.3 mg); adjunctive for impending respiratory failure",
+          "protocolExcerpt": "Epinephrine (0.01 mg/kg of 1 mg/mL solution IM, maximum dose of 0.3 mg) should only be administered for impending respiratory failure as adjunctive therapy when there are no clinical signs of improvement with the above treatments",
+          "priority": "critical",
+          "rationale": "A silent chest with altered mental status indicates impending respiratory failure, meeting criteria for adjunctive IM epinephrine.",
+          "protocolReference": "MATC: Respiratory Distress (includes Bronchospasm, Pulmonary Edema)"
+        },
+        {
+          "id": "a3-mag-sulfate",
+          "shortAction": "Magnesium sulfate 2 g IV (55 kg × 40 mg/kg = 2200 mg → capped at max 2 g) over 10-15 minutes",
+          "protocolExcerpt": "Magnesium sulfate (40 mg/kg IV, maximum dose of 2 g) over 10-15 minutes should be administered for severe bronchoconstriction and concern for impending respiratory failure",
+          "priority": "critical",
+          "rationale": "Magnesium sulfate provides additional bronchodilation for severe bronchoconstriction unresponsive to first-line therapy.",
+          "protocolReference": "MATC: Respiratory Distress (includes Bronchospasm, Pulmonary Edema)"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "improved-avoided-intubation",
+          "if": "Improved, intubation avoided",
+          "condition": "With continuous bronchodilators, IM epinephrine, and magnesium sulfate, air movement and mental status improve, avoiding the need for intubation.",
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a1-continuous-neb", "a2-im-epi", "a3-mag-sulfate"]
+        }
+      ]
+    },
+    {
+      "id": "improved-avoided-intubation",
+      "name": "Improved, intubation avoided",
+      "description": "Air movement and mental status continue to improve with aggressive medical therapy. Crew avoids invasive airway management, consistent with the principle that intubation does not improve bronchospasm and should be reserved for true respiratory failure.",
+      "triggerCondition": "Following IM epinephrine, magnesium sulfate, and continuous bronchodilators, air movement is clearly improving and mental status is returning to baseline, avoiding the need for RSI.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent, audible wheeze with improving air movement",
+        "breathing": "Improved, mild accessory muscle use",
+        "circulation": "Radial pulses present, rate improving",
+        "skin": { "color": "pink", "temperature": "warm", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Alert and oriented",
+        "otherFindings": [
+          "Mental status returning to baseline",
+          "Audible wheeze throughout, no longer silent",
+          "Tolerating continued nebulizer therapy en route"
+        ],
+        "patientSpeech": "\"I can breathe a little better now.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 110,
+        "bpSys": 116,
+        "bpDia": 72,
+        "respRate": 18,
+        "spo2": 93,
+        "etco2": 42,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 25,
+        "glucose": 104,
+        "customMeasures": [],
+        "trendTimeSeconds": 40,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a4-avoid-invasive-airway",
+          "shortAction": "Continue non-invasive management; avoid intubation now that air movement and mental status are improving",
+          "protocolExcerpt": "Invasive airways do not improve bronchospasm. The airway should be managed in the least invasive way possible. Supraglottic devices and endotracheal intubation should be considered only if BVM ventilation fails",
+          "priority": "important",
+          "rationale": "Intubation in bronchospastic patients carries risk of air trapping and barotrauma and should be reserved for true respiratory failure.",
+          "protocolReference": "MATC: Respiratory Distress (includes Bronchospasm, Pulmonary Edema)"
+        }
+      ],
+      "transitions": []
+    },
+    {
+      "id": "respiratory-failure-rsi",
+      "name": "Escalation delayed, respiratory failure requiring RSI",
+      "description": "Crew continues standard nebulizer treatment without escalating to IM epinephrine or magnesium sulfate. The patient progresses to frank respiratory failure with loss of respiratory effort, requiring RSI.",
+      "triggerCondition": "Without adjunctive IM epinephrine and magnesium sulfate, the silent chest and altered mental status progress to complete respiratory failure, now requiring advanced airway management.",
+      "isDefault": false,
+      "clinicalPresentation": {
+        "avpu": "Unresponsive",
+        "gcs": { "eye": 1, "verbal": 1, "motor": 3 },
+        "airway": "Minimal air movement, patient no longer maintaining effective respirations",
+        "breathing": "Agonal, near-apneic",
+        "circulation": "Radial pulses weak, bradycardic — an ominous sign of impending arrest",
+        "skin": { "color": "cyanotic, worsening", "temperature": "cool", "moisture": "diaphoretic" },
+        "pupils": "Sluggish",
+        "motorFunction": "No purposeful movement, decorticate posturing to pain",
+        "otherFindings": [
+          "Respiratory effort essentially absent",
+          "No wheeze audible — complete silent chest",
+          "Bradycardia developing, a pre-arrest sign in this context"
+        ],
+        "patientSpeech": "None — unresponsive"
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Bradycardia",
+        "ecgWaveform": 9,
+        "hr": 52,
+        "bpSys": 88,
+        "bpDia": 54,
+        "respRate": 2,
+        "spo2": 65,
+        "etco2": 92,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 95,
+        "glucose": 104,
+        "customMeasures": [],
+        "trendTimeSeconds": 40,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a5-rsi-for-failure",
+          "shortAction": "Recognize true respiratory failure; perform RSI with ketamine (bronchodilator properties) for induction",
+          "protocolExcerpt": "Endotracheal intubation... Other indications may include potential airway obstruction. Administer induction sedative agent: Ketamine IV push, 1-2 mg/kg",
+          "priority": "critical",
+          "rationale": "Once true respiratory failure develops, invasive airway management is now indicated; ketamine is preferred in bronchospastic patients for its bronchodilator effect.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        }
+      ],
+      "transitions": []
+    }
+  ],
+  "realiti": {
+    "scenarioMonitorType": 2,
+    "scenarioDefaultEnergy": 200,
+    "scenarioDefaultPacerThreshold": 55
+  }
+}

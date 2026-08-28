@@ -1,0 +1,222 @@
+{
+  "scenarioId": "098-severe-preeclampsia",
+  "scenarioName": "098 - Severe Preeclampsia",
+  "scenarioType": "Vital Signs",
+  "scenarioVersion": 2,
+  "scenarioTime": 900,
+  "scenarioMonitorType": 2,
+  "scenarioDefaultEnergy": 200,
+  "scenarioDefaultPacerThreshold": 55,
+  "isDemo": false,
+  "isALSILegacy": false,
+  "scenarioStory": {
+    "history": "Patient is 36 weeks pregnant (G2P1) and reports a severe, throbbing headache that started this morning and has not responded to acetaminophen, along with intermittent blurry vision and seeing spots over the last hour. Denies loss of consciousness or seizure activity. Reports mild right-upper-quadrant discomfort. No vaginal bleeding. Fetal movement felt normally per patient report.",
+    "discussion": "",
+    "course": "Initial Contact: Crew arrives to find a 36-week pregnant female seated upright, alert and oriented, reporting a severe unremitting headache and new visual disturbances (spots, blurred vision). Initial blood pressure is markedly elevated. → Severe features recognized, mag and labetalol given: Crew initiates continuous magnesium sulfate for seizure prophylaxis and administers labetalol to gently lower blood pressure toward a goal that preserves uterine perfusion, while positioning the patient left-lateral and reassessing frequently. → BP trending toward goal, transport initiated: Blood pressure is trending down toward goal with magnesium infusing and labetalol on board. Patient remains alert with improving headache, no seizure activity, and stable fetal movement reported. Emergent transport continues to the closest appropriate obstetric-capable facility."
+  },
+  "patientInformation": {
+    "patientName": "Priya Chandrasekaran",
+    "patientCondition": "Severe headache and blurry vision, 36 weeks pregnant",
+    "patientAge": 31,
+    "patientAgeUnit": "years",
+    "patientAgeCategory": 0,
+    "patientSex": 2,
+    "patientHeight": 165,
+    "patientWeight": 80,
+    "patientPhotoId": 38,
+    "patientAdmitted": 1
+  },
+  "labs": [],
+  "scenarioEvents": [
+    {
+      "type": "ScenarioEvent",
+      "name": "Initial Contact",
+      "description": "Crew arrives to find a 36-week pregnant female seated upright, alert and oriented, reporting a severe unremitting headache and new visual disturbances (spots, blurred vision). Initial blood pressure is markedly elevated.",
+      "monitorType": 0,
+      "trendTime": 0,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 94,
+        "bpSys": 212,
+        "bpDia": 122,
+        "respRate": 18,
+        "spo2": 98,
+        "etco2": 0,
+        "temp": 37,
+        "obstruction": 0,
+        "custMeasure1": 96,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Severe features recognized, mag and labetalol given",
+      "description": "Crew initiates continuous magnesium sulfate for seizure prophylaxis and administers labetalol to gently lower blood pressure toward a goal that preserves uterine perfusion, while positioning the patient left-lateral and reassessing frequently.",
+      "monitorType": 0,
+      "trendTime": 30,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 88,
+        "bpSys": 186,
+        "bpDia": 108,
+        "respRate": 16,
+        "spo2": 99,
+        "etco2": 0,
+        "temp": 37,
+        "obstruction": 0,
+        "custMeasure1": 96,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Recognize severe pre-eclampsia: SBP 212/DBP 122 with headache, visual changes, epigastric pain",
+        "Magnesium sulfate 4 g IV over 20-30 min for seizure prophylaxis, then 2 g/hr infusion",
+        "Confirm HR >60, then labetalol 20 mg IV over 2 min; may repeat q10min x2",
+        "Position patient left-lateral to optimize uterine perfusion",
+        "NS or LR IV fluids at maximum 80 mL/hr; high-flow oxygen as indicated",
+        "Reassess blood pressure every 10 minutes during transport"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "BP trending toward goal, transport initiated",
+      "description": "Blood pressure is trending down toward goal with magnesium infusing and labetalol on board. Patient remains alert with improving headache, no seizure activity, and stable fetal movement reported. Emergent transport continues to the closest appropriate obstetric-capable facility.",
+      "monitorType": 0,
+      "trendTime": 45,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 82,
+        "bpSys": 156,
+        "bpDia": 96,
+        "respRate": 16,
+        "spo2": 99,
+        "etco2": 0,
+        "temp": 37,
+        "obstruction": 0,
+        "custMeasure1": 96,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Transport emergently to closest appropriate facility; notify en route"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "BP treated without magnesium prophylaxis",
+      "description": "The crew treats the severe hypertension with labetalol alone and does not initiate magnesium sulfate for seizure prophylaxis. Without magnesium on board, the patient remains at high risk for eclamptic seizure despite blood pressure improvement.",
+      "monitorType": 0,
+      "trendTime": 20,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 134,
+        "bpSys": 168,
+        "bpDia": 104,
+        "respRate": 8,
+        "spo2": 88,
+        "etco2": 0,
+        "temp": 37,
+        "obstruction": 20,
+        "custMeasure1": 96,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Treat as eclampsia: magnesium sulfate 6 g IV over 5-10 min for active seizure management"
+      ],
+      "relatedSounds": []
+    }
+  ],
+  "checklist": [
+    {
+      "title": "Recognize severe pre-eclampsia: SBP 212/DBP 122 with headache, visual changes, epigastric pain",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Magnesium sulfate 4 g IV over 20-30 min for seizure prophylaxis, then 2 g/hr infusion",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Confirm HR >60, then labetalol 20 mg IV over 2 min; may repeat q10min x2",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Position patient left-lateral to optimize uterine perfusion",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "NS or LR IV fluids at maximum 80 mL/hr; high-flow oxygen as indicated",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Reassess blood pressure every 10 minutes during transport",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Transport emergently to closest appropriate facility; notify en route",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Treat as eclampsia: magnesium sulfate 6 g IV over 5-10 min for active seizure management",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    }
+  ],
+  "media": []
+}

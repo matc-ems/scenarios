@@ -1,0 +1,289 @@
+{
+  "meta": {
+    "id": "027-pneumonia-with-mild-hypoxia",
+    "name": "027 - Pneumonia with Mild Hypoxia",
+    "version": 1,
+    "difficulty": "beginner",
+    "category": "Respiratory",
+    "protocols": ["resp-respiratory-distress", "resp-airway-management"],
+    "totalTimeSeconds": 720,
+    "tags": ["BLS", "respiratory", "pneumonia", "fever", "hypoxia", "915"]
+  },
+  "patient": {
+    "name": "Eleanor Voss",
+    "age": 74,
+    "ageUnit": "years",
+    "sex": "female",
+    "weight": 65,
+    "weightLbs": 143,
+    "height": 160,
+    "chiefComplaint": "Productive cough, fever, and feeling weak and short of breath for two days",
+    "history": {
+      "hpi": "Daughter reports patient has had a productive cough with yellow-green sputum, subjective fevers, and chills for two days, now with increasing fatigue and mild shortness of breath, worse with exertion. No chest pain. No known sick contacts. Patient lives alone and daughter checked in after she didn't answer the phone this morning.",
+      "pastMedical": ["Hypertension", "Osteoarthritis"],
+      "medications": ["Lisinopril 10 mg PO daily", "Acetaminophen PRN for pain"],
+      "allergies": ["NKDA"],
+      "lastOralIntake": "Tea and toast this morning, poor appetite for two days",
+      "events": "Daughter arrived to check on patient and found her tired-appearing and short of breath, called 911"
+    }
+  },
+  "scene": {
+    "dispatch": "74-year-old female, difficulty breathing, residence",
+    "location": "Single-story home, patient seated in living room recliner",
+    "time": "2:15 PM, weekday",
+    "safety": "No hazards to crew noted",
+    "bystanders": "Daughter present, called 911 after finding patient unwell",
+    "visualCues": [
+      "Patient seated upright in recliner, mild work of breathing",
+      "Frequent productive cough into a tissue, sputum yellow-green",
+      "Flushed, diaphoretic appearance",
+      "Empty water glass and untouched plate of food nearby"
+    ]
+  },
+  "phases": [
+    {
+      "id": "initial",
+      "name": "Initial Contact",
+      "description": "Crew arrives to find a 74-year-old female seated upright in a recliner, tired-appearing, with a frequent productive cough and mild increased work of breathing.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent, speaking in full sentences with occasional pauses to cough",
+        "breathing": "Mildly increased work of breathing, productive cough, diminished breath sounds with crackles at the right lower lobe",
+        "circulation": "Radial pulses present bilaterally, skin warm and flushed",
+        "skin": { "color": "flushed", "temperature": "warm", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Strength intact in all extremities, appears fatigued",
+        "otherFindings": [
+          "Frequent productive cough with yellow-green sputum",
+          "Subjective fever/chills reported over past two days",
+          "Mild accessory muscle use with exertion",
+          "Poor oral intake for two days"
+        ],
+        "patientSpeech": "\"I just feel so tired... and this cough won't quit.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 104,
+        "bpSys": 132,
+        "bpDia": 78,
+        "respRate": 24,
+        "spo2": 90,
+        "etco2": 0,
+        "temp": 38.3,
+        "tempF": 100.9,
+        "obstruction": 0,
+        "glucose": 98,
+        "customMeasures": [],
+        "trendTimeSeconds": 0,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [],
+      "transitions": [
+        {
+          "targetPhaseId": "o2-positioning",
+          "if": "Oxygen and positioning provided promptly",
+          "condition": "Crew promptly assesses full vital signs and breath sounds, applies supplemental oxygen via nasal cannula titrated to target saturation, and positions the patient upright for comfort.",
+          "conditionType": "action_taken"
+        },
+        {
+          "targetPhaseId": "o2-delayed",
+          "if": "Oxygen delayed",
+          "condition": "Crew focuses on history-taking and packaging without promptly applying supplemental oxygen, allowing hypoxia to worsen.",
+          "conditionType": "action_not_taken"
+        }
+      ]
+    },
+    {
+      "id": "o2-positioning",
+      "name": "Oxygen and positioning provided",
+      "description": "Crew applies supplemental oxygen via nasal cannula titrated to target saturation, keeps the patient in a position of comfort, and continues monitoring while preparing for transport.",
+      "triggerCondition": "After the crew completes a full set of vital signs and breath sound assessment, they promptly apply nasal cannula oxygen titrated toward the 94–98% target and maintain the patient in an upright position of comfort.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "Improved work of breathing, still productive cough, crackles persist at right lower lobe",
+        "circulation": "Radial pulses present bilaterally, skin warm",
+        "skin": { "color": "pink", "temperature": "warm", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Strength intact in all extremities",
+        "otherFindings": [
+          "Nasal cannula in place at 2 L/min",
+          "Positioned upright in position of comfort",
+          "Speaking in fuller sentences with less pausing"
+        ],
+        "patientSpeech": "\"That does feel a little easier, thank you.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Rhythm",
+        "ecgWaveform": 9,
+        "hr": 98,
+        "bpSys": 128,
+        "bpDia": 76,
+        "respRate": 20,
+        "spo2": 95,
+        "etco2": 0,
+        "temp": 38.2,
+        "tempF": 100.8,
+        "obstruction": 0,
+        "glucose": 98,
+        "customMeasures": [],
+        "trendTimeSeconds": 30,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a1-assess",
+          "shortAction": "Assess full vital signs, breath sounds, and mental status",
+          "protocolExcerpt": "Exam: Full set of vital signs (pulse, blood pressure, respiratory rate, neurologic status assessment), temperature, and O2 saturation... Breath sounds (wheezes, crackles, rales, rhonchi, diminished, clear)... Mental status (alert, tired, lethargic, unresponsive)",
+          "priority": "critical",
+          "rationale": "Establishes baseline severity and guides oxygen titration and transport priority.",
+          "protocolReference": "MATC: Respiratory Distress"
+        },
+        {
+          "id": "a2-o2",
+          "shortAction": "Apply nasal cannula O2 titrated to 94–98% SpO2",
+          "protocolExcerpt": "Give supplemental oxygen for dyspnea to a target of 94–98% saturation. Escalate from a nasal cannula as needed to reach this goal",
+          "priority": "critical",
+          "rationale": "Corrects hypoxia from pneumonia-related V/Q mismatch.",
+          "protocolReference": "MATC: Respiratory Distress"
+        },
+        {
+          "id": "a3-position",
+          "shortAction": "Position patient upright in position of comfort",
+          "protocolExcerpt": "Patient positioning can significantly impact respiratory mechanics... Elevating the head or padding (shoulders, occiput) can assist with opening airway and respiratory mechanics. This can both improve the ability to ventilate and limit aspiration",
+          "priority": "important",
+          "rationale": "Upright positioning eases work of breathing and reduces aspiration risk.",
+          "protocolReference": "MATC: Airway Management"
+        },
+        {
+          "id": "a4-monitor",
+          "shortAction": "Apply continuous pulse oximetry monitoring",
+          "protocolExcerpt": "Pulse oximetry and EtCO2 should be routinely used as adjuncts to other forms of monitoring in patients with respiratory complaints",
+          "priority": "important",
+          "rationale": "Continuous monitoring detects trending desaturation before clinical decompensation is obvious.",
+          "protocolReference": "MATC: Respiratory Distress"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "transport",
+          "if": "Reassessed and prepared for transport",
+          "condition": "Oxygenation and comfort have improved with nasal cannula O2 and positioning; patient is packaged for transport with ongoing reassessment.",
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a2-o2", "a3-position"]
+        }
+      ]
+    },
+    {
+      "id": "transport",
+      "name": "Reassessed and prepared for transport",
+      "description": "Patient's oxygenation and comfort have improved with supplemental oxygen and positioning; crew continues serial reassessment and supportive care en route.",
+      "triggerCondition": "After oxygen and positioning are in place and the patient shows improved saturation and reduced work of breathing, the crew packages her for transport with ongoing reassessment.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "Nonlabored, mild productive cough",
+        "circulation": "Radial pulses present bilaterally, skin warm and pink",
+        "skin": { "color": "pink", "temperature": "warm", "moisture": "dry" },
+        "pupils": "PERRL",
+        "motorFunction": "Strength intact in all extremities",
+        "otherFindings": [
+          "Nasal cannula O2 in place, saturations improved",
+          "Patient resting comfortably upright"
+        ],
+        "patientSpeech": "\"I feel a bit better now, thank you for taking care of me.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Rhythm",
+        "ecgWaveform": 9,
+        "hr": 92,
+        "bpSys": 126,
+        "bpDia": 74,
+        "respRate": 18,
+        "spo2": 96,
+        "etco2": 0,
+        "temp": 38.1,
+        "tempF": 100.6,
+        "obstruction": 0,
+        "glucose": 98,
+        "customMeasures": [],
+        "trendTimeSeconds": 40,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a5-reassess",
+          "shortAction": "Reassess vital signs and response to oxygen/positioning en route",
+          "protocolExcerpt": "Percentage of patients with abnormal pulse oximetry, respiratory rate, EtCO2 value with normalization on final set of vital signs",
+          "priority": "important",
+          "rationale": "Confirms the patient continues to respond to supportive care and detects any deterioration early.",
+          "protocolReference": "MATC: Respiratory Distress"
+        }
+      ],
+      "transitions": []
+    },
+    {
+      "id": "o2-delayed",
+      "name": "Oxygen delayed",
+      "description": "Without prompt supplemental oxygen, the patient's hypoxia and work of breathing worsen, with increasing accessory muscle use and anxiety.",
+      "triggerCondition": "Crew delays applying supplemental oxygen while focusing on history-taking, allowing hypoxia to progress and work of breathing to increase.",
+      "isDefault": false,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "Increased work of breathing, accessory muscle use, more frequent coughing",
+        "circulation": "Radial pulses present bilaterally, skin warm and diaphoretic",
+        "skin": { "color": "pale", "temperature": "warm", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Strength intact in all extremities, appears increasingly anxious",
+        "otherFindings": [
+          "No supplemental oxygen applied",
+          "Increasing use of accessory muscles",
+          "Patient appears more anxious and fatigued"
+        ],
+        "patientSpeech": "\"I... can't... catch my breath...\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 118,
+        "bpSys": 128,
+        "bpDia": 76,
+        "respRate": 28,
+        "spo2": 86,
+        "etco2": 0,
+        "temp": 38.3,
+        "tempF": 100.9,
+        "obstruction": 0,
+        "glucose": 98,
+        "customMeasures": [],
+        "trendTimeSeconds": 50,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a6-recover-o2",
+          "shortAction": "Recognize worsening hypoxia; apply O2 titrated to 94–98% SpO2 without further delay",
+          "protocolExcerpt": "Give supplemental oxygen for dyspnea to a target of 94–98% saturation. Escalate from a nasal cannula as needed to reach this goal",
+          "priority": "critical",
+          "rationale": "Delayed oxygen allows preventable hypoxia to progress; prompt correction reverses the trend.",
+          "protocolReference": "MATC: Respiratory Distress"
+        }
+      ],
+      "transitions": []
+    }
+  ],
+  "realiti": {
+    "scenarioMonitorType": 2,
+    "scenarioDefaultEnergy": 200,
+    "scenarioDefaultPacerThreshold": 55
+  }
+}

@@ -1,0 +1,349 @@
+{
+  "meta": {
+    "id": "018-pediatric-hypoglycemia",
+    "name": "018 - Pediatric Hypoglycemia",
+    "version": 1,
+    "difficulty": "intermediate",
+    "category": "Medical",
+    "protocols": ["medical-hypoglycemia"],
+    "totalTimeSeconds": 600,
+    "tags": ["ALS", "pediatric", "hypoglycemia", "med math", "914b"]
+  },
+  "patient": {
+    "name": "Eli Marquez",
+    "age": 8,
+    "ageUnit": "years",
+    "sex": "male",
+    "weight": 25,
+    "weightLbs": 55,
+    "height": 128,
+    "chiefComplaint": "Shaky and sweaty after school",
+    "history": {
+      "hpi": "8-year-old with type 1 diabetes diagnosed at age 5. Mother reports he received his scheduled rapid-acting insulin dose at lunch today but skipped his usual afternoon snack while at a friend's house. He came home tremulous, sweaty, and irritable, telling his mother he feels 'really hungry and shaky.' Mother checked his home glucometer, which read 42 mg/dL, and called 911.",
+      "pastMedical": ["Type 1 diabetes mellitus (diagnosed age 5)"],
+      "medications": ["Insulin aspart (rapid-acting) per sliding scale with meals", "Insulin glargine (long-acting) nightly"],
+      "allergies": ["NKDA"],
+      "lastOralIntake": "Lunch at school approximately 1 hour prior to onset of symptoms; skipped afternoon snack",
+      "events": "Mother noticed him trembling and sweaty after school, checked his home glucometer reading 42 mg/dL, and called 911"
+    }
+  },
+  "scene": {
+    "dispatch": "8-year-old male, not feeling well, residence",
+    "location": "Single-family home, kitchen; patient seated at the table with his mother",
+    "time": "4:15 PM, weekday, after school",
+    "safety": "No hazards to crew noted",
+    "bystanders": "Mother present, reports he took his lunchtime insulin but skipped his afternoon snack",
+    "visualCues": [
+      "Home glucometer on the counter reading 42 mg/dL",
+      "Insulin pen and used lancet in a sharps cup nearby",
+      "Backpack and half-eaten granola bar on the table",
+      "Patient visibly trembling with beads of sweat on his forehead"
+    ]
+  },
+  "phases": [
+    {
+      "id": "initial",
+      "name": "Initial Contact",
+      "description": "Crew arrives to find an 8-year-old male seated at the kitchen table, conscious, tremulous, and diaphoretic. He is anxious but able to speak in full sentences and follow commands.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent, speaking full sentences",
+        "breathing": "Nonlabored, symmetric chest rise, 18/min",
+        "circulation": "Radial pulses present and strong bilaterally",
+        "skin": { "color": "pale", "temperature": "cool", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Fine tremor noted in both hands, strength otherwise intact",
+        "otherFindings": [
+          "Visible trembling",
+          "Anxious affect, irritable",
+          "No focal neurologic deficits"
+        ],
+        "patientSpeech": "\"I feel really shaky and hungry, my tummy feels weird.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 112,
+        "bpSys": 108,
+        "bpDia": 68,
+        "respRate": 18,
+        "spo2": 99,
+        "etco2": 0,
+        "temp": 36.8,
+        "tempF": 98.2,
+        "obstruction": 0,
+        "glucose": 42,
+        "customMeasures": [],
+        "trendTimeSeconds": 0,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [],
+      "transitions": [
+        {
+          "targetPhaseId": "oral-glucose-given",
+          "if": "Oral glucose given",
+          "condition": "Crew confirms blood glucose is 42 mg/dL, recognizes symptomatic hypoglycemia, and administers weight-based oral glucose since the patient is conscious with a patent airway.",
+          "conditionType": "action_taken"
+        }
+      ]
+    },
+    {
+      "id": "oral-glucose-given",
+      "name": "Oral glucose given",
+      "description": "Crew confirms hypoglycemia with a glucometer check and administers oral glucose gel dosed to the patient's weight, appropriate for a conscious patient able to protect his airway.",
+      "triggerCondition": "After recognizing symptomatic hypoglycemia (BGL 42 mg/dL) in a conscious, airway-protecting patient, the crew administers weight-based oral glucose per protocol.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "Nonlabored, 18/min",
+        "circulation": "Radial pulses present and strong bilaterally",
+        "skin": { "color": "pale", "temperature": "cool", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Tremor persists, strength intact",
+        "otherFindings": [
+          "Oral glucose gel administered and tolerated",
+          "Still tremulous and diaphoretic",
+          "Repeat BGL pending"
+        ],
+        "patientSpeech": "\"That tastes weird but I still feel shaky.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 110,
+        "bpSys": 106,
+        "bpDia": 66,
+        "respRate": 18,
+        "spo2": 99,
+        "etco2": 0,
+        "temp": 36.8,
+        "tempF": 98.2,
+        "obstruction": 0,
+        "glucose": 45,
+        "customMeasures": [],
+        "trendTimeSeconds": 30,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a1-glucometer",
+          "shortAction": "Check blood glucose level with glucometer",
+          "protocolExcerpt": "Monitoring: Check blood glucose level",
+          "priority": "critical",
+          "rationale": "Confirms hypoglycemia (BGL less than 60 mg/dL) before treatment.",
+          "protocolReference": "MATC: Hypoglycemia"
+        },
+        {
+          "id": "a2-oral-glucose",
+          "shortAction": "Oral glucose gel 12.5 g PO (25 kg × 0.5 g/kg)",
+          "protocolExcerpt": "Conscious patient with a patent airway: Glucose, oral (in form of glucose tablets, glucose gel, tube of cake icing, etc.) Pediatric Dosing: 0.5–1 g/kg",
+          "priority": "critical",
+          "rationale": "Oral glucose is first-line for a conscious, airway-protecting pediatric patient.",
+          "protocolReference": "MATC: Hypoglycemia"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "iv-dextrose-given",
+          "if": "BGL recheck still low after oral",
+          "condition": "Repeat blood glucose after oral glucose remains 45 mg/dL and the patient's tremor/diaphoresis has not resolved, prompting escalation to IV dextrose.",
+          "conditionType": "vital_threshold",
+          "triggerActionIds": ["a1-glucometer"]
+        },
+        {
+          "targetPhaseId": "recheck-skipped",
+          "if": "BGL recheck skipped",
+          "condition": "Crew does not recheck blood glucose or reassess mental status after the oral dose, missing persistent unresolved hypoglycemia.",
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["a1-glucometer"]
+        }
+      ]
+    },
+    {
+      "id": "iv-dextrose-given",
+      "name": "IV dextrose given",
+      "description": "Repeat blood glucose remains low and symptoms persist after oral glucose, so the crew establishes IV access and administers weight-based dextrose per protocol.",
+      "triggerCondition": "Repeat BGL of 45 mg/dL with continued tremor and diaphoresis after oral glucose indicates persistent hypoglycemia requiring IV dextrose.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "Nonlabored, 16/min",
+        "circulation": "IV access established, radial pulses strong",
+        "skin": { "color": "pink", "temperature": "warm", "moisture": "dry" },
+        "pupils": "PERRL",
+        "motorFunction": "Tremor resolving, strength intact",
+        "otherFindings": [
+          "IV dextrose administered",
+          "Diaphoresis improving",
+          "Patient calmer, less irritable"
+        ],
+        "patientSpeech": "\"I don't feel as shaky now.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Rhythm",
+        "ecgWaveform": 9,
+        "hr": 96,
+        "bpSys": 104,
+        "bpDia": 66,
+        "respRate": 16,
+        "spo2": 99,
+        "etco2": 0,
+        "temp": 36.8,
+        "tempF": 98.2,
+        "obstruction": 0,
+        "glucose": 88,
+        "customMeasures": [],
+        "trendTimeSeconds": 30,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a3-recheck-bgl",
+          "shortAction": "Recheck BGL after oral dose; confirm still 45 mg/dL with persistent symptoms",
+          "protocolExcerpt": "Repeat check of blood glucose level if previous hypoglycemia and mental status has not returned to normal",
+          "priority": "critical",
+          "rationale": "Identifies that oral glucose alone did not resolve hypoglycemia, justifying escalation.",
+          "protocolReference": "MATC: Hypoglycemia"
+        },
+        {
+          "id": "a4-iv-dextrose",
+          "shortAction": "Dextrose 12.5 g IV as 125 mL D10% (25 kg × 5 mL/kg = 125 mL)",
+          "protocolExcerpt": "Maximum field pediatric dosing: 0.5–1 g/kg of 10–25% dextrose IV 5–10 mL/kg of 10% dextrose (newborns 2 mL/kg)",
+          "priority": "critical",
+          "rationale": "Weight-based IV dextrose corrects persistent hypoglycemia when oral treatment is insufficient.",
+          "protocolReference": "MATC: Hypoglycemia"
+        },
+        {
+          "id": "a5-d10-preferred",
+          "shortAction": "Use D10% concentration rather than higher-concentration dextrose for this pediatric patient",
+          "protocolExcerpt": "Dextrose 10% can be safely used in all ages of patient. Dextrose 10% works as effectively and quickly as other concentrations",
+          "priority": "important",
+          "rationale": "D10% is equally effective and safer than more concentrated dextrose solutions in pediatric patients.",
+          "protocolReference": "MATC: Hypoglycemia"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "resolved",
+          "if": "BGL and mental status normalized",
+          "condition": "Repeat blood glucose rises above 80 mg/dL, tremor and diaphoresis resolve, and the patient returns to his baseline mental status.",
+          "conditionType": "vital_threshold",
+          "triggerActionIds": ["a4-iv-dextrose"]
+        }
+      ]
+    },
+    {
+      "id": "resolved",
+      "name": "Improved, transport",
+      "description": "Blood glucose and mental status have normalized following IV dextrose. The patient is reassessed and prepared for transport given his history of symptomatic hypoglycemia.",
+      "triggerCondition": "After IV dextrose corrects the BGL above 80 mg/dL and symptoms resolve, the patient is reassessed and transported per protocol.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "Nonlabored, 16/min",
+        "circulation": "Radial pulses strong bilaterally",
+        "skin": { "color": "pink", "temperature": "warm", "moisture": "dry" },
+        "pupils": "PERRL",
+        "motorFunction": "No tremor, strength intact",
+        "otherFindings": [
+          "Tremor and diaphoresis resolved",
+          "Patient at baseline mental status",
+          "Mother reassured"
+        ],
+        "patientSpeech": "\"I feel a lot better now, thank you.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Rhythm",
+        "ecgWaveform": 9,
+        "hr": 88,
+        "bpSys": 102,
+        "bpDia": 64,
+        "respRate": 16,
+        "spo2": 99,
+        "etco2": 0,
+        "temp": 36.8,
+        "tempF": 98.2,
+        "obstruction": 0,
+        "glucose": 92,
+        "customMeasures": [],
+        "trendTimeSeconds": 30,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a6-reassess-transport",
+          "shortAction": "Reassess vitals and mental status; transport given continued symptomatic hypoglycemia today",
+          "protocolExcerpt": "If hypoglycemia with continued symptoms, transport to closest appropriate receiving facility",
+          "priority": "important",
+          "rationale": "A symptomatic pediatric hypoglycemic episode requiring IV dextrose warrants transport rather than field release.",
+          "protocolReference": "MATC: Hypoglycemia"
+        }
+      ],
+      "transitions": []
+    },
+    {
+      "id": "recheck-skipped",
+      "name": "BGL recheck skipped",
+      "description": "After oral glucose, the crew does not recheck blood glucose or reassess mental status. Persistent, unrecognized hypoglycemia continues, and the patient becomes more tremulous, tachycardic, and confused.",
+      "triggerCondition": "Crew omits the post-treatment glucose recheck and mental status reassessment, missing that hypoglycemia has not resolved.",
+      "isDefault": false,
+      "clinicalPresentation": {
+        "avpu": "Verbal",
+        "gcs": { "eye": 3, "verbal": 4, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "Nonlabored, 22/min",
+        "circulation": "Radial pulses present, rapid",
+        "skin": { "color": "pale", "temperature": "cool", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Increasing tremor, slower to follow commands",
+        "otherFindings": [
+          "No blood glucose recheck performed",
+          "Increasingly confused and irritable",
+          "Worsening diaphoresis"
+        ],
+        "patientSpeech": "\"I dunno... I feel really weird...\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 130,
+        "bpSys": 100,
+        "bpDia": 64,
+        "respRate": 22,
+        "spo2": 97,
+        "etco2": 0,
+        "temp": 36.7,
+        "tempF": 98.1,
+        "obstruction": 0,
+        "glucose": 38,
+        "customMeasures": [],
+        "trendTimeSeconds": 40,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a7-recognize-deterioration",
+          "shortAction": "Recognize worsening hypoglycemia; recheck BGL and reassess mental status immediately",
+          "protocolExcerpt": "Repeat check of blood glucose level if previous hypoglycemia and mental status has not returned to normal",
+          "priority": "critical",
+          "rationale": "Delayed recheck allows unrecognized hypoglycemia to worsen toward altered mental status and seizure risk.",
+          "protocolReference": "MATC: Hypoglycemia"
+        }
+      ],
+      "transitions": []
+    }
+  ],
+  "realiti": {
+    "scenarioMonitorType": 2,
+    "scenarioDefaultEnergy": 200,
+    "scenarioDefaultPacerThreshold": 55
+  }
+}

@@ -1,0 +1,215 @@
+{
+  "scenarioId": "113-neonatal-resuscitation-with-meconium",
+  "scenarioName": "113 - Neonatal Resuscitation with Meconium",
+  "scenarioType": "Vital Signs",
+  "scenarioVersion": 2,
+  "scenarioTime": 600,
+  "scenarioMonitorType": 2,
+  "scenarioDefaultEnergy": 200,
+  "scenarioDefaultPacerThreshold": 55,
+  "isDemo": false,
+  "isALSILegacy": false,
+  "scenarioStory": {
+    "history": "Just-delivered term male infant, approximately 39 weeks gestation by mother's dates. Amniotic fluid was thick and meconium-stained at rupture of membranes. Immediately after delivery of the body, the infant is floppy with poor tone, weak/absent respiratory effort, and no crying.",
+    "discussion": "",
+    "course": "Initial Contact: A term male newborn has just delivered through thick meconium-stained fluid and presents floppy with poor tone and absent respiratory effort, meeting criteria for immediate resuscitation rather than routine care. → Dried, warmed, positioned, airway cleared: Crew dries and warms the infant, positions the airway in the sniffing position, and suctions the mouth then nose given visible meconium and signs of airway obstruction. The infant remains apneic with a heart rate below 100. → PPV initiated for HR under 100: Crew initiates BVM positive pressure ventilation at 40-60 breaths per minute with room air, reassessing heart rate every 30 seconds. Heart rate improves toward normal with effective ventilation."
+  },
+  "patientInformation": {
+    "patientName": "Baby Thompson",
+    "patientCondition": "Term newborn, meconium-stained fluid at delivery, floppy and not breathing",
+    "patientAge": 1,
+    "patientAgeUnit": "minutes",
+    "patientAgeCategory": 1,
+    "patientSex": 1,
+    "patientHeight": 50,
+    "patientWeight": 3.2,
+    "patientPhotoId": 2,
+    "patientAdmitted": 1
+  },
+  "labs": [],
+  "scenarioEvents": [
+    {
+      "type": "ScenarioEvent",
+      "name": "Initial Contact",
+      "description": "A term male newborn has just delivered through thick meconium-stained fluid and presents floppy with poor tone and absent respiratory effort, meeting criteria for immediate resuscitation rather than routine care.",
+      "monitorType": 0,
+      "trendTime": 0,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 55,
+        "bpSys": 0,
+        "bpDia": 0,
+        "respRate": 0,
+        "spo2": 60,
+        "etco2": 0,
+        "temp": 36.2,
+        "obstruction": 0,
+        "custMeasure1": 0,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Dried, warmed, positioned, airway cleared",
+      "description": "Crew dries and warms the infant, positions the airway in the sniffing position, and suctions the mouth then nose given visible meconium and signs of airway obstruction. The infant remains apneic with a heart rate below 100.",
+      "monitorType": 0,
+      "trendTime": 15,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 58,
+        "bpSys": 0,
+        "bpDia": 0,
+        "respRate": 0,
+        "spo2": 62,
+        "etco2": 0,
+        "temp": 36.4,
+        "obstruction": 30,
+        "custMeasure1": 0,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Dry, warm, and stimulate infant; wrap in dry towel, cover head",
+        "Position airway in sniffing position; suction mouth then nose given visible meconium",
+        "Apply cardiac monitor and pulse oximetry to guide resuscitation"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "PPV initiated for HR under 100",
+      "description": "Crew initiates BVM positive pressure ventilation at 40-60 breaths per minute with room air, reassessing heart rate every 30 seconds. Heart rate improves toward normal with effective ventilation.",
+      "monitorType": 0,
+      "trendTime": 30,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 118,
+        "bpSys": 60,
+        "bpDia": 35,
+        "respRate": 8,
+        "spo2": 78,
+        "etco2": 0,
+        "temp": 36.6,
+        "obstruction": 10,
+        "custMeasure1": 0,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Initiate BVM ventilation with room air at 40-60 breaths/min for 90 seconds",
+        "Evaluate heart rate every 30 seconds during ventilation",
+        "Use minimum rate/volume needed for chest rise and HR change (squeeze-release technique)"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Resuscitation sequence delayed",
+      "description": "Crew delays the dry-warm-stimulate and airway-clearing sequence, allowing the infant to remain apneic and bradycardic without intervention.",
+      "monitorType": 0,
+      "trendTime": 30,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 45,
+        "bpSys": 0,
+        "bpDia": 0,
+        "respRate": 0,
+        "spo2": 52,
+        "etco2": 0,
+        "temp": 35.8,
+        "obstruction": 40,
+        "custMeasure1": 0,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Immediately begin dry-warm-stimulate, position airway, and suction mouth then nose"
+      ],
+      "relatedSounds": []
+    }
+  ],
+  "checklist": [
+    {
+      "title": "Dry, warm, and stimulate infant; wrap in dry towel, cover head",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Position airway in sniffing position; suction mouth then nose given visible meconium",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Apply cardiac monitor and pulse oximetry to guide resuscitation",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Initiate BVM ventilation with room air at 40-60 breaths/min for 90 seconds",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Evaluate heart rate every 30 seconds during ventilation",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Use minimum rate/volume needed for chest rise and HR change (squeeze-release technique)",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Immediately begin dry-warm-stimulate, position airway, and suction mouth then nose",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    }
+  ],
+  "media": []
+}

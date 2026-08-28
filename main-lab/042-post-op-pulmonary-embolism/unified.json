@@ -1,0 +1,293 @@
+{
+  "meta": {
+    "id": "042-post-op-pulmonary-embolism",
+    "name": "042 - Post-Op Pulmonary Embolism",
+    "version": 1,
+    "difficulty": "advanced",
+    "category": "Respiratory",
+    "protocols": ["medical-shock", "resp-respiratory-distress"],
+    "totalTimeSeconds": 900,
+    "tags": ["ALS", "respiratory", "obstructive shock", "pulmonary embolism", "post-op", "915"]
+  },
+  "patient": {
+    "name": "Renee Castellano",
+    "age": 55,
+    "ageUnit": "years",
+    "sex": "female",
+    "weight": 70,
+    "weightLbs": 154,
+    "height": 165,
+    "chiefComplaint": "Sudden shortness of breath",
+    "history": {
+      "hpi": "Patient underwent right total knee replacement 6 days ago and has been largely sedentary at home since discharge. While standing up from the couch approximately 20 minutes ago, she developed abrupt, severe shortness of breath and right-sided pleuritic chest pain. She denies fever, cough, or leg trauma but reports the operative leg has felt 'swollen and achy' for the past two days, which she attributed to normal post-surgical recovery.",
+      "pastMedical": ["Recent right total knee arthroplasty (6 days ago)", "Hypertension", "Obesity"],
+      "medications": ["Lisinopril 20 mg PO daily", "Aspirin 81 mg PO daily", "Oxycodone 5 mg PO PRN pain"],
+      "allergies": ["NKDA"],
+      "lastOralIntake": "Toast and coffee, about 3 hours prior to onset",
+      "events": "Husband called 911 immediately after she became acutely short of breath while standing; she has remained seated on the couch since, refusing to lie flat"
+    }
+  },
+  "scene": {
+    "dispatch": "55-year-old female, difficulty breathing, residence",
+    "location": "Single-family home, living room; patient seated upright on the couch, leaning forward",
+    "time": "3:15 PM, weekday",
+    "safety": "No hazards to crew; recliner and walker nearby from post-surgical recovery",
+    "bystanders": "Husband present, reports she was recovering well from knee surgery until the sudden onset of breathing trouble",
+    "visualCues": [
+      "Patient sitting upright, visibly anxious, working to breathe",
+      "Right knee with surgical dressing, leg appears mildly swollen compared to left",
+      "Pursed-lip breathing, unable to speak in full sentences",
+      "Walker and post-op supplies visible near the couch",
+      "Skin pale with faint perioral cyanosis"
+    ]
+  },
+  "phases": [
+    {
+      "id": "initial",
+      "name": "Initial Contact",
+      "description": "Crew finds a 55-year-old post-operative female in acute respiratory distress, tachycardic and hypoxic, with a swollen post-surgical leg noted incidentally.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent, unable to speak in full sentences",
+        "breathing": "Tachypneic, shallow, accessory muscle use, clear breath sounds bilaterally with no wheezing",
+        "circulation": "Radial pulses rapid and thready, skin pale and diaphoretic",
+        "skin": { "color": "pale", "temperature": "cool", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Intact in all extremities",
+        "otherFindings": [
+          "Sudden onset severe dyspnea and right-sided pleuritic chest pain",
+          "Right lower extremity mildly swollen and tender compared to left, post-surgical dressing intact",
+          "Jugular venous distention noted",
+          "No wheezing or rales on auscultation"
+        ],
+        "patientSpeech": "\"I can't... catch my breath... it just hit me.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 122,
+        "bpSys": 106,
+        "bpDia": 70,
+        "respRate": 28,
+        "spo2": 89,
+        "etco2": 22,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 0,
+        "glucose": 102,
+        "customMeasures": [],
+        "trendTimeSeconds": 0,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [],
+      "transitions": [
+        {
+          "targetPhaseId": "o2-monitor-established",
+          "if": "O2, monitor, and IV access established",
+          "condition": "Crew applies supplemental oxygen, places the patient on a cardiac monitor with pulse oximetry and EtCO2, obtains a 12-lead, and establishes IV access.",
+          "conditionType": "action_taken"
+        }
+      ]
+    },
+    {
+      "id": "o2-monitor-established",
+      "name": "O2, monitor, and IV access established",
+      "description": "Oxygen is applied, the patient is placed on continuous cardiac and pulse oximetry monitoring, a 12-lead reveals an S1Q3T3 pattern concerning for right heart strain, and IV access is obtained.",
+      "triggerCondition": "After recognizing sudden dyspnea with a swollen post-surgical leg and JVD as concerning for obstructive shock from suspected pulmonary embolism, the crew applies oxygen, initiates full monitoring including a 12-lead, and secures IV access.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent, still speaking in short phrases",
+        "breathing": "Tachypneic, improved with O2, clear bilaterally",
+        "circulation": "Radial pulses rapid, IV established in left forearm",
+        "skin": { "color": "pale", "temperature": "cool", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Intact in all extremities",
+        "otherFindings": [
+          "12-lead shows S1Q3T3 pattern, sinus tachycardia, no ST elevation",
+          "SpO2 improving slightly with high-flow oxygen",
+          "JVD persists",
+          "Right calf remains swollen and tender"
+        ],
+        "patientSpeech": "\"A little better with the oxygen, but my chest still hurts when I breathe in.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Pulmonary Embolism (S1Q3T3)",
+        "ecgWaveform": 45,
+        "hr": 118,
+        "bpSys": 102,
+        "bpDia": 66,
+        "respRate": 24,
+        "spo2": 93,
+        "etco2": 21,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 0,
+        "glucose": 102,
+        "customMeasures": [],
+        "trendTimeSeconds": 30,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a1-o2",
+          "shortAction": "Apply high-flow oxygen via non-rebreather, titrate to 94-98% SpO2",
+          "protocolExcerpt": "Give supplemental oxygen for dyspnea to a target of 94–98% saturation. Escalate from a nasal cannula as needed to reach this goal",
+          "priority": "critical",
+          "rationale": "Corrects hypoxia from V/Q mismatch caused by pulmonary vascular obstruction.",
+          "protocolReference": "MATC: Respiratory Distress (includes Bronchospasm, Pulmonary Edema)"
+        },
+        {
+          "id": "a2-monitor",
+          "shortAction": "Apply cardiac monitor, pulse oximetry, and EtCO2; obtain 12-lead ECG",
+          "protocolExcerpt": "Cardiac monitor. Pulse oximetry and EtCO2 (reading of less than 25 mmHg may be sign of poor perfusion). EKG",
+          "priority": "critical",
+          "rationale": "A low EtCO2 with tachypnea and an S1Q3T3 pattern supports obstructive shock from suspected PE and guides ongoing monitoring.",
+          "protocolReference": "MATC: Shock"
+        },
+        {
+          "id": "a3-iv",
+          "shortAction": "Establish IV access; place IO if unsuccessful within 2 attempts or 90 seconds",
+          "protocolExcerpt": "Establish IV access. If unable to obtain within two attempts or less than 90 seconds, place an IO needle",
+          "priority": "important",
+          "rationale": "Vascular access is needed for potential fluid or vasopressor therapy if the patient decompensates.",
+          "protocolReference": "MATC: Shock"
+        },
+        {
+          "id": "a4-notify",
+          "shortAction": "Provide advance notification to receiving hospital of suspected obstructive shock",
+          "protocolExcerpt": "Provide advanced notification to the hospital",
+          "priority": "important",
+          "rationale": "Early notification allows the receiving facility to prepare for possible PE-directed therapy.",
+          "protocolReference": "MATC: Shock"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "supportive-transport",
+          "if": "Supportive care maintained, hospital notified",
+          "condition": "Oxygenation is maintained, vital signs remain relatively stable without further hypotension, and the patient is transported with advance notification to the receiving hospital.",
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a1-o2", "a4-notify"]
+        },
+        {
+          "targetPhaseId": "shock-unrecognized",
+          "if": "Right heart strain unrecognized, no reassessment",
+          "condition": "Crew treats only the dyspnea without recognizing the obstructive shock pattern (JVD, S1Q3T3, low EtCO2) and fails to reassess perfusion; blood pressure continues to drift downward unnoticed.",
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["a2-monitor"]
+        }
+      ]
+    },
+    {
+      "id": "supportive-transport",
+      "name": "Supportive care maintained, hospital notified",
+      "description": "The patient remains hemodynamically borderline but stable on high-flow oxygen with continuous monitoring; the crew avoids aggressive fluid boluses given the obstructive/cardiogenic-pattern physiology and transports emergently with advance hospital notification.",
+      "triggerCondition": "With oxygenation supported and obstructive shock recognized on monitoring, the crew continues serial reassessment, avoids large fluid boluses, and transports rapidly with advance notification for likely PE-directed therapy on arrival.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent, speaking in fuller sentences",
+        "breathing": "Tachypneic but improved, clear bilaterally",
+        "circulation": "Radial pulses present, rapid",
+        "skin": { "color": "pale", "temperature": "cool", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Intact in all extremities",
+        "otherFindings": [
+          "SpO2 stable in the mid-90s on high-flow O2",
+          "JVD persists but blood pressure has not further declined",
+          "No rales or hepatomegaly to suggest fluid overload"
+        ],
+        "patientSpeech": "\"I'm still scared, but it's not as bad as when it started.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Pulmonary Embolism (S1Q3T3)",
+        "ecgWaveform": 45,
+        "hr": 112,
+        "bpSys": 104,
+        "bpDia": 68,
+        "respRate": 22,
+        "spo2": 95,
+        "etco2": 24,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 0,
+        "glucose": 102,
+        "customMeasures": [],
+        "trendTimeSeconds": 40,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a5-reassess",
+          "shortAction": "Serially reassess vitals and perfusion en route; withhold aggressive fluid boluses",
+          "protocolExcerpt": "Recognition of cardiogenic shock - If the patient condition deteriorates after fluid administration, rales or hepatomegaly develop, then consider cardiogenic shock and withholding further fluid administration",
+          "priority": "critical",
+          "rationale": "Obstructive shock from PE behaves like cardiogenic shock physiologically; large fluid boluses can worsen right heart strain.",
+          "protocolReference": "MATC: Shock"
+        }
+      ],
+      "transitions": []
+    },
+    {
+      "id": "shock-unrecognized",
+      "name": "Right heart strain unrecognized, no reassessment",
+      "description": "Without recognizing the obstructive shock pattern, the crew focuses only on symptomatic oxygen therapy. Blood pressure continues to fall as right heart strain progresses, and the patient becomes progressively more hypotensive and altered.",
+      "triggerCondition": "The 12-lead's S1Q3T3 pattern, JVD, and persistently low EtCO2 are not recognized as signs of obstructive shock, and perfusion is not reassessed; blood pressure drifts down unnoticed until the patient becomes frankly hypotensive.",
+      "isDefault": false,
+      "clinicalPresentation": {
+        "avpu": "Verbal",
+        "gcs": { "eye": 3, "verbal": 4, "motor": 6 },
+        "airway": "Patent, minimal verbal response",
+        "breathing": "Tachypneic, shallow, worsening effort",
+        "circulation": "Radial pulses weak and thready, skin cool and mottled",
+        "skin": { "color": "mottled", "temperature": "cool", "moisture": "diaphoretic" },
+        "pupils": "PERRL, sluggish",
+        "motorFunction": "Intact but sluggish response",
+        "otherFindings": [
+          "Blood pressure trending down, not reassessed for several minutes",
+          "JVD more pronounced",
+          "Increasing confusion"
+        ],
+        "patientSpeech": "\"I feel... really dizzy now...\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Pulmonary Embolism (S1Q3T3)",
+        "ecgWaveform": 45,
+        "hr": 134,
+        "bpSys": 82,
+        "bpDia": 54,
+        "respRate": 30,
+        "spo2": 88,
+        "etco2": 18,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 0,
+        "glucose": 102,
+        "customMeasures": [],
+        "trendTimeSeconds": 50,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a6-vasopressor",
+          "shortAction": "Start norepinephrine 0.05-0.5 mcg/kg/min IV (70 kg patient), titrate to MAP 65",
+          "protocolExcerpt": "Vasopressors (shock unresponsive to IV fluids) titrated to physiologic targets: Cardiogenic, hypovolemic, obstructive shock and distributive shock: Norepinephrine 0.05–0.5 mcg/kg/minute",
+          "priority": "critical",
+          "rationale": "Once hypotensive from obstructive shock, the patient needs vasopressor support titrated to a MAP goal rather than large-volume fluids.",
+          "protocolReference": "MATC: Shock"
+        }
+      ],
+      "transitions": []
+    }
+  ],
+  "realiti": {
+    "scenarioMonitorType": 2,
+    "scenarioDefaultEnergy": 200,
+    "scenarioDefaultPacerThreshold": 55
+  }
+}

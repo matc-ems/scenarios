@@ -1,0 +1,236 @@
+{
+  "scenarioId": "037-status-asthmaticus",
+  "scenarioName": "037 - Status Asthmaticus",
+  "scenarioType": "Vital Signs",
+  "scenarioVersion": 2,
+  "scenarioTime": 900,
+  "scenarioMonitorType": 2,
+  "scenarioDefaultEnergy": 200,
+  "scenarioDefaultPacerThreshold": 55,
+  "isDemo": false,
+  "isALSILegacy": false,
+  "scenarioStory": {
+    "history": "Patient has a known history of severe, poorly controlled asthma with a prior ICU admission and intubation two years ago. Symptoms began roughly 90 minutes ago with progressive wheezing and chest tightness; she used her home albuterol inhaler repeatedly without relief before her partner called 911. On EMS arrival she is tripod, using accessory muscles, and unable to speak more than one or two words at a time. Field bronchodilators and CPAP have been attempted en route with minimal improvement.",
+    "discussion": "",
+    "course": "Initial Contact: Crew finds a 32-year-old female with known severe asthma in tripod position with minimal air movement despite obvious severe work of breathing. CPAP and nebulized bronchodilators have already been trialed with little effect. → IM epi and mag given: Crew escalates therapy with IM epinephrine and IV magnesium sulfate while maintaining CPAP with in-line nebulized bronchodilators, continuously monitoring waveform capnography for a shark-fin pattern. → Improved, avoided intubation: Air movement and wheeze continue to improve following adjunctive IM epinephrine and magnesium sulfate. The patient remains on CPAP with in-line nebulizer for transport, avoiding the need for RSI."
+  },
+  "patientInformation": {
+    "patientName": "Priya Nakamura",
+    "patientCondition": "Severe shortness of breath, known asthmatic, not improving with home treatment",
+    "patientAge": 32,
+    "patientAgeUnit": "years",
+    "patientAgeCategory": 0,
+    "patientSex": 2,
+    "patientHeight": 165,
+    "patientWeight": 65,
+    "patientPhotoId": 39,
+    "patientAdmitted": 1
+  },
+  "labs": [],
+  "scenarioEvents": [
+    {
+      "type": "ScenarioEvent",
+      "name": "Initial Contact",
+      "description": "Crew finds a 32-year-old female with known severe asthma in tripod position with minimal air movement despite obvious severe work of breathing. CPAP and nebulized bronchodilators have already been trialed with little effect.",
+      "monitorType": 0,
+      "trendTime": 0,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 128,
+        "bpSys": 138,
+        "bpDia": 82,
+        "respRate": 34,
+        "spo2": 89,
+        "etco2": 48,
+        "temp": 37,
+        "obstruction": 70,
+        "custMeasure1": 100,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "IM epi and mag given",
+      "description": "Crew escalates therapy with IM epinephrine and IV magnesium sulfate while maintaining CPAP with in-line nebulized bronchodilators, continuously monitoring waveform capnography for a shark-fin pattern.",
+      "monitorType": 0,
+      "trendTime": 20,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 138,
+        "bpSys": 148,
+        "bpDia": 88,
+        "respRate": 30,
+        "spo2": 91,
+        "etco2": 46,
+        "temp": 37,
+        "obstruction": 65,
+        "custMeasure1": 100,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Recognize impending respiratory failure: minimal air movement, silent chest, rising EtCO2 despite tachypnea",
+        "Maintain CPAP with in-line nebulizer; do not break the mask seal",
+        "Epinephrine 0.3 mg IM (65 kg × 0.01 mg/kg = 0.65 mg → capped at 0.3 mg max)",
+        "Magnesium sulfate 2 g IV (65 kg × 40 mg/kg = 2,600 mg → capped at 2 g max) over 10–15 minutes",
+        "Apply continuous waveform capnography; monitor for shark-fin pattern and trend EtCO2"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Improved, avoided intubation",
+      "description": "Air movement and wheeze continue to improve following adjunctive IM epinephrine and magnesium sulfate. The patient remains on CPAP with in-line nebulizer for transport, avoiding the need for RSI.",
+      "monitorType": 0,
+      "trendTime": 40,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 108,
+        "bpSys": 132,
+        "bpDia": 80,
+        "respRate": 22,
+        "spo2": 95,
+        "etco2": 40,
+        "temp": 37,
+        "obstruction": 30,
+        "custMeasure1": 100,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Continue serial reassessment of air movement, EtCO2, and mental status en route"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "RSI performed for respiratory failure",
+      "description": "Despite CPAP and nebulized bronchodilators, escalation to IM epinephrine and magnesium sulfate is delayed. The patient progresses to frank respiratory failure with a silent chest and declining mental status, requiring RSI for advanced airway control.",
+      "monitorType": 0,
+      "trendTime": 30,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 104,
+        "bpSys": 118,
+        "bpDia": 70,
+        "respRate": 12,
+        "spo2": 97,
+        "etco2": 42,
+        "temp": 37,
+        "obstruction": 55,
+        "custMeasure1": 100,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Recognize progression to respiratory failure: silent chest, declining mental status, rising EtCO2",
+        "Preoxygenate with high-flow O2 and positive pressure ventilation for at least 2 minutes before RSI",
+        "Ketamine 98 mg IV (65 kg × 1.5 mg/kg = 97.5 mg) induction, then Rocuronium 65 mg IV (65 kg × 1 mg/kg) for paralysis",
+        "Confirm ETT placement with waveform capnography and bilateral breath sounds, then secure the tube"
+      ],
+      "relatedSounds": []
+    }
+  ],
+  "checklist": [
+    {
+      "title": "Recognize impending respiratory failure: minimal air movement, silent chest, rising EtCO2 despite tachypnea",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Maintain CPAP with in-line nebulizer; do not break the mask seal",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Epinephrine 0.3 mg IM (65 kg × 0.01 mg/kg = 0.65 mg → capped at 0.3 mg max)",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Magnesium sulfate 2 g IV (65 kg × 40 mg/kg = 2,600 mg → capped at 2 g max) over 10–15 minutes",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Apply continuous waveform capnography; monitor for shark-fin pattern and trend EtCO2",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Continue serial reassessment of air movement, EtCO2, and mental status en route",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Recognize progression to respiratory failure: silent chest, declining mental status, rising EtCO2",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Preoxygenate with high-flow O2 and positive pressure ventilation for at least 2 minutes before RSI",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Ketamine 98 mg IV (65 kg × 1.5 mg/kg = 97.5 mg) induction, then Rocuronium 65 mg IV (65 kg × 1 mg/kg) for paralysis",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Confirm ETT placement with waveform capnography and bilateral breath sounds, then secure the tube",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    }
+  ],
+  "media": []
+}

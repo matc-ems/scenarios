@@ -1,0 +1,328 @@
+{
+  "meta": {
+    "id": "085-structure-fire-burns",
+    "name": "085 - Structure Fire Burns",
+    "version": 1,
+    "difficulty": "advanced",
+    "category": "Trauma",
+    "protocols": [
+      "trauma-burns",
+      "resp-airway-management"
+    ],
+    "totalTimeSeconds": 900,
+    "tags": ["ALS", "burns", "airway burn", "structure fire", "RSI", "920"]
+  },
+  "patient": {
+    "name": "Renee Castillo",
+    "age": 39,
+    "ageUnit": "years",
+    "sex": "female",
+    "weight": 65,
+    "weightLbs": 143,
+    "height": 165,
+    "chiefComplaint": "Burns and hoarse voice after being pulled from a house fire",
+    "history": {
+      "hpi": "Patient was asleep when a kitchen fire spread through her apartment. She was found by fire crews in a smoke-filled bedroom and carried out. She is coughing, her voice is progressively hoarser, and she has visible partial and full-thickness burns to her face, neck, and both forearms.",
+      "pastMedical": ["None significant"],
+      "medications": ["None"],
+      "allergies": ["NKDA"],
+      "lastOralIntake": "Dinner approximately 3 hours prior",
+      "events": "Structure fire in a first-floor apartment, patient trapped in a smoke-filled bedroom for an estimated 5-8 minutes before rescue"
+    }
+  },
+  "scene": {
+    "dispatch": "Structure fire, one patient rescued by fire crews, burns reported",
+    "location": "Front lawn of a two-story apartment building, patient triaged by fire crew after extraction",
+    "time": "9:52 PM",
+    "safety": "Fire controlled to unit of origin, scene cleared by fire command, no ongoing hazard to EMS crew",
+    "bystanders": "Fire crew who extracted the patient; neighbors gathered on the sidewalk",
+    "visualCues": [
+      "Soot around the mouth and nose",
+      "Singed nasal hairs and eyebrows",
+      "Partial and full-thickness burns to face, neck, and bilateral forearms",
+      "Heavy smoke haze still visible from the building",
+      "Patient coughing, voice audibly hoarse"
+    ]
+  },
+  "phases": [
+    {
+      "id": "initial",
+      "name": "Initial Contact",
+      "description": "Crew finds a 39-year-old female just extracted from a smoke-filled apartment. She is alert, coughing, with soot around her mouth and nose, singed nasal hairs, a hoarsening voice, and visible burns to her face, neck, and forearms.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent but hoarse voice, mild inspiratory stridor beginning",
+        "breathing": "Tachypneic, 26/min, occasional productive cough with dark-flecked sputum",
+        "circulation": "Radial pulses present bilaterally, tachycardic",
+        "skin": { "color": "flushed", "temperature": "warm", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Strength intact in all extremities",
+        "otherFindings": [
+          "Soot around mouth and nares, singed nasal hairs and eyebrows",
+          "Partial and full-thickness burns to face, neck, and bilateral forearms, estimated 35% TBSA",
+          "Voice progressively more hoarse over the last several minutes",
+          "Denies loss of consciousness"
+        ],
+        "patientSpeech": "\"I can't... stop coughing... my throat feels tight.\" (hoarse, breathy voice)"
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 116,
+        "bpSys": 128,
+        "bpDia": 82,
+        "respRate": 26,
+        "spo2": 95,
+        "etco2": 0,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 0,
+        "glucose": 100,
+        "customMeasures": [],
+        "trendTimeSeconds": 0,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [],
+      "transitions": [
+        {
+          "targetPhaseId": "early-rsi",
+          "if": "Early RSI performed for airway burn",
+          "condition": "Crew recognizes stridor, worsening hoarseness, and singed nasal hairs as sentinel signs of a rapidly progressing airway burn and proceeds with early RSI before edema causes complete obstruction.",
+          "conditionType": "action_taken"
+        },
+        {
+          "targetPhaseId": "airway-delayed",
+          "if": "Airway management delayed",
+          "condition": "Crew prioritizes burn wound care and pain management over the deteriorating airway, delaying intubation while stridor and hoarseness worsen.",
+          "conditionType": "action_not_taken"
+        }
+      ]
+    },
+    {
+      "id": "early-rsi",
+      "name": "Early RSI performed for airway burn",
+      "description": "Recognizing the sentinel signs of an airway burn, the crew performs early RSI before swelling progresses to complete obstruction.",
+      "triggerCondition": "Onset of stridor and a changing voice are sentinel signs of a potentially significant airway burn that can rapidly progress to obstruction, so the crew elects to secure the airway early rather than waiting for further deterioration.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Preoxygenating prior to RSI, stridor still present but airway not yet obstructed",
+        "breathing": "26/min, accessory muscle use beginning",
+        "circulation": "Radial pulses present bilaterally",
+        "skin": { "color": "flushed", "temperature": "warm", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Strength intact in all extremities",
+        "otherFindings": [
+          "Preoxygenated with high-flow oxygen and positive pressure for 2 minutes prior to RSI",
+          "Fentanyl, etomidate, and rocuronium administered in sequence",
+          "Successful first-pass intubation with 7.5 mm ETT",
+          "Waveform capnography confirms placement"
+        ],
+        "patientSpeech": "(sedated and paralyzed, no verbal response)"
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 105,
+        "bpSys": 122,
+        "bpDia": 78,
+        "respRate": 12,
+        "spo2": 98,
+        "etco2": 38,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 0,
+        "glucose": 100,
+        "customMeasures": [],
+        "trendTimeSeconds": 30,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a1-recognize-airway-burn",
+          "shortAction": "Recognize stridor and hoarse voice as sentinel signs of a significant airway burn",
+          "protocolExcerpt": "Onset of stridor and change in voice are sentinel signs of potentially significant airway burns, which may rapidly lead to airway obstruction or respiratory failure.",
+          "priority": "critical",
+          "rationale": "These findings predict rapid progression to complete airway obstruction if not addressed early.",
+          "protocolReference": "MATC: Burns"
+        },
+        {
+          "id": "a2-preoxygenate",
+          "shortAction": "Preoxygenate with high-flow O2 and positive pressure for 2 minutes before RSI",
+          "protocolExcerpt": "Patient should be pre-oxygenated with high flow oxygen, and positive pressure ventilation for a minimum of two minutes prior to the procedure.",
+          "priority": "critical",
+          "rationale": "Adequate preoxygenation limits the risk of peri-intubation hypoxia.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        },
+        {
+          "id": "a3-rsi-meds",
+          "shortAction": "RSI: fentanyl 65 mcg IV (65 kg × 1 mcg/kg), etomidate 13 mg IV (65 kg × 0.2 mg/kg), rocuronium 65 mg IV (65 kg × 1 mg/kg)",
+          "protocolExcerpt": "Consider pre-medication with Fentanyl, 1 mcg/kg... Administer induction sedative agent: Etomidate IV push, 0.2-0.3 mg/kg... Administer paralytic agent: Rocuronium IV push, 1 mg/kg",
+          "priority": "critical",
+          "rationale": "Weight-based induction and paralysis optimize first-pass intubation success.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        },
+        {
+          "id": "a4-intubate-confirm",
+          "shortAction": "Intubate with 7.5 mm ETT (adult female sizing), confirm with waveform capnography",
+          "protocolExcerpt": "Absent significant airway swelling or underlying anatomic abnormalities, initial tube size (internal diameter in millimeters) for adult females should be 7.5, adult males 8.0... Confirm placement of advanced airway... with waveform capnography (most reliable)",
+          "priority": "critical",
+          "rationale": "Waveform capnography is the most reliable confirmation of correct tube placement.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "fluids-burn-care",
+          "if": "Fluids and burn care initiated",
+          "condition": "With the airway secured, the crew estimates TBSA, initiates fluid resuscitation, and prepares the patient for burn center transport.",
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a4-intubate-confirm"]
+        }
+      ]
+    },
+    {
+      "id": "fluids-burn-care",
+      "name": "Fluids and burn care initiated",
+      "description": "With the airway secured, the crew estimates TBSA, begins fluid resuscitation per the Rule of Ten, dresses the burns, and prepares for burn center transport.",
+      "triggerCondition": "After the airway is secured, the crew shifts focus to TBSA estimation, fluid resuscitation, wound coverage, and warming en route to a burn center.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Unresponsive",
+        "gcs": { "eye": 1, "verbal": 1, "motor": 1 },
+        "airway": "Secured with ETT, ventilated",
+        "breathing": "Ventilated, 12/min, bilateral breath sounds",
+        "circulation": "Radial pulses present bilaterally, perfusing well",
+        "skin": { "color": "pink", "temperature": "warm", "moisture": "dry" },
+        "pupils": "PERRL",
+        "motorFunction": "Sedated, not assessable",
+        "otherFindings": [
+          "TBSA estimated at 40% (rounded) via Rule of Nines, second- and third-degree burns to face, neck, bilateral forearms",
+          "LR infusing at calculated rate",
+          "Burns covered with dry dressings, jewelry removed, blisters left intact",
+          "Warming blanket applied"
+        ],
+        "patientSpeech": "(intubated and sedated, no verbal response)"
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Rhythm",
+        "ecgWaveform": 9,
+        "hr": 92,
+        "bpSys": 118,
+        "bpDia": 74,
+        "respRate": 12,
+        "spo2": 99,
+        "etco2": 40,
+        "temp": 36.8,
+        "tempF": 98.2,
+        "obstruction": 0,
+        "glucose": 98,
+        "customMeasures": [],
+        "trendTimeSeconds": 40,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a5-tbsa-estimate",
+          "shortAction": "Estimate TBSA at 40% (rounded) using Rule of Nines, excluding first-degree burns",
+          "protocolExcerpt": "Estimate TBSA burned and depth of burn: Use \"Rule of 9's\"... First-degree/superficial burns (skin erythema only) are not included in TBSA calculations",
+          "priority": "critical",
+          "rationale": "Accurate TBSA estimation drives the fluid resuscitation rate.",
+          "protocolReference": "MATC: Burns"
+        },
+        {
+          "id": "a6-fluid-resuscitation",
+          "shortAction": "Initiate LR at 400 mL/hr (40% TBSA × 10; 65 kg patient, within the 40–80 kg bracket)",
+          "protocolExcerpt": "For persons over 40 kg, the initial fluid rate can also be calculated using the \"Rule of 10\": Calculate the TBSA (round to nearest 10%). Multiply TBSA x 10 = initial fluid rate (mL/hr) {for persons between 40–80 kg}",
+          "priority": "critical",
+          "rationale": "Weight- and TBSA-based fluid resuscitation prevents burn shock while avoiding over-resuscitation.",
+          "protocolReference": "MATC: Burns"
+        },
+        {
+          "id": "a7-wound-care",
+          "shortAction": "Remove jewelry and wet clothing, cover burns with dry dressing, leave blisters intact, no gels/ointments",
+          "protocolExcerpt": "Remove wet clothing (if not stuck to the patient)... Remove jewelry... Leave blisters intact... Cover burns with dry dressing or clean sheet... Do not apply gels or ointments",
+          "priority": "important",
+          "rationale": "Minimizes contamination and further tissue injury while avoiding materials that complicate burn center care.",
+          "protocolReference": "MATC: Burns"
+        },
+        {
+          "id": "a8-prevent-hypothermia",
+          "shortAction": "Apply warming measures to prevent systemic heat loss",
+          "protocolExcerpt": "Prevent systemic heat loss and keep the patient warm",
+          "priority": "important",
+          "rationale": "Large TBSA burns impair thermoregulation and predispose to hypothermia.",
+          "protocolReference": "MATC: Burns"
+        },
+        {
+          "id": "a9-burn-center-transport",
+          "shortAction": "Transport to burn/trauma center given airway involvement and TBSA > 10%",
+          "protocolExcerpt": "Transport to most appropriate trauma center when there is airway or respiratory involvement... Consider transport directly to burn center if partial or full thickness burns (TBSA) greater than 10%",
+          "priority": "important",
+          "rationale": "Airway involvement and significant TBSA both mandate burn center-capable transport.",
+          "protocolReference": "MATC: Burns"
+        }
+      ],
+      "transitions": []
+    },
+    {
+      "id": "airway-delayed",
+      "name": "Airway management delayed",
+      "description": "The crew focuses on burn wound care and pain control while the airway burn progresses, and stridor worsens toward complete obstruction.",
+      "triggerCondition": "Intubation is delayed while the crew manages visible burns and pain, allowing airway edema to progress toward complete obstruction.",
+      "isDefault": false,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 4, "motor": 6 },
+        "airway": "Worsening stridor, near-complete obstruction, unable to speak",
+        "breathing": "Severe accessory muscle use, 32/min, minimal air movement audible",
+        "circulation": "Radial pulses present, tachycardic",
+        "skin": { "color": "cyanotic", "temperature": "warm", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Strength intact",
+        "otherFindings": [
+          "Stridor now audible without a stethoscope",
+          "Patient unable to phonate",
+          "Severe accessory muscle use and tracheal tug"
+        ],
+        "patientSpeech": "(unable to speak, gesturing at throat)"
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 128,
+        "bpSys": 132,
+        "bpDia": 86,
+        "respRate": 32,
+        "spo2": 87,
+        "etco2": 0,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 1,
+        "glucose": 100,
+        "customMeasures": [],
+        "trendTimeSeconds": 20,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a10-surgical-airway",
+          "shortAction": "Recognize impending complete obstruction; perform surgical airway when oxygenation/ventilation cannot be achieved",
+          "protocolExcerpt": "When patients cannot be oxygenated/ventilated effectively using the above interventions, or when conventional airway approaches are impossible, surgical airway management is a reasonable option if the clinician has competency in the procedure and risk of death for not escalating airway management seems to outweigh the risk of a procedural complication",
+          "priority": "critical",
+          "rationale": "Delayed recognition of a closing airway burn can progress to complete obstruction requiring a surgical airway.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        }
+      ],
+      "transitions": []
+    }
+  ],
+  "realiti": {
+    "scenarioMonitorType": 2,
+    "scenarioDefaultEnergy": 200,
+    "scenarioDefaultPacerThreshold": 55
+  }
+}

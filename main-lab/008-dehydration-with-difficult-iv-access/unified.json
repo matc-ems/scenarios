@@ -1,0 +1,312 @@
+{
+  "meta": {
+    "id": "008-dehydration-with-difficult-iv-access",
+    "name": "008 - Dehydration with Difficult IV Access",
+    "version": 1,
+    "difficulty": "intermediate",
+    "category": "Medical",
+    "protocols": ["medical-shock"],
+    "totalTimeSeconds": 720,
+    "tags": ["ALS", "IV access", "dehydration", "geriatric", "914A"]
+  },
+  "patient": {
+    "name": "Walter Osei",
+    "age": 71,
+    "ageUnit": "years",
+    "sex": "male",
+    "weight": 75,
+    "weightLbs": 165,
+    "height": 173,
+    "chiefComplaint": "Poor oral intake and weakness for three days",
+    "history": {
+      "hpi": "Nursing home staff report the patient has eaten and drunk very little over the past three days, becoming progressively weaker and less interactive. No fever reported by staff. He is oriented to person only at baseline per staff, unchanged today.",
+      "pastMedical": ["Mild dementia", "Hypertension", "Chronic kidney disease stage 3"],
+      "medications": ["Amlodipine 5 mg PO daily", "Donepezil 10 mg PO daily"],
+      "allergies": ["NKDA"],
+      "lastOralIntake": "A few sips of water this morning per staff",
+      "events": "Nursing staff noted decreased intake over three days and called EMS after he was found difficult to arouse for breakfast"
+    }
+  },
+  "scene": {
+    "dispatch": "71-year-old male, nursing home, weak and not acting right",
+    "location": "Skilled nursing facility, resident room, patient in bed",
+    "time": "9:15 AM, weekday",
+    "safety": "No hazards to crew noted",
+    "bystanders": "Charge nurse present with medication administration record",
+    "visualCues": [
+      "Patient thin, frail-appearing, lying in bed",
+      "Dry, cracked lips and dry oral mucosa",
+      "Skin tenting over forearms",
+      "Untouched breakfast tray at bedside",
+      "Thin, fragile-appearing veins visible on both forearms and hands"
+    ]
+  },
+  "phases": [
+    {
+      "id": "initial",
+      "name": "Initial Contact",
+      "description": "Crew finds a frail 71-year-old male in bed, arousable but slow to respond, with dry mucous membranes and tenting skin consistent with volume depletion after several days of poor intake.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 4, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "Nonlabored, 18/min",
+        "circulation": "Radial pulses present bilaterally, weak; skin tenting present",
+        "skin": { "color": "pale", "temperature": "cool", "moisture": "dry" },
+        "pupils": "PERRL",
+        "motorFunction": "Moves all extremities, generalized weakness",
+        "otherFindings": [
+          "Dry, cracked lips and dry oral mucosa",
+          "Skin tenting over forearms",
+          "Slow to answer questions, oriented to person only (baseline per staff)",
+          "Thin, fragile veins on both forearms and hands"
+        ],
+        "patientSpeech": "\"I'm just... tired. Haven't felt like eating.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 112,
+        "bpSys": 96,
+        "bpDia": 58,
+        "respRate": 18,
+        "spo2": 95,
+        "etco2": 0,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 0,
+        "glucose": 98,
+        "customMeasures": [],
+        "trendTimeSeconds": 0,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [],
+      "transitions": [
+        {
+          "targetPhaseId": "iv-access-success",
+          "if": "IV access obtained within two attempts",
+          "condition": "Crew recognizes signs of hypovolemia, checks blood glucose, and successfully establishes peripheral IV access within two attempts and under 90 seconds despite fragile veins.",
+          "conditionType": "action_taken"
+        },
+        {
+          "targetPhaseId": "io-access",
+          "if": "IV access fails twice / exceeds 90 seconds",
+          "condition": "Crew attempts IV access on the fragile veins but fails after two attempts or exceeds 90 seconds, meeting criteria to place an IO needle instead.",
+          "conditionType": "action_not_taken"
+        }
+      ]
+    },
+    {
+      "id": "iv-access-success",
+      "name": "IV access obtained within two attempts",
+      "description": "Crew successfully cannulates a peripheral vein despite the patient's thin, fragile veins, checks blood glucose, and initiates an isotonic fluid bolus.",
+      "triggerCondition": "After recognizing signs of hypovolemia (tachycardia, hypotension, dry mucous membranes, skin tenting), the crew successfully establishes peripheral IV access on the first or second attempt within 90 seconds.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 4, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "Nonlabored, 16/min",
+        "circulation": "Radial pulses present bilaterally, IV infusing without infiltration",
+        "skin": { "color": "pale", "temperature": "cool", "moisture": "dry" },
+        "pupils": "PERRL",
+        "motorFunction": "Moves all extremities",
+        "otherFindings": [
+          "22-gauge IV in place, patent, no infiltration",
+          "500 mL NS bolus infusing"
+        ],
+        "patientSpeech": "\"That pinch wasn't too bad.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 104,
+        "bpSys": 100,
+        "bpDia": 60,
+        "respRate": 16,
+        "spo2": 96,
+        "etco2": 0,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 0,
+        "glucose": 98,
+        "customMeasures": [],
+        "trendTimeSeconds": 20,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a1-recognize",
+          "shortAction": "Recognize hypovolemia from dry mucous membranes, tenting skin, tachycardia, borderline BP",
+          "protocolExcerpt": "Signs of poor perfusion (due to a medical cause) such as one or more of the following: Tachycardia or bradycardia for age... Mucous membrane hydration... Skin (turgor, rash)",
+          "priority": "critical",
+          "rationale": "Recognizing volume depletion drives the decision to obtain IV access and give fluids.",
+          "protocolReference": "MATC: Shock"
+        },
+        {
+          "id": "a2-glucose",
+          "shortAction": "Check blood glucose to rule out hypoglycemia as a contributing cause",
+          "protocolExcerpt": "Check blood sugar, and correct if less than 60 mg/dL",
+          "priority": "important",
+          "rationale": "Altered baseline mentation and poor intake could reflect hypoglycemia, which must be excluded.",
+          "protocolReference": "MATC: Shock"
+        },
+        {
+          "id": "a3-iv-access",
+          "shortAction": "Establish peripheral IV access, using a proximal/larger vein given fragile skin and small distal veins",
+          "protocolExcerpt": "Establish IV access. If unable to obtain within two attempts or less than 90 seconds, place an IO needle",
+          "priority": "critical",
+          "rationale": "Reliable IV access is required to deliver fluid resuscitation in a hypovolemic patient.",
+          "protocolReference": "MATC: Shock"
+        },
+        {
+          "id": "a4-fluid-bolus",
+          "shortAction": "Administer 500 mL NS bolus IV, pressure-infused over less than 15 minutes, reassess",
+          "protocolExcerpt": "IV fluid volume goal attained by giving boluses that are pressure infused over less than 15 minutes each... Fluid goal of up to 30 mL/kg of isotonic fluid by administering rapid, predetermined boluses (e.g., 500 mL) unless the MAP goal is achieved, or pulmonary edema develops",
+          "priority": "critical",
+          "rationale": "A predetermined 500 mL bolus, reassessed against a MAP goal, is the protocol's standard approach to hypovolemia; up to 30 mL/kg (about 2,250 mL for this patient) may be given.",
+          "protocolReference": "MATC: Shock"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "transport",
+          "if": "Fluid bolus given and improving",
+          "condition": "After the fluid bolus, heart rate and blood pressure trend toward normal and mentation improves toward baseline.",
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a4-fluid-bolus"]
+        }
+      ]
+    },
+    {
+      "id": "io-access",
+      "name": "IV access fails twice / exceeds 90 seconds",
+      "description": "Peripheral IV attempts fail on the patient's thin, fragile, rolling veins. Per protocol, the crew transitions to IO access to avoid further delay in fluid resuscitation.",
+      "triggerCondition": "Two peripheral IV attempts fail, or 90 seconds elapse without successful cannulation, on the fragile veins.",
+      "isDefault": false,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 4, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "Nonlabored, 18/min",
+        "circulation": "Radial pulses present bilaterally, weak; two failed IV attempt sites with minor bruising",
+        "skin": { "color": "pale", "temperature": "cool", "moisture": "dry" },
+        "pupils": "PERRL",
+        "motorFunction": "Moves all extremities",
+        "otherFindings": [
+          "Two failed peripheral IV attempts, small hematomas at attempt sites",
+          "Veins collapsing/rolling on palpation"
+        ],
+        "patientSpeech": "\"Ow... can you please stop poking me?\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 116,
+        "bpSys": 92,
+        "bpDia": 56,
+        "respRate": 18,
+        "spo2": 95,
+        "etco2": 0,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 0,
+        "glucose": 98,
+        "customMeasures": [],
+        "trendTimeSeconds": 45,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a5-io-access",
+          "shortAction": "Place IO needle after two failed IV attempts / 90 seconds elapsed",
+          "protocolExcerpt": "Establish IV access. If unable to obtain within two attempts or less than 90 seconds, place an IO needle",
+          "priority": "critical",
+          "rationale": "Protocol mandates prompt escalation to IO to avoid delaying fluid resuscitation.",
+          "protocolReference": "MATC: Shock"
+        },
+        {
+          "id": "a6-fluid-bolus-io",
+          "shortAction": "Administer 500 mL NS bolus via IO, pressure-infused, reassess",
+          "protocolExcerpt": "IV fluid volume goal attained by giving boluses that are pressure infused over less than 15 minutes each... Fluid goal of up to 30 mL/kg of isotonic fluid by administering rapid, predetermined boluses (e.g., 500 mL) unless the MAP goal is achieved, or pulmonary edema develops",
+          "priority": "critical",
+          "rationale": "Fluid resuscitation proceeds via IO exactly as it would via IV once access is secured.",
+          "protocolReference": "MATC: Shock"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "transport",
+          "if": "Fluid bolus given and improving",
+          "condition": "After the IO fluid bolus, heart rate and blood pressure trend toward normal and mentation improves toward baseline.",
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a6-fluid-bolus-io"]
+        }
+      ]
+    },
+    {
+      "id": "transport",
+      "name": "Fluid bolus given and improving",
+      "description": "Patient's perfusion improves following isotonic fluid resuscitation. Crew continues reassessment en route to the hospital.",
+      "triggerCondition": "Following a 500 mL isotonic fluid bolus (via IV or IO), the patient's heart rate and blood pressure trend toward normal and mentation improves.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "Nonlabored, 16/min",
+        "circulation": "Radial pulses present bilaterally, stronger",
+        "skin": { "color": "pink", "temperature": "warm", "moisture": "dry" },
+        "pupils": "PERRL",
+        "motorFunction": "Moves all extremities",
+        "otherFindings": [
+          "More conversant, oriented to person and place",
+          "Fluid infusing without complication"
+        ],
+        "patientSpeech": "\"I feel a little more like myself.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Rhythm",
+        "ecgWaveform": 9,
+        "hr": 92,
+        "bpSys": 112,
+        "bpDia": 68,
+        "respRate": 16,
+        "spo2": 97,
+        "etco2": 0,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 0,
+        "glucose": 98,
+        "customMeasures": [],
+        "trendTimeSeconds": 45,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a7-reassess",
+          "shortAction": "Reassess vital signs and mental status; continue fluids toward MAP goal of 65 mmHg",
+          "protocolExcerpt": "Physiologic target: MAP goal 65 mmHg",
+          "priority": "important",
+          "rationale": "Ongoing reassessment against the MAP target guides whether further fluid boluses are needed en route.",
+          "protocolReference": "MATC: Shock"
+        },
+        {
+          "id": "a8-notification",
+          "shortAction": "Provide advance notification to the receiving hospital",
+          "protocolExcerpt": "Provide advanced notification to the hospital",
+          "priority": "supplemental",
+          "rationale": "Advance notice allows the receiving facility to prepare for a dehydrated, hemodynamically improving patient.",
+          "protocolReference": "MATC: Shock"
+        }
+      ],
+      "transitions": []
+    }
+  ],
+  "realiti": {
+    "scenarioMonitorType": 2,
+    "scenarioDefaultEnergy": 200,
+    "scenarioDefaultPacerThreshold": 55
+  }
+}

@@ -1,0 +1,332 @@
+{
+  "scenarioId": "050-symptomatic-bradycardia-with-syncope",
+  "scenarioName": "050 - Symptomatic Bradycardia with Syncope",
+  "scenarioType": "Vital Signs",
+  "scenarioVersion": 2,
+  "scenarioTime": 720,
+  "scenarioMonitorType": 2,
+  "scenarioDefaultEnergy": 200,
+  "scenarioDefaultPacerThreshold": 55,
+  "isDemo": false,
+  "isALSILegacy": false,
+  "scenarioStory": {
+    "history": "Patient reports feeling lightheaded and 'fuzzy' after standing up from the couch, then has no memory of the fall itself; daughter states she was unresponsive for approximately 10 seconds before regaining consciousness. Patient now complains of generalized weakness and mild chest heaviness. Denies prior syncope, chest pain, or shortness of breath prior to the event.",
+    "discussion": "",
+    "course": "Initial Contact: 74-year-old female found post-syncopal episode, now awake but pale, diaphoretic, and weak. Initial vitals reveal profound bradycardia (HR 32) with hypotension (78/50), consistent with symptomatic bradycardia requiring immediate assessment and monitoring. → Atropine given: IV access is established and the patient remains symptomatic with HR 32 and hypotension. Per protocol, atropine is the first-line additional therapy for symptomatic bradycardia. → TCP initiated: Atropine has failed to improve the patient's heart rate or blood pressure. Per protocol, in cases of impending hemodynamic collapse the provider proceeds directly to transcutaneous pacing, with sedation or pain control considered. → Capture achieved; perfusion improved: Transcutaneous pacing successfully captures with sedation on board. Heart rate rises to the paced rate and blood pressure improves; the patient is less pale and more comfortable. Ongoing reassessment and transport preparation continue."
+  },
+  "patientInformation": {
+    "patientName": "Dorothy Ellison",
+    "patientCondition": "Syncope",
+    "patientAge": 74,
+    "patientAgeUnit": "years",
+    "patientAgeCategory": 0,
+    "patientSex": 2,
+    "patientHeight": 163,
+    "patientWeight": 65,
+    "patientPhotoId": 89,
+    "patientAdmitted": 1
+  },
+  "labs": [],
+  "scenarioEvents": [
+    {
+      "type": "ScenarioEvent",
+      "name": "Initial Contact",
+      "description": "74-year-old female found post-syncopal episode, now awake but pale, diaphoretic, and weak. Initial vitals reveal profound bradycardia (HR 32) with hypotension (78/50), consistent with symptomatic bradycardia requiring immediate assessment and monitoring.",
+      "monitorType": 0,
+      "trendTime": 0,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 100,
+        "hr": 32,
+        "bpSys": 78,
+        "bpDia": 50,
+        "respRate": 18,
+        "spo2": 94,
+        "etco2": 0,
+        "temp": 37,
+        "obstruction": 0,
+        "custMeasure1": 96,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Apply cardiac monitor and obtain 12-lead EKG",
+        "Administer oxygen titrated to a target SpO2 of 94-98%",
+        "Check blood glucose level",
+        "Establish IV access"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Atropine given",
+      "description": "IV access is established and the patient remains symptomatic with HR 32 and hypotension. Per protocol, atropine is the first-line additional therapy for symptomatic bradycardia.",
+      "monitorType": 0,
+      "trendTime": 20,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 100,
+        "hr": 32,
+        "bpSys": 78,
+        "bpDia": 50,
+        "respRate": 18,
+        "spo2": 94,
+        "etco2": 0,
+        "temp": 37,
+        "obstruction": 0,
+        "custMeasure1": 96,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Atropine 1 mg IV push; may repeat every 3-5 minutes to a max total dose of 3 mg",
+        "Reassess HR and BP after each atropine dose; recognize third-degree block may be atropine-refractory"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "TCP initiated",
+      "description": "Atropine has failed to improve the patient's heart rate or blood pressure. Per protocol, in cases of impending hemodynamic collapse the provider proceeds directly to transcutaneous pacing, with sedation or pain control considered.",
+      "monitorType": 0,
+      "trendTime": 40,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 100,
+        "hr": 32,
+        "bpSys": 76,
+        "bpDia": 48,
+        "respRate": 18,
+        "spo2": 93,
+        "etco2": 0,
+        "temp": 37,
+        "obstruction": 0,
+        "custMeasure1": 96,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Apply pacing pads (anterior/posterior) and initiate transcutaneous pacing",
+        "Administer sedation/analgesia prior to pacing per local protocol",
+        "Confirm electrical and mechanical capture; document pacer rate, mA, and patient response"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Capture achieved; perfusion improved",
+      "description": "Transcutaneous pacing successfully captures with sedation on board. Heart rate rises to the paced rate and blood pressure improves; the patient is less pale and more comfortable. Ongoing reassessment and transport preparation continue.",
+      "monitorType": 0,
+      "trendTime": 20,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 70,
+        "bpSys": 100,
+        "bpDia": 64,
+        "respRate": 16,
+        "spo2": 97,
+        "etco2": 0,
+        "temp": 37,
+        "obstruction": 0,
+        "custMeasure1": 96,
+        "custMeasureLabel1": "mg/dL",
+        "custMeasure2": 70,
+        "custMeasureLabel2": "Pacer Rate",
+        "custMeasure3": 80,
+        "custMeasureLabel3": "Pacer Output (mA)",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Reassess vitals and mental status; provide advance hospital notification given persistent hemodynamic instability requiring pacing",
+        "Continue cardiac monitoring and reassess vitals throughout transport"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Atropine repeated, pacing delayed",
+      "description": "Atropine is repeated to the maximum total dose of 3 mg without initiating transcutaneous pacing. The third-degree block does not respond, and the patient's perfusion continues to deteriorate.",
+      "monitorType": 0,
+      "trendTime": 40,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 100,
+        "hr": 32,
+        "bpSys": 62,
+        "bpDia": 40,
+        "respRate": 22,
+        "spo2": 90,
+        "etco2": 0,
+        "temp": 37,
+        "obstruction": 0,
+        "custMeasure1": 96,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Recognize impending hemodynamic collapse; proceed directly to transcutaneous pacing without further atropine"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Pacing without sedation",
+      "description": "Transcutaneous pacing is initiated without prior sedation or analgesia. The patient experiences significant pain and agitation from the pacing current, complicating assessment of capture and patient cooperation.",
+      "monitorType": 0,
+      "trendTime": 15,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 70,
+        "bpSys": 98,
+        "bpDia": 60,
+        "respRate": 24,
+        "spo2": 95,
+        "etco2": 0,
+        "temp": 37,
+        "obstruction": 0,
+        "custMeasure1": 96,
+        "custMeasureLabel1": "mg/dL",
+        "custMeasure2": 70,
+        "custMeasureLabel2": "Pacer Rate",
+        "custMeasure3": 80,
+        "custMeasureLabel3": "Pacer Output (mA)",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Administer sedation/analgesia promptly to reduce pain and improve tolerance of pacing"
+      ],
+      "relatedSounds": []
+    }
+  ],
+  "checklist": [
+    {
+      "title": "Apply cardiac monitor and obtain 12-lead EKG",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Administer oxygen titrated to a target SpO2 of 94-98%",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Check blood glucose level",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Establish IV access",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Atropine 1 mg IV push; may repeat every 3-5 minutes to a max total dose of 3 mg",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Reassess HR and BP after each atropine dose; recognize third-degree block may be atropine-refractory",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Apply pacing pads (anterior/posterior) and initiate transcutaneous pacing",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Administer sedation/analgesia prior to pacing per local protocol",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Confirm electrical and mechanical capture; document pacer rate, mA, and patient response",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Reassess vitals and mental status; provide advance hospital notification given persistent hemodynamic instability requiring pacing",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Continue cardiac monitoring and reassess vitals throughout transport",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Recognize impending hemodynamic collapse; proceed directly to transcutaneous pacing without further atropine",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Administer sedation/analgesia promptly to reduce pain and improve tolerance of pacing",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    }
+  ],
+  "media": []
+}

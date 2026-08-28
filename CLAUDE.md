@@ -11,7 +11,7 @@ A content repository of generated paramedic training scenarios for the MATC (Mad
 Two parallel scenario collections, each a flat directory of scenario folders:
 
 - `sim-lab/` — sim-lab scenarios named `<Cat>-T<Tier>-<NN>` (e.g. `C-T1-01`, `R-T3-04`). Category letters: `B` Behavioral, `C` Cardiac, `M` Medical, `P` Pediatric, `R` Respiratory. `T1`/`T2`/`T3` is the difficulty tier (beginner → intermediate → advanced); `NN` is a two-digit sequence within that category+tier.
-- `main-lab/` — main-lab scenarios named with descriptive slugs (e.g. `cardiac-vt-unstable-001`, `resp-pe-postop-001`).
+- `main-lab/` — main-lab scenarios named `<NNN>-<short-name-slug>` (e.g. `013-isolated-tib-fib-fracture`, `055-anterior-stemi`). `NNN` is a zero-padded sequential number across the whole collection — numbers only, no class codes or letters. The directory name, `meta.id` in `unified.json`, and `scenarioId` in `realiti.json` are always the same string, and `meta.name` is the matching `"<NNN> - <Short Name>"` (e.g. `"013 - Isolated Tib/Fib Fracture"`). A new scenario takes the next unused number.
 
 Every scenario folder contains exactly four files:
 

@@ -1,0 +1,366 @@
+{
+  "scenarioId": "057-lateral-stemi",
+  "scenarioName": "057 - Lateral STEMI",
+  "scenarioType": "Vital Signs",
+  "scenarioVersion": 2,
+  "scenarioTime": 900,
+  "scenarioMonitorType": 2,
+  "scenarioDefaultEnergy": 200,
+  "scenarioDefaultPacerThreshold": 55,
+  "isDemo": false,
+  "isALSILegacy": false,
+  "scenarioStory": {
+    "history": "Onset approximately 45 minutes ago while sitting at the kitchen table; describes dull, aching left jaw pain radiating to the ear, associated with nausea and diaphoresis. Denies chest pain when asked directly, but reports feeling 'winded' when she stood up to answer the door for EMS.",
+    "discussion": "",
+    "course": "Initial Contact: Crew arrives to find a 71-year-old diabetic female with isolated jaw pain, nausea, and diaphoresis. She denies chest pain and initially attributes her symptoms to a dental problem. → STEMI recognized: Crew identifies a lateral wall STEMI on the 12-lead EKG. Patient remains hemodynamically stable with persistent jaw pain and diaphoresis. → NTG given, pain improved: Patient's jaw pain decreases from 6/10 to 3/10 after nitroglycerin. Vital signs remain stable with the mild expected reduction in blood pressure. → Transport to PCI center: En route to the cardiac catheterization lab. Patient remains stable; repeat 12-lead shows persistent lateral ST elevation."
+  },
+  "patientInformation": {
+    "patientName": "Dorothy Hensley",
+    "patientCondition": "Jaw pain and nausea",
+    "patientAge": 71,
+    "patientAgeUnit": "years",
+    "patientAgeCategory": 0,
+    "patientSex": 2,
+    "patientHeight": 163,
+    "patientWeight": 70,
+    "patientPhotoId": 86,
+    "patientAdmitted": 1
+  },
+  "labs": [],
+  "scenarioEvents": [
+    {
+      "type": "ScenarioEvent",
+      "name": "Initial Contact",
+      "description": "Crew arrives to find a 71-year-old diabetic female with isolated jaw pain, nausea, and diaphoresis. She denies chest pain and initially attributes her symptoms to a dental problem.",
+      "monitorType": 0,
+      "trendTime": 0,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 102,
+        "bpSys": 148,
+        "bpDia": 86,
+        "respRate": 18,
+        "spo2": 96,
+        "etco2": 0,
+        "temp": 36.8,
+        "obstruction": 0,
+        "custMeasure1": 118,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Recognize atypical ACS presentation (isolated jaw pain, nausea, diaphoresis in an elderly diabetic female)",
+        "Acquire 12-lead EKG within 10 minutes of patient contact",
+        "Aspirin 324 mg PO, chewed, non-enteric-coated",
+        "Establish IV access",
+        "Assess SpO2; withhold supplemental O2 since saturation is 96% (target 94–98%, not hypoxemic)"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "STEMI recognized",
+      "description": "Crew identifies a lateral wall STEMI on the 12-lead EKG. Patient remains hemodynamically stable with persistent jaw pain and diaphoresis.",
+      "monitorType": 0,
+      "trendTime": 20,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 25,
+        "hr": 104,
+        "bpSys": 142,
+        "bpDia": 84,
+        "respRate": 18,
+        "spo2": 96,
+        "etco2": 0,
+        "temp": 36.8,
+        "obstruction": 0,
+        "custMeasure1": 118,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Recognize lateral STEMI on 12-lead (ST elevation I, aVL, V5-V6)",
+        "Transmit 12-lead and provide advance STEMI notification to receiving PCI-capable hospital",
+        "Screen for PDE5 inhibitor use and assess for marginal blood pressure before nitroglycerin",
+        "Nitroglycerin 0.4 mg SL (SBP 142, no PDE5 use reported); may repeat q3-5min if SBP >100",
+        "Perform serial 12-lead EKGs and monitor for dysrhythmia or clinical deterioration"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "NTG given, pain improved",
+      "description": "Patient's jaw pain decreases from 6/10 to 3/10 after nitroglycerin. Vital signs remain stable with the mild expected reduction in blood pressure.",
+      "monitorType": 0,
+      "trendTime": 30,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 25,
+        "hr": 96,
+        "bpSys": 128,
+        "bpDia": 78,
+        "respRate": 16,
+        "spo2": 97,
+        "etco2": 0,
+        "temp": 36.8,
+        "obstruction": 0,
+        "custMeasure1": 118,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Reassess pain score and vital signs after nitroglycerin administration",
+        "If pain remains unresponsive to nitrates, Morphine 7 mg IV (70 kg × 0.1 mg/kg = 7 mg; max initial dose 10 mg)",
+        "Provide advance notification of any change in condition or serial EKG findings to receiving facility"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Transport to PCI center",
+      "description": "En route to the cardiac catheterization lab. Patient remains stable; repeat 12-lead shows persistent lateral ST elevation.",
+      "monitorType": 0,
+      "trendTime": 40,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 25,
+        "hr": 92,
+        "bpSys": 130,
+        "bpDia": 80,
+        "respRate": 16,
+        "spo2": 97,
+        "etco2": 0,
+        "temp": 36.8,
+        "obstruction": 0,
+        "custMeasure1": 118,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Transport to PCI-capable facility; reassess vitals and rhythm en route",
+        "Repeat 12-lead EKG en route and provide serial updates to receiving hospital"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "12-lead delayed",
+      "description": "STEMI diagnosis is delayed. Patient becomes increasingly diaphoretic and anxious while blood pressure begins to drift as the ischemic burden increases and oxygenation worsens.",
+      "monitorType": 0,
+      "trendTime": 50,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 116,
+        "bpSys": 128,
+        "bpDia": 82,
+        "respRate": 22,
+        "spo2": 94,
+        "etco2": 0,
+        "temp": 36.9,
+        "obstruction": 0,
+        "custMeasure1": 118,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Recognize delayed STEMI diagnosis; immediately acquire 12-lead EKG"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Hypotension after NTG",
+      "description": "Following nitroglycerin, the patient becomes lightheaded and hypotensive with cool, clammy skin, consistent with cardiogenic shock physiology precipitated by preload-sensitive lateral wall involvement.",
+      "monitorType": 0,
+      "trendTime": 15,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 25,
+        "hr": 118,
+        "bpSys": 78,
+        "bpDia": 50,
+        "respRate": 22,
+        "spo2": 92,
+        "etco2": 0,
+        "temp": 36.8,
+        "obstruction": 0,
+        "custMeasure1": 118,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Recognize hypotension/shock following NTG; position supine and withhold further nitrates",
+        "500 mL NS IV bolus, pressure-infused over <15 min, reassess (fluid goal up to 30 mL/kg ≈ 2100 mL)",
+        "Provide advance notification to receiving hospital of clinical deterioration"
+      ],
+      "relatedSounds": []
+    }
+  ],
+  "checklist": [
+    {
+      "title": "Recognize atypical ACS presentation (isolated jaw pain, nausea, diaphoresis in an elderly diabetic female)",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Acquire 12-lead EKG within 10 minutes of patient contact",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Aspirin 324 mg PO, chewed, non-enteric-coated",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Establish IV access",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Assess SpO2; withhold supplemental O2 since saturation is 96% (target 94–98%, not hypoxemic)",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Recognize lateral STEMI on 12-lead (ST elevation I, aVL, V5-V6)",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Transmit 12-lead and provide advance STEMI notification to receiving PCI-capable hospital",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Screen for PDE5 inhibitor use and assess for marginal blood pressure before nitroglycerin",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Nitroglycerin 0.4 mg SL (SBP 142, no PDE5 use reported); may repeat q3-5min if SBP >100",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Perform serial 12-lead EKGs and monitor for dysrhythmia or clinical deterioration",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Reassess pain score and vital signs after nitroglycerin administration",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "If pain remains unresponsive to nitrates, Morphine 7 mg IV (70 kg × 0.1 mg/kg = 7 mg; max initial dose 10 mg)",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Provide advance notification of any change in condition or serial EKG findings to receiving facility",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Transport to PCI-capable facility; reassess vitals and rhythm en route",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Repeat 12-lead EKG en route and provide serial updates to receiving hospital",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Recognize delayed STEMI diagnosis; immediately acquire 12-lead EKG",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Recognize hypotension/shock following NTG; position supine and withhold further nitrates",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "500 mL NS IV bolus, pressure-infused over <15 min, reassess (fluid goal up to 30 mL/kg ≈ 2100 mL)",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Provide advance notification to receiving hospital of clinical deterioration",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    }
+  ],
+  "media": []
+}

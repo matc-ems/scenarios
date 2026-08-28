@@ -1,0 +1,297 @@
+{
+  "scenarioId": "115-chest-pain-with-dysrhythmia",
+  "scenarioName": "115 - Chest Pain with Dysrhythmia",
+  "scenarioType": "Vital Signs",
+  "scenarioVersion": 2,
+  "scenarioTime": 900,
+  "scenarioMonitorType": 2,
+  "scenarioDefaultEnergy": 200,
+  "scenarioDefaultPacerThreshold": 55,
+  "isDemo": false,
+  "isALSILegacy": false,
+  "scenarioStory": {
+    "history": "Sudden onset of severe substernal chest pressure approximately 45 minutes ago while resting in his recliner watching TV. Pain radiates to the left arm and jaw, rated 9/10, associated with diaphoresis and nausea. Denies exertion at onset. Denies use of sildenafil, tadalafil, or vardenafil.",
+    "discussion": "",
+    "course": "Initial Contact: Crew arrives to find a 60-year-old male seated in a recliner, pale and diaphoretic, clutching his chest. He reports crushing chest pain radiating to his left arm and jaw for the past 45 minutes. → 12-lead, ASA, and IV started: 12-lead EKG confirms an inferior STEMI. Aspirin is given, IV access established, and defibrillator pads placed proactively given the risk of malignant dysrhythmia. STEMI alert transmitted to the receiving facility. → Nonsustained VT self-terminates: A brief run of nonsustained VT occurs and self-terminates. The patient remains alert with a palpable pulse throughout. Crew captures the rhythm strip, reassesses pulse and mentation continuously, repeats a 12-lead, and continues STEMI transport."
+  },
+  "patientInformation": {
+    "patientName": "David Kowalski",
+    "patientCondition": "Crushing substernal chest pain radiating to left arm and jaw",
+    "patientAge": 60,
+    "patientAgeUnit": "years",
+    "patientAgeCategory": 0,
+    "patientSex": 1,
+    "patientHeight": 178,
+    "patientWeight": 92,
+    "patientPhotoId": 72,
+    "patientAdmitted": 1
+  },
+  "labs": [],
+  "scenarioEvents": [
+    {
+      "type": "ScenarioEvent",
+      "name": "Initial Contact",
+      "description": "Crew arrives to find a 60-year-old male seated in a recliner, pale and diaphoretic, clutching his chest. He reports crushing chest pain radiating to his left arm and jaw for the past 45 minutes.",
+      "monitorType": 0,
+      "trendTime": 0,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 108,
+        "bpSys": 158,
+        "bpDia": 94,
+        "respRate": 22,
+        "spo2": 95,
+        "etco2": 0,
+        "temp": 36.8,
+        "obstruction": 0,
+        "custMeasure1": 118,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "12-lead, ASA, and IV started",
+      "description": "12-lead EKG confirms an inferior STEMI. Aspirin is given, IV access established, and defibrillator pads placed proactively given the risk of malignant dysrhythmia. STEMI alert transmitted to the receiving facility.",
+      "monitorType": 0,
+      "trendTime": 30,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 24,
+        "hr": 102,
+        "bpSys": 150,
+        "bpDia": 90,
+        "respRate": 20,
+        "spo2": 96,
+        "etco2": 0,
+        "temp": 36.8,
+        "obstruction": 0,
+        "custMeasure1": 118,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Acquire 12-lead EKG within 10 minutes of patient contact",
+        "Aspirin 324 mg PO, chewed (non-enteric-coated)",
+        "Establish IV access",
+        "Transmit STEMI alert with advance notification to receiving facility",
+        "Place defibrillator pads proactively given dysrhythmia risk",
+        "Nitroglycerin 0.4 mg SL (SBP >100, no PDE5 use in 48h); may repeat q3–5min"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Nonsustained VT self-terminates",
+      "description": "A brief run of nonsustained VT occurs and self-terminates. The patient remains alert with a palpable pulse throughout. Crew captures the rhythm strip, reassesses pulse and mentation continuously, repeats a 12-lead, and continues STEMI transport.",
+      "monitorType": 0,
+      "trendTime": 20,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 24,
+        "hr": 108,
+        "bpSys": 144,
+        "bpDia": 88,
+        "respRate": 20,
+        "spo2": 96,
+        "etco2": 0,
+        "temp": 36.8,
+        "obstruction": 0,
+        "custMeasure1": 118,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Continuously reassess pulse and mental status during any rhythm change",
+        "Perform a repeat 12-lead EKG after the rhythm change resolves",
+        "Keep defibrillator charged/ready for synchronized cardioversion if VT recurs and sustains"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Defib pads not placed",
+      "description": "A run of VT develops unexpectedly. The crew must interrupt care to attach pads. The rhythm fails to terminate and accelerates, and the patient becomes lightheaded with a weak, thready pulse.",
+      "monitorType": 0,
+      "trendTime": 20,
+      "jumpTime": 0,
+      "defibShock": true,
+      "defibDisarm": false,
+      "parameters": {
+        "ecgWaveform": 12,
+        "hr": 190,
+        "bpSys": 78,
+        "bpDia": 50,
+        "respRate": 24,
+        "spo2": 90,
+        "etco2": 0,
+        "temp": 36.8,
+        "obstruction": 0,
+        "custMeasure1": 118,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Immediately attach pads and perform synchronized cardioversion for unstable VT",
+        "Consider sedation and analgesia for the responsive patient before cardioversion"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Pulseless VT — cardiac arrest",
+      "description": "The patient becomes unresponsive and pulseless while still in monomorphic VT. Crew immediately begins high-quality CPR and treats per the shockable cardiac arrest pathway with defibrillation and epinephrine.",
+      "monitorType": 0,
+      "trendTime": 15,
+      "jumpTime": 0,
+      "defibShock": true,
+      "defibDisarm": false,
+      "parameters": {
+        "ecgWaveform": 12,
+        "hr": 190,
+        "bpSys": 0,
+        "bpDia": 0,
+        "respRate": 0,
+        "spo2": 0,
+        "etco2": 0,
+        "temp": 36.8,
+        "obstruction": 0,
+        "custMeasure1": 118,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": false,
+        "spo2Attached": true,
+        "rrVisible": false,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Initiate high-quality chest compressions immediately (rate 100–120/min, depth 5–6 cm)",
+        "Defibrillate per Zoll biphasic setting (120 J first shock) for shockable VT",
+        "Give epinephrine 1 mg IV/IO during the first or second round of compressions"
+      ],
+      "relatedSounds": []
+    }
+  ],
+  "checklist": [
+    {
+      "title": "Acquire 12-lead EKG within 10 minutes of patient contact",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Aspirin 324 mg PO, chewed (non-enteric-coated)",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Establish IV access",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Transmit STEMI alert with advance notification to receiving facility",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Place defibrillator pads proactively given dysrhythmia risk",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Nitroglycerin 0.4 mg SL (SBP >100, no PDE5 use in 48h); may repeat q3–5min",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Continuously reassess pulse and mental status during any rhythm change",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Perform a repeat 12-lead EKG after the rhythm change resolves",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Keep defibrillator charged/ready for synchronized cardioversion if VT recurs and sustains",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Immediately attach pads and perform synchronized cardioversion for unstable VT",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Consider sedation and analgesia for the responsive patient before cardioversion",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Initiate high-quality chest compressions immediately (rate 100–120/min, depth 5–6 cm)",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Defibrillate per Zoll biphasic setting (120 J first shock) for shockable VT",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Give epinephrine 1 mg IV/IO during the first or second round of compressions",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    }
+  ],
+  "media": []
+}

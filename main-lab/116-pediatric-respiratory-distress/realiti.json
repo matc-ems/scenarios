@@ -1,0 +1,248 @@
+{
+  "scenarioId": "116-pediatric-respiratory-distress",
+  "scenarioName": "116 - Pediatric Respiratory Distress",
+  "scenarioType": "Vital Signs",
+  "scenarioVersion": 2,
+  "scenarioTime": 900,
+  "scenarioMonitorType": 2,
+  "scenarioDefaultEnergy": 200,
+  "scenarioDefaultPacerThreshold": 55,
+  "isDemo": false,
+  "isALSILegacy": false,
+  "scenarioStory": {
+    "history": "Mother reports daughter has had a cold for two days and woke up this morning coughing and wheezing. Symptoms worsened over the last hour despite two puffs of her rescue inhaler at home. Known history of asthma with a prior ED visit and one hospital admission last year. No fever reported.",
+    "discussion": "",
+    "course": "Initial Contact: Crew finds a 4-year-old female sitting upright on her mother's lap with audible expiratory wheezing, visible retractions, and a prolonged expiratory phase. She is tiring and speaking only in short phrases. → Duoneb and O2 started: Crew applies supplemental oxygen titrated to a 94-98% target and administers a combined albuterol/ipratropium nebulizer treatment. Wheezing and effort persist despite the first treatment, with signs of distress continuing. → IM epi given for no improvement: With no clinical improvement after nebulizer therapy and continued signs of significant distress, the crew administers weight-based IM epinephrine as adjunctive therapy. → Improved and prepared for transport: The patient's work of breathing has improved with decreased wheezing and retractions. She is repositioned for comfort and transported with continuous reassessment."
+  },
+  "patientInformation": {
+    "patientName": "Maya Whitfield",
+    "patientCondition": "Difficulty breathing, audible wheezing",
+    "patientAge": 4,
+    "patientAgeUnit": "years",
+    "patientAgeCategory": 1,
+    "patientSex": 2,
+    "patientHeight": 102,
+    "patientWeight": 16,
+    "patientPhotoId": 5,
+    "patientAdmitted": 1
+  },
+  "labs": [],
+  "scenarioEvents": [
+    {
+      "type": "ScenarioEvent",
+      "name": "Initial Contact",
+      "description": "Crew finds a 4-year-old female sitting upright on her mother's lap with audible expiratory wheezing, visible retractions, and a prolonged expiratory phase. She is tiring and speaking only in short phrases.",
+      "monitorType": 0,
+      "trendTime": 0,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 148,
+        "bpSys": 96,
+        "bpDia": 62,
+        "respRate": 44,
+        "spo2": 91,
+        "etco2": 48,
+        "temp": 37,
+        "obstruction": 40,
+        "custMeasure1": 98,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Duoneb and O2 started",
+      "description": "Crew applies supplemental oxygen titrated to a 94-98% target and administers a combined albuterol/ipratropium nebulizer treatment. Wheezing and effort persist despite the first treatment, with signs of distress continuing.",
+      "monitorType": 0,
+      "trendTime": 30,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 152,
+        "bpSys": 98,
+        "bpDia": 64,
+        "respRate": 40,
+        "spo2": 92,
+        "etco2": 47,
+        "temp": 37,
+        "obstruction": 40,
+        "custMeasure1": 98,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Titrate supplemental O2 to target 94-98% SpO2",
+        "Albuterol 5 mg nebulized with ipratropium 0.5 mg; repeat albuterol as needed",
+        "Apply continuous pulse oximetry and reassess work of breathing after each treatment"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "IM epi given for no improvement",
+      "description": "With no clinical improvement after nebulizer therapy and continued signs of significant distress, the crew administers weight-based IM epinephrine as adjunctive therapy.",
+      "monitorType": 0,
+      "trendTime": 30,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 138,
+        "bpSys": 100,
+        "bpDia": 66,
+        "respRate": 34,
+        "spo2": 95,
+        "etco2": 42,
+        "temp": 37,
+        "obstruction": 25,
+        "custMeasure1": 98,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Epinephrine 0.16 mg IM (16 kg × 0.01 mg/kg; max 0.3 mg), 1 mg/mL concentration",
+        "Reassess work of breathing, SpO2, and EtCO2 waveform after epinephrine"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Improved and prepared for transport",
+      "description": "The patient's work of breathing has improved with decreased wheezing and retractions. She is repositioned for comfort and transported with continuous reassessment.",
+      "monitorType": 0,
+      "trendTime": 40,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 118,
+        "bpSys": 98,
+        "bpDia": 64,
+        "respRate": 28,
+        "spo2": 97,
+        "etco2": 38,
+        "temp": 37,
+        "obstruction": 10,
+        "custMeasure1": 98,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Continue O2, reassess vitals serially en route, transport to pediatric-capable facility"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Escalation to epi delayed",
+      "description": "The crew repeats nebulizer treatments without recognizing the persistent lack of improvement. The patient tires further, with worsening retractions and a falling respiratory rate despite ongoing wheeze — a concerning sign of impending respiratory failure.",
+      "monitorType": 0,
+      "trendTime": 50,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 160,
+        "bpSys": 88,
+        "bpDia": 58,
+        "respRate": 18,
+        "spo2": 86,
+        "etco2": 55,
+        "temp": 37,
+        "obstruction": 60,
+        "custMeasure1": 98,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Recognize impending respiratory failure; give IM epinephrine 0.16 mg IM immediately, prepare for BVM support"
+      ],
+      "relatedSounds": []
+    }
+  ],
+  "checklist": [
+    {
+      "title": "Titrate supplemental O2 to target 94-98% SpO2",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Albuterol 5 mg nebulized with ipratropium 0.5 mg; repeat albuterol as needed",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Apply continuous pulse oximetry and reassess work of breathing after each treatment",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Epinephrine 0.16 mg IM (16 kg × 0.01 mg/kg; max 0.3 mg), 1 mg/mL concentration",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Reassess work of breathing, SpO2, and EtCO2 waveform after epinephrine",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Continue O2, reassess vitals serially en route, transport to pediatric-capable facility",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Recognize impending respiratory failure; give IM epinephrine 0.16 mg IM immediately, prepare for BVM support",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    }
+  ],
+  "media": []
+}

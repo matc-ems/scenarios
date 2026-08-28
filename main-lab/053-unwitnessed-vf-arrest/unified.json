@@ -1,0 +1,420 @@
+{
+  "meta": {
+    "id": "053-unwitnessed-vf-arrest",
+    "name": "053 - Unwitnessed VF Arrest",
+    "version": 1,
+    "difficulty": "intermediate",
+    "category": "Cardiac",
+    "protocols": ["resus-cardiac-arrest", "resus-post-rosc"],
+    "totalTimeSeconds": 600,
+    "createdAt": "2026-08-22T00:00:00Z",
+    "tags": ["cardiac arrest", "VF", "defibrillation", "ROSC", "ACLS", "916A", "skills practice"]
+  },
+  "patient": {
+    "name": "Gary Thompson",
+    "age": 55,
+    "ageUnit": "years",
+    "sex": "male",
+    "weight": 90.7,
+    "weightLbs": 200,
+    "height": 178,
+    "chiefComplaint": "Unresponsive, found in cardiac arrest",
+    "history": {
+      "hpi": "Per wife, patient was found unresponsive on the living room floor when she returned home from running errands; exact down time is unknown but she last saw him alive and well approximately 20 minutes prior. She immediately called 911 and began compression-only CPR per dispatcher instructions.",
+      "pastMedical": ["Hypertension", "Hyperlipidemia", "Type 2 diabetes", "Prior myocardial infarction (3 years ago) with stent placement"],
+      "medications": ["Lisinopril 20 mg daily", "Atorvastatin 40 mg daily", "Metformin 1000 mg BID", "Aspirin 81 mg daily"],
+      "allergies": ["NKDA"],
+      "lastOralIntake": "Lunch approximately 1 hour prior to collapse, per wife",
+      "events": "Wife heard a thud from the living room, found patient unresponsive on the floor, called 911 immediately, and began CPR per dispatcher instruction."
+    }
+  },
+  "scene": {
+    "dispatch": "Unresponsive 55-year-old male, unknown down time, bystander CPR in progress, single-family residence",
+    "location": "Living room of a single-story single-family home",
+    "time": "Weekday afternoon, 1430 hrs",
+    "safety": "Scene safe, spouse present and cooperative, no hazards noted",
+    "bystanders": "Wife found patient unresponsive on the floor approximately 5 minutes prior to EMS arrival; called 911 and began dispatcher-assisted compression-only CPR",
+    "visualCues": [
+      "Patient supine on living room floor",
+      "Wife performing chest compressions on arrival",
+      "Cyanosis of lips and nailbeds",
+      "No signs of trauma or blood",
+      "No AED on scene"
+    ]
+  },
+  "phases": [
+    {
+      "id": "initial",
+      "name": "Initial Contact",
+      "description": "Crew arrives to find a 55-year-old male supine on the living room floor with bystander CPR in progress. The patient is unresponsive, apneic aside from occasional agonal gasps, and pulseless. The cardiac monitor shows coarse ventricular fibrillation.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Unresponsive",
+        "gcs": { "eye": 1, "verbal": 1, "motor": 1 },
+        "airway": "Open, no obstruction; intermittent agonal gasps",
+        "breathing": "No effective spontaneous respirations, occasional agonal gasps only",
+        "circulation": "No palpable carotid or femoral pulse; bystander chest compressions in progress on arrival",
+        "skin": { "color": "cyanotic (lips, nailbeds)", "temperature": "cool", "moisture": "dry" },
+        "pupils": "Fixed and dilated bilaterally",
+        "motorFunction": "None",
+        "otherFindings": ["Wife performing compression-only CPR, visibly fatigued", "No AED applied prior to EMS arrival"],
+        "patientSpeech": "None"
+      },
+      "monitorState": {
+        "ecgRhythm": "Ventricular Fibrillation (Coarse)",
+        "ecgWaveform": 18,
+        "hr": 0,
+        "bpSys": 0,
+        "bpDia": 0,
+        "respRate": 0,
+        "spo2": 0,
+        "etco2": 15,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 0,
+        "glucose": 95,
+        "customMeasures": [],
+        "trendTimeSeconds": 0,
+        "visibility": { "spo2Visible": false, "spo2Attached": false, "rrVisible": false, "etco2Visible": true, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "p1-confirm-arrest",
+          "shortAction": "Confirm pulselessness and apnea; recognize cardiac arrest",
+          "protocolExcerpt": "In cases of cardiac arrest, assessments should be focused and limited to obtaining enough information to reveal the patient is pulseless. Once pulselessness is discovered, treatment should be initiated immediately, and any further history must be obtained by bystanders while treatment is ongoing.",
+          "priority": "critical",
+          "rationale": "Rapid recognition is required to minimize time to compressions and defibrillation.",
+          "protocolReference": "MATC: Cardiac Arrest"
+        },
+        {
+          "id": "p1-take-over-cpr",
+          "shortAction": "Take over high-quality chest compressions from bystander without interruption",
+          "protocolExcerpt": "Initiate chest compressions in cases with no bystander chest compressions or take over compressions from bystanders while a second rescuer is setting up the AED or defibrillator.",
+          "priority": "critical",
+          "rationale": "Maintains coronary perfusion pressure while the defibrillator is prepared.",
+          "protocolReference": "MATC: Cardiac Arrest"
+        },
+        {
+          "id": "p1-apply-pads-analyze",
+          "shortAction": "Apply defibrillator pads and analyze rhythm without pausing compressions unnecessarily",
+          "protocolExcerpt": "If adequate, uninterrupted bystander CPR has been performed or if the patient arrests in front of the EMS clinicians, immediately proceed with rhythm analysis and defibrillation, if appropriate.",
+          "priority": "critical",
+          "rationale": "Confirms shockable rhythm (VF) to guide immediate defibrillation.",
+          "protocolReference": "MATC: Cardiac Arrest"
+        },
+        {
+          "id": "p1-shock",
+          "shortAction": "Defibrillate once at 120 J biphasic (Zoll first-shock energy) for coarse VF",
+          "protocolExcerpt": "Defibrillation dosing should follow manufacturer's recommendation in the case of biphasic defibrillators. Zoll – Adult – 120 J, 150 J, 200 J.",
+          "priority": "critical",
+          "rationale": "Prompt defibrillation is the single most effective therapy for VF.",
+          "protocolReference": "MATC: Cardiac Arrest"
+        },
+        {
+          "id": "p1-resume-cpr",
+          "shortAction": "Resume chest compressions immediately post-shock with no pulse check for 2 minutes",
+          "protocolExcerpt": "Chest compressions should resume immediately after defibrillation attempts with no pauses for pulse checks for 2 minutes regardless of the rhythm displayed on the cardiac monitor.",
+          "priority": "critical",
+          "rationale": "Interruptions after defibrillation drop coronary perfusion pressure and reduce shock success.",
+          "protocolReference": "MATC: Cardiac Arrest"
+        },
+        {
+          "id": "p1-iv-io",
+          "shortAction": "Establish IV or IO access without interrupting chest compressions",
+          "protocolExcerpt": "If feasible, IV or IO access should be obtained. IV or IO access without interrupting chest compressions.",
+          "priority": "important",
+          "rationale": "Vascular access is needed for epinephrine and other resuscitation medications.",
+          "protocolReference": "MATC: Cardiac Arrest"
+        },
+        {
+          "id": "p1-airway",
+          "shortAction": "Manage airway with high-flow O2/BVM without interrupting compressions",
+          "protocolExcerpt": "The airway management strategy should not interrupt compressions. Successful resuscitation from cardiac arrest depends primarily on effective, minimally interrupted chest compressions and prompt defibrillation if the patient is in pulseless VT/VF.",
+          "priority": "important",
+          "rationale": "Airway management is secondary to compressions and defibrillation in adult VF arrest.",
+          "protocolReference": "MATC: Cardiac Arrest"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "rosc-achieved",
+          "if": "Single shock delivered, compressions resumed",
+          "condition": "Defibrillator pads applied promptly, a single 120 J biphasic shock delivered for coarse VF, and high-quality compressions resumed immediately without a pulse check, achieving ROSC at the end of the first 2-minute cycle.",
+          "conditionType": "action_taken",
+          "triggerActionIds": ["p1-shock", "p1-resume-cpr"]
+        },
+        {
+          "targetPhaseId": "compressions-delayed",
+          "if": "Compressions interrupted or delayed",
+          "condition": "Rescuers pause chest compressions for a prolonged pulse check, hover over the patient while charging, or otherwise delay resumption of compressions after the shock, reducing coronary perfusion pressure.",
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["p1-resume-cpr"]
+        }
+      ]
+    },
+    {
+      "id": "rosc-achieved",
+      "name": "Single shock, ROSC achieved",
+      "description": "At the end of the first 2-minute compression cycle following a single defibrillation, the rhythm check reveals an organized rhythm with a palpable carotid pulse. EtCO2 rises abruptly and the patient begins to gasp spontaneously — return of spontaneous circulation has occurred.",
+      "triggerCondition": "After one defibrillation and immediate resumption of high-quality compressions, the rhythm check at the end of the 2-minute cycle reveals an organized rhythm with a palpable carotid pulse and a sudden rise in EtCO2 — spontaneous circulation has returned.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Unresponsive",
+        "gcs": { "eye": 1, "verbal": 1, "motor": 4 },
+        "airway": "Patent; spontaneous shallow respirations returning",
+        "breathing": "Irregular, shallow, approximately 8/min, improving",
+        "circulation": "Carotid pulse present, weak and rapid",
+        "skin": { "color": "pale, improving from cyanotic", "temperature": "cool", "moisture": "diaphoretic" },
+        "pupils": "Sluggish, midsize bilaterally",
+        "motorFunction": "Withdraws to painful stimuli",
+        "otherFindings": ["Sudden rise in EtCO2 to 45 mmHg signaling ROSC", "Spontaneous gasping respirations noted", "Remains comatose"],
+        "patientSpeech": "None"
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 118,
+        "bpSys": 88,
+        "bpDia": 54,
+        "respRate": 8,
+        "spo2": 91,
+        "etco2": 45,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 0,
+        "glucose": 95,
+        "customMeasures": [],
+        "trendTimeSeconds": 15,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "p2-recognize-rosc",
+          "shortAction": "Recognize ROSC via palpable pulse and abrupt EtCO2 rise; stop compressions",
+          "protocolExcerpt": "If at any time during this period of resuscitation the patient regains return of spontaneous circulation, treat per Adult Post-ROSC Care Guideline.",
+          "priority": "critical",
+          "rationale": "Continuing compressions after ROSC risks inducing arrhythmia or re-arrest.",
+          "protocolReference": "MATC: Cardiac Arrest"
+        },
+        {
+          "id": "p2-o2-titrate",
+          "shortAction": "Titrate oxygen to target SpO2 94-98%; avoid hyperoxygenation",
+          "protocolExcerpt": "Administer oxygen as appropriate with a target of achieving 94–98% saturation. Do not hyperoxygenate.",
+          "priority": "critical",
+          "rationale": "Hyperoxia after ROSC is associated with worse neurologic outcomes.",
+          "protocolReference": "MATC: Adult Post-ROSC Care"
+        },
+        {
+          "id": "p2-vent-rate",
+          "shortAction": "Ventilate at 8-10 breaths/min, avoid hyperventilation, target EtCO2 35-45 mmHg",
+          "protocolExcerpt": "Do not hyperventilate. Maintain a ventilation rate of 8–10 breaths per minute, targeting an EtCO2 of 35–45 mmHg.",
+          "priority": "critical",
+          "rationale": "Hyperventilation causes hypotension and can precipitate re-arrest.",
+          "protocolReference": "MATC: Adult Post-ROSC Care"
+        },
+        {
+          "id": "p2-12-lead",
+          "shortAction": "Obtain 12-lead ECG to assess for STEMI or reversible cause of arrest",
+          "protocolExcerpt": "Perform serial 12-lead EKGs to assess for evidence of reversible cause of arrest such as STEMI or electrolyte derangement (e.g., hyperkalemia).",
+          "priority": "important",
+          "rationale": "Guides destination decision and identifies reversible causes.",
+          "protocolReference": "MATC: Adult Post-ROSC Care"
+        },
+        {
+          "id": "p2-hypotension",
+          "shortAction": "Address hypotension (SBP 88 mmHg, below 90 mmHg threshold) per Shock Guideline",
+          "protocolExcerpt": "For hypotension (SBP less than 90 mmHg or MAP less than 65 in adults) see Shock Guideline.",
+          "priority": "important",
+          "rationale": "Post-arrest myocardial stunning commonly causes hypotension requiring intervention.",
+          "protocolReference": "MATC: Adult Post-ROSC Care"
+        },
+        {
+          "id": "p2-glucose",
+          "shortAction": "Check blood glucose",
+          "protocolExcerpt": "Check blood glucose. If hypoglycemic, treat per Hypoglycemia Guideline. If hyperglycemic, notify hospital on arrival.",
+          "priority": "supplemental",
+          "rationale": "Rules out hypoglycemia as a contributing or reversible factor.",
+          "protocolReference": "MATC: Adult Post-ROSC Care"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "post-rosc-stabilization",
+          "if": "Oxygenation and ventilation optimized",
+          "condition": "Providers secure the airway, titrate oxygen to 94-98% SpO2, ventilate at 8-10 breaths/min targeting EtCO2 35-45 mmHg, and obtain a 12-lead ECG without further hemodynamic compromise.",
+          "conditionType": "action_taken",
+          "triggerActionIds": ["p2-o2-titrate", "p2-vent-rate", "p2-12-lead"]
+        },
+        {
+          "targetPhaseId": "hyperventilation-rearrest",
+          "if": "Ventilated too fast after ROSC",
+          "condition": "Providers ventilate at an excessive rate/volume in the post-ROSC period, dropping EtCO2 below target and precipitating hypotension with risk of re-arrest.",
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["p2-vent-rate"]
+        }
+      ]
+    },
+    {
+      "id": "post-rosc-stabilization",
+      "name": "Post-ROSC stabilization and transport",
+      "description": "Airway is secured, ventilation and oxygenation are optimized, and the 12-lead shows no STEMI. The patient remains hemodynamically borderline and is prepared for transport with close monitoring for re-arrest.",
+      "triggerCondition": "Airway secured, ventilation and oxygenation optimized, and 12-lead obtained showing no STEMI; patient remains hemodynamically borderline and is packaged for transport to a PCI-capable facility.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Pain",
+        "gcs": { "eye": 2, "verbal": 1, "motor": 4 },
+        "airway": "Patent, maintained with adjunct/advanced airway as placed",
+        "breathing": "Assisted at 8-10/min, adequate chest rise, EtCO2 trending toward 40",
+        "circulation": "Carotid and radial pulses palpable, improving",
+        "skin": { "color": "pink, improving", "temperature": "cool", "moisture": "diaphoretic" },
+        "pupils": "Sluggish, midsize bilaterally",
+        "motorFunction": "Withdraws to painful stimuli",
+        "otherFindings": ["12-lead ECG shows sinus tachycardia without ST elevation", "Remains comatose but hemodynamically stabilizing"],
+        "patientSpeech": "None"
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 104,
+        "bpSys": 96,
+        "bpDia": 60,
+        "respRate": 10,
+        "spo2": 96,
+        "etco2": 40,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 0,
+        "glucose": 95,
+        "customMeasures": [],
+        "trendTimeSeconds": 30,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "p3-monitor-rearrest",
+          "shortAction": "Reassess vitals and rhythm frequently; monitor closely for re-arrest",
+          "protocolExcerpt": "The condition of post-resuscitation patients fluctuates rapidly and continuously requiring close monitoring. A significant percentage of post-ROSC patients will re-arrest.",
+          "priority": "critical",
+          "rationale": "Post-ROSC patients are hemodynamically unstable and can re-arrest without warning.",
+          "protocolReference": "MATC: Adult Post-ROSC Care"
+        },
+        {
+          "id": "p3-destination",
+          "shortAction": "Transport to a facility capable of emergent cardiac catheterization (PCI-capable/STEMI receiving)",
+          "protocolExcerpt": "Post-cardiac arrest patients with evidence or interpretation consistent with ST elevation myocardial infarction (STEMI/acute MI) should be transported preferably to a facility capable of emergent cardiac catheterization or, as a secondary option, to a STEMI receiving facility based upon local resources and system of care.",
+          "priority": "important",
+          "rationale": "Appropriate destination selection improves post-arrest survival and neurologic outcome.",
+          "protocolReference": "MATC: Adult Post-ROSC Care"
+        },
+        {
+          "id": "p3-normothermia",
+          "shortAction": "Avoid hyperthermia; do not apply warm blankets or excessive heat exposure",
+          "protocolExcerpt": "Avoid hyperthermia (temperature greater than 37.5° C or 99.5° F) by avoiding excessive environmental heat exposure, warm blankets, etc.",
+          "priority": "supplemental",
+          "rationale": "Hyperthermia after cardiac arrest is associated with worse neurologic outcomes.",
+          "protocolReference": "MATC: Adult Post-ROSC Care"
+        }
+      ],
+      "transitions": []
+    },
+    {
+      "id": "compressions-delayed",
+      "name": "Compressions delayed",
+      "description": "Rescuers pause chest compressions for a prolonged pulse check and delay resumption after the shock. Without immediate high-quality compressions, coronary perfusion pressure falls and the fibrillation waveform deteriorates from coarse to fine, reducing the likelihood of a successful subsequent shock.",
+      "triggerCondition": "Rescuers pause chest compressions for more than 10 seconds to check a pulse or set up equipment rather than resuming immediately after the shock, allowing myocardial perfusion pressure to fall.",
+      "isDefault": false,
+      "clinicalPresentation": {
+        "avpu": "Unresponsive",
+        "gcs": { "eye": 1, "verbal": 1, "motor": 1 },
+        "airway": "Open, no obstruction; no spontaneous respirations",
+        "breathing": "Apneic",
+        "circulation": "No palpable pulse; compressions paused/delayed",
+        "skin": { "color": "cyanotic, worsening", "temperature": "cool", "moisture": "dry" },
+        "pupils": "Fixed and dilated bilaterally",
+        "motorFunction": "None",
+        "otherFindings": ["Fibrillation waveform coarsening to fine VF on the monitor", "Falling EtCO2 during the pause"],
+        "patientSpeech": "None"
+      },
+      "monitorState": {
+        "ecgRhythm": "Ventricular Fibrillation (Fine)",
+        "ecgWaveform": 18,
+        "hr": 0,
+        "bpSys": 0,
+        "bpDia": 0,
+        "respRate": 0,
+        "spo2": 0,
+        "etco2": 8,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 0,
+        "glucose": 95,
+        "customMeasures": [],
+        "trendTimeSeconds": 40,
+        "visibility": { "spo2Visible": false, "spo2Attached": false, "rrVisible": false, "etco2Visible": true, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "pb1-resume-compressions",
+          "shortAction": "Resume high-quality compressions immediately to prevent further deterioration",
+          "protocolExcerpt": "All attempts should be made to prevent avoidable interruptions in chest compressions, such as pre-charging the defibrillator and hovering over the chest, rather than stepping away during defibrillations.",
+          "priority": "critical",
+          "rationale": "Delayed compressions reduce coronary perfusion pressure and shock success, worsening the fibrillation waveform.",
+          "protocolReference": "MATC: Cardiac Arrest"
+        }
+      ],
+      "transitions": []
+    },
+    {
+      "id": "hyperventilation-rearrest",
+      "name": "Hyperventilation after ROSC",
+      "description": "Providers ventilate the patient at an excessive rate after ROSC. EtCO2 falls well below target, venous return drops, and the patient's blood pressure deteriorates, placing him at high risk of re-arrest.",
+      "triggerCondition": "Providers ventilate the patient at an excessive rate/volume in the post-ROSC period instead of the targeted 8-10 breaths/min, driving EtCO2 down and precipitating hypotension with imminent risk of re-arrest.",
+      "isDefault": false,
+      "clinicalPresentation": {
+        "avpu": "Unresponsive",
+        "gcs": { "eye": 1, "verbal": 1, "motor": 3 },
+        "airway": "Patent, being aggressively ventilated",
+        "breathing": "Over-assisted, rate approximately 24/min",
+        "circulation": "Weak, thready pulse; deteriorating",
+        "skin": { "color": "pale", "temperature": "cool", "moisture": "diaphoretic" },
+        "pupils": "Sluggish, midsize bilaterally",
+        "motorFunction": "Decorticate posturing to pain",
+        "otherFindings": ["EtCO2 falling toward 18 mmHg", "Blood pressure trending down toward re-arrest thresholds"],
+        "patientSpeech": "None"
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 132,
+        "bpSys": 72,
+        "bpDia": 42,
+        "respRate": 24,
+        "spo2": 90,
+        "etco2": 18,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 0,
+        "glucose": 95,
+        "customMeasures": [],
+        "trendTimeSeconds": 30,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "pb2-reduce-vent-rate",
+          "shortAction": "Reduce ventilation rate to 8-10 breaths/min targeting EtCO2 35-45 mmHg to prevent re-arrest",
+          "protocolExcerpt": "Hyperventilation is a significant cause of hypotension and recurrence of cardiac arrest in the post resuscitation phase and must be avoided.",
+          "priority": "critical",
+          "rationale": "Excessive ventilation increases intrathoracic pressure, reduces venous return, and is a leading cause of post-ROSC re-arrest.",
+          "protocolReference": "MATC: Adult Post-ROSC Care"
+        }
+      ],
+      "transitions": []
+    }
+  ],
+  "realiti": {
+    "scenarioMonitorType": 2,
+    "scenarioDefaultEnergy": 200,
+    "scenarioDefaultPacerThreshold": 55
+  }
+}

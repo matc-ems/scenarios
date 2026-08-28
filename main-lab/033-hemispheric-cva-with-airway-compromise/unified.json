@@ -1,0 +1,331 @@
+{
+  "meta": {
+    "id": "033-hemispheric-cva-with-airway-compromise",
+    "name": "033 - Hemispheric CVA with Airway Compromise",
+    "version": 1,
+    "difficulty": "advanced",
+    "category": "Neurological",
+    "protocols": ["cv-stroke-tia", "resp-airway-management"],
+    "totalTimeSeconds": 900,
+    "tags": ["stroke", "CVA", "RSI", "airway", "aspiration risk", "915b"]
+  },
+  "patient": {
+    "name": "Eleanor Vance",
+    "age": 68,
+    "ageUnit": "years",
+    "sex": "female",
+    "weight": 70,
+    "weightLbs": 154,
+    "height": 165,
+    "chiefComplaint": "Altered mental status, found vomiting and unresponsive to voice",
+    "history": {
+      "hpi": "Daughter reports patient was talking normally about 40 minutes ago, then developed slurred speech and a droopy left side of her face. Daughter stepped out of the room briefly and returned to find the patient vomiting on the couch and no longer responding to her name or voice, only withdrawing slightly to a sternal rub.",
+      "pastMedical": ["Hypertension", "Atrial fibrillation", "Hyperlipidemia"],
+      "medications": ["Apixaban 5 mg PO BID", "Metoprolol 50 mg PO daily", "Atorvastatin 40 mg PO daily"],
+      "allergies": ["NKDA"],
+      "lastOralIntake": "Lunch approximately 2 hours prior to onset",
+      "events": "Daughter witnessed rapid decline from slurred speech and facial droop to vomiting and unresponsiveness within minutes; called 911 immediately"
+    }
+  },
+  "scene": {
+    "dispatch": "68-year-old female, altered mental status, residence",
+    "location": "Single-family home, living room, patient supine on couch with emesis visible on her clothing and couch cushion",
+    "time": "3:15 PM, weekday",
+    "safety": "No hazards to crew noted",
+    "bystanders": "Daughter present, witnessed the decline, gives history but is distraught",
+    "visualCues": [
+      "Left facial droop",
+      "Vomitus on patient's clothing, couch, and floor near her head",
+      "Right-sided flaccid arm and leg",
+      "Patient makes no purposeful response to voice, only withdraws to sternal rub",
+      "Apixaban pill bottle visible on side table"
+    ]
+  },
+  "phases": [
+    {
+      "id": "initial",
+      "name": "Initial Contact",
+      "description": "Crew arrives to find a 68-year-old female supine on the couch, unresponsive to voice, with visible emesis and gurgling respirations. Left facial droop and right-sided flaccid hemiparesis are noted on primary survey.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Pain",
+        "gcs": { "eye": 1, "verbal": 1, "motor": 4 },
+        "airway": "Gurgling respirations, visible emesis in and around mouth, poor gag response",
+        "breathing": "Irregular, shallow, 10/min with intermittent snoring quality",
+        "circulation": "Radial pulses present, skin pale and diaphoretic",
+        "skin": { "color": "pale", "temperature": "warm", "moisture": "diaphoretic" },
+        "pupils": "Left pupil sluggish, right pupil reactive",
+        "motorFunction": "Right arm and leg flaccid, no movement to painful stimulus; left side withdraws to sternal rub",
+        "otherFindings": [
+          "Left facial droop",
+          "Vomitus visible in oropharynx and on clothing",
+          "No purposeful response to voice"
+        ],
+        "patientSpeech": "No verbal response, only occasional moaning to painful stimulus"
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Rhythm",
+        "ecgWaveform": 9,
+        "hr": 92,
+        "bpSys": 178,
+        "bpDia": 96,
+        "respRate": 10,
+        "spo2": 89,
+        "etco2": 0,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 20,
+        "glucose": 112,
+        "customMeasures": [],
+        "trendTimeSeconds": 0,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [],
+      "transitions": [
+        {
+          "targetPhaseId": "airway-secured",
+          "if": "Airway suctioned and RSI performed",
+          "condition": "Crew immediately suctions the oropharynx, obtains a stroke scale and BGL, and proceeds with RSI given loss of protective airway reflexes and ongoing vomiting risk.",
+          "conditionType": "action_taken"
+        },
+        {
+          "targetPhaseId": "aspiration-branch",
+          "if": "Suctioning and RSI delayed",
+          "condition": "Crew focuses on the stroke scale and history-taking without first suctioning the airway or preparing for RSI, leaving the unprotected airway exposed to ongoing emesis.",
+          "conditionType": "action_not_taken"
+        }
+      ]
+    },
+    {
+      "id": "airway-secured",
+      "name": "Airway suctioned and RSI performed",
+      "description": "Crew suctions the oropharynx, completes a rapid stroke assessment (LKW time, stroke scale, BGL), and performs RSI to protect the airway given the patient's loss of protective reflexes and active vomiting.",
+      "triggerCondition": "After the primary survey identifies an unprotected airway with ongoing emesis and altered mental status, the crew suctions immediately, gathers the last-known-well time and stroke scale findings from the daughter, checks BGL to rule out a stroke mimic, and proceeds directly to RSI given the airway compromise.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Unresponsive",
+        "gcs": { "eye": 1, "verbal": 1, "motor": 4 },
+        "airway": "Oropharynx suctioned clear, ET tube placed and secured",
+        "breathing": "Ventilated via BVM at 10-12/min, bilateral breath sounds equal",
+        "circulation": "Radial pulses present, skin still diaphoretic",
+        "skin": { "color": "pale", "temperature": "warm", "moisture": "diaphoretic" },
+        "pupils": "Left pupil sluggish, right pupil reactive",
+        "motorFunction": "Right-sided flaccid hemiparesis unchanged",
+        "otherFindings": [
+          "Last known well: approximately 45 minutes ago per daughter",
+          "Stroke scale positive for facial droop and right-sided weakness",
+          "BGL 112 mg/dL, ruling out hypoglycemia as a mimic",
+          "ET tube secured at appropriate depth"
+        ],
+        "patientSpeech": "No verbal response; sedated and paralyzed post-RSI"
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Rhythm",
+        "ecgWaveform": 9,
+        "hr": 88,
+        "bpSys": 164,
+        "bpDia": 90,
+        "respRate": 12,
+        "spo2": 98,
+        "etco2": 38,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 0,
+        "glucose": 112,
+        "customMeasures": [],
+        "trendTimeSeconds": 40,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a1-suction",
+          "shortAction": "Suction oropharynx immediately to clear emesis and reduce aspiration risk",
+          "protocolExcerpt": "Suctioning to limit aspiration is a priority, since it is associated with development of hospital acquired pneumonia and related increases in ICU stay and mortality.",
+          "priority": "critical",
+          "rationale": "Active vomiting with a poor gag response places the patient at immediate aspiration risk.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        },
+        {
+          "id": "a2-stroke-scale",
+          "shortAction": "Perform validated stroke scale and determine last known well time",
+          "protocolExcerpt": "Use a validated prehospital stroke scale that may include, but is not limited to: Facial smile/grimace – ask patient to smile, Arm drift – close eyes and hold out arms for count of 10 seconds, Speech – ask patient to say \"You can't teach an old dog new tricks\" ... Determine \"last known well\" time",
+          "priority": "critical",
+          "rationale": "Establishes stroke likelihood and treatment eligibility window for the receiving stroke center.",
+          "protocolReference": "MATC: Suspected Stroke/Transient Ischemic Attack"
+        },
+        {
+          "id": "a3-bgl",
+          "shortAction": "Check blood glucose to rule out hypoglycemia as a stroke mimic",
+          "protocolExcerpt": "Check blood glucose level (BGL) - Treat only if glucose less than 60 mg/dL",
+          "priority": "critical",
+          "rationale": "Hypoglycemia is a common, rapidly reversible stroke mimic that must be excluded before treating as CVA.",
+          "protocolReference": "MATC: Suspected Stroke/Transient Ischemic Attack"
+        },
+        {
+          "id": "a4-rsi-decision",
+          "shortAction": "Recognize loss of protective airway reflexes; proceed to RSI for airway protection",
+          "protocolExcerpt": "Other indications may include potential airway obstruction, severe inhalation burns, multiple traumatic injuries, altered mental status with loss of normal protective airway reflexes",
+          "priority": "critical",
+          "rationale": "GCS 6 with active vomiting and poor gag reflex meets the indication for definitive airway protection.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        },
+        {
+          "id": "a5-preox",
+          "shortAction": "Preoxygenate with high-flow O2 and positive pressure ventilation for at least 2 minutes before RSI",
+          "protocolExcerpt": "Patient should be pre-oxygenated with high flow oxygen, and positive pressure ventilation for a minimum of two minutes prior to the procedure.",
+          "priority": "critical",
+          "rationale": "Minimizes peri-intubation hypoxia during the apneic period of RSI.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        },
+        {
+          "id": "a6-etomidate",
+          "shortAction": "Etomidate 21 mg IV push (70 kg × 0.3 mg/kg) as induction agent",
+          "protocolExcerpt": "Administer induction sedative agent: Etomidate IV push, 0.2-0.3 mg/kg",
+          "priority": "critical",
+          "rationale": "Provides hemodynamically stable sedation appropriate for a hypertensive stroke patient prior to paralysis.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        },
+        {
+          "id": "a7-succinylcholine",
+          "shortAction": "Succinylcholine 105 mg IV push (70 kg × 1.5 mg/kg) as paralytic agent",
+          "protocolExcerpt": "Administer paralytic agent: Succinylcholine IV push, 1-2 mg/kg",
+          "priority": "critical",
+          "rationale": "Provides rapid-onset paralysis to facilitate first-pass intubation success.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        },
+        {
+          "id": "a8-confirm-tube",
+          "shortAction": "Confirm ET tube placement with waveform capnography, breath sounds, and absent gastric sounds",
+          "protocolExcerpt": "Confirm placement of advanced airway (endotracheal tube, SGA) with waveform capnography (most reliable), absent gastric sounds, and bilateral breath sounds",
+          "priority": "critical",
+          "rationale": "Waveform capnography is the most reliable confirmation method and must be verified before securing the tube.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "transport",
+          "if": "Tube confirmed and stroke alert transmitted",
+          "condition": "ET tube placement confirmed with waveform capnography, patient ventilated appropriately, and early hospital notification given per the stroke plan for likely large vessel occlusion.",
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a8-confirm-tube"]
+        }
+      ]
+    },
+    {
+      "id": "transport",
+      "name": "Tube confirmed and stroke alert transmitted",
+      "description": "Patient is intubated, sedated, and ventilated with continuous waveform capnography. Early stroke center notification has been transmitted and the patient is positioned with head of stretcher elevated to reduce aspiration risk during transport.",
+      "triggerCondition": "After successful RSI and tube confirmation, the crew notifies the receiving stroke center early given the suspected large vessel occlusion, elevates the head of the stretcher per protocol, and transports.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Unresponsive",
+        "gcs": { "eye": 1, "verbal": 1, "motor": 4 },
+        "airway": "Secured with ET tube, confirmed placement",
+        "breathing": "Ventilated at 10-12/min via BVM, EtCO2 stable 35-40",
+        "circulation": "Radial pulses present, skin warm and drying",
+        "skin": { "color": "pink", "temperature": "warm", "moisture": "dry" },
+        "pupils": "Left pupil sluggish, right pupil reactive, unchanged",
+        "motorFunction": "Right-sided flaccid hemiparesis unchanged",
+        "otherFindings": [
+          "Head of stretcher elevated 30 degrees",
+          "Continuous waveform capnography confirms tube position",
+          "Stroke center notified of suspected LVO"
+        ],
+        "patientSpeech": "None — sedated, paralyzed, and intubated"
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Rhythm",
+        "ecgWaveform": 9,
+        "hr": 84,
+        "bpSys": 156,
+        "bpDia": 86,
+        "respRate": 12,
+        "spo2": 99,
+        "etco2": 37,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 0,
+        "glucose": 112,
+        "customMeasures": [],
+        "trendTimeSeconds": 30,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a9-positioning",
+          "shortAction": "Elevate head of stretcher 15-30 degrees, maintain neutral neck alignment during transport",
+          "protocolExcerpt": "Prevent aspiration – elevate head of stretcher 15–30 degrees if systolic BP greater than 100 mmHg - Maintain head and neck in neutral alignment, without flexing the neck",
+          "priority": "important",
+          "rationale": "Reduces further aspiration risk and supports airway/tube stability during transport.",
+          "protocolReference": "MATC: Suspected Stroke/Transient Ischemic Attack"
+        },
+        {
+          "id": "a10-notify",
+          "shortAction": "Transmit early stroke center notification for suspected large vessel occlusion",
+          "protocolExcerpt": "Early hospital notification per local stroke plan that should include any suspected large vessel occlusion (LVO) stroke",
+          "priority": "important",
+          "rationale": "Enables the receiving stroke center to mobilize the stroke team and thrombectomy resources before arrival.",
+          "protocolReference": "MATC: Suspected Stroke/Transient Ischemic Attack"
+        }
+      ],
+      "transitions": []
+    },
+    {
+      "id": "aspiration-branch",
+      "name": "Suctioning and RSI delayed",
+      "description": "The crew prioritizes history-taking and the stroke scale without first clearing the airway. The patient vomits again and aspirates before suction or RSI is initiated, worsening oxygenation.",
+      "triggerCondition": "Crew delays suctioning and airway management to complete the stroke assessment first; the patient has another emesis episode with the airway unprotected, leading to aspiration and a further drop in SpO2.",
+      "isDefault": false,
+      "clinicalPresentation": {
+        "avpu": "Pain",
+        "gcs": { "eye": 1, "verbal": 1, "motor": 3 },
+        "airway": "Audible gurgling worsens, further emesis aspirated",
+        "breathing": "Increasingly irregular, 8/min, shallow",
+        "circulation": "Radial pulses present, skin now mottled and diaphoretic",
+        "skin": { "color": "mottled", "temperature": "cool", "moisture": "diaphoretic" },
+        "pupils": "Left pupil sluggish, right pupil reactive",
+        "motorFunction": "Right-sided flaccid hemiparesis unchanged, left-side response now diminished",
+        "otherFindings": [
+          "Repeat emesis aspirated with airway still unprotected",
+          "SpO2 dropping despite supplemental oxygen",
+          "Increasing rhonchi on auscultation"
+        ],
+        "patientSpeech": "No verbal response, minimal response to painful stimulus"
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 118,
+        "bpSys": 168,
+        "bpDia": 94,
+        "respRate": 8,
+        "spo2": 78,
+        "etco2": 0,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 40,
+        "glucose": 112,
+        "customMeasures": [],
+        "trendTimeSeconds": 20,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a11-rescue-suction",
+          "shortAction": "Immediately suction airway and prepare for emergent RSI given worsening hypoxia",
+          "protocolExcerpt": "Suctioning to limit aspiration is a priority, since it is associated with development of hospital acquired pneumonia and related increases in ICU stay and mortality.",
+          "priority": "critical",
+          "rationale": "Delayed suctioning allowed further aspiration; immediate airway clearance is now emergent.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        }
+      ],
+      "transitions": []
+    }
+  ],
+  "realiti": {
+    "scenarioMonitorType": 2,
+    "scenarioDefaultEnergy": 200,
+    "scenarioDefaultPacerThreshold": 55
+  }
+}

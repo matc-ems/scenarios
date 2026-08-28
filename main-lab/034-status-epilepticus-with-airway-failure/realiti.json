@@ -1,0 +1,269 @@
+{
+  "scenarioId": "034-status-epilepticus-with-airway-failure",
+  "scenarioName": "034 - Status Epilepticus with Airway Failure",
+  "scenarioType": "Vital Signs",
+  "scenarioVersion": 2,
+  "scenarioTime": 1080,
+  "scenarioMonitorType": 2,
+  "scenarioDefaultEnergy": 200,
+  "scenarioDefaultPacerThreshold": 55,
+  "isDemo": false,
+  "isALSILegacy": false,
+  "scenarioStory": {
+    "history": "Wife called 911 after finding the patient having a generalized tonic-clonic seizure in the living room. She reports the seizure had already been going on for several minutes before she called, and by the time crews arrive convulsive movement has stopped, but the patient remains unresponsive with loud snoring respirations. No known trigger reported.",
+    "discussion": "",
+    "course": "Initial Contact: Crew arrives to find a 51-year-old male down on the living room floor, unresponsive, with loud snoring respirations. Wife reports witnessed generalized convulsions lasting over 6 minutes that have just stopped. → Airway repositioned and glucose checked: Crew repositions the airway, inserts a nasopharyngeal airway, applies oxygen, and checks blood glucose, which returns normal. Respirations and SpO2 improve somewhat but the patient remains GCS 5 with persistent snoring despite the adjunct. → RSI performed for airway failure: Crew recognizes ongoing airway failure despite basic adjuncts and proceeds with rapid sequence intubation: preoxygenation, premedication, induction with etomidate, paralysis with rocuronium, and successful tube placement confirmed with waveform capnography. → Tube secured and ventilation optimized: Patient is intubated, sedated, mechanically ventilated with EtCO2 maintained 35-45 mmHg, and transported with continuous waveform capnography and reassessment for tube displacement."
+  },
+  "patientInformation": {
+    "patientName": "Gregory Aldana",
+    "patientCondition": "Found seizing at home, now post-ictal with noisy breathing",
+    "patientAge": 51,
+    "patientAgeUnit": "years",
+    "patientAgeCategory": 0,
+    "patientSex": 1,
+    "patientHeight": 178,
+    "patientWeight": 90,
+    "patientPhotoId": 62,
+    "patientAdmitted": 1
+  },
+  "labs": [],
+  "scenarioEvents": [
+    {
+      "type": "ScenarioEvent",
+      "name": "Initial Contact",
+      "description": "Crew arrives to find a 51-year-old male down on the living room floor, unresponsive, with loud snoring respirations. Wife reports witnessed generalized convulsions lasting over 6 minutes that have just stopped.",
+      "monitorType": 0,
+      "trendTime": 0,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 118,
+        "bpSys": 152,
+        "bpDia": 94,
+        "respRate": 8,
+        "spo2": 88,
+        "etco2": 52,
+        "temp": 37.1,
+        "obstruction": 40,
+        "custMeasure1": 118,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Airway repositioned and glucose checked",
+      "description": "Crew repositions the airway, inserts a nasopharyngeal airway, applies oxygen, and checks blood glucose, which returns normal. Respirations and SpO2 improve somewhat but the patient remains GCS 5 with persistent snoring despite the adjunct.",
+      "monitorType": 0,
+      "trendTime": 30,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 112,
+        "bpSys": 148,
+        "bpDia": 90,
+        "respRate": 10,
+        "spo2": 91,
+        "etco2": 48,
+        "temp": 37.1,
+        "obstruction": 30,
+        "custMeasure1": 118,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Reposition airway (chin-lift/jaw thrust); insert NPA given intact gag reflex",
+        "Apply oxygen and place pulse oximetry/waveform capnography to monitor ventilation",
+        "Check blood glucose given ongoing altered mental status after seizure"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "RSI performed for airway failure",
+      "description": "Crew recognizes ongoing airway failure despite basic adjuncts and proceeds with rapid sequence intubation: preoxygenation, premedication, induction with etomidate, paralysis with rocuronium, and successful tube placement confirmed with waveform capnography.",
+      "monitorType": 0,
+      "trendTime": 40,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 96,
+        "bpSys": 138,
+        "bpDia": 84,
+        "respRate": 12,
+        "spo2": 99,
+        "etco2": 40,
+        "temp": 37,
+        "obstruction": 0,
+        "custMeasure1": 118,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Preoxygenate with high-flow O2 and positive pressure ventilation for at least 2 minutes before RSI",
+        "Etomidate 22.5 mg IV push (90 kg × 0.25 mg/kg = 22.5 mg) for induction",
+        "Rocuronium 90 mg IV push (90 kg × 1 mg/kg = 90 mg) for paralysis",
+        "Confirm ETT placement with waveform capnography, breath sounds, and absent gastric sounds",
+        "Fentanyl 90-180 mcg IV (90 kg × 1-2 mcg/kg) plus midazolam for post-intubation sedation"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Tube secured and ventilation optimized",
+      "description": "Patient is intubated, sedated, mechanically ventilated with EtCO2 maintained 35-45 mmHg, and transported with continuous waveform capnography and reassessment for tube displacement.",
+      "monitorType": 0,
+      "trendTime": 40,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 88,
+        "bpSys": 130,
+        "bpDia": 80,
+        "respRate": 12,
+        "spo2": 99,
+        "etco2": 38,
+        "temp": 37,
+        "obstruction": 0,
+        "custMeasure1": 118,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Continuously monitor waveform capnography during transport, reassessing after each patient movement"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "RSI delayed despite ongoing failure",
+      "description": "Crew continues basic airway maneuvers without escalating to RSI. The patient's ventilation continues to deteriorate, with rising EtCO2 and falling SpO2 indicating progression toward respiratory failure and hypoxic injury.",
+      "monitorType": 0,
+      "trendTime": 50,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 54,
+        "bpSys": 96,
+        "bpDia": 60,
+        "respRate": 6,
+        "spo2": 82,
+        "etco2": 66,
+        "temp": 37.1,
+        "obstruction": 55,
+        "custMeasure1": 118,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Recognize impending respiratory failure and escalate to BVM/RSI without further delay"
+      ],
+      "relatedSounds": []
+    }
+  ],
+  "checklist": [
+    {
+      "title": "Reposition airway (chin-lift/jaw thrust); insert NPA given intact gag reflex",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Apply oxygen and place pulse oximetry/waveform capnography to monitor ventilation",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Check blood glucose given ongoing altered mental status after seizure",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Preoxygenate with high-flow O2 and positive pressure ventilation for at least 2 minutes before RSI",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Etomidate 22.5 mg IV push (90 kg × 0.25 mg/kg = 22.5 mg) for induction",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Rocuronium 90 mg IV push (90 kg × 1 mg/kg = 90 mg) for paralysis",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Confirm ETT placement with waveform capnography, breath sounds, and absent gastric sounds",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Fentanyl 90-180 mcg IV (90 kg × 1-2 mcg/kg) plus midazolam for post-intubation sedation",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Continuously monitor waveform capnography during transport, reassessing after each patient movement",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Recognize impending respiratory failure and escalate to BVM/RSI without further delay",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    }
+  ],
+  "media": []
+}

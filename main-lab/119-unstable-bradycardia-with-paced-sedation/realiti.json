@@ -1,0 +1,262 @@
+{
+  "scenarioId": "119-unstable-bradycardia-with-paced-sedation",
+  "scenarioName": "119 - Unstable Bradycardia with Paced Sedation",
+  "scenarioType": "Vital Signs",
+  "scenarioVersion": 2,
+  "scenarioTime": 900,
+  "scenarioMonitorType": 2,
+  "scenarioDefaultEnergy": 200,
+  "scenarioDefaultPacerThreshold": 55,
+  "isDemo": false,
+  "isALSILegacy": false,
+  "scenarioStory": {
+    "history": "Patient reports feeling progressively weak and lightheaded over the past hour while gardening. Denies chest pain or shortness of breath. States it feels like her heart is 'beating really slow.' No prior episodes like this.",
+    "discussion": "",
+    "course": "Initial Contact: Crew arrives to find a 68-year-old female seated on the ground, pale and diaphoretic, alert but weak. Radial pulse is slow and thready. → Assessed and atropine given: Crew completes the initial assessment, establishes IV access, checks blood glucose, and administers atropine per protocol. Given the complete heart block and the patient's home metoprolol, response is expected to be limited. → Atropine fails, TCP with sedation performed: Atropine has failed to improve the heart rate given the complete heart block. Crew proceeds to transcutaneous pacing, administering fentanyl for analgesia/sedation before initiating pacing per protocol. → Capture achieved, perfusion improved: Transcutaneous pacing achieves consistent capture at a paced rate, improving heart rate and perfusion. The patient remains comfortable with fentanyl on board while the crew transports."
+  },
+  "patientInformation": {
+    "patientName": "Carol Jennings",
+    "patientCondition": "Dizziness and generalized weakness",
+    "patientAge": 68,
+    "patientAgeUnit": "years",
+    "patientAgeCategory": 0,
+    "patientSex": 2,
+    "patientHeight": 165,
+    "patientWeight": 70,
+    "patientPhotoId": 82,
+    "patientAdmitted": 1
+  },
+  "labs": [],
+  "scenarioEvents": [
+    {
+      "type": "ScenarioEvent",
+      "name": "Initial Contact",
+      "description": "Crew arrives to find a 68-year-old female seated on the ground, pale and diaphoretic, alert but weak. Radial pulse is slow and thready.",
+      "monitorType": 0,
+      "trendTime": 0,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 100,
+        "hr": 38,
+        "bpSys": 96,
+        "bpDia": 60,
+        "respRate": 16,
+        "spo2": 96,
+        "etco2": 0,
+        "temp": 36.7,
+        "obstruction": 0,
+        "custMeasure1": 118,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Assessed and atropine given",
+      "description": "Crew completes the initial assessment, establishes IV access, checks blood glucose, and administers atropine per protocol. Given the complete heart block and the patient's home metoprolol, response is expected to be limited.",
+      "monitorType": 0,
+      "trendTime": 30,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 100,
+        "hr": 40,
+        "bpSys": 94,
+        "bpDia": 58,
+        "respRate": 16,
+        "spo2": 96,
+        "etco2": 0,
+        "temp": 36.7,
+        "obstruction": 0,
+        "custMeasure1": 118,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Administer supplemental O2 titrated to 94-98% saturation",
+        "Initiate cardiac monitoring and obtain 12-lead EKG",
+        "Establish IV access",
+        "Check blood glucose to rule out hypoglycemia as a contributing cause",
+        "Atropine 1 mg IV; may repeat every 3-5 minutes (max total dose 3 mg)"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Atropine fails, TCP with sedation performed",
+      "description": "Atropine has failed to improve the heart rate given the complete heart block. Crew proceeds to transcutaneous pacing, administering fentanyl for analgesia/sedation before initiating pacing per protocol.",
+      "monitorType": 0,
+      "trendTime": 30,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 100,
+        "hr": 38,
+        "bpSys": 92,
+        "bpDia": 58,
+        "respRate": 16,
+        "spo2": 97,
+        "etco2": 0,
+        "temp": 36.7,
+        "obstruction": 0,
+        "custMeasure1": 118,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Fentanyl 70 mcg IV for pacing analgesia (70 kg x 1 mcg/kg; max initial 100 mcg)",
+        "Initiate transcutaneous pacing, titrating rate and current to achieve capture"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Capture achieved, perfusion improved",
+      "description": "Transcutaneous pacing achieves consistent capture at a paced rate, improving heart rate and perfusion. The patient remains comfortable with fentanyl on board while the crew transports.",
+      "monitorType": 0,
+      "trendTime": 40,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 70,
+        "bpSys": 112,
+        "bpDia": 68,
+        "respRate": 16,
+        "spo2": 98,
+        "etco2": 0,
+        "temp": 36.8,
+        "obstruction": 0,
+        "custMeasure1": 118,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Transport in position of comfort; reassess vitals, pain, and pacing capture serially"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "TCP performed without sedation",
+      "description": "Pacing is initiated without any analgesia or sedation. The patient experiences significant pain and distress from the pacing current, becoming agitated despite improving capture.",
+      "monitorType": 0,
+      "trendTime": 20,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 70,
+        "bpSys": 128,
+        "bpDia": 82,
+        "respRate": 22,
+        "spo2": 97,
+        "etco2": 0,
+        "temp": 36.8,
+        "obstruction": 0,
+        "custMeasure1": 118,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Recognize pacing-related pain; give fentanyl 70 mcg IV rescue analgesia (70 kg x 1 mcg/kg; max 100 mcg)"
+      ],
+      "relatedSounds": []
+    }
+  ],
+  "checklist": [
+    {
+      "title": "Administer supplemental O2 titrated to 94-98% saturation",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Initiate cardiac monitoring and obtain 12-lead EKG",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Establish IV access",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Check blood glucose to rule out hypoglycemia as a contributing cause",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Atropine 1 mg IV; may repeat every 3-5 minutes (max total dose 3 mg)",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Fentanyl 70 mcg IV for pacing analgesia (70 kg x 1 mcg/kg; max initial 100 mcg)",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Initiate transcutaneous pacing, titrating rate and current to achieve capture",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Transport in position of comfort; reassess vitals, pain, and pacing capture serially",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Recognize pacing-related pain; give fentanyl 70 mcg IV rescue analgesia (70 kg x 1 mcg/kg; max 100 mcg)",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    }
+  ],
+  "media": []
+}

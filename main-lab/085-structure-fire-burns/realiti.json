@@ -1,0 +1,236 @@
+{
+  "scenarioId": "085-structure-fire-burns",
+  "scenarioName": "085 - Structure Fire Burns",
+  "scenarioType": "Vital Signs",
+  "scenarioVersion": 2,
+  "scenarioTime": 900,
+  "scenarioMonitorType": 2,
+  "scenarioDefaultEnergy": 200,
+  "scenarioDefaultPacerThreshold": 55,
+  "isDemo": false,
+  "isALSILegacy": false,
+  "scenarioStory": {
+    "history": "Patient was asleep when a kitchen fire spread through her apartment. She was found by fire crews in a smoke-filled bedroom and carried out. She is coughing, her voice is progressively hoarser, and she has visible partial and full-thickness burns to her face, neck, and both forearms.",
+    "discussion": "",
+    "course": "Initial Contact: Crew finds a 39-year-old female just extracted from a smoke-filled apartment. She is alert, coughing, with soot around her mouth and nose, singed nasal hairs, a hoarsening voice, and visible burns to her face, neck, and forearms. → Early RSI performed for airway burn: Recognizing the sentinel signs of an airway burn, the crew performs early RSI before swelling progresses to complete obstruction. → Fluids and burn care initiated: With the airway secured, the crew estimates TBSA, begins fluid resuscitation per the Rule of Ten, dresses the burns, and prepares for burn center transport."
+  },
+  "patientInformation": {
+    "patientName": "Renee Castillo",
+    "patientCondition": "Burns and hoarse voice after being pulled from a house fire",
+    "patientAge": 39,
+    "patientAgeUnit": "years",
+    "patientAgeCategory": 0,
+    "patientSex": 2,
+    "patientHeight": 165,
+    "patientWeight": 65,
+    "patientPhotoId": 47,
+    "patientAdmitted": 1
+  },
+  "labs": [],
+  "scenarioEvents": [
+    {
+      "type": "ScenarioEvent",
+      "name": "Initial Contact",
+      "description": "Crew finds a 39-year-old female just extracted from a smoke-filled apartment. She is alert, coughing, with soot around her mouth and nose, singed nasal hairs, a hoarsening voice, and visible burns to her face, neck, and forearms.",
+      "monitorType": 0,
+      "trendTime": 0,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 116,
+        "bpSys": 128,
+        "bpDia": 82,
+        "respRate": 26,
+        "spo2": 95,
+        "etco2": 0,
+        "temp": 37,
+        "obstruction": 0,
+        "custMeasure1": 100,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Early RSI performed for airway burn",
+      "description": "Recognizing the sentinel signs of an airway burn, the crew performs early RSI before swelling progresses to complete obstruction.",
+      "monitorType": 0,
+      "trendTime": 30,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 105,
+        "bpSys": 122,
+        "bpDia": 78,
+        "respRate": 12,
+        "spo2": 98,
+        "etco2": 38,
+        "temp": 37,
+        "obstruction": 0,
+        "custMeasure1": 100,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Recognize stridor and hoarse voice as sentinel signs of a significant airway burn",
+        "Preoxygenate with high-flow O2 and positive pressure for 2 minutes before RSI",
+        "RSI: fentanyl 65 mcg IV (65 kg × 1 mcg/kg), etomidate 13 mg IV (65 kg × 0.2 mg/kg), rocuronium 65 mg IV (65 kg × 1 mg/kg)",
+        "Intubate with 7.5 mm ETT (adult female sizing), confirm with waveform capnography"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Fluids and burn care initiated",
+      "description": "With the airway secured, the crew estimates TBSA, begins fluid resuscitation per the Rule of Ten, dresses the burns, and prepares for burn center transport.",
+      "monitorType": 0,
+      "trendTime": 40,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 92,
+        "bpSys": 118,
+        "bpDia": 74,
+        "respRate": 12,
+        "spo2": 99,
+        "etco2": 40,
+        "temp": 36.8,
+        "obstruction": 0,
+        "custMeasure1": 98,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Estimate TBSA at 40% (rounded) using Rule of Nines, excluding first-degree burns",
+        "Initiate LR at 400 mL/hr (40% TBSA × 10; 65 kg patient, within the 40–80 kg bracket)",
+        "Remove jewelry and wet clothing, cover burns with dry dressing, leave blisters intact, no gels/ointments",
+        "Apply warming measures to prevent systemic heat loss",
+        "Transport to burn/trauma center given airway involvement and TBSA > 10%"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Airway management delayed",
+      "description": "The crew focuses on burn wound care and pain control while the airway burn progresses, and stridor worsens toward complete obstruction.",
+      "monitorType": 0,
+      "trendTime": 20,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 128,
+        "bpSys": 132,
+        "bpDia": 86,
+        "respRate": 32,
+        "spo2": 87,
+        "etco2": 0,
+        "temp": 37,
+        "obstruction": 1,
+        "custMeasure1": 100,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Recognize impending complete obstruction; perform surgical airway when oxygenation/ventilation cannot be achieved"
+      ],
+      "relatedSounds": []
+    }
+  ],
+  "checklist": [
+    {
+      "title": "Recognize stridor and hoarse voice as sentinel signs of a significant airway burn",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Preoxygenate with high-flow O2 and positive pressure for 2 minutes before RSI",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "RSI: fentanyl 65 mcg IV (65 kg × 1 mcg/kg), etomidate 13 mg IV (65 kg × 0.2 mg/kg), rocuronium 65 mg IV (65 kg × 1 mg/kg)",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Intubate with 7.5 mm ETT (adult female sizing), confirm with waveform capnography",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Estimate TBSA at 40% (rounded) using Rule of Nines, excluding first-degree burns",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Initiate LR at 400 mL/hr (40% TBSA × 10; 65 kg patient, within the 40–80 kg bracket)",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Remove jewelry and wet clothing, cover burns with dry dressing, leave blisters intact, no gels/ointments",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Apply warming measures to prevent systemic heat loss",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Transport to burn/trauma center given airway involvement and TBSA > 10%",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Recognize impending complete obstruction; perform surgical airway when oxygenation/ventilation cannot be achieved",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    }
+  ],
+  "media": []
+}

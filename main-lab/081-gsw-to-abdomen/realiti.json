@@ -1,0 +1,222 @@
+{
+  "scenarioId": "081-gsw-to-abdomen",
+  "scenarioName": "081 - GSW to Abdomen",
+  "scenarioType": "Vital Signs",
+  "scenarioVersion": 2,
+  "scenarioTime": 900,
+  "scenarioMonitorType": 2,
+  "scenarioDefaultEnergy": 200,
+  "scenarioDefaultPacerThreshold": 55,
+  "isDemo": false,
+  "isALSILegacy": false,
+  "scenarioStory": {
+    "history": "Patient was shot once in the left lower abdomen during an altercation outside a convenience store approximately 8 minutes prior to EMS arrival. Bystanders applied a t-shirt to the wound for direct pressure. Patient is diaphoretic, anxious, and reports severe abdominal pain with visible protruding bowel at the wound site.",
+    "discussion": "",
+    "course": "Initial Contact: Crew arrives to find a 31-year-old male with a single gunshot wound to the left lower abdomen, with a loop of bowel eviscerated through the wound. Patient is alert, diaphoretic, tachycardic, and hypotensive with ongoing external hemorrhage partially controlled by a bystander dressing. → Primary survey and hemorrhage controlled: Crew completes the MARCH primary survey, reinforces hemorrhage control at the wound site, covers the eviscerated bowel with a moist sterile dressing without attempting to reduce it, establishes IV access without delaying transport, and minimizes scene time given the penetrating torso trauma. → Permissive hypotension maintained en route: Crew titrates fluid boluses toward the trauma resuscitation target of SBP 90 mmHg rather than normalizing blood pressure, reassessing after each bolus, and provides advance notification to the receiving trauma center."
+  },
+  "patientInformation": {
+    "patientName": "Darnell Cooper",
+    "patientCondition": "Gunshot wound to abdomen",
+    "patientAge": 31,
+    "patientAgeUnit": "years",
+    "patientAgeCategory": 0,
+    "patientSex": 1,
+    "patientHeight": 178,
+    "patientWeight": 82,
+    "patientPhotoId": 38,
+    "patientAdmitted": 1
+  },
+  "labs": [],
+  "scenarioEvents": [
+    {
+      "type": "ScenarioEvent",
+      "name": "Initial Contact",
+      "description": "Crew arrives to find a 31-year-old male with a single gunshot wound to the left lower abdomen, with a loop of bowel eviscerated through the wound. Patient is alert, diaphoretic, tachycardic, and hypotensive with ongoing external hemorrhage partially controlled by a bystander dressing.",
+      "monitorType": 0,
+      "trendTime": 0,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 118,
+        "bpSys": 92,
+        "bpDia": 60,
+        "respRate": 24,
+        "spo2": 96,
+        "etco2": 0,
+        "temp": 36.7,
+        "obstruction": 0,
+        "custMeasure1": 95,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Primary survey and hemorrhage controlled",
+      "description": "Crew completes the MARCH primary survey, reinforces hemorrhage control at the wound site, covers the eviscerated bowel with a moist sterile dressing without attempting to reduce it, establishes IV access without delaying transport, and minimizes scene time given the penetrating torso trauma.",
+      "monitorType": 0,
+      "trendTime": 30,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 110,
+        "bpSys": 96,
+        "bpDia": 62,
+        "respRate": 22,
+        "spo2": 97,
+        "etco2": 0,
+        "temp": 36.7,
+        "obstruction": 0,
+        "custMeasure1": 95,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Perform MARCH primary survey; recognize penetrating torso trauma as high acuity",
+        "Reinforce direct pressure/wound packing at entry wound; roll and examine back for exit wound",
+        "Cover eviscerated bowel with moist sterile dressing; do not attempt to reduce contents",
+        "Establish large-bore IV access en route without delaying transport",
+        "Minimize scene time to under 10 minutes; initiate rapid transport to trauma center"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Permissive hypotension maintained en route",
+      "description": "Crew titrates fluid boluses toward the trauma resuscitation target of SBP 90 mmHg rather than normalizing blood pressure, reassessing after each bolus, and provides advance notification to the receiving trauma center.",
+      "monitorType": 0,
+      "trendTime": 40,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 104,
+        "bpSys": 92,
+        "bpDia": 60,
+        "respRate": 20,
+        "spo2": 98,
+        "etco2": 0,
+        "temp": 36.6,
+        "obstruction": 0,
+        "custMeasure1": 95,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Give 500 mL crystalloid bolus targeting SBP 90 mmHg; reassess after bolus",
+        "Provide advance notification to trauma center using AT-MIST report"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Evisceration contents reduced improperly",
+      "description": "Crew mistakenly attempts to manually push the protruding bowel back into the abdominal cavity and applies a dry dressing instead of moist coverage, risking contamination and further tissue injury while delaying attention to ongoing hemorrhage.",
+      "monitorType": 0,
+      "trendTime": 20,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 128,
+        "bpSys": 84,
+        "bpDia": 56,
+        "respRate": 26,
+        "spo2": 94,
+        "etco2": 0,
+        "temp": 36.8,
+        "obstruction": 0,
+        "custMeasure1": 95,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Recognize improper evisceration management; expose wound, apply moist sterile dressing, avoid reduction"
+      ],
+      "relatedSounds": []
+    }
+  ],
+  "checklist": [
+    {
+      "title": "Perform MARCH primary survey; recognize penetrating torso trauma as high acuity",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Reinforce direct pressure/wound packing at entry wound; roll and examine back for exit wound",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Cover eviscerated bowel with moist sterile dressing; do not attempt to reduce contents",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Establish large-bore IV access en route without delaying transport",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Minimize scene time to under 10 minutes; initiate rapid transport to trauma center",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Give 500 mL crystalloid bolus targeting SBP 90 mmHg; reassess after bolus",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Provide advance notification to trauma center using AT-MIST report",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Recognize improper evisceration management; expose wound, apply moist sterile dressing, avoid reduction",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    }
+  ],
+  "media": []
+}

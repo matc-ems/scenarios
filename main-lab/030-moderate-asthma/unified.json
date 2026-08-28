@@ -1,0 +1,365 @@
+{
+  "meta": {
+    "id": "030-moderate-asthma",
+    "name": "030 - Moderate Asthma",
+    "version": 1,
+    "difficulty": "intermediate",
+    "category": "Respiratory",
+    "protocols": ["resp-respiratory-distress", "resp-airway-management"],
+    "totalTimeSeconds": 900,
+    "tags": ["respiratory", "asthma", "bronchospasm", "CPAP", "nebulizer", "915"]
+  },
+  "patient": {
+    "name": "Renee Castillo",
+    "age": 34,
+    "ageUnit": "years",
+    "sex": "female",
+    "weight": 70,
+    "weightLbs": 154,
+    "height": 165,
+    "chiefComplaint": "Progressive shortness of breath not relieved by rescue inhaler",
+    "history": {
+      "hpi": "Patient with known asthma since childhood reports worsening shortness of breath over the past hour after a URI this week. Used her albuterol MDI four times in the last 45 minutes with minimal relief before calling 911. No fever, no chest pain, no known trigger exposure today.",
+      "pastMedical": ["Asthma (moderate persistent)", "Seasonal allergies"],
+      "medications": ["Albuterol MDI PRN", "Fluticasone/salmeterol inhaler daily"],
+      "allergies": ["NKDA"],
+      "lastOralIntake": "Dinner approximately 3 hours prior to symptom onset",
+      "events": "Developed progressive dyspnea after a several-day upper respiratory infection; overused home rescue inhaler without relief and called 911"
+    }
+  },
+  "scene": {
+    "dispatch": "34-year-old female, difficulty breathing, residence",
+    "location": "Second-floor apartment, patient seated on living room couch",
+    "time": "9:15 PM, weekday",
+    "safety": "No hazards to crew noted",
+    "bystanders": "Roommate present, states patient has been \"wheezing badly\" for the last hour and has used her inhaler repeatedly",
+    "visualCues": [
+      "Patient sitting upright, leaning forward, hands on knees (tripod)",
+      "Visible accessory muscle use with intercostal retractions",
+      "Empty albuterol MDI canister on the coffee table",
+      "Audible expiratory wheeze from across the room",
+      "Speaking in 3-4 word phrases"
+    ]
+  },
+  "phases": [
+    {
+      "id": "initial",
+      "name": "Initial Contact",
+      "description": "Crew arrives to find a 34-year-old female in moderate-to-severe respiratory distress, tripod positioning, with audible wheezing and accessory muscle use. She reports overusing her rescue inhaler without relief.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent, speaking in 3-4 word phrases",
+        "breathing": "Labored, prolonged expiratory phase, intercostal and subcostal retractions, audible wheezing bilaterally",
+        "circulation": "Radial pulses present bilaterally, rapid",
+        "skin": { "color": "pale", "temperature": "warm", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Grossly intact",
+        "otherFindings": [
+          "Tripod positioning",
+          "Diffuse expiratory wheezing on auscultation, diminished air entry at bases",
+          "Anxious affect",
+          "Unable to complete full sentences"
+        ],
+        "patientSpeech": "\"Can't... catch my breath... inhaler's not working.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 118,
+        "bpSys": 132,
+        "bpDia": 84,
+        "respRate": 26,
+        "spo2": 91,
+        "etco2": 38,
+        "temp": 37.1,
+        "tempF": 98.8,
+        "obstruction": 40,
+        "glucose": 98,
+        "customMeasures": [],
+        "trendTimeSeconds": 0,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [],
+      "transitions": [
+        {
+          "targetPhaseId": "nebs-started",
+          "if": "Oxygen and nebulized bronchodilators given",
+          "condition": "Crew applies supplemental oxygen and administers nebulized albuterol/ipratropium for signs of bronchospasm with respiratory distress.",
+          "conditionType": "action_taken"
+        }
+      ]
+    },
+    {
+      "id": "nebs-started",
+      "name": "Oxygen and nebulized bronchodilators given",
+      "description": "Crew administers supplemental oxygen and nebulized albuterol/ipratropium. Despite treatment, the patient shows minimal improvement and remains in significant distress.",
+      "triggerCondition": "After recognizing signs of bronchospasm with respiratory distress, the crew applies oxygen and begins nebulized albuterol and ipratropium per protocol, but the patient does not respond adequately.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent, still speaking in short phrases",
+        "breathing": "Persistent labored breathing, continued retractions, wheezing largely unchanged",
+        "circulation": "Radial pulses present bilaterally, rapid",
+        "skin": { "color": "pale", "temperature": "warm", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Grossly intact",
+        "otherFindings": [
+          "Minimal improvement after nebulized treatment",
+          "Continued tripod positioning",
+          "Persistent accessory muscle use"
+        ],
+        "patientSpeech": "\"Still... can't get enough air.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 122,
+        "bpSys": 134,
+        "bpDia": 86,
+        "respRate": 28,
+        "spo2": 92,
+        "etco2": 40,
+        "temp": 37.1,
+        "tempF": 98.8,
+        "obstruction": 45,
+        "glucose": 98,
+        "customMeasures": [],
+        "trendTimeSeconds": 30,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a1-o2",
+          "shortAction": "Administer supplemental O2 titrated to target SpO2 94-98%",
+          "protocolExcerpt": "Give supplemental oxygen for dyspnea to a target of 94–98% saturation. Escalate from a nasal cannula as needed to reach this goal",
+          "priority": "critical",
+          "rationale": "Corrects hypoxemia while other therapies take effect.",
+          "protocolReference": "MATC: Respiratory Distress"
+        },
+        {
+          "id": "a2-albuterol",
+          "shortAction": "Albuterol 5 mg nebulized for bronchospasm with respiratory distress",
+          "protocolExcerpt": "albuterol 5 mg nebulized (or 6 puffs metered dose inhaler) should be administered to all patients in respiratory distress with signs of bronchospasm (e.g., known asthmatics, quiet wheezers). Repeat at this dose with unlimited frequency for ongoing respiratory distress",
+          "priority": "critical",
+          "rationale": "First-line bronchodilator for asthma exacerbation with distress.",
+          "protocolReference": "MATC: Respiratory Distress"
+        },
+        {
+          "id": "a3-ipratropium",
+          "shortAction": "Ipratropium 0.5 mg nebulized in conjunction with albuterol",
+          "protocolExcerpt": "Ipratropium 0.5 mg nebulized should be given up to 3 doses in conjunction with albuterol",
+          "priority": "important",
+          "rationale": "Adjunct bronchodilator that may decrease need for hospital admission when combined with albuterol.",
+          "protocolReference": "MATC: Respiratory Distress"
+        },
+        {
+          "id": "a4-monitor",
+          "shortAction": "Apply continuous pulse oximetry and waveform capnography",
+          "protocolExcerpt": "Patients with significant respiratory distress should have continuous pulse oximetry and waveform capnography monitoring for both assessment and for guiding therapy",
+          "priority": "important",
+          "rationale": "A rising or normalizing EtCO2 despite tachypnea signals impending respiratory failure.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "cpap-initiated",
+          "if": "CPAP with in-line duoneb started",
+          "condition": "Given persistent severe distress despite nebulized bronchodilators, the crew escalates to non-invasive ventilation (CPAP) with nebulized medication administered in line.",
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a2-albuterol"]
+        },
+        {
+          "targetPhaseId": "cpap-delayed",
+          "if": "CPAP escalation delayed",
+          "condition": "Crew continues nebulized treatments alone without escalating to non-invasive ventilation despite persistent severe distress, allowing progression toward respiratory failure.",
+          "conditionType": "action_not_taken"
+        }
+      ]
+    },
+    {
+      "id": "cpap-initiated",
+      "name": "CPAP with in-line duoneb started",
+      "description": "Crew escalates to CPAP with nebulized albuterol/ipratropium administered in line through a T-connector. The patient begins to show improved air movement and decreased work of breathing.",
+      "triggerCondition": "Persistent severe respiratory distress despite nebulized bronchodilators meets criteria for non-invasive ventilation; CPAP is applied with continued nebulized medication delivered in line.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent, tolerating CPAP mask",
+        "breathing": "Improved air entry, decreased accessory muscle use, mask seal maintained",
+        "circulation": "Radial pulses present bilaterally",
+        "skin": { "color": "pink", "temperature": "warm", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Grossly intact",
+        "otherFindings": [
+          "CPAP mask in place with continuous seal",
+          "Nebulizer running in-line via T-connector",
+          "Improved wheeze, less quiet chest"
+        ],
+        "patientSpeech": "\"A little... better now.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 108,
+        "bpSys": 128,
+        "bpDia": 80,
+        "respRate": 22,
+        "spo2": 96,
+        "etco2": 39,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 30,
+        "glucose": 98,
+        "customMeasures": [],
+        "trendTimeSeconds": 40,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a5-cpap",
+          "shortAction": "Initiate CPAP with nebulizer administered in-line via T-connector",
+          "protocolExcerpt": "Non-invasive ventilation (NIV) should be administered for severe respiratory distress via BVM, continuous positive airway pressure (CPAP) or bi-level positive airway pressure (BiPAP). If indicated, bronchodilators should be administered in line with NIV. Nebulized medications may be administered through a CPAP or BiPAP mask. A specialized T-connector with a spring valve assembly is required to allow maintenance of positive airway pressure",
+          "priority": "critical",
+          "rationale": "Escalates support for persistent severe bronchospasm not responding to nebulizers alone.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        },
+        {
+          "id": "a6-maintain-seal",
+          "shortAction": "Maintain continuous CPAP mask seal; do not discontinue en route",
+          "protocolExcerpt": "Once initiated and patient is tolerating mask, DO NOT discontinue CPAP/BiPAP until patient is on the emergency department stretcher and hospital CPAP/BiPAP is immediately available for patient to be switched over, or physician is at bedside and requesting CPAP/BiPAP be discontinued. Breaking the mask seal causes a significant decrease in airway pressures and may lead to abrupt decompensation due to atelectasis and alveolar collapse",
+          "priority": "critical",
+          "rationale": "Breaking the seal risks abrupt decompensation from lost airway pressure.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "transport",
+          "if": "Improved on CPAP, prepared for transport",
+          "condition": "Patient's work of breathing and oxygenation improve on CPAP with in-line bronchodilator; crew packages for transport while maintaining the mask seal.",
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a5-cpap", "a6-maintain-seal"]
+        }
+      ]
+    },
+    {
+      "id": "transport",
+      "name": "Improved on CPAP, prepared for transport",
+      "description": "Patient remains on CPAP with in-line nebulized bronchodilator during transport, with improved oxygenation and decreased work of breathing.",
+      "triggerCondition": "After CPAP and in-line bronchodilator therapy improve the patient's respiratory status, the crew continues therapy and transports with ongoing reassessment.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent, tolerating CPAP well",
+        "breathing": "Mild residual distress, much improved air entry",
+        "circulation": "Radial pulses present bilaterally, rate improving",
+        "skin": { "color": "pink", "temperature": "warm", "moisture": "dry" },
+        "pupils": "PERRL",
+        "motorFunction": "Grossly intact",
+        "otherFindings": [
+          "Continued CPAP with in-line nebulizer",
+          "Improved wheeze, better air movement bilaterally"
+        ],
+        "patientSpeech": "\"I can breathe a little easier.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Rhythm",
+        "ecgWaveform": 9,
+        "hr": 98,
+        "bpSys": 124,
+        "bpDia": 78,
+        "respRate": 18,
+        "spo2": 97,
+        "etco2": 38,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 20,
+        "glucose": 98,
+        "customMeasures": [],
+        "trendTimeSeconds": 45,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a7-reassess",
+          "shortAction": "Reassess respiratory status, SpO2, and EtCO2 serially en route",
+          "protocolExcerpt": "Ongoing assessment is critical when an airway device is in place. Acute worsening of respiratory status or evidence of hypoxemia can be secondary to displacement or obstruction of the airway device",
+          "priority": "important",
+          "rationale": "Ensures continued response to therapy and early detection of deterioration.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        }
+      ],
+      "transitions": []
+    },
+    {
+      "id": "cpap-delayed",
+      "name": "CPAP escalation delayed",
+      "description": "Crew continues nebulized bronchodilators alone without escalating to non-invasive ventilation. The patient tires, air movement worsens, and EtCO2 begins normalizing despite ongoing tachypnea — an ominous sign of impending respiratory failure.",
+      "triggerCondition": "Persistent severe distress with minimal response to nebulized therapy is not escalated to CPAP; the patient progressively fatigues toward respiratory failure.",
+      "isDefault": false,
+      "clinicalPresentation": {
+        "avpu": "Verbal",
+        "gcs": { "eye": 3, "verbal": 4, "motor": 6 },
+        "airway": "Patent but tiring, weaker cough",
+        "breathing": "Shallow, rapid, diminishing air entry bilaterally, minimal audible wheeze (ominous quiet chest)",
+        "circulation": "Radial pulses present, thready",
+        "skin": { "color": "cyanotic (perioral)", "temperature": "cool", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Grossly intact, appears exhausted",
+        "otherFindings": [
+          "Progressive fatigue, decreased responsiveness",
+          "EtCO2 normalizing/rising despite continued tachypnea — impending respiratory failure",
+          "Minimal wheeze audible (quiet chest)"
+        ],
+        "patientSpeech": "\"...can't...\" (unable to complete words)"
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 138,
+        "bpSys": 118,
+        "bpDia": 74,
+        "respRate": 34,
+        "spo2": 87,
+        "etco2": 44,
+        "temp": 37.1,
+        "tempF": 98.8,
+        "obstruction": 70,
+        "glucose": 98,
+        "customMeasures": [],
+        "trendTimeSeconds": 50,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a8-recognize-failure",
+          "shortAction": "Recognize impending respiratory failure from normalizing EtCO2 despite tachypnea",
+          "protocolExcerpt": "Normal EtCO2 (35–45 mmHg) with tachypnea and respiratory distress is an indicator of impending respiratory failure",
+          "priority": "critical",
+          "rationale": "A quiet chest and normalizing EtCO2 in a tachypneic asthmatic signals exhaustion, not improvement.",
+          "protocolReference": "MATC: Respiratory Distress"
+        },
+        {
+          "id": "a9-escalate-niv",
+          "shortAction": "Emergently escalate to CPAP or assisted BVM ventilation with in-line bronchodilator",
+          "protocolExcerpt": "Non-invasive ventilation (NIV) should be considered early for severe respiratory distress or impending respiratory failure. Use bag-valve-mask (BVM) ventilation in the setting of respiratory failure or arrest",
+          "priority": "critical",
+          "rationale": "Delayed escalation risks progression to full respiratory arrest.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        }
+      ],
+      "transitions": []
+    }
+  ],
+  "realiti": {
+    "scenarioMonitorType": 2,
+    "scenarioDefaultEnergy": 200,
+    "scenarioDefaultPacerThreshold": 55
+  }
+}

@@ -1,0 +1,215 @@
+{
+  "scenarioId": "104-pediatric-sepsis",
+  "scenarioName": "104 - Pediatric Sepsis",
+  "scenarioType": "Vital Signs",
+  "scenarioVersion": 2,
+  "scenarioTime": 900,
+  "scenarioMonitorType": 2,
+  "scenarioDefaultEnergy": 200,
+  "scenarioDefaultPacerThreshold": 55,
+  "isDemo": false,
+  "isALSILegacy": false,
+  "scenarioStory": {
+    "history": "Parents report the infant has had a fever since yesterday, progressively more difficult to console today, and has refused her bottle for several hours. This evening she became unusually sleepy and hard to arouse, prompting the 911 call. No vomiting or diarrhea reported. No known sick contacts, though an older sibling attends daycare.",
+    "discussion": "",
+    "course": "Initial Contact: Crew finds a 6-month-old female who is lethargic, febrile, and difficult to arouse. She has mottled skin, delayed capillary refill, and a sunken fontanelle consistent with poor perfusion and dehydration. → IO access obtained, fluids started: Crew places an IO line after anticipating difficult peripheral access in this hypoperfused infant, checks blood glucose, and begins a weight-based isotonic fluid bolus toward pediatric shock resuscitation targets. → Repeat bolus given, perfusion improves: After a second weight-based fluid bolus, the infant shows improving perfusion with decreasing heart rate, improving capillary refill, and better responsiveness. The crew continues serial reassessment en route to the hospital."
+  },
+  "patientInformation": {
+    "patientName": "Nora Martinez",
+    "patientCondition": "Fever and lethargy",
+    "patientAge": 6,
+    "patientAgeUnit": "months",
+    "patientAgeCategory": 1,
+    "patientSex": 2,
+    "patientHeight": 65,
+    "patientWeight": 7.5,
+    "patientPhotoId": 8,
+    "patientAdmitted": 1
+  },
+  "labs": [],
+  "scenarioEvents": [
+    {
+      "type": "ScenarioEvent",
+      "name": "Initial Contact",
+      "description": "Crew finds a 6-month-old female who is lethargic, febrile, and difficult to arouse. She has mottled skin, delayed capillary refill, and a sunken fontanelle consistent with poor perfusion and dehydration.",
+      "monitorType": 0,
+      "trendTime": 0,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 190,
+        "bpSys": 68,
+        "bpDia": 38,
+        "respRate": 50,
+        "spo2": 96,
+        "etco2": 0,
+        "temp": 39.2,
+        "obstruction": 0,
+        "custMeasure1": 90,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "IO access obtained, fluids started",
+      "description": "Crew places an IO line after anticipating difficult peripheral access in this hypoperfused infant, checks blood glucose, and begins a weight-based isotonic fluid bolus toward pediatric shock resuscitation targets.",
+      "monitorType": 0,
+      "trendTime": 30,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 175,
+        "bpSys": 70,
+        "bpDia": 40,
+        "respRate": 46,
+        "spo2": 97,
+        "etco2": 0,
+        "temp": 39,
+        "obstruction": 0,
+        "custMeasure1": 90,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Place IO needle for vascular access given anticipated difficult peripheral IV in a hypoperfused infant",
+        "Normal saline bolus 150 mL IV/IO (7.5 kg x 20 mL/kg = 150 mL) over less than 15 minutes",
+        "Check blood glucose; correct with dextrose if less than 60 mg/dL",
+        "Provide advance notification to receiving hospital for suspected pediatric septic shock"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Repeat bolus given, perfusion improves",
+      "description": "After a second weight-based fluid bolus, the infant shows improving perfusion with decreasing heart rate, improving capillary refill, and better responsiveness. The crew continues serial reassessment en route to the hospital.",
+      "monitorType": 0,
+      "trendTime": 40,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 150,
+        "bpSys": 78,
+        "bpDia": 44,
+        "respRate": 38,
+        "spo2": 98,
+        "etco2": 0,
+        "temp": 38.6,
+        "obstruction": 0,
+        "custMeasure1": 88,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Repeat normal saline bolus 150 mL IV/IO (7.5 kg x 20 mL/kg = 150 mL), total 300 mL toward 450 mL (60 mL/kg) goal",
+        "Reassess vital signs, perfusion, and mental status after each fluid bolus"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "IO access delayed, fluids withheld",
+      "description": "Vascular access and fluid resuscitation are delayed despite clear signs of compensated septic shock. The infant decompensates, with worsening tachycardia, dropping blood pressure below the pediatric hypotension threshold, and declining mental status.",
+      "monitorType": 0,
+      "trendTime": 45,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 210,
+        "bpSys": 58,
+        "bpDia": 32,
+        "respRate": 55,
+        "spo2": 92,
+        "etco2": 0,
+        "temp": 39.4,
+        "obstruction": 0,
+        "custMeasure1": 85,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Recognize uncompensated shock (SBP below 60 mmHg for age); establish IO access emergently and begin fluid bolus"
+      ],
+      "relatedSounds": []
+    }
+  ],
+  "checklist": [
+    {
+      "title": "Place IO needle for vascular access given anticipated difficult peripheral IV in a hypoperfused infant",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Normal saline bolus 150 mL IV/IO (7.5 kg x 20 mL/kg = 150 mL) over less than 15 minutes",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Check blood glucose; correct with dextrose if less than 60 mg/dL",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Provide advance notification to receiving hospital for suspected pediatric septic shock",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Repeat normal saline bolus 150 mL IV/IO (7.5 kg x 20 mL/kg = 150 mL), total 300 mL toward 450 mL (60 mL/kg) goal",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Reassess vital signs, perfusion, and mental status after each fluid bolus",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Recognize uncompensated shock (SBP below 60 mmHg for age); establish IO access emergently and begin fluid bolus",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    }
+  ],
+  "media": []
+}

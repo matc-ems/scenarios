@@ -1,0 +1,215 @@
+{
+  "scenarioId": "012-trauma-with-difficult-vascular-access",
+  "scenarioName": "012 - Trauma with Difficult Vascular Access",
+  "scenarioType": "Vital Signs",
+  "scenarioVersion": 2,
+  "scenarioTime": 900,
+  "scenarioMonitorType": 2,
+  "scenarioDefaultEnergy": 200,
+  "scenarioDefaultPacerThreshold": 55,
+  "isDemo": false,
+  "isALSILegacy": false,
+  "scenarioStory": {
+    "history": "Restrained driver in a single-vehicle collision, moderate front-end intrusion, airbag deployed. Patient is alert but reports diffuse abdominal pain and lightheadedness when the stretcher head is raised. No loss of consciousness reported. Denies chest pain or shortness of breath.",
+    "discussion": "",
+    "course": "Initial Contact: Crew arrives to find a 28-year-old male restrained in the driver's seat, alert but pale and diaphoretic, reporting diffuse abdominal pain. Vital signs reveal early compensated shock from suspected intra-abdominal hemorrhage. → IO placed after failed IV attempts: After two unsuccessful peripheral IV attempts on severely vasoconstricted veins, the crew places a humeral IO and begins fluid resuscitation while continuing serial reassessment for occult hemorrhage. → Packaged for rapid transport: With IO access established and fluid resuscitation underway, the patient is packaged and rapidly transported to an appropriate trauma center, with ongoing serial vital sign reassessment for evolving hemorrhagic shock."
+  },
+  "patientInformation": {
+    "patientName": "Marcus Delgado",
+    "patientCondition": "Motor vehicle collision with abdominal pain and lightheadedness",
+    "patientAge": 28,
+    "patientAgeUnit": "years",
+    "patientAgeCategory": 0,
+    "patientSex": 1,
+    "patientHeight": 178,
+    "patientWeight": 82,
+    "patientPhotoId": 34,
+    "patientAdmitted": 1
+  },
+  "labs": [],
+  "scenarioEvents": [
+    {
+      "type": "ScenarioEvent",
+      "name": "Initial Contact",
+      "description": "Crew arrives to find a 28-year-old male restrained in the driver's seat, alert but pale and diaphoretic, reporting diffuse abdominal pain. Vital signs reveal early compensated shock from suspected intra-abdominal hemorrhage.",
+      "monitorType": 0,
+      "trendTime": 0,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 112,
+        "bpSys": 88,
+        "bpDia": 58,
+        "respRate": 22,
+        "spo2": 95,
+        "etco2": 0,
+        "temp": 36.7,
+        "obstruction": 0,
+        "custMeasure1": 98,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "IO placed after failed IV attempts",
+      "description": "After two unsuccessful peripheral IV attempts on severely vasoconstricted veins, the crew places a humeral IO and begins fluid resuscitation while continuing serial reassessment for occult hemorrhage.",
+      "monitorType": 0,
+      "trendTime": 30,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 104,
+        "bpSys": 96,
+        "bpDia": 62,
+        "respRate": 20,
+        "spo2": 96,
+        "etco2": 0,
+        "temp": 36.7,
+        "obstruction": 0,
+        "custMeasure1": 98,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Perform MARCH primary survey: hemorrhage, airway, breathing, circulation, head/hypothermia",
+        "Place IO after 2 failed peripheral IV attempts (or >90 sec) on vasoconstricted veins",
+        "Give 500 mL isotonic fluid bolus via IO for SBP <90 mmHg with HR >100",
+        "Reassess SBP and mental status after fluid bolus"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Packaged for rapid transport",
+      "description": "With IO access established and fluid resuscitation underway, the patient is packaged and rapidly transported to an appropriate trauma center, with ongoing serial vital sign reassessment for evolving hemorrhagic shock.",
+      "monitorType": 0,
+      "trendTime": 40,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 100,
+        "bpSys": 102,
+        "bpDia": 66,
+        "respRate": 18,
+        "spo2": 97,
+        "etco2": 0,
+        "temp": 36.7,
+        "obstruction": 0,
+        "custMeasure1": 98,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Reassess vitals and neuro status serially en route; monitor for occult hemorrhage",
+        "Minimize scene time (<10 min) and transport to appropriate trauma center per field triage guideline"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Peripheral attempts continue past threshold",
+      "description": "The crew continues attempting peripheral IV access beyond the two-attempt/90-second threshold instead of transitioning to IO. Fluid resuscitation is delayed and the patient's compensated shock begins to decompensate.",
+      "monitorType": 0,
+      "trendTime": 50,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 132,
+        "bpSys": 74,
+        "bpDia": 48,
+        "respRate": 26,
+        "spo2": 92,
+        "etco2": 0,
+        "temp": 36.5,
+        "obstruction": 0,
+        "custMeasure1": 98,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Stop peripheral attempts now; place IO immediately and begin fluid bolus"
+      ],
+      "relatedSounds": []
+    }
+  ],
+  "checklist": [
+    {
+      "title": "Perform MARCH primary survey: hemorrhage, airway, breathing, circulation, head/hypothermia",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Place IO after 2 failed peripheral IV attempts (or >90 sec) on vasoconstricted veins",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Give 500 mL isotonic fluid bolus via IO for SBP <90 mmHg with HR >100",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Reassess SBP and mental status after fluid bolus",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Reassess vitals and neuro status serially en route; monitor for occult hemorrhage",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Minimize scene time (<10 min) and transport to appropriate trauma center per field triage guideline",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Stop peripheral attempts now; place IO immediately and begin fluid bolus",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    }
+  ],
+  "media": []
+}

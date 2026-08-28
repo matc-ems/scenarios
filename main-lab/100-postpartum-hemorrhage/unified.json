@@ -1,0 +1,315 @@
+{
+  "meta": {
+    "id": "100-postpartum-hemorrhage",
+    "name": "100 - Postpartum Hemorrhage",
+    "version": 1,
+    "difficulty": "intermediate",
+    "category": "OB/GYN",
+    "protocols": ["obgyn-childbirth", "medical-shock"],
+    "totalTimeSeconds": 900,
+    "tags": ["OB", "postpartum hemorrhage", "shock", "921"]
+  },
+  "patient": {
+    "name": "Maria Delgado",
+    "age": 27,
+    "ageUnit": "years",
+    "sex": "female",
+    "weight": 68,
+    "weightLbs": 150,
+    "height": 165,
+    "chiefComplaint": "Continued heavy vaginal bleeding after home delivery 30 minutes ago",
+    "history": {
+      "hpi": "Patient delivered a healthy full-term infant at home approximately 30 minutes ago with the assistance of family; no midwife or EMS present for the delivery itself. Placenta delivered spontaneously about 10 minutes after the infant. Family reports steadily worsening vaginal bleeding since placental delivery, soaking through multiple towels. Patient reports feeling increasingly dizzy and weak since the bleeding started.",
+      "pastMedical": ["G2P2, uncomplicated pregnancy", "No prior history of postpartum hemorrhage"],
+      "medications": ["Prenatal vitamins"],
+      "allergies": ["NKDA"],
+      "lastOralIntake": "Light snack approximately 6 hours prior to delivery",
+      "events": "Rapid, unplanned home delivery; family called 911 after noting escalating vaginal bleeding following delivery of the placenta"
+    }
+  },
+  "scene": {
+    "dispatch": "27-year-old female, postpartum bleeding, residence, patient conscious",
+    "location": "Single-family home, upstairs bedroom, patient supine on bed with newborn wrapped and resting on mother's chest",
+    "time": "2:15 AM, weekday",
+    "safety": "No hazards to crew; heavily blood-soaked linens on the bed",
+    "bystanders": "Husband present, assisted with the delivery and called 911; visibly distressed",
+    "visualCues": [
+      "Heavily blood-soaked towels and sheets beneath the patient",
+      "Placenta already delivered, contained in a bowl nearby",
+      "Newborn wrapped in a towel on mother's chest, pink and vigorous",
+      "Patient appears pale and diaphoretic"
+    ]
+  },
+  "phases": [
+    {
+      "id": "initial",
+      "name": "Initial Contact",
+      "description": "Crew arrives to find a 27-year-old female approximately 30 minutes postpartum with a healthy newborn on her chest and ongoing heavy vaginal bleeding soaking through towels. She is alert but reports dizziness and weakness.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent, speaking full sentences",
+        "breathing": "Nonlabored, 20/min",
+        "circulation": "Radial pulses present, rapid and thready",
+        "skin": { "color": "pale", "temperature": "cool", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Strength intact; reports lightheadedness when attempting to sit up",
+        "otherFindings": [
+          "Continued heavy vaginal bleeding with visible clots",
+          "Uterine fundus palpable at the umbilicus, boggy and poorly contracted",
+          "Newborn pink, vigorous, appears well"
+        ],
+        "patientSpeech": "\"I feel really dizzy... is the bleeding supposed to be this much?\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 116,
+        "bpSys": 100,
+        "bpDia": 66,
+        "respRate": 20,
+        "spo2": 97,
+        "etco2": 0,
+        "temp": 36.9,
+        "tempF": 98.4,
+        "obstruction": 0,
+        "glucose": 92,
+        "customMeasures": [],
+        "trendTimeSeconds": 0,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [],
+      "transitions": [
+        {
+          "targetPhaseId": "massage-iv-fluids",
+          "if": "Fundal massage and IV fluids started",
+          "condition": "Crew recognizes a boggy, poorly contracted uterine fundus with heavy ongoing bleeding, performs fundal massage, obtains IV access, and initiates fluid resuscitation.",
+          "conditionType": "action_taken"
+        }
+      ]
+    },
+    {
+      "id": "massage-iv-fluids",
+      "name": "Fundal massage and IV fluids started",
+      "description": "Crew performs fundal massage, obtains OB and bleeding history, establishes IV access, and initiates a fluid bolus while continuously reassessing for improvement in bleeding and perfusion.",
+      "triggerCondition": "After recognizing the boggy uterine fundus and ongoing hemorrhage, the crew immediately performs fundal massage, obtains OB and bleeding history, establishes IV access per the Shock guideline's two-attempt/90-second threshold, and starts an isotonic fluid bolus toward a MAP goal of 65 mmHg.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "Nonlabored, 18/min",
+        "circulation": "Radial pulses stronger but still tachycardic",
+        "skin": { "color": "pale", "temperature": "cool", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Strength intact",
+        "otherFindings": [
+          "Fundal massage in progress, uterus beginning to firm",
+          "IV established, 500 mL bolus infusing",
+          "Bleeding slowing but still present"
+        ],
+        "patientSpeech": "\"That helps a little, I think.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 108,
+        "bpSys": 104,
+        "bpDia": 68,
+        "respRate": 18,
+        "spo2": 98,
+        "etco2": 0,
+        "temp": 36.9,
+        "tempF": 98.4,
+        "obstruction": 0,
+        "glucose": 92,
+        "customMeasures": [],
+        "trendTimeSeconds": 30,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a1-massage",
+          "shortAction": "Perform fundal massage to promote uterine contraction and control bleeding",
+          "protocolExcerpt": "After delivery, massaging the uterus (should be located at about the umbilicus) and allowing the infant to nurse will promote uterine contraction and help control bleeding",
+          "priority": "critical",
+          "rationale": "Uterine atony is the most common cause of postpartum hemorrhage; massage promotes contraction to tamponade bleeding.",
+          "protocolReference": "MATC: OB/GYN Childbirth"
+        },
+        {
+          "id": "a2-history",
+          "shortAction": "Obtain OB history: prenatal/delivery complications, trauma, anticoagulants, drug use",
+          "protocolExcerpt": "Obtain history from patient – history of prenatal or delivery complications, recent trauma, prescription anticoagulants, drug use especially cocaine",
+          "priority": "important",
+          "rationale": "Identifies contributing causes such as coagulopathy or retained tissue that change transport urgency.",
+          "protocolReference": "MATC: OB/GYN Childbirth"
+        },
+        {
+          "id": "a3-iv",
+          "shortAction": "Establish IV access; if unsuccessful within 2 attempts/90 seconds, place IO",
+          "protocolExcerpt": "Establish IV access. If unable to obtain within two attempts or less than 90 seconds, place an IO needle",
+          "priority": "critical",
+          "rationale": "Timely vascular access is essential for fluid resuscitation in ongoing hemorrhage.",
+          "protocolReference": "MATC: Shock"
+        },
+        {
+          "id": "a4-fluid",
+          "shortAction": "Initiate 500 mL isotonic fluid bolus toward MAP goal 65 mmHg (max 30 mL/kg ≈ 2,040 mL for 68 kg)",
+          "protocolExcerpt": "IV fluid volume goal attained by giving boluses that are pressure infused over less than 15 minutes each... Fluid goal of up to 30 mL/kg of isotonic fluid by administering rapid, predetermined boluses (e.g., 500 mL) unless the MAP goal is achieved, or pulmonary edema develops.",
+          "priority": "critical",
+          "rationale": "Restores circulating volume and perfusion while definitive hemorrhage control (fundal massage) takes effect.",
+          "protocolReference": "MATC: Shock"
+        },
+        {
+          "id": "a5-notify",
+          "shortAction": "Notify medical direction/receiving facility of postpartum hemorrhage",
+          "protocolExcerpt": "Notify medical direction/receiving facility if: ... Postpartum hemorrhage",
+          "priority": "important",
+          "rationale": "Allows the receiving facility to prepare blood products and OB resources before arrival.",
+          "protocolReference": "MATC: OB/GYN Childbirth"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "improved-transport",
+          "if": "Bleeding controlled, transport initiated",
+          "condition": "Fundal massage and fluid resuscitation improve uterine tone and hemodynamics; bleeding slows and vitals trend toward normal. Crew packages mother and newborn for transport.",
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a1-massage", "a4-fluid"]
+        },
+        {
+          "targetPhaseId": "massage-omitted",
+          "if": "Fundal massage omitted or delayed",
+          "condition": "Crew focuses on IV access and transport logistics without performing fundal massage; the uterus remains boggy and bleeding continues unchecked despite fluids.",
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["a1-massage"]
+        }
+      ]
+    },
+    {
+      "id": "improved-transport",
+      "name": "Bleeding controlled, transport initiated",
+      "description": "Fundal massage and fluid resuscitation improve uterine tone; bleeding slows significantly and vital signs trend toward normal. Mother and newborn are packaged together for transport with continued reassessment.",
+      "triggerCondition": "Fundal massage keeps the uterus firm and the fluid bolus restores perfusion; bleeding slows and hemodynamics improve, allowing safe transport.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": { "eye": 4, "verbal": 5, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "Nonlabored, 16/min",
+        "circulation": "Radial pulses strong",
+        "skin": { "color": "pink", "temperature": "warm", "moisture": "dry" },
+        "pupils": "PERRL",
+        "motorFunction": "Strength intact",
+        "otherFindings": [
+          "Uterus firm on palpation",
+          "Bleeding minimal, only light bloody show",
+          "Newborn secured to mother per approved neonatal restraint system",
+          "Placenta and tissue contained in bag for transport"
+        ],
+        "patientSpeech": "\"I feel a lot better now, thank you.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Rhythm",
+        "ecgWaveform": 9,
+        "hr": 92,
+        "bpSys": 112,
+        "bpDia": 72,
+        "respRate": 16,
+        "spo2": 99,
+        "etco2": 0,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 0,
+        "glucose": 92,
+        "customMeasures": [],
+        "trendTimeSeconds": 40,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a6-contain-placenta",
+          "shortAction": "Contain placenta and tissue in a plastic bag for hospital evaluation",
+          "protocolExcerpt": "Contain all tissue in plastic bag and transport",
+          "priority": "supplemental",
+          "rationale": "Allows the receiving facility to assess for retained products of conception.",
+          "protocolReference": "MATC: OB/GYN Childbirth"
+        },
+        {
+          "id": "a7-reassess",
+          "shortAction": "Reassess vital signs and estimate total blood loss en route",
+          "protocolExcerpt": "Estimate maternal blood loss. Treat mother for hypovolemia as needed",
+          "priority": "important",
+          "rationale": "Ongoing reassessment catches recurrent bleeding or delayed decompensation.",
+          "protocolReference": "MATC: OB/GYN Childbirth"
+        }
+      ],
+      "transitions": []
+    },
+    {
+      "id": "massage-omitted",
+      "name": "Fundal massage omitted or delayed",
+      "description": "Without fundal massage, the uterus remains boggy and atonic. Bleeding continues unchecked, and the patient progresses toward hypovolemic shock despite IV fluids.",
+      "triggerCondition": "Crew prioritizes IV access and transport preparation without performing fundal massage; the uterus stays boggy and bleeding continues, leading to worsening hypotension and tachycardia despite fluid administration.",
+      "isDefault": false,
+      "clinicalPresentation": {
+        "avpu": "Verbal",
+        "gcs": { "eye": 3, "verbal": 4, "motor": 6 },
+        "airway": "Patent",
+        "breathing": "24/min, mildly labored",
+        "circulation": "Radial pulses weak and thready",
+        "skin": { "color": "pale", "temperature": "cool", "moisture": "diaphoretic" },
+        "pupils": "PERRL",
+        "motorFunction": "Strength intact but increasingly lethargic",
+        "otherFindings": [
+          "Uterus remains boggy, poorly contracted",
+          "Bleeding continues, saturating additional towels",
+          "Patient increasingly pale and diaphoretic"
+        ],
+        "patientSpeech": "\"I feel like I'm going to pass out...\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 136,
+        "bpSys": 82,
+        "bpDia": 54,
+        "respRate": 24,
+        "spo2": 95,
+        "etco2": 0,
+        "temp": 36.8,
+        "tempF": 98.2,
+        "obstruction": 0,
+        "glucose": 90,
+        "customMeasures": [],
+        "trendTimeSeconds": 45,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a8-recognize-shock",
+          "shortAction": "Recognize hypovolemic shock; perform fundal massage now and escalate fluid boluses toward MAP 65 mmHg",
+          "protocolExcerpt": "IV fluid volume goal attained by giving boluses that are pressure infused over less than 15 minutes each... unless the MAP goal is achieved, or pulmonary edema develops",
+          "priority": "critical",
+          "rationale": "Ongoing atony with hemorrhage requires both mechanical (massage) and volume-based rescue.",
+          "protocolReference": "MATC: Shock"
+        },
+        {
+          "id": "a9-txa",
+          "shortAction": "Consider TXA administration per medical direction (MATC does not specify a dose)",
+          "protocolExcerpt": "Consider administration of tranexamic acid (TXA)",
+          "priority": "important",
+          "rationale": "TXA reduces mortality in obstetric hemorrhage when given early, per medical direction.",
+          "protocolReference": "MATC: OB/GYN Childbirth"
+        }
+      ],
+      "transitions": []
+    }
+  ],
+  "realiti": {
+    "scenarioMonitorType": 2,
+    "scenarioDefaultEnergy": 200,
+    "scenarioDefaultPacerThreshold": 55
+  }
+}

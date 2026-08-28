@@ -1,0 +1,262 @@
+{
+  "scenarioId": "096-femoral-artery-hemorrhage",
+  "scenarioName": "096 - Femoral Artery Hemorrhage",
+  "scenarioType": "Vital Signs",
+  "scenarioVersion": 2,
+  "scenarioTime": 900,
+  "scenarioMonitorType": 2,
+  "scenarioDefaultEnergy": 200,
+  "scenarioDefaultPacerThreshold": 55,
+  "isDemo": false,
+  "isALSILegacy": false,
+  "scenarioStory": {
+    "history": "Bystanders report the patient was stabbed once in the left proximal thigh during an altercation approximately 8 minutes ago. She is conscious, anxious, and reports she 'can't stop the bleeding' despite holding a t-shirt against the wound. Blood is pooling rapidly on the pavement beneath her leg.",
+    "discussion": "",
+    "course": "Initial Contact: Crew arrives to find a 52-year-old female with an actively bleeding stab wound to the left proximal thigh. A bystander is holding direct pressure, but blood continues to spurt from beneath the dressing. Patient is alert but anxious, pale, and tachycardic. → Tourniquet applied: Crew applies a commercial tourniquet proximal to the wound, marks the application time, establishes IV access, and gives TXA and a fluid bolus targeting the trauma resuscitation blood pressure goal. → Bleeding controlled, TXA and fluids given: Hemorrhage is controlled with the tourniquet in place, TXA and a fluid bolus have been given, and the crew initiates rapid transport within the scene time goal while reassessing serially en route."
+  },
+  "patientInformation": {
+    "patientName": "Carla Beaumont",
+    "patientCondition": "Stab wound to left thigh with brisk, spurting bleeding",
+    "patientAge": 52,
+    "patientAgeUnit": "years",
+    "patientAgeCategory": 0,
+    "patientSex": 2,
+    "patientHeight": 165,
+    "patientWeight": 70,
+    "patientPhotoId": 63,
+    "patientAdmitted": 1
+  },
+  "labs": [],
+  "scenarioEvents": [
+    {
+      "type": "ScenarioEvent",
+      "name": "Initial Contact",
+      "description": "Crew arrives to find a 52-year-old female with an actively bleeding stab wound to the left proximal thigh. A bystander is holding direct pressure, but blood continues to spurt from beneath the dressing. Patient is alert but anxious, pale, and tachycardic.",
+      "monitorType": 0,
+      "trendTime": 0,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 122,
+        "bpSys": 88,
+        "bpDia": 58,
+        "respRate": 22,
+        "spo2": 94,
+        "etco2": 0,
+        "temp": 36.5,
+        "obstruction": 0,
+        "custMeasure1": 98,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Tourniquet applied",
+      "description": "Crew applies a commercial tourniquet proximal to the wound, marks the application time, establishes IV access, and gives TXA and a fluid bolus targeting the trauma resuscitation blood pressure goal.",
+      "monitorType": 0,
+      "trendTime": 30,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 112,
+        "bpSys": 96,
+        "bpDia": 60,
+        "respRate": 20,
+        "spo2": 96,
+        "etco2": 0,
+        "temp": 36.6,
+        "obstruction": 0,
+        "custMeasure1": 98,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Apply commercial tourniquet 2-3 inches proximal to wound until bleeding stops and distal pulse eliminated",
+        "Be prepared to apply a second tourniquet proximal to the first if bleeding continues, given the proximal thigh location",
+        "Mark and document tourniquet application time prominently on patient and in the patient care report",
+        "Establish IV access and give TXA, within 3 hours of injury with signs of hemorrhagic shock",
+        "Give 500 mL crystalloid bolus targeting SBP 90 mmHg since blood products unavailable"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Bleeding controlled, TXA and fluids given",
+      "description": "Hemorrhage is controlled with the tourniquet in place, TXA and a fluid bolus have been given, and the crew initiates rapid transport within the scene time goal while reassessing serially en route.",
+      "monitorType": 0,
+      "trendTime": 40,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 98,
+        "bpSys": 108,
+        "bpDia": 68,
+        "respRate": 16,
+        "spo2": 98,
+        "etco2": 0,
+        "temp": 36.7,
+        "obstruction": 0,
+        "custMeasure1": 98,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Minimize scene time and initiate rapid transport to trauma center, goal under 10 minutes",
+        "Reassess tourniquet and vitals frequently en route without removing the tourniquet or dressing"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Tourniquet delayed, direct pressure only",
+      "description": "The crew continues with direct pressure and a pressure dressing alone despite ongoing brisk arterial bleeding, delaying the tourniquet. The patient's bleeding continues and perfusion worsens.",
+      "monitorType": 0,
+      "trendTime": 60,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 138,
+        "bpSys": 76,
+        "bpDia": 48,
+        "respRate": 26,
+        "spo2": 90,
+        "etco2": 0,
+        "temp": 36.3,
+        "obstruction": 0,
+        "custMeasure1": 98,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Recognize direct pressure has failed; apply commercial tourniquet 2-3 inches proximal to wound immediately"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Tourniquet loosened for pain",
+      "description": "The crew loosens the tourniquet in response to the patient's pain complaints, against explicit protocol guidance. Bleeding resumes and perfusion worsens.",
+      "monitorType": 0,
+      "trendTime": 50,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 128,
+        "bpSys": 82,
+        "bpDia": 52,
+        "respRate": 24,
+        "spo2": 92,
+        "etco2": 0,
+        "temp": 36.4,
+        "obstruction": 0,
+        "custMeasure1": 98,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Retighten tourniquet immediately; do not loosen for pain, treat pain with analgesics instead"
+      ],
+      "relatedSounds": []
+    }
+  ],
+  "checklist": [
+    {
+      "title": "Apply commercial tourniquet 2-3 inches proximal to wound until bleeding stops and distal pulse eliminated",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Be prepared to apply a second tourniquet proximal to the first if bleeding continues, given the proximal thigh location",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Mark and document tourniquet application time prominently on patient and in the patient care report",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Establish IV access and give TXA, within 3 hours of injury with signs of hemorrhagic shock",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Give 500 mL crystalloid bolus targeting SBP 90 mmHg since blood products unavailable",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Minimize scene time and initiate rapid transport to trauma center, goal under 10 minutes",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Reassess tourniquet and vitals frequently en route without removing the tourniquet or dressing",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Recognize direct pressure has failed; apply commercial tourniquet 2-3 inches proximal to wound immediately",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Retighten tourniquet immediately; do not loosen for pain, treat pain with analgesics instead",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    }
+  ],
+  "media": []
+}

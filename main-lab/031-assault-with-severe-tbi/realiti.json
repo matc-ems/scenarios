@@ -1,0 +1,323 @@
+{
+  "scenarioId": "031-assault-with-severe-tbi",
+  "scenarioName": "031 - Assault with Severe TBI",
+  "scenarioType": "Vital Signs",
+  "scenarioVersion": 2,
+  "scenarioTime": 1200,
+  "scenarioMonitorType": 2,
+  "scenarioDefaultEnergy": 200,
+  "scenarioDefaultPacerThreshold": 55,
+  "isDemo": false,
+  "isALSILegacy": false,
+  "scenarioStory": {
+    "history": "Bystanders report the patient was struck multiple times in the head and face during an altercation outside a bar, with a brief loss of consciousness. He regained some responsiveness, vomited twice, and has become progressively less responsive and unable to protect his airway since police arrived.",
+    "discussion": "",
+    "course": "Initial Contact: Crew arrives to find a 28-year-old male supine outside a bar with visible head trauma, decreased level of consciousness, and blood-tinged emesis in the oropharynx. He is moaning and withdrawing to pain but not following commands or protecting his airway. → Preoxygenated for RSI: Crew suctions the airway, applies high-flow oxygen via non-rebreather, maintains cervical spine stabilization, and preoxygenates with positive pressure ventilation for at least two minutes while confirming blood pressure is adequate before proceeding to drug-assisted intubation. → RSI performed, tube confirmed: Crew administers fentanyl premedication, etomidate for induction, and rocuronium for paralysis, then successfully intubates and confirms tube placement with waveform capnography and bilateral breath sounds. → Ventilation controlled, transport: Tube is secured, sedation is maintained, ventilation rate is controlled to keep EtCO2 in the target range, and the patient is transported to a trauma center capable of managing severe TBI."
+  },
+  "patientInformation": {
+    "patientName": "Marcus Deline",
+    "patientCondition": "Decreased level of consciousness after assault",
+    "patientAge": 28,
+    "patientAgeUnit": "years",
+    "patientAgeCategory": 0,
+    "patientSex": 1,
+    "patientHeight": 178,
+    "patientWeight": 85,
+    "patientPhotoId": 34,
+    "patientAdmitted": 1
+  },
+  "labs": [],
+  "scenarioEvents": [
+    {
+      "type": "ScenarioEvent",
+      "name": "Initial Contact",
+      "description": "Crew arrives to find a 28-year-old male supine outside a bar with visible head trauma, decreased level of consciousness, and blood-tinged emesis in the oropharynx. He is moaning and withdrawing to pain but not following commands or protecting his airway.",
+      "monitorType": 0,
+      "trendTime": 0,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 118,
+        "bpSys": 148,
+        "bpDia": 92,
+        "respRate": 24,
+        "spo2": 93,
+        "etco2": 0,
+        "temp": 37,
+        "obstruction": 0,
+        "custMeasure1": 104,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Preoxygenated for RSI",
+      "description": "Crew suctions the airway, applies high-flow oxygen via non-rebreather, maintains cervical spine stabilization, and preoxygenates with positive pressure ventilation for at least two minutes while confirming blood pressure is adequate before proceeding to drug-assisted intubation.",
+      "monitorType": 0,
+      "trendTime": 30,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 114,
+        "bpSys": 144,
+        "bpDia": 90,
+        "respRate": 24,
+        "spo2": 98,
+        "etco2": 0,
+        "temp": 37,
+        "obstruction": 0,
+        "custMeasure1": 104,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Apply high-flow O2 via NRB; suction blood/emesis from oropharynx",
+        "Maintain cervical spine stabilization; assume concomitant C-spine injury",
+        "Preoxygenate with high-flow O2 + PPV for at least 2 minutes before RSI attempt",
+        "Reassess BP before sedative/paralytic; treat to maintain SBP ≥110 mmHg"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "RSI performed, tube confirmed",
+      "description": "Crew administers fentanyl premedication, etomidate for induction, and rocuronium for paralysis, then successfully intubates and confirms tube placement with waveform capnography and bilateral breath sounds.",
+      "monitorType": 0,
+      "trendTime": 30,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 108,
+        "bpSys": 130,
+        "bpDia": 82,
+        "respRate": 10,
+        "spo2": 98,
+        "etco2": 40,
+        "temp": 37,
+        "obstruction": 0,
+        "custMeasure1": 104,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Fentanyl 85 mcg IV premedication (85 kg × 1 mcg/kg), 2–3 min prior to intubation",
+        "Etomidate 25 mg IV push induction (85 kg × 0.3 mg/kg = 25.5 mg)",
+        "Rocuronium 85 mg IV push paralytic (85 kg × 1 mg/kg)",
+        "Intubate; confirm placement with waveform capnography and bilateral breath sounds",
+        "Ventilate at 10 breaths/min; target EtCO2 35–45 mmHg, avoid hyperventilation"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Ventilation controlled, transport",
+      "description": "Tube is secured, sedation is maintained, ventilation rate is controlled to keep EtCO2 in the target range, and the patient is transported to a trauma center capable of managing severe TBI.",
+      "monitorType": 0,
+      "trendTime": 40,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 96,
+        "bpSys": 128,
+        "bpDia": 80,
+        "respRate": 10,
+        "spo2": 98,
+        "etco2": 40,
+        "temp": 37,
+        "obstruction": 0,
+        "custMeasure1": 104,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Maintain post-intubation sedation; reassess RASS/comfort en route",
+        "Transport to highest level trauma center per GCS 3–13 criteria"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "RSI attempted without adequate preoxygenation",
+      "description": "Crew skips the required two-minute preoxygenation period and proceeds directly to sedation and paralysis. SpO2 falls rapidly during the intubation attempt.",
+      "monitorType": 0,
+      "trendTime": 20,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 132,
+        "bpSys": 138,
+        "bpDia": 86,
+        "respRate": 0,
+        "spo2": 82,
+        "etco2": 0,
+        "temp": 37,
+        "obstruction": 0,
+        "custMeasure1": 104,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Abort attempt at SpO2 <90%; resume BVM with PEEP to reoxygenate"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Hyperventilation drives EtCO2 low",
+      "description": "Ventilation rate exceeds the protocol-directed target after intubation, driving EtCO2 below 30 mmHg and risking cerebral vasoconstriction that worsens secondary brain injury.",
+      "monitorType": 0,
+      "trendTime": 30,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 90,
+        "bpSys": 124,
+        "bpDia": 78,
+        "respRate": 20,
+        "spo2": 97,
+        "etco2": 24,
+        "temp": 37,
+        "obstruction": 0,
+        "custMeasure1": 104,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Reduce ventilation rate to 10/min; retarget EtCO2 to 35–45 mmHg"
+      ],
+      "relatedSounds": []
+    }
+  ],
+  "checklist": [
+    {
+      "title": "Apply high-flow O2 via NRB; suction blood/emesis from oropharynx",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Maintain cervical spine stabilization; assume concomitant C-spine injury",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Preoxygenate with high-flow O2 + PPV for at least 2 minutes before RSI attempt",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Reassess BP before sedative/paralytic; treat to maintain SBP ≥110 mmHg",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Fentanyl 85 mcg IV premedication (85 kg × 1 mcg/kg), 2–3 min prior to intubation",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Etomidate 25 mg IV push induction (85 kg × 0.3 mg/kg = 25.5 mg)",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Rocuronium 85 mg IV push paralytic (85 kg × 1 mg/kg)",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Intubate; confirm placement with waveform capnography and bilateral breath sounds",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Ventilate at 10 breaths/min; target EtCO2 35–45 mmHg, avoid hyperventilation",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Maintain post-intubation sedation; reassess RASS/comfort en route",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Transport to highest level trauma center per GCS 3–13 criteria",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Abort attempt at SpO2 <90%; resume BVM with PEEP to reoxygenate",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Reduce ventilation rate to 10/min; retarget EtCO2 to 35–45 mmHg",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    }
+  ],
+  "media": []
+}

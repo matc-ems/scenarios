@@ -1,0 +1,301 @@
+{
+  "meta": {
+    "id": "114-preterm-neonatal-resuscitation",
+    "name": "114 - Preterm Neonatal Resuscitation",
+    "version": 1,
+    "difficulty": "advanced",
+    "category": "OB/GYN",
+    "protocols": ["obgyn-neonatal-resuscitation", "obgyn-childbirth"],
+    "totalTimeSeconds": 660,
+    "tags": ["OB", "neonatal resuscitation", "NRP", "preterm", "chest compressions", "921"]
+  },
+  "patient": {
+    "name": "Baby Alvarez",
+    "age": 2,
+    "ageUnit": "minutes",
+    "sex": "female",
+    "weight": 2.2,
+    "weightLbs": 4.9,
+    "height": 44,
+    "chiefComplaint": "34-week preterm newborn, poor respiratory effort, heart rate under 100 after birth",
+    "history": {
+      "hpi": "Preterm female infant delivered at approximately 34 weeks gestation following spontaneous preterm labor. At delivery the infant has poor respiratory effort with weak, irregular breathing and is noted to be cooling rapidly despite initial drying. Heart rate on initial assessment is below 100 bpm.",
+      "pastMedical": [],
+      "medications": [],
+      "allergies": ["NKDA"],
+      "lastOralIntake": "N/A — newly born",
+      "events": "Precipitous preterm delivery at home; mother had no known complications this pregnancy prior to today, no prenatal indication of preterm labor risk reported"
+    }
+  },
+  "scene": {
+    "dispatch": "Crew on scene for preterm delivery, newborn now delivered, requesting newborn assessment",
+    "location": "Single-family home, bathroom, mother on the floor, newborn on a towel on the counter with second provider assisting",
+    "time": "4:17 AM, weekday",
+    "safety": "No hazards to crew noted; cold ambient room temperature noted as a contributing risk factor",
+    "bystanders": "Mother present, distressed; father assisting first responders with supplies",
+    "visualCues": [
+      "Small, thin preterm infant with minimal subcutaneous fat visible",
+      "Weak, irregular chest movement",
+      "Skin cooling rapidly despite initial towel drying",
+      "Radiant warmer/extra blankets being retrieved by second crew member"
+    ]
+  },
+  "phases": [
+    {
+      "id": "initial",
+      "name": "Initial Contact",
+      "description": "A 34-week preterm female newborn presents with poor respiratory effort and a heart rate below 100 bpm shortly after a precipitous home delivery. Prematurity places her at elevated risk for both respiratory compromise and hypothermia.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Unresponsive",
+        "gcs": { "eye": 1, "verbal": 1, "motor": 1 },
+        "airway": "Patent but minimal spontaneous effort",
+        "breathing": "Weak, irregular respiratory effort, occasional gasping",
+        "circulation": "Weak pulse palpable at umbilical stump",
+        "skin": { "color": "pale/cyanotic", "temperature": "cool and cooling", "moisture": "wet" },
+        "pupils": "Not clinically assessed at this age",
+        "motorFunction": "Poor tone, minimal spontaneous movement, thin preterm build",
+        "otherFindings": [
+          "Estimated 34 weeks gestation by size and appearance",
+          "Minimal subcutaneous fat, high surface-area-to-mass ratio increasing heat loss risk",
+          "Heart rate estimated at approximately 90 bpm on auscultation",
+          "Weak, irregular respiratory effort"
+        ],
+        "patientSpeech": ""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Rhythm",
+        "ecgWaveform": 9,
+        "hr": 90,
+        "bpSys": 0,
+        "bpDia": 0,
+        "respRate": 10,
+        "spo2": 68,
+        "etco2": 0,
+        "temp": 35.9,
+        "tempF": 96.6,
+        "obstruction": 0,
+        "glucose": 0,
+        "customMeasures": [],
+        "trendTimeSeconds": 0,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [],
+      "transitions": [
+        {
+          "targetPhaseId": "aggressive-warming-ppv",
+          "if": "Aggressive warming and PPV started",
+          "condition": "Crew recognizes the preterm infant's elevated hypothermia risk and initiates aggressive warming alongside positive pressure ventilation for the heart rate below 100 bpm and inadequate respiratory effort.",
+          "conditionType": "action_taken"
+        },
+        {
+          "targetPhaseId": "warming-inadequate",
+          "if": "Warming inadequate, hypothermia worsens",
+          "condition": "Crew provides only routine drying without aggressive warming measures appropriate for a preterm infant, allowing progressive hypothermia.",
+          "conditionType": "action_not_taken"
+        }
+      ]
+    },
+    {
+      "id": "aggressive-warming-ppv",
+      "name": "Aggressive warming and PPV started",
+      "description": "Crew provides aggressive warming with drying, swaddling, and warm blankets covering the body and head, while simultaneously initiating BVM ventilation for the heart rate below 100 bpm. Heart rate does not improve after 90 seconds, prompting escalation.",
+      "triggerCondition": "Given the preterm infant's high hypothermia risk and heart rate below 100 with inadequate respiratory effort, the crew combines aggressive warming with immediate positive pressure ventilation.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Unresponsive",
+        "gcs": { "eye": 1, "verbal": 1, "motor": 1 },
+        "airway": "Patent with BVM ventilation",
+        "breathing": "Assisted via BVM at 40-60/min with 100% oxygen given preterm gestation",
+        "circulation": "Pulse remains weak",
+        "skin": { "color": "pale/cyanotic", "temperature": "stabilizing with warming measures", "moisture": "drying" },
+        "pupils": "Not clinically assessed at this age",
+        "motorFunction": "No improvement in tone",
+        "otherFindings": [
+          "Infant swaddled with warm blankets covering body and head between interventions",
+          "BVM ventilation ongoing with chest rise present",
+          "Heart rate reassessed every 30 seconds, remains below 100 after 90 seconds",
+          "Blood glucose check considered given ongoing resuscitation"
+        ],
+        "patientSpeech": ""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Rhythm",
+        "ecgWaveform": 9,
+        "hr": 92,
+        "bpSys": 0,
+        "bpDia": 0,
+        "respRate": 8,
+        "spo2": 72,
+        "etco2": 0,
+        "temp": 36.1,
+        "tempF": 97.0,
+        "obstruction": 0,
+        "glucose": 0,
+        "customMeasures": [],
+        "trendTimeSeconds": 30,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a1-aggressive-warming",
+          "shortAction": "Provide aggressive warming: dry, swaddle, warm blankets covering body and head",
+          "protocolExcerpt": "Newborn infants are prone to hypothermia which may lead to hypoglycemia, hypoxia, and lethargy. Aggressive warming techniques should be initiated including drying, swaddling, and warm blankets covering body and head. When available, radiant warmers or other warming adjuncts are suggested for babies who require resuscitation, especially for preterm babies",
+          "priority": "critical",
+          "rationale": "Preterm infants have minimal subcutaneous fat and a high surface-area-to-mass ratio, making them especially prone to rapid, harmful heat loss.",
+          "protocolReference": "MATC: Neonatal Resuscitation"
+        },
+        {
+          "id": "a2-ppv-preterm",
+          "shortAction": "Initiate BVM ventilation with 100% oxygen at 40-60 breaths/min for 90 seconds",
+          "protocolExcerpt": "Positive pressure ventilation (PPV) with bag-mask device may be initiated with room air (21% oxygen) in term and late preterm babies; otherwise use 100% oxygen. Initiate BVM ventilation with room air at 40–60 breaths per minute for 90 seconds",
+          "priority": "critical",
+          "rationale": "A 34-week preterm infant with heart rate below 100 and inadequate respiratory effort requires supplemental oxygen with PPV, unlike a term or late-preterm infant.",
+          "protocolReference": "MATC: Neonatal Resuscitation"
+        },
+        {
+          "id": "a3-reassess-hr",
+          "shortAction": "Evaluate heart rate every 30 seconds during ventilation",
+          "protocolExcerpt": "Primary indicator of effective ventilation is improvement in heart rate. Evaluate heart rate every 30 seconds",
+          "priority": "critical",
+          "rationale": "Determines whether to continue current ventilation or escalate oxygen delivery and consider advanced airway.",
+          "protocolReference": "MATC: Neonatal Resuscitation"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "escalating-nrp",
+          "if": "Oxygen escalated, HR remains under 60",
+          "condition": "After 90 seconds of effective PPV with no heart rate improvement, the crew escalates FiO2 and heart rate continues to fall below 60 bpm, meeting criteria for chest compressions.",
+          "conditionType": "vital_threshold",
+          "triggerActionIds": ["a3-reassess-hr"]
+        }
+      ]
+    },
+    {
+      "id": "escalating-nrp",
+      "name": "Oxygen escalated, HR remains under 60",
+      "description": "Despite effective PPV and escalated oxygen delivery, heart rate falls below 60 bpm. Crew initiates chest compressions coordinated with ventilation at a 3:1 ratio and prepares epinephrine per weight-based dosing.",
+      "triggerCondition": "Heart rate remains below 60 bpm despite 30 seconds of effective ventilation with escalated oxygen, meeting the protocol threshold for chest compressions and consideration of epinephrine.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Unresponsive",
+        "gcs": { "eye": 1, "verbal": 1, "motor": 1 },
+        "airway": "Patent with BVM ventilation, advanced airway being considered",
+        "breathing": "Assisted via BVM, coordinated with compressions",
+        "circulation": "Compressions ongoing, pulse difficult to palpate independently",
+        "skin": { "color": "pale/cyanotic", "temperature": "warm with active warming measures", "moisture": "dry" },
+        "pupils": "Not clinically assessed at this age",
+        "motorFunction": "No spontaneous movement",
+        "otherFindings": [
+          "Two-thumb-encircling-hands chest compressions initiated",
+          "Compressions coordinated with ventilation at 3:1 ratio (90 compressions, 30 breaths per minute)",
+          "Epinephrine 0.1 mg/mL prepared for weight-based IV/IO dosing",
+          "Blood glucose check initiated given ongoing resuscitation"
+        ],
+        "patientSpeech": ""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Bradycardia",
+        "ecgWaveform": 9,
+        "hr": 55,
+        "bpSys": 0,
+        "bpDia": 0,
+        "respRate": 0,
+        "spo2": 60,
+        "etco2": 0,
+        "temp": 36.3,
+        "tempF": 97.3,
+        "obstruction": 0,
+        "glucose": 0,
+        "customMeasures": [],
+        "trendTimeSeconds": 20,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a4-compressions",
+          "shortAction": "Initiate two-thumb-encircling-hands chest compressions, coordinated 3:1 with ventilation",
+          "protocolExcerpt": "If no improvement after 30 seconds, initiate chest compressions — two-thumb-encircling-hands technique is preferred. Coordinate chest compressions with positive pressure ventilation (3:1 ratio, 90 compressions and 30 breaths per minute)",
+          "priority": "critical",
+          "rationale": "Heart rate below 60 bpm despite effective ventilation meets the protocol threshold for chest compressions.",
+          "protocolReference": "MATC: Neonatal Resuscitation"
+        },
+        {
+          "id": "a5-epi-dose",
+          "shortAction": "Prepare epinephrine 0.022 mg IV/IO (2.2 kg x 0.01 mg/kg; 0.1 mg/mL concentration) q3-5min if HR remains <60",
+          "protocolExcerpt": "Administer epinephrine (0.1 mg/mL) 0.01 mg/kg IV/IO (preferable if access obtained) or 0.1 mg/kg via the ETT (if unable to obtain access) q 3–5 min if heart rate remains less than 60 BPM",
+          "priority": "critical",
+          "rationale": "Epinephrine is indicated if heart rate remains below 60 despite effective ventilation and chest compressions.",
+          "protocolReference": "MATC: Neonatal Resuscitation"
+        },
+        {
+          "id": "a6-glucose-check",
+          "shortAction": "Check blood glucose given ongoing resuscitation",
+          "protocolExcerpt": "Consider checking a blood glucose for ongoing resuscitation, maternal history of diabetes, ill appearing or unable to feed",
+          "priority": "important",
+          "rationale": "Hypoglycemia is common in stressed preterm newborns and can worsen neurologic outcome if unrecognized.",
+          "protocolReference": "MATC: Neonatal Resuscitation"
+        }
+      ],
+      "transitions": []
+    },
+    {
+      "id": "warming-inadequate",
+      "name": "Warming inadequate, hypothermia worsens",
+      "description": "Crew provides only routine drying without the aggressive warming measures a preterm infant requires, allowing progressive heat loss that compounds the newborn's respiratory and cardiovascular compromise.",
+      "triggerCondition": "The crew treats this preterm delivery with the same warming approach used for a term infant, underestimating the preterm newborn's markedly elevated heat-loss risk.",
+      "isDefault": false,
+      "clinicalPresentation": {
+        "avpu": "Unresponsive",
+        "gcs": { "eye": 1, "verbal": 1, "motor": 1 },
+        "airway": "Patent, minimal effort",
+        "breathing": "Weak, worsening irregular effort",
+        "circulation": "Pulse weakening",
+        "skin": { "color": "pale/cyanotic, mottled", "temperature": "cold", "moisture": "wet" },
+        "pupils": "Not clinically assessed at this age",
+        "motorFunction": "No improvement, increasingly limp",
+        "otherFindings": [
+          "Core temperature continuing to drop",
+          "No radiant warmer or extra blankets deployed",
+          "Heart rate trending further downward",
+          "Worsening respiratory effort compounding hypothermia"
+        ],
+        "patientSpeech": ""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Rhythm",
+        "ecgWaveform": 9,
+        "hr": 72,
+        "bpSys": 0,
+        "bpDia": 0,
+        "respRate": 6,
+        "spo2": 58,
+        "etco2": 0,
+        "temp": 35.2,
+        "tempF": 95.4,
+        "obstruction": 0,
+        "glucose": 0,
+        "customMeasures": [],
+        "trendTimeSeconds": 40,
+        "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
+      },
+      "expectedActions": [
+        {
+          "id": "a7-recover-warming",
+          "shortAction": "Immediately escalate to aggressive warming: radiant warmer or blankets covering body and head, plus PPV",
+          "protocolExcerpt": "Aggressive warming techniques should be initiated including drying, swaddling, and warm blankets covering body and head. When available, radiant warmers or other warming adjuncts are suggested for babies who require resuscitation, especially for preterm babies",
+          "priority": "critical",
+          "rationale": "Ongoing hypothermia in a preterm infant compounds hypoglycemia and hypoxia, worsening the resuscitation outlook the longer it goes uncorrected.",
+          "protocolReference": "MATC: Neonatal Resuscitation"
+        }
+      ],
+      "transitions": []
+    }
+  ],
+  "realiti": {
+    "scenarioMonitorType": 2,
+    "scenarioDefaultEnergy": 200,
+    "scenarioDefaultPacerThreshold": 55
+  }
+}
