@@ -81,19 +81,70 @@
         "trendTimeSeconds": 0,
         "visibility": { "spo2Visible": false, "spo2Attached": false, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [],
+      "expectedActions": [
+        {
+          "id": "a1",
+          "shortAction": "Assess for signs of life: pulses, respiratory effort, other signs",
+          "protocolExcerpt": "Assess for signs of life, including pulses, respiratory effort, and evaluation of other signs of life",
+          "priority": "critical",
+          "rationale": "Confirms arrest status and distinguishes traumatic arrest from a patient with pulses who instead needs General Trauma Management.",
+          "protocolReference": "MATC: Resuscitation in Traumatic Cardiac Arrest"
+        },
+        {
+          "id": "a2",
+          "shortAction": "Control any external hemorrhage with tourniquet or hemostatic wound packing",
+          "protocolExcerpt": "Place tourniquets for wounds amenable to tourniquet placement",
+          "priority": "critical",
+          "rationale": "Massive hemorrhage is a leading reversible cause of traumatic arrest and must be addressed first.",
+          "protocolReference": "MATC: Resuscitation in Traumatic Cardiac Arrest"
+        },
+        {
+          "id": "a3",
+          "shortAction": "Apply pelvic binder for the grossly unstable pelvis",
+          "protocolExcerpt": "Place a pelvic binder on all patients with blunt or blast trauma suffering traumatic arrest",
+          "priority": "critical",
+          "rationale": "An unstable pelvis is a major internal hemorrhage source that a binder can control noninvasively.",
+          "protocolReference": "MATC: Resuscitation in Traumatic Cardiac Arrest"
+        },
+        {
+          "id": "a4",
+          "shortAction": "Perform bilateral rapid needle chest decompression",
+          "protocolExcerpt": "Perform bilateral, rapid chest decompression",
+          "priority": "critical",
+          "rationale": "Absent breath sounds and blunt chest trauma raise concern for bilateral tension pneumothorax, a rapidly reversible cause of PEA arrest.",
+          "protocolReference": "MATC: Resuscitation in Traumatic Cardiac Arrest"
+        },
+        {
+          "id": "a5",
+          "shortAction": "Establish IV or IO access",
+          "protocolExcerpt": "Establish intravenous access",
+          "priority": "critical",
+          "rationale": "Vascular access is required for volume resuscitation targeting hypovolemia as a reversible cause.",
+          "protocolReference": "MATC: Resuscitation in Traumatic Cardiac Arrest"
+        },
+        {
+          "id": "a6",
+          "shortAction": "Initiate 500 mL crystalloid bolus, reassess and repeat as needed",
+          "protocolExcerpt": "If SBP less than 90 mmHg or HR greater than 120 BPM, initiate resuscitation: ... consider 500 mL bolus of IV fluid, repeat as needed for persistent signs and symptoms of shock",
+          "priority": "critical",
+          "rationale": "Volume resuscitation addresses hypovolemia while blood products are unavailable in the field.",
+          "protocolReference": "MATC: General Trauma Management"
+        }
+      ],
       "transitions": [
         {
           "targetPhaseId": "hemorrhage-airway-decompression",
           "if": "Primary survey and bilateral decompression performed",
           "condition": "Crew performs a rapid primary survey targeting reversible causes: hemorrhage control, airway management, bilateral needle chest decompression for suspected tension pneumothorax, and IV/IO access with volume resuscitation.",
-          "conditionType": "action_taken"
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a1", "a4", "a6"]
         },
         {
           "targetPhaseId": "decompression-delayed",
           "if": "Bilateral decompression delayed or skipped",
           "condition": "Crew focuses on CPR and standard resuscitation without performing bilateral needle chest decompression despite absent breath sounds and chest trauma, missing the reversible cause of the arrest.",
-          "conditionType": "action_not_taken"
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["a4"]
         }
       ]
     },
@@ -139,51 +190,11 @@
       },
       "expectedActions": [
         {
-          "id": "a1-signs-of-life",
-          "shortAction": "Assess for signs of life: pulses, respiratory effort, other signs",
-          "protocolExcerpt": "Assess for signs of life, including pulses, respiratory effort, and evaluation of other signs of life",
+          "id": "b1",
+          "shortAction": "Minimize scene time, transport rapidly to the highest-level trauma center",
+          "protocolExcerpt": "Patients with major hemorrhage, hemodynamic instability, penetrating torso trauma, or signs of traumatic brain injury often require rapid surgical intervention. Minimize scene time (goal is under 10 minutes) and initiate rapid transport to the highest level of care within the trauma system",
           "priority": "critical",
-          "rationale": "Confirms arrest status and distinguishes traumatic arrest from a patient with pulses who instead needs General Trauma Management.",
-          "protocolReference": "MATC: Resuscitation in Traumatic Cardiac Arrest"
-        },
-        {
-          "id": "a2-hemorrhage-control",
-          "shortAction": "Control any external hemorrhage with tourniquet or hemostatic wound packing",
-          "protocolExcerpt": "Place tourniquets for wounds amenable to tourniquet placement",
-          "priority": "critical",
-          "rationale": "Massive hemorrhage is a leading reversible cause of traumatic arrest and must be addressed first.",
-          "protocolReference": "MATC: Resuscitation in Traumatic Cardiac Arrest"
-        },
-        {
-          "id": "a3-pelvic-binder",
-          "shortAction": "Apply pelvic binder for the grossly unstable pelvis",
-          "protocolExcerpt": "Place a pelvic binder on all patients with blunt or blast trauma suffering traumatic arrest",
-          "priority": "critical",
-          "rationale": "An unstable pelvis is a major internal hemorrhage source that a binder can control noninvasively.",
-          "protocolReference": "MATC: Resuscitation in Traumatic Cardiac Arrest"
-        },
-        {
-          "id": "a4-bilateral-decompression",
-          "shortAction": "Perform bilateral rapid needle chest decompression",
-          "protocolExcerpt": "Perform bilateral, rapid chest decompression",
-          "priority": "critical",
-          "rationale": "Absent breath sounds and blunt chest trauma raise concern for bilateral tension pneumothorax, a rapidly reversible cause of PEA arrest.",
-          "protocolReference": "MATC: Resuscitation in Traumatic Cardiac Arrest"
-        },
-        {
-          "id": "a5-iv-io-access",
-          "shortAction": "Establish IV or IO access",
-          "protocolExcerpt": "Establish intravenous access",
-          "priority": "critical",
-          "rationale": "Vascular access is required for volume resuscitation targeting hypovolemia as a reversible cause.",
-          "protocolReference": "MATC: Resuscitation in Traumatic Cardiac Arrest"
-        },
-        {
-          "id": "a6-volume-resuscitation",
-          "shortAction": "Initiate 500 mL crystalloid bolus, reassess and repeat as needed",
-          "protocolExcerpt": "If SBP less than 90 mmHg or HR greater than 120 BPM, initiate resuscitation: ... consider 500 mL bolus of IV fluid, repeat as needed for persistent signs and symptoms of shock",
-          "priority": "critical",
-          "rationale": "Volume resuscitation addresses hypovolemia while blood products are unavailable in the field.",
+          "rationale": "Post-ROSC traumatic arrest patients need definitive surgical hemorrhage control that only a trauma center can provide.",
           "protocolReference": "MATC: General Trauma Management"
         }
       ],
@@ -193,7 +204,7 @@
           "if": "Reversible causes addressed, pulses return",
           "condition": "After hemorrhage control, pelvic binder, bilateral decompression, and IV/IO fluid resuscitation, the rhythm organizes and a palpable pulse returns.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["a4-bilateral-decompression", "a6-volume-resuscitation"]
+          "triggerActionIds": ["b1"]
         }
       ]
     },
@@ -236,16 +247,7 @@
         "trendTimeSeconds": 20,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
       },
-      "expectedActions": [
-        {
-          "id": "a7-rapid-transport",
-          "shortAction": "Minimize scene time, transport rapidly to the highest-level trauma center",
-          "protocolExcerpt": "Patients with major hemorrhage, hemodynamic instability, penetrating torso trauma, or signs of traumatic brain injury often require rapid surgical intervention. Minimize scene time (goal is under 10 minutes) and initiate rapid transport to the highest level of care within the trauma system",
-          "priority": "critical",
-          "rationale": "Post-ROSC traumatic arrest patients need definitive surgical hemorrhage control that only a trauma center can provide.",
-          "protocolReference": "MATC: General Trauma Management"
-        }
-      ],
+      "expectedActions": [],
       "transitions": []
     },
     {
@@ -289,7 +291,7 @@
       },
       "expectedActions": [
         {
-          "id": "a8-recognize-tension-physiology",
+          "id": "c1",
           "shortAction": "Recognize unrelieved tension physiology; perform bilateral needle decompression immediately",
           "protocolExcerpt": "If absent or diminished breath sounds in a hypotensive trauma patient, especially those with chest trauma and/or tracheal deviation, consider tension pneumothorax and perform needle decompression of side without breath sounds or side opposite tracheal deviation; may need second or third needle decompression on same side if there is a rush of air but patient again has symptoms",
           "priority": "critical",

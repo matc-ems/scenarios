@@ -57,7 +57,14 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [],
+      "relatedChecklist": [
+        "Assess for signs of life: pulses, respiratory effort, other signs",
+        "Control any external hemorrhage with tourniquet or hemostatic wound packing",
+        "Apply pelvic binder for the grossly unstable pelvis",
+        "Perform bilateral rapid needle chest decompression",
+        "Establish IV or IO access",
+        "Initiate 500 mL crystalloid bolus, reassess and repeat as needed"
+      ],
       "relatedSounds": []
     },
     {
@@ -90,12 +97,7 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Assess for signs of life: pulses, respiratory effort, other signs",
-        "Control any external hemorrhage with tourniquet or hemostatic wound packing",
-        "Apply pelvic binder for the grossly unstable pelvis",
-        "Perform bilateral rapid needle chest decompression",
-        "Establish IV or IO access",
-        "Initiate 500 mL crystalloid bolus, reassess and repeat as needed"
+        "Minimize scene time, transport rapidly to the highest-level trauma center"
       ],
       "relatedSounds": []
     },
@@ -128,9 +130,7 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [
-        "Minimize scene time, transport rapidly to the highest-level trauma center"
-      ],
+      "relatedChecklist": [],
       "relatedSounds": []
     },
     {
