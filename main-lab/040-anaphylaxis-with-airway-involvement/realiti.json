@@ -57,7 +57,12 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [],
+      "relatedChecklist": [
+        "Epinephrine 0.3 mg IM in anterolateral thigh (adult fixed dose; may repeat q5–15 min)",
+        "Nebulized epinephrine 5 mL (1 mg/mL) for audible stridor",
+        "IV normal saline bolus 1,300 mL (65 kg × 20 mL/kg) rapidly over 15 min for hypoperfusion",
+        "Continuously monitor airway; stage video laryngoscopy/SGA for an anticipated difficult airway"
+      ],
       "relatedSounds": []
     },
     {
@@ -90,10 +95,7 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Epinephrine 0.3 mg IM in anterolateral thigh (adult fixed dose; may repeat q5–15 min)",
-        "Nebulized epinephrine 5 mL (1 mg/mL) for audible stridor",
-        "IV normal saline bolus 1,300 mL (65 kg × 20 mL/kg) rapidly over 15 min for hypoperfusion",
-        "Continuously monitor airway; stage video laryngoscopy/SGA for an anticipated difficult airway"
+        "Continue cardiac/airway monitoring en route; transport promptly given biphasic-reaction risk"
       ],
       "relatedSounds": []
     },
@@ -126,9 +128,7 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [
-        "Continue cardiac/airway monitoring en route; transport promptly given biphasic-reaction risk"
-      ],
+      "relatedChecklist": [],
       "relatedSounds": []
     },
     {
