@@ -57,7 +57,10 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [],
+      "relatedChecklist": [
+        "Administer supplemental oxygen via non-rebreather targeting SpO2 94-98%",
+        "Establish IV access; begin 500 mL isotonic fluid bolus, pressure infused over less than 15 min toward MAP 65 mmHg"
+      ],
       "relatedSounds": []
     },
     {
@@ -90,8 +93,8 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Administer supplemental oxygen via non-rebreather targeting SpO2 94-98%",
-        "Establish IV access; begin 500 mL isotonic fluid bolus, pressure infused over less than 15 min toward MAP 65 mmHg"
+        "Norepinephrine infusion 1.7 mcg/min (85 kg × 0.02 mcg/kg/min), titrate to MAP 65 mmHg",
+        "Apply CPAP for persistent hypoxia only after adequate fluid resuscitation and pressor support are underway"
       ],
       "relatedSounds": []
     },
@@ -125,8 +128,7 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Norepinephrine infusion 1.7 mcg/min (85 kg × 0.02 mcg/kg/min), titrate to MAP 65 mmHg",
-        "Apply CPAP for persistent hypoxia only after adequate fluid resuscitation and pressor support are underway"
+        "Reassess full vital signs and CPAP seal at least every 15 minutes en route"
       ],
       "relatedSounds": []
     },
@@ -159,9 +161,7 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [
-        "Reassess full vital signs and CPAP seal at least every 15 minutes en route"
-      ],
+      "relatedChecklist": [],
       "relatedSounds": []
     },
     {

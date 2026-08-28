@@ -79,13 +79,38 @@
         "trendTimeSeconds": 0,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
       },
-      "expectedActions": [],
+      "expectedActions": [
+        {
+          "id": "a1",
+          "shortAction": "Administer supplemental oxygen via non-rebreather targeting SpO2 94-98%",
+          "protocolExcerpt": "Administer oxygen as appropriate with a target of achieving 94–98% saturation",
+          "priority": "critical",
+          "rationale": "Corrects hypoxia from the pneumonia while workup continues.",
+          "protocolReference": "MATC: Shock"
+        },
+        {
+          "id": "a2",
+          "shortAction": "Establish IV access; begin 500 mL isotonic fluid bolus, pressure infused over less than 15 min toward MAP 65 mmHg",
+          "protocolExcerpt": "Establish IV access. IV fluid volume goal attained by giving boluses that are pressure infused over less than 15 minutes each ... Physiologic target: MAP goal 65 mmHg. Fluid goal of up to 30 mL/kg of isotonic fluid by administering rapid, predetermined boluses (e.g., 500 mL) unless the MAP goal is achieved, or pulmonary edema develops",
+          "priority": "critical",
+          "rationale": "Volume resuscitation is first-line for septic shock and should generally precede positive-pressure ventilation in a hypotensive patient.",
+          "protocolReference": "MATC: Shock"
+        }
+      ],
       "transitions": [
         {
           "targetPhaseId": "o2-fluids-started",
           "if": "O2 and IV fluids started",
           "condition": "Crew administers supplemental oxygen targeting 94-98% saturation, establishes IV access, and begins an isotonic fluid bolus toward a MAP goal of 65 mmHg before considering CPAP.",
-          "conditionType": "action_taken"
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a1", "a2"]
+        },
+        {
+          "targetPhaseId": "cpap-before-fluids",
+          "if": "CPAP applied before adequate fluid resuscitation",
+          "condition": "Crew applies CPAP for the hypoxia before an adequate fluid bolus has been given, adding positive intrathoracic pressure to an already volume-depleted, hypotensive patient.",
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["a2"]
         }
       ]
     },
@@ -130,20 +155,20 @@
       },
       "expectedActions": [
         {
-          "id": "a1-o2",
-          "shortAction": "Administer supplemental oxygen via non-rebreather targeting SpO2 94-98%",
-          "protocolExcerpt": "Administer oxygen as appropriate with a target of achieving 94–98% saturation",
+          "id": "b1",
+          "shortAction": "Norepinephrine infusion 1.7 mcg/min (85 kg × 0.02 mcg/kg/min), titrate to MAP 65 mmHg",
+          "protocolExcerpt": "Vasopressors (shock unresponsive to IV fluids) titrated to physiologic targets ... Norepinephrine 0.05–0.5 mcg/kg/minute — Preference in both neurogenic and infectious (sepsis) causes of distributive shock",
           "priority": "critical",
-          "rationale": "Corrects hypoxia from the pneumonia while workup continues.",
+          "rationale": "Norepinephrine is preferred for fluid-refractory septic shock.",
           "protocolReference": "MATC: Shock"
         },
         {
-          "id": "a2-iv-fluids",
-          "shortAction": "Establish IV access; begin 500 mL isotonic fluid bolus, pressure infused over less than 15 min toward MAP 65 mmHg",
-          "protocolExcerpt": "Establish IV access. IV fluid volume goal attained by giving boluses that are pressure infused over less than 15 minutes each ... Physiologic target: MAP goal 65 mmHg. Fluid goal of up to 30 mL/kg of isotonic fluid by administering rapid, predetermined boluses (e.g., 500 mL) unless the MAP goal is achieved, or pulmonary edema develops",
-          "priority": "critical",
-          "rationale": "Volume resuscitation is first-line for septic shock and should generally precede positive-pressure ventilation in a hypotensive patient.",
-          "protocolReference": "MATC: Shock"
+          "id": "b2",
+          "shortAction": "Apply CPAP for persistent hypoxia only after adequate fluid resuscitation and pressor support are underway",
+          "protocolExcerpt": "Non-invasive ventilation (NIV) should be considered early for severe respiratory distress or impending respiratory failure. NIV options include continuous positive airway pressure (CPAP)",
+          "priority": "important",
+          "rationale": "Sequencing CPAP after volume/pressor support reduces the risk of a sudden preload drop in a hypotensive patient.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
         }
       ],
       "transitions": [
@@ -152,14 +177,7 @@
           "if": "Fluid-refractory shock, norepinephrine started",
           "condition": "Despite the fluid bolus and oxygen, the patient remains hypotensive and hypoxic; crew starts norepinephrine while carefully adding CPAP for the ongoing hypoxia.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["a2-iv-fluids"]
-        },
-        {
-          "targetPhaseId": "cpap-before-fluids",
-          "if": "CPAP applied before adequate fluid resuscitation",
-          "condition": "Crew applies CPAP for the hypoxia before an adequate fluid bolus has been given, adding positive intrathoracic pressure to an already volume-depleted, hypotensive patient.",
-          "conditionType": "action_not_taken",
-          "triggerActionIds": ["a2-iv-fluids"]
+          "triggerActionIds": ["b1", "b2"]
         }
       ]
     },
@@ -204,20 +222,12 @@
       },
       "expectedActions": [
         {
-          "id": "a3-norepinephrine",
-          "shortAction": "Norepinephrine infusion 1.7 mcg/min (85 kg × 0.02 mcg/kg/min), titrate to MAP 65 mmHg",
-          "protocolExcerpt": "Vasopressors (shock unresponsive to IV fluids) titrated to physiologic targets ... Norepinephrine 0.05–0.5 mcg/kg/minute — Preference in both neurogenic and infectious (sepsis) causes of distributive shock",
-          "priority": "critical",
-          "rationale": "Norepinephrine is preferred for fluid-refractory septic shock.",
-          "protocolReference": "MATC: Shock"
-        },
-        {
-          "id": "a4-cpap-after-fluids",
-          "shortAction": "Apply CPAP for persistent hypoxia only after adequate fluid resuscitation and pressor support are underway",
-          "protocolExcerpt": "Non-invasive ventilation (NIV) should be considered early for severe respiratory distress or impending respiratory failure. NIV options include continuous positive airway pressure (CPAP)",
+          "id": "c1",
+          "shortAction": "Reassess full vital signs and CPAP seal at least every 15 minutes en route",
+          "protocolExcerpt": "Full vital signs (pulse, blood pressure, respiratory rate, neurologic status assessment) with reassessment q 15 minutes or more frequently as appropriate",
           "priority": "important",
-          "rationale": "Sequencing CPAP after volume/pressor support reduces the risk of a sudden preload drop in a hypotensive patient.",
-          "protocolReference": "MATC: Airway Management (Includes RSI)"
+          "rationale": "Ongoing reassessment catches early re-deterioration and ensures the CPAP mask seal is maintained.",
+          "protocolReference": "MATC: Shock"
         }
       ],
       "transitions": [
@@ -225,7 +235,8 @@
           "targetPhaseId": "transport-improving",
           "if": "Perfusion and oxygenation improve, transport continues",
           "condition": "With fluids, norepinephrine, and CPAP in place, perfusion and oxygenation trend toward normal; crew continues reassessment en route.",
-          "conditionType": "action_taken"
+          "conditionType": "action_taken",
+          "triggerActionIds": ["c1"]
         }
       ]
     },
@@ -268,16 +279,7 @@
         "trendTimeSeconds": 50,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
       },
-      "expectedActions": [
-        {
-          "id": "a5-reassess",
-          "shortAction": "Reassess full vital signs and CPAP seal at least every 15 minutes en route",
-          "protocolExcerpt": "Full vital signs (pulse, blood pressure, respiratory rate, neurologic status assessment) with reassessment q 15 minutes or more frequently as appropriate",
-          "priority": "important",
-          "rationale": "Ongoing reassessment catches early re-deterioration and ensures the CPAP mask seal is maintained.",
-          "protocolReference": "MATC: Shock"
-        }
-      ],
+      "expectedActions": [],
       "transitions": []
     },
     {
@@ -321,7 +323,7 @@
       },
       "expectedActions": [
         {
-          "id": "a6-recognize-preload-drop",
+          "id": "d1",
           "shortAction": "Recognize CPAP-related preload drop; complete fluid resuscitation and reconsider CPAP pressure/pause if hypotension worsens",
           "protocolExcerpt": "Increased intrathoracic pressure can progressively decrease cardiac output and is most notable when PEEP is greater than 15 cmH2O. The higher the level of PEEP (over 5 cmH2O), the more likely the patient will experience a variety of adverse consequences, both ventilatory and hemodynamic",
           "priority": "critical",
