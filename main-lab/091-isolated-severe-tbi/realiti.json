@@ -57,7 +57,12 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [],
+      "relatedChecklist": [
+        "High-flow oxygen via NRB; head of board elevated 30 degrees",
+        "Maintain manual cervical stabilization throughout airway management",
+        "Check blood glucose to rule out hypoglycemia as contributing cause of AMS",
+        "Preoxygenate with high-flow O2 and positive-pressure ventilation for at least 2 minutes before RSI"
+      ],
       "relatedSounds": []
     },
     {
@@ -90,10 +95,10 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "High-flow oxygen via NRB; head of board elevated 30 degrees",
-        "Maintain manual cervical stabilization throughout airway management",
-        "Check blood glucose to rule out hypoglycemia as contributing cause of AMS",
-        "Preoxygenate with high-flow O2 and positive-pressure ventilation for at least 2 minutes before RSI"
+        "Fentanyl 85 mcg IV premedication (85 kg × 1 mcg/kg), 2-3 min prior to intubation",
+        "Etomidate 25 mg IV push induction (85 kg × 0.3 mg/kg = 25.5 mg)",
+        "Rocuronium 85 mg IV push paralytic (85 kg × 1 mg/kg)",
+        "Administer NS/LR bolus proactively to maintain SBP ≥ 110 mmHg; do not wait for hypotension"
       ],
       "relatedSounds": []
     },
@@ -127,10 +132,8 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Fentanyl 85 mcg IV premedication (85 kg × 1 mcg/kg), 2-3 min prior to intubation",
-        "Etomidate 25 mg IV push induction (85 kg × 0.3 mg/kg = 25.5 mg)",
-        "Rocuronium 85 mg IV push paralytic (85 kg × 1 mg/kg)",
-        "Administer NS/LR bolus proactively to maintain SBP ≥ 110 mmHg; do not wait for hypotension"
+        "Confirm tube placement with waveform capnography, bilateral breath sounds, absent gastric sounds",
+        "Ventilate to EtCO2 35-45 mmHg (target 40); avoid hyperventilation"
       ],
       "relatedSounds": []
     },
@@ -164,8 +167,6 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Confirm tube placement with waveform capnography, bilateral breath sounds, absent gastric sounds",
-        "Ventilate to EtCO2 35-45 mmHg (target 40); avoid hyperventilation",
         "Transport to highest level of trauma care available"
       ],
       "relatedSounds": []
