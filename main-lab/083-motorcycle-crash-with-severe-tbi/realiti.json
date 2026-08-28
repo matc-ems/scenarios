@@ -57,7 +57,11 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [],
+      "relatedChecklist": [
+        "Maintain cervical stabilization while performing MARCH primary survey",
+        "Apply high-flow O2 via non-rebreather as precaution against deterioration",
+        "Perform serial GCS/AVPU checks; reassess pupils with any change in mentation"
+      ],
       "relatedSounds": []
     },
     {
@@ -90,9 +94,11 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Maintain cervical stabilization while performing MARCH primary survey",
-        "Apply high-flow O2 via non-rebreather as precaution against deterioration",
-        "Perform serial GCS/AVPU checks; reassess pupils with any change in mentation"
+        "Preoxygenate with high-flow O2/BVM for at least 2 minutes prior to RSI",
+        "Fentanyl 86 mcg IV pretreatment (86 kg × 1 mcg/kg), 2-3 min before intubation",
+        "Etomidate 21.5 mg IV induction (86 kg × 0.25 mg/kg)",
+        "Rocuronium 86 mg IV paralytic (86 kg × 1 mg/kg)",
+        "Intubate with 8.0 ETT; confirm placement with waveform capnography"
       ],
       "relatedSounds": []
     },
@@ -126,11 +132,9 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Preoxygenate with high-flow O2/BVM for at least 2 minutes prior to RSI",
-        "Fentanyl 86 mcg IV pretreatment (86 kg × 1 mcg/kg), 2-3 min before intubation",
-        "Etomidate 21.5 mg IV induction (86 kg × 0.25 mg/kg)",
-        "Rocuronium 86 mg IV paralytic (86 kg × 1 mg/kg)",
-        "Intubate with 8.0 ETT; confirm placement with waveform capnography"
+        "Ventilate at 10 breaths/min targeting EtCO2 35-45 mmHg; avoid hyperventilation",
+        "NS bolus to maintain SBP ≥110 mmHg; do not wait for hypotension to develop",
+        "Transport to highest level trauma center per severe head injury criteria"
       ],
       "relatedSounds": []
     },
@@ -163,11 +167,7 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [
-        "Ventilate at 10 breaths/min targeting EtCO2 35-45 mmHg; avoid hyperventilation",
-        "NS bolus to maintain SBP ≥110 mmHg; do not wait for hypotension to develop",
-        "Transport to highest level trauma center per severe head injury criteria"
-      ],
+      "relatedChecklist": [],
       "relatedSounds": []
     },
     {
