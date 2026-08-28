@@ -57,7 +57,11 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [],
+      "relatedChecklist": [
+        "Establish forearm IV access (18-20ga)",
+        "Obtain blood glucose level",
+        "Normal saline 500 mL IV bolus, pressure infused over <15 min"
+      ],
       "relatedSounds": []
     },
     {
@@ -90,10 +94,8 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Establish forearm IV access (18-20ga)",
-        "Obtain blood glucose level",
-        "Normal saline 500 mL IV bolus, pressure infused over <15 min",
-        "Ondansetron 4 mg IV (fixed adult dose)"
+        "Ondansetron 4 mg IV (fixed adult dose)",
+        "Reassess vital signs serially en route; monitor for recurrent nausea"
       ],
       "relatedSounds": []
     },
@@ -126,9 +128,7 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [
-        "Reassess vital signs serially en route; monitor for recurrent nausea"
-      ],
+      "relatedChecklist": [],
       "relatedSounds": []
     },
     {

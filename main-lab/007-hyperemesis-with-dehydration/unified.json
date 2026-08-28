@@ -80,19 +80,46 @@
         "trendTimeSeconds": 0,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [],
+      "expectedActions": [
+        {
+          "id": "a1",
+          "shortAction": "Establish forearm IV access (18-20ga)",
+          "protocolExcerpt": "Establish IV access. If unable to obtain within two attempts or less than 90 seconds, place an IO needle",
+          "priority": "critical",
+          "rationale": "Vascular access is required for fluid resuscitation and antiemetic administration.",
+          "protocolReference": "MATC: Shock"
+        },
+        {
+          "id": "a2",
+          "shortAction": "Obtain blood glucose level",
+          "protocolExcerpt": "Obtain glucose level",
+          "priority": "important",
+          "rationale": "Rules out hypoglycemia as a contributor to weakness and dizziness.",
+          "protocolReference": "MATC: Nausea-Vomiting"
+        },
+        {
+          "id": "a3",
+          "shortAction": "Normal saline 500 mL IV bolus, pressure infused over <15 min",
+          "protocolExcerpt": "IV fluid volume goal attained by giving boluses that are pressure infused over less than 15 minutes each based on patient's condition and clinical impression... Fluid goal of up to 30 mL/kg of isotonic fluid by administering rapid, predetermined boluses (e.g., 500 mL) unless the MAP goal is achieved, or pulmonary edema develops",
+          "priority": "critical",
+          "rationale": "Restores intravascular volume lost from several days of emesis and poor intake.",
+          "protocolReference": "MATC: Shock"
+        }
+      ],
       "transitions": [
         {
           "targetPhaseId": "iv-fluids-started",
           "if": "IV access obtained, NS bolus started",
           "condition": "Crew establishes a forearm IV without difficulty, checks blood glucose, and initiates a normal saline bolus per the Shock guideline.",
-          "conditionType": "action_taken"
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a1", "a3"]
         },
         {
           "targetPhaseId": "shock-progression",
           "if": "IV access delayed, no fluids given",
           "condition": "Crew delays IV attempts or defers fluid administration, allowing ongoing volume loss from vomiting to progress toward uncompensated shock.",
-          "conditionType": "action_not_taken"
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["a1", "a3"]
         }
       ]
     },
@@ -137,36 +164,20 @@
       },
       "expectedActions": [
         {
-          "id": "a1-iv-access",
-          "shortAction": "Establish forearm IV access (18-20ga)",
-          "protocolExcerpt": "Establish IV access. If unable to obtain within two attempts or less than 90 seconds, place an IO needle",
-          "priority": "critical",
-          "rationale": "Vascular access is required for fluid resuscitation and antiemetic administration.",
-          "protocolReference": "MATC: Shock"
-        },
-        {
-          "id": "a2-glucose",
-          "shortAction": "Obtain blood glucose level",
-          "protocolExcerpt": "Obtain glucose level",
-          "priority": "important",
-          "rationale": "Rules out hypoglycemia as a contributor to weakness and dizziness.",
-          "protocolReference": "MATC: Nausea-Vomiting"
-        },
-        {
-          "id": "a3-ns-bolus",
-          "shortAction": "Normal saline 500 mL IV bolus, pressure infused over <15 min",
-          "protocolExcerpt": "IV fluid volume goal attained by giving boluses that are pressure infused over less than 15 minutes each based on patient's condition and clinical impression... Fluid goal of up to 30 mL/kg of isotonic fluid by administering rapid, predetermined boluses (e.g., 500 mL) unless the MAP goal is achieved, or pulmonary edema develops",
-          "priority": "critical",
-          "rationale": "Restores intravascular volume lost from several days of emesis and poor intake.",
-          "protocolReference": "MATC: Shock"
-        },
-        {
-          "id": "a4-ondansetron",
+          "id": "b1",
           "shortAction": "Ondansetron 4 mg IV (fixed adult dose)",
           "protocolExcerpt": "Ondansetron (contraindicated for suspected or known diagnosis of prolonged QT syndrome) Adult: 4 mg IV/PO/SL",
           "priority": "important",
           "rationale": "Controls ongoing nausea/vomiting to prevent further fluid losses.",
           "protocolReference": "MATC: Nausea-Vomiting"
+        },
+        {
+          "id": "b2",
+          "shortAction": "Reassess vital signs serially en route; monitor for recurrent nausea",
+          "protocolExcerpt": "Full vital signs (pulse, blood pressure, respiratory rate, neurologic status assessment) with reassessment q 15 minutes or more frequently as appropriate",
+          "priority": "important",
+          "rationale": "Confirms sustained improvement and catches early recurrence of symptoms.",
+          "protocolReference": "MATC: Shock"
         }
       ],
       "transitions": [
@@ -175,7 +186,7 @@
           "if": "Improved with fluids and ondansetron",
           "condition": "Heart rate trends down, blood pressure improves, and nausea subsides after the bolus and antiemetic; patient is packaged for transport.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["a3-ns-bolus", "a4-ondansetron"]
+          "triggerActionIds": ["b1", "b2"]
         }
       ]
     },
@@ -218,16 +229,7 @@
         "trendTimeSeconds": 40,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [
-        {
-          "id": "a5-serial-reassess",
-          "shortAction": "Reassess vital signs serially en route; monitor for recurrent nausea",
-          "protocolExcerpt": "Full vital signs (pulse, blood pressure, respiratory rate, neurologic status assessment) with reassessment q 15 minutes or more frequently as appropriate",
-          "priority": "important",
-          "rationale": "Confirms sustained improvement and catches early recurrence of symptoms.",
-          "protocolReference": "MATC: Shock"
-        }
-      ],
+      "expectedActions": [],
       "transitions": []
     },
     {
@@ -271,7 +273,7 @@
       },
       "expectedActions": [
         {
-          "id": "a6-recognize-shock",
+          "id": "c1",
           "shortAction": "Recognize progression to uncompensated shock; establish IV/IO access emergently",
           "protocolExcerpt": "Hypotension indicates uncompensated shock, which may progress to cardiopulmonary failure within minutes... Establish IV access. If unable to obtain within two attempts or less than 90 seconds, place an IO needle",
           "priority": "critical",
