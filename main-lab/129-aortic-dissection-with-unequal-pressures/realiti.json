@@ -1,0 +1,262 @@
+{
+  "scenarioId": "129-aortic-dissection-with-unequal-pressures",
+  "scenarioName": "129 - Aortic Dissection with Unequal Pressures",
+  "scenarioType": "Vital Signs",
+  "scenarioVersion": 2,
+  "scenarioTime": 900,
+  "scenarioMonitorType": 2,
+  "scenarioDefaultEnergy": 200,
+  "scenarioDefaultPacerThreshold": 55,
+  "isDemo": false,
+  "isALSILegacy": false,
+  "scenarioStory": {
+    "history": "Patient was sitting at his desk typing when the pain began instantaneously, with no warning and no exertion. He describes it as a tearing or ripping sensation rather than pressure, beginning in the center of his chest and going straight through to his back between the shoulder blades. It is 10 out of 10 and has not changed since onset roughly five minutes before the call. Nothing makes it better; breathing makes it worse. He is restless and cannot find a position of comfort. He denies any prior episode like this.",
+    "discussion": "",
+    "course": "Initial Contact: Crew finds a 58-year-old male in agonizing distress, pale and diaphoretic, describing an instantaneous tearing pain radiating from the center of the chest straight through to the interscapular back. He is alert and oriented but restless. Blood pressures taken in both arms differ by 48 mmHg systolic and the left radial pulse is noticeably weaker than the right. → Both arms checked; aspirin withheld; rapid transport: The patient is moved quickly but carefully to the stretcher in a position of comfort and is in the ambulance within minutes of the decision. His pain is unchanged and his hemodynamics remain precarious but stable. The crew now has an en route window for vascular access, analgesia, and a clear radio report to the surgical center. → Analgesia given; hospital notified: The patient's pain is partially controlled and his heart rate has come down modestly with the analgesia. He remains critical but has not deteriorated during transport. The receiving facility has activated its surgical team and has blood products standing by. The crew has given this patient the best available chance by recognizing the emergency and moving early."
+  },
+  "patientInformation": {
+    "patientName": "Daniel Clark",
+    "patientCondition": "Abrupt onset severe tearing chest pain radiating straight through to the interscapular back",
+    "patientAge": 58,
+    "patientAgeUnit": "years",
+    "patientAgeCategory": 0,
+    "patientSex": 1,
+    "patientHeight": 180,
+    "patientWeight": 91,
+    "patientPhotoId": 70,
+    "patientAdmitted": 1
+  },
+  "labs": [],
+  "scenarioEvents": [
+    {
+      "type": "ScenarioEvent",
+      "name": "Initial Contact",
+      "description": "Crew finds a 58-year-old male in agonizing distress, pale and diaphoretic, describing an instantaneous tearing pain radiating from the center of the chest straight through to the interscapular back. He is alert and oriented but restless. Blood pressures taken in both arms differ by 48 mmHg systolic and the left radial pulse is noticeably weaker than the right.",
+      "monitorType": 0,
+      "trendTime": 0,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 120,
+        "bpSys": 198,
+        "bpDia": 110,
+        "respRate": 24,
+        "spo2": 96,
+        "etco2": 34,
+        "temp": 36.9,
+        "obstruction": 0,
+        "custMeasure1": 105,
+        "custMeasureLabel1": "mg/dL",
+        "custMeasure2": 150,
+        "custMeasureLabel2": "Left arm systolic",
+        "custMeasure3": 90,
+        "custMeasureLabel3": "Left arm diastolic",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "OPQRST; elicit the tearing quality radiating through to the back",
+        "Take blood pressure and pulses in BOTH arms; note the 48 mmHg difference",
+        "Acquire a 12-lead EKG within 10 minutes of patient contact",
+        "Titrate oxygen to a 94 to 98 percent saturation target",
+        "WITHHOLD aspirin; suspected dissection is not an ACS presentation",
+        "Minimize scene time; move to a specialty surgical center with early notification"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Both arms checked; aspirin withheld; rapid transport",
+      "description": "The patient is moved quickly but carefully to the stretcher in a position of comfort and is in the ambulance within minutes of the decision. His pain is unchanged and his hemodynamics remain precarious but stable. The crew now has an en route window for vascular access, analgesia, and a clear radio report to the surgical center.",
+      "monitorType": 0,
+      "trendTime": 40,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 118,
+        "bpSys": 190,
+        "bpDia": 106,
+        "respRate": 22,
+        "spo2": 98,
+        "etco2": 35,
+        "temp": 36.9,
+        "obstruction": 0,
+        "custMeasure1": 105,
+        "custMeasureLabel1": "mg/dL",
+        "custMeasure2": 146,
+        "custMeasureLabel2": "Left arm systolic",
+        "custMeasure3": 88,
+        "custMeasureLabel3": "Left arm diastolic",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Establish IV access en route without delaying transport",
+        "Fentanyl 91 mcg IV (91 kg x 1 mcg/kg; max initial dose 100 mcg)",
+        "Radio a clear suspected-dissection report so the OR can be readied"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Analgesia given; hospital notified",
+      "description": "The patient's pain is partially controlled and his heart rate has come down modestly with the analgesia. He remains critical but has not deteriorated during transport. The receiving facility has activated its surgical team and has blood products standing by. The crew has given this patient the best available chance by recognizing the emergency and moving early.",
+      "monitorType": 0,
+      "trendTime": 45,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 106,
+        "bpSys": 178,
+        "bpDia": 98,
+        "respRate": 20,
+        "spo2": 98,
+        "etco2": 36,
+        "temp": 36.9,
+        "obstruction": 0,
+        "custMeasure1": 105,
+        "custMeasureLabel1": "mg/dL",
+        "custMeasure2": 140,
+        "custMeasureLabel2": "Left arm systolic",
+        "custMeasure3": 86,
+        "custMeasureLabel3": "Left arm diastolic",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Aspirin given; scene time prolonged",
+      "description": "Shortly after the aspirin is given the patient cries out, his pain suddenly worsens, and he becomes markedly more pale. Ten to twelve minutes into a prolonged scene time he says he feels very dizzy, his eyes roll back, and he becomes unresponsive. Blood pressure is unobtainable, the carotid pulse is gone, and agonal gasps give way to apnea. The aorta has ruptured and he is in cardiac arrest.",
+      "monitorType": 0,
+      "trendTime": 15,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 42,
+        "bpSys": 0,
+        "bpDia": 0,
+        "respRate": 0,
+        "spo2": 0,
+        "etco2": 8,
+        "temp": 36.6,
+        "obstruction": 0,
+        "custMeasure1": 105,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": false,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Confirm pulselessness and begin high-quality chest compressions immediately",
+        "Epinephrine 1 mg IV/IO early; PEA is a non-shockable rhythm",
+        "Manage the airway without interrupting compressions"
+      ],
+      "relatedSounds": []
+    }
+  ],
+  "checklist": [
+    {
+      "title": "OPQRST; elicit the tearing quality radiating through to the back",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Take blood pressure and pulses in BOTH arms; note the 48 mmHg difference",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Acquire a 12-lead EKG within 10 minutes of patient contact",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Titrate oxygen to a 94 to 98 percent saturation target",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "WITHHOLD aspirin; suspected dissection is not an ACS presentation",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Minimize scene time; move to a specialty surgical center with early notification",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Establish IV access en route without delaying transport",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Fentanyl 91 mcg IV (91 kg x 1 mcg/kg; max initial dose 100 mcg)",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Radio a clear suspected-dissection report so the OR can be readied",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Confirm pulselessness and begin high-quality chest compressions immediately",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Epinephrine 1 mg IV/IO early; PEA is a non-shockable rhythm",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Manage the airway without interrupting compressions",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    }
+  ],
+  "media": []
+}

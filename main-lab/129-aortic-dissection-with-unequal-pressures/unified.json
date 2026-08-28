@@ -1,0 +1,464 @@
+{
+  "meta": {
+    "id": "129-aortic-dissection-with-unequal-pressures",
+    "name": "129 - Aortic Dissection with Unequal Pressures",
+    "version": 1,
+    "difficulty": "advanced",
+    "category": "Cardiac",
+    "protocols": [
+      "cv-chest-pain-acs-stemi",
+      "medical-back-pain",
+      "medical-pain-management",
+      "resus-cardiac-arrest"
+    ],
+    "totalTimeSeconds": 900,
+    "tags": [
+      "cardiac",
+      "chest pain",
+      "aortic dissection",
+      "aspirin contraindication",
+      "load and go",
+      "bilateral blood pressure",
+      "practice summative"
+    ]
+  },
+  "patient": {
+    "name": "Daniel Clark",
+    "age": 58,
+    "ageUnit": "years",
+    "sex": "male",
+    "weight": 91,
+    "weightLbs": 201,
+    "height": 180,
+    "chiefComplaint": "Abrupt onset severe tearing chest pain radiating straight through to the interscapular back",
+    "history": {
+      "hpi": "Patient was sitting at his desk typing when the pain began instantaneously, with no warning and no exertion. He describes it as a tearing or ripping sensation rather than pressure, beginning in the center of his chest and going straight through to his back between the shoulder blades. It is 10 out of 10 and has not changed since onset roughly five minutes before the call. Nothing makes it better; breathing makes it worse. He is restless and cannot find a position of comfort. He denies any prior episode like this.",
+      "pastMedical": [
+        "Hypertension"
+      ],
+      "medications": [
+        "Lisinopril 20 mg PO daily (out of refills; has not taken it in several days)"
+      ],
+      "allergies": [
+        "NKDA"
+      ],
+      "lastOralIntake": "Coffee and a donut approximately one hour prior to onset",
+      "events": "Sudden onset while seated at his desk with no exertion, no trauma, and no prodrome; a coworker called 911 within minutes"
+    }
+  },
+  "scene": {
+    "dispatch": "58-year-old male, chest pain, office inside a bank on Commerce Street",
+    "location": "Professional office inside a commercial bank branch; patient seated in his desk chair behind a desk",
+    "time": "7:16 AM, weekday morning",
+    "safety": "Scene is safe with no hazards; a coworker escorts the crew directly to the office",
+    "bystanders": "Coworker who witnessed the onset and called 911; several other staff in the hallway",
+    "visualCues": [
+      "Patient pale and sweating profusely, clutching the center of his chest",
+      "Restless and shifting constantly, unable to find a comfortable position",
+      "Speaking in short, pained sentences",
+      "No exertion, trauma, or environmental cause evident",
+      "Coffee and a partly eaten donut on the desk"
+    ]
+  },
+  "phases": [
+    {
+      "id": "initial",
+      "name": "Initial Contact",
+      "description": "Crew finds a 58-year-old male in agonizing distress, pale and diaphoretic, describing an instantaneous tearing pain radiating from the center of the chest straight through to the interscapular back. He is alert and oriented but restless. Blood pressures taken in both arms differ by 48 mmHg systolic and the left radial pulse is noticeably weaker than the right.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": {
+          "eye": 4,
+          "verbal": 5,
+          "motor": 6
+        },
+        "airway": "Patent and self-maintained",
+        "breathing": "Fast but not labored; lung sounds clear and equal bilaterally",
+        "circulation": "Central and peripheral pulses present; right radial rapid and bounding, left radial palpably weaker; skin pale, cool, and clammy; no obvious bleeding",
+        "skin": {
+          "color": "pale",
+          "temperature": "cool",
+          "moisture": "clammy"
+        },
+        "pupils": "PERRL",
+        "motorFunction": "Strength and sensation intact in all four extremities; no focal neurologic deficit",
+        "otherFindings": [
+          "Right arm blood pressure 198/110 mmHg; left arm blood pressure 150/90 mmHg",
+          "Right radial 120 bpm and bounding; left radial 120 bpm and distinctly weaker",
+          "Pain described as tearing or ripping, not pressure",
+          "Radiation from mid-chest straight through to the interscapular back",
+          "Onset instantaneous and at rest; severity 10 out of 10 and unchanged",
+          "Restless, cannot find a position of comfort",
+          "Lisinopril not taken for several days"
+        ],
+        "patientSpeech": "\"It's the worst pain of my life. It happened all at once... like something ripped right down my chest.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 120,
+        "bpSys": 198,
+        "bpDia": 110,
+        "respRate": 24,
+        "spo2": 96,
+        "etco2": 34,
+        "temp": 36.9,
+        "tempF": 98.4,
+        "obstruction": 0,
+        "glucose": 105,
+        "customMeasures": [
+          {
+            "label": "Left arm systolic",
+            "value": 150
+          },
+          {
+            "label": "Left arm diastolic",
+            "value": 90
+          }
+        ],
+        "trendTimeSeconds": 0,
+        "visibility": {
+          "spo2Visible": true,
+          "spo2Attached": true,
+          "rrVisible": true,
+          "etco2Visible": true,
+          "cvpVisible": false
+        }
+      },
+      "expectedActions": [
+        {
+          "id": "a1",
+          "shortAction": "OPQRST; elicit the tearing quality radiating through to the back",
+          "protocolExcerpt": "Assess for life-threatening causes of back pain, which may include: Aortic dissection or ruptured abdominal aortic aneurysm: Unequal femoral or distal lower extremity pulses; Pulsatile abdominal mass; Associated abdominal pain and/or chest pain; Known history of abdominal aortic aneurysm or dissection.",
+          "priority": "critical",
+          "rationale": "The description of tearing pain radiating to the interscapular back is the single most important historical clue and is not typical of acute coronary syndrome.",
+          "protocolReference": "MATC: Back Pain"
+        },
+        {
+          "id": "a2",
+          "shortAction": "Take blood pressure and pulses in BOTH arms; note the 48 mmHg difference",
+          "protocolExcerpt": "Pertinent Assessment Findings: Absence of or significant inequality of femoral or distal arterial pulses in lower extremities. -- Key Documentation Elements: Assesses initial and changes in perfusion/pulses.",
+          "priority": "critical",
+          "rationale": "Pulse and pressure inequality between limbs is the physical finding that separates a dissection from acute coronary syndrome, and it is only found if it is deliberately sought.",
+          "protocolReference": "MATC: Back Pain"
+        },
+        {
+          "id": "a3",
+          "shortAction": "Acquire a 12-lead EKG within 10 minutes of patient contact",
+          "protocolExcerpt": "The 12-lead EKG is the primary diagnostic tool that identifies a STEMI; it is imperative that EMS clinicians routinely acquire a 12-lead EKG within 10 minutes for all patients exhibiting signs and symptoms of ACS.",
+          "priority": "critical",
+          "rationale": "The EKG both screens for the STEMI that a dissection can mimic or cause and documents the rhythm before deterioration.",
+          "protocolReference": "MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)"
+        },
+        {
+          "id": "a4",
+          "shortAction": "Titrate oxygen to a 94 to 98 percent saturation target",
+          "protocolExcerpt": "If the patient is dyspneic, hypoxemic, or has obvious signs of heart failure, EMS clinicians should administer oxygen as appropriate with a target of achieving 94-98% saturation.",
+          "priority": "important",
+          "rationale": "Oxygen is dosed to a saturation target rather than given routinely at high flow; this patient starts at 96 percent and needs titration, not a reflex non-rebreather.",
+          "protocolReference": "MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)"
+        },
+        {
+          "id": "a5",
+          "shortAction": "WITHHOLD aspirin; suspected dissection is not an ACS presentation",
+          "protocolExcerpt": "Some patients will present with likely non-cardiac chest pain and otherwise have a low likelihood of ACS (e.g., blunt trauma to the chest of a child). For these patients, defer the administration of aspirin (ASA) and nitrates per the Pain Management Guideline.",
+          "priority": "critical",
+          "rationale": "Knowing when not to give a medication matters as much as knowing when to give it; antiplatelet therapy in a dissecting aorta can be lethal.",
+          "protocolReference": "MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)"
+        },
+        {
+          "id": "a6",
+          "shortAction": "Minimize scene time; move to a specialty surgical center with early notification",
+          "protocolExcerpt": "Provide transport to an appropriate receiving facility. Consider specialty destination centers for conditions such as suspected aortic emergency. -- Key Considerations: Consider transport to appropriate specialty center if aortic emergency suspected.",
+          "priority": "critical",
+          "rationale": "Definitive care for a dissection is surgical; every minute on scene is a minute the aorta continues to tear.",
+          "protocolReference": "MATC: Back Pain"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "load-and-go",
+          "if": "Both arms checked; aspirin withheld; rapid transport",
+          "condition": "Crew elicits the tearing quality and interscapular radiation, obtains blood pressures and pulses in both arms and identifies the systolic differential, acquires a 12-lead, correctly withholds aspirin, and makes an early decision to move to a specialty surgical center with minimal scene time.",
+          "conditionType": "action_taken",
+          "triggerActionIds": [
+            "a1",
+            "a2",
+            "a5",
+            "a6"
+          ]
+        },
+        {
+          "targetPhaseId": "aspirin-given-delayed",
+          "if": "Aspirin given; scene time prolonged",
+          "condition": "Crew treats the call as a routine acute coronary syndrome, administers 324 mg of aspirin, performs a lengthy secondary assessment on scene, and exceeds ten minutes of scene time; the dissection extends and the aorta ruptures.",
+          "conditionType": "action_not_taken",
+          "triggerActionIds": [
+            "a2",
+            "a5",
+            "a6"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "load-and-go",
+      "name": "Both arms checked; aspirin withheld; rapid transport",
+      "description": "The patient is moved quickly but carefully to the stretcher in a position of comfort and is in the ambulance within minutes of the decision. His pain is unchanged and his hemodynamics remain precarious but stable. The crew now has an en route window for vascular access, analgesia, and a clear radio report to the surgical center.",
+      "triggerCondition": "The crew recognized the dissection pattern from the history and the inter-arm pressure differential, withheld aspirin, and committed to transport rather than continuing an on-scene workup; scene time was held under ten minutes.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": {
+          "eye": 4,
+          "verbal": 5,
+          "motor": 6
+        },
+        "airway": "Patent and self-maintained",
+        "breathing": "Fast but unlabored at 22/min; lung sounds clear bilaterally",
+        "circulation": "Right radial bounding, left radial weak; skin pale, cool, and clammy",
+        "skin": {
+          "color": "pale",
+          "temperature": "cool",
+          "moisture": "clammy"
+        },
+        "pupils": "PERRL",
+        "motorFunction": "Strength and sensation intact in all extremities; no new deficit",
+        "otherFindings": [
+          "Transported in a position of comfort, sitting semi-upright",
+          "Pain remains 10 out of 10 and unchanged in character",
+          "Inter-arm systolic differential persists on recheck",
+          "Defibrillation pads placed prophylactically",
+          "Scene time held under ten minutes"
+        ],
+        "patientSpeech": "\"It still feels like it's tearing. Please, just get me somewhere.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 118,
+        "bpSys": 190,
+        "bpDia": 106,
+        "respRate": 22,
+        "spo2": 98,
+        "etco2": 35,
+        "temp": 36.9,
+        "tempF": 98.4,
+        "obstruction": 0,
+        "glucose": 105,
+        "customMeasures": [
+          {
+            "label": "Left arm systolic",
+            "value": 146
+          },
+          {
+            "label": "Left arm diastolic",
+            "value": 88
+          }
+        ],
+        "trendTimeSeconds": 40,
+        "visibility": {
+          "spo2Visible": true,
+          "spo2Attached": true,
+          "rrVisible": true,
+          "etco2Visible": true,
+          "cvpVisible": false
+        }
+      },
+      "expectedActions": [
+        {
+          "id": "b1",
+          "shortAction": "Establish IV access en route without delaying transport",
+          "protocolExcerpt": "Establish IV access.",
+          "priority": "important",
+          "rationale": "Access is needed for analgesia and for resuscitation if the aorta ruptures, but it is obtained in the moving ambulance rather than on scene.",
+          "protocolReference": "MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)"
+        },
+        {
+          "id": "b2",
+          "shortAction": "Fentanyl 91 mcg IV (91 kg x 1 mcg/kg; max initial dose 100 mcg)",
+          "protocolExcerpt": "For Moderate to Severe pain, analgesics include: Fentanyl: 1 mcg/kg IN, IM, IV or IO (maximum initial dose of 100 mcg).",
+          "priority": "important",
+          "rationale": "Analgesia in a dissection is not comfort care alone; reducing the catecholamine surge from 10 out of 10 pain limits shear stress on the tearing intima.",
+          "protocolReference": "MATC: Pain Management"
+        },
+        {
+          "id": "b3",
+          "shortAction": "Radio a clear suspected-dissection report so the OR can be readied",
+          "protocolExcerpt": "Early notification to receiving facility of any changes in patient condition or serial EKGs.",
+          "priority": "critical",
+          "rationale": "A radio report that names the suspicion lets the hospital activate the surgical team and prepare blood products before arrival.",
+          "protocolReference": "MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "en-route-to-surgery",
+          "if": "Analgesia given; hospital notified",
+          "condition": "Crew establishes IV access en route, administers weight-based fentanyl for the severe pain, and delivers a radio report naming a suspected aortic dissection so the receiving facility can activate its surgical team.",
+          "conditionType": "action_taken",
+          "triggerActionIds": [
+            "b1",
+            "b2",
+            "b3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "en-route-to-surgery",
+      "name": "Analgesia given; hospital notified",
+      "description": "The patient's pain is partially controlled and his heart rate has come down modestly with the analgesia. He remains critical but has not deteriorated during transport. The receiving facility has activated its surgical team and has blood products standing by. The crew has given this patient the best available chance by recognizing the emergency and moving early.",
+      "triggerCondition": "With vascular access, analgesia on board, and a surgical team already activated by the early radio report, the patient arrives at definitive care without an intervening rupture.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": {
+          "eye": 4,
+          "verbal": 5,
+          "motor": 6
+        },
+        "airway": "Patent and self-maintained",
+        "breathing": "Unlabored at 20/min, lung sounds clear",
+        "circulation": "Inter-arm differential unchanged; skin pale and cool but less clammy",
+        "skin": {
+          "color": "pale",
+          "temperature": "cool",
+          "moisture": "dry"
+        },
+        "pupils": "PERRL",
+        "motorFunction": "No new neurologic deficit through transport",
+        "otherFindings": [
+          "Pain reduced from 10 to approximately 6 out of 10 after fentanyl",
+          "Surgical team activated and awaiting arrival",
+          "Blood products prepared at the receiving facility",
+          "No deterioration during transport"
+        ],
+        "patientSpeech": "\"That took the edge off. It's still there, but I can breathe now.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 106,
+        "bpSys": 178,
+        "bpDia": 98,
+        "respRate": 20,
+        "spo2": 98,
+        "etco2": 36,
+        "temp": 36.9,
+        "tempF": 98.4,
+        "obstruction": 0,
+        "glucose": 105,
+        "customMeasures": [
+          {
+            "label": "Left arm systolic",
+            "value": 140
+          },
+          {
+            "label": "Left arm diastolic",
+            "value": 86
+          }
+        ],
+        "trendTimeSeconds": 45,
+        "visibility": {
+          "spo2Visible": true,
+          "spo2Attached": true,
+          "rrVisible": true,
+          "etco2Visible": true,
+          "cvpVisible": false
+        }
+      },
+      "expectedActions": [],
+      "transitions": []
+    },
+    {
+      "id": "aspirin-given-delayed",
+      "name": "Aspirin given; scene time prolonged",
+      "description": "Shortly after the aspirin is given the patient cries out, his pain suddenly worsens, and he becomes markedly more pale. Ten to twelve minutes into a prolonged scene time he says he feels very dizzy, his eyes roll back, and he becomes unresponsive. Blood pressure is unobtainable, the carotid pulse is gone, and agonal gasps give way to apnea. The aorta has ruptured and he is in cardiac arrest.",
+      "triggerCondition": "The presentation was mistaken for a routine acute coronary syndrome; antiplatelet therapy was given to a dissecting aorta and the on-scene workup consumed the window in which transport could have mattered. The false lumen ruptures into the pericardium and mediastinum.",
+      "isDefault": false,
+      "clinicalPresentation": {
+        "avpu": "Unresponsive",
+        "gcs": {
+          "eye": 1,
+          "verbal": 1,
+          "motor": 1
+        },
+        "airway": "No longer self-maintained; requires manual opening and adjunct",
+        "breathing": "Agonal gasps progressing to apnea; no effective ventilation",
+        "circulation": "No palpable carotid pulse; blood pressure unobtainable; skin ashen and mottled",
+        "skin": {
+          "color": "ashen with mottling",
+          "temperature": "cool",
+          "moisture": "clammy"
+        },
+        "pupils": "Dilated and non-reactive",
+        "motorFunction": "No spontaneous movement",
+        "otherFindings": [
+          "Sudden worsening of pain and pallor immediately after aspirin administration",
+          "Stated \"I feel very dizzy\" seconds before losing consciousness",
+          "Organized electrical activity on the monitor without a pulse",
+          "Scene time exceeded ten minutes before the arrest",
+          "This is a rupture, not a primary dysrhythmic arrest"
+        ],
+        "patientSpeech": "No speech; unresponsive"
+      },
+      "monitorState": {
+        "ecgRhythm": "Pulseless Electrical Activity (PEA)",
+        "ecgWaveform": 9,
+        "hr": 42,
+        "bpSys": 0,
+        "bpDia": 0,
+        "respRate": 0,
+        "spo2": 0,
+        "etco2": 8,
+        "temp": 36.6,
+        "tempF": 97.9,
+        "obstruction": 0,
+        "glucose": 105,
+        "customMeasures": [],
+        "trendTimeSeconds": 15,
+        "visibility": {
+          "spo2Visible": false,
+          "spo2Attached": true,
+          "rrVisible": true,
+          "etco2Visible": true,
+          "cvpVisible": false
+        }
+      },
+      "expectedActions": [
+        {
+          "id": "c1",
+          "shortAction": "Confirm pulselessness and begin high-quality chest compressions immediately",
+          "protocolExcerpt": "In cases of cardiac arrest, assessments should be focused and limited to obtaining enough information to reveal the patient is pulseless. Once pulselessness is discovered, treatment should be initiated immediately, and any further history must be obtained by bystanders while treatment is ongoing.",
+          "priority": "critical",
+          "rationale": "The arrest is witnessed and compressions are the intervention with the shortest path to any chance of perfusion.",
+          "protocolReference": "MATC: Cardiac Arrest (VF/VT/Asystole/PEA)"
+        },
+        {
+          "id": "c2",
+          "shortAction": "Epinephrine 1 mg IV/IO early; PEA is a non-shockable rhythm",
+          "protocolExcerpt": "If feasible, IV or IO access should be obtained. Administer Epinephrine 1mg during the first or second round of compressions. Prioritize early administration of epinephrine for non-shockable rhythms.",
+          "priority": "critical",
+          "rationale": "The monitor shows organized activity without a pulse; there is nothing to defibrillate and epinephrine moves to the front of the sequence.",
+          "protocolReference": "MATC: Cardiac Arrest (VF/VT/Asystole/PEA)"
+        },
+        {
+          "id": "c3",
+          "shortAction": "Manage the airway without interrupting compressions",
+          "protocolExcerpt": "Regardless of the airway management and ventilation strategy, consider the following principles: The airway management strategy should not interrupt compressions.",
+          "priority": "critical",
+          "rationale": "Compression fraction is the variable most under the crew's control; airway work is fitted around it, not the other way around.",
+          "protocolReference": "MATC: Cardiac Arrest (VF/VT/Asystole/PEA)"
+        }
+      ],
+      "transitions": []
+    }
+  ],
+  "realiti": {
+    "scenarioMonitorType": 2,
+    "scenarioDefaultEnergy": 200,
+    "scenarioDefaultPacerThreshold": 55
+  }
+}
