@@ -57,7 +57,9 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [],
+      "relatedChecklist": [
+        "Perform AEIOU-TIPS workup; check blood glucose as a first treatable cause (reveals 42 mg/dL)"
+      ],
       "relatedSounds": []
     },
     {
@@ -90,7 +92,8 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Perform AEIOU-TIPS workup; check blood glucose as a first treatable cause (reveals 42 mg/dL)"
+        "Dextrose 10% 100 mL IV (10 g); reassess mental status, repeat incrementally to max 25 g (250 mL D10%)",
+        "Reassess vital signs and mental status after dextrose administration"
       ],
       "relatedSounds": []
     },
@@ -124,8 +127,9 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Dextrose 10% 100 mL IV (10 g); reassess mental status, repeat incrementally to max 25 g (250 mL D10%)",
-        "Reassess vital signs and mental status after dextrose administration"
+        "Recognize glipizide's long half-life; transport despite improvement (recurrent hypoglycemia risk)",
+        "Recognize fever as a disqualifying co-morbid symptom; do not consider release, transport",
+        "Continue assessment for infection source (fever, dysuria) en route; transport for combined workup"
       ],
       "relatedSounds": []
     },
@@ -158,11 +162,7 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [
-        "Recognize glipizide's long half-life; transport despite improvement (recurrent hypoglycemia risk)",
-        "Recognize fever as a disqualifying co-morbid symptom; do not consider release, transport",
-        "Continue assessment for infection source (fever, dysuria) en route; transport for combined workup"
-      ],
+      "relatedChecklist": [],
       "relatedSounds": []
     },
     {

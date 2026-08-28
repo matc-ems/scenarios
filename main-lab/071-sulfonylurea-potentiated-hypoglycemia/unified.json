@@ -80,19 +80,30 @@
         "trendTimeSeconds": 0,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [],
+      "expectedActions": [
+        {
+          "id": "a1",
+          "shortAction": "Perform AEIOU-TIPS workup; check blood glucose as a first treatable cause (reveals 42 mg/dL)",
+          "protocolExcerpt": "Assessment: Blood glucose level",
+          "priority": "critical",
+          "rationale": "Hypoglycemia is rapidly reversible and must be ruled out before anchoring on any other single cause of AMS, including an apparent fever.",
+          "protocolReference": "MATC: Altered Mental Status"
+        }
+      ],
       "transitions": [
         {
           "targetPhaseId": "bgl-checked",
           "if": "BGL checked per systematic workup",
           "condition": "Crew follows the AEIOU-TIPS differential and checks blood glucose as a first-line treatable cause of AMS, rather than anchoring on the reported fever as the sole explanation.",
-          "conditionType": "action_taken"
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a1"]
         },
         {
           "targetPhaseId": "bgl-skipped-worsening",
           "if": "Infection assumed, BGL not checked",
           "condition": "Crew attributes the AMS to the reported fever and begins treating for presumed infection/sepsis without checking blood glucose.",
-          "conditionType": "action_not_taken"
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["a1"]
         }
       ]
     },
@@ -137,21 +148,29 @@
       },
       "expectedActions": [
         {
-          "id": "a1-check-bgl",
-          "shortAction": "Perform AEIOU-TIPS workup; check blood glucose as a first treatable cause (reveals 42 mg/dL)",
-          "protocolExcerpt": "Assessment: Blood glucose level",
+          "id": "b1",
+          "shortAction": "Dextrose 10% 100 mL IV (10 g); reassess mental status, repeat incrementally to max 25 g (250 mL D10%)",
+          "protocolExcerpt": "Dextrose IV – administer in incremental doses until mental status improves or maximum field dosing is reached (if available, D10% is preferred) ... Maximum field adult dosing: 25 g of 10–50% dextrose IV ... 250 mL of 10% dextrose",
           "priority": "critical",
-          "rationale": "Hypoglycemia is rapidly reversible and must be ruled out before anchoring on any other single cause of AMS, including an apparent fever.",
-          "protocolReference": "MATC: Altered Mental Status"
+          "rationale": "Incremental D10% dosing corrects hypoglycemia while minimizing overshoot hyperglycemia and local tissue injury risk from more concentrated dextrose.",
+          "protocolReference": "MATC: Hypoglycemia"
+        },
+        {
+          "id": "b2",
+          "shortAction": "Reassess vital signs and mental status after dextrose administration",
+          "protocolExcerpt": "Reassess vital signs (pulse, blood pressure, respiratory rate, neurologic status assessment) and mental status",
+          "priority": "important",
+          "rationale": "Confirms adequate response to treatment and identifies whether repeat dosing or further workup is needed.",
+          "protocolReference": "MATC: Hypoglycemia"
         }
       ],
       "transitions": [
         {
           "targetPhaseId": "dextrose-given",
-          "if": "Dextrose given",
+          "if": "Dextrose given, mental status improving",
           "condition": "Crew administers IV dextrose per the Hypoglycemia guideline for a blood glucose of 42 mg/dL.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["a1-check-bgl"]
+          "triggerActionIds": ["b1", "b2"]
         }
       ]
     },
@@ -196,29 +215,37 @@
       },
       "expectedActions": [
         {
-          "id": "a2-dextrose-iv",
-          "shortAction": "Dextrose 10% 100 mL IV (10 g); reassess mental status, repeat incrementally to max 25 g (250 mL D10%)",
-          "protocolExcerpt": "Dextrose IV – administer in incremental doses until mental status improves or maximum field dosing is reached (if available, D10% is preferred) ... Maximum field adult dosing: 25 g of 10–50% dextrose IV ... 250 mL of 10% dextrose",
+          "id": "c1",
+          "shortAction": "Recognize glipizide's long half-life; transport despite improvement (recurrent hypoglycemia risk)",
+          "protocolExcerpt": "Sulfonylureas (e.g., glyburide, glipizide) have long half-lives ranging from 12–60 hrs. Patients with corrected hypoglycemia who are taking these agents are at particular risk for recurrent symptoms and frequently require hospital admission",
           "priority": "critical",
-          "rationale": "Incremental D10% dosing corrects hypoglycemia while minimizing overshoot hyperglycemia and local tissue injury risk from more concentrated dextrose.",
+          "rationale": "A single dextrose dose does not eliminate the risk of recurrent hypoglycemia from a long-acting sulfonylurea potentiated by a drug interaction.",
           "protocolReference": "MATC: Hypoglycemia"
         },
         {
-          "id": "a3-reassess-post-dextrose",
-          "shortAction": "Reassess vital signs and mental status after dextrose administration",
-          "protocolExcerpt": "Reassess vital signs (pulse, blood pressure, respiratory rate, neurologic status assessment) and mental status",
+          "id": "c2",
+          "shortAction": "Recognize fever as a disqualifying co-morbid symptom; do not consider release, transport",
+          "protocolExcerpt": "If symptoms of hypoglycemia resolve after treatment, release without transport should only be considered if all the following are true: ... No major co-morbid symptoms exist, like chest pain, shortness of breath, seizures, intoxication",
           "priority": "important",
-          "rationale": "Confirms adequate response to treatment and identifies whether repeat dosing or further workup is needed.",
+          "rationale": "The persistent fever is a co-morbid symptom that independently disqualifies this patient from release-without-transport.",
           "protocolReference": "MATC: Hypoglycemia"
+        },
+        {
+          "id": "c3",
+          "shortAction": "Continue assessment for infection source (fever, dysuria) en route; transport for combined workup",
+          "protocolExcerpt": "Signs of infection: Fever, cough, skin changes, dysuria",
+          "priority": "supplemental",
+          "rationale": "The fever and suprapubic tenderness warrant hospital evaluation for the UTI as a concurrent, independent problem.",
+          "protocolReference": "MATC: Altered Mental Status"
         }
       ],
       "transitions": [
         {
           "targetPhaseId": "transport-combined-workup",
-          "if": "Improved, transport initiated",
+          "if": "Transport for combined hypoglycemia/infection workup",
           "condition": "Mental status normalizes after dextrose, but the crew recognizes the sulfonylurea-antibiotic interaction and persistent fever mean transport is required rather than release.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["a2-dextrose-iv", "a3-reassess-post-dextrose"]
+          "triggerActionIds": ["c1", "c2", "c3"]
         }
       ]
     },
@@ -261,32 +288,7 @@
         "trendTimeSeconds": 30,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [
-        {
-          "id": "a4-sulfonylurea-risk",
-          "shortAction": "Recognize glipizide's long half-life; transport despite improvement (recurrent hypoglycemia risk)",
-          "protocolExcerpt": "Sulfonylureas (e.g., glyburide, glipizide) have long half-lives ranging from 12–60 hrs. Patients with corrected hypoglycemia who are taking these agents are at particular risk for recurrent symptoms and frequently require hospital admission",
-          "priority": "critical",
-          "rationale": "A single dextrose dose does not eliminate the risk of recurrent hypoglycemia from a long-acting sulfonylurea potentiated by a drug interaction.",
-          "protocolReference": "MATC: Hypoglycemia"
-        },
-        {
-          "id": "a5-release-criteria-not-met",
-          "shortAction": "Recognize fever as a disqualifying co-morbid symptom; do not consider release, transport",
-          "protocolExcerpt": "If symptoms of hypoglycemia resolve after treatment, release without transport should only be considered if all the following are true: ... No major co-morbid symptoms exist, like chest pain, shortness of breath, seizures, intoxication",
-          "priority": "important",
-          "rationale": "The persistent fever is a co-morbid symptom that independently disqualifies this patient from release-without-transport.",
-          "protocolReference": "MATC: Hypoglycemia"
-        },
-        {
-          "id": "a6-continue-infection-assessment",
-          "shortAction": "Continue assessment for infection source (fever, dysuria) en route; transport for combined workup",
-          "protocolExcerpt": "Signs of infection: Fever, cough, skin changes, dysuria",
-          "priority": "supplemental",
-          "rationale": "The fever and suprapubic tenderness warrant hospital evaluation for the UTI as a concurrent, independent problem.",
-          "protocolReference": "MATC: Altered Mental Status"
-        }
-      ],
+      "expectedActions": [],
       "transitions": []
     },
     {
@@ -330,7 +332,7 @@
       },
       "expectedActions": [
         {
-          "id": "a7-recognize-missed-bgl",
+          "id": "d1",
           "shortAction": "Recognize non-improvement with fluids alone; check blood glucose (missed on initial workup)",
           "protocolExcerpt": "Assessment: Blood glucose level",
           "priority": "critical",
@@ -338,7 +340,7 @@
           "protocolReference": "MATC: Altered Mental Status"
         },
         {
-          "id": "a8-rescue-dextrose",
+          "id": "d2",
           "shortAction": "Administer rescue Dextrose 10% 100 mL IV (10 g) once hypoglycemia identified; reassess",
           "protocolExcerpt": "Dextrose IV – administer in incremental doses until mental status improves or maximum field dosing is reached (if available, D10% is preferred)",
           "priority": "critical",
