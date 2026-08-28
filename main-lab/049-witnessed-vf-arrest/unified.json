@@ -91,28 +91,36 @@
       },
       "expectedActions": [
         {
-          "id": "init-1",
+          "id": "a1",
           "shortAction": "Confirm pulselessness and apnea rapidly; do not delay treatment for full assessment",
           "protocolExcerpt": "Assessment: The patient in cardiac arrest requires a prompt balance of treatment and assessment. In cases of cardiac arrest, assessments should be focused and limited to obtaining enough information to reveal the patient is pulseless. Once pulselessness is discovered, treatment should be initiated immediately, and any further history must be obtained by bystanders while treatment is ongoing.",
           "priority": "critical",
           "rationale": "Prevents delay of compressions/defibrillation while gathering unnecessary history.",
+          "protocolReference": "MATC: Cardiac Arrest (VF/VT/Asystole/PEA)"
+        },
+        {
+          "id": "a2",
+          "shortAction": "Take over compressions from bystander; apply pads and analyze rhythm without delay",
+          "protocolExcerpt": "Initiate chest compressions in cases with no bystander chest compressions or take over compressions from bystanders while a second rescuer is setting up the AED or defibrillator. If adequate, uninterrupted bystander CPR has been performed or if the patient arrests in front of the EMS clinicians, immediately proceed with rhythm analysis and defibrillation, if appropriate.",
+          "priority": "critical",
+          "rationale": "Minimizing hands-off time preserves coronary perfusion pressure.",
           "protocolReference": "MATC: Cardiac Arrest (VF/VT/Asystole/PEA)"
         }
       ],
       "transitions": [
         {
           "targetPhaseId": "cpr-pads",
-          "if": "Compressions taken over immediately",
+          "if": "CPR & Pads Applied",
           "condition": "Crew takes over chest compressions from the bystander without delay while a second rescuer applies defibrillator pads and begins rhythm analysis.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["init-1"]
+          "triggerActionIds": ["a1", "a2"]
         },
         {
           "targetPhaseId": "compressions-delayed",
-          "if": "Compressions delayed",
+          "if": "Compressions Delayed",
           "condition": "Crew pauses compressions to perform a full head-to-toe assessment or gather extended history before taking over CPR, interrupting effective compressions.",
           "conditionType": "action_not_taken",
-          "triggerActionIds": ["init-1"]
+          "triggerActionIds": ["a2"]
         }
       ]
     },
@@ -153,15 +161,7 @@
       },
       "expectedActions": [
         {
-          "id": "cpr-1",
-          "shortAction": "Take over compressions from bystander; apply pads and analyze rhythm without delay",
-          "protocolExcerpt": "Initiate chest compressions in cases with no bystander chest compressions or take over compressions from bystanders while a second rescuer is setting up the AED or defibrillator. If adequate, uninterrupted bystander CPR has been performed or if the patient arrests in front of the EMS clinicians, immediately proceed with rhythm analysis and defibrillation, if appropriate.",
-          "priority": "critical",
-          "rationale": "Minimizing hands-off time preserves coronary perfusion pressure.",
-          "protocolReference": "MATC: Cardiac Arrest (VF/VT/Asystole/PEA)"
-        },
-        {
-          "id": "cpr-2",
+          "id": "b1",
           "shortAction": "Maintain compression rate 100-120/min, depth 2-2.4 inches, allow full chest recoil",
           "protocolExcerpt": "A rate of greater than 100 and less than 120 compressions/minute. Depth of at least 2 inches (5 cm) and less than 2.4 inches (6 cm) for adults and children. Allow for complete chest recoil (avoid leaning). Minimize interruptions in compressions.",
           "priority": "important",
@@ -169,21 +169,37 @@
           "protocolReference": "MATC: Cardiac Arrest (VF/VT/Asystole/PEA)"
         },
         {
-          "id": "cpr-3",
+          "id": "b2",
           "shortAction": "Apply passive oxygenation via NRB with OPA for first compression cycles; do not interrupt compressions",
           "protocolExcerpt": "Passive ventilation: High flow oxygen is applied via a non-rebreather mask with an oropharyngeal airway. This may be applied for the first 3–4 compression cycles (6–8 minutes), after which one may consider BVM ventilation or placement of an advanced airway.",
           "priority": "important",
           "rationale": "Adult airway management is secondary to compressions/defibrillation and should not interrupt either.",
+          "protocolReference": "MATC: Cardiac Arrest (VF/VT/Asystole/PEA)"
+        },
+        {
+          "id": "b3",
+          "shortAction": "Pre-charge defibrillator during compressions to minimize peri-shock pause",
+          "protocolExcerpt": "All attempts should be made to prevent avoidable interruptions in chest compressions, such as pre-charging the defibrillator and hovering over the chest, rather than stepping away during defibrillations.",
+          "priority": "supplemental",
+          "rationale": "Reduces hands-off time between the end of a compression cycle and shock delivery.",
+          "protocolReference": "MATC: Cardiac Arrest (VF/VT/Asystole/PEA)"
+        },
+        {
+          "id": "b4",
+          "shortAction": "Defibrillate at 120 J (first shock, Zoll biphasic per protocol)",
+          "protocolExcerpt": "Defibrillation dosing should follow manufacturer's recommendation in the case of biphasic defibrillators. If the manufacturer's recommendation is unknown, use highest setting possible. Zoll – Adult – 120 J, 150 J, 200 J.",
+          "priority": "critical",
+          "rationale": "Prompt defibrillation for a shockable rhythm is a primary determinant of survival.",
           "protocolReference": "MATC: Cardiac Arrest (VF/VT/Asystole/PEA)"
         }
       ],
       "transitions": [
         {
           "targetPhaseId": "defib-delivered",
-          "if": "First shock delivered",
+          "if": "First Shock Delivered",
           "condition": "VF confirmed on rhythm analysis; defibrillator charged without interrupting compressions and first shock delivered per protocol energy setting.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["cpr-1"]
+          "triggerActionIds": ["b4"]
         }
       ]
     },
@@ -224,15 +240,7 @@
       },
       "expectedActions": [
         {
-          "id": "defib-1",
-          "shortAction": "Defibrillate at 120 J (first shock, Zoll biphasic per protocol)",
-          "protocolExcerpt": "Defibrillation dosing should follow manufacturer's recommendation in the case of biphasic defibrillators. If the manufacturer's recommendation is unknown, use highest setting possible. Zoll – Adult – 120 J, 150 J, 200 J.",
-          "priority": "critical",
-          "rationale": "Prompt defibrillation for a shockable rhythm is a primary determinant of survival.",
-          "protocolReference": "MATC: Cardiac Arrest (VF/VT/Asystole/PEA)"
-        },
-        {
-          "id": "defib-2",
+          "id": "c1",
           "shortAction": "Resume compressions immediately post-shock; no pulse check for 2 minutes",
           "protocolExcerpt": "Chest compressions should resume immediately after defibrillation attempts with no pauses for pulse checks for 2 minutes regardless of the rhythm displayed on the cardiac monitor.",
           "priority": "critical",
@@ -240,36 +248,28 @@
           "protocolReference": "MATC: Cardiac Arrest (VF/VT/Asystole/PEA)"
         },
         {
-          "id": "defib-3",
+          "id": "c2",
           "shortAction": "Obtain IV/IO access without interrupting chest compressions",
           "protocolExcerpt": "IV or IO access without interrupting chest compressions.",
           "priority": "important",
           "rationale": "Vascular access is needed for medication administration if arrest continues, but must not disrupt compressions.",
-          "protocolReference": "MATC: Cardiac Arrest (VF/VT/Asystole/PEA)"
-        },
-        {
-          "id": "defib-4",
-          "shortAction": "Pre-charge defibrillator during compressions to minimize peri-shock pause",
-          "protocolExcerpt": "All attempts should be made to prevent avoidable interruptions in chest compressions, such as pre-charging the defibrillator and hovering over the chest, rather than stepping away during defibrillations.",
-          "priority": "supplemental",
-          "rationale": "Reduces hands-off time between the end of a compression cycle and shock delivery.",
           "protocolReference": "MATC: Cardiac Arrest (VF/VT/Asystole/PEA)"
         }
       ],
       "transitions": [
         {
           "targetPhaseId": "rosc-achieved",
-          "if": "ROSC after single shock",
+          "if": "ROSC Achieved",
           "condition": "At the 2-minute rhythm/pulse check following the single shock, an organized rhythm with a palpable central pulse is identified.",
           "conditionType": "vital_threshold",
-          "triggerActionIds": ["defib-2"]
+          "triggerActionIds": ["c1"]
         },
         {
           "targetPhaseId": "refractory-vf",
-          "if": "VF persists after shock",
+          "if": "Refractory VF",
           "condition": "At the 2-minute rhythm/pulse check, the monitor still shows VF with no palpable pulse, indicating refractory VF requiring escalation.",
           "conditionType": "vital_threshold",
-          "triggerActionIds": ["defib-2"]
+          "triggerActionIds": ["c1"]
         }
       ]
     },
@@ -310,7 +310,7 @@
       },
       "expectedActions": [
         {
-          "id": "rosc-1",
+          "id": "d1",
           "shortAction": "Recognize ROSC; stop compressions once organized rhythm with pulse confirmed",
           "protocolExcerpt": "If at any time during this period of resuscitation the patient regains return of spontaneous circulation, treat per Adult Post-ROSC Care Guideline.",
           "priority": "critical",
@@ -318,7 +318,7 @@
           "protocolReference": "MATC: Cardiac Arrest (VF/VT/Asystole/PEA)"
         },
         {
-          "id": "rosc-2",
+          "id": "d2",
           "shortAction": "Support airway/breathing and circulation; identify likely cause of arrest",
           "protocolExcerpt": "Perform general patient assessment attempting to identify cause of cardiac arrest. Support life-threatening problems associated with airway, breathing, and circulation.",
           "priority": "critical",
@@ -326,21 +326,37 @@
           "protocolReference": "MATC: Adult Post-ROSC (Return of Spontaneous Circulation) Care"
         },
         {
-          "id": "rosc-3",
+          "id": "d3",
           "shortAction": "Monitor closely for re-arrest via cardiac monitor, EtCO2, and perfusion signs",
           "protocolExcerpt": "Monitor closely for recurrence of cardiac arrest using clinical and adjunctive criteria such as cardiac monitoring, EtCO2 monitoring, and physical signs of perfusion.",
           "priority": "important",
           "rationale": "A significant percentage of post-ROSC patients re-arrest and require rapid recognition.",
+          "protocolReference": "MATC: Adult Post-ROSC (Return of Spontaneous Circulation) Care"
+        },
+        {
+          "id": "d4",
+          "shortAction": "Titrate oxygen to SpO2 94-98%; avoid hyperoxygenation",
+          "protocolExcerpt": "Administer oxygen as appropriate with a target of achieving 94–98% saturation. Do not hyperoxygenate.",
+          "priority": "critical",
+          "rationale": "Hyperoxia post-ROSC is associated with worse neurologic outcomes.",
+          "protocolReference": "MATC: Adult Post-ROSC (Return of Spontaneous Circulation) Care"
+        },
+        {
+          "id": "d5",
+          "shortAction": "Ventilate 8-10 breaths/min; target EtCO2 35-45 mmHg, avoid hyperventilation",
+          "protocolExcerpt": "Do not hyperventilate. Maintain a ventilation rate of 8–10 breaths per minute, targeting an EtCO2 of 35–45 mmHg.",
+          "priority": "critical",
+          "rationale": "Hyperventilation reduces cerebral perfusion and can precipitate re-arrest.",
           "protocolReference": "MATC: Adult Post-ROSC (Return of Spontaneous Circulation) Care"
         }
       ],
       "transitions": [
         {
           "targetPhaseId": "post-rosc-care",
-          "if": "Post-ROSC care initiated",
+          "if": "Post-ROSC Care & Transport",
           "condition": "Crew transitions into structured post-ROSC management: oxygenation/ventilation titration, 12-lead acquisition, glucose check, and transport planning.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["rosc-2"]
+          "triggerActionIds": ["d4", "d5"]
         }
       ]
     },
@@ -381,23 +397,7 @@
       },
       "expectedActions": [
         {
-          "id": "post-1",
-          "shortAction": "Titrate oxygen to SpO2 94-98%; avoid hyperoxygenation",
-          "protocolExcerpt": "Administer oxygen as appropriate with a target of achieving 94–98% saturation. Do not hyperoxygenate.",
-          "priority": "critical",
-          "rationale": "Hyperoxia post-ROSC is associated with worse neurologic outcomes.",
-          "protocolReference": "MATC: Adult Post-ROSC (Return of Spontaneous Circulation) Care"
-        },
-        {
-          "id": "post-2",
-          "shortAction": "Ventilate 8-10 breaths/min; target EtCO2 35-45 mmHg, avoid hyperventilation",
-          "protocolExcerpt": "Do not hyperventilate. Maintain a ventilation rate of 8–10 breaths per minute, targeting an EtCO2 of 35–45 mmHg.",
-          "priority": "critical",
-          "rationale": "Hyperventilation reduces cerebral perfusion and can precipitate re-arrest.",
-          "protocolReference": "MATC: Adult Post-ROSC (Return of Spontaneous Circulation) Care"
-        },
-        {
-          "id": "post-3",
+          "id": "e1",
           "shortAction": "Acquire 12-lead EKG within 10 minutes to screen for STEMI; transmit and notify receiving hospital if positive",
           "protocolExcerpt": "It is imperative that EMS clinicians routinely acquire a 12-lead EKG within 10 minutes for all patients exhibiting signs and symptoms of ACS. Advance notification should be provided to the receiving hospital for patients identified as having a STEMI.",
           "priority": "important",
@@ -405,7 +405,7 @@
           "protocolReference": "MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)"
         },
         {
-          "id": "post-4",
+          "id": "e2",
           "shortAction": "Transport to a cath-capable facility if STEMI or reversible cardiac cause identified",
           "protocolExcerpt": "Post-cardiac arrest patients with evidence or interpretation consistent with ST elevation myocardial infarction (STEMI/acute MI) should be transported preferably to a facility capable of emergent cardiac catheterization or, as a secondary option, to a STEMI receiving facility based upon local resources and system of care.",
           "priority": "critical",
@@ -413,7 +413,7 @@
           "protocolReference": "MATC: Adult Post-ROSC (Return of Spontaneous Circulation) Care"
         },
         {
-          "id": "post-5",
+          "id": "e3",
           "shortAction": "Check blood glucose; treat per Hypoglycemia Guideline if low, notify hospital if high",
           "protocolExcerpt": "Check blood glucose. If hypoglycemic, treat per Hypoglycemia Guideline. If hyperglycemic, notify hospital on arrival.",
           "priority": "important",
@@ -421,7 +421,7 @@
           "protocolReference": "MATC: Adult Post-ROSC (Return of Spontaneous Circulation) Care"
         },
         {
-          "id": "post-6",
+          "id": "e4",
           "shortAction": "Avoid hyperthermia; do not apply warm blankets or excessive heat exposure",
           "protocolExcerpt": "Avoid hyperthermia (temperature greater than 37.5° C or 99.5° F) by avoiding excessive environmental heat exposure, warm blankets, etc.",
           "priority": "supplemental",
@@ -468,7 +468,7 @@
       },
       "expectedActions": [
         {
-          "id": "delay-1",
+          "id": "f1",
           "shortAction": "Recognize delay; immediately resume compressions and apply pads without further assessment",
           "protocolExcerpt": "In cases of cardiac arrest, assessments should be focused and limited to obtaining enough information to reveal the patient is pulseless. Once pulselessness is discovered, treatment should be initiated immediately, and any further history must be obtained by bystanders while treatment is ongoing.",
           "priority": "critical",
@@ -515,7 +515,7 @@
       },
       "expectedActions": [
         {
-          "id": "refr-1",
+          "id": "g1",
           "shortAction": "Deliver second defibrillation at 150 J (Zoll biphasic escalation)",
           "protocolExcerpt": "Zoll – Adult – 120 J, 150 J, 200 J.",
           "priority": "critical",
@@ -523,7 +523,7 @@
           "protocolReference": "MATC: Cardiac Arrest (VF/VT/Asystole/PEA)"
         },
         {
-          "id": "refr-2",
+          "id": "g2",
           "shortAction": "Epinephrine 1 mg IV/IO (fixed adult dose, 0.1 mg/kg capped at max 1 mg); repeat q3-5min",
           "protocolExcerpt": "Administer epinephrine (0.1 mg/kg, maximum dose 1 mg) IV/IO during the first or second round of compressions.",
           "priority": "critical",
@@ -531,7 +531,7 @@
           "protocolReference": "MATC: Cardiac Arrest (VF/VT/Asystole/PEA)"
         },
         {
-          "id": "refr-3",
+          "id": "g3",
           "shortAction": "Consider Amiodarone 300 mg IV/IO for shock-refractory VF/pulseless VT",
           "protocolExcerpt": "Amiodarone 300mg, followed by 150mg 4-6 min later if still in refractory VF and pulseless VT.",
           "priority": "important",

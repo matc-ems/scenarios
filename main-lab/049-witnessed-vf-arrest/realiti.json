@@ -58,7 +58,8 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Confirm pulselessness and apnea rapidly; do not delay treatment for full assessment"
+        "Confirm pulselessness and apnea rapidly; do not delay treatment for full assessment",
+        "Take over compressions from bystander; apply pads and analyze rhythm without delay"
       ],
       "relatedSounds": []
     },
@@ -92,9 +93,10 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Take over compressions from bystander; apply pads and analyze rhythm without delay",
         "Maintain compression rate 100-120/min, depth 2-2.4 inches, allow full chest recoil",
-        "Apply passive oxygenation via NRB with OPA for first compression cycles; do not interrupt compressions"
+        "Apply passive oxygenation via NRB with OPA for first compression cycles; do not interrupt compressions",
+        "Pre-charge defibrillator during compressions to minimize peri-shock pause",
+        "Defibrillate at 120 J (first shock, Zoll biphasic per protocol)"
       ],
       "relatedSounds": []
     },
@@ -128,10 +130,8 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Defibrillate at 120 J (first shock, Zoll biphasic per protocol)",
         "Resume compressions immediately post-shock; no pulse check for 2 minutes",
-        "Obtain IV/IO access without interrupting chest compressions",
-        "Pre-charge defibrillator during compressions to minimize peri-shock pause"
+        "Obtain IV/IO access without interrupting chest compressions"
       ],
       "relatedSounds": []
     },
@@ -167,7 +167,9 @@
       "relatedChecklist": [
         "Recognize ROSC; stop compressions once organized rhythm with pulse confirmed",
         "Support airway/breathing and circulation; identify likely cause of arrest",
-        "Monitor closely for re-arrest via cardiac monitor, EtCO2, and perfusion signs"
+        "Monitor closely for re-arrest via cardiac monitor, EtCO2, and perfusion signs",
+        "Titrate oxygen to SpO2 94-98%; avoid hyperoxygenation",
+        "Ventilate 8-10 breaths/min; target EtCO2 35-45 mmHg, avoid hyperventilation"
       ],
       "relatedSounds": []
     },
@@ -201,8 +203,6 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Titrate oxygen to SpO2 94-98%; avoid hyperoxygenation",
-        "Ventilate 8-10 breaths/min; target EtCO2 35-45 mmHg, avoid hyperventilation",
         "Acquire 12-lead EKG within 10 minutes to screen for STEMI; transmit and notify receiving hospital if positive",
         "Transport to a cath-capable facility if STEMI or reversible cardiac cause identified",
         "Check blood glucose; treat per Hypoglycemia Guideline if low, notify hospital if high",
@@ -307,6 +307,12 @@
       "icon": 1
     },
     {
+      "title": "Pre-charge defibrillator during compressions to minimize peri-shock pause",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
       "title": "Defibrillate at 120 J (first shock, Zoll biphasic per protocol)",
       "type": "Check",
       "value": 0,
@@ -320,12 +326,6 @@
     },
     {
       "title": "Obtain IV/IO access without interrupting chest compressions",
-      "type": "Check",
-      "value": 0,
-      "icon": 1
-    },
-    {
-      "title": "Pre-charge defibrillator during compressions to minimize peri-shock pause",
       "type": "Check",
       "value": 0,
       "icon": 1
