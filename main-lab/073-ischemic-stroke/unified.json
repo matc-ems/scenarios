@@ -80,13 +80,54 @@
         "trendTimeSeconds": 0,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [],
+      "expectedActions": [
+        {
+          "id": "a1",
+          "shortAction": "Perform validated prehospital stroke scale (facial droop, arm drift, speech) — positive for all three",
+          "protocolExcerpt": "Use a validated prehospital stroke scale that may include, but is not limited to: Facial smile/grimace, Arm drift, Speech",
+          "priority": "critical",
+          "rationale": "A validated scale drives the transport and pre-notification decision.",
+          "protocolReference": "MATC: Suspected Stroke/Transient Ischemic Attack"
+        },
+        {
+          "id": "a2",
+          "shortAction": "Check blood glucose to rule out hypoglycemia as a stroke mimic (result 132 mg/dL, no treatment needed)",
+          "protocolExcerpt": "Check blood glucose level (BGL). Treat only if glucose less than 60 mg/dL",
+          "priority": "critical",
+          "rationale": "Hypoglycemia is a common, rapidly reversible stroke mimic.",
+          "protocolReference": "MATC: Suspected Stroke/Transient Ischemic Attack"
+        },
+        {
+          "id": "a3",
+          "shortAction": "Establish precise last-known-well time from husband (15 minutes prior to EMS arrival)",
+          "protocolExcerpt": "Determine \"last known well\" time. History – \"last known well\" and source of that information",
+          "priority": "critical",
+          "rationale": "LKW time determines thrombolytic and thrombectomy eligibility at the receiving hospital.",
+          "protocolReference": "MATC: Suspected Stroke/Transient Ischemic Attack"
+        },
+        {
+          "id": "a4",
+          "shortAction": "Do not treat elevated blood pressure in the field",
+          "protocolExcerpt": "Do not treat hypertension",
+          "priority": "critical",
+          "rationale": "Permissive hypertension maintains cerebral perfusion pressure to the ischemic penumbra; lowering BP prehospital can worsen the stroke.",
+          "protocolReference": "MATC: Suspected Stroke/Transient Ischemic Attack"
+        }
+      ],
       "transitions": [
         {
           "targetPhaseId": "scale-lkw-established",
           "if": "Stroke scale performed, LKW established",
           "condition": "Crew performs a validated stroke scale, confirms blood glucose is normal, establishes a precise last-known-well time from the husband, and places the patient on a cardiac monitor.",
-          "conditionType": "action_taken"
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a1", "a3"]
+        },
+        {
+          "targetPhaseId": "bp-treated-inappropriately",
+          "if": "Blood pressure treated in the field",
+          "condition": "Crew becomes concerned about the elevated blood pressure and attempts to lower it, against protocol guidance not to treat hypertension in suspected stroke.",
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["a4"]
         }
       ]
     },
@@ -132,35 +173,19 @@
       },
       "expectedActions": [
         {
-          "id": "a1-stroke-scale",
-          "shortAction": "Perform validated prehospital stroke scale (facial droop, arm drift, speech) — positive for all three",
-          "protocolExcerpt": "Use a validated prehospital stroke scale that may include, but is not limited to: Facial smile/grimace, Arm drift, Speech",
-          "priority": "critical",
-          "rationale": "A validated scale drives the transport and pre-notification decision.",
+          "id": "b1",
+          "shortAction": "Elevate head of stretcher 15-30 degrees with neck neutral; protect the weak right arm",
+          "protocolExcerpt": "Prevent aspiration – elevate head of stretcher 15–30 degrees if systolic BP greater than 100 mmHg. Maintain head and neck in neutral alignment, without flexing the neck. Protect paralyzed limbs from injury",
+          "priority": "important",
+          "rationale": "Reduces aspiration risk and prevents injury to the flaccid limb during transport.",
           "protocolReference": "MATC: Suspected Stroke/Transient Ischemic Attack"
         },
         {
-          "id": "a2-bgl",
-          "shortAction": "Check blood glucose to rule out hypoglycemia as a stroke mimic (result 132 mg/dL, no treatment needed)",
-          "protocolExcerpt": "Check blood glucose level (BGL). Treat only if glucose less than 60 mg/dL",
+          "id": "b2",
+          "shortAction": "Notify thrombectomy-capable stroke center early with LKW time and positive severity scale findings",
+          "protocolExcerpt": "Positive stroke severity scale with time of onset or last known well less than 24 hours may be eligible for mechanical thrombectomy — Consider transport to hospital capable of mechanical thrombectomy per local stroke plan. Early hospital notification per local stroke plan that should include any suspected large vessel occlusion (LVO) stroke",
           "priority": "critical",
-          "rationale": "Hypoglycemia is a common, rapidly reversible stroke mimic.",
-          "protocolReference": "MATC: Suspected Stroke/Transient Ischemic Attack"
-        },
-        {
-          "id": "a3-lkw",
-          "shortAction": "Establish precise last-known-well time from husband (15 minutes prior to EMS arrival)",
-          "protocolExcerpt": "Determine \"last known well\" time. History – \"last known well\" and source of that information",
-          "priority": "critical",
-          "rationale": "LKW time determines thrombolytic and thrombectomy eligibility at the receiving hospital.",
-          "protocolReference": "MATC: Suspected Stroke/Transient Ischemic Attack"
-        },
-        {
-          "id": "a4-do-not-treat-htn",
-          "shortAction": "Do not treat elevated blood pressure in the field",
-          "protocolExcerpt": "Do not treat hypertension",
-          "priority": "critical",
-          "rationale": "Permissive hypertension maintains cerebral perfusion pressure to the ischemic penumbra; lowering BP prehospital can worsen the stroke.",
+          "rationale": "Early notification of a possible LVO allows the receiving center to mobilize the stroke and interventional team before arrival.",
           "protocolReference": "MATC: Suspected Stroke/Transient Ischemic Attack"
         }
       ],
@@ -170,14 +195,7 @@
           "if": "LVO suspected, thrombectomy center notified",
           "condition": "The positive severity findings (dense hemiparesis plus aphasia) raise concern for a large vessel occlusion; crew provides early notification to a thrombectomy-capable stroke center and minimizes scene time.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["a1-stroke-scale", "a3-lkw"]
-        },
-        {
-          "targetPhaseId": "bp-treated-inappropriately",
-          "if": "Blood pressure treated in the field",
-          "condition": "Crew becomes concerned about the elevated blood pressure and attempts to lower it, against protocol guidance not to treat hypertension in suspected stroke.",
-          "conditionType": "action_not_taken",
-          "triggerActionIds": ["a4-do-not-treat-htn"]
+          "triggerActionIds": ["b1", "b2"]
         }
       ]
     },
@@ -220,24 +238,7 @@
         "trendTimeSeconds": 40,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [
-        {
-          "id": "a5-positioning",
-          "shortAction": "Elevate head of stretcher 15-30 degrees with neck neutral; protect the weak right arm",
-          "protocolExcerpt": "Prevent aspiration – elevate head of stretcher 15–30 degrees if systolic BP greater than 100 mmHg. Maintain head and neck in neutral alignment, without flexing the neck. Protect paralyzed limbs from injury",
-          "priority": "important",
-          "rationale": "Reduces aspiration risk and prevents injury to the flaccid limb during transport.",
-          "protocolReference": "MATC: Suspected Stroke/Transient Ischemic Attack"
-        },
-        {
-          "id": "a6-lvo-notification",
-          "shortAction": "Notify thrombectomy-capable stroke center early with LKW time and positive severity scale findings",
-          "protocolExcerpt": "Positive stroke severity scale with time of onset or last known well less than 24 hours may be eligible for mechanical thrombectomy — Consider transport to hospital capable of mechanical thrombectomy per local stroke plan. Early hospital notification per local stroke plan that should include any suspected large vessel occlusion (LVO) stroke",
-          "priority": "critical",
-          "rationale": "Early notification of a possible LVO allows the receiving center to mobilize the stroke and interventional team before arrival.",
-          "protocolReference": "MATC: Suspected Stroke/Transient Ischemic Attack"
-        }
-      ],
+      "expectedActions": [],
       "transitions": []
     },
     {
@@ -280,7 +281,7 @@
       },
       "expectedActions": [
         {
-          "id": "a7-recognize-error",
+          "id": "c1",
           "shortAction": "Recognize inappropriate BP treatment; resume permissive hypertension and expedite transport",
           "protocolExcerpt": "Do not treat hypertension",
           "priority": "critical",
