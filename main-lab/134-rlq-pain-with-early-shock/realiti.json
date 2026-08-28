@@ -1,0 +1,263 @@
+{
+  "scenarioId": "134-rlq-pain-with-early-shock",
+  "scenarioName": "134 - RLQ Pain with Early Shock",
+  "scenarioType": "Vital Signs",
+  "scenarioVersion": 2,
+  "scenarioTime": 900,
+  "scenarioMonitorType": 2,
+  "scenarioDefaultEnergy": 200,
+  "scenarioDefaultPacerThreshold": 55,
+  "isDemo": false,
+  "isALSILegacy": false,
+  "scenarioStory": {
+    "history": "Previously healthy 28-year-old office worker who was sitting in a meeting when she developed abrupt, severe, constant right lower quadrant pain described as stabbing and rated 9 out of 10. The pain has not remitted at all in 30 minutes. It is worse with any movement or with straightening her legs and slightly better curled on her side. She denies vaginal bleeding, fever, urinary symptoms, diarrhea, chest pain, and shortness of breath. She reports a history of ovarian cysts diagnosed several years ago but says this pain is far worse than anything she has had before.",
+    "discussion": "",
+    "course": "Initial Contact: Crew finds a 28-year-old female curled on the conference room floor with sudden, severe, constant right lower quadrant pain. She is alert and oriented but pale, cool, and diaphoretic with a thready radial pulse. Her systolic pressure is 96 with a heart rate of 124: she is tachycardic with poor perfusion and is showing early shock alongside an acute abdomen. Room-air saturation is 98 percent, so supplemental oxygen is not indicated by the 94 to 98 percent target. The two problems, pain and hypoperfusion, have to be treated at the same time rather than in sequence. → Fluids and fentanyl given: After the 500 mL bolus and weight-based fentanyl, the patient's systolic pressure has come up to 110, her heart rate has fallen to 96, and her skin is pink, warm, and dry. She is breathing more deeply and rates her pain a 4 out of 10. She remains alert and oriented. The crew now reassesses, considers an antiemetic, and gets her moving toward a facility with surgical and gynecologic capability with early notification. → Perfusion improved; transport underway: The patient is en route to an emergency department with immediate surgical and gynecologic access. Her perfusion has held: blood pressure 114/74, heart rate 90, skin pink, warm, and dry. Pain remains controlled at 4 out of 10 and the nausea has settled. The handoff highlights the history of ovarian cysts, the childbearing-age pregnancy screen, and the positive response to fluid and analgesia. All interventions are complete."
+  },
+  "patientInformation": {
+    "patientName": "Jessica Nowak",
+    "patientCondition": "Sudden severe right lower quadrant abdominal pain of 30 minutes duration",
+    "patientAge": 28,
+    "patientAgeUnit": "years",
+    "patientAgeCategory": 0,
+    "patientSex": 2,
+    "patientHeight": 165,
+    "patientWeight": 65,
+    "patientPhotoId": 34,
+    "patientAdmitted": 1
+  },
+  "labs": [],
+  "scenarioEvents": [
+    {
+      "type": "ScenarioEvent",
+      "name": "Initial Contact",
+      "description": "Crew finds a 28-year-old female curled on the conference room floor with sudden, severe, constant right lower quadrant pain. She is alert and oriented but pale, cool, and diaphoretic with a thready radial pulse. Her systolic pressure is 96 with a heart rate of 124: she is tachycardic with poor perfusion and is showing early shock alongside an acute abdomen. Room-air saturation is 98 percent, so supplemental oxygen is not indicated by the 94 to 98 percent target. The two problems, pain and hypoperfusion, have to be treated at the same time rather than in sequence.",
+      "monitorType": 0,
+      "trendTime": 0,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 124,
+        "bpSys": 96,
+        "bpDia": 60,
+        "respRate": 22,
+        "spo2": 98,
+        "etco2": 32,
+        "temp": 37.1,
+        "obstruction": 0,
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Perform a focused abdominal exam for guarding, rebound, distension, and pulsatile mass",
+        "Screen for ruptured ectopic pregnancy: LMP, pregnancy status, vaginal bleeding",
+        "Recognize signs of shock and treat per the Shock Guideline",
+        "Establish IV access; place an IO if not obtained in two attempts or 90 seconds",
+        "500 mL isotonic bolus pressure-infused under 15 min; MAP goal 65 (up to 30 mL/kg = 1,950 mL)",
+        "Fentanyl 65 mcg IV (65 kg x 1 mcg/kg; max initial 100 mcg) slow push",
+        "Move her to the stretcher in a position of comfort with knees flexed"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Fluids and fentanyl given",
+      "description": "After the 500 mL bolus and weight-based fentanyl, the patient's systolic pressure has come up to 110, her heart rate has fallen to 96, and her skin is pink, warm, and dry. She is breathing more deeply and rates her pain a 4 out of 10. She remains alert and oriented. The crew now reassesses, considers an antiemetic, and gets her moving toward a facility with surgical and gynecologic capability with early notification.",
+      "monitorType": 0,
+      "trendTime": 45,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 96,
+        "bpSys": 110,
+        "bpDia": 70,
+        "respRate": 16,
+        "spo2": 99,
+        "etco2": 36,
+        "temp": 37.1,
+        "obstruction": 0,
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Reassess vitals and pain score after the fluid and fentanyl",
+        "Repeat 500 mL bolus if MAP falls below 65 (total up to 30 mL/kg = 1,950 mL)",
+        "Ondansetron 4 mg IV for the nausea",
+        "Give advanced notification and transport to a surgical/OB-GYN capable facility"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Perfusion improved; transport underway",
+      "description": "The patient is en route to an emergency department with immediate surgical and gynecologic access. Her perfusion has held: blood pressure 114/74, heart rate 90, skin pink, warm, and dry. Pain remains controlled at 4 out of 10 and the nausea has settled. The handoff highlights the history of ovarian cysts, the childbearing-age pregnancy screen, and the positive response to fluid and analgesia. All interventions are complete.",
+      "monitorType": 0,
+      "trendTime": 30,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 90,
+        "bpSys": 114,
+        "bpDia": 74,
+        "respRate": 16,
+        "spo2": 99,
+        "etco2": 37,
+        "temp": 37.1,
+        "obstruction": 0,
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Analgesia and fluids withheld",
+      "description": "Roughly 15 minutes have passed with no treatment beyond assessment. The crew withheld analgesia out of an outdated concern about masking the diagnosis and never started fluid, spending the time trying to name the exact pathology. She has slid from compensated into decompensated shock: systolic 84, heart rate 138 and thready, respirations 26 and shallow, skin clammy. She is crying, lightheaded, nauseated, and now rates the pain a 10 out of 10. Both omitted treatments are now urgent, and the opioid must be given with the caution the protocol specifies for hypotension.",
+      "monitorType": 0,
+      "trendTime": 55,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 138,
+        "bpSys": 84,
+        "bpDia": 50,
+        "respRate": 26,
+        "spo2": 97,
+        "etco2": 27,
+        "temp": 37,
+        "obstruction": 0,
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Recognize decompensated shock; get IV or IO access without further delay",
+        "500 mL isotonic bolus now; MAP goal 65 (up to 30 mL/kg = 1,950 mL)",
+        "Fentanyl 65 mcg IV (65 kg x 1 mcg/kg) with caution given the hypotension; titrate",
+        "Ondansetron 4 mg IV and advanced notification; transport emergently"
+      ],
+      "relatedSounds": []
+    }
+  ],
+  "checklist": [
+    {
+      "title": "Perform a focused abdominal exam for guarding, rebound, distension, and pulsatile mass",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Screen for ruptured ectopic pregnancy: LMP, pregnancy status, vaginal bleeding",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Recognize signs of shock and treat per the Shock Guideline",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Establish IV access; place an IO if not obtained in two attempts or 90 seconds",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "500 mL isotonic bolus pressure-infused under 15 min; MAP goal 65 (up to 30 mL/kg = 1,950 mL)",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Fentanyl 65 mcg IV (65 kg x 1 mcg/kg; max initial 100 mcg) slow push",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Move her to the stretcher in a position of comfort with knees flexed",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Reassess vitals and pain score after the fluid and fentanyl",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Repeat 500 mL bolus if MAP falls below 65 (total up to 30 mL/kg = 1,950 mL)",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Ondansetron 4 mg IV for the nausea",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Give advanced notification and transport to a surgical/OB-GYN capable facility",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Recognize decompensated shock; get IV or IO access without further delay",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "500 mL isotonic bolus now; MAP goal 65 (up to 30 mL/kg = 1,950 mL)",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Fentanyl 65 mcg IV (65 kg x 1 mcg/kg) with caution given the hypotension; titrate",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Ondansetron 4 mg IV and advanced notification; transport emergently",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    }
+  ],
+  "media": []
+}

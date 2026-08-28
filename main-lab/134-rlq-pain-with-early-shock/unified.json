@@ -1,0 +1,447 @@
+{
+  "meta": {
+    "id": "134-rlq-pain-with-early-shock",
+    "name": "134 - RLQ Pain with Early Shock",
+    "version": 1,
+    "difficulty": "intermediate",
+    "category": "Medical",
+    "protocols": [
+      "medical-abdominal-pain",
+      "medical-shock",
+      "medical-pain-management",
+      "medical-nausea-vomiting"
+    ],
+    "totalTimeSeconds": 900,
+    "tags": [
+      "medical",
+      "abdominal pain",
+      "shock",
+      "fluid resuscitation",
+      "fentanyl",
+      "gynecologic emergency",
+      "female of childbearing age",
+      "practice summative"
+    ]
+  },
+  "patient": {
+    "name": "Jessica Nowak",
+    "age": 28,
+    "ageUnit": "years",
+    "sex": "female",
+    "weight": 65,
+    "weightLbs": 143,
+    "height": 165,
+    "chiefComplaint": "Sudden severe right lower quadrant abdominal pain of 30 minutes duration",
+    "history": {
+      "hpi": "Previously healthy 28-year-old office worker who was sitting in a meeting when she developed abrupt, severe, constant right lower quadrant pain described as stabbing and rated 9 out of 10. The pain has not remitted at all in 30 minutes. It is worse with any movement or with straightening her legs and slightly better curled on her side. She denies vaginal bleeding, fever, urinary symptoms, diarrhea, chest pain, and shortness of breath. She reports a history of ovarian cysts diagnosed several years ago but says this pain is far worse than anything she has had before.",
+      "pastMedical": [
+        "Ovarian cysts diagnosed several years ago",
+        "No prior abdominal surgery"
+      ],
+      "medications": [
+        "Combined oral contraceptive pill, one tablet daily"
+      ],
+      "allergies": [
+        "Penicillin (rash)"
+      ],
+      "lastOralIntake": "Salad approximately three hours ago",
+      "events": "Sudden onset of severe right lower quadrant pain while seated in a conference room meeting; coworkers helped her to the floor and called 911"
+    }
+  },
+  "scene": {
+    "dispatch": "28-year-old female, severe abdominal pain, 14th floor of a downtown office building",
+    "location": "Modern office suite on the 14th floor of a high-rise; patient on the carpeted floor of a glass-walled conference room",
+    "time": "2:54 PM, weekday afternoon",
+    "safety": "Secure commercial building, no hazards; elevator access confirmed and a coworker is holding the car",
+    "bystanders": "A coworker met the crew at the elevator and led them in; several colleagues are watching from outside the conference room and have been asked to give space",
+    "visualCues": [
+      "Patient curled in a fetal position on the floor, clutching her lower abdomen",
+      "Visible sweat on her face and neck despite a cool office",
+      "Pale conjunctiva and lips",
+      "Guarding with both hands over the right lower quadrant",
+      "Eyes watering; speaking only in short, quiet phrases between breaths"
+    ]
+  },
+  "phases": [
+    {
+      "id": "initial",
+      "name": "Initial Contact",
+      "description": "Crew finds a 28-year-old female curled on the conference room floor with sudden, severe, constant right lower quadrant pain. She is alert and oriented but pale, cool, and diaphoretic with a thready radial pulse. Her systolic pressure is 96 with a heart rate of 124: she is tachycardic with poor perfusion and is showing early shock alongside an acute abdomen. Room-air saturation is 98 percent, so supplemental oxygen is not indicated by the 94 to 98 percent target. The two problems, pain and hypoperfusion, have to be treated at the same time rather than in sequence.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": {
+          "eye": 4,
+          "verbal": 5,
+          "motor": 6
+        },
+        "airway": "Patent and self-maintained; speaking in short, quiet sentences",
+        "breathing": "Rapid and shallow, splinting from abdominal pain; lungs clear bilaterally",
+        "circulation": "Radial pulse rapid and thready; skin pale, cool, and diaphoretic; capillary refill 3 seconds",
+        "skin": {
+          "color": "pale",
+          "temperature": "cool",
+          "moisture": "diaphoretic"
+        },
+        "pupils": "4 mm bilaterally, PERRL",
+        "motorFunction": "Moves all extremities; resists straightening her legs because it worsens the pain",
+        "otherFindings": [
+          "Abdomen flat and soft in the upper quadrants with bowel sounds present in all four quadrants",
+          "Marked guarding and exquisite tenderness to palpation in the right lower quadrant",
+          "Rebound tenderness present on gentle examination",
+          "No pulsatile mass, no distension, no tympany",
+          "Femoral and distal lower extremity pulses equal bilaterally",
+          "Last menstrual period approximately two weeks ago; patient states there is no chance she is pregnant",
+          "No vaginal bleeding or discharge reported"
+        ],
+        "patientSpeech": "\"Please help. My stomach is killing me. It came out of nowhere about thirty minutes ago and it will not let up.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 124,
+        "bpSys": 96,
+        "bpDia": 60,
+        "respRate": 22,
+        "spo2": 98,
+        "etco2": 32,
+        "temp": 37.1,
+        "tempF": 98.8,
+        "obstruction": 0,
+        "trendTimeSeconds": 0,
+        "visibility": {
+          "spo2Visible": true,
+          "spo2Attached": true,
+          "rrVisible": true,
+          "etco2Visible": true,
+          "cvpVisible": false
+        }
+      },
+      "expectedActions": [
+        {
+          "id": "a1",
+          "shortAction": "Perform a focused abdominal exam for guarding, rebound, distension, and pulsatile mass",
+          "protocolExcerpt": "Pertinent Assessment Findings: Rebound tenderness; Guarding; Abdominal distension; Abdominal tympany to percussion; Tenderness focal to a specific abdominal quadrant; Presence of \"pulsatile\" abdominal mass; Absence of or significant inequality of femoral or distal arterial pulses in lower extremities.",
+          "priority": "critical",
+          "rationale": "The physical exam is what separates a surgical abdomen from a benign one, and it is the only diagnostic tool available in the field.",
+          "protocolReference": "MATC: Abdominal Pain"
+        },
+        {
+          "id": "a2",
+          "shortAction": "Screen for ruptured ectopic pregnancy: LMP, pregnancy status, vaginal bleeding",
+          "protocolExcerpt": "Assess for life-threatening causes of abdominal pain, which may include: Signs and symptoms of ruptured ectopic pregnancy: Vaginal bleeding; Recently diagnosed pregnancy; Recent missed period/menstrual cycle in women of childbearing age.",
+          "priority": "critical",
+          "rationale": "A patient's belief that she cannot be pregnant does not exclude ectopic pregnancy. The protocol requires the screen be asked and documented in any woman of childbearing age with abdominal pain and shock.",
+          "protocolReference": "MATC: Abdominal Pain"
+        },
+        {
+          "id": "a3",
+          "shortAction": "Recognize signs of shock and treat per the Shock Guideline",
+          "protocolExcerpt": "Assess for signs of shock. If shock is present, provide treatment per appropriate Shock Guideline.",
+          "priority": "critical",
+          "rationale": "Tachycardia with pallor, cool skin, and a thready pulse is compensated shock. Naming it is what triggers fluid resuscitation rather than a pure pain-control mindset.",
+          "protocolReference": "MATC: Abdominal Pain"
+        },
+        {
+          "id": "a4",
+          "shortAction": "Establish IV access; place an IO if not obtained in two attempts or 90 seconds",
+          "protocolExcerpt": "Establish IV access. If unable to obtain within two attempts or less than 90 seconds, place an IO needle.",
+          "priority": "critical",
+          "rationale": "Both treatments this patient needs, fluid and analgesia, require vascular access, and the protocol sets a hard time limit before escalating to IO.",
+          "protocolReference": "MATC: Shock"
+        },
+        {
+          "id": "a5",
+          "shortAction": "500 mL isotonic bolus pressure-infused under 15 min; MAP goal 65 (up to 30 mL/kg = 1,950 mL)",
+          "protocolExcerpt": "IV fluid volume goal attained by giving boluses that are pressure infused over less than 15 minutes each based on patient's condition and clinical impression. Adult: Physiologic target: MAP goal 65 mmHg. Fluid goal of up to 30 mL/kg of isotonic fluid by administering rapid, predetermined boluses (e.g., 500 mL) unless the MAP goal is achieved, or pulmonary edema develops.",
+          "priority": "critical",
+          "rationale": "The protocol targets a MAP of 65 with 500 mL boluses, and caps total volume at 30 mL/kg, which is 1,950 mL for this 65 kg patient.",
+          "protocolReference": "MATC: Shock"
+        },
+        {
+          "id": "a6",
+          "shortAction": "Fentanyl 65 mcg IV (65 kg x 1 mcg/kg; max initial 100 mcg) slow push",
+          "protocolExcerpt": "For Moderate to Severe pain, analgesics include: Fentanyl: 1 mcg/kg IN, IM, IV or IO (maximum initial dose of 100 mcg). Key Considerations: Patients with acute abdominal pain should receive analgesic interventions - Use of analgesics for acute abdominal pain does not mask clinical findings or delay diagnosis.",
+          "priority": "critical",
+          "rationale": "The protocol explicitly rejects withholding analgesia to avoid masking the diagnosis. Note her penicillin allergy is documented before any medication is given.",
+          "protocolReference": "MATC: Pain Management"
+        },
+        {
+          "id": "a7",
+          "shortAction": "Move her to the stretcher in a position of comfort with knees flexed",
+          "protocolExcerpt": "Non-pharmacologic pain management options include: Placement of the patient in a position of comfort; Verbal reassurance to control anxiety.",
+          "priority": "supplemental",
+          "rationale": "Positioning is free analgesia and reduces the total opioid dose required.",
+          "protocolReference": "MATC: Pain Management"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "treated",
+          "if": "Fluids and fentanyl given",
+          "condition": "Crew recognizes concurrent severe pain and early shock, establishes vascular access, runs a 500 mL isotonic bolus, and gives weight-based fentanyl. Within several minutes her blood pressure rises, her heart rate falls, her skin warms, and her pain drops to a 4 out of 10.",
+          "conditionType": "action_taken",
+          "triggerActionIds": [
+            "a4",
+            "a5",
+            "a6"
+          ]
+        },
+        {
+          "targetPhaseId": "untreated",
+          "if": "Analgesia and fluids withheld",
+          "condition": "Crew completes a thorough assessment but withholds analgesia out of concern for masking the diagnosis and does not initiate fluid resuscitation, spending the time instead trying to pin down an exact diagnosis on scene. Over roughly 15 minutes she progresses from compensated to decompensated shock.",
+          "conditionType": "action_not_taken",
+          "triggerActionIds": [
+            "a5",
+            "a6"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "treated",
+      "name": "Fluids and fentanyl given",
+      "description": "After the 500 mL bolus and weight-based fentanyl, the patient's systolic pressure has come up to 110, her heart rate has fallen to 96, and her skin is pink, warm, and dry. She is breathing more deeply and rates her pain a 4 out of 10. She remains alert and oriented. The crew now reassesses, considers an antiemetic, and gets her moving toward a facility with surgical and gynecologic capability with early notification.",
+      "triggerCondition": "A 500 mL isotonic bolus and 65 mcg of fentanyl have been given. Perfusion and pain have both improved measurably on reassessment.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": {
+          "eye": 4,
+          "verbal": 5,
+          "motor": 6
+        },
+        "airway": "Patent; speaking in full sentences now",
+        "breathing": "Regular with adequate depth; no longer splinting as severely",
+        "circulation": "Radial pulse strong and regular; skin pink, warm, and dry; capillary refill under 2 seconds",
+        "skin": {
+          "color": "pink",
+          "temperature": "warm",
+          "moisture": "dry"
+        },
+        "pupils": "3 mm bilaterally, reactive",
+        "motorFunction": "Moves all extremities; able to lie semi-recumbent with knees flexed",
+        "otherFindings": [
+          "Reported pain score now 4 out of 10",
+          "Right lower quadrant tenderness and guarding persist on repeat exam",
+          "Mild nausea reported without vomiting",
+          "500 mL of the isotonic bolus completed; MAP now approximately 83 mmHg"
+        ],
+        "patientSpeech": "\"Thank you. That's so much better. I still feel it but I can breathe now. I feel a little sick to my stomach though.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Rhythm",
+        "ecgWaveform": 9,
+        "hr": 96,
+        "bpSys": 110,
+        "bpDia": 70,
+        "respRate": 16,
+        "spo2": 99,
+        "etco2": 36,
+        "temp": 37.1,
+        "tempF": 98.8,
+        "obstruction": 0,
+        "trendTimeSeconds": 45,
+        "visibility": {
+          "spo2Visible": true,
+          "spo2Attached": true,
+          "rrVisible": true,
+          "etco2Visible": true,
+          "cvpVisible": false
+        }
+      },
+      "expectedActions": [
+        {
+          "id": "b1",
+          "shortAction": "Reassess vitals and pain score after the fluid and fentanyl",
+          "protocolExcerpt": "Reassess vital signs and response to therapeutic interventions throughout transport.",
+          "priority": "critical",
+          "rationale": "Response to therapy is the field diagnostic. A patient who improves with fluid and stays improved is a different problem than one who slides back.",
+          "protocolReference": "MATC: Abdominal Pain"
+        },
+        {
+          "id": "b2",
+          "shortAction": "Repeat 500 mL bolus if MAP falls below 65 (total up to 30 mL/kg = 1,950 mL)",
+          "protocolExcerpt": "Fluid goal of up to 30 mL/kg of isotonic fluid by administering rapid, predetermined boluses (e.g., 500 mL) unless the MAP goal is achieved, or pulmonary edema develops.",
+          "priority": "important",
+          "rationale": "One bolus is a starting point, not a treatment plan. The endpoint is a MAP of 65, reassessed after every bolus.",
+          "protocolReference": "MATC: Shock"
+        },
+        {
+          "id": "b3",
+          "shortAction": "Ondansetron 4 mg IV for the nausea",
+          "protocolExcerpt": "Antiemetic medication administration: Ondansetron (contraindicated for suspected or known diagnosis of prolonged QT syndrome): Adult: 4 mg IV/PO/SL.",
+          "priority": "supplemental",
+          "rationale": "The pain guideline directs considering an antiemetic after opioid administration, and she is reporting nausea.",
+          "protocolReference": "MATC: Nausea-Vomiting"
+        },
+        {
+          "id": "b4",
+          "shortAction": "Give advanced notification and transport to a surgical/OB-GYN capable facility",
+          "protocolExcerpt": "Provide advanced notification to the hospital.",
+          "priority": "critical",
+          "rationale": "A young woman with an acute abdomen and shock physiology needs the receiving team assembled before arrival, not after.",
+          "protocolReference": "MATC: Shock"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "transporting",
+          "if": "Perfusion improved; transport underway",
+          "condition": "Reassessment confirms sustained improvement in perfusion and pain, the receiving facility has been notified, and the patient is en route with serial vital signs. No further deterioration occurs.",
+          "conditionType": "action_taken",
+          "triggerActionIds": [
+            "b1",
+            "b4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "transporting",
+      "name": "Perfusion improved; transport underway",
+      "description": "The patient is en route to an emergency department with immediate surgical and gynecologic access. Her perfusion has held: blood pressure 114/74, heart rate 90, skin pink, warm, and dry. Pain remains controlled at 4 out of 10 and the nausea has settled. The handoff highlights the history of ovarian cysts, the childbearing-age pregnancy screen, and the positive response to fluid and analgesia. All interventions are complete.",
+      "triggerCondition": "Perfusion and pain remain improved on serial reassessment, the hospital has been notified, and transport is underway without further deterioration.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": {
+          "eye": 4,
+          "verbal": 5,
+          "motor": 6
+        },
+        "airway": "Patent and conversational",
+        "breathing": "Regular, unlabored, adequate depth",
+        "circulation": "Radial pulse strong; skin pink, warm, and dry",
+        "skin": {
+          "color": "pink",
+          "temperature": "warm",
+          "moisture": "dry"
+        },
+        "pupils": "3 mm bilaterally, reactive",
+        "motorFunction": "Moves all extremities normally",
+        "otherFindings": [
+          "Pain stable at 4 out of 10 without a repeat opioid dose",
+          "Nausea resolved after ondansetron",
+          "Right lower quadrant tenderness unchanged",
+          "Serial vital signs documented every 5 minutes en route"
+        ],
+        "patientSpeech": "\"I'm okay. It still hurts but it's manageable now.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Rhythm",
+        "ecgWaveform": 9,
+        "hr": 90,
+        "bpSys": 114,
+        "bpDia": 74,
+        "respRate": 16,
+        "spo2": 99,
+        "etco2": 37,
+        "temp": 37.1,
+        "tempF": 98.8,
+        "obstruction": 0,
+        "trendTimeSeconds": 30,
+        "visibility": {
+          "spo2Visible": true,
+          "spo2Attached": true,
+          "rrVisible": true,
+          "etco2Visible": true,
+          "cvpVisible": false
+        }
+      },
+      "expectedActions": []
+    },
+    {
+      "id": "untreated",
+      "name": "Analgesia and fluids withheld",
+      "description": "Roughly 15 minutes have passed with no treatment beyond assessment. The crew withheld analgesia out of an outdated concern about masking the diagnosis and never started fluid, spending the time trying to name the exact pathology. She has slid from compensated into decompensated shock: systolic 84, heart rate 138 and thready, respirations 26 and shallow, skin clammy. She is crying, lightheaded, nauseated, and now rates the pain a 10 out of 10. Both omitted treatments are now urgent, and the opioid must be given with the caution the protocol specifies for hypotension.",
+      "triggerCondition": "Neither fluid resuscitation nor analgesia was initiated during the first 15 minutes of contact. Compensated shock has progressed to decompensated shock.",
+      "isDefault": false,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": {
+          "eye": 4,
+          "verbal": 5,
+          "motor": 6
+        },
+        "airway": "Patent; crying, speaking in fragments",
+        "breathing": "Rapid and shallow at 26 per minute",
+        "circulation": "Radial pulse thready and difficult to palpate; skin pale and clammy; capillary refill 4 seconds",
+        "skin": {
+          "color": "pale",
+          "temperature": "cool",
+          "moisture": "clammy"
+        },
+        "pupils": "5 mm bilaterally, reactive",
+        "motorFunction": "Moves all extremities weakly; too lightheaded to sit up",
+        "otherFindings": [
+          "Reported pain now 10 out of 10 with new nausea",
+          "Increasing lightheadedness and anxiety",
+          "Right lower quadrant guarding and rebound now more pronounced",
+          "MAP approximately 61 mmHg, below the protocol target of 65"
+        ],
+        "patientSpeech": "\"I feel like I'm going to pass out. Please, it's so much worse now. I think I'm going to be sick.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 138,
+        "bpSys": 84,
+        "bpDia": 50,
+        "respRate": 26,
+        "spo2": 97,
+        "etco2": 27,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 0,
+        "trendTimeSeconds": 55,
+        "visibility": {
+          "spo2Visible": true,
+          "spo2Attached": true,
+          "rrVisible": true,
+          "etco2Visible": true,
+          "cvpVisible": false
+        }
+      },
+      "expectedActions": [
+        {
+          "id": "c1",
+          "shortAction": "Recognize decompensated shock; get IV or IO access without further delay",
+          "protocolExcerpt": "Establish IV access. If unable to obtain within two attempts or less than 90 seconds, place an IO needle.",
+          "priority": "critical",
+          "rationale": "Hypotension marks uncompensated shock. The 90-second access rule exists precisely for this moment.",
+          "protocolReference": "MATC: Shock"
+        },
+        {
+          "id": "c2",
+          "shortAction": "500 mL isotonic bolus now; MAP goal 65 (up to 30 mL/kg = 1,950 mL)",
+          "protocolExcerpt": "IV fluid volume goal attained by giving boluses that are pressure infused over less than 15 minutes each based on patient's condition and clinical impression. Adult: Physiologic target: MAP goal 65 mmHg. Fluid goal of up to 30 mL/kg of isotonic fluid by administering rapid, predetermined boluses (e.g., 500 mL) unless the MAP goal is achieved, or pulmonary edema develops.",
+          "priority": "critical",
+          "rationale": "Her MAP is now 61, below the protocol target. Fluid comes first and the opioid follows once perfusion is being addressed.",
+          "protocolReference": "MATC: Shock"
+        },
+        {
+          "id": "c3",
+          "shortAction": "Fentanyl 65 mcg IV (65 kg x 1 mcg/kg) with caution given the hypotension; titrate",
+          "protocolExcerpt": "For Moderate to Severe pain, analgesics include: Fentanyl: 1 mcg/kg IN, IM, IV or IO (maximum initial dose of 100 mcg). Patient Safety Considerations: Administer opioids with caution to patients with Glasgow Coma Score (GCS) less than 15, hypotension, identified medication allergy, hypoxia (SPO2 less than 90%) after maximal supplemental oxygen therapy, or signs of hypoventilation.",
+          "priority": "critical",
+          "rationale": "The delay has made the analgesia harder, not unnecessary. The protocol calls for caution and titration in hypotension, not for withholding.",
+          "protocolReference": "MATC: Pain Management"
+        },
+        {
+          "id": "c4",
+          "shortAction": "Ondansetron 4 mg IV and advanced notification; transport emergently",
+          "protocolExcerpt": "Antiemetic medication administration: Ondansetron (contraindicated for suspected or known diagnosis of prolonged QT syndrome): Adult: 4 mg IV/PO/SL. Provide advanced notification to the hospital.",
+          "priority": "important",
+          "rationale": "The receiving team needs to know a young woman with an acute abdomen is arriving in decompensated shock after a delayed field course.",
+          "protocolReference": "MATC: Nausea-Vomiting"
+        }
+      ]
+    }
+  ],
+  "realiti": {
+    "scenarioDefaultEnergy": 200,
+    "scenarioDefaultPacerThreshold": 55
+  }
+}
