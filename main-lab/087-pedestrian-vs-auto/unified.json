@@ -86,13 +86,54 @@
         "trendTimeSeconds": 0,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [],
+      "expectedActions": [
+        {
+          "id": "a1",
+          "shortAction": "Perform MARCH primary survey: hemorrhage, airway, breathing, circulation, head/hypothermia",
+          "protocolExcerpt": "Primary survey (Use \"MARCH\" algorithm)",
+          "priority": "critical",
+          "rationale": "Structured survey rapidly identifies the life-threatening flail chest and rules out tension pneumothorax before other injuries are addressed.",
+          "protocolReference": "MATC: General Trauma Management"
+        },
+        {
+          "id": "a2",
+          "shortAction": "Palpate chest wall for instability/crepitus; auscultate breath sounds bilaterally",
+          "protocolExcerpt": "Chest – See Initial Treatment: Palpate for instability/crepitus. Listen to breath sounds. Inspect for penetrating or soft tissue injuries",
+          "priority": "critical",
+          "rationale": "Confirms the flail segment and rules out an evolving tension pneumothorax before it becomes hemodynamically significant.",
+          "protocolReference": "MATC: General Trauma Management"
+        },
+        {
+          "id": "a3",
+          "shortAction": "Apply high-flow supplemental oxygen to target SpO2 greater than 94%",
+          "protocolExcerpt": "Monitor oxygen saturation (SpO2) and, if indicated, provide supplemental oxygen to maintain SPO2 greater than 94% and respiratory support if needed",
+          "priority": "critical",
+          "rationale": "Hypoxia from the flail segment and underlying pulmonary contusion requires immediate correction.",
+          "protocolReference": "MATC: General Trauma Management"
+        },
+        {
+          "id": "a4",
+          "shortAction": "Apply cervical collar and initiate spinal motion restriction for distracting injuries",
+          "protocolExcerpt": "Place patient in cervical collar and initiate spinal motion restriction in adults if there are any of the following: Another severe or painful distracting injury",
+          "priority": "critical",
+          "rationale": "The severe chest and leg injuries meet SMR criteria as distracting injuries even without a specific neck complaint.",
+          "protocolReference": "MATC: Spinal Care"
+        }
+      ],
       "transitions": [
         {
           "targetPhaseId": "primary-survey-smr",
           "if": "Primary survey and SMR completed",
           "condition": "Crew performs a MARCH primary survey, identifies the flail segment and hypoxia, applies supplemental oxygen, and initiates spinal motion restriction given the severe distracting chest and leg injuries.",
-          "conditionType": "action_taken"
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a1", "a3", "a4"]
+        },
+        {
+          "targetPhaseId": "tension-pneumo-branch",
+          "if": "Chest reassessment skipped",
+          "condition": "Crew moves on to splinting and transport without reassessing breath sounds; an evolving tension pneumothorax on the injured side goes unrecognized until the patient rapidly deteriorates.",
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["a2"]
         }
       ]
     },
@@ -138,36 +179,20 @@
       },
       "expectedActions": [
         {
-          "id": "a1-march",
-          "shortAction": "Perform MARCH primary survey: hemorrhage, airway, breathing, circulation, head/hypothermia",
-          "protocolExcerpt": "Primary survey (Use \"MARCH\" algorithm)",
+          "id": "b1",
+          "shortAction": "500 mL crystalloid IV bolus for HR >120 bpm; reassess and repeat as needed",
+          "protocolExcerpt": "If SBP less than 90 mmHg or HR greater than 120 BPM, initiate resuscitation: consider 500 mL bolus of IV fluid, repeat as needed for persistent signs and symptoms of shock",
           "priority": "critical",
-          "rationale": "Structured survey rapidly identifies the life-threatening flail chest and rules out tension pneumothorax before other injuries are addressed.",
+          "rationale": "Persistent tachycardia above 120 bpm meets the protocol's resuscitation threshold even with a normal systolic blood pressure.",
           "protocolReference": "MATC: General Trauma Management"
         },
         {
-          "id": "a2-chest-assess",
-          "shortAction": "Palpate chest wall for instability/crepitus; auscultate breath sounds bilaterally",
-          "protocolExcerpt": "Chest – See Initial Treatment: Palpate for instability/crepitus. Listen to breath sounds. Inspect for penetrating or soft tissue injuries",
-          "priority": "critical",
-          "rationale": "Confirms the flail segment and rules out an evolving tension pneumothorax before it becomes hemodynamically significant.",
-          "protocolReference": "MATC: General Trauma Management"
-        },
-        {
-          "id": "a3-o2",
-          "shortAction": "Apply high-flow supplemental oxygen to target SpO2 greater than 94%",
-          "protocolExcerpt": "Monitor oxygen saturation (SpO2) and, if indicated, provide supplemental oxygen to maintain SPO2 greater than 94% and respiratory support if needed",
-          "priority": "critical",
-          "rationale": "Hypoxia from the flail segment and underlying pulmonary contusion requires immediate correction.",
-          "protocolReference": "MATC: General Trauma Management"
-        },
-        {
-          "id": "a4-smr",
-          "shortAction": "Apply cervical collar and initiate spinal motion restriction for distracting injuries",
-          "protocolExcerpt": "Place patient in cervical collar and initiate spinal motion restriction in adults if there are any of the following: Another severe or painful distracting injury",
-          "priority": "critical",
-          "rationale": "The severe chest and leg injuries meet SMR criteria as distracting injuries even without a specific neck complaint.",
-          "protocolReference": "MATC: Spinal Care"
+          "id": "b2",
+          "shortAction": "Fentanyl 70 mcg IV (70 kg × 1 mcg/kg; max initial dose 100 mcg)",
+          "protocolExcerpt": "Fentanyl: 1 mcg/kg IN, IM, IV or IO (maximum initial dose of 100 mcg)",
+          "priority": "important",
+          "rationale": "Severe pain (9/10) from the flail chest and leg injury warrants weight-based opioid analgesia.",
+          "protocolReference": "MATC: Pain Management"
         }
       ],
       "transitions": [
@@ -176,14 +201,7 @@
           "if": "Fluid bolus and fentanyl given",
           "condition": "Given the persistent tachycardia above 120 bpm, crew initiates a 500 mL crystalloid bolus per resuscitation criteria and administers weight-based fentanyl for severe pain.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["a3-o2", "a4-smr"]
-        },
-        {
-          "targetPhaseId": "tension-pneumo-branch",
-          "if": "Chest reassessment skipped",
-          "condition": "Crew moves on to splinting and transport without reassessing breath sounds; an evolving tension pneumothorax on the injured side goes unrecognized until the patient rapidly decompensates.",
-          "conditionType": "action_not_taken",
-          "triggerActionIds": ["a2-chest-assess"]
+          "triggerActionIds": ["b1", "b2"]
         }
       ]
     },
@@ -228,20 +246,20 @@
       },
       "expectedActions": [
         {
-          "id": "a5-fluid-bolus",
-          "shortAction": "500 mL crystalloid IV bolus for HR >120 bpm; reassess and repeat as needed",
-          "protocolExcerpt": "If SBP less than 90 mmHg or HR greater than 120 BPM, initiate resuscitation: consider 500 mL bolus of IV fluid, repeat as needed for persistent signs and symptoms of shock",
+          "id": "c1",
+          "shortAction": "Reassess vital signs and breath sounds serially en route; monitor for delayed tension pneumothorax",
+          "protocolExcerpt": "Repeat primary assessment or secondary assessment should be conducted en route to the trauma center. If patient develops difficulty with ventilation, reassess breath sounds for development of tension pneumothorax",
           "priority": "critical",
-          "rationale": "Persistent tachycardia above 120 bpm meets the protocol's resuscitation threshold even with a normal systolic blood pressure.",
+          "rationale": "Flail chest and pulmonary contusion can decompensate en route even after initial stabilization.",
           "protocolReference": "MATC: General Trauma Management"
         },
         {
-          "id": "a6-fentanyl",
-          "shortAction": "Fentanyl 70 mcg IV (70 kg × 1 mcg/kg; max initial dose 100 mcg)",
-          "protocolExcerpt": "Fentanyl: 1 mcg/kg IN, IM, IV or IO (maximum initial dose of 100 mcg)",
+          "id": "c2",
+          "shortAction": "Transport to appropriate trauma center per field triage guideline; minimize scene time",
+          "protocolExcerpt": "Decisions regarding transport destination should be based on the ACS-COT 2022 National Guideline for the Field Triage of Injured Patients",
           "priority": "important",
-          "rationale": "Severe pain (9/10) from the flail chest and leg injury warrants weight-based opioid analgesia.",
-          "protocolReference": "MATC: Pain Management"
+          "rationale": "High-speed pedestrian-struck mechanism with multi-system trauma warrants transport to the highest level of trauma care.",
+          "protocolReference": "MATC: General Trauma Management"
         }
       ],
       "transitions": [
@@ -249,7 +267,8 @@
           "targetPhaseId": "transport",
           "if": "Reassessed and prepared for transport",
           "condition": "With pain controlled and perfusion improving, the patient is packaged and prepared for rapid transport with serial reassessment en route.",
-          "conditionType": "action_taken"
+          "conditionType": "action_taken",
+          "triggerActionIds": ["c1", "c2"]
         }
       ]
     },
@@ -292,24 +311,7 @@
         "trendTimeSeconds": 30,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [
-        {
-          "id": "a7-serial-reassess",
-          "shortAction": "Reassess vital signs and breath sounds serially en route; monitor for delayed tension pneumothorax",
-          "protocolExcerpt": "Repeat primary assessment or secondary assessment should be conducted en route to the trauma center. If patient develops difficulty with ventilation, reassess breath sounds for development of tension pneumothorax",
-          "priority": "critical",
-          "rationale": "Flail chest and pulmonary contusion can decompensate en route even after initial stabilization.",
-          "protocolReference": "MATC: General Trauma Management"
-        },
-        {
-          "id": "a8-transport-decision",
-          "shortAction": "Transport to appropriate trauma center per field triage guideline; minimize scene time",
-          "protocolExcerpt": "Decisions regarding transport destination should be based on the ACS-COT 2022 National Guideline for the Field Triage of Injured Patients",
-          "priority": "important",
-          "rationale": "High-speed pedestrian-struck mechanism with multi-system trauma warrants transport to the highest level of trauma care.",
-          "protocolReference": "MATC: General Trauma Management"
-        }
-      ],
+      "expectedActions": [],
       "transitions": []
     },
     {
@@ -354,7 +356,7 @@
       },
       "expectedActions": [
         {
-          "id": "a9-needle-decompression",
+          "id": "d1",
           "shortAction": "Needle decompression of left chest for tension pneumothorax with hypotension and tracheal deviation",
           "protocolExcerpt": "If absent or diminished breath sounds in a hypotensive trauma patient, especially those with chest trauma and/or tracheal deviation, consider tension pneumothorax and perform needle decompression of side without breath sounds or side opposite tracheal deviation; may need second or third needle decompression on same side if there is a rush of air but patient again has symptoms",
           "priority": "critical",

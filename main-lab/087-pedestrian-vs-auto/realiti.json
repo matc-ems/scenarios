@@ -57,7 +57,12 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [],
+      "relatedChecklist": [
+        "Perform MARCH primary survey: hemorrhage, airway, breathing, circulation, head/hypothermia",
+        "Palpate chest wall for instability/crepitus; auscultate breath sounds bilaterally",
+        "Apply high-flow supplemental oxygen to target SpO2 greater than 94%",
+        "Apply cervical collar and initiate spinal motion restriction for distracting injuries"
+      ],
       "relatedSounds": []
     },
     {
@@ -90,10 +95,8 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Perform MARCH primary survey: hemorrhage, airway, breathing, circulation, head/hypothermia",
-        "Palpate chest wall for instability/crepitus; auscultate breath sounds bilaterally",
-        "Apply high-flow supplemental oxygen to target SpO2 greater than 94%",
-        "Apply cervical collar and initiate spinal motion restriction for distracting injuries"
+        "500 mL crystalloid IV bolus for HR >120 bpm; reassess and repeat as needed",
+        "Fentanyl 70 mcg IV (70 kg × 1 mcg/kg; max initial dose 100 mcg)"
       ],
       "relatedSounds": []
     },
@@ -127,8 +130,8 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "500 mL crystalloid IV bolus for HR >120 bpm; reassess and repeat as needed",
-        "Fentanyl 70 mcg IV (70 kg × 1 mcg/kg; max initial dose 100 mcg)"
+        "Reassess vital signs and breath sounds serially en route; monitor for delayed tension pneumothorax",
+        "Transport to appropriate trauma center per field triage guideline; minimize scene time"
       ],
       "relatedSounds": []
     },
@@ -161,10 +164,7 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [
-        "Reassess vital signs and breath sounds serially en route; monitor for delayed tension pneumothorax",
-        "Transport to appropriate trauma center per field triage guideline; minimize scene time"
-      ],
+      "relatedChecklist": [],
       "relatedSounds": []
     },
     {
