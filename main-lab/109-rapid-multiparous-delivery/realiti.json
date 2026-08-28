@@ -57,7 +57,11 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [],
+      "relatedChecklist": [
+        "Support head with gentle counterpressure for slow, controlled delivery",
+        "Check for nuchal cord after head delivers; slip over head if present",
+        "Guide head down for anterior shoulder, then up for posterior shoulder"
+      ],
       "relatedSounds": []
     },
     {
@@ -90,9 +94,10 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Support head with gentle counterpressure for slow, controlled delivery",
-        "Check for nuchal cord after head delivers; slip over head if present",
-        "Guide head down for anterior shoulder, then up for posterior shoulder"
+        "Do not routinely suction infant's airway, even with bulb syringe",
+        "Dry, warm, and stimulate infant; wrap in towel and place on maternal chest",
+        "Clamp cord in two places about 5-6 inches from abdomen after 1 minute; cut between clamps",
+        "Calculate APGAR score at 1 and 5 minutes"
       ],
       "relatedSounds": []
     },
@@ -125,12 +130,7 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [
-        "Do not routinely suction infant's airway, even with bulb syringe",
-        "Clamp cord in two places about 5-6 inches from abdomen after 1 minute; cut between clamps",
-        "Dry, warm, and stimulate infant; wrap in towel and place on maternal chest",
-        "Calculate APGAR score at 1 and 5 minutes"
-      ],
+      "relatedChecklist": [],
       "relatedSounds": []
     }
   ],
@@ -160,13 +160,13 @@
       "icon": 1
     },
     {
-      "title": "Clamp cord in two places about 5-6 inches from abdomen after 1 minute; cut between clamps",
+      "title": "Dry, warm, and stimulate infant; wrap in towel and place on maternal chest",
       "type": "Check",
       "value": 0,
       "icon": 1
     },
     {
-      "title": "Dry, warm, and stimulate infant; wrap in towel and place on maternal chest",
+      "title": "Clamp cord in two places about 5-6 inches from abdomen after 1 minute; cut between clamps",
       "type": "Check",
       "value": 0,
       "icon": 1

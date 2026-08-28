@@ -80,13 +80,39 @@
         "trendTimeSeconds": 0,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [],
+      "expectedActions": [
+        {
+          "id": "a1",
+          "shortAction": "Support head with gentle counterpressure for slow, controlled delivery",
+          "protocolExcerpt": "Delivery should be controlled to allow a slow controlled delivery of infant – This will prevent injury to mother. Support the infant's head as needed and apply gentle counterpressure to help prevent the head from suddenly popping out",
+          "priority": "critical",
+          "rationale": "Prevents maternal perineal trauma from an uncontrolled, explosive delivery.",
+          "protocolReference": "MATC: OB/GYN Childbirth"
+        },
+        {
+          "id": "a2",
+          "shortAction": "Check for nuchal cord after head delivers; slip over head if present",
+          "protocolExcerpt": "Check for nuchal cord (i.e., around the baby's neck). If present, slip it over the head. If unable to free the cord from the neck, double clamp the cord and cut between the clamps",
+          "priority": "critical",
+          "rationale": "An unrecognized nuchal cord can obstruct delivery of the body or cause cord compression.",
+          "protocolReference": "MATC: OB/GYN Childbirth"
+        },
+        {
+          "id": "a3",
+          "shortAction": "Guide head down for anterior shoulder, then up for posterior shoulder",
+          "protocolExcerpt": "Grasping the head with hand over the ears, gently guide head down to allow delivery of the anterior shoulder. Gently guide the head up to allow delivery of the posterior shoulder",
+          "priority": "critical",
+          "rationale": "Correct sequencing safely delivers each shoulder in turn without excessive traction.",
+          "protocolReference": "MATC: OB/GYN Childbirth"
+        }
+      ],
       "transitions": [
         {
           "targetPhaseId": "controlled-delivery",
           "if": "Controlled delivery performed",
           "condition": "Crew recognizes imminent delivery and prepares to support a slow, controlled delivery of the head and body rather than transporting.",
-          "conditionType": "action_taken"
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a1", "a2", "a3"]
         }
       ]
     },
@@ -131,27 +157,35 @@
       },
       "expectedActions": [
         {
-          "id": "a1-controlled-delivery",
-          "shortAction": "Support head with gentle counterpressure for slow, controlled delivery",
-          "protocolExcerpt": "Delivery should be controlled to allow a slow controlled delivery of infant – This will prevent injury to mother. Support the infant's head as needed and apply gentle counterpressure to help prevent the head from suddenly popping out",
-          "priority": "critical",
-          "rationale": "Prevents maternal perineal trauma from an uncontrolled, explosive delivery.",
+          "id": "b1",
+          "shortAction": "Do not routinely suction infant's airway, even with bulb syringe",
+          "protocolExcerpt": "Do not routinely suction the infant's airway (even with a bulb syringe) during delivery",
+          "priority": "important",
+          "rationale": "Routine suctioning of a vigorous newborn provides no benefit and can cause vagally-mediated bradycardia.",
           "protocolReference": "MATC: OB/GYN Childbirth"
         },
         {
-          "id": "a2-nuchal-check",
-          "shortAction": "Check for nuchal cord after head delivers; slip over head if present",
-          "protocolExcerpt": "Check for nuchal cord (i.e., around the baby's neck). If present, slip it over the head. If unable to free the cord from the neck, double clamp the cord and cut between the clamps",
+          "id": "b2",
+          "shortAction": "Dry, warm, and stimulate infant; wrap in towel and place on maternal chest",
+          "protocolExcerpt": "Dry, warm, and stimulate infant, wrap in towel and place on maternal chest unless resuscitation needed",
           "priority": "critical",
-          "rationale": "An unrecognized nuchal cord can obstruct delivery of the body or cause cord compression.",
+          "rationale": "Prevents neonatal hypothermia, a major driver of adverse outcomes in newborns.",
           "protocolReference": "MATC: OB/GYN Childbirth"
         },
         {
-          "id": "a3-shoulders",
-          "shortAction": "Guide head down for anterior shoulder, then up for posterior shoulder",
-          "protocolExcerpt": "Grasping the head with hand over the ears, gently guide head down to allow delivery of the anterior shoulder. Gently guide the head up to allow delivery of the posterior shoulder",
-          "priority": "critical",
-          "rationale": "Correct sequencing safely delivers each shoulder in turn without excessive traction.",
+          "id": "b3",
+          "shortAction": "Clamp cord in two places about 5-6 inches from abdomen after 1 minute; cut between clamps",
+          "protocolExcerpt": "After 1 minute, clamp cord about 5–6 inches from the abdomen with two clamps; cut the cord between the clamps",
+          "priority": "important",
+          "rationale": "Delayed cord clamping improves neonatal outcomes when resuscitation is not needed.",
+          "protocolReference": "MATC: OB/GYN Childbirth"
+        },
+        {
+          "id": "b4",
+          "shortAction": "Calculate APGAR score at 1 and 5 minutes",
+          "protocolExcerpt": "Record APGAR scores at 1 and 5 minutes once neonate is stabilized",
+          "priority": "important",
+          "rationale": "Standardized documentation of newborn transition status for the receiving team.",
           "protocolReference": "MATC: OB/GYN Childbirth"
         }
       ],
@@ -161,7 +195,7 @@
           "if": "Newborn dried, warmed, and scored",
           "condition": "The remainder of the infant delivers slowly following the shoulders; crew proceeds directly to newborn stabilization and APGAR scoring.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["a3-shoulders"]
+          "triggerActionIds": ["b2", "b4"]
         }
       ]
     },
@@ -205,40 +239,7 @@
         "trendTimeSeconds": 40,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [
-        {
-          "id": "a4-no-suction",
-          "shortAction": "Do not routinely suction infant's airway, even with bulb syringe",
-          "protocolExcerpt": "Do not routinely suction the infant's airway (even with a bulb syringe) during delivery",
-          "priority": "important",
-          "rationale": "Routine suctioning of a vigorous newborn provides no benefit and can cause vagally-mediated bradycardia.",
-          "protocolReference": "MATC: OB/GYN Childbirth"
-        },
-        {
-          "id": "a5-cord-clamp",
-          "shortAction": "Clamp cord in two places about 5-6 inches from abdomen after 1 minute; cut between clamps",
-          "protocolExcerpt": "After 1 minute, clamp cord about 5–6 inches from the abdomen with two clamps; cut the cord between the clamps",
-          "priority": "important",
-          "rationale": "Delayed cord clamping improves neonatal outcomes when resuscitation is not needed.",
-          "protocolReference": "MATC: OB/GYN Childbirth"
-        },
-        {
-          "id": "a6-dry-warm",
-          "shortAction": "Dry, warm, and stimulate infant; wrap in towel and place on maternal chest",
-          "protocolExcerpt": "Dry, warm, and stimulate infant, wrap in towel and place on maternal chest unless resuscitation needed",
-          "priority": "critical",
-          "rationale": "Prevents neonatal hypothermia, a major driver of adverse outcomes in newborns.",
-          "protocolReference": "MATC: OB/GYN Childbirth"
-        },
-        {
-          "id": "a7-apgar",
-          "shortAction": "Calculate APGAR score at 1 and 5 minutes",
-          "protocolExcerpt": "Record APGAR scores at 1 and 5 minutes once neonate is stabilized",
-          "priority": "important",
-          "rationale": "Standardized documentation of newborn transition status for the receiving team.",
-          "protocolReference": "MATC: OB/GYN Childbirth"
-        }
-      ],
+      "expectedActions": [],
       "transitions": []
     }
   ],
