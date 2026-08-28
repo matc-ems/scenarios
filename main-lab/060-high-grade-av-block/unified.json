@@ -78,7 +78,7 @@
       },
       "expectedActions": [
         {
-          "id": "a1-airway",
+          "id": "a1",
           "shortAction": "Manage airway as necessary; position patient of comfort",
           "protocolExcerpt": "Manage airway as necessary",
           "priority": "critical",
@@ -86,7 +86,7 @@
           "protocolReference": "MATC: Bradycardia"
         },
         {
-          "id": "a1-o2",
+          "id": "a2",
           "shortAction": "Administer oxygen titrated to 94-98% SpO2",
           "protocolExcerpt": "Administer oxygen as appropriate with a target of achieving 94–98% saturation",
           "priority": "important",
@@ -94,7 +94,7 @@
           "protocolReference": "MATC: Bradycardia"
         },
         {
-          "id": "a1-monitor",
+          "id": "a3",
           "shortAction": "Initiate cardiac monitoring and acquire 12-lead EKG",
           "protocolExcerpt": "Initiate monitoring and perform 12-lead EKG",
           "priority": "critical",
@@ -102,7 +102,7 @@
           "protocolReference": "MATC: Bradycardia"
         },
         {
-          "id": "a1-iv",
+          "id": "a4",
           "shortAction": "Establish IV access",
           "protocolExcerpt": "Establish IV access",
           "priority": "important",
@@ -110,7 +110,7 @@
           "protocolReference": "MATC: Bradycardia"
         },
         {
-          "id": "a1-glucose",
+          "id": "a5",
           "shortAction": "Check blood glucose level",
           "protocolExcerpt": "Check blood glucose and treat hypoglycemia per the Hypoglycemia Guideline and Hyperglycemia Guideline",
           "priority": "important",
@@ -118,21 +118,29 @@
           "protocolReference": "MATC: Bradycardia"
         },
         {
-          "id": "a1-trauma",
+          "id": "a6",
           "shortAction": "Screen geriatric fall patient for occult trauma from the fall",
           "protocolExcerpt": "Geriatric patients suffering falls from standing may sustain significant injury and should be diligently screened for trauma",
           "priority": "important",
           "rationale": "Elderly syncope patients are at high risk for injury from the fall itself.",
           "protocolReference": "MATC: Adult and Pediatric Syncope and Near Syncope"
+        },
+        {
+          "id": "a7",
+          "shortAction": "Recognize symptomatic bradycardia with hemodynamic instability (HR 32, BP 78/50, recurrent near-syncope)",
+          "protocolExcerpt": "Inclusion Criteria: Heart rate less than 60 beats per minute (BPM) with either symptoms (altered mental status (AMS), chest pain (CP), congestive heart failure (CHF), seizure, syncope, shock, pallor, diaphoresis) or evidence of hemodynamic instability",
+          "priority": "critical",
+          "rationale": "Confirms the patient meets criteria for escalation of bradycardia therapy.",
+          "protocolReference": "MATC: Bradycardia"
         }
       ],
       "transitions": [
         {
           "targetPhaseId": "instability-recognized",
-          "if": "12-lead acquired, instability recognized",
+          "if": "Instability recognized",
           "condition": "Crew acquires the 12-lead EKG, confirms third-degree AV block, and recognizes ongoing hemodynamic instability (hypotension, recurrent near-syncope) warranting escalation of care per the Bradycardia guideline.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["a1-monitor", "a1-iv"]
+          "triggerActionIds": ["a3", "a4", "a7"]
         }
       ]
     },
@@ -173,15 +181,7 @@
       },
       "expectedActions": [
         {
-          "id": "a2-recognize",
-          "shortAction": "Recognize symptomatic bradycardia with hemodynamic instability (HR 32, BP 78/50, recurrent near-syncope)",
-          "protocolExcerpt": "Inclusion Criteria: Heart rate less than 60 beats per minute (BPM) with either symptoms (altered mental status (AMS), chest pain (CP), congestive heart failure (CHF), seizure, syncope, shock, pallor, diaphoresis) or evidence of hemodynamic instability",
-          "priority": "critical",
-          "rationale": "Confirms the patient meets criteria for escalation of bradycardia therapy.",
-          "protocolReference": "MATC: Bradycardia"
-        },
-        {
-          "id": "a2-atropine",
+          "id": "b1",
           "shortAction": "Atropine 1 mg IV push (fixed dose; may repeat q3-5 min, max total 3 mg)",
           "protocolExcerpt": "Consider the following additional therapies if bradycardia and symptoms or hemodynamic instability continue: Atropine 1 mg IV q 3–5 minutes (maximum total dose of 3 mg)",
           "priority": "critical",
@@ -189,7 +189,7 @@
           "protocolReference": "MATC: Bradycardia"
         },
         {
-          "id": "a2-reassess",
+          "id": "b2",
           "shortAction": "Reassess vital signs closely following atropine administration",
           "protocolExcerpt": "Ongoing vital signs",
           "priority": "supplemental",
@@ -200,18 +200,10 @@
       "transitions": [
         {
           "targetPhaseId": "atropine-ineffective",
-          "if": "Atropine given, no response, TCP initiated promptly",
+          "if": "Atropine ineffective",
           "condition": "Atropine is administered without a meaningful chronotropic response, consistent with typical third-degree block physiology. The crew promptly recognizes this and proceeds directly to transcutaneous pacing without further delay.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["a2-atropine"]
-        },
-        {
-          "targetPhaseId": "pacing-delayed",
-          "if": "TCP delayed after atropine failure",
-          "condition": "After atropine fails to improve heart rate or perfusion, the crew delays initiating transcutaneous pacing (e.g., repeating atropine doses or awaiting further orders) rather than escalating promptly, allowing the patient to continue decompensating.",
-          "conditionType": "time_elapsed",
-          "triggerActionIds": ["a2-atropine"],
-          "timeoutSeconds": 300
+          "triggerActionIds": ["b1", "b2"]
         }
       ]
     },
@@ -252,7 +244,7 @@
       },
       "expectedActions": [
         {
-          "id": "a3-recognize-block",
+          "id": "c1",
           "shortAction": "Recognize third-degree block unlikely to respond to atropine; proceed to TCP without delay",
           "protocolExcerpt": "Third-degree heart block or the denervated heart (as in cardiac transplant) may not respond to atropine and in these cases, proceed quickly to chronotropic agents (such as epinephrine or dopamine) or transcutaneous pacing",
           "priority": "critical",
@@ -260,29 +252,36 @@
           "protocolReference": "MATC: Bradycardia"
         },
         {
-          "id": "a3-tcp",
-          "shortAction": "Initiate transcutaneous pacing",
-          "protocolExcerpt": "Transcutaneous Pacing – If pacing is performed, consider sedation or pain control",
-          "priority": "critical",
-          "rationale": "Definitive prehospital treatment for unstable third-degree block unresponsive to atropine.",
-          "protocolReference": "MATC: Bradycardia"
-        },
-        {
-          "id": "a3-sedation",
+          "id": "c2",
           "shortAction": "Provide sedation/analgesia with pacing for patient comfort",
           "protocolExcerpt": "If pacing is performed, consider sedation or pain control",
           "priority": "important",
           "rationale": "Transcutaneous pacing is painful; sedation/analgesia improves tolerance and cooperation.",
+          "protocolReference": "MATC: Bradycardia"
+        },
+        {
+          "id": "c3",
+          "shortAction": "Initiate transcutaneous pacing",
+          "protocolExcerpt": "Transcutaneous Pacing – If pacing is performed, consider sedation or pain control",
+          "priority": "critical",
+          "rationale": "Definitive prehospital treatment for unstable third-degree block unresponsive to atropine.",
           "protocolReference": "MATC: Bradycardia"
         }
       ],
       "transitions": [
         {
           "targetPhaseId": "paced-stabilized",
-          "if": "TCP capture achieved, sedation given",
+          "if": "Paced and stabilized",
           "condition": "Transcutaneous pacing is initiated with electrical and mechanical capture confirmed, and sedation/analgesia is provided, resulting in improved heart rate and blood pressure.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["a3-tcp", "a3-sedation"]
+          "triggerActionIds": ["c2", "c3"]
+        },
+        {
+          "targetPhaseId": "pacing-delayed",
+          "if": "Pacing delayed",
+          "condition": "After atropine fails to improve heart rate or perfusion, the crew delays initiating transcutaneous pacing (e.g., repeating atropine doses or awaiting further orders) rather than escalating promptly, allowing the patient to continue decompensating.",
+          "conditionType": "time_elapsed",
+          "triggerActionIds": ["c3"]
         }
       ]
     },
@@ -323,7 +322,7 @@
       },
       "expectedActions": [
         {
-          "id": "a4-confirm-capture",
+          "id": "d1",
           "shortAction": "Confirm mechanical and electrical capture; titrate pacer output/rate for adequate perfusion",
           "protocolExcerpt": "Correct application and use of cardiac pacing",
           "priority": "critical",
@@ -331,7 +330,7 @@
           "protocolReference": "MATC: Bradycardia"
         },
         {
-          "id": "a4-reassess",
+          "id": "d2",
           "shortAction": "Reassess vital signs and mental status after capture achieved",
           "protocolExcerpt": "Ongoing vital signs",
           "priority": "important",
@@ -339,7 +338,7 @@
           "protocolReference": "MATC: Adult and Pediatric Syncope and Near Syncope"
         },
         {
-          "id": "a4-transport",
+          "id": "d3",
           "shortAction": "Transport with continuous cardiac monitoring for further evaluation",
           "protocolExcerpt": "Transfer for further evaluation",
           "priority": "important",
@@ -386,7 +385,7 @@
       },
       "expectedActions": [
         {
-          "id": "a5-impending-collapse",
+          "id": "e1",
           "shortAction": "Recognize impending hemodynamic collapse; proceed directly to TCP without further delay",
           "protocolExcerpt": "In cases of impending hemodynamic collapse, proceed directly to transcutaneous pacing",
           "priority": "critical",
@@ -394,7 +393,7 @@
           "protocolReference": "MATC: Bradycardia"
         },
         {
-          "id": "a5-perfusion-signs",
+          "id": "e2",
           "shortAction": "Recognize decreasing level of consciousness and worsening shock as signs of critical hypoperfusion",
           "protocolExcerpt": "Observe for signs of decreased end-organ perfusion: chest pain (CP), shortness of breath (SOB), decreased level of consciousness, syncope, or other signs of shock/hypotension",
           "priority": "critical",

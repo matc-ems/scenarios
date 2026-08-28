@@ -63,7 +63,8 @@
         "Initiate cardiac monitoring and acquire 12-lead EKG",
         "Establish IV access",
         "Check blood glucose level",
-        "Screen geriatric fall patient for occult trauma from the fall"
+        "Screen geriatric fall patient for occult trauma from the fall",
+        "Recognize symptomatic bradycardia with hemodynamic instability (HR 32, BP 78/50, recurrent near-syncope)"
       ],
       "relatedSounds": []
     },
@@ -97,7 +98,6 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Recognize symptomatic bradycardia with hemodynamic instability (HR 32, BP 78/50, recurrent near-syncope)",
         "Atropine 1 mg IV push (fixed dose; may repeat q3-5 min, max total 3 mg)",
         "Reassess vital signs closely following atropine administration"
       ],
@@ -134,8 +134,8 @@
       "relatedLabs": [],
       "relatedChecklist": [
         "Recognize third-degree block unlikely to respond to atropine; proceed to TCP without delay",
-        "Initiate transcutaneous pacing",
-        "Provide sedation/analgesia with pacing for patient comfort"
+        "Provide sedation/analgesia with pacing for patient comfort",
+        "Initiate transcutaneous pacing"
       ],
       "relatedSounds": []
     },
@@ -277,13 +277,13 @@
       "icon": 1
     },
     {
-      "title": "Initiate transcutaneous pacing",
+      "title": "Provide sedation/analgesia with pacing for patient comfort",
       "type": "Check",
       "value": 0,
       "icon": 1
     },
     {
-      "title": "Provide sedation/analgesia with pacing for patient comfort",
+      "title": "Initiate transcutaneous pacing",
       "type": "Check",
       "value": 0,
       "icon": 1
