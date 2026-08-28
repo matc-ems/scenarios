@@ -1,0 +1,270 @@
+{
+  "scenarioId": "133-angulated-tib-fib-fracture",
+  "scenarioName": "133 - Angulated Tib/Fib Fracture",
+  "scenarioType": "Vital Signs",
+  "scenarioVersion": 2,
+  "scenarioTime": 900,
+  "scenarioMonitorType": 2,
+  "scenarioDefaultEnergy": 200,
+  "scenarioDefaultPacerThreshold": 55,
+  "isDemo": false,
+  "isALSILegacy": false,
+  "scenarioStory": {
+    "history": "Healthy 19-year-old collegiate soccer player who was struck across the right shin by an opposing player's slide tackle roughly ten minutes before the 911 call. He heard an audible snap, fell immediately, and has not been able to bear weight or move the leg since. He denies striking his head, losing consciousness, neck or back pain, chest pain, abdominal pain, or any other injury. He rates the pain 10 out of 10 and is asking repeatedly for something to take it away.",
+    "discussion": "",
+    "course": "Initial Contact: Crew finds a 19-year-old male supine on the field with an obviously angulated closed fracture of the right tibia/fibula. He is alert and oriented, in severe pain, and his skin is pale, cool, and diaphoretic from the sympathetic pain response. He is tachycardic and hypertensive from pain alone. Room-air saturation is 99 percent, so supplemental oxygen is not indicated by the 94 to 98 percent target; the priority is a full neurovascular assessment and analgesia before anyone touches the leg. → Analgesia given before splinting: Three to five minutes after the fentanyl, the patient reports his pain has dropped from a 10 to a 3. He is speaking in full sentences, his heart rate and blood pressure have fallen toward normal, and his skin has turned pink, warm, and dry as the sympathetic surge resolves. He is now able to tolerate the leg being splinted, and the crew moves on to stabilization and a repeat neurovascular check. → Splint applied; CMS unchanged: The leg is splinted and elevated, the repeat CMS check is unchanged from baseline, and the patient is comfortable at a 3 out of 10 with normal vital signs. He is packaged and transported to a facility with orthopedic capability, with pain and neurovascular status reassessed en route. All interventions are complete and no further change in presentation is expected."
+  },
+  "patientInformation": {
+    "patientName": "Marcus Bell",
+    "patientCondition": "Severe right lower leg pain with obvious deformity after a slide tackle during a soccer game",
+    "patientAge": 19,
+    "patientAgeUnit": "years",
+    "patientAgeCategory": 0,
+    "patientSex": 1,
+    "patientHeight": 183,
+    "patientWeight": 82,
+    "patientPhotoId": 23,
+    "patientAdmitted": 1
+  },
+  "labs": [],
+  "scenarioEvents": [
+    {
+      "type": "ScenarioEvent",
+      "name": "Initial Contact",
+      "description": "Crew finds a 19-year-old male supine on the field with an obviously angulated closed fracture of the right tibia/fibula. He is alert and oriented, in severe pain, and his skin is pale, cool, and diaphoretic from the sympathetic pain response. He is tachycardic and hypertensive from pain alone. Room-air saturation is 99 percent, so supplemental oxygen is not indicated by the 94 to 98 percent target; the priority is a full neurovascular assessment and analgesia before anyone touches the leg.",
+      "monitorType": 0,
+      "trendTime": 0,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 118,
+        "bpSys": 148,
+        "bpDia": 88,
+        "respRate": 24,
+        "spo2": 99,
+        "etco2": 34,
+        "temp": 37,
+        "obstruction": 0,
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Assess distal vascular status: pallor, pulse, cap refill, skin temperature",
+        "Assess distal sensation to light touch and toe movement",
+        "Evaluate the leg for deformity, shortening, rotation, and instability",
+        "Score the pain on the Numeric Rating Scale before any analgesia",
+        "Fentanyl 82 mcg IV (82 kg x 1 mcg/kg; max initial dose 100 mcg)",
+        "Give analgesia before moving or splinting the deformed leg",
+        "Position of comfort, cool pack over the deformity, verbal reassurance"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Analgesia given before splinting",
+      "description": "Three to five minutes after the fentanyl, the patient reports his pain has dropped from a 10 to a 3. He is speaking in full sentences, his heart rate and blood pressure have fallen toward normal, and his skin has turned pink, warm, and dry as the sympathetic surge resolves. He is now able to tolerate the leg being splinted, and the crew moves on to stabilization and a repeat neurovascular check.",
+      "monitorType": 0,
+      "trendTime": 40,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 92,
+        "bpSys": 130,
+        "bpDia": 80,
+        "respRate": 16,
+        "spo2": 99,
+        "etco2": 36,
+        "temp": 37,
+        "obstruction": 0,
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Re-score the pain and repeat vitals after the fentanyl",
+        "Splint to limit movement and elevate the leg above heart level",
+        "Remove the cleat, sock, and any constricting items from the injured limb",
+        "Reassess and document distal CMS after the splint is secured",
+        "Apply waveform capnography to watch for opioid-induced hypoventilation"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Splint applied; CMS unchanged",
+      "description": "The leg is splinted and elevated, the repeat CMS check is unchanged from baseline, and the patient is comfortable at a 3 out of 10 with normal vital signs. He is packaged and transported to a facility with orthopedic capability, with pain and neurovascular status reassessed en route. All interventions are complete and no further change in presentation is expected.",
+      "monitorType": 0,
+      "trendTime": 30,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 88,
+        "bpSys": 128,
+        "bpDia": 78,
+        "respRate": 16,
+        "spo2": 99,
+        "etco2": 37,
+        "temp": 37,
+        "obstruction": 0,
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Leg splinted before analgesia",
+      "description": "The crew manipulated and splinted the angulated leg while the patient's pain was still a 10 out of 10. He screamed, fought them, and is now agitated and distrustful. His heart rate, blood pressure, and respiratory rate have all climbed. Because no post-splint neurovascular check was performed, nobody noticed that the splint was secured too tightly over the deformity: the dorsalis pedis pulse is now absent, the foot is cool and dusky, and he reports new numbness and tingling in the toes. This is an iatrogenic limb threat that must be recognized and reversed now.",
+      "monitorType": 0,
+      "trendTime": 35,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 130,
+        "bpSys": 160,
+        "bpDia": 96,
+        "respRate": 28,
+        "spo2": 98,
+        "etco2": 30,
+        "temp": 37.1,
+        "obstruction": 0,
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Recognize the lost pulse; loosen the splint and reassess perfusion",
+        "Fentanyl 82 mcg IV now (82 kg x 1 mcg/kg; max initial 100 mcg), may repeat after 5 min",
+        "Re-splint in better alignment and document a repeat CMS check",
+        "Transport emergently and document the time perfusion was lost"
+      ],
+      "relatedSounds": []
+    }
+  ],
+  "checklist": [
+    {
+      "title": "Assess distal vascular status: pallor, pulse, cap refill, skin temperature",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Assess distal sensation to light touch and toe movement",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Evaluate the leg for deformity, shortening, rotation, and instability",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Score the pain on the Numeric Rating Scale before any analgesia",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Fentanyl 82 mcg IV (82 kg x 1 mcg/kg; max initial dose 100 mcg)",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Give analgesia before moving or splinting the deformed leg",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Position of comfort, cool pack over the deformity, verbal reassurance",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Re-score the pain and repeat vitals after the fentanyl",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Splint to limit movement and elevate the leg above heart level",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Remove the cleat, sock, and any constricting items from the injured limb",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Reassess and document distal CMS after the splint is secured",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Apply waveform capnography to watch for opioid-induced hypoventilation",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Recognize the lost pulse; loosen the splint and reassess perfusion",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Fentanyl 82 mcg IV now (82 kg x 1 mcg/kg; max initial 100 mcg), may repeat after 5 min",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Re-splint in better alignment and document a repeat CMS check",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Transport emergently and document the time perfusion was lost",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    }
+  ],
+  "media": []
+}

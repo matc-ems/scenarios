@@ -1,0 +1,449 @@
+{
+  "meta": {
+    "id": "133-angulated-tib-fib-fracture",
+    "name": "133 - Angulated Tib/Fib Fracture",
+    "version": 1,
+    "difficulty": "intermediate",
+    "category": "Trauma",
+    "protocols": [
+      "trauma-extremity-hemorrhage",
+      "medical-pain-management"
+    ],
+    "totalTimeSeconds": 900,
+    "tags": [
+      "trauma",
+      "extremity",
+      "fracture",
+      "analgesia",
+      "fentanyl",
+      "splinting",
+      "neurovascular assessment",
+      "practice summative"
+    ]
+  },
+  "patient": {
+    "name": "Marcus Bell",
+    "age": 19,
+    "ageUnit": "years",
+    "sex": "male",
+    "weight": 82,
+    "weightLbs": 181,
+    "height": 183,
+    "chiefComplaint": "Severe right lower leg pain with obvious deformity after a slide tackle during a soccer game",
+    "history": {
+      "hpi": "Healthy 19-year-old collegiate soccer player who was struck across the right shin by an opposing player's slide tackle roughly ten minutes before the 911 call. He heard an audible snap, fell immediately, and has not been able to bear weight or move the leg since. He denies striking his head, losing consciousness, neck or back pain, chest pain, abdominal pain, or any other injury. He rates the pain 10 out of 10 and is asking repeatedly for something to take it away.",
+      "pastMedical": [],
+      "medications": [],
+      "allergies": [
+        "NKDA"
+      ],
+      "lastOralIntake": "Gatorade and a granola bar approximately one hour before the game",
+      "events": "Struck in the right shin by another player's slide tackle during a soccer match; heard a snap and fell to the ground with immediate deformity and severe pain"
+    }
+  },
+  "scene": {
+    "dispatch": "19-year-old male, leg injury on the soccer fields at a city park",
+    "location": "Large open municipal soccer complex; patient supine on the grass near midfield, sunny and warm",
+    "time": "11:47 AM, Saturday late morning",
+    "safety": "Open field, no environmental hazards, no traffic; play has been stopped and the crowd has moved back",
+    "bystanders": "Six teammates and a coach are gathered around the patient trying to console him; the coach witnessed the mechanism and can describe it",
+    "visualCues": [
+      "Obvious mid-shaft angulation of the right lower leg between the knee and ankle",
+      "Patient cradling the leg, grimacing, speaking in short clipped sentences",
+      "Skin pale, cool, and diaphoretic despite the warm day",
+      "No open wound, no bleeding, sock and cleat still in place",
+      "Right foot externally rotated compared to the left"
+    ]
+  },
+  "phases": [
+    {
+      "id": "initial",
+      "name": "Initial Contact",
+      "description": "Crew finds a 19-year-old male supine on the field with an obviously angulated closed fracture of the right tibia/fibula. He is alert and oriented, in severe pain, and his skin is pale, cool, and diaphoretic from the sympathetic pain response. He is tachycardic and hypertensive from pain alone. Room-air saturation is 99 percent, so supplemental oxygen is not indicated by the 94 to 98 percent target; the priority is a full neurovascular assessment and analgesia before anyone touches the leg.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": {
+          "eye": 4,
+          "verbal": 5,
+          "motor": 6
+        },
+        "airway": "Patent and self-maintained; speaking in short clipped sentences because of pain",
+        "breathing": "Rapid but unlabored and symmetric, adequate depth, lungs clear",
+        "circulation": "Radial pulse rapid, strong, and regular; no external bleeding; skin pale, cool, and diaphoretic",
+        "skin": {
+          "color": "pale",
+          "temperature": "cool",
+          "moisture": "diaphoretic"
+        },
+        "pupils": "4 mm bilaterally, PERRL",
+        "motorFunction": "Moves both upper extremities and the left leg normally; will wiggle right toes on command but it sharply increases his pain",
+        "otherFindings": [
+          "Obvious closed angulation of the right tibia/fibula mid-shaft with no open wound",
+          "Right dorsalis pedis pulse palpable but weak at 1+ compared with 2+ on the left",
+          "Sensation intact to light touch over the dorsum of the right foot",
+          "Capillary refill in the right great toenail bed less than 2 seconds",
+          "No other injuries found on rapid trauma exam; no head, neck, chest, abdominal, or pelvic complaints"
+        ],
+        "patientSpeech": "\"It's broken, I heard it snap. The pain is unreal, it's a ten. Please, you have to give me something.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 118,
+        "bpSys": 148,
+        "bpDia": 88,
+        "respRate": 24,
+        "spo2": 99,
+        "etco2": 34,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 0,
+        "trendTimeSeconds": 0,
+        "visibility": {
+          "spo2Visible": true,
+          "spo2Attached": true,
+          "rrVisible": true,
+          "etco2Visible": false,
+          "cvpVisible": false
+        }
+      },
+      "expectedActions": [
+        {
+          "id": "a1",
+          "shortAction": "Assess distal vascular status: pallor, pulse, cap refill, skin temperature",
+          "protocolExcerpt": "Assessment: Vascular status of extremity: Pallor; Pulse; Capillary refill and skin temperature.",
+          "priority": "critical",
+          "rationale": "The dorsalis pedis pulse is already weak at 1+. Documenting it before anyone moves the leg is the only way to know later whether a change was caused by the injury or by the splint.",
+          "protocolReference": "MATC: Extremity Trauma/External Hemorrhage Management"
+        },
+        {
+          "id": "a2",
+          "shortAction": "Assess distal sensation to light touch and toe movement",
+          "protocolExcerpt": "Assessment: Neurologic status of extremity: Sensation to light touch; Distal movement of extremity.",
+          "priority": "critical",
+          "rationale": "Neurologic status distal to the fracture is half of the CMS baseline and must be recorded before manipulation.",
+          "protocolReference": "MATC: Extremity Trauma/External Hemorrhage Management"
+        },
+        {
+          "id": "a3",
+          "shortAction": "Evaluate the leg for deformity, shortening, rotation, and instability",
+          "protocolExcerpt": "Evaluate for obvious deformity, shortening, rotation, or instability.",
+          "priority": "important",
+          "rationale": "Describing the deformity objectively drives the splinting choice and the hospital handoff.",
+          "protocolReference": "MATC: Extremity Trauma/External Hemorrhage Management"
+        },
+        {
+          "id": "a4",
+          "shortAction": "Score the pain on the Numeric Rating Scale before any analgesia",
+          "protocolExcerpt": "Determine patient's pain score assessment using standard pain scale: Greater than 12 years old: Self-report scale: Numeric Rating Scale (NRS).",
+          "priority": "important",
+          "rationale": "A documented pre-treatment score is what makes the post-treatment score meaningful.",
+          "protocolReference": "MATC: Pain Management"
+        },
+        {
+          "id": "a5",
+          "shortAction": "Fentanyl 82 mcg IV (82 kg x 1 mcg/kg; max initial dose 100 mcg)",
+          "protocolExcerpt": "For Moderate to Severe pain, analgesics include: Fentanyl: 1 mcg/kg IN, IM, IV or IO (maximum initial dose of 100 mcg).",
+          "priority": "critical",
+          "rationale": "The protocol dose is weight-based at 1 mcg/kg, which is 82 mcg for this patient, not a reflex 100 mcg. Allergies must be identified before administration.",
+          "protocolReference": "MATC: Pain Management"
+        },
+        {
+          "id": "a6",
+          "shortAction": "Give analgesia before moving or splinting the deformed leg",
+          "protocolExcerpt": "Stabilize suspected fractures/dislocations: Strongly consider pain management before attempting to move a suspected fracture.",
+          "priority": "critical",
+          "rationale": "This is the sequencing decision the whole scenario turns on. Manipulating a 10 out of 10 angulated fracture before analgesia is both harmful and avoidable.",
+          "protocolReference": "MATC: Extremity Trauma/External Hemorrhage Management"
+        },
+        {
+          "id": "a7",
+          "shortAction": "Position of comfort, cool pack over the deformity, verbal reassurance",
+          "protocolExcerpt": "Non-pharmacologic pain management options include: Placement of the patient in a position of comfort; Application of ice packs and/or splints for pain secondary to trauma; Verbal reassurance to control anxiety.",
+          "priority": "supplemental",
+          "rationale": "Non-pharmacologic measures reduce the total opioid needed. Cool packs go over a barrier, never directly on bare skin.",
+          "protocolReference": "MATC: Pain Management"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "analgesia-first",
+          "if": "Analgesia given before splinting",
+          "condition": "Crew completes the full distal neurovascular assessment, documents a pre-treatment pain score, and administers weight-based fentanyl before attempting to move or splint the leg. Within three to five minutes the patient reports substantial relief, his heart rate and blood pressure fall toward baseline, and he becomes cooperative enough to tolerate splinting.",
+          "conditionType": "action_taken",
+          "triggerActionIds": [
+            "a1",
+            "a2",
+            "a5",
+            "a6"
+          ]
+        },
+        {
+          "targetPhaseId": "splint-first",
+          "if": "Leg splinted before analgesia",
+          "condition": "Crew moves directly to manipulation and splinting without administering analgesia first, and does not repeat the distal neurovascular check after the splint is secured. The patient screams and fights the crew, the splint is secured over an unrelieved deformity, and distal perfusion is lost.",
+          "conditionType": "action_not_taken",
+          "triggerActionIds": [
+            "a5",
+            "a6"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "analgesia-first",
+      "name": "Analgesia given before splinting",
+      "description": "Three to five minutes after the fentanyl, the patient reports his pain has dropped from a 10 to a 3. He is speaking in full sentences, his heart rate and blood pressure have fallen toward normal, and his skin has turned pink, warm, and dry as the sympathetic surge resolves. He is now able to tolerate the leg being splinted, and the crew moves on to stabilization and a repeat neurovascular check.",
+      "triggerCondition": "Weight-based fentanyl was given before any attempt to move the leg. The patient's pain score has fallen to 3 out of 10 and his vital signs have normalized, making splinting tolerable.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": {
+          "eye": 4,
+          "verbal": 5,
+          "motor": 6
+        },
+        "airway": "Patent, speaking in full sentences",
+        "breathing": "Regular, unlabored, adequate depth; no respiratory depression after the opioid",
+        "circulation": "Radial pulse strong and regular; skin now pink, warm, and dry",
+        "skin": {
+          "color": "pink",
+          "temperature": "warm",
+          "moisture": "dry"
+        },
+        "pupils": "3 mm bilaterally, reactive",
+        "motorFunction": "Moves right toes on command with much less pain than before",
+        "otherFindings": [
+          "Reported pain score now 3 out of 10",
+          "Right dorsalis pedis pulse unchanged at 1+",
+          "Sensation over the dorsum of the right foot remains intact",
+          "Patient calm and cooperative, willing to let the crew handle the leg"
+        ],
+        "patientSpeech": "\"Wow, that's much better. I can actually breathe now. Do what you need to do.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Rhythm",
+        "ecgWaveform": 9,
+        "hr": 92,
+        "bpSys": 130,
+        "bpDia": 80,
+        "respRate": 16,
+        "spo2": 99,
+        "etco2": 36,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 0,
+        "trendTimeSeconds": 40,
+        "visibility": {
+          "spo2Visible": true,
+          "spo2Attached": true,
+          "rrVisible": true,
+          "etco2Visible": true,
+          "cvpVisible": false
+        }
+      },
+      "expectedActions": [
+        {
+          "id": "b1",
+          "shortAction": "Re-score the pain and repeat vitals after the fentanyl",
+          "protocolExcerpt": "Pain severity scores should be recorded before and after analgesic medication administration and upon arrival at destination.",
+          "priority": "important",
+          "rationale": "The paired scores demonstrate the drug worked and justify or rule out a repeat dose.",
+          "protocolReference": "MATC: Pain Management"
+        },
+        {
+          "id": "b2",
+          "shortAction": "Splint to limit movement and elevate the leg above heart level",
+          "protocolExcerpt": "Use splints as appropriate to limit movement of suspected fracture. Elevate extremity fractures above heart level whenever possible to limit swelling.",
+          "priority": "critical",
+          "rationale": "Splinting is the definitive prehospital stabilization; elevation limits the swelling that drives compartment pressure.",
+          "protocolReference": "MATC: Extremity Trauma/External Hemorrhage Management"
+        },
+        {
+          "id": "b3",
+          "shortAction": "Remove the cleat, sock, and any constricting items from the injured limb",
+          "protocolExcerpt": "Remove jewelry and potentially constricting clothing from the injured limb.",
+          "priority": "important",
+          "rationale": "Anything circumferential becomes a tourniquet once the leg swells inside a splint.",
+          "protocolReference": "MATC: Extremity Trauma/External Hemorrhage Management"
+        },
+        {
+          "id": "b4",
+          "shortAction": "Reassess and document distal CMS after the splint is secured",
+          "protocolExcerpt": "Reassess distal neurovascular status after any manipulation or splinting of fractures/dislocations.",
+          "priority": "critical",
+          "rationale": "The post-splint check is the only thing that catches a splint applied too tightly before the limb is lost.",
+          "protocolReference": "MATC: Extremity Trauma/External Hemorrhage Management"
+        },
+        {
+          "id": "b5",
+          "shortAction": "Apply waveform capnography to watch for opioid-induced hypoventilation",
+          "protocolExcerpt": "Use of non-invasive capnography is an earlier predictor of hypoventilation than pulse oximetry if opioid medications are administered.",
+          "priority": "supplemental",
+          "rationale": "Saturation stays normal well after ventilation has begun to fall off; EtCO2 shows it first.",
+          "protocolReference": "MATC: Pain Management"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "splinted",
+          "if": "Splint applied; CMS unchanged",
+          "condition": "The leg is splinted with the joints above and below immobilized, constricting items are removed, and the repeat distal neurovascular check documents an unchanged 1+ dorsalis pedis pulse with intact sensation and motion. The patient remains comfortable and is packaged for transport.",
+          "conditionType": "action_taken",
+          "triggerActionIds": [
+            "b2",
+            "b4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "splinted",
+      "name": "Splint applied; CMS unchanged",
+      "description": "The leg is splinted and elevated, the repeat CMS check is unchanged from baseline, and the patient is comfortable at a 3 out of 10 with normal vital signs. He is packaged and transported to a facility with orthopedic capability, with pain and neurovascular status reassessed en route. All interventions are complete and no further change in presentation is expected.",
+      "triggerCondition": "The splint is secure, the post-splint neurovascular check matches the pre-splint baseline, and the patient is packaged for transport in a position of comfort.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": {
+          "eye": 4,
+          "verbal": 5,
+          "motor": 6
+        },
+        "airway": "Patent, conversational",
+        "breathing": "Regular and unlabored",
+        "circulation": "Radial pulse strong and regular; skin pink, warm, and dry",
+        "skin": {
+          "color": "pink",
+          "temperature": "warm",
+          "moisture": "dry"
+        },
+        "pupils": "3 mm bilaterally, reactive",
+        "motorFunction": "Wiggles right toes inside the splint on command without significant pain",
+        "otherFindings": [
+          "Pain steady at 3 out of 10",
+          "Post-splint dorsalis pedis pulse 1+, unchanged from baseline",
+          "Sensation and motor function distal to the splint unchanged",
+          "Leg elevated on the stretcher, cool pack applied over a barrier"
+        ],
+        "patientSpeech": "\"That feels a lot more stable. Thanks for not just yanking on it.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Rhythm",
+        "ecgWaveform": 9,
+        "hr": 88,
+        "bpSys": 128,
+        "bpDia": 78,
+        "respRate": 16,
+        "spo2": 99,
+        "etco2": 37,
+        "temp": 37.0,
+        "tempF": 98.6,
+        "obstruction": 0,
+        "trendTimeSeconds": 30,
+        "visibility": {
+          "spo2Visible": true,
+          "spo2Attached": true,
+          "rrVisible": true,
+          "etco2Visible": true,
+          "cvpVisible": false
+        }
+      },
+      "expectedActions": []
+    },
+    {
+      "id": "splint-first",
+      "name": "Leg splinted before analgesia",
+      "description": "The crew manipulated and splinted the angulated leg while the patient's pain was still a 10 out of 10. He screamed, fought them, and is now agitated and distrustful. His heart rate, blood pressure, and respiratory rate have all climbed. Because no post-splint neurovascular check was performed, nobody noticed that the splint was secured too tightly over the deformity: the dorsalis pedis pulse is now absent, the foot is cool and dusky, and he reports new numbness and tingling in the toes. This is an iatrogenic limb threat that must be recognized and reversed now.",
+      "triggerCondition": "The leg was manipulated and splinted before any analgesia was given, and no repeat distal neurovascular assessment was performed after the splint was secured. Distal perfusion has been lost.",
+      "isDefault": false,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": {
+          "eye": 4,
+          "verbal": 5,
+          "motor": 6
+        },
+        "airway": "Patent; shouting",
+        "breathing": "Rapid and shallow from pain and distress",
+        "circulation": "Radial pulse rapid and strong; skin pale, cool, and drenched with sweat",
+        "skin": {
+          "color": "pale",
+          "temperature": "cool",
+          "moisture": "diaphoretic"
+        },
+        "pupils": "5 mm bilaterally, reactive",
+        "motorFunction": "Refuses to move the right toes; guarding the entire leg, pushing the crew's hands away",
+        "otherFindings": [
+          "Patient now rates the pain a 12 out of 10",
+          "Right dorsalis pedis pulse absent",
+          "Right foot cool and dusky compared with the left",
+          "New numbness and tingling reported in the right toes",
+          "Splint secured tightly over the unreduced angulation",
+          "Patient agitated, distrustful, and refusing further handling"
+        ],
+        "patientSpeech": "\"Don't touch it! You made it worse! My foot is going numb, I can't feel my toes!\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 130,
+        "bpSys": 160,
+        "bpDia": 96,
+        "respRate": 28,
+        "spo2": 98,
+        "etco2": 30,
+        "temp": 37.1,
+        "tempF": 98.8,
+        "obstruction": 0,
+        "trendTimeSeconds": 35,
+        "visibility": {
+          "spo2Visible": true,
+          "spo2Attached": true,
+          "rrVisible": true,
+          "etco2Visible": true,
+          "cvpVisible": false
+        }
+      },
+      "expectedActions": [
+        {
+          "id": "c1",
+          "shortAction": "Recognize the lost pulse; loosen the splint and reassess perfusion",
+          "protocolExcerpt": "Stabilize suspected fractures/dislocations: If distal vascular function is compromised, gently attempt to restore normal anatomic position, and reassess perfusion status. Reassess distal neurovascular status after any manipulation or splinting of fractures/dislocations.",
+          "priority": "critical",
+          "rationale": "A splinted limb with no distal pulse is a time-limited emergency. The splint must be released and the limb brought toward anatomic position with perfusion rechecked.",
+          "protocolReference": "MATC: Extremity Trauma/External Hemorrhage Management"
+        },
+        {
+          "id": "c2",
+          "shortAction": "Fentanyl 82 mcg IV now (82 kg x 1 mcg/kg; max initial 100 mcg), may repeat after 5 min",
+          "protocolExcerpt": "For Moderate to Severe pain, analgesics include: Fentanyl: 1 mcg/kg IN, IM, IV or IO (maximum initial dose of 100 mcg). Repeat dosing: If indicated based on pain assessment, and vital signs allow, repeat pain medication administration (excluding acetaminophen and nonsteroidal anti-inflammatory medicines) after 5 minutes of the previous dose.",
+          "priority": "critical",
+          "rationale": "The analgesia that should have come first is now required before the limb can be repositioned at all.",
+          "protocolReference": "MATC: Pain Management"
+        },
+        {
+          "id": "c3",
+          "shortAction": "Re-splint in better alignment and document a repeat CMS check",
+          "protocolExcerpt": "Strongly consider pain management before attempting to move a suspected fracture. Reassess distal neurovascular status after any manipulation or splinting of fractures/dislocations.",
+          "priority": "critical",
+          "rationale": "Correcting the error means redoing the sequence properly: medicate, reposition, re-splint, then recheck and document.",
+          "protocolReference": "MATC: Extremity Trauma/External Hemorrhage Management"
+        },
+        {
+          "id": "c4",
+          "shortAction": "Transport emergently and document the time perfusion was lost",
+          "protocolExcerpt": "Key Documentation Elements: Vital signs and vascular status of extremity after placement of tourniquet, pressure dressing, packing, and/or splint. Documentation of signs/symptoms of possible compartment syndrome.",
+          "priority": "important",
+          "rationale": "Ischemic time drives the surgical decision at the hospital, so the moment the pulse was lost must be on the record.",
+          "protocolReference": "MATC: Extremity Trauma/External Hemorrhage Management"
+        }
+      ]
+    }
+  ],
+  "realiti": {
+    "scenarioDefaultEnergy": 200,
+    "scenarioDefaultPacerThreshold": 55
+  }
+}
