@@ -80,13 +80,46 @@
         "trendTimeSeconds": 0,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [],
+      "expectedActions": [
+        {
+          "id": "a1",
+          "shortAction": "Perform focused AEIOU-TIPS assessment; check airway, breathing, circulation, GCS, pupils",
+          "protocolExcerpt": "Look for treatable causes of altered mental status (AMS): Airway: Make sure airway remains patent; reposition patient as needed. Breathing: Look for respiratory depression. Circulation: Look for signs of poor perfusion. Glasgow Coma Score and/or AVPU. Pupils.",
+          "priority": "critical",
+          "rationale": "Establishes baseline and rules out other causes of AMS before treating.",
+          "protocolReference": "MATC: Altered Mental Status"
+        },
+        {
+          "id": "a2",
+          "shortAction": "Confirm blood glucose level via glucometer (BGL 38 mg/dL)",
+          "protocolExcerpt": "Monitoring: Check blood glucose level",
+          "priority": "critical",
+          "rationale": "Confirms hypoglycemia as the treatable cause before administering dextrose.",
+          "protocolReference": "MATC: Hypoglycemia"
+        },
+        {
+          "id": "a3",
+          "shortAction": "Establish IV access; administer Dextrose 25 g (250 mL of D10%) IV in incremental doses, secure site given agitation",
+          "protocolExcerpt": "Unconscious patient, or patients who are unable to protect their own airway: Dextrose IV – administer in incremental doses until mental status improves or maximum field dosing is reached (if available, D10% is preferred). Maximum field adult dosing: 25 g of 10–50% dextrose IV: 250 mL of 10% dextrose. Dextrose 50% can cause local tissue damage if it extravasates from vein.",
+          "priority": "critical",
+          "rationale": "Patient is too confused/combative to safely protect his airway for oral glucose, so IV dextrose is indicated; the extravasation risk is heightened by his agitation, so the line must be well secured.",
+          "protocolReference": "MATC: Hypoglycemia"
+        }
+      ],
       "transitions": [
         {
           "targetPhaseId": "iv-dextrose-given",
-          "if": "IV access established, dextrose given",
+          "if": "IV access and dextrose given",
           "condition": "Crew confirms hypoglycemia, recognizes the patient is too confused/agitated to safely protect his airway for oral glucose, establishes IV access, and administers dextrose.",
-          "conditionType": "action_taken"
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a2", "a3"]
+        },
+        {
+          "targetPhaseId": "iv-infiltrated",
+          "if": "IV infiltrated during attempt",
+          "condition": "During placement or dextrose administration, the agitated patient pulls his arm away and the catheter dislodges, causing local swelling and pain at the insertion site before the full dose is delivered.",
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["a3"]
         }
       ]
     },
@@ -131,27 +164,19 @@
       },
       "expectedActions": [
         {
-          "id": "a1-ams-assessment",
-          "shortAction": "Perform focused AEIOU-TIPS assessment; check airway, breathing, circulation, GCS, pupils",
-          "protocolExcerpt": "Look for treatable causes of altered mental status (AMS): Airway: Make sure airway remains patent; reposition patient as needed. Breathing: Look for respiratory depression. Circulation: Look for signs of poor perfusion. Glasgow Coma Score and/or AVPU. Pupils.",
+          "id": "b1",
+          "shortAction": "Reassess vital signs, mental status, and repeat BGL after dextrose administration",
+          "protocolExcerpt": "Reassess patient: Reassess vital signs (pulse, blood pressure, respiratory rate, neurologic status assessment) and mental status. Repeat check of blood glucose level if previous hypoglycemia and mental status has not returned to normal.",
           "priority": "critical",
-          "rationale": "Establishes baseline and rules out other causes of AMS before treating.",
-          "protocolReference": "MATC: Altered Mental Status"
-        },
-        {
-          "id": "a2-bgl-check",
-          "shortAction": "Confirm blood glucose level via glucometer (BGL 38 mg/dL)",
-          "protocolExcerpt": "Monitoring: Check blood glucose level",
-          "priority": "critical",
-          "rationale": "Confirms hypoglycemia as the treatable cause before administering dextrose.",
+          "rationale": "Confirms treatment effectiveness and identifies any need for further dextrose.",
           "protocolReference": "MATC: Hypoglycemia"
         },
         {
-          "id": "a3-iv-dextrose",
-          "shortAction": "Establish IV access; administer Dextrose 25 g (250 mL of D10%) IV in incremental doses, secure site given agitation",
-          "protocolExcerpt": "Unconscious patient, or patients who are unable to protect their own airway: Dextrose IV – administer in incremental doses until mental status improves or maximum field dosing is reached (if available, D10% is preferred). Maximum field adult dosing: 25 g of 10–50% dextrose IV: 250 mL of 10% dextrose. Dextrose 50% can cause local tissue damage if it extravasates from vein.",
-          "priority": "critical",
-          "rationale": "Patient is too confused/combative to safely protect his airway for oral glucose, so IV dextrose is indicated; the extravasation risk is heightened by his agitation, so the line must be well secured.",
+          "id": "b2",
+          "shortAction": "Transport to closest appropriate receiving facility given seizure risk history and continued monitoring needs",
+          "protocolExcerpt": "If hypoglycemia with continued symptoms, transport to closest appropriate receiving facility.",
+          "priority": "important",
+          "rationale": "Insulin-related hypoglycemia has recurrence risk and warrants evaluation.",
           "protocolReference": "MATC: Hypoglycemia"
         }
       ],
@@ -161,14 +186,7 @@
           "if": "Mental status improved, transport initiated",
           "condition": "Repeat glucose check shows normalization and the patient's mental status clears after incremental dextrose administration; crew prepares for transport with ongoing reassessment.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["a3-iv-dextrose"]
-        },
-        {
-          "targetPhaseId": "iv-infiltrated",
-          "if": "IV infiltrates during attempt",
-          "condition": "During placement or dextrose administration, the agitated patient pulls his arm away and the catheter dislodges, causing local swelling and pain at the insertion site before the full dose is delivered.",
-          "conditionType": "action_not_taken",
-          "triggerActionIds": ["a3-iv-dextrose"]
+          "triggerActionIds": ["b1", "b2"]
         }
       ]
     },
@@ -211,24 +229,7 @@
         "trendTimeSeconds": 30,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [
-        {
-          "id": "a4-reassess",
-          "shortAction": "Reassess vital signs, mental status, and repeat BGL after dextrose administration",
-          "protocolExcerpt": "Reassess patient: Reassess vital signs (pulse, blood pressure, respiratory rate, neurologic status assessment) and mental status. Repeat check of blood glucose level if previous hypoglycemia and mental status has not returned to normal.",
-          "priority": "critical",
-          "rationale": "Confirms treatment effectiveness and identifies any need for further dextrose.",
-          "protocolReference": "MATC: Hypoglycemia"
-        },
-        {
-          "id": "a5-transport",
-          "shortAction": "Transport to closest appropriate receiving facility given seizure risk history and continued monitoring needs",
-          "protocolExcerpt": "If hypoglycemia with continued symptoms, transport to closest appropriate receiving facility.",
-          "priority": "important",
-          "rationale": "Insulin-related hypoglycemia has recurrence risk and warrants evaluation.",
-          "protocolReference": "MATC: Hypoglycemia"
-        }
-      ],
+      "expectedActions": [],
       "transitions": []
     },
     {
@@ -272,11 +273,19 @@
       },
       "expectedActions": [
         {
-          "id": "a6-recognize-infiltration",
+          "id": "c1",
           "shortAction": "Recognize IV infiltration, discontinue the line, and reassess for an alternate treatment route",
           "protocolExcerpt": "Dextrose 50% can cause local tissue damage if it extravasates from vein and may cause hyperglycemia.",
           "priority": "critical",
           "rationale": "Continuing to push dextrose through an infiltrated line risks tissue injury without treating the hypoglycemia.",
+          "protocolReference": "MATC: Hypoglycemia"
+        },
+        {
+          "id": "c2",
+          "shortAction": "Glucagon 1 mg IM to deltoid (adult fixed dose); reassess mental status and repeat BGL",
+          "protocolExcerpt": "Glucagon IM/IN – an option for patients for whom IV access cannot be established. Adult dosing: 1 mg IM/IN (or prefilled 3 mg dry powder IN or prefilled IM autoinjector).",
+          "priority": "critical",
+          "rationale": "Glucagon is the protocol-specified alternative route when IV access cannot be maintained.",
           "protocolReference": "MATC: Hypoglycemia"
         }
       ],
@@ -286,7 +295,7 @@
           "if": "Glucagon given after IV failure",
           "condition": "With IV access lost and the patient still hypoglycemic and altered, crew administers glucagon IM as the protocol-specified alternative when IV access cannot be established or maintained.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["a6-recognize-infiltration"]
+          "triggerActionIds": ["c2"]
         }
       ]
     },
@@ -331,15 +340,7 @@
       },
       "expectedActions": [
         {
-          "id": "a7-glucagon",
-          "shortAction": "Glucagon 1 mg IM to deltoid (adult fixed dose); reassess mental status and repeat BGL",
-          "protocolExcerpt": "Glucagon IM/IN – an option for patients for whom IV access cannot be established. Adult dosing: 1 mg IM/IN (or prefilled 3 mg dry powder IN or prefilled IM autoinjector).",
-          "priority": "critical",
-          "rationale": "Glucagon is the protocol-specified alternative route when IV access cannot be maintained.",
-          "protocolReference": "MATC: Hypoglycemia"
-        },
-        {
-          "id": "a8-reassess-glucagon",
+          "id": "d1",
           "shortAction": "Reassess vital signs and mental status; transport while monitoring for continued improvement",
           "protocolExcerpt": "Reassess patient: Reassess vital signs (pulse, blood pressure, respiratory rate, neurologic status assessment) and mental status.",
           "priority": "important",

@@ -57,7 +57,11 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [],
+      "relatedChecklist": [
+        "Perform focused AEIOU-TIPS assessment; check airway, breathing, circulation, GCS, pupils",
+        "Confirm blood glucose level via glucometer (BGL 38 mg/dL)",
+        "Establish IV access; administer Dextrose 25 g (250 mL of D10%) IV in incremental doses, secure site given agitation"
+      ],
       "relatedSounds": []
     },
     {
@@ -90,9 +94,8 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Perform focused AEIOU-TIPS assessment; check airway, breathing, circulation, GCS, pupils",
-        "Confirm blood glucose level via glucometer (BGL 38 mg/dL)",
-        "Establish IV access; administer Dextrose 25 g (250 mL of D10%) IV in incremental doses, secure site given agitation"
+        "Reassess vital signs, mental status, and repeat BGL after dextrose administration",
+        "Transport to closest appropriate receiving facility given seizure risk history and continued monitoring needs"
       ],
       "relatedSounds": []
     },
@@ -125,10 +128,7 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [
-        "Reassess vital signs, mental status, and repeat BGL after dextrose administration",
-        "Transport to closest appropriate receiving facility given seizure risk history and continued monitoring needs"
-      ],
+      "relatedChecklist": [],
       "relatedSounds": []
     },
     {
@@ -161,7 +161,8 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Recognize IV infiltration, discontinue the line, and reassess for an alternate treatment route"
+        "Recognize IV infiltration, discontinue the line, and reassess for an alternate treatment route",
+        "Glucagon 1 mg IM to deltoid (adult fixed dose); reassess mental status and repeat BGL"
       ],
       "relatedSounds": []
     },
@@ -195,7 +196,6 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Glucagon 1 mg IM to deltoid (adult fixed dose); reassess mental status and repeat BGL",
         "Reassess vital signs and mental status; transport while monitoring for continued improvement"
       ],
       "relatedSounds": []
