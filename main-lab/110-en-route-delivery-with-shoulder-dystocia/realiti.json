@@ -57,7 +57,10 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [],
+      "relatedChecklist": [
+        "Obtain focused OB history: gravida/para, gestational age, contraction pattern, membrane/bleeding status",
+        "No crowning or urge to push present; begin transport to the receiving facility"
+      ],
       "relatedSounds": []
     },
     {
@@ -90,8 +93,7 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Obtain focused OB history: gravida/para, gestational age, contraction pattern, membrane/bleeding status",
-        "No crowning or urge to push present; begin transport to the receiving facility"
+        "Recognize crowning and urge to push; commit to delivering in the moving ambulance"
       ],
       "relatedSounds": []
     },
@@ -125,7 +127,6 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Recognize crowning and urge to push; commit to delivering in the moving ambulance",
         "Open the delivery kit and support the infant's head with gentle counterpressure as it emerges"
       ],
       "relatedSounds": []

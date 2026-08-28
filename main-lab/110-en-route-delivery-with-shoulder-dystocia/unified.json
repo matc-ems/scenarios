@@ -79,13 +79,31 @@
         "trendTimeSeconds": 0,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [],
+      "expectedActions": [
+        {
+          "id": "a1",
+          "shortAction": "Obtain focused OB history: gravida/para, gestational age, contraction pattern, membrane/bleeding status",
+          "protocolExcerpt": "OB assessment: Length of pregnancy Number of pregnancies Number of viable births Number of non-viable births Due date (calculate gestational age in weeks) Signs of imminent delivery (e.g., crowning, urge to push, urge to move bowels, mother feels delivery is imminent)",
+          "priority": "critical",
+          "rationale": "A rapid multiparous history with no imminent-delivery signs guides the on-scene-versus-transport decision.",
+          "protocolReference": "MATC: OB/GYN Childbirth"
+        },
+        {
+          "id": "a2",
+          "shortAction": "No crowning or urge to push present; begin transport to the receiving facility",
+          "protocolExcerpt": "If patient in labor but no signs of imminent delivery, transport to appropriate receiving facility",
+          "priority": "important",
+          "rationale": "Given her history of rapid prior labors, prompt transport reduces the risk of delivering without hospital resources available.",
+          "protocolReference": "MATC: OB/GYN Childbirth"
+        }
+      ],
       "transitions": [
         {
           "targetPhaseId": "ob-history-transport",
           "if": "OB history obtained, transport initiated",
           "condition": "Crew obtains a focused OB history (gravida/para, gestational age, contraction pattern, membrane/bleeding status) and finds no signs of imminent delivery, beginning non-emergent transport per protocol.",
-          "conditionType": "action_taken"
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a1", "a2"]
         }
       ]
     },
@@ -130,19 +148,11 @@
       },
       "expectedActions": [
         {
-          "id": "a1",
-          "shortAction": "Obtain focused OB history: gravida/para, gestational age, contraction pattern, membrane/bleeding status",
-          "protocolExcerpt": "OB assessment: Length of pregnancy Number of pregnancies Number of viable births Number of non-viable births Due date (calculate gestational age in weeks) Signs of imminent delivery (e.g., crowning, urge to push, urge to move bowels, mother feels delivery is imminent)",
+          "id": "b1",
+          "shortAction": "Recognize crowning and urge to push; commit to delivering in the moving ambulance",
+          "protocolExcerpt": "Signs of imminent delivery: Crowning or other presentation in vaginal opening Urge to push Urge to move bowels Mother's sense of imminent delivery",
           "priority": "critical",
-          "rationale": "A rapid multiparous history with no imminent-delivery signs guides the on-scene-versus-transport decision.",
-          "protocolReference": "MATC: OB/GYN Childbirth"
-        },
-        {
-          "id": "a2",
-          "shortAction": "No crowning or urge to push present; begin transport to the receiving facility",
-          "protocolExcerpt": "If patient in labor but no signs of imminent delivery, transport to appropriate receiving facility",
-          "priority": "important",
-          "rationale": "Given her history of rapid prior labors, prompt transport reduces the risk of delivering without hospital resources available.",
+          "rationale": "Delivery cannot be delayed once crowning and pushing urge are present; committing early avoids an unassisted, unprepared birth.",
           "protocolReference": "MATC: OB/GYN Childbirth"
         }
       ],
@@ -152,7 +162,7 @@
           "if": "Crowning discovered en route",
           "condition": "Partway through transport, the patient suddenly reports an overwhelming urge to push; reassessment reveals crowning, indicating imminent delivery inside the moving ambulance.",
           "conditionType": "time_elapsed",
-          "timeoutSeconds": 300
+          "triggerActionIds": ["b1"]
         }
       ]
     },
@@ -197,15 +207,7 @@
       },
       "expectedActions": [
         {
-          "id": "a3",
-          "shortAction": "Recognize crowning and urge to push; commit to delivering in the moving ambulance",
-          "protocolExcerpt": "Signs of imminent delivery: Crowning or other presentation in vaginal opening Urge to push Urge to move bowels Mother's sense of imminent delivery",
-          "priority": "critical",
-          "rationale": "Delivery cannot be delayed once crowning and pushing urge are present; committing early avoids an unassisted, unprepared birth.",
-          "protocolReference": "MATC: OB/GYN Childbirth"
-        },
-        {
-          "id": "a4",
+          "id": "c1",
           "shortAction": "Open the delivery kit and support the infant's head with gentle counterpressure as it emerges",
           "protocolExcerpt": "Delivery should be controlled to allow a slow controlled delivery of infant – This will prevent injury to mother. Support the infant's head as needed and apply gentle counterpressure to help prevent the head from suddenly popping out",
           "priority": "critical",
@@ -219,14 +221,14 @@
           "if": "Delivery prepared, controlled technique used",
           "condition": "The crew prepares the delivery kit and supports the head with counterpressure as it delivers, maintaining a controlled technique despite the moving compartment.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["a3", "a4"]
+          "triggerActionIds": ["c1"]
         },
         {
           "targetPhaseId": "delivery-not-braced",
           "if": "Delivery attempted without preparation",
           "condition": "The crew continues driving at normal speed and does not open the delivery kit or brace for delivery; the infant begins to deliver suddenly and unassisted.",
           "conditionType": "action_not_taken",
-          "triggerActionIds": ["a4"]
+          "triggerActionIds": ["c1"]
         }
       ]
     },
@@ -271,7 +273,7 @@
       },
       "expectedActions": [
         {
-          "id": "a5",
+          "id": "d1",
           "shortAction": "Check for nuchal cord after head delivers; slip over head if present",
           "protocolExcerpt": "Check for nuchal cord (i.e., around the baby's neck) If present, slip it over the head If unable to free the cord from the neck, double clamp the cord and cut between the clamps",
           "priority": "important",
@@ -279,7 +281,7 @@
           "protocolReference": "MATC: OB/GYN Childbirth"
         },
         {
-          "id": "a6",
+          "id": "d2",
           "shortAction": "Recognize shoulder dystocia; perform McRoberts maneuver, hyperflexing maternal hips",
           "protocolExcerpt": "If delivery fails to progress after head delivers, quickly attempt the following: Hyperflex mother's hips to severe supine knee-chest position (i.e., McRoberts' maneuver)",
           "priority": "critical",
@@ -287,7 +289,7 @@
           "protocolReference": "MATC: OB/GYN Childbirth"
         },
         {
-          "id": "a7",
+          "id": "d3",
           "shortAction": "Apply firm suprapubic pressure with a second crew member to dislodge the shoulder",
           "protocolExcerpt": "Apply firm suprapubic pressure to attempt to dislodge shoulder. This often requires two EMS clinicians to perform and allows for delivery in up to 75% of cases",
           "priority": "critical",
@@ -301,14 +303,14 @@
           "if": "Shoulder delivered, newborn emerges",
           "condition": "McRoberts positioning and suprapubic pressure successfully dislodge the anterior shoulder, and delivery completes without further complication.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["a6", "a7"]
+          "triggerActionIds": ["d2", "d3"]
         },
         {
           "targetPhaseId": "dystocia-mismanaged",
           "if": "Head pulled instead of McRoberts",
           "condition": "Instead of performing McRoberts and suprapubic pressure, the crew applies direct axial traction on the fetal head in an attempt to free the shoulder.",
           "conditionType": "action_not_taken",
-          "triggerActionIds": ["a6"]
+          "triggerActionIds": ["d2"]
         }
       ]
     },
@@ -353,7 +355,7 @@
       },
       "expectedActions": [
         {
-          "id": "a8",
+          "id": "e1",
           "shortAction": "Clamp cord after 1 minute, cutting between two clamps 5-6 inches from the abdomen",
           "protocolExcerpt": "After 1 minute, clamp cord about 5–6 inches from the abdomen with two clamps; cut the cord between the clamps",
           "priority": "important",
@@ -361,7 +363,7 @@
           "protocolReference": "MATC: OB/GYN Childbirth"
         },
         {
-          "id": "a9",
+          "id": "e2",
           "shortAction": "Dry, warm, and stimulate newborn; record APGAR scores at 1 and 5 minutes",
           "protocolExcerpt": "Dry, warm, and stimulate infant, wrap in towel and place on maternal chest unless resuscitation needed. Record APGAR scores at 1 and 5 minutes once neonate is stabilized",
           "priority": "critical",
@@ -369,7 +371,7 @@
           "protocolReference": "MATC: OB/GYN Childbirth"
         },
         {
-          "id": "a10",
+          "id": "e3",
           "shortAction": "Massage uterine fundus after placenta delivers to promote contraction and control bleeding",
           "protocolExcerpt": "After delivery, massaging the uterus (should be located at about the umbilicus) and allowing the infant to nurse will promote uterine contraction and help control bleeding",
           "priority": "important",
@@ -420,7 +422,7 @@
       },
       "expectedActions": [
         {
-          "id": "a11",
+          "id": "f1",
           "shortAction": "Recognize the drop risk; immediately secure the newborn with both hands and a towel",
           "protocolExcerpt": "Newborns are very slippery, take care not to drop the infant",
           "priority": "critical",
@@ -471,7 +473,7 @@
       },
       "expectedActions": [
         {
-          "id": "a12",
+          "id": "g1",
           "shortAction": "Stop traction on the head immediately; reposition to McRoberts and apply suprapubic pressure",
           "protocolExcerpt": "Attempt to angle baby's head as posteriorly as possible but NEVER pull",
           "priority": "critical",
