@@ -79,13 +79,39 @@
         "trendTimeSeconds": 0,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [],
+      "expectedActions": [
+        {
+          "id": "a1",
+          "shortAction": "Apply O2, initiate monitoring, obtain 12-lead EKG, establish IV access",
+          "protocolExcerpt": "Manage airway as necessary. Administer oxygen as appropriate with a target of achieving 94–98% saturation. Initiate monitoring and perform 12-lead EKG. Establish IV access",
+          "priority": "critical",
+          "rationale": "Confirms the rhythm as third-degree block and establishes access for medications and pacing.",
+          "protocolReference": "MATC: Bradycardia"
+        },
+        {
+          "id": "a2",
+          "shortAction": "Check blood glucose to rule out hypoglycemia as a contributing cause",
+          "protocolExcerpt": "Check blood glucose and treat hypoglycemia per the Hypoglycemia Guideline and Hyperglycemia Guideline",
+          "priority": "important",
+          "rationale": "Hypoglycemia is a treatable, reversible cause of altered perfusion and must be excluded.",
+          "protocolReference": "MATC: Bradycardia"
+        },
+        {
+          "id": "a3",
+          "shortAction": "Atropine 1 mg IV, may repeat q3-5min (max total 3 mg)",
+          "protocolExcerpt": "Consider the following additional therapies if bradycardia and symptoms or hemodynamic instability continue: Atropine 1 mg IV q 3–5 minutes (maximum total dose of 3 mg)",
+          "priority": "critical",
+          "rationale": "First-line pharmacologic therapy per protocol, given while preparing to escalate to pacing.",
+          "protocolReference": "MATC: Bradycardia"
+        }
+      ],
       "transitions": [
         {
           "targetPhaseId": "atropine-trial",
           "if": "Assessed and atropine given",
           "condition": "Crew recognizes symptomatic bradycardia with hemodynamic instability from complete heart block, establishes IV access, obtains a 12-lead, and administers atropine per protocol as the first-line therapy while preparing for pacing.",
-          "conditionType": "action_taken"
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a1", "a3"]
         }
       ]
     },
@@ -130,27 +156,19 @@
       },
       "expectedActions": [
         {
-          "id": "a1-monitor-iv",
-          "shortAction": "Apply O2, initiate monitoring, obtain 12-lead EKG, establish IV access",
-          "protocolExcerpt": "Manage airway as necessary. Administer oxygen as appropriate with a target of achieving 94–98% saturation. Initiate monitoring and perform 12-lead EKG. Establish IV access",
+          "id": "b1",
+          "shortAction": "Ketamine 21 mg IV (85 kg × 0.25 mg/kg = 21.25 mg; max initial 25 mg)",
+          "protocolExcerpt": "Ketamine: 0.25 mg/kg IM, IV or IO (maximum initial dose 25 mg; maximum cumulative dose 100 mg)",
           "priority": "critical",
-          "rationale": "Confirms the rhythm as third-degree block and establishes access for medications and pacing.",
-          "protocolReference": "MATC: Bradycardia"
+          "rationale": "Provides analgesia for the painful pacing stimulus without worsening hypotension, per the protocol's note to consider sedation or pain control with pacing.",
+          "protocolReference": "MATC: Pain Management"
         },
         {
-          "id": "a2-glucose",
-          "shortAction": "Check blood glucose to rule out hypoglycemia as a contributing cause",
-          "protocolExcerpt": "Check blood glucose and treat hypoglycemia per the Hypoglycemia Guideline and Hyperglycemia Guideline",
-          "priority": "important",
-          "rationale": "Hypoglycemia is a treatable, reversible cause of altered perfusion and must be excluded.",
-          "protocolReference": "MATC: Bradycardia"
-        },
-        {
-          "id": "a3-atropine",
-          "shortAction": "Atropine 1 mg IV, may repeat q3-5min (max total 3 mg)",
-          "protocolExcerpt": "Consider the following additional therapies if bradycardia and symptoms or hemodynamic instability continue: Atropine 1 mg IV q 3–5 minutes (maximum total dose of 3 mg)",
+          "id": "b2",
+          "shortAction": "Initiate transcutaneous pacing at 70 bpm, confirm mechanical capture with palpable pulse",
+          "protocolExcerpt": "Transcutaneous Pacing – If pacing is performed, consider sedation or pain control",
           "priority": "critical",
-          "rationale": "First-line pharmacologic therapy per protocol, given while preparing to escalate to pacing.",
+          "rationale": "Third-degree block is unlikely to respond to atropine; pacing directly restores an effective rate.",
           "protocolReference": "MATC: Bradycardia"
         }
       ],
@@ -160,13 +178,14 @@
           "if": "TCP initiated with sedation",
           "condition": "Atropine fails to improve rate or perfusion as anticipated with third-degree block; crew proceeds directly to transcutaneous pacing with appropriate sedation/pain control for the paced patient.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["a3-atropine"]
+          "triggerActionIds": ["b1", "b2"]
         },
         {
           "targetPhaseId": "tcp-no-sedation",
           "if": "TCP performed without sedation",
           "condition": "Crew initiates transcutaneous pacing but fails to provide sedation or analgesia first, leaving the patient in severe distress from the painful pacing stimulus.",
-          "conditionType": "action_not_taken"
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["b1"]
         }
       ]
     },
@@ -211,19 +230,11 @@
       },
       "expectedActions": [
         {
-          "id": "a4-sedation",
-          "shortAction": "Ketamine 21 mg IV (85 kg × 0.25 mg/kg = 21.25 mg; max initial 25 mg)",
-          "protocolExcerpt": "Ketamine: 0.25 mg/kg IM, IV or IO (maximum initial dose 25 mg; maximum cumulative dose 100 mg)",
-          "priority": "critical",
-          "rationale": "Provides analgesia for the painful pacing stimulus without worsening hypotension, per the protocol's note to consider sedation or pain control with pacing.",
-          "protocolReference": "MATC: Pain Management"
-        },
-        {
-          "id": "a5-tcp",
-          "shortAction": "Initiate transcutaneous pacing at 70 bpm, confirm mechanical capture with palpable pulse",
-          "protocolExcerpt": "Transcutaneous Pacing – If pacing is performed, consider sedation or pain control",
-          "priority": "critical",
-          "rationale": "Third-degree block is unlikely to respond to atropine; pacing directly restores an effective rate.",
+          "id": "c1",
+          "shortAction": "Continuously reassess capture, sedation level, and vital signs en route",
+          "protocolExcerpt": "Time started or stopped, rate, joules, capture, and response rate",
+          "priority": "important",
+          "rationale": "Pacer capture and sedation depth can change en route and require ongoing monitoring.",
           "protocolReference": "MATC: Bradycardia"
         }
       ],
@@ -233,7 +244,7 @@
           "if": "Capture maintained, prepared for transport",
           "condition": "Pacing capture and sedation are maintained; patient is packaged for transport with continuous reassessment.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["a5-tcp"]
+          "triggerActionIds": ["c1"]
         }
       ]
     },
@@ -276,16 +287,7 @@
         "trendTimeSeconds": 30,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [
-        {
-          "id": "a6-reassess",
-          "shortAction": "Continuously reassess capture, sedation level, and vital signs en route",
-          "protocolExcerpt": "Time started or stopped, rate, joules, capture, and response rate",
-          "priority": "important",
-          "rationale": "Pacer capture and sedation depth can change en route and require ongoing monitoring.",
-          "protocolReference": "MATC: Bradycardia"
-        }
-      ],
+      "expectedActions": [],
       "transitions": []
     },
     {
@@ -329,7 +331,7 @@
       },
       "expectedActions": [
         {
-          "id": "a7-rescue-sedation",
+          "id": "d1",
           "shortAction": "Ketamine 21 mg IV (85 kg × 0.25 mg/kg = 21.25 mg; max initial 25 mg) for pacing discomfort",
           "protocolExcerpt": "Ketamine: 0.25 mg/kg IM, IV or IO (maximum initial dose 25 mg; maximum cumulative dose 100 mg)",
           "priority": "critical",

@@ -57,7 +57,11 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [],
+      "relatedChecklist": [
+        "Apply O2, initiate monitoring, obtain 12-lead EKG, establish IV access",
+        "Check blood glucose to rule out hypoglycemia as a contributing cause",
+        "Atropine 1 mg IV, may repeat q3-5min (max total 3 mg)"
+      ],
       "relatedSounds": []
     },
     {
@@ -90,9 +94,9 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Apply O2, initiate monitoring, obtain 12-lead EKG, establish IV access",
-        "Check blood glucose to rule out hypoglycemia as a contributing cause",
-        "Atropine 1 mg IV, may repeat q3-5min (max total 3 mg)"
+        "Ketamine 21 mg IV (85 kg × 0.25 mg/kg = 21.25 mg; max initial 25 mg)",
+        "Initiate transcutaneous pacing at 70 bpm, confirm mechanical capture with palpable pulse",
+        "Ketamine 21 mg IV (85 kg × 0.25 mg/kg = 21.25 mg; max initial 25 mg) for pacing discomfort"
       ],
       "relatedSounds": []
     },
@@ -126,9 +130,7 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Ketamine 21 mg IV (85 kg × 0.25 mg/kg = 21.25 mg; max initial 25 mg)",
-        "Initiate transcutaneous pacing at 70 bpm, confirm mechanical capture with palpable pulse",
-        "Ketamine 21 mg IV (85 kg × 0.25 mg/kg = 21.25 mg; max initial 25 mg) for pacing discomfort"
+        "Continuously reassess capture, sedation level, and vital signs en route"
       ],
       "relatedSounds": []
     },
@@ -161,9 +163,7 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [
-        "Continuously reassess capture, sedation level, and vital signs en route"
-      ],
+      "relatedChecklist": [],
       "relatedSounds": []
     },
     {
