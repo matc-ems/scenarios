@@ -57,7 +57,14 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [],
+      "relatedChecklist": [
+        "Recognize severe pre-eclampsia: SBP 212/DBP 122 with headache, visual changes, epigastric pain",
+        "Position patient left-lateral to optimize uterine perfusion",
+        "NS or LR IV fluids at maximum 80 mL/hr; high-flow oxygen as indicated",
+        "Magnesium sulfate 4 g IV over 20-30 min for seizure prophylaxis, then 2 g/hr infusion",
+        "Confirm HR >60, then labetalol 20 mg IV over 2 min; may repeat q10min x2",
+        "Reassess blood pressure every 10 minutes during transport"
+      ],
       "relatedSounds": []
     },
     {
@@ -90,12 +97,7 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Recognize severe pre-eclampsia: SBP 212/DBP 122 with headache, visual changes, epigastric pain",
-        "Magnesium sulfate 4 g IV over 20-30 min for seizure prophylaxis, then 2 g/hr infusion",
-        "Confirm HR >60, then labetalol 20 mg IV over 2 min; may repeat q10min x2",
-        "Position patient left-lateral to optimize uterine perfusion",
-        "NS or LR IV fluids at maximum 80 mL/hr; high-flow oxygen as indicated",
-        "Reassess blood pressure every 10 minutes during transport"
+        "Transport emergently to closest appropriate facility; notify en route"
       ],
       "relatedSounds": []
     },
@@ -128,9 +130,7 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [
-        "Transport emergently to closest appropriate facility; notify en route"
-      ],
+      "relatedChecklist": [],
       "relatedSounds": []
     },
     {
@@ -176,18 +176,6 @@
       "icon": 1
     },
     {
-      "title": "Magnesium sulfate 4 g IV over 20-30 min for seizure prophylaxis, then 2 g/hr infusion",
-      "type": "Check",
-      "value": 0,
-      "icon": 1
-    },
-    {
-      "title": "Confirm HR >60, then labetalol 20 mg IV over 2 min; may repeat q10min x2",
-      "type": "Check",
-      "value": 0,
-      "icon": 1
-    },
-    {
       "title": "Position patient left-lateral to optimize uterine perfusion",
       "type": "Check",
       "value": 0,
@@ -195,6 +183,18 @@
     },
     {
       "title": "NS or LR IV fluids at maximum 80 mL/hr; high-flow oxygen as indicated",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Magnesium sulfate 4 g IV over 20-30 min for seizure prophylaxis, then 2 g/hr infusion",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Confirm HR >60, then labetalol 20 mg IV over 2 min; may repeat q10min x2",
       "type": "Check",
       "value": 0,
       "icon": 1

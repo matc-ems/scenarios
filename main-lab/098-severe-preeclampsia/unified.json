@@ -83,19 +83,70 @@
         "trendTimeSeconds": 0,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [],
+      "expectedActions": [
+        {
+          "id": "a1",
+          "shortAction": "Recognize severe pre-eclampsia: SBP 212/DBP 122 with headache, visual changes, epigastric pain",
+          "protocolExcerpt": "Severe features of pre-eclampsia include: Severe hypertension (SBP greater than 160, DBP greater than 110); Headache; Vision changes including blurred vision, spots/floaters, loss of vision (these symptoms are often a precursor to seizure); Right upper quadrant or epigastric pain",
+          "priority": "critical",
+          "rationale": "Visual changes and headache with severe hypertension are precursor symptoms to eclamptic seizure and mandate immediate treatment.",
+          "protocolReference": "MATC: Eclampsia/Pre-Eclampsia"
+        },
+        {
+          "id": "a2",
+          "shortAction": "Position patient left-lateral to optimize uterine perfusion",
+          "protocolExcerpt": "Patients in second or third trimester of pregnancy should be transported on left side or with uterus manually displaced to left to ensure adequate uterine perfusion",
+          "priority": "important",
+          "rationale": "Left-lateral positioning relieves aortocaval compression and improves placental blood flow.",
+          "protocolReference": "MATC: Eclampsia/Pre-Eclampsia"
+        },
+        {
+          "id": "a3",
+          "shortAction": "NS or LR IV fluids at maximum 80 mL/hr; high-flow oxygen as indicated",
+          "protocolExcerpt": "IV fluids: NS or LR – keep continuous infusion with maximum rate of fluids to 80 mL/hr. Administer high flow oxygen as indicated",
+          "priority": "important",
+          "rationale": "Fluid restriction reduces risk of pulmonary edema, which is a recognized complication of severe pre-eclampsia.",
+          "protocolReference": "MATC: Eclampsia/Pre-Eclampsia"
+        },
+        {
+          "id": "a4",
+          "shortAction": "Magnesium sulfate 4 g IV over 20-30 min for seizure prophylaxis, then 2 g/hr infusion",
+          "protocolExcerpt": "Magnesium sulfate: 4 g IV over 5–10 min, followed by 2 g/hr ... Seizure prophylaxis: 4 g IV over 20–30 minutes, followed by 2 g/hr IV if available",
+          "priority": "critical",
+          "rationale": "Magnesium significantly reduces the rate of progression from severe pre-eclampsia to eclamptic seizure.",
+          "protocolReference": "MATC: Eclampsia/Pre-Eclampsia"
+        },
+        {
+          "id": "a5",
+          "shortAction": "Confirm HR >60, then labetalol 20 mg IV over 2 min; may repeat q10min x2",
+          "protocolExcerpt": "Labetalol 20 mg IV over 2 minutes; May repeat every 10 minutes X 2 doses for persistent severe hypertension with preeclampsia symptoms; Goal is to reduce MAP by 20–25% initially; Ensure that HR is greater than 60 BPM prior to administration",
+          "priority": "critical",
+          "rationale": "Severely elevated blood pressure must be lowered to reduce maternal stroke risk while preserving uterine perfusion.",
+          "protocolReference": "MATC: Eclampsia/Pre-Eclampsia"
+        },
+        {
+          "id": "a6",
+          "shortAction": "Reassess blood pressure every 10 minutes during transport",
+          "protocolExcerpt": "Reassess vital signs every 10 minutes during transport",
+          "priority": "important",
+          "rationale": "Frequent reassessment guides repeat labetalol dosing and detects overcorrection or worsening hypertension.",
+          "protocolReference": "MATC: Eclampsia/Pre-Eclampsia"
+        }
+      ],
       "transitions": [
         {
           "targetPhaseId": "mag-and-labetalol-given",
           "if": "Severe features recognized, mag and labetalol given",
           "condition": "Crew recognizes SBP >160/DBP >110 with associated severe-feature symptoms (headache, visual changes, epigastric pain) as severe pre-eclampsia, initiates magnesium sulfate for seizure prophylaxis, and treats the severe hypertension with labetalol after confirming HR is adequate.",
-          "conditionType": "action_taken"
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a1", "a4", "a5", "a6"]
         },
         {
           "targetPhaseId": "magnesium-omitted",
           "if": "BP treated without magnesium prophylaxis",
           "condition": "Crew treats the severe hypertension with labetalol but does not initiate magnesium sulfate for seizure prophylaxis, leaving the patient unprotected against progression to eclampsia.",
-          "conditionType": "action_not_taken"
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["a4"]
         }
       ]
     },
@@ -141,51 +192,11 @@
       },
       "expectedActions": [
         {
-          "id": "a1-recognize-severe-features",
-          "shortAction": "Recognize severe pre-eclampsia: SBP 212/DBP 122 with headache, visual changes, epigastric pain",
-          "protocolExcerpt": "Severe features of pre-eclampsia include: Severe hypertension (SBP greater than 160, DBP greater than 110); Headache; Vision changes including blurred vision, spots/floaters, loss of vision (these symptoms are often a precursor to seizure); Right upper quadrant or epigastric pain",
+          "id": "b1",
+          "shortAction": "Transport emergently to closest appropriate facility; notify en route",
+          "protocolExcerpt": "Transport emergently to closest appropriate receiving facility – notify en route if possible so the receiving team can prepare",
           "priority": "critical",
-          "rationale": "Visual changes and headache with severe hypertension are precursor symptoms to eclamptic seizure and mandate immediate treatment.",
-          "protocolReference": "MATC: Eclampsia/Pre-Eclampsia"
-        },
-        {
-          "id": "a2-magnesium",
-          "shortAction": "Magnesium sulfate 4 g IV over 20-30 min for seizure prophylaxis, then 2 g/hr infusion",
-          "protocolExcerpt": "Magnesium sulfate: 4 g IV over 5–10 min, followed by 2 g/hr ... Seizure prophylaxis: 4 g IV over 20–30 minutes, followed by 2 g/hr IV if available",
-          "priority": "critical",
-          "rationale": "Magnesium significantly reduces the rate of progression from severe pre-eclampsia to eclamptic seizure.",
-          "protocolReference": "MATC: Eclampsia/Pre-Eclampsia"
-        },
-        {
-          "id": "a3-labetalol",
-          "shortAction": "Confirm HR >60, then labetalol 20 mg IV over 2 min; may repeat q10min x2",
-          "protocolExcerpt": "Labetalol 20 mg IV over 2 minutes; May repeat every 10 minutes X 2 doses for persistent severe hypertension with preeclampsia symptoms; Goal is to reduce MAP by 20–25% initially; Ensure that HR is greater than 60 BPM prior to administration",
-          "priority": "critical",
-          "rationale": "Severely elevated blood pressure must be lowered to reduce maternal stroke risk while preserving uterine perfusion.",
-          "protocolReference": "MATC: Eclampsia/Pre-Eclampsia"
-        },
-        {
-          "id": "a4-left-lateral",
-          "shortAction": "Position patient left-lateral to optimize uterine perfusion",
-          "protocolExcerpt": "Patients in second or third trimester of pregnancy should be transported on left side or with uterus manually displaced to left to ensure adequate uterine perfusion",
-          "priority": "important",
-          "rationale": "Left-lateral positioning relieves aortocaval compression and improves placental blood flow.",
-          "protocolReference": "MATC: Eclampsia/Pre-Eclampsia"
-        },
-        {
-          "id": "a5-fluids-o2",
-          "shortAction": "NS or LR IV fluids at maximum 80 mL/hr; high-flow oxygen as indicated",
-          "protocolExcerpt": "IV fluids: NS or LR – keep continuous infusion with maximum rate of fluids to 80 mL/hr. Administer high flow oxygen as indicated",
-          "priority": "important",
-          "rationale": "Fluid restriction reduces risk of pulmonary edema, which is a recognized complication of severe pre-eclampsia.",
-          "protocolReference": "MATC: Eclampsia/Pre-Eclampsia"
-        },
-        {
-          "id": "a6-reassess-bp",
-          "shortAction": "Reassess blood pressure every 10 minutes during transport",
-          "protocolExcerpt": "Reassess vital signs every 10 minutes during transport",
-          "priority": "important",
-          "rationale": "Frequent reassessment guides repeat labetalol dosing and detects overcorrection or worsening hypertension.",
+          "rationale": "Advance notification allows the receiving OB team to prepare for a severe pre-eclampsia arrival capable of rapid decompensation.",
           "protocolReference": "MATC: Eclampsia/Pre-Eclampsia"
         }
       ],
@@ -195,7 +206,7 @@
           "if": "BP trending toward goal, transport initiated",
           "condition": "Blood pressure trends down toward the goal of approximately 140/90 with ongoing magnesium infusion; patient transported emergently with receiving facility notified en route.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["a2-magnesium", "a3-labetalol", "a6-reassess-bp"]
+          "triggerActionIds": ["b1"]
         }
       ]
     },
@@ -239,16 +250,7 @@
         "trendTimeSeconds": 45,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [
-        {
-          "id": "a7-notify-receiving",
-          "shortAction": "Transport emergently to closest appropriate facility; notify en route",
-          "protocolExcerpt": "Transport emergently to closest appropriate receiving facility – notify en route if possible so the receiving team can prepare",
-          "priority": "critical",
-          "rationale": "Advance notification allows the receiving OB team to prepare for a severe pre-eclampsia arrival capable of rapid decompensation.",
-          "protocolReference": "MATC: Eclampsia/Pre-Eclampsia"
-        }
-      ],
+      "expectedActions": [],
       "transitions": []
     },
     {
@@ -292,7 +294,7 @@
       },
       "expectedActions": [
         {
-          "id": "a8-treat-eclampsia",
+          "id": "c1",
           "shortAction": "Treat as eclampsia: magnesium sulfate 6 g IV over 5-10 min for active seizure management",
           "protocolExcerpt": "Any pregnant patient who is seizing should be assumed to have eclampsia and treated as such until arrival at the hospital ... Seizure Management: 6 g IV over 5–10 minutes or 8 g IM (4 grams in each buttock) to prevent seizure",
           "priority": "critical",
