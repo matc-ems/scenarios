@@ -58,13 +58,13 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Manage airway as necessary; airway patent, no intervention required",
         "Administer oxygen titrated to target SpO2 94-98% (currently 96%)",
         "Initiate cardiac monitoring and acquire 12-lead EKG",
         "Establish IV access",
         "Check blood glucose (98 mg/dL, normal); rules out hypoglycemia as cause",
         "Recognize irregularly irregular wide-complex tachycardia as pre-excited AFib (WPW); note short PR interval/delta wave on 12-lead",
-        "Do NOT give adenosine, diltiazem, verapamil, metoprolol, or digoxin — AV nodal blockers contraindicated in pre-excited AFib"
+        "Do NOT give adenosine, diltiazem, verapamil, metoprolol, or digoxin — AV nodal blockers contraindicated in pre-excited AFib",
+        "Procainamide 20-50 mg/min IV infusion (86 kg × 17 mg/kg = 1,462 mg maximum total dose); titrate to arrhythmia suppression, hypotension, or QRS widening >50%"
       ],
       "relatedSounds": []
     },
@@ -98,7 +98,6 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Procainamide 20-50 mg/min IV infusion (86 kg × 17 mg/kg = 1,462 mg maximum total dose); titrate to arrhythmia suppression, hypotension, or QRS widening >50%",
         "If arrhythmia persists and a second agent is needed, give procainamide before amiodarone (WPW-specific sequencing)",
         "Obtain repeat monitor strip/12-lead after the procainamide infusion to document response"
       ],
@@ -211,12 +210,6 @@
     }
   ],
   "checklist": [
-    {
-      "title": "Manage airway as necessary; airway patent, no intervention required",
-      "type": "Check",
-      "value": 0,
-      "icon": 1
-    },
     {
       "title": "Administer oxygen titrated to target SpO2 94-98% (currently 96%)",
       "type": "Check",

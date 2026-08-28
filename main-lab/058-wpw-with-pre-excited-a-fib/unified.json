@@ -73,36 +73,28 @@
       },
       "expectedActions": [
         {
-          "id": "a1-airway",
-          "shortAction": "Manage airway as necessary; airway patent, no intervention required",
-          "protocolExcerpt": "Manage airway as necessary",
-          "priority": "supplemental",
-          "rationale": "Airway is patent and patient is talking; confirm and monitor.",
-          "protocolReference": "MATC: Tachycardia with a Pulse"
-        },
-        {
-          "id": "a2-o2",
+          "id": "a1",
           "shortAction": "Administer oxygen titrated to target SpO2 94-98% (currently 96%)",
           "protocolExcerpt": "Administer oxygen as appropriate with a target of achieving 94–98% saturation",
           "priority": "important",
           "protocolReference": "MATC: Tachycardia with a Pulse"
         },
         {
-          "id": "a3-monitor",
+          "id": "a2",
           "shortAction": "Initiate cardiac monitoring and acquire 12-lead EKG",
           "protocolExcerpt": "Initiate monitoring and perform 12-lead EKG",
           "priority": "critical",
           "protocolReference": "MATC: Tachycardia with a Pulse"
         },
         {
-          "id": "a4-iv",
+          "id": "a3",
           "shortAction": "Establish IV access",
           "protocolExcerpt": "Establish IV access",
           "priority": "important",
           "protocolReference": "MATC: Tachycardia with a Pulse"
         },
         {
-          "id": "a5-glucose",
+          "id": "a4",
           "shortAction": "Check blood glucose (98 mg/dL, normal); rules out hypoglycemia as cause",
           "protocolExcerpt": "Check blood glucose and treat hypoglycemia per the Hypoglycemia Guideline",
           "priority": "important",
@@ -110,16 +102,23 @@
           "protocolReference": "MATC: Tachycardia with a Pulse"
         },
         {
-          "id": "a6-recognize-wpw",
+          "id": "a5",
           "shortAction": "Recognize irregularly irregular wide-complex tachycardia as pre-excited AFib (WPW); note short PR interval/delta wave on 12-lead",
           "protocolExcerpt": "A wide-complex irregular rhythm should be considered pre-excited A-FIB; extreme care must be taken in these patients Characteristic EKG findings include a short PR interval and, in some cases, a delta wave",
           "priority": "critical",
           "protocolReference": "MATC: Tachycardia with a Pulse"
         },
         {
-          "id": "a7-avoid-avnodal",
+          "id": "a6",
           "shortAction": "Do NOT give adenosine, diltiazem, verapamil, metoprolol, or digoxin — AV nodal blockers contraindicated in pre-excited AFib",
           "protocolExcerpt": "Avoid AV nodal blocking agents such as adenosine, calcium channel blockers, digoxin, and possibly beta-blockers in patients with pre-excitation A-FIB (e.g., Wolff-Parkinson-White Syndrome, Lown-Ganong-Levine Syndrome) because these drugs may cause a paradoxical increase in the ventricular response",
+          "priority": "critical",
+          "protocolReference": "MATC: Tachycardia with a Pulse"
+        },
+        {
+          "id": "a7",
+          "shortAction": "Procainamide 20-50 mg/min IV infusion (86 kg × 17 mg/kg = 1,462 mg maximum total dose); titrate to arrhythmia suppression, hypotension, or QRS widening >50%",
+          "protocolExcerpt": "Procainamide 20–50 mg/min until arrhythmia suppressed, hypotension ensues, QRS duration increases greater than 50%, or maximum dose 17 mg/kg given Maintenance infusion: 1–4 mg/min Avoid if prolonged QT or CHF",
           "priority": "critical",
           "protocolReference": "MATC: Tachycardia with a Pulse"
         }
@@ -127,24 +126,24 @@
       "transitions": [
         {
           "targetPhaseId": "procainamide-given",
-          "if": "Procainamide given, AV nodal blockers avoided",
+          "if": "Procainamide given",
           "condition": "Crew correctly identifies irregular wide-complex tachycardia as pre-excited AFib (WPW) and avoids AV nodal blocking agents, instead initiating procainamide per the stable irregular wide complex tachycardia pathway.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["a6-recognize-wpw", "a7-avoid-avnodal"]
+          "triggerActionIds": ["a5", "a6", "a7"]
         },
         {
           "targetPhaseId": "av-nodal-blocker-given",
           "if": "AV nodal blocker given",
           "condition": "Crew mistakenly administers an AV nodal blocking agent (e.g., adenosine, diltiazem, metoprolol) to the pre-excited AFib rhythm, unmasking exclusive accessory pathway conduction.",
           "conditionType": "action_not_taken",
-          "triggerActionIds": ["a7-avoid-avnodal"]
+          "triggerActionIds": ["a6"]
         },
         {
           "targetPhaseId": "unstable-cardioversion",
           "if": "Treatment delayed, patient decompensates",
           "condition": "Treatment is delayed beyond several minutes without intervention; patient progresses to hemodynamic instability (hypotension, altered mental status) requiring synchronized cardioversion.",
           "conditionType": "time_elapsed",
-          "timeoutSeconds": 300
+          "triggerActionIds": ["a7"]
         }
       ]
     },
@@ -185,21 +184,14 @@
       },
       "expectedActions": [
         {
-          "id": "b1-procainamide",
-          "shortAction": "Procainamide 20-50 mg/min IV infusion (86 kg × 17 mg/kg = 1,462 mg maximum total dose); titrate to arrhythmia suppression, hypotension, or QRS widening >50%",
-          "protocolExcerpt": "Procainamide 20–50 mg/min until arrhythmia suppressed, hypotension ensues, QRS duration increases greater than 50%, or maximum dose 17 mg/kg given Maintenance infusion: 1–4 mg/min Avoid if prolonged QT or CHF",
-          "priority": "critical",
-          "protocolReference": "MATC: Tachycardia with a Pulse"
-        },
-        {
-          "id": "b2-sequence",
+          "id": "b1",
           "shortAction": "If arrhythmia persists and a second agent is needed, give procainamide before amiodarone (WPW-specific sequencing)",
           "protocolExcerpt": "Patients with Wolff–Parkinson–White should be given procainamide prior to amiodarone",
           "priority": "important",
           "protocolReference": "MATC: Tachycardia with a Pulse"
         },
         {
-          "id": "b3-strips",
+          "id": "b2",
           "shortAction": "Obtain repeat monitor strip/12-lead after the procainamide infusion to document response",
           "protocolExcerpt": "Obtain monitor strips after each intervention",
           "priority": "important",
@@ -212,7 +204,7 @@
           "if": "Rate controlled, patient stabilized",
           "condition": "Ventricular response slows, symptoms and perfusion improve; patient is prepared for transport with continuous monitoring.",
           "conditionType": "vital_threshold",
-          "triggerActionIds": ["b1-procainamide"]
+          "triggerActionIds": ["b2"]
         }
       ]
     },
@@ -253,7 +245,7 @@
       },
       "expectedActions": [
         {
-          "id": "c1-document",
+          "id": "c1",
           "shortAction": "Document initial rhythm, all rhythm changes, and time/dose/response to procainamide for handoff",
           "protocolExcerpt": "Initial rhythm and all rhythm changes Time, dose, and response to medications given",
           "priority": "supplemental",
@@ -299,21 +291,21 @@
       },
       "expectedActions": [
         {
-          "id": "d1-cpr-defib",
+          "id": "d1",
           "shortAction": "Recognize degeneration into ventricular fibrillation; begin immediate chest compressions and prepare to defibrillate",
           "protocolExcerpt": "Initiate chest compressions in cases with no bystander chest compressions or take over compressions from bystanders while a second rescuer is setting up the AED or defibrillator If adequate, uninterrupted bystander CPR has been performed or if the patient arrests in front of the EMS clinicians, immediately proceed with rhythm analysis and defibrillation, if appropriate",
           "priority": "critical",
           "protocolReference": "MATC: Cardiac Arrest"
         },
         {
-          "id": "d2-defib-dose",
+          "id": "d2",
           "shortAction": "Defibrillate at manufacturer's recommended biphasic energy (or highest setting if unknown)",
           "protocolExcerpt": "Defibrillation dosing should follow manufacturer's recommendation in the case of biphasic defibrillators. If the manufacturer's recommendation is unknown, use highest setting possible.",
           "priority": "critical",
           "protocolReference": "MATC: Cardiac Arrest"
         },
         {
-          "id": "d3-recognize-cause",
+          "id": "d3",
           "shortAction": "Recognize AV nodal blockade of pre-excited AFib as the precipitating cause of VF",
           "protocolExcerpt": "Blocking the AV node in some of these patients may lead to impulses that are transmitted exclusively down the accessory pathway, which can result in ventricular fibrillation",
           "priority": "important",
@@ -359,14 +351,14 @@
       },
       "expectedActions": [
         {
-          "id": "e1-cardiovert",
+          "id": "e1",
           "shortAction": "Deliver synchronized cardioversion per manufacturer's recommended energy settings",
           "protocolExcerpt": "Deliver a synchronized shock based on manufacturer's recommendation",
           "priority": "critical",
           "protocolReference": "MATC: Tachycardia with a Pulse"
         },
         {
-          "id": "e2-sedation",
+          "id": "e2",
           "shortAction": "Consider sedation and analgesia prior to cardioversion since patient remains responsive",
           "protocolExcerpt": "For responsive patients, consider sedation",
           "priority": "important",
