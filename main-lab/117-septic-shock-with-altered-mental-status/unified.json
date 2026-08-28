@@ -79,19 +79,62 @@
         "trendTimeSeconds": 0,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [],
+      "expectedActions": [
+        {
+          "id": "a1",
+          "shortAction": "Obtain full vital signs, cardiac monitor, pulse oximetry, and EtCO2",
+          "protocolExcerpt": "Check vital signs. Administer oxygen as appropriate with a target of achieving 94–98% saturation. Cardiac monitor. Pulse oximetry and EtCO2 (reading of less than 25 mmHg may be sign of poor perfusion)",
+          "priority": "critical",
+          "rationale": "Establishes baseline severity and monitors for worsening perfusion.",
+          "protocolReference": "MATC: Shock"
+        },
+        {
+          "id": "a2",
+          "shortAction": "Check blood glucose; correct only if less than 60 mg/dL",
+          "protocolExcerpt": "Check blood sugar, and correct if less than 60 mg/dL",
+          "priority": "important",
+          "rationale": "Hypoglycemia is a treatable cause of AMS that must be ruled out even when sepsis is suspected.",
+          "protocolReference": "MATC: Shock"
+        },
+        {
+          "id": "a3",
+          "shortAction": "Establish IV access; place IO if unsuccessful within 2 attempts or 90 seconds",
+          "protocolExcerpt": "Establish IV access. If unable to obtain within two attempts or less than 90 seconds, place an IO needle",
+          "priority": "critical",
+          "rationale": "Fragile geriatric veins and time-critical fluid resuscitation favor early IO if peripheral access fails.",
+          "protocolReference": "MATC: Shock"
+        },
+        {
+          "id": "a4",
+          "shortAction": "IV/IO fluid bolus 500 mL NS pressure-infused <15 min; repeat toward 78 kg × 30 mL/kg = 2,340 mL goal or MAP 65",
+          "protocolExcerpt": "IV fluid volume goal attained by giving boluses that are pressure infused over less than 15 minutes each based on patient's condition and clinical impression. Fluid volume goal to achieve a mean arterial pressure (adults)... Physiologic target: MAP goal 65 mmHg. Fluid goal of up to 30 mL/kg of isotonic fluid by administering rapid, predetermined boluses (e.g., 500 mL) unless the MAP goal is achieved, or pulmonary edema develops.",
+          "priority": "critical",
+          "rationale": "Early aggressive fluid resuscitation is the cornerstone of septic shock treatment.",
+          "protocolReference": "MATC: Shock"
+        },
+        {
+          "id": "a5",
+          "shortAction": "Provide advance notification to receiving hospital of suspected septic shock",
+          "protocolExcerpt": "Provide advanced notification to the hospital",
+          "priority": "important",
+          "rationale": "Allows the receiving facility to prepare sepsis-pathway resources ahead of arrival.",
+          "protocolReference": "MATC: Shock"
+        }
+      ],
       "transitions": [
         {
           "targetPhaseId": "fluids-started",
           "if": "IV/IO access and fluids started promptly",
           "condition": "Crew rapidly recognizes signs of septic shock (fever, hypotension, altered mental status) and initiates full vital signs, monitoring, glucose check, IV/IO access, and fluid resuscitation without delay.",
-          "conditionType": "action_taken"
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a3", "a4"]
         },
         {
           "targetPhaseId": "shock-worsens",
           "if": "IV access and fluids delayed",
           "condition": "Crew is slow to obtain vascular access or begin fluid resuscitation despite clear signs of septic shock; perfusion continues to deteriorate.",
-          "conditionType": "action_not_taken"
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["a3", "a4"]
         }
       ]
     },
@@ -136,43 +179,19 @@
       },
       "expectedActions": [
         {
-          "id": "a1-monitor",
-          "shortAction": "Obtain full vital signs, cardiac monitor, pulse oximetry, and EtCO2",
-          "protocolExcerpt": "Check vital signs. Administer oxygen as appropriate with a target of achieving 94–98% saturation. Cardiac monitor. Pulse oximetry and EtCO2 (reading of less than 25 mmHg may be sign of poor perfusion)",
+          "id": "b1",
+          "shortAction": "Norepinephrine infusion 8 mcg/min IV (78 kg × 0.1 mcg/kg/min), titrate to MAP ≥65 mmHg",
+          "protocolExcerpt": "Vasopressors (shock unresponsive to IV fluids) titrated to physiologic targets. Cardiogenic, hypovolemic, obstructive shock and distributive shock: Norepinephrine 0.05–0.5 mcg/kg/minute. Preference in both neurogenic and infectious (sepsis) causes of distributive shock",
           "priority": "critical",
-          "rationale": "Establishes baseline severity and monitors for worsening perfusion.",
+          "rationale": "Norepinephrine is the preferred first-line vasopressor for fluid-refractory septic shock.",
           "protocolReference": "MATC: Shock"
         },
         {
-          "id": "a2-glucose",
-          "shortAction": "Check blood glucose; correct only if less than 60 mg/dL",
-          "protocolExcerpt": "Check blood sugar, and correct if less than 60 mg/dL",
-          "priority": "important",
-          "rationale": "Hypoglycemia is a treatable cause of AMS that must be ruled out even when sepsis is suspected.",
-          "protocolReference": "MATC: Shock"
-        },
-        {
-          "id": "a3-access",
-          "shortAction": "Establish IV access; place IO if unsuccessful within 2 attempts or 90 seconds",
-          "protocolExcerpt": "Establish IV access. If unable to obtain within two attempts or less than 90 seconds, place an IO needle",
-          "priority": "critical",
-          "rationale": "Fragile geriatric veins and time-critical fluid resuscitation favor early IO if peripheral access fails.",
-          "protocolReference": "MATC: Shock"
-        },
-        {
-          "id": "a4-fluid-bolus",
-          "shortAction": "IV/IO fluid bolus 500 mL NS pressure-infused <15 min; repeat toward 78 kg × 30 mL/kg = 2,340 mL goal or MAP 65",
-          "protocolExcerpt": "IV fluid volume goal attained by giving boluses that are pressure infused over less than 15 minutes each based on patient's condition and clinical impression. Fluid volume goal to achieve a mean arterial pressure (adults)... Physiologic target: MAP goal 65 mmHg. Fluid goal of up to 30 mL/kg of isotonic fluid by administering rapid, predetermined boluses (e.g., 500 mL) unless the MAP goal is achieved, or pulmonary edema develops.",
-          "priority": "critical",
-          "rationale": "Early aggressive fluid resuscitation is the cornerstone of septic shock treatment.",
-          "protocolReference": "MATC: Shock"
-        },
-        {
-          "id": "a5-notify",
-          "shortAction": "Provide advance notification to receiving hospital of suspected septic shock",
-          "protocolExcerpt": "Provide advanced notification to the hospital",
-          "priority": "important",
-          "rationale": "Allows the receiving facility to prepare sepsis-pathway resources ahead of arrival.",
+          "id": "b2",
+          "shortAction": "Reassess full vital signs and mental status at least every 15 minutes",
+          "protocolExcerpt": "Full vital signs (pulse, blood pressure, respiratory rate, neurologic status assessment) with reassessment q 15 minutes or more frequently as appropriate",
+          "priority": "supplemental",
+          "rationale": "Frequent reassessment detects response to vasopressor titration and further deterioration.",
           "protocolReference": "MATC: Shock"
         }
       ],
@@ -182,7 +201,7 @@
           "if": "MAP remains below 65 after fluids",
           "condition": "Despite pressure-infused isotonic fluid boluses, the patient's mean arterial pressure remains below the 65 mmHg goal, indicating fluid-refractory septic shock requiring vasopressor support.",
           "conditionType": "vital_threshold",
-          "triggerActionIds": ["a4-fluid-bolus"]
+          "triggerActionIds": ["b1", "b2"]
         }
       ]
     },
@@ -226,19 +245,11 @@
       },
       "expectedActions": [
         {
-          "id": "a6-norepi",
-          "shortAction": "Norepinephrine infusion 8 mcg/min IV (78 kg × 0.1 mcg/kg/min), titrate to MAP ≥65 mmHg",
-          "protocolExcerpt": "Vasopressors (shock unresponsive to IV fluids) titrated to physiologic targets. Cardiogenic, hypovolemic, obstructive shock and distributive shock: Norepinephrine 0.05–0.5 mcg/kg/minute. Preference in both neurogenic and infectious (sepsis) causes of distributive shock",
-          "priority": "critical",
-          "rationale": "Norepinephrine is the preferred first-line vasopressor for fluid-refractory septic shock.",
-          "protocolReference": "MATC: Shock"
-        },
-        {
-          "id": "a7-reassess",
-          "shortAction": "Reassess full vital signs and mental status at least every 15 minutes",
+          "id": "c1",
+          "shortAction": "Continue reassessment and transport with advance notification to sepsis-capable facility",
           "protocolExcerpt": "Full vital signs (pulse, blood pressure, respiratory rate, neurologic status assessment) with reassessment q 15 minutes or more frequently as appropriate",
-          "priority": "supplemental",
-          "rationale": "Frequent reassessment detects response to vasopressor titration and further deterioration.",
+          "priority": "important",
+          "rationale": "Ongoing monitoring during transport detects recurrence of hypotension or deterioration.",
           "protocolReference": "MATC: Shock"
         }
       ],
@@ -248,7 +259,7 @@
           "if": "MAP improves, patient more alert",
           "condition": "Vasopressor titration achieves the MAP goal; mental status begins improving as perfusion recovers, and the patient is packaged for transport.",
           "conditionType": "vital_threshold",
-          "triggerActionIds": ["a6-norepi"]
+          "triggerActionIds": ["c1"]
         }
       ]
     },
@@ -290,16 +301,7 @@
         "trendTimeSeconds": 45,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [
-        {
-          "id": "a8-transport",
-          "shortAction": "Continue reassessment and transport with advance notification to sepsis-capable facility",
-          "protocolExcerpt": "Full vital signs (pulse, blood pressure, respiratory rate, neurologic status assessment) with reassessment q 15 minutes or more frequently as appropriate",
-          "priority": "important",
-          "rationale": "Ongoing monitoring during transport detects recurrence of hypotension or deterioration.",
-          "protocolReference": "MATC: Shock"
-        }
-      ],
+      "expectedActions": [],
       "transitions": []
     },
     {
@@ -342,7 +344,7 @@
       },
       "expectedActions": [
         {
-          "id": "a9-recover-access",
+          "id": "d1",
           "shortAction": "Recognize decompensated shock; immediately obtain IV/IO access and begin rapid fluid resuscitation",
           "protocolExcerpt": "Establish IV access. If unable to obtain within two attempts or less than 90 seconds, place an IO needle. IV fluid volume goal attained by giving boluses that are pressure infused over less than 15 minutes each",
           "priority": "critical",

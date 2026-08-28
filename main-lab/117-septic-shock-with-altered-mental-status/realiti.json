@@ -57,7 +57,13 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [],
+      "relatedChecklist": [
+        "Obtain full vital signs, cardiac monitor, pulse oximetry, and EtCO2",
+        "Check blood glucose; correct only if less than 60 mg/dL",
+        "Establish IV access; place IO if unsuccessful within 2 attempts or 90 seconds",
+        "IV/IO fluid bolus 500 mL NS pressure-infused <15 min; repeat toward 78 kg × 30 mL/kg = 2,340 mL goal or MAP 65",
+        "Provide advance notification to receiving hospital of suspected septic shock"
+      ],
       "relatedSounds": []
     },
     {
@@ -90,11 +96,8 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Obtain full vital signs, cardiac monitor, pulse oximetry, and EtCO2",
-        "Check blood glucose; correct only if less than 60 mg/dL",
-        "Establish IV access; place IO if unsuccessful within 2 attempts or 90 seconds",
-        "IV/IO fluid bolus 500 mL NS pressure-infused <15 min; repeat toward 78 kg × 30 mL/kg = 2,340 mL goal or MAP 65",
-        "Provide advance notification to receiving hospital of suspected septic shock"
+        "Norepinephrine infusion 8 mcg/min IV (78 kg × 0.1 mcg/kg/min), titrate to MAP ≥65 mmHg",
+        "Reassess full vital signs and mental status at least every 15 minutes"
       ],
       "relatedSounds": []
     },
@@ -128,8 +131,7 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Norepinephrine infusion 8 mcg/min IV (78 kg × 0.1 mcg/kg/min), titrate to MAP ≥65 mmHg",
-        "Reassess full vital signs and mental status at least every 15 minutes"
+        "Continue reassessment and transport with advance notification to sepsis-capable facility"
       ],
       "relatedSounds": []
     },
@@ -162,9 +164,7 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [
-        "Continue reassessment and transport with advance notification to sepsis-capable facility"
-      ],
+      "relatedChecklist": [],
       "relatedSounds": []
     },
     {
