@@ -57,7 +57,13 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [],
+      "relatedChecklist": [
+        "Administer supplemental O2 titrated to 94-98% saturation",
+        "Initiate cardiac monitoring and obtain 12-lead EKG",
+        "Establish IV access",
+        "Check blood glucose to rule out hypoglycemia as a contributing cause",
+        "Atropine 1 mg IV; may repeat every 3-5 minutes (max total dose 3 mg)"
+      ],
       "relatedSounds": []
     },
     {
@@ -90,11 +96,8 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Administer supplemental O2 titrated to 94-98% saturation",
-        "Initiate cardiac monitoring and obtain 12-lead EKG",
-        "Establish IV access",
-        "Check blood glucose to rule out hypoglycemia as a contributing cause",
-        "Atropine 1 mg IV; may repeat every 3-5 minutes (max total dose 3 mg)"
+        "Fentanyl 70 mcg IV for pacing analgesia (70 kg x 1 mcg/kg; max initial 100 mcg)",
+        "Initiate transcutaneous pacing, titrating rate and current to achieve capture"
       ],
       "relatedSounds": []
     },
@@ -128,8 +131,7 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Fentanyl 70 mcg IV for pacing analgesia (70 kg x 1 mcg/kg; max initial 100 mcg)",
-        "Initiate transcutaneous pacing, titrating rate and current to achieve capture"
+        "Transport in position of comfort; reassess vitals, pain, and pacing capture serially"
       ],
       "relatedSounds": []
     },
@@ -162,9 +164,7 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [
-        "Transport in position of comfort; reassess vitals, pain, and pacing capture serially"
-      ],
+      "relatedChecklist": [],
       "relatedSounds": []
     },
     {

@@ -79,13 +79,55 @@
         "trendTimeSeconds": 0,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [],
+      "expectedActions": [
+        {
+          "id": "a1",
+          "shortAction": "Administer supplemental O2 titrated to 94-98% saturation",
+          "protocolExcerpt": "Administer oxygen as appropriate with a target of achieving 94–98% saturation",
+          "priority": "important",
+          "rationale": "Maintains adequate oxygenation while the underlying rhythm is addressed.",
+          "protocolReference": "MATC: Bradycardia"
+        },
+        {
+          "id": "a2",
+          "shortAction": "Initiate cardiac monitoring and obtain 12-lead EKG",
+          "protocolExcerpt": "Initiate monitoring and perform 12-lead EKG",
+          "priority": "critical",
+          "rationale": "Confirms the rhythm as third-degree AV block and rules out concurrent ischemia.",
+          "protocolReference": "MATC: Bradycardia"
+        },
+        {
+          "id": "a3",
+          "shortAction": "Establish IV access",
+          "protocolExcerpt": "Establish IV access",
+          "priority": "critical",
+          "rationale": "Needed for atropine, sedation, and any subsequent vasopressor support.",
+          "protocolReference": "MATC: Bradycardia"
+        },
+        {
+          "id": "a4",
+          "shortAction": "Check blood glucose to rule out hypoglycemia as a contributing cause",
+          "protocolExcerpt": "Check blood glucose and treat hypoglycemia per the Hypoglycemia Guideline and Hyperglycemia Guideline",
+          "priority": "important",
+          "rationale": "Rules out a reversible metabolic cause of altered perfusion/weakness.",
+          "protocolReference": "MATC: Bradycardia"
+        },
+        {
+          "id": "a5",
+          "shortAction": "Atropine 1 mg IV; may repeat every 3-5 minutes (max total dose 3 mg)",
+          "protocolExcerpt": "Atropine 1 mg IV q 3–5 minutes (maximum total dose of 3 mg)",
+          "priority": "critical",
+          "rationale": "First-line pharmacologic therapy for symptomatic bradycardia, though third-degree block is often refractory.",
+          "protocolReference": "MATC: Bradycardia"
+        }
+      ],
       "transitions": [
         {
           "targetPhaseId": "assessment-atropine",
           "if": "Assessed and atropine given",
           "condition": "Crew completes a full assessment, establishes IV access, checks blood glucose, and administers atropine 1 mg IV per protocol for symptomatic bradycardia.",
-          "conditionType": "action_taken"
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a2", "a5"]
         }
       ]
     },
@@ -130,43 +172,19 @@
       },
       "expectedActions": [
         {
-          "id": "a1-o2",
-          "shortAction": "Administer supplemental O2 titrated to 94-98% saturation",
-          "protocolExcerpt": "Administer oxygen as appropriate with a target of achieving 94–98% saturation",
-          "priority": "important",
-          "rationale": "Maintains adequate oxygenation while the underlying rhythm is addressed.",
-          "protocolReference": "MATC: Bradycardia"
-        },
-        {
-          "id": "a2-monitor",
-          "shortAction": "Initiate cardiac monitoring and obtain 12-lead EKG",
-          "protocolExcerpt": "Initiate monitoring and perform 12-lead EKG",
+          "id": "b1",
+          "shortAction": "Fentanyl 70 mcg IV for pacing analgesia (70 kg x 1 mcg/kg; max initial 100 mcg)",
+          "protocolExcerpt": "Fentanyl: 1 mcg/kg IN, IM, IV or IO (maximum initial dose of 100 mcg)",
           "priority": "critical",
-          "rationale": "Confirms the rhythm as third-degree AV block and rules out concurrent ischemia.",
-          "protocolReference": "MATC: Bradycardia"
+          "rationale": "Transcutaneous pacing is painful; protocol calls for sedation/analgesia before pacing.",
+          "protocolReference": "MATC: Pain Management"
         },
         {
-          "id": "a3-iv",
-          "shortAction": "Establish IV access",
-          "protocolExcerpt": "Establish IV access",
+          "id": "b2",
+          "shortAction": "Initiate transcutaneous pacing, titrating rate and current to achieve capture",
+          "protocolExcerpt": "Transcutaneous Pacing – If pacing is performed, consider sedation or pain control",
           "priority": "critical",
-          "rationale": "Needed for atropine, sedation, and any subsequent vasopressor support.",
-          "protocolReference": "MATC: Bradycardia"
-        },
-        {
-          "id": "a4-bgl",
-          "shortAction": "Check blood glucose to rule out hypoglycemia as a contributing cause",
-          "protocolExcerpt": "Check blood glucose and treat hypoglycemia per the Hypoglycemia Guideline and Hyperglycemia Guideline",
-          "priority": "important",
-          "rationale": "Rules out a reversible metabolic cause of altered perfusion/weakness.",
-          "protocolReference": "MATC: Bradycardia"
-        },
-        {
-          "id": "a5-atropine",
-          "shortAction": "Atropine 1 mg IV; may repeat every 3-5 minutes (max total dose 3 mg)",
-          "protocolExcerpt": "Atropine 1 mg IV q 3–5 minutes (maximum total dose of 3 mg)",
-          "priority": "critical",
-          "rationale": "First-line pharmacologic therapy for symptomatic bradycardia, though third-degree block is often refractory.",
+          "rationale": "Definitive prehospital treatment for atropine-refractory symptomatic third-degree block.",
           "protocolReference": "MATC: Bradycardia"
         }
       ],
@@ -176,13 +194,14 @@
           "if": "Atropine fails, TCP with sedation performed",
           "condition": "Atropine produces no meaningful improvement, consistent with third-degree AV block; crew proceeds to transcutaneous pacing and administers fentanyl for analgesia/sedation before initiating pacing.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["a5-atropine"]
+          "triggerActionIds": ["b1", "b2"]
         },
         {
           "targetPhaseId": "tcp-no-sedation",
           "if": "TCP performed without sedation",
           "condition": "Crew proceeds directly to transcutaneous pacing without administering any analgesia or sedation first, contrary to protocol guidance.",
-          "conditionType": "action_not_taken"
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["b1"]
         }
       ]
     },
@@ -227,20 +246,12 @@
       },
       "expectedActions": [
         {
-          "id": "a6-fentanyl",
-          "shortAction": "Fentanyl 70 mcg IV for pacing analgesia (70 kg x 1 mcg/kg; max initial 100 mcg)",
-          "protocolExcerpt": "Fentanyl: 1 mcg/kg IN, IM, IV or IO (maximum initial dose of 100 mcg)",
-          "priority": "critical",
-          "rationale": "Transcutaneous pacing is painful; protocol calls for sedation/analgesia before pacing.",
+          "id": "c1",
+          "shortAction": "Transport in position of comfort; reassess vitals, pain, and pacing capture serially",
+          "protocolExcerpt": "Transport in position of comfort and reassess as indicated",
+          "priority": "important",
+          "rationale": "Ensures continued mechanical capture and adequate analgesia are maintained en route.",
           "protocolReference": "MATC: Pain Management"
-        },
-        {
-          "id": "a7-tcp",
-          "shortAction": "Initiate transcutaneous pacing, titrating rate and current to achieve capture",
-          "protocolExcerpt": "Transcutaneous Pacing – If pacing is performed, consider sedation or pain control",
-          "priority": "critical",
-          "rationale": "Definitive prehospital treatment for atropine-refractory symptomatic third-degree block.",
-          "protocolReference": "MATC: Bradycardia"
         }
       ],
       "transitions": [
@@ -249,7 +260,7 @@
           "if": "Capture achieved, perfusion improved",
           "condition": "Transcutaneous pacing achieves electrical and mechanical capture at a paced rate, improving heart rate and perfusion; patient remains comfortable on fentanyl.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["a7-tcp"]
+          "triggerActionIds": ["c1"]
         }
       ]
     },
@@ -292,16 +303,7 @@
         "trendTimeSeconds": 40,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [
-        {
-          "id": "a8-transport",
-          "shortAction": "Transport in position of comfort; reassess vitals, pain, and pacing capture serially",
-          "protocolExcerpt": "Transport in position of comfort and reassess as indicated",
-          "priority": "important",
-          "rationale": "Ensures continued mechanical capture and adequate analgesia are maintained en route.",
-          "protocolReference": "MATC: Pain Management"
-        }
-      ],
+      "expectedActions": [],
       "transitions": []
     },
     {
@@ -345,7 +347,7 @@
       },
       "expectedActions": [
         {
-          "id": "a9-rescue-fentanyl",
+          "id": "d1",
           "shortAction": "Recognize pacing-related pain; give fentanyl 70 mcg IV rescue analgesia (70 kg x 1 mcg/kg; max 100 mcg)",
           "protocolExcerpt": "Fentanyl: 1 mcg/kg IN, IM, IV or IO (maximum initial dose of 100 mcg)",
           "priority": "critical",
