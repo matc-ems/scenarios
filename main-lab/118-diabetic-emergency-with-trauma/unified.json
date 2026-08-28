@@ -80,13 +80,62 @@
         "trendTimeSeconds": 0,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [],
+      "expectedActions": [
+        {
+          "id": "a1",
+          "shortAction": "Perform MARCH primary survey with spinal precautions before treating suspected hypoglycemia",
+          "protocolExcerpt": "Initial Assessment: Primary survey (Use \"MARCH\" algorithm)",
+          "priority": "critical",
+          "rationale": "The crash mechanism requires ruling out life threats before attributing the presentation solely to a metabolic cause.",
+          "protocolReference": "MATC: General Trauma Management"
+        },
+        {
+          "id": "a2",
+          "shortAction": "Apply high-flow oxygen via non-rebreather as a precaution for the head injury",
+          "protocolExcerpt": "Administer high-flow oxygen via NRB (non-rebreather) as a precaution against unanticipated deterioration",
+          "priority": "important",
+          "rationale": "Precautionary oxygenation protects against unanticipated deterioration from the head injury.",
+          "protocolReference": "MATC: Head Injury"
+        },
+        {
+          "id": "a3",
+          "shortAction": "Check point-of-care blood glucose given diaphoresis and confusion after the crash",
+          "protocolExcerpt": "Monitoring: Check blood glucose level",
+          "priority": "critical",
+          "rationale": "Diaphoresis and confusion after a low-speed crash should prompt a glucose check rather than assuming trauma alone explains the mentation.",
+          "protocolReference": "MATC: Hypoglycemia"
+        },
+        {
+          "id": "a4",
+          "shortAction": "Dextrose 10% IV in incremental doses (up to 250 mL / 25 g total) until mental status improves",
+          "protocolExcerpt": "Unconscious patient, or patients who are unable to protect their own airway: Dextrose IV – administer in incremental doses until mental status improves or maximum field dosing is reached (if available, D10% is preferred). Maximum field adult dosing: 25 g of 10–50% dextrose IV: 250 mL of 10% dextrose",
+          "priority": "critical",
+          "rationale": "Incremental dosing corrects the hypoglycemia while avoiding overshoot hyperglycemia.",
+          "protocolReference": "MATC: Hypoglycemia"
+        },
+        {
+          "id": "a5",
+          "shortAction": "Monitor blood pressure closely; target SBP ≥110 mmHg given the head injury",
+          "protocolExcerpt": "Blood pressure: avoid hypotension. Adult (age greater than 10 years): maintain SBP greater than or equal to 110 mmHg",
+          "priority": "important",
+          "rationale": "Hypotension worsens cerebral perfusion in a patient with a possible traumatic brain injury.",
+          "protocolReference": "MATC: Head Injury"
+        }
+      ],
       "transitions": [
         {
           "targetPhaseId": "assessed-treated",
           "if": "Primary survey done, BGL checked, dextrose given",
           "condition": "Crew performs a MARCH primary survey with spinal precautions given the crash mechanism, checks blood glucose alongside the trauma workup, and treats the discovered hypoglycemia with IV dextrose while continuing head injury monitoring.",
-          "conditionType": "action_taken"
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a1", "a3", "a4"]
+        },
+        {
+          "targetPhaseId": "bgl-recheck-skipped",
+          "if": "AMS blamed on trauma alone, BGL not rechecked",
+          "condition": "The crew attributes any persistent confusion solely to the head injury and does not recheck blood glucose, allowing recurrent hypoglycemia to go uncorrected and mimic a worsening TBI.",
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["a3"]
         }
       ]
     },
@@ -132,44 +181,20 @@
       },
       "expectedActions": [
         {
-          "id": "a1-march",
-          "shortAction": "Perform MARCH primary survey with spinal precautions before treating suspected hypoglycemia",
-          "protocolExcerpt": "Initial Assessment: Primary survey (Use \"MARCH\" algorithm)",
+          "id": "b1",
+          "shortAction": "Continue serial neuro reassessment en route despite resolved hypoglycemia",
+          "protocolExcerpt": "Patients with traumatic brain injury may deteriorate as intracranial swelling and hemorrhage increase.",
           "priority": "critical",
-          "rationale": "The crash mechanism requires ruling out life threats before attributing the presentation solely to a metabolic cause.",
+          "rationale": "A corrected glucose does not rule out an evolving intracranial injury from the crash.",
           "protocolReference": "MATC: General Trauma Management"
         },
         {
-          "id": "a2-bgl-check",
-          "shortAction": "Check point-of-care blood glucose given diaphoresis and confusion after the crash",
-          "protocolExcerpt": "Monitoring: Check blood glucose level",
-          "priority": "critical",
-          "rationale": "Diaphoresis and confusion after a low-speed crash should prompt a glucose check rather than assuming trauma alone explains the mentation.",
-          "protocolReference": "MATC: Hypoglycemia"
-        },
-        {
-          "id": "a3-dextrose",
-          "shortAction": "Dextrose 10% IV in incremental doses (up to 250 mL / 25 g total) until mental status improves",
-          "protocolExcerpt": "Unconscious patient, or patients who are unable to protect their own airway: Dextrose IV – administer in incremental doses until mental status improves or maximum field dosing is reached (if available, D10% is preferred). Maximum field adult dosing: 25 g of 10–50% dextrose IV: 250 mL of 10% dextrose",
-          "priority": "critical",
-          "rationale": "Incremental dosing corrects the hypoglycemia while avoiding overshoot hyperglycemia.",
-          "protocolReference": "MATC: Hypoglycemia"
-        },
-        {
-          "id": "a4-o2-precaution",
-          "shortAction": "Apply high-flow oxygen via non-rebreather as a precaution for the head injury",
-          "protocolExcerpt": "Administer high-flow oxygen via NRB (non-rebreather) as a precaution against unanticipated deterioration",
+          "id": "b2",
+          "shortAction": "Transport to an appropriate facility per field triage guideline given the head injury mechanism",
+          "protocolExcerpt": "Decisions regarding transport destination should be based on the ACS-COT 2022 National Guideline for the Field Triage of Injured Patients",
           "priority": "important",
-          "rationale": "Precautionary oxygenation protects against unanticipated deterioration from the head injury.",
-          "protocolReference": "MATC: Head Injury"
-        },
-        {
-          "id": "a5-sbp-threshold",
-          "shortAction": "Monitor blood pressure closely; target SBP ≥110 mmHg given the head injury",
-          "protocolExcerpt": "Blood pressure: avoid hypotension. Adult (age greater than 10 years): maintain SBP greater than or equal to 110 mmHg",
-          "priority": "important",
-          "rationale": "Hypotension worsens cerebral perfusion in a patient with a possible traumatic brain injury.",
-          "protocolReference": "MATC: Head Injury"
+          "rationale": "The crash mechanism and forehead laceration still warrant trauma-capable evaluation regardless of the resolved hypoglycemia.",
+          "protocolReference": "MATC: General Trauma Management"
         }
       ],
       "transitions": [
@@ -178,14 +203,7 @@
           "if": "Mental status normalizes, neuro monitoring continued",
           "condition": "Blood glucose normalizes and mental status returns toward baseline; the crew continues serial neurologic reassessment en route rather than assuming the head injury workup is complete simply because the hypoglycemia resolved.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["a3-dextrose"]
-        },
-        {
-          "targetPhaseId": "bgl-recheck-skipped",
-          "if": "AMS blamed on trauma alone, BGL not rechecked",
-          "condition": "The crew attributes any persistent confusion solely to the head injury and does not recheck blood glucose, allowing recurrent hypoglycemia to go uncorrected and mimic a worsening traumatic brain injury.",
-          "conditionType": "action_not_taken",
-          "triggerActionIds": ["a2-bgl-check"]
+          "triggerActionIds": ["b1", "b2"]
         }
       ]
     },
@@ -228,24 +246,7 @@
         "trendTimeSeconds": 40,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [
-        {
-          "id": "a6-serial-neuro",
-          "shortAction": "Continue serial neuro reassessment en route despite resolved hypoglycemia",
-          "protocolExcerpt": "Patients with traumatic brain injury may deteriorate as intracranial swelling and hemorrhage increase.",
-          "priority": "critical",
-          "rationale": "A corrected glucose does not rule out an evolving intracranial injury from the crash.",
-          "protocolReference": "MATC: General Trauma Management"
-        },
-        {
-          "id": "a7-transport-decision",
-          "shortAction": "Transport to an appropriate facility per field triage guideline given the head injury mechanism",
-          "protocolExcerpt": "Decisions regarding transport destination should be based on the ACS-COT 2022 National Guideline for the Field Triage of Injured Patients",
-          "priority": "important",
-          "rationale": "The crash mechanism and forehead laceration still warrant trauma-capable evaluation regardless of the resolved hypoglycemia.",
-          "protocolReference": "MATC: General Trauma Management"
-        }
-      ],
+      "expectedActions": [],
       "transitions": []
     },
     {
@@ -289,7 +290,7 @@
       },
       "expectedActions": [
         {
-          "id": "a8-recheck-bgl",
+          "id": "c1",
           "shortAction": "Recheck blood glucose given persistent AMS; treat recurrent hypoglycemia rather than assuming isolated TBI deterioration",
           "protocolExcerpt": "Repeat check of blood glucose level if previous hypoglycemia and mental status has not returned to normal",
           "priority": "critical",

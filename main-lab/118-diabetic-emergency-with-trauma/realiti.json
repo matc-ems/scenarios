@@ -57,7 +57,13 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [],
+      "relatedChecklist": [
+        "Perform MARCH primary survey with spinal precautions before treating suspected hypoglycemia",
+        "Apply high-flow oxygen via non-rebreather as a precaution for the head injury",
+        "Check point-of-care blood glucose given diaphoresis and confusion after the crash",
+        "Dextrose 10% IV in incremental doses (up to 250 mL / 25 g total) until mental status improves",
+        "Monitor blood pressure closely; target SBP ≥110 mmHg given the head injury"
+      ],
       "relatedSounds": []
     },
     {
@@ -90,11 +96,8 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Perform MARCH primary survey with spinal precautions before treating suspected hypoglycemia",
-        "Check point-of-care blood glucose given diaphoresis and confusion after the crash",
-        "Dextrose 10% IV in incremental doses (up to 250 mL / 25 g total) until mental status improves",
-        "Apply high-flow oxygen via non-rebreather as a precaution for the head injury",
-        "Monitor blood pressure closely; target SBP ≥110 mmHg given the head injury"
+        "Continue serial neuro reassessment en route despite resolved hypoglycemia",
+        "Transport to an appropriate facility per field triage guideline given the head injury mechanism"
       ],
       "relatedSounds": []
     },
@@ -127,10 +130,7 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [
-        "Continue serial neuro reassessment en route despite resolved hypoglycemia",
-        "Transport to an appropriate facility per field triage guideline given the head injury mechanism"
-      ],
+      "relatedChecklist": [],
       "relatedSounds": []
     },
     {
@@ -176,6 +176,12 @@
       "icon": 1
     },
     {
+      "title": "Apply high-flow oxygen via non-rebreather as a precaution for the head injury",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
       "title": "Check point-of-care blood glucose given diaphoresis and confusion after the crash",
       "type": "Check",
       "value": 0,
@@ -183,12 +189,6 @@
     },
     {
       "title": "Dextrose 10% IV in incremental doses (up to 250 mL / 25 g total) until mental status improves",
-      "type": "Check",
-      "value": 0,
-      "icon": 1
-    },
-    {
-      "title": "Apply high-flow oxygen via non-rebreather as a precaution for the head injury",
       "type": "Check",
       "value": 0,
       "icon": 1
