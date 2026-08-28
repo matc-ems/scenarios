@@ -81,13 +81,47 @@
         "trendTimeSeconds": 0,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [],
+      "expectedActions": [
+        {
+          "id": "a1",
+          "shortAction": "Administer supplemental O2 titrated to target SpO2 94-98%",
+          "protocolExcerpt": "Give supplemental oxygen for dyspnea to a target of 94–98% saturation. Escalate from a nasal cannula as needed to reach this goal",
+          "priority": "critical",
+          "rationale": "Corrects hypoxemia while other therapies take effect.",
+          "protocolReference": "MATC: Respiratory Distress"
+        },
+        {
+          "id": "a2",
+          "shortAction": "Albuterol 5 mg nebulized for bronchospasm with respiratory distress",
+          "protocolExcerpt": "albuterol 5 mg nebulized (or 6 puffs metered dose inhaler) should be administered to all patients in respiratory distress with signs of bronchospasm (e.g., known asthmatics, quiet wheezers). Repeat at this dose with unlimited frequency for ongoing respiratory distress",
+          "priority": "critical",
+          "rationale": "First-line bronchodilator for asthma exacerbation with distress.",
+          "protocolReference": "MATC: Respiratory Distress"
+        },
+        {
+          "id": "a3",
+          "shortAction": "Ipratropium 0.5 mg nebulized in conjunction with albuterol",
+          "protocolExcerpt": "Ipratropium 0.5 mg nebulized should be given up to 3 doses in conjunction with albuterol",
+          "priority": "important",
+          "rationale": "Adjunct bronchodilator that may decrease need for hospital admission when combined with albuterol.",
+          "protocolReference": "MATC: Respiratory Distress"
+        },
+        {
+          "id": "a4",
+          "shortAction": "Apply continuous pulse oximetry and waveform capnography",
+          "protocolExcerpt": "Patients with significant respiratory distress should have continuous pulse oximetry and waveform capnography monitoring for both assessment and for guiding therapy",
+          "priority": "important",
+          "rationale": "A rising or normalizing EtCO2 despite tachypnea signals impending respiratory failure.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        }
+      ],
       "transitions": [
         {
           "targetPhaseId": "nebs-started",
           "if": "Oxygen and nebulized bronchodilators given",
           "condition": "Crew applies supplemental oxygen and administers nebulized albuterol/ipratropium for signs of bronchospasm with respiratory distress.",
-          "conditionType": "action_taken"
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a1", "a2", "a3"]
         }
       ]
     },
@@ -132,35 +166,19 @@
       },
       "expectedActions": [
         {
-          "id": "a1-o2",
-          "shortAction": "Administer supplemental O2 titrated to target SpO2 94-98%",
-          "protocolExcerpt": "Give supplemental oxygen for dyspnea to a target of 94–98% saturation. Escalate from a nasal cannula as needed to reach this goal",
+          "id": "b1",
+          "shortAction": "Initiate CPAP with nebulizer administered in-line via T-connector",
+          "protocolExcerpt": "Non-invasive ventilation (NIV) should be administered for severe respiratory distress via BVM, continuous positive airway pressure (CPAP) or bi-level positive airway pressure (BiPAP). If indicated, bronchodilators should be administered in line with NIV. Nebulized medications may be administered through a CPAP or BiPAP mask. A specialized T-connector with a spring valve assembly is required to allow maintenance of positive airway pressure",
           "priority": "critical",
-          "rationale": "Corrects hypoxemia while other therapies take effect.",
-          "protocolReference": "MATC: Respiratory Distress"
+          "rationale": "Escalates support for persistent severe bronchospasm not responding to nebulizers alone.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
         },
         {
-          "id": "a2-albuterol",
-          "shortAction": "Albuterol 5 mg nebulized for bronchospasm with respiratory distress",
-          "protocolExcerpt": "albuterol 5 mg nebulized (or 6 puffs metered dose inhaler) should be administered to all patients in respiratory distress with signs of bronchospasm (e.g., known asthmatics, quiet wheezers). Repeat at this dose with unlimited frequency for ongoing respiratory distress",
+          "id": "b2",
+          "shortAction": "Maintain continuous CPAP mask seal; do not discontinue en route",
+          "protocolExcerpt": "Once initiated and patient is tolerating mask, DO NOT discontinue CPAP/BiPAP until patient is on the emergency department stretcher and hospital CPAP/BiPAP is immediately available for patient to be switched over, or physician is at bedside and requesting CPAP/BiPAP be discontinued. Breaking the mask seal causes a significant decrease in airway pressures and may lead to abrupt decompensation due to atelectasis and alveolar collapse",
           "priority": "critical",
-          "rationale": "First-line bronchodilator for asthma exacerbation with distress.",
-          "protocolReference": "MATC: Respiratory Distress"
-        },
-        {
-          "id": "a3-ipratropium",
-          "shortAction": "Ipratropium 0.5 mg nebulized in conjunction with albuterol",
-          "protocolExcerpt": "Ipratropium 0.5 mg nebulized should be given up to 3 doses in conjunction with albuterol",
-          "priority": "important",
-          "rationale": "Adjunct bronchodilator that may decrease need for hospital admission when combined with albuterol.",
-          "protocolReference": "MATC: Respiratory Distress"
-        },
-        {
-          "id": "a4-monitor",
-          "shortAction": "Apply continuous pulse oximetry and waveform capnography",
-          "protocolExcerpt": "Patients with significant respiratory distress should have continuous pulse oximetry and waveform capnography monitoring for both assessment and for guiding therapy",
-          "priority": "important",
-          "rationale": "A rising or normalizing EtCO2 despite tachypnea signals impending respiratory failure.",
+          "rationale": "Breaking the seal risks abrupt decompensation from lost airway pressure.",
           "protocolReference": "MATC: Airway Management (Includes RSI)"
         }
       ],
@@ -170,13 +188,14 @@
           "if": "CPAP with in-line duoneb started",
           "condition": "Given persistent severe distress despite nebulized bronchodilators, the crew escalates to non-invasive ventilation (CPAP) with nebulized medication administered in line.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["a2-albuterol"]
+          "triggerActionIds": ["b1", "b2"]
         },
         {
           "targetPhaseId": "cpap-delayed",
           "if": "CPAP escalation delayed",
           "condition": "Crew continues nebulized treatments alone without escalating to non-invasive ventilation despite persistent severe distress, allowing progression toward respiratory failure.",
-          "conditionType": "action_not_taken"
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["b1"]
         }
       ]
     },
@@ -221,19 +240,11 @@
       },
       "expectedActions": [
         {
-          "id": "a5-cpap",
-          "shortAction": "Initiate CPAP with nebulizer administered in-line via T-connector",
-          "protocolExcerpt": "Non-invasive ventilation (NIV) should be administered for severe respiratory distress via BVM, continuous positive airway pressure (CPAP) or bi-level positive airway pressure (BiPAP). If indicated, bronchodilators should be administered in line with NIV. Nebulized medications may be administered through a CPAP or BiPAP mask. A specialized T-connector with a spring valve assembly is required to allow maintenance of positive airway pressure",
-          "priority": "critical",
-          "rationale": "Escalates support for persistent severe bronchospasm not responding to nebulizers alone.",
-          "protocolReference": "MATC: Airway Management (Includes RSI)"
-        },
-        {
-          "id": "a6-maintain-seal",
-          "shortAction": "Maintain continuous CPAP mask seal; do not discontinue en route",
-          "protocolExcerpt": "Once initiated and patient is tolerating mask, DO NOT discontinue CPAP/BiPAP until patient is on the emergency department stretcher and hospital CPAP/BiPAP is immediately available for patient to be switched over, or physician is at bedside and requesting CPAP/BiPAP be discontinued. Breaking the mask seal causes a significant decrease in airway pressures and may lead to abrupt decompensation due to atelectasis and alveolar collapse",
-          "priority": "critical",
-          "rationale": "Breaking the seal risks abrupt decompensation from lost airway pressure.",
+          "id": "c1",
+          "shortAction": "Reassess respiratory status, SpO2, and EtCO2 serially en route",
+          "protocolExcerpt": "Ongoing assessment is critical when an airway device is in place. Acute worsening of respiratory status or evidence of hypoxemia can be secondary to displacement or obstruction of the airway device",
+          "priority": "important",
+          "rationale": "Ensures continued response to therapy and early detection of deterioration.",
           "protocolReference": "MATC: Airway Management (Includes RSI)"
         }
       ],
@@ -243,7 +254,7 @@
           "if": "Improved on CPAP, prepared for transport",
           "condition": "Patient's work of breathing and oxygenation improve on CPAP with in-line bronchodilator; crew packages for transport while maintaining the mask seal.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["a5-cpap", "a6-maintain-seal"]
+          "triggerActionIds": ["c1"]
         }
       ]
     },
@@ -285,16 +296,7 @@
         "trendTimeSeconds": 45,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
       },
-      "expectedActions": [
-        {
-          "id": "a7-reassess",
-          "shortAction": "Reassess respiratory status, SpO2, and EtCO2 serially en route",
-          "protocolExcerpt": "Ongoing assessment is critical when an airway device is in place. Acute worsening of respiratory status or evidence of hypoxemia can be secondary to displacement or obstruction of the airway device",
-          "priority": "important",
-          "rationale": "Ensures continued response to therapy and early detection of deterioration.",
-          "protocolReference": "MATC: Airway Management (Includes RSI)"
-        }
-      ],
+      "expectedActions": [],
       "transitions": []
     },
     {
@@ -338,7 +340,7 @@
       },
       "expectedActions": [
         {
-          "id": "a8-recognize-failure",
+          "id": "d1",
           "shortAction": "Recognize impending respiratory failure from normalizing EtCO2 despite tachypnea",
           "protocolExcerpt": "Normal EtCO2 (35–45 mmHg) with tachypnea and respiratory distress is an indicator of impending respiratory failure",
           "priority": "critical",
@@ -346,7 +348,7 @@
           "protocolReference": "MATC: Respiratory Distress"
         },
         {
-          "id": "a9-escalate-niv",
+          "id": "d2",
           "shortAction": "Emergently escalate to CPAP or assisted BVM ventilation with in-line bronchodilator",
           "protocolExcerpt": "Non-invasive ventilation (NIV) should be considered early for severe respiratory distress or impending respiratory failure. Use bag-valve-mask (BVM) ventilation in the setting of respiratory failure or arrest",
           "priority": "critical",

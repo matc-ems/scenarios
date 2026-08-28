@@ -57,7 +57,12 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [],
+      "relatedChecklist": [
+        "Administer supplemental O2 titrated to target SpO2 94-98%",
+        "Albuterol 5 mg nebulized for bronchospasm with respiratory distress",
+        "Ipratropium 0.5 mg nebulized in conjunction with albuterol",
+        "Apply continuous pulse oximetry and waveform capnography"
+      ],
       "relatedSounds": []
     },
     {
@@ -90,10 +95,8 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Administer supplemental O2 titrated to target SpO2 94-98%",
-        "Albuterol 5 mg nebulized for bronchospasm with respiratory distress",
-        "Ipratropium 0.5 mg nebulized in conjunction with albuterol",
-        "Apply continuous pulse oximetry and waveform capnography"
+        "Initiate CPAP with nebulizer administered in-line via T-connector",
+        "Maintain continuous CPAP mask seal; do not discontinue en route"
       ],
       "relatedSounds": []
     },
@@ -127,8 +130,7 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Initiate CPAP with nebulizer administered in-line via T-connector",
-        "Maintain continuous CPAP mask seal; do not discontinue en route"
+        "Reassess respiratory status, SpO2, and EtCO2 serially en route"
       ],
       "relatedSounds": []
     },
@@ -161,9 +163,7 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [
-        "Reassess respiratory status, SpO2, and EtCO2 serially en route"
-      ],
+      "relatedChecklist": [],
       "relatedSounds": []
     },
     {
