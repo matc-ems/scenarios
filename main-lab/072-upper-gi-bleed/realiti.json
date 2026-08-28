@@ -57,7 +57,13 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [],
+      "relatedChecklist": [
+        "Identify hematemesis and melena as the bleeding source driving hypovolemic shock",
+        "Apply cardiac monitor and pulse oximetry; obtain EtCO2",
+        "Establish IV access (18-gauge preferred); place IO if unsuccessful within 2 attempts/90 sec",
+        "Check blood glucose; correct if less than 60 mg/dL",
+        "Give 500 mL isotonic fluid bolus, pressure-infused, targeting MAP 65 mmHg"
+      ],
       "relatedSounds": []
     },
     {
@@ -90,11 +96,8 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Establish IV access (18-gauge preferred); place IO if unsuccessful within 2 attempts/90 sec",
-        "Check blood glucose; correct if less than 60 mg/dL",
-        "Apply cardiac monitor and pulse oximetry; obtain EtCO2",
-        "Give 500 mL isotonic fluid bolus, pressure-infused, targeting MAP 65 mmHg",
-        "Identify hematemesis and melena as the bleeding source driving hypovolemic shock"
+        "Provide advance notification to receiving facility for suspected active GI hemorrhage",
+        "Reassess vital signs and response to fluid therapy throughout transport"
       ],
       "relatedSounds": []
     },
@@ -127,10 +130,7 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [
-        "Provide advance notification to receiving facility for suspected active GI hemorrhage",
-        "Reassess vital signs and response to fluid therapy throughout transport"
-      ],
+      "relatedChecklist": [],
       "relatedSounds": []
     },
     {
@@ -170,6 +170,18 @@
   ],
   "checklist": [
     {
+      "title": "Identify hematemesis and melena as the bleeding source driving hypovolemic shock",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Apply cardiac monitor and pulse oximetry; obtain EtCO2",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
       "title": "Establish IV access (18-gauge preferred); place IO if unsuccessful within 2 attempts/90 sec",
       "type": "Check",
       "value": 0,
@@ -182,19 +194,7 @@
       "icon": 1
     },
     {
-      "title": "Apply cardiac monitor and pulse oximetry; obtain EtCO2",
-      "type": "Check",
-      "value": 0,
-      "icon": 1
-    },
-    {
       "title": "Give 500 mL isotonic fluid bolus, pressure-infused, targeting MAP 65 mmHg",
-      "type": "Check",
-      "value": 0,
-      "icon": 1
-    },
-    {
-      "title": "Identify hematemesis and melena as the bleeding source driving hypovolemic shock",
       "type": "Check",
       "value": 0,
       "icon": 1

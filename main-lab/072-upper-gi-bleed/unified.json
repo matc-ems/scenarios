@@ -79,13 +79,62 @@
         "trendTimeSeconds": 0,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [],
+      "expectedActions": [
+        {
+          "id": "a1",
+          "shortAction": "Identify hematemesis and melena as the bleeding source driving hypovolemic shock",
+          "protocolExcerpt": "Rectal bleeding, hematemesis, vaginal bleeding",
+          "priority": "important",
+          "rationale": "Correctly identifying the hemorrhage source informs destination and hospital notification.",
+          "protocolReference": "MATC: Abdominal Pain"
+        },
+        {
+          "id": "a2",
+          "shortAction": "Apply cardiac monitor and pulse oximetry; obtain EtCO2",
+          "protocolExcerpt": "Cardiac monitor. Pulse oximetry and EtCO2 (reading of less than 25 mmHg may be sign of poor perfusion)",
+          "priority": "important",
+          "rationale": "Continuous monitoring detects deterioration in perfusion status.",
+          "protocolReference": "MATC: Shock"
+        },
+        {
+          "id": "a3",
+          "shortAction": "Establish IV access (18-gauge preferred); place IO if unsuccessful within 2 attempts/90 sec",
+          "protocolExcerpt": "Establish IV access. If unable to obtain within two attempts or less than 90 seconds, place an IO needle",
+          "priority": "critical",
+          "rationale": "Vascular access is required for fluid resuscitation in hemorrhagic shock.",
+          "protocolReference": "MATC: Shock"
+        },
+        {
+          "id": "a4",
+          "shortAction": "Check blood glucose; correct if less than 60 mg/dL",
+          "protocolExcerpt": "Check blood sugar, and correct if less than 60 mg/dL",
+          "priority": "important",
+          "rationale": "Altered mentation in shock can be compounded by hypoglycemia and should be ruled out.",
+          "protocolReference": "MATC: Shock"
+        },
+        {
+          "id": "a5",
+          "shortAction": "Give 500 mL isotonic fluid bolus, pressure-infused, targeting MAP 65 mmHg",
+          "protocolExcerpt": "IV fluid volume goal attained by giving boluses that are pressure infused over less than 15 minutes each... Physiologic target: MAP goal 65 mmHg. Fluid goal of up to 30 mL/kg of isotonic fluid by administering rapid, predetermined boluses (e.g., 500 mL) unless the MAP goal is achieved, or pulmonary edema develops.",
+          "priority": "critical",
+          "rationale": "Rapid fluid resuscitation is the primary treatment for hemorrhagic shock in the field.",
+          "protocolReference": "MATC: Shock"
+        }
+      ],
       "transitions": [
         {
           "targetPhaseId": "iv-fluids",
           "if": "IV access and fluid bolus started",
           "condition": "Crew recognizes signs of hypovolemic shock from suspected upper GI hemorrhage and establishes vascular access, checks blood glucose, applies cardiac monitoring, and begins fluid resuscitation.",
-          "conditionType": "action_taken"
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a3", "a5"]
+        },
+        {
+          "targetPhaseId": "fluid-delayed",
+          "if": "Fluid resuscitation delayed or inadequate",
+          "condition": "IV access is delayed, boluses are not repeated, or the crew underestimates ongoing blood loss, allowing hypotension and tachycardia to worsen toward decompensated hemorrhagic shock.",
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["a3", "a5"]
         }
       ]
     },
@@ -130,43 +179,19 @@
       },
       "expectedActions": [
         {
-          "id": "a1-iv-access",
-          "shortAction": "Establish IV access (18-gauge preferred); place IO if unsuccessful within 2 attempts/90 sec",
-          "protocolExcerpt": "Establish IV access. If unable to obtain within two attempts or less than 90 seconds, place an IO needle",
-          "priority": "critical",
-          "rationale": "Vascular access is required for fluid resuscitation in hemorrhagic shock.",
-          "protocolReference": "MATC: Shock"
-        },
-        {
-          "id": "a2-bgl",
-          "shortAction": "Check blood glucose; correct if less than 60 mg/dL",
-          "protocolExcerpt": "Check blood sugar, and correct if less than 60 mg/dL",
+          "id": "b1",
+          "shortAction": "Provide advance notification to receiving facility for suspected active GI hemorrhage",
+          "protocolExcerpt": "Provide advanced notification to the hospital",
           "priority": "important",
-          "rationale": "Altered mentation in shock can be compounded by hypoglycemia and should be ruled out.",
+          "rationale": "Advance notification allows the receiving facility to prepare blood products and endoscopy resources.",
           "protocolReference": "MATC: Shock"
         },
         {
-          "id": "a3-monitor",
-          "shortAction": "Apply cardiac monitor and pulse oximetry; obtain EtCO2",
-          "protocolExcerpt": "Cardiac monitor. Pulse oximetry and EtCO2 (reading of less than 25 mmHg may be sign of poor perfusion)",
+          "id": "b2",
+          "shortAction": "Reassess vital signs and response to fluid therapy throughout transport",
+          "protocolExcerpt": "Reassess vital signs and response to therapeutic interventions throughout transport",
           "priority": "important",
-          "rationale": "Continuous monitoring detects deterioration in perfusion status.",
-          "protocolReference": "MATC: Shock"
-        },
-        {
-          "id": "a4-fluid-bolus",
-          "shortAction": "Give 500 mL isotonic fluid bolus, pressure-infused, targeting MAP 65 mmHg",
-          "protocolExcerpt": "IV fluid volume goal attained by giving boluses that are pressure infused over less than 15 minutes each... Physiologic target: MAP goal 65 mmHg. Fluid goal of up to 30 mL/kg of isotonic fluid by administering rapid, predetermined boluses (e.g., 500 mL) unless the MAP goal is achieved, or pulmonary edema develops.",
-          "priority": "critical",
-          "rationale": "Rapid fluid resuscitation is the primary treatment for hemorrhagic shock in the field.",
-          "protocolReference": "MATC: Shock"
-        },
-        {
-          "id": "a5-source-screen",
-          "shortAction": "Identify hematemesis and melena as the bleeding source driving hypovolemic shock",
-          "protocolExcerpt": "Rectal bleeding, hematemesis, vaginal bleeding",
-          "priority": "important",
-          "rationale": "Correctly identifying the hemorrhage source informs destination and hospital notification.",
+          "rationale": "Ongoing hemorrhage can recur; continuous reassessment detects re-deterioration early.",
           "protocolReference": "MATC: Abdominal Pain"
         }
       ],
@@ -176,14 +201,7 @@
           "if": "MAP improves, perfusion stabilizes",
           "condition": "After one to two fluid boluses, blood pressure trends upward toward the MAP goal, heart rate begins to slow, and mental status remains intact; crew prepares for rapid transport with advance hospital notification.",
           "conditionType": "vital_threshold",
-          "triggerActionIds": ["a4-fluid-bolus"]
-        },
-        {
-          "targetPhaseId": "fluid-delayed",
-          "if": "Fluid resuscitation delayed or inadequate",
-          "condition": "IV access is delayed, boluses are not repeated, or the crew underestimates ongoing blood loss, allowing hypotension and tachycardia to worsen toward decompensated hemorrhagic shock.",
-          "conditionType": "action_not_taken",
-          "triggerActionIds": ["a4-fluid-bolus"]
+          "triggerActionIds": ["b1", "b2"]
         }
       ]
     },
@@ -226,24 +244,7 @@
         "trendTimeSeconds": 45,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [
-        {
-          "id": "a6-advance-notify",
-          "shortAction": "Provide advance notification to receiving facility for suspected active GI hemorrhage",
-          "protocolExcerpt": "Provide advanced notification to the hospital",
-          "priority": "important",
-          "rationale": "Advance notification allows the receiving facility to prepare blood products and endoscopy resources.",
-          "protocolReference": "MATC: Shock"
-        },
-        {
-          "id": "a7-reassess",
-          "shortAction": "Reassess vital signs and response to fluid therapy throughout transport",
-          "protocolExcerpt": "Reassess vital signs and response to therapeutic interventions throughout transport",
-          "priority": "important",
-          "rationale": "Ongoing hemorrhage can recur; continuous reassessment detects re-deterioration early.",
-          "protocolReference": "MATC: Abdominal Pain"
-        }
-      ],
+      "expectedActions": [],
       "transitions": []
     },
     {
@@ -287,7 +288,7 @@
       },
       "expectedActions": [
         {
-          "id": "a8-recognize-decompensation",
+          "id": "c1",
           "shortAction": "Recognize decompensated hemorrhagic shock; give repeat fluid bolus and expedite transport",
           "protocolExcerpt": "Hypotension indicates uncompensated shock, which may progress to cardiopulmonary failure within minutes.",
           "priority": "critical",
