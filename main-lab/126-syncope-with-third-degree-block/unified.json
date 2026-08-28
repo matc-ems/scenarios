@@ -80,13 +80,47 @@
         "trendTimeSeconds": 0,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [],
+      "expectedActions": [
+        {
+          "id": "a1",
+          "shortAction": "Initiate cardiac monitoring and 12-lead EKG; establish IV access",
+          "protocolExcerpt": "Initiate monitoring and perform 12-lead EKG. Establish IV access.",
+          "priority": "critical",
+          "rationale": "Confirms the rhythm diagnosis and secures access before pacing or medications are needed.",
+          "protocolReference": "MATC: Bradycardia"
+        },
+        {
+          "id": "a2",
+          "shortAction": "Check blood glucose to rule out hypoglycemia as a contributing cause",
+          "protocolExcerpt": "Check blood glucose and treat hypoglycemia per the Hypoglycemia Guideline and Hyperglycemia Guideline",
+          "priority": "important",
+          "rationale": "Rules out a rapidly reversible metabolic cause of altered perfusion before escalating cardiac interventions.",
+          "protocolReference": "MATC: Bradycardia"
+        },
+        {
+          "id": "a3",
+          "shortAction": "Identify recent beta-blocker dose increase as likely cause; anticipate atropine may fail",
+          "protocolExcerpt": "Consider potential culprit medications including beta-blockers, calcium channel blockers, sodium channel blockers/anti-depressants, digoxin, and clonidine",
+          "priority": "important",
+          "rationale": "Beta-blocker-induced high-grade block is often atropine-refractory, so recognizing this early speeds the decision to pace.",
+          "protocolReference": "MATC: Bradycardia"
+        },
+        {
+          "id": "a4",
+          "shortAction": "Proceed quickly toward pacing rather than delaying on atropine for 3rd-degree block",
+          "protocolExcerpt": "Third-degree heart block or the denervated heart (as in cardiac transplant) may not respond to atropine and in these cases, proceed quickly to chronotropic agents (such as epinephrine or dopamine) or transcutaneous pacing",
+          "priority": "critical",
+          "rationale": "Avoids wasting time on a therapy unlikely to work in complete heart block while the patient's perfusion continues to decline.",
+          "protocolReference": "MATC: Bradycardia"
+        }
+      ],
       "transitions": [
         {
           "targetPhaseId": "block-identified",
-          "if": "12-lead acquired, high-grade block identified",
+          "if": "High-grade block identified",
           "condition": "Crew initiates cardiac monitoring, obtains a 12-lead EKG, establishes IV access, and checks blood glucose per the Syncope and Bradycardia Guidelines; the 12-lead reveals a third-degree AV block with AV dissociation.",
-          "conditionType": "action_taken"
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a1", "a3", "a4"]
         }
       ]
     },
@@ -132,35 +166,19 @@
       },
       "expectedActions": [
         {
-          "id": "a1-monitor-12lead",
-          "shortAction": "Initiate cardiac monitoring and 12-lead EKG; establish IV access",
-          "protocolExcerpt": "Initiate monitoring and perform 12-lead EKG. Establish IV access.",
+          "id": "b1",
+          "shortAction": "Ketamine 16 mg IV for pacing analgesia (65 kg × 0.25 mg/kg = 16.25 mg; max initial 25 mg)",
+          "protocolExcerpt": "For Moderate to Severe pain, analgesics include: Ketamine: 0.25 mg/kg IM, IV or IO (maximum initial dose 25 mg; maximum cumulative dose 100 mg)",
           "priority": "critical",
-          "rationale": "Confirms the rhythm diagnosis and secures access before pacing or medications are needed.",
-          "protocolReference": "MATC: Bradycardia"
+          "rationale": "Transcutaneous pacing is painful; providing analgesia first improves tolerance and helps maintain consistent capture.",
+          "protocolReference": "MATC: Pain Management"
         },
         {
-          "id": "a2-bgl",
-          "shortAction": "Check blood glucose to rule out hypoglycemia as a contributing cause",
-          "protocolExcerpt": "Check blood glucose and treat hypoglycemia per the Hypoglycemia Guideline and Hyperglycemia Guideline",
-          "priority": "important",
-          "rationale": "Rules out a rapidly reversible metabolic cause of altered perfusion before escalating cardiac interventions.",
-          "protocolReference": "MATC: Bradycardia"
-        },
-        {
-          "id": "a3-med-recognition",
-          "shortAction": "Identify recent beta-blocker dose increase as likely cause; anticipate atropine may fail",
-          "protocolExcerpt": "Consider potential culprit medications including beta-blockers, calcium channel blockers, sodium channel blockers/anti-depressants, digoxin, and clonidine",
-          "priority": "important",
-          "rationale": "Beta-blocker-induced high-grade block is often atropine-refractory, so recognizing this early speeds the decision to pace.",
-          "protocolReference": "MATC: Bradycardia"
-        },
-        {
-          "id": "a4-skip-atropine-delay",
-          "shortAction": "Proceed quickly toward pacing rather than delaying on atropine for 3rd-degree block",
-          "protocolExcerpt": "Third-degree heart block or the denervated heart (as in cardiac transplant) may not respond to atropine and in these cases, proceed quickly to chronotropic agents (such as epinephrine or dopamine) or transcutaneous pacing",
+          "id": "b2",
+          "shortAction": "Initiate transcutaneous pacing at rate 70, confirm electrical and mechanical capture",
+          "protocolExcerpt": "Transcutaneous Pacing – If pacing is performed, consider sedation or pain control",
           "priority": "critical",
-          "rationale": "Avoids wasting time on a therapy unlikely to work in complete heart block while the patient's perfusion continues to decline.",
+          "rationale": "Pacing directly treats the hemodynamically significant third-degree block by restoring an adequate ventricular rate.",
           "protocolReference": "MATC: Bradycardia"
         }
       ],
@@ -170,13 +188,14 @@
           "if": "TCP initiated with sedation",
           "condition": "Crew applies pacing pads, administers ketamine for pain control prior to pacing, and initiates transcutaneous pacing with electrical and mechanical capture confirmed.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["a4-skip-atropine-delay"]
+          "triggerActionIds": ["b1", "b2"]
         },
         {
           "targetPhaseId": "tcp-no-sedation",
           "if": "TCP started without sedation",
           "condition": "Crew initiates transcutaneous pacing without offering sedation or pain control first, causing significant patient distress and interfering with maintained capture.",
-          "conditionType": "action_not_taken"
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["b1"]
         }
       ]
     },
@@ -222,20 +241,12 @@
       },
       "expectedActions": [
         {
-          "id": "a5-ketamine",
-          "shortAction": "Ketamine 16 mg IV for pacing analgesia (65 kg × 0.25 mg/kg = 16.25 mg; max initial 25 mg)",
-          "protocolExcerpt": "For Moderate to Severe pain, analgesics include: Ketamine: 0.25 mg/kg IM, IV or IO (maximum initial dose 25 mg; maximum cumulative dose 100 mg)",
-          "priority": "critical",
-          "rationale": "Transcutaneous pacing is painful; providing analgesia first improves tolerance and helps maintain consistent capture.",
-          "protocolReference": "MATC: Pain Management"
-        },
-        {
-          "id": "a6-tcp",
-          "shortAction": "Initiate transcutaneous pacing at rate 70, confirm electrical and mechanical capture",
-          "protocolExcerpt": "Transcutaneous Pacing – If pacing is performed, consider sedation or pain control",
-          "priority": "critical",
-          "rationale": "Pacing directly treats the hemodynamically significant third-degree block by restoring an adequate ventricular rate.",
-          "protocolReference": "MATC: Bradycardia"
+          "id": "c1",
+          "shortAction": "Continue continuous EKG monitoring; transport to cardiac-capable facility",
+          "protocolExcerpt": "Additional Evaluation: Cardiac monitoring, Oxygen saturation (SPO2), Ongoing vital signs, 12-lead EKG, Blood glucose level (BGL)",
+          "priority": "important",
+          "rationale": "Ongoing monitoring detects recurrence or loss of capture en route, and cardiac-capable transport ensures definitive pacing/cardiology care.",
+          "protocolReference": "MATC: Syncope"
         }
       ],
       "transitions": [
@@ -244,7 +255,7 @@
           "if": "Capture maintained, perfusion improved",
           "condition": "Pacing capture remains consistent with a palpable pulse matching the set rate; blood pressure and mentation improve, and the patient is packaged for transport to a cardiac-capable facility.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["a6-tcp"]
+          "triggerActionIds": ["c1"]
         }
       ]
     },
@@ -287,16 +298,7 @@
         "trendTimeSeconds": 40,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [
-        {
-          "id": "a7-transport",
-          "shortAction": "Continue continuous EKG monitoring; transport to cardiac-capable facility",
-          "protocolExcerpt": "Additional Evaluation: Cardiac monitoring, Oxygen saturation (SPO2), Ongoing vital signs, 12-lead EKG, Blood glucose level (BGL)",
-          "priority": "important",
-          "rationale": "Ongoing monitoring detects recurrence or loss of capture en route, and cardiac-capable transport ensures definitive pacing/cardiology care.",
-          "protocolReference": "MATC: Syncope"
-        }
-      ],
+      "expectedActions": [],
       "transitions": []
     },
     {
@@ -340,7 +342,7 @@
       },
       "expectedActions": [
         {
-          "id": "a8-rescue-sedation",
+          "id": "d1",
           "shortAction": "Recognize inadequate pacing tolerance; give ketamine 16 mg IV (65 kg × 0.25 mg/kg) to allow effective capture",
           "protocolExcerpt": "For Moderate to Severe pain, analgesics include: Ketamine: 0.25 mg/kg IM, IV or IO (maximum initial dose 25 mg; maximum cumulative dose 100 mg)",
           "priority": "critical",

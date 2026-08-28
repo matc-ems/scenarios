@@ -57,7 +57,12 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [],
+      "relatedChecklist": [
+        "Initiate cardiac monitoring and 12-lead EKG; establish IV access",
+        "Check blood glucose to rule out hypoglycemia as a contributing cause",
+        "Identify recent beta-blocker dose increase as likely cause; anticipate atropine may fail",
+        "Proceed quickly toward pacing rather than delaying on atropine for 3rd-degree block"
+      ],
       "relatedSounds": []
     },
     {
@@ -90,10 +95,8 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Initiate cardiac monitoring and 12-lead EKG; establish IV access",
-        "Check blood glucose to rule out hypoglycemia as a contributing cause",
-        "Identify recent beta-blocker dose increase as likely cause; anticipate atropine may fail",
-        "Proceed quickly toward pacing rather than delaying on atropine for 3rd-degree block"
+        "Ketamine 16 mg IV for pacing analgesia (65 kg × 0.25 mg/kg = 16.25 mg; max initial 25 mg)",
+        "Initiate transcutaneous pacing at rate 70, confirm electrical and mechanical capture"
       ],
       "relatedSounds": []
     },
@@ -127,8 +130,7 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Ketamine 16 mg IV for pacing analgesia (65 kg × 0.25 mg/kg = 16.25 mg; max initial 25 mg)",
-        "Initiate transcutaneous pacing at rate 70, confirm electrical and mechanical capture"
+        "Continue continuous EKG monitoring; transport to cardiac-capable facility"
       ],
       "relatedSounds": []
     },
@@ -161,9 +163,7 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [
-        "Continue continuous EKG monitoring; transport to cardiac-capable facility"
-      ],
+      "relatedChecklist": [],
       "relatedSounds": []
     },
     {
