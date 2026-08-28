@@ -57,7 +57,10 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [],
+      "relatedChecklist": [
+        "Begin BVM ventilation with PEEP 5 cmH2O at 1 breath every 6 seconds (10/min) for apnea",
+        "Titrate oxygen/PEEP to target SpO2 94–98%; avoid hyperoxygenation"
+      ],
       "relatedSounds": []
     },
     {
@@ -90,8 +93,9 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Begin BVM ventilation with PEEP 5 cmH2O at 1 breath every 6 seconds (10/min) for apnea",
-        "Titrate oxygen/PEEP to target SpO2 94–98%; avoid hyperoxygenation"
+        "Remove wet clothing, dry skin, insulate with dry blankets and a vapor barrier",
+        "Apply heat packs to torso wrapped in a barrier; never place directly on skin",
+        "Establish IV access; give warmed isotonic crystalloid bolus, repeat as needed"
       ],
       "relatedSounds": []
     },
@@ -125,9 +129,7 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Remove wet clothing, dry skin, insulate with dry blankets and a vapor barrier",
-        "Apply heat packs to torso wrapped in a barrier; never place directly on skin",
-        "Establish IV access; give warmed isotonic crystalloid bolus, repeat as needed"
+        "Transport to hospital capable of rewarming/resuscitation; warm ambulance to at least 24°C"
       ],
       "relatedSounds": []
     },
@@ -160,9 +162,7 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [
-        "Transport to hospital capable of rewarming/resuscitation; warm ambulance to at least 24°C"
-      ],
+      "relatedChecklist": [],
       "relatedSounds": []
     },
     {

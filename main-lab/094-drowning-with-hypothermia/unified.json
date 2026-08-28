@@ -81,13 +81,38 @@
         "trendTimeSeconds": 0,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [],
+      "expectedActions": [
+        {
+          "id": "a1",
+          "shortAction": "Begin BVM ventilation with PEEP 5 cmH2O at 1 breath every 6 seconds (10/min) for apnea",
+          "protocolExcerpt": "For apnea, provide one breath every 6 seconds adjusting based on pulse oximetry and digital capnometry or capnography (with the goal of 35–45 mmHg)",
+          "priority": "critical",
+          "rationale": "Airway/ventilation takes priority over compressions in a drowning patient who still has a pulse.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        },
+        {
+          "id": "a2",
+          "shortAction": "Titrate oxygen/PEEP to target SpO2 94–98%; avoid hyperoxygenation",
+          "protocolExcerpt": "Treatment: If O2 saturations are less than 92%, administer oxygen as appropriate with a target of achieving 94–98% saturation. Patient Safety Considerations: Avoidance of hyperoxygenation of the drowning victim.",
+          "priority": "important",
+          "rationale": "Excess oxygen delivery is discouraged in drowning resuscitation once adequate saturation is achieved.",
+          "protocolReference": "MATC: Drowning"
+        }
+      ],
       "transitions": [
         {
           "targetPhaseId": "bvm-started",
           "if": "BVM with PEEP started",
           "condition": "Crew opens the airway and begins bag-valve-mask ventilation with PEEP at an apnea rate, replacing bystander rescue breathing.",
-          "conditionType": "action_taken"
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a1", "a2"]
+        },
+        {
+          "targetPhaseId": "ventilation-inadequate",
+          "if": "Ventilation delayed, pulse lost",
+          "condition": "BVM ventilation is delayed, poorly sealed, or otherwise ineffective while the patient remains apneic and hypothermic; the pulse is lost and the patient progresses into cardiac arrest.",
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["a1"]
         }
       ]
     },
@@ -131,20 +156,28 @@
       },
       "expectedActions": [
         {
-          "id": "a1-bvm",
-          "shortAction": "Begin BVM ventilation with PEEP 5 cmH2O at 1 breath every 6 seconds (10/min) for apnea",
-          "protocolExcerpt": "For apnea, provide one breath every 6 seconds adjusting based on pulse oximetry and digital capnometry or capnography (with the goal of 35–45 mmHg)",
+          "id": "b1",
+          "shortAction": "Remove wet clothing, dry skin, insulate with dry blankets and a vapor barrier",
+          "protocolExcerpt": "Prevent further heat loss by removing the patient from the environment and removing wet clothes and drying skin, insulate from the ground, shelter the patient from wind and wet conditions, and insulate the patient with dry clothing or a hypothermia wrap/blanket. Cover the patient with a vapor barrier and, if available, move the patient to a warm environment",
           "priority": "critical",
-          "rationale": "Airway/ventilation takes priority over compressions in a drowning patient who still has a pulse.",
-          "protocolReference": "MATC: Airway Management (Includes RSI)"
+          "rationale": "Ongoing evaporative and conductive heat loss will worsen hypothermia if wet clothing and exposure continue.",
+          "protocolReference": "MATC: Hypothermia/Cold Exposure"
         },
         {
-          "id": "a2-titrate-o2",
-          "shortAction": "Titrate oxygen/PEEP to target SpO2 94–98%; avoid hyperoxygenation",
-          "protocolExcerpt": "Treatment: If O2 saturations are less than 92%, administer oxygen as appropriate with a target of achieving 94–98% saturation. Patient Safety Considerations: Avoidance of hyperoxygenation of the drowning victim.",
+          "id": "b2",
+          "shortAction": "Apply heat packs to torso wrapped in a barrier; never place directly on skin",
+          "protocolExcerpt": "Initiate field-rewarming methods such as placement of large heat packs or heat blankets (chemical or electric if feasible) to the anterior chest or wrapped around the patient's thorax if large enough Chemical or electrical heat sources should never be applied directly to the skin Use a barrier between the skin and heat source to prevent burns",
           "priority": "important",
-          "rationale": "Excess oxygen delivery is discouraged in drowning resuscitation once adequate saturation is achieved.",
-          "protocolReference": "MATC: Drowning"
+          "rationale": "Direct skin contact with heat sources can cause burns, especially in a patient with reduced ability to sense injury.",
+          "protocolReference": "MATC: Hypothermia/Cold Exposure"
+        },
+        {
+          "id": "b3",
+          "shortAction": "Establish IV access; give warmed isotonic crystalloid bolus, repeat as needed",
+          "protocolExcerpt": "Establish IV and provide warmed isotonic crystalloid bolus. Repeat as necessary",
+          "priority": "important",
+          "rationale": "Warmed fluids support rewarming while addressing hypotension associated with moderate hypothermia.",
+          "protocolReference": "MATC: Hypothermia/Cold Exposure"
         }
       ],
       "transitions": [
@@ -153,14 +186,14 @@
           "if": "Rewarming and warmed IV fluids started",
           "condition": "With ventilation established and oxygenation improving, the crew shifts focus to preventing further heat loss, applying field rewarming measures, and establishing IV access for warmed fluids.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["a1-bvm", "a2-titrate-o2"]
+          "triggerActionIds": ["b1", "b2", "b3"]
         },
         {
-          "targetPhaseId": "ventilation-inadequate",
-          "if": "Ventilation delayed, pulse lost",
-          "condition": "BVM ventilation is delayed, poorly sealed, or otherwise ineffective while the patient remains apneic and hypothermic; the pulse is lost and the patient progresses into cardiac arrest.",
+          "targetPhaseId": "heat-pack-burn",
+          "if": "Heat pack applied without barrier",
+          "condition": "A heat pack is placed directly against bare skin without a barrier during field rewarming, risking a thermal burn injury in a patient with reduced ability to sense or report developing tissue damage.",
           "conditionType": "action_not_taken",
-          "triggerActionIds": ["a1-bvm"]
+          "triggerActionIds": ["b2"]
         }
       ]
     },
@@ -205,27 +238,11 @@
       },
       "expectedActions": [
         {
-          "id": "a3-remove-wet",
-          "shortAction": "Remove wet clothing, dry skin, insulate with dry blankets and a vapor barrier",
-          "protocolExcerpt": "Prevent further heat loss by removing the patient from the environment and removing wet clothes and drying skin, insulate from the ground, shelter the patient from wind and wet conditions, and insulate the patient with dry clothing or a hypothermia wrap/blanket. Cover the patient with a vapor barrier and, if available, move the patient to a warm environment",
-          "priority": "critical",
-          "rationale": "Ongoing evaporative and conductive heat loss will worsen hypothermia if wet clothing and exposure continue.",
-          "protocolReference": "MATC: Hypothermia/Cold Exposure"
-        },
-        {
-          "id": "a4-field-rewarm",
-          "shortAction": "Apply heat packs to torso wrapped in a barrier; never place directly on skin",
-          "protocolExcerpt": "Initiate field-rewarming methods such as placement of large heat packs or heat blankets (chemical or electric if feasible) to the anterior chest or wrapped around the patient's thorax if large enough Chemical or electrical heat sources should never be applied directly to the skin Use a barrier between the skin and heat source to prevent burns",
+          "id": "c1",
+          "shortAction": "Transport to hospital capable of rewarming/resuscitation; warm ambulance to at least 24°C",
+          "protocolExcerpt": "Transport as soon as possible to a hospital capable of resuscitation. If cardiac arrest develops consider transport to a center capable of extracorporeal circulation (ECMO) or cardiopulmonary bypass (if feasible) Warm the patient compartment of the ambulance to at least 24°C (75.2°F) during transport",
           "priority": "important",
-          "rationale": "Direct skin contact with heat sources can cause burns, especially in a patient with reduced ability to sense injury.",
-          "protocolReference": "MATC: Hypothermia/Cold Exposure"
-        },
-        {
-          "id": "a5-iv-fluids",
-          "shortAction": "Establish IV access; give warmed isotonic crystalloid bolus, repeat as needed",
-          "protocolExcerpt": "Establish IV and provide warmed isotonic crystalloid bolus. Repeat as necessary",
-          "priority": "important",
-          "rationale": "Warmed fluids support rewarming while addressing hypotension associated with moderate hypothermia.",
+          "rationale": "Definitive rewarming and monitoring require prompt transport to an appropriate facility.",
           "protocolReference": "MATC: Hypothermia/Cold Exposure"
         }
       ],
@@ -235,14 +252,7 @@
           "if": "Ventilation and rewarming improving, transport initiated",
           "condition": "Ventilation remains adequate, core temperature is trending upward, and the patient is packaged for transport with the ambulance compartment warmed.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["a3-remove-wet", "a4-field-rewarm", "a5-iv-fluids"]
-        },
-        {
-          "targetPhaseId": "heat-pack-burn",
-          "if": "Heat pack applied without barrier",
-          "condition": "A heat pack is placed directly against bare skin without a barrier during field rewarming, risking a thermal burn injury in a patient with reduced ability to sense or report developing tissue damage.",
-          "conditionType": "action_not_taken",
-          "triggerActionIds": ["a4-field-rewarm"]
+          "triggerActionIds": ["c1"]
         }
       ]
     },
@@ -284,16 +294,7 @@
         "trendTimeSeconds": 40,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
       },
-      "expectedActions": [
-        {
-          "id": "a6-transport",
-          "shortAction": "Transport to hospital capable of rewarming/resuscitation; warm ambulance to at least 24°C",
-          "protocolExcerpt": "Transport as soon as possible to a hospital capable of resuscitation. If cardiac arrest develops consider transport to a center capable of extracorporeal circulation (ECMO) or cardiopulmonary bypass (if feasible) Warm the patient compartment of the ambulance to at least 24°C (75.2°F) during transport",
-          "priority": "important",
-          "rationale": "Definitive rewarming and monitoring require prompt transport to an appropriate facility.",
-          "protocolReference": "MATC: Hypothermia/Cold Exposure"
-        }
-      ],
+      "expectedActions": [],
       "transitions": []
     },
     {
@@ -335,7 +336,7 @@
       },
       "expectedActions": [
         {
-          "id": "a7-abc-arrest",
+          "id": "d1",
           "shortAction": "Recognize drowning-specific arrest; give 5 rescue breaths, then continue 30:2 CPR",
           "protocolExcerpt": "patients suffering cardiac arrest from drowning require an ABCs (Airway, Breathing, Circulation) approach with prompt airway management and supplemental breathing Initiate 5 rescue breaths followed by 30 chest compressions. After the initial 5 breaths, use ratio of 30 compressions to 2 breaths",
           "priority": "critical",
@@ -384,7 +385,7 @@
       },
       "expectedActions": [
         {
-          "id": "a8-burn-correction",
+          "id": "e1",
           "shortAction": "Recognize thermal injury; remove direct heat source and place a barrier before reapplying",
           "protocolExcerpt": "Chemical or electrical heat sources should never be applied directly to the skin Use a barrier between the skin and heat source to prevent burns",
           "priority": "important",
