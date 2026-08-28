@@ -78,13 +78,47 @@
         "trendTimeSeconds": 0,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [],
+      "expectedActions": [
+        {
+          "id": "a1",
+          "shortAction": "Apply supplemental oxygen, titrate to target 94–98% SpO2",
+          "protocolExcerpt": "Administer oxygen as appropriate with a target of achieving 94–98% saturation",
+          "priority": "critical",
+          "rationale": "Corrects hypoxia contributing to end-organ malperfusion.",
+          "protocolReference": "MATC: Tachycardia with a Pulse"
+        },
+        {
+          "id": "a2",
+          "shortAction": "Establish IV access",
+          "protocolExcerpt": "Establish IV access",
+          "priority": "critical",
+          "rationale": "Needed for sedation prior to cardioversion and for any rescue medications.",
+          "protocolReference": "MATC: Tachycardia with a Pulse"
+        },
+        {
+          "id": "a3",
+          "shortAction": "Initiate cardiac monitoring and obtain a 12-lead ECG",
+          "protocolExcerpt": "Initiate monitoring and perform 12-lead EKG",
+          "priority": "critical",
+          "rationale": "Confirms rhythm morphology (regular vs irregular, narrow vs wide) to guide algorithm selection.",
+          "protocolReference": "MATC: Tachycardia with a Pulse"
+        },
+        {
+          "id": "a4",
+          "shortAction": "Check blood glucose; treat per Hypoglycemia Guideline if low",
+          "protocolExcerpt": "Check blood glucose and treat hypoglycemia per the Hypoglycemia Guideline",
+          "priority": "important",
+          "rationale": "Rules out hypoglycemia as a contributor to altered mental status.",
+          "protocolReference": "MATC: Tachycardia with a Pulse"
+        }
+      ],
       "transitions": [
         {
           "targetPhaseId": "instability-recognized",
           "if": "Unstable WCT recognized, prepared for cardioversion",
           "condition": "Crew completes primary survey, applies oxygen, obtains IV access and 12-lead/monitor, checks blood glucose, and identifies a regular wide-complex tachycardia with hypotension and altered mental status meeting criteria for unstable tachycardia.",
-          "conditionType": "action_taken"
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a2", "a3"]
         }
       ]
     },
@@ -129,44 +163,28 @@
       },
       "expectedActions": [
         {
-          "id": "a1-o2",
-          "shortAction": "Apply supplemental oxygen, titrate to target 94–98% SpO2",
-          "protocolExcerpt": "Administer oxygen as appropriate with a target of achieving 94–98% saturation",
-          "priority": "critical",
-          "rationale": "Corrects hypoxia contributing to end-organ malperfusion.",
-          "protocolReference": "MATC: Tachycardia with a Pulse"
-        },
-        {
-          "id": "a2-iv",
-          "shortAction": "Establish IV access",
-          "protocolExcerpt": "Establish IV access",
-          "priority": "critical",
-          "rationale": "Needed for sedation prior to cardioversion and for any rescue medications.",
-          "protocolReference": "MATC: Tachycardia with a Pulse"
-        },
-        {
-          "id": "a3-monitor",
-          "shortAction": "Initiate cardiac monitoring and obtain a 12-lead ECG",
-          "protocolExcerpt": "Initiate monitoring and perform 12-lead EKG",
-          "priority": "critical",
-          "rationale": "Confirms rhythm morphology (regular vs irregular, narrow vs wide) to guide algorithm selection.",
-          "protocolReference": "MATC: Tachycardia with a Pulse"
-        },
-        {
-          "id": "a4-bgl",
-          "shortAction": "Check blood glucose; treat per Hypoglycemia Guideline if low",
-          "protocolExcerpt": "Check blood glucose and treat hypoglycemia per the Hypoglycemia Guideline",
-          "priority": "important",
-          "rationale": "Rules out hypoglycemia as a contributor to altered mental status.",
-          "protocolReference": "MATC: Tachycardia with a Pulse"
-        },
-        {
-          "id": "a5-sedation",
+          "id": "b1",
           "shortAction": "Ketamine 17.5 mg IV for procedural sedation before cardioversion (70 kg × 0.25 mg/kg = 17.5 mg; max initial 25 mg)",
           "protocolExcerpt": "Ketamine: 0.25 mg/kg IM, IV or IO (maximum initial dose 25 mg; maximum cumulative dose 100 mg)",
           "priority": "critical",
           "rationale": "Responsive unstable patients should receive sedation and analgesia prior to synchronized cardioversion.",
           "protocolReference": "MATC: Pain Management"
+        },
+        {
+          "id": "b2",
+          "shortAction": "Deliver synchronized cardioversion per manufacturer-recommended energy setting",
+          "protocolExcerpt": "Regular Wide Complex Tachycardia – Unstable: Deliver a synchronized shock based on manufacturer's recommendation. For responsive patients, consider sedation and analgesia.",
+          "priority": "critical",
+          "rationale": "Definitive treatment for unstable wide-complex tachycardia is electrical, not pharmacologic.",
+          "protocolReference": "MATC: Tachycardia with a Pulse"
+        },
+        {
+          "id": "b3",
+          "shortAction": "Obtain repeat monitor strip/12-lead after cardioversion to confirm conversion",
+          "protocolExcerpt": "Obtain monitor strips after each intervention",
+          "priority": "supplemental",
+          "rationale": "Documents rhythm response to the intervention.",
+          "protocolReference": "MATC: Tachycardia with a Pulse"
         }
       ],
       "transitions": [
@@ -175,14 +193,14 @@
           "if": "Synchronized cardioversion performed",
           "condition": "After sedation, the crew delivers a synchronized shock per manufacturer recommendation for the unstable regular wide-complex tachycardia.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["a5-sedation"]
+          "triggerActionIds": ["b1", "b2"]
         },
         {
           "targetPhaseId": "cardioversion-delayed",
           "if": "Pharmacologic therapy attempted instead of shock",
           "condition": "Crew attempts antiarrhythmic medication (e.g., amiodarone) rather than immediate synchronized cardioversion despite hemodynamic instability, delaying definitive treatment.",
           "conditionType": "action_not_taken",
-          "triggerActionIds": ["a5-sedation"]
+          "triggerActionIds": ["b2"]
         }
       ]
     },
@@ -227,19 +245,11 @@
       },
       "expectedActions": [
         {
-          "id": "a6-shock",
-          "shortAction": "Deliver synchronized cardioversion per manufacturer-recommended energy setting",
-          "protocolExcerpt": "Regular Wide Complex Tachycardia – Unstable: Deliver a synchronized shock based on manufacturer's recommendation. For responsive patients, consider sedation and analgesia.",
-          "priority": "critical",
-          "rationale": "Definitive treatment for unstable wide-complex tachycardia is electrical, not pharmacologic.",
-          "protocolReference": "MATC: Tachycardia with a Pulse"
-        },
-        {
-          "id": "a7-strip",
-          "shortAction": "Obtain repeat monitor strip/12-lead after cardioversion to confirm conversion",
-          "protocolExcerpt": "Obtain monitor strips after each intervention",
-          "priority": "supplemental",
-          "rationale": "Documents rhythm response to the intervention.",
+          "id": "c1",
+          "shortAction": "Continue continuous cardiac monitoring en route; reassess for tachycardia recurrence",
+          "protocolExcerpt": "Maintain adequate oxygenation, ventilation, and perfusion",
+          "priority": "important",
+          "rationale": "Post-cardioversion patients require ongoing monitoring for arrhythmia recurrence.",
           "protocolReference": "MATC: Tachycardia with a Pulse"
         }
       ],
@@ -248,7 +258,8 @@
           "targetPhaseId": "transport",
           "if": "Converted, transport initiated",
           "condition": "Sinus rhythm is confirmed, vital signs are improving, and the patient is packaged for transport with continued monitoring.",
-          "conditionType": "action_taken"
+          "conditionType": "action_taken",
+          "triggerActionIds": ["c1"]
         }
       ]
     },
@@ -291,16 +302,7 @@
         "trendTimeSeconds": 40,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [
-        {
-          "id": "a8-transport",
-          "shortAction": "Continue continuous cardiac monitoring en route; reassess for tachycardia recurrence",
-          "protocolExcerpt": "Maintain adequate oxygenation, ventilation, and perfusion",
-          "priority": "important",
-          "rationale": "Post-cardioversion patients require ongoing monitoring for arrhythmia recurrence.",
-          "protocolReference": "MATC: Tachycardia with a Pulse"
-        }
-      ],
+      "expectedActions": [],
       "transitions": []
     },
     {
@@ -344,7 +346,7 @@
       },
       "expectedActions": [
         {
-          "id": "a9-recover",
+          "id": "d1",
           "shortAction": "Recognize worsening instability; stop pharmacologic trial and proceed immediately to synchronized cardioversion",
           "protocolExcerpt": "Regular Wide Complex Tachycardia – Unstable: Deliver a synchronized shock based on manufacturer's recommendation",
           "priority": "critical",

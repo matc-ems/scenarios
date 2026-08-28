@@ -57,7 +57,12 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [],
+      "relatedChecklist": [
+        "Apply supplemental oxygen, titrate to target 94–98% SpO2",
+        "Establish IV access",
+        "Initiate cardiac monitoring and obtain a 12-lead ECG",
+        "Check blood glucose; treat per Hypoglycemia Guideline if low"
+      ],
       "relatedSounds": []
     },
     {
@@ -90,11 +95,9 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Apply supplemental oxygen, titrate to target 94–98% SpO2",
-        "Establish IV access",
-        "Initiate cardiac monitoring and obtain a 12-lead ECG",
-        "Check blood glucose; treat per Hypoglycemia Guideline if low",
-        "Ketamine 17.5 mg IV for procedural sedation before cardioversion (70 kg × 0.25 mg/kg = 17.5 mg; max initial 25 mg)"
+        "Ketamine 17.5 mg IV for procedural sedation before cardioversion (70 kg × 0.25 mg/kg = 17.5 mg; max initial 25 mg)",
+        "Deliver synchronized cardioversion per manufacturer-recommended energy setting",
+        "Obtain repeat monitor strip/12-lead after cardioversion to confirm conversion"
       ],
       "relatedSounds": []
     },
@@ -128,8 +131,7 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Deliver synchronized cardioversion per manufacturer-recommended energy setting",
-        "Obtain repeat monitor strip/12-lead after cardioversion to confirm conversion"
+        "Continue continuous cardiac monitoring en route; reassess for tachycardia recurrence"
       ],
       "relatedSounds": []
     },
@@ -162,9 +164,7 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [
-        "Continue continuous cardiac monitoring en route; reassess for tachycardia recurrence"
-      ],
+      "relatedChecklist": [],
       "relatedSounds": []
     },
     {
