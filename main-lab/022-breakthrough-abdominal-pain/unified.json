@@ -81,13 +81,47 @@
         "trendTimeSeconds": 0,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [],
+      "expectedActions": [
+        {
+          "id": "a1",
+          "shortAction": "Assess pain using Numeric Rating Scale (NRS); document 9/10 baseline",
+          "protocolExcerpt": "Greater than 12 years old: Self-report scale: Numeric Rating Scale (NRS)",
+          "priority": "critical",
+          "rationale": "A documented baseline pain score is required to gauge response to analgesia.",
+          "protocolReference": "MATC: Pain Management"
+        },
+        {
+          "id": "a2",
+          "shortAction": "Assess abdomen for life-threatening causes (rigidity, rebound, pulsatile mass, distension)",
+          "protocolExcerpt": "Assess for life-threatening causes of abdominal pain, which may include: Signs and symptoms of ischemic, necrotic, or perforated bowel: Severe tenderness, Abdominal pain with motion or palpation of the abdomen, Fever, Bloody stool",
+          "priority": "critical",
+          "rationale": "Even in a known hospice patient, a new surgical abdomen must be excluded before attributing pain solely to the underlying malignancy.",
+          "protocolReference": "MATC: Abdominal Pain"
+        },
+        {
+          "id": "a3",
+          "shortAction": "Confirm hospice enrollment and consult patient directly on treatment wishes",
+          "protocolExcerpt": "Engage with the patient's hospice or end-of-life care team or their primary care physician if possible. If not a viable option, contact medical direction. If the patient can communicate and has the capacity to make decisions regarding treatment and transport, consult directly with the patient before treatment and/or transport",
+          "priority": "important",
+          "rationale": "The patient is alert and has decision-making capacity, so her stated wishes for pain relief should directly guide care.",
+          "protocolReference": "MATC: End-of-Life Care/Hospice Care"
+        },
+        {
+          "id": "a4",
+          "shortAction": "Establish IV access to allow analgesia administration",
+          "protocolExcerpt": "Obtain vascular access as necessary to provide analgesia and/or fluid resuscitation",
+          "priority": "critical",
+          "rationale": "IV access enables titratable opioid dosing rather than relying on the ineffective oral breakthrough dose.",
+          "protocolReference": "MATC: Abdominal Pain"
+        }
+      ],
       "transitions": [
         {
           "targetPhaseId": "assessment",
           "if": "Pain and life-threat assessment performed",
           "condition": "Crew obtains a pain scale score, screens the abdomen for life-threatening causes, obtains vascular access, and engages the hospice care framework before administering analgesia.",
-          "conditionType": "action_taken"
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a1", "a2", "a4"]
         }
       ]
     },
@@ -132,35 +166,27 @@
       },
       "expectedActions": [
         {
-          "id": "a1-pain-scale",
-          "shortAction": "Assess pain using Numeric Rating Scale (NRS); document 9/10 baseline",
-          "protocolExcerpt": "Greater than 12 years old: Self-report scale: Numeric Rating Scale (NRS)",
+          "id": "b1",
+          "shortAction": "Hydromorphone 1 mg IV (68 kg × 0.015 mg/kg = 1.02 mg; max initial 2 mg, max cumulative 4 mg)",
+          "protocolExcerpt": "Hydromorphone: 0.015 mg/kg IM, IV, or IO (maximum initial dose 2 mg; maximum cumulative dose of 4 mg)",
           "priority": "critical",
-          "rationale": "A documented baseline pain score is required to gauge response to analgesia.",
+          "rationale": "Weight-based initial dosing per protocol, with room to titrate further given her opioid tolerance.",
           "protocolReference": "MATC: Pain Management"
         },
         {
-          "id": "a2-abdominal-screen",
-          "shortAction": "Assess abdomen for life-threatening causes (rigidity, rebound, pulsatile mass, distension)",
-          "protocolExcerpt": "Assess for life-threatening causes of abdominal pain, which may include: Signs and symptoms of ischemic, necrotic, or perforated bowel: Severe tenderness, Abdominal pain with motion or palpation of the abdomen, Fever, Bloody stool",
-          "priority": "critical",
-          "rationale": "Even in a known hospice patient, a new surgical abdomen must be excluded before attributing pain solely to the underlying malignancy.",
-          "protocolReference": "MATC: Abdominal Pain"
-        },
-        {
-          "id": "a3-iv-access",
-          "shortAction": "Establish IV access to allow analgesia administration",
-          "protocolExcerpt": "Obtain vascular access as necessary to provide analgesia and/or fluid resuscitation",
-          "priority": "critical",
-          "rationale": "IV access enables titratable opioid dosing rather than relying on the ineffective oral breakthrough dose.",
-          "protocolReference": "MATC: Abdominal Pain"
-        },
-        {
-          "id": "a4-hospice-engage",
-          "shortAction": "Confirm hospice enrollment and consult patient directly on treatment wishes",
-          "protocolExcerpt": "Engage with the patient's hospice or end-of-life care team or their primary care physician if possible. If not a viable option, contact medical direction. If the patient can communicate and has the capacity to make decisions regarding treatment and transport, consult directly with the patient before treatment and/or transport",
+          "id": "b2",
+          "shortAction": "Apply continuous waveform capnography as early monitor for opioid-induced hypoventilation",
+          "protocolExcerpt": "Use of non-invasive capnography is an earlier predictor of hypoventilation than pulse oximetry if opioid medications are administered",
           "priority": "important",
-          "rationale": "The patient is alert and has decision-making capacity, so her stated wishes for pain relief should directly guide care.",
+          "rationale": "EtCO2 trending detects hypoventilation before SpO2 drops, especially important with additional opioid dosing.",
+          "protocolReference": "MATC: Pain Management"
+        },
+        {
+          "id": "b3",
+          "shortAction": "Administer full protocol-dosed analgesia; do not withhold for fear of respiratory depression",
+          "protocolExcerpt": "Do not withhold opioids for fear of respiratory depression as patient comfort is the primary goal for hospice and end-of-life care",
+          "priority": "critical",
+          "rationale": "Hospice goals of care explicitly prioritize comfort over theoretical respiratory depression risk in a patient without current respiratory compromise.",
           "protocolReference": "MATC: End-of-Life Care/Hospice Care"
         }
       ],
@@ -170,14 +196,14 @@
           "if": "Hydromorphone given despite opioid tolerance",
           "condition": "Crew administers weight-based hydromorphone per protocol, applies capnography, and does not withhold analgesia despite the patient's chronic opioid tolerance.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["a3-iv-access"]
+          "triggerActionIds": ["b1", "b3"]
         },
         {
           "targetPhaseId": "opioid-withheld",
           "if": "Opioid withheld over resp depression concern",
           "condition": "Crew delays or withholds hydromorphone out of concern for respiratory depression despite the patient's normal respiratory status and hospice comfort-focused goals of care.",
           "conditionType": "action_not_taken",
-          "triggerActionIds": ["a3-iv-access"]
+          "triggerActionIds": ["b1"]
         }
       ]
     },
@@ -222,28 +248,20 @@
       },
       "expectedActions": [
         {
-          "id": "a5-hydromorphone",
-          "shortAction": "Hydromorphone 1 mg IV (68 kg × 0.015 mg/kg = 1.02 mg; max initial 2 mg, max cumulative 4 mg)",
-          "protocolExcerpt": "Hydromorphone: 0.015 mg/kg IM, IV, or IO (maximum initial dose 2 mg; maximum cumulative dose of 4 mg)",
-          "priority": "critical",
-          "rationale": "Weight-based initial dosing per protocol, with room to titrate further given her opioid tolerance.",
-          "protocolReference": "MATC: Pain Management"
-        },
-        {
-          "id": "a6-capnography",
-          "shortAction": "Apply continuous waveform capnography as early monitor for opioid-induced hypoventilation",
-          "protocolExcerpt": "Use of non-invasive capnography is an earlier predictor of hypoventilation than pulse oximetry if opioid medications are administered",
+          "id": "c1",
+          "shortAction": "Repeat hydromorphone 1 mg IV after 5 min (cumulative 2 mg; max cumulative 4 mg)",
+          "protocolExcerpt": "If indicated based on pain assessment, and vital signs allow, repeat pain medication administration (excluding acetaminophen and nonsteroidal anti-inflammatory medicines) after 5 minutes of the previous dose",
           "priority": "important",
-          "rationale": "EtCO2 trending detects hypoventilation before SpO2 drops, especially important with additional opioid dosing.",
+          "rationale": "Persistent 6/10 pain after the first dose and stable vital signs support a repeat dose within the cumulative maximum.",
           "protocolReference": "MATC: Pain Management"
         },
         {
-          "id": "a7-do-not-withhold",
-          "shortAction": "Administer full protocol-dosed analgesia; do not withhold for fear of respiratory depression",
-          "protocolExcerpt": "Do not withhold opioids for fear of respiratory depression as patient comfort is the primary goal for hospice and end-of-life care",
-          "priority": "critical",
-          "rationale": "Hospice goals of care explicitly prioritize comfort over theoretical respiratory depression risk in a patient without current respiratory compromise.",
-          "protocolReference": "MATC: End-of-Life Care/Hospice Care"
+          "id": "c2",
+          "shortAction": "Reassess pain score and vitals; transport in position of comfort",
+          "protocolExcerpt": "Transport in position of comfort and reassess as indicated",
+          "priority": "important",
+          "rationale": "Ongoing reassessment confirms adequate analgesia without oversedation en route.",
+          "protocolReference": "MATC: Pain Management"
         }
       ],
       "transitions": [
@@ -252,7 +270,7 @@
           "if": "Pain reassessed, repeat dose given if needed",
           "condition": "Patient is reassessed at 5 minutes; if pain remains significant, a repeat hydromorphone dose is given per protocol repeat-dosing guidance and the patient is transported in a position of comfort.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["a5-hydromorphone"]
+          "triggerActionIds": ["c1", "c2"]
         }
       ]
     },
@@ -295,24 +313,7 @@
         "trendTimeSeconds": 40,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
       },
-      "expectedActions": [
-        {
-          "id": "a8-repeat-dose",
-          "shortAction": "Repeat hydromorphone 1 mg IV after 5 min (cumulative 2 mg; max cumulative 4 mg)",
-          "protocolExcerpt": "If indicated based on pain assessment, and vital signs allow, repeat pain medication administration (excluding acetaminophen and nonsteroidal anti-inflammatory medicines) after 5 minutes of the previous dose",
-          "priority": "important",
-          "rationale": "Persistent 6/10 pain after the first dose and stable vital signs support a repeat dose within the cumulative maximum.",
-          "protocolReference": "MATC: Pain Management"
-        },
-        {
-          "id": "a9-reassess-transport",
-          "shortAction": "Reassess pain score and vitals; transport in position of comfort",
-          "protocolExcerpt": "Transport in position of comfort and reassess as indicated",
-          "priority": "important",
-          "rationale": "Ongoing reassessment confirms adequate analgesia without oversedation en route.",
-          "protocolReference": "MATC: Pain Management"
-        }
-      ],
+      "expectedActions": [],
       "transitions": []
     },
     {
@@ -356,7 +357,7 @@
       },
       "expectedActions": [
         {
-          "id": "b1-recognize-comfort-priority",
+          "id": "d1",
           "shortAction": "Recognize hospice guidance: do not withhold opioids for fear of respiratory depression",
           "protocolExcerpt": "Do not withhold opioids for fear of respiratory depression as patient comfort is the primary goal for hospice and end-of-life care",
           "priority": "critical",

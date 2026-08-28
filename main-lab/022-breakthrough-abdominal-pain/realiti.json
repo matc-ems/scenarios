@@ -57,7 +57,12 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [],
+      "relatedChecklist": [
+        "Assess pain using Numeric Rating Scale (NRS); document 9/10 baseline",
+        "Assess abdomen for life-threatening causes (rigidity, rebound, pulsatile mass, distension)",
+        "Confirm hospice enrollment and consult patient directly on treatment wishes",
+        "Establish IV access to allow analgesia administration"
+      ],
       "relatedSounds": []
     },
     {
@@ -90,10 +95,9 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Assess pain using Numeric Rating Scale (NRS); document 9/10 baseline",
-        "Assess abdomen for life-threatening causes (rigidity, rebound, pulsatile mass, distension)",
-        "Establish IV access to allow analgesia administration",
-        "Confirm hospice enrollment and consult patient directly on treatment wishes"
+        "Hydromorphone 1 mg IV (68 kg × 0.015 mg/kg = 1.02 mg; max initial 2 mg, max cumulative 4 mg)",
+        "Apply continuous waveform capnography as early monitor for opioid-induced hypoventilation",
+        "Administer full protocol-dosed analgesia; do not withhold for fear of respiratory depression"
       ],
       "relatedSounds": []
     },
@@ -127,9 +131,8 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Hydromorphone 1 mg IV (68 kg × 0.015 mg/kg = 1.02 mg; max initial 2 mg, max cumulative 4 mg)",
-        "Apply continuous waveform capnography as early monitor for opioid-induced hypoventilation",
-        "Administer full protocol-dosed analgesia; do not withhold for fear of respiratory depression"
+        "Repeat hydromorphone 1 mg IV after 5 min (cumulative 2 mg; max cumulative 4 mg)",
+        "Reassess pain score and vitals; transport in position of comfort"
       ],
       "relatedSounds": []
     },
@@ -162,10 +165,7 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [
-        "Repeat hydromorphone 1 mg IV after 5 min (cumulative 2 mg; max cumulative 4 mg)",
-        "Reassess pain score and vitals; transport in position of comfort"
-      ],
+      "relatedChecklist": [],
       "relatedSounds": []
     },
     {
@@ -217,13 +217,13 @@
       "icon": 1
     },
     {
-      "title": "Establish IV access to allow analgesia administration",
+      "title": "Confirm hospice enrollment and consult patient directly on treatment wishes",
       "type": "Check",
       "value": 0,
       "icon": 1
     },
     {
-      "title": "Confirm hospice enrollment and consult patient directly on treatment wishes",
+      "title": "Establish IV access to allow analgesia administration",
       "type": "Check",
       "value": 0,
       "icon": 1
