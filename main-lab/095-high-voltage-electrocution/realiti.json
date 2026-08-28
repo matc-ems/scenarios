@@ -57,7 +57,13 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [],
+      "relatedChecklist": [
+        "Identify and treat dysrhythmia/arrest from electrical contact per Cardiac Arrest protocol",
+        "Resume high-quality chest compressions immediately, minimize interruptions",
+        "Defibrillate coarse VF at maximum biphasic setting per manufacturer (e.g., 200 J)",
+        "Apply continuous cardiac monitor and obtain 12-lead EKG as soon as feasible",
+        "Epinephrine 1 mg IV/IO during the first or second compression cycle"
+      ],
       "relatedSounds": []
     },
     {
@@ -90,11 +96,11 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Resume high-quality chest compressions immediately, minimize interruptions",
-        "Defibrillate coarse VF at maximum biphasic setting per manufacturer (e.g., 200 J)",
-        "Epinephrine 1 mg IV/IO during the first or second compression cycle",
-        "Identify and treat dysrhythmia/arrest from electrical contact per Cardiac Arrest protocol",
-        "Apply continuous cardiac monitor and obtain 12-lead EKG as soon as feasible"
+        "Treat per Post-ROSC Care Guideline: titrate oxygen to SpO2 94-98%, avoid hyperventilation",
+        "Identify and dress entry (right palm) and exit (left heel) burn wounds with dry dressings",
+        "Assess for compartment syndrome from extremity tissue damage",
+        "Apply spinal motion restriction given the fall from the contact point",
+        "Transport to a burn center capable of managing electrical injury; report voltage/AC-DC characteristics to receiving facility"
       ],
       "relatedSounds": []
     },
@@ -127,13 +133,7 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [
-        "Treat per Post-ROSC Care Guideline: titrate oxygen to SpO2 94-98%, avoid hyperventilation",
-        "Identify and dress entry (right palm) and exit (left heel) burn wounds with dry dressings",
-        "Assess for compartment syndrome from extremity tissue damage",
-        "Apply spinal motion restriction given the fall from the contact point",
-        "Transport to a burn center capable of managing electrical injury; report voltage/AC-DC characteristics to receiving facility"
-      ],
+      "relatedChecklist": [],
       "relatedSounds": []
     },
     {
@@ -174,6 +174,12 @@
   ],
   "checklist": [
     {
+      "title": "Identify and treat dysrhythmia/arrest from electrical contact per Cardiac Arrest protocol",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
       "title": "Resume high-quality chest compressions immediately, minimize interruptions",
       "type": "Check",
       "value": 0,
@@ -186,19 +192,13 @@
       "icon": 1
     },
     {
-      "title": "Epinephrine 1 mg IV/IO during the first or second compression cycle",
-      "type": "Check",
-      "value": 0,
-      "icon": 1
-    },
-    {
-      "title": "Identify and treat dysrhythmia/arrest from electrical contact per Cardiac Arrest protocol",
-      "type": "Check",
-      "value": 0,
-      "icon": 1
-    },
-    {
       "title": "Apply continuous cardiac monitor and obtain 12-lead EKG as soon as feasible",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Epinephrine 1 mg IV/IO during the first or second compression cycle",
       "type": "Check",
       "value": 0,
       "icon": 1

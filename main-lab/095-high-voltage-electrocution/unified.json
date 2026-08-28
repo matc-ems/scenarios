@@ -80,13 +80,62 @@
         "trendTimeSeconds": 0,
         "visibility": { "spo2Visible": false, "spo2Attached": false, "rrVisible": false, "etco2Visible": true, "cvpVisible": false }
       },
-      "expectedActions": [],
+      "expectedActions": [
+        {
+          "id": "a1",
+          "shortAction": "Identify and treat dysrhythmia/arrest from electrical contact per Cardiac Arrest protocol",
+          "protocolExcerpt": "Identify dysrhythmias or cardiac arrest — even patients who appear dead (particularly dilated pupils) may have good outcomes with prompt intervention",
+          "priority": "critical",
+          "rationale": "Electrical arrest patients can have good outcomes with prompt, standard ACLS care.",
+          "protocolReference": "MATC: Electrical Injuries"
+        },
+        {
+          "id": "a2",
+          "shortAction": "Resume high-quality chest compressions immediately, minimize interruptions",
+          "protocolExcerpt": "Initiate chest compressions in cases with no bystander chest compressions or take over compressions from bystanders while a second rescuer is setting up the AED or defibrillator",
+          "priority": "critical",
+          "rationale": "Effective, minimally interrupted compressions are the foundation of resuscitation from VF.",
+          "protocolReference": "MATC: Cardiac Arrest (VF/VT/Asystole/PEA)"
+        },
+        {
+          "id": "a3",
+          "shortAction": "Defibrillate coarse VF at maximum biphasic setting per manufacturer (e.g., 200 J)",
+          "protocolExcerpt": "Defibrillation dosing should follow manufacturer's recommendation in the case of biphasic defibrillators. If the manufacturer's recommendation is unknown, use highest setting possible.",
+          "priority": "critical",
+          "rationale": "Prompt defibrillation is the single most important therapy for a shockable rhythm.",
+          "protocolReference": "MATC: Cardiac Arrest (VF/VT/Asystole/PEA)"
+        },
+        {
+          "id": "a4",
+          "shortAction": "Apply continuous cardiac monitor and obtain 12-lead EKG as soon as feasible",
+          "protocolExcerpt": "Perform primary survey with specific focus on dysrhythmias or cardiac arrest — apply a continuous cardiac monitor and obtain 12-lead EKG as soon as feasible",
+          "priority": "important",
+          "rationale": "Electrical injury carries high risk of ongoing dysrhythmia even after the initial rhythm is addressed.",
+          "protocolReference": "MATC: Electrical Injuries"
+        },
+        {
+          "id": "a5",
+          "shortAction": "Epinephrine 1 mg IV/IO during the first or second compression cycle",
+          "protocolExcerpt": "If feasible, IV or IO access should be obtained. Administer Epinephrine 1mg during the first or second round of compressions.",
+          "priority": "critical",
+          "rationale": "Early epinephrine supports coronary perfusion pressure during ongoing CPR.",
+          "protocolReference": "MATC: Cardiac Arrest (VF/VT/Asystole/PEA)"
+        }
+      ],
       "transitions": [
         {
           "targetPhaseId": "defib-cpr",
           "if": "CPR and defibrillation initiated",
           "condition": "Crew confirms pulselessness, takes over compressions, and delivers the first defibrillation for coarse VF while establishing IV/IO access.",
-          "conditionType": "action_taken"
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a2", "a3", "a5"]
+        },
+        {
+          "targetPhaseId": "defib-delayed",
+          "if": "Defibrillation delayed for burn assessment",
+          "condition": "Crew pauses compressions and defibrillation to examine and dress the entry/exit burn wounds before addressing the shockable rhythm, delaying definitive treatment.",
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["a3"]
         }
       ]
     },
@@ -131,60 +180,53 @@
       },
       "expectedActions": [
         {
-          "id": "a1-compressions",
-          "shortAction": "Resume high-quality chest compressions immediately, minimize interruptions",
-          "protocolExcerpt": "Initiate chest compressions in cases with no bystander chest compressions or take over compressions from bystanders while a second rescuer is setting up the AED or defibrillator",
+          "id": "b1",
+          "shortAction": "Treat per Post-ROSC Care Guideline: titrate oxygen to SpO2 94-98%, avoid hyperventilation",
+          "protocolExcerpt": "If at any time during this period of resuscitation the patient regains return of spontaneous circulation, treat per Adult Post-ROSC Care Guideline",
           "priority": "critical",
-          "rationale": "Effective, minimally interrupted compressions are the foundation of resuscitation from VF.",
+          "rationale": "Hyperoxia and hyperventilation after ROSC worsen neurologic outcome.",
           "protocolReference": "MATC: Cardiac Arrest (VF/VT/Asystole/PEA)"
         },
         {
-          "id": "a2-defib",
-          "shortAction": "Defibrillate coarse VF at maximum biphasic setting per manufacturer (e.g., 200 J)",
-          "protocolExcerpt": "Defibrillation dosing should follow manufacturer's recommendation in the case of biphasic defibrillators. If the manufacturer's recommendation is unknown, use highest setting possible.",
-          "priority": "critical",
-          "rationale": "Prompt defibrillation is the single most important therapy for a shockable rhythm.",
-          "protocolReference": "MATC: Cardiac Arrest (VF/VT/Asystole/PEA)"
-        },
-        {
-          "id": "a3-epi",
-          "shortAction": "Epinephrine 1 mg IV/IO during the first or second compression cycle",
-          "protocolExcerpt": "If feasible, IV or IO access should be obtained. Administer Epinephrine 1mg during the first or second round of compressions.",
-          "priority": "critical",
-          "rationale": "Early epinephrine supports coronary perfusion pressure during ongoing CPR.",
-          "protocolReference": "MATC: Cardiac Arrest (VF/VT/Asystole/PEA)"
-        },
-        {
-          "id": "a4-recognize",
-          "shortAction": "Identify and treat dysrhythmia/arrest from electrical contact per Cardiac Arrest protocol",
-          "protocolExcerpt": "Identify dysrhythmias or cardiac arrest — even patients who appear dead (particularly dilated pupils) may have good outcomes with prompt intervention",
-          "priority": "critical",
-          "rationale": "Electrical arrest patients can have good outcomes with prompt, standard ACLS care.",
+          "id": "b2",
+          "shortAction": "Identify and dress entry (right palm) and exit (left heel) burn wounds with dry dressings",
+          "protocolExcerpt": "Apply dry dressing to any wounds",
+          "priority": "important",
+          "rationale": "Entry/exit sites mark the current path and often underrepresent deep tissue damage.",
           "protocolReference": "MATC: Electrical Injuries"
         },
         {
-          "id": "a5-monitor",
-          "shortAction": "Apply continuous cardiac monitor and obtain 12-lead EKG as soon as feasible",
-          "protocolExcerpt": "Perform primary survey with specific focus on dysrhythmias or cardiac arrest — apply a continuous cardiac monitor and obtain 12-lead EKG as soon as feasible",
+          "id": "b3",
+          "shortAction": "Assess for compartment syndrome from extremity tissue damage",
+          "protocolExcerpt": "Assess for potential compartment syndrome from significant extremity tissue damage",
           "priority": "important",
-          "rationale": "Electrical injury carries high risk of ongoing dysrhythmia even after the initial rhythm is addressed.",
+          "rationale": "Deep tissue injury from electrical current can far exceed external appearance.",
+          "protocolReference": "MATC: Electrical Injuries"
+        },
+        {
+          "id": "b4",
+          "shortAction": "Apply spinal motion restriction given the fall from the contact point",
+          "protocolExcerpt": "Apply spinal motion restriction if associated trauma suspected",
+          "priority": "important",
+          "rationale": "The muscle-contraction fall mechanism carries real risk of spinal injury.",
+          "protocolReference": "MATC: Electrical Injuries"
+        },
+        {
+          "id": "b5",
+          "shortAction": "Transport to a burn center capable of managing electrical injury; report voltage/AC-DC characteristics to receiving facility",
+          "protocolExcerpt": "Electrical injury patients should be taken to a burn center whenever possible since these injuries can involve considerable tissue damage",
+          "priority": "important",
+          "rationale": "Electrical burns are often full-thickness with damage that isn't apparent externally.",
           "protocolReference": "MATC: Electrical Injuries"
         }
       ],
       "transitions": [
         {
           "targetPhaseId": "rosc-burns",
-          "if": "ROSC achieved after defibrillation",
+          "if": "ROSC achieved, burns addressed",
           "condition": "After the second defibrillation and continued high-quality CPR with epinephrine on board, the patient regains a palpable pulse and organized rhythm.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["a2-defib", "a3-epi"]
-        },
-        {
-          "targetPhaseId": "defib-delayed",
-          "if": "Defibrillation delayed for burn assessment",
-          "condition": "Crew pauses compressions and defibrillation to examine and dress the entry/exit burn wounds before addressing the shockable rhythm, delaying definitive treatment.",
-          "conditionType": "action_not_taken",
-          "triggerActionIds": ["a2-defib"]
+          "triggerActionIds": ["b1", "b2", "b5"]
         }
       ]
     },
@@ -228,48 +270,7 @@
         "trendTimeSeconds": 30,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
       },
-      "expectedActions": [
-        {
-          "id": "a6-post-rosc",
-          "shortAction": "Treat per Post-ROSC Care Guideline: titrate oxygen to SpO2 94-98%, avoid hyperventilation",
-          "protocolExcerpt": "If at any time during this period of resuscitation the patient regains return of spontaneous circulation, treat per Adult Post-ROSC Care Guideline",
-          "priority": "critical",
-          "rationale": "Hyperoxia and hyperventilation after ROSC worsen neurologic outcome.",
-          "protocolReference": "MATC: Cardiac Arrest (VF/VT/Asystole/PEA)"
-        },
-        {
-          "id": "a7-burn-dressing",
-          "shortAction": "Identify and dress entry (right palm) and exit (left heel) burn wounds with dry dressings",
-          "protocolExcerpt": "Apply dry dressing to any wounds",
-          "priority": "important",
-          "rationale": "Entry/exit sites mark the current path and often underrepresent deep tissue damage.",
-          "protocolReference": "MATC: Electrical Injuries"
-        },
-        {
-          "id": "a8-compartment",
-          "shortAction": "Assess for compartment syndrome from extremity tissue damage",
-          "protocolExcerpt": "Assess for potential compartment syndrome from significant extremity tissue damage",
-          "priority": "important",
-          "rationale": "Deep tissue injury from electrical current can far exceed external appearance.",
-          "protocolReference": "MATC: Electrical Injuries"
-        },
-        {
-          "id": "a9-smr",
-          "shortAction": "Apply spinal motion restriction given the fall from the contact point",
-          "protocolExcerpt": "Apply spinal motion restriction if associated trauma suspected",
-          "priority": "important",
-          "rationale": "The muscle-contraction fall mechanism carries real risk of spinal injury.",
-          "protocolReference": "MATC: Electrical Injuries"
-        },
-        {
-          "id": "a10-transport",
-          "shortAction": "Transport to a burn center capable of managing electrical injury; report voltage/AC-DC characteristics to receiving facility",
-          "protocolExcerpt": "Electrical injury patients should be taken to a burn center whenever possible since these injuries can involve considerable tissue damage",
-          "priority": "important",
-          "rationale": "Electrical burns are often full-thickness with damage that isn't apparent externally.",
-          "protocolReference": "MATC: Electrical Injuries"
-        }
-      ],
+      "expectedActions": [],
       "transitions": []
     },
     {
@@ -313,7 +314,7 @@
       },
       "expectedActions": [
         {
-          "id": "a11-recognize-delay",
+          "id": "c1",
           "shortAction": "Recognize refractory VF from delayed defibrillation; resume compressions and shock immediately",
           "protocolExcerpt": "Successful resuscitation from cardiac arrest depends primarily on effective, minimally interrupted chest compressions and prompt defibrillation if the patient is in pulseless VT/VF.",
           "priority": "critical",
@@ -321,7 +322,7 @@
           "protocolReference": "MATC: Cardiac Arrest (VF/VT/Asystole/PEA)"
         },
         {
-          "id": "a12-amiodarone",
+          "id": "c2",
           "shortAction": "Amiodarone 300 mg IV/IO for refractory VF after continued shocks",
           "protocolExcerpt": "Amiodarone 300mg, followed by 150mg 4-6 min later if still in refractory VF and pulseless VT",
           "priority": "critical",
