@@ -80,13 +80,54 @@
         "trendTimeSeconds": 0,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [],
+      "expectedActions": [
+        {
+          "id": "a1",
+          "shortAction": "Assess pain using the FLACC observational scale (nonverbal/cognitive impairment)",
+          "protocolExcerpt": "Less than 4 years old or those with cognitive impairment unable to self-report: Observational Scales — Faces, Legs, Arms, Cry, Consolability (FLACC), Children's Hospital of Eastern Ontario Pain Scale (CHEOPS)",
+          "priority": "critical",
+          "rationale": "The patient cannot use a numeric self-report scale; an observational tool is required for an accurate pain assessment.",
+          "protocolReference": "MATC: Pain Management"
+        },
+        {
+          "id": "a2",
+          "shortAction": "Obtain full vital signs (pulse, BP, RR, neurologic status)",
+          "protocolExcerpt": "Obtain vital signs including pulse, blood pressure, respiratory rate, neurologic status assessment",
+          "priority": "important",
+          "rationale": "Establishes a baseline to trend response to treatment.",
+          "protocolReference": "MATC: Abdominal Pain"
+        },
+        {
+          "id": "a3",
+          "shortAction": "Assess for signs of ischemic/perforated bowel: rigidity, distension, guarding, fever",
+          "protocolExcerpt": "Signs and symptoms of ischemic, necrotic, or perforated bowel: Severe tenderness, Abdominal pain with motion or palpation of the abdomen, Fever, Abdominal distention, with tympany to percussion",
+          "priority": "critical",
+          "rationale": "Rigid, guarded abdomen with low-grade fever raises concern for a surgical abdomen.",
+          "protocolReference": "MATC: Abdominal Pain"
+        },
+        {
+          "id": "a4",
+          "shortAction": "Obtain vascular access to allow analgesia administration",
+          "protocolExcerpt": "Obtain vascular access as necessary to provide analgesia and/or fluid resuscitation",
+          "priority": "important",
+          "rationale": "Prepares for weight-based analgesia once the pain assessment is complete.",
+          "protocolReference": "MATC: Abdominal Pain"
+        }
+      ],
       "transitions": [
         {
           "targetPhaseId": "history-flacc",
           "if": "History and FLACC pain score obtained",
           "condition": "Crew adapts its approach, obtains history primarily from the mother, and assesses pain using the FLACC observational scale given the patient's nonverbal, cognitively-impaired status.",
-          "conditionType": "action_taken"
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a1", "a2"]
+        },
+        {
+          "targetPhaseId": "pain-untreated",
+          "if": "FLACC skipped, pain untreated",
+          "condition": "Crew misattributes the patient's rocking, vocalizing, and resistance to touch as baseline autistic behavior rather than a pain response, skips a structured pain assessment, and withholds analgesia.",
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["a1"]
         }
       ]
     },
@@ -131,36 +172,28 @@
       },
       "expectedActions": [
         {
-          "id": "a1-flacc",
-          "shortAction": "Assess pain using the FLACC observational scale (nonverbal/cognitive impairment)",
-          "protocolExcerpt": "Less than 4 years old or those with cognitive impairment unable to self-report: Observational Scales — Faces, Legs, Arms, Cry, Consolability (FLACC), Children's Hospital of Eastern Ontario Pain Scale (CHEOPS)",
-          "priority": "critical",
-          "rationale": "The patient cannot use a numeric self-report scale; an observational tool is required for an accurate pain assessment.",
+          "id": "b1",
+          "shortAction": "Position of comfort; minimize unfamiliar stimulation per mother's guidance",
+          "protocolExcerpt": "Non-pharmacologic pain management options include Placement of the patient in a position of comfort ... Verbal reassurance to control anxiety",
+          "priority": "supplemental",
+          "rationale": "Reduces additional distress on top of the medical intervention.",
           "protocolReference": "MATC: Pain Management"
         },
         {
-          "id": "a2-vitals",
-          "shortAction": "Obtain full vital signs (pulse, BP, RR, neurologic status)",
-          "protocolExcerpt": "Obtain vital signs including pulse, blood pressure, respiratory rate, neurologic status assessment",
-          "priority": "important",
-          "rationale": "Establishes a baseline to trend response to treatment.",
-          "protocolReference": "MATC: Abdominal Pain"
-        },
-        {
-          "id": "a3-life-threat",
-          "shortAction": "Assess for signs of ischemic/perforated bowel: rigidity, distension, guarding, fever",
-          "protocolExcerpt": "Signs and symptoms of ischemic, necrotic, or perforated bowel: Severe tenderness, Abdominal pain with motion or palpation of the abdomen, Fever, Abdominal distention, with tympany to percussion",
+          "id": "b2",
+          "shortAction": "Fentanyl 65 mcg IN (65 kg × 1 mcg/kg; max 100 mcg)",
+          "protocolExcerpt": "Fentanyl: 1 mcg/kg IN, IM, IV or IO (maximum initial dose of 100 mcg)",
           "priority": "critical",
-          "rationale": "Rigid, guarded abdomen with low-grade fever raises concern for a surgical abdomen.",
-          "protocolReference": "MATC: Abdominal Pain"
+          "rationale": "IN route avoids a distressing IV attempt in a patient who may not tolerate unfamiliar procedures well.",
+          "protocolReference": "MATC: Pain Management"
         },
         {
-          "id": "a4-iv-access",
-          "shortAction": "Obtain vascular access to allow analgesia administration",
-          "protocolExcerpt": "Obtain vascular access as necessary to provide analgesia and/or fluid resuscitation",
+          "id": "b3",
+          "shortAction": "Reassess FLACC pain score and vital signs after analgesia",
+          "protocolExcerpt": "Documentation of patient reassessment with repeat vital signs and patient pain scale assessment",
           "priority": "important",
-          "rationale": "Prepares for weight-based analgesia once the pain assessment is complete.",
-          "protocolReference": "MATC: Abdominal Pain"
+          "rationale": "Confirms the analgesia is working and screens for early respiratory depression.",
+          "protocolReference": "MATC: Pain Management"
         }
       ],
       "transitions": [
@@ -169,14 +202,7 @@
           "if": "FLACC-guided analgesia given",
           "condition": "Based on the FLACC score indicating severe pain, the crew administers weight-based analgesia despite the patient's inability to verbally rate pain, consistent with protocol guidance that acute abdominal pain should be treated with analgesia.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["a1-flacc"]
-        },
-        {
-          "targetPhaseId": "pain-untreated",
-          "if": "FLACC skipped, pain untreated",
-          "condition": "Crew misattributes the patient's rocking, vocalizing, and resistance to touch as baseline autistic behavior rather than a pain response, skips a structured pain assessment, and withholds analgesia.",
-          "conditionType": "action_not_taken",
-          "triggerActionIds": ["a1-flacc"]
+          "triggerActionIds": ["b2", "b3"]
         }
       ]
     },
@@ -221,28 +247,12 @@
       },
       "expectedActions": [
         {
-          "id": "a5-fentanyl",
-          "shortAction": "Fentanyl 65 mcg IN (65 kg × 1 mcg/kg; max 100 mcg)",
-          "protocolExcerpt": "Fentanyl: 1 mcg/kg IN, IM, IV or IO (maximum initial dose of 100 mcg)",
-          "priority": "critical",
-          "rationale": "IN route avoids a distressing IV attempt in a patient who may not tolerate unfamiliar procedures well.",
-          "protocolReference": "MATC: Pain Management"
-        },
-        {
-          "id": "a6-reassess",
-          "shortAction": "Reassess FLACC pain score and vital signs after analgesia",
-          "protocolExcerpt": "Documentation of patient reassessment with repeat vital signs and patient pain scale assessment",
+          "id": "c1",
+          "shortAction": "Transport to appropriate receiving facility; reassess vitals and pain en route",
+          "protocolExcerpt": "Provide transport to an appropriate receiving facility. Reassess vital signs and response to therapeutic interventions throughout transport",
           "priority": "important",
-          "rationale": "Confirms the analgesia is working and screens for early respiratory depression.",
-          "protocolReference": "MATC: Pain Management"
-        },
-        {
-          "id": "a7-nonpharm",
-          "shortAction": "Position of comfort; minimize unfamiliar stimulation per mother's guidance",
-          "protocolExcerpt": "Non-pharmacologic pain management options include Placement of the patient in a position of comfort ... Verbal reassurance to control anxiety",
-          "priority": "supplemental",
-          "rationale": "Reduces additional distress on top of the medical intervention.",
-          "protocolReference": "MATC: Pain Management"
+          "rationale": "Persistent rigidity warrants ongoing reassessment for a surgical abdomen despite improved comfort.",
+          "protocolReference": "MATC: Abdominal Pain"
         }
       ],
       "transitions": [
@@ -251,7 +261,7 @@
           "if": "Transport initiated with mother present",
           "condition": "With pain improving and vitals trending toward baseline, crew packages the patient with his mother accompanying for continuity of communication and prepares for transport.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["a5-fentanyl"]
+          "triggerActionIds": ["c1"]
         }
       ]
     },
@@ -293,16 +303,7 @@
         "trendTimeSeconds": 40,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [
-        {
-          "id": "a8-transport",
-          "shortAction": "Transport to appropriate receiving facility; reassess vitals and pain en route",
-          "protocolExcerpt": "Provide transport to an appropriate receiving facility. Reassess vital signs and response to therapeutic interventions throughout transport",
-          "priority": "important",
-          "rationale": "Persistent rigidity warrants ongoing reassessment for a surgical abdomen despite improved comfort.",
-          "protocolReference": "MATC: Abdominal Pain"
-        }
-      ],
+      "expectedActions": [],
       "transitions": []
     },
     {
@@ -346,7 +347,7 @@
       },
       "expectedActions": [
         {
-          "id": "a9-rescue",
+          "id": "d1",
           "shortAction": "Recognize escalating distress as undertreated pain; FLACC score and fentanyl 65 mcg IN",
           "protocolExcerpt": "Observational Scales — Faces, Legs, Arms, Cry, Consolability (FLACC) ... Fentanyl: 1 mcg/kg IN, IM, IV or IO (maximum initial dose of 100 mcg)",
           "priority": "critical",

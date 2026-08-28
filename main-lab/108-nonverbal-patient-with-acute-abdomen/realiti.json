@@ -57,7 +57,12 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [],
+      "relatedChecklist": [
+        "Assess pain using the FLACC observational scale (nonverbal/cognitive impairment)",
+        "Obtain full vital signs (pulse, BP, RR, neurologic status)",
+        "Assess for signs of ischemic/perforated bowel: rigidity, distension, guarding, fever",
+        "Obtain vascular access to allow analgesia administration"
+      ],
       "relatedSounds": []
     },
     {
@@ -90,10 +95,9 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Assess pain using the FLACC observational scale (nonverbal/cognitive impairment)",
-        "Obtain full vital signs (pulse, BP, RR, neurologic status)",
-        "Assess for signs of ischemic/perforated bowel: rigidity, distension, guarding, fever",
-        "Obtain vascular access to allow analgesia administration"
+        "Position of comfort; minimize unfamiliar stimulation per mother's guidance",
+        "Fentanyl 65 mcg IN (65 kg × 1 mcg/kg; max 100 mcg)",
+        "Reassess FLACC pain score and vital signs after analgesia"
       ],
       "relatedSounds": []
     },
@@ -127,9 +131,7 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Fentanyl 65 mcg IN (65 kg × 1 mcg/kg; max 100 mcg)",
-        "Reassess FLACC pain score and vital signs after analgesia",
-        "Position of comfort; minimize unfamiliar stimulation per mother's guidance"
+        "Transport to appropriate receiving facility; reassess vitals and pain en route"
       ],
       "relatedSounds": []
     },
@@ -162,9 +164,7 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [
-        "Transport to appropriate receiving facility; reassess vitals and pain en route"
-      ],
+      "relatedChecklist": [],
       "relatedSounds": []
     },
     {
@@ -228,6 +228,12 @@
       "icon": 1
     },
     {
+      "title": "Position of comfort; minimize unfamiliar stimulation per mother's guidance",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
       "title": "Fentanyl 65 mcg IN (65 kg × 1 mcg/kg; max 100 mcg)",
       "type": "Check",
       "value": 0,
@@ -235,12 +241,6 @@
     },
     {
       "title": "Reassess FLACC pain score and vital signs after analgesia",
-      "type": "Check",
-      "value": 0,
-      "icon": 1
-    },
-    {
-      "title": "Position of comfort; minimize unfamiliar stimulation per mother's guidance",
       "type": "Check",
       "value": 0,
       "icon": 1
