@@ -57,7 +57,11 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [],
+      "relatedChecklist": [
+        "Establish vascular access via right-arm PICC line using sterile technique; avoid left AV fistula",
+        "Check blood glucose; treat if less than 60 mg/dL",
+        "Apply cardiac monitor and obtain 12-lead ECG, watching for hyperkalemic changes"
+      ],
       "relatedSounds": []
     },
     {
@@ -90,9 +94,6 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Establish vascular access via right-arm PICC line using sterile technique; avoid left AV fistula",
-        "Check blood glucose; treat if less than 60 mg/dL",
-        "Apply cardiac monitor and obtain 12-lead ECG, watching for hyperkalemic changes",
         "Administer a cautious isotonic fluid bolus via PICC line; reassess lung sounds for pulmonary edema"
       ],
       "relatedSounds": []

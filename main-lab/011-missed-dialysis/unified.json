@@ -79,20 +79,53 @@
         "trendTimeSeconds": 0,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [],
+      "expectedActions": [
+        {
+          "id": "a1",
+          "shortAction": "Establish vascular access via right-arm PICC line using sterile technique; avoid left AV fistula",
+          "protocolExcerpt": "Establish IV access. If unable to obtain within two attempts or less than 90 seconds, place an IO needle",
+          "priority": "critical",
+          "rationale": "The AV fistula is the patient's dialysis lifeline; the marked PICC line is the appropriate EMS access site.",
+          "protocolReference": "MATC: Shock"
+        },
+        {
+          "id": "a2",
+          "shortAction": "Check blood glucose; treat if less than 60 mg/dL",
+          "protocolExcerpt": "Check blood sugar, and correct if less than 60 mg/dL",
+          "priority": "important",
+          "rationale": "Rules out hypoglycemia as a contributor to weakness in this diabetic patient.",
+          "protocolReference": "MATC: Shock"
+        },
+        {
+          "id": "a3",
+          "shortAction": "Apply cardiac monitor and obtain 12-lead ECG, watching for hyperkalemic changes",
+          "protocolExcerpt": "Initiate monitoring and perform 12-lead EKG",
+          "priority": "important",
+          "rationale": "Missed dialysis raises hyperkalemia risk, which can manifest as ECG changes before overt bradycardia.",
+          "protocolReference": "MATC: Bradycardia"
+        }
+      ],
       "transitions": [
         {
           "targetPhaseId": "access-obtained",
           "if": "PICC access obtained, fistula avoided",
           "condition": "Crew recognizes the AV fistula in the left forearm as an EMS no-access site and instead accesses the patient's existing right-arm PICC line for vascular access using sterile technique.",
-          "conditionType": "action_taken"
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a1"]
         },
         {
           "targetPhaseId": "delayed-deterioration",
-          "if": "Access delayed over 10 minutes",
+          "if": "Vascular access delayed",
           "condition": "Vascular access and fluid/electrolyte correction are delayed beyond 10 minutes; the patient's missed dialysis progresses toward symptomatic hyperkalemia with wide-complex bradycardia.",
           "conditionType": "time_elapsed",
-          "timeoutSeconds": 600
+          "triggerActionIds": ["a1"]
+        },
+        {
+          "targetPhaseId": "fistula-attempted",
+          "if": "Fistula accessed instead of PICC",
+          "condition": "Crew disregards the medical alert bracelet and visible thrill, attempting venipuncture on the left AV fistula instead of using the marked PICC line.",
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["a1"]
         }
       ]
     },
@@ -137,31 +170,7 @@
       },
       "expectedActions": [
         {
-          "id": "a1-picc-access",
-          "shortAction": "Establish vascular access via right-arm PICC line using sterile technique; avoid left AV fistula",
-          "protocolExcerpt": "Establish IV access. If unable to obtain within two attempts or less than 90 seconds, place an IO needle",
-          "priority": "critical",
-          "rationale": "The AV fistula is the patient's dialysis lifeline; the marked PICC line is the appropriate EMS access site.",
-          "protocolReference": "MATC: Shock"
-        },
-        {
-          "id": "a2-glucose",
-          "shortAction": "Check blood glucose; treat if less than 60 mg/dL",
-          "protocolExcerpt": "Check blood sugar, and correct if less than 60 mg/dL",
-          "priority": "important",
-          "rationale": "Rules out hypoglycemia as a contributor to weakness in this diabetic patient.",
-          "protocolReference": "MATC: Shock"
-        },
-        {
-          "id": "a3-monitor",
-          "shortAction": "Apply cardiac monitor and obtain 12-lead ECG, watching for hyperkalemic changes",
-          "protocolExcerpt": "Initiate monitoring and perform 12-lead EKG",
-          "priority": "important",
-          "rationale": "Missed dialysis raises hyperkalemia risk, which can manifest as ECG changes before overt bradycardia.",
-          "protocolReference": "MATC: Bradycardia"
-        },
-        {
-          "id": "a4-cautious-fluid",
+          "id": "b1",
           "shortAction": "Administer a cautious isotonic fluid bolus via PICC line; reassess lung sounds for pulmonary edema",
           "protocolExcerpt": "IV fluid volume goal attained by giving boluses that are pressure infused over less than 15 minutes each based on patient's condition and clinical impression... unless the MAP goal is achieved, or pulmonary edema develops",
           "priority": "important",
@@ -175,14 +184,7 @@
           "if": "Stable after access and fluids",
           "condition": "Patient's heart rate and blood pressure trend toward normal after PICC access and a cautious fluid bolus; no signs of pulmonary edema develop.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["a1-picc-access", "a4-cautious-fluid"]
-        },
-        {
-          "targetPhaseId": "fistula-attempted",
-          "if": "Fistula accessed instead of PICC",
-          "condition": "Crew disregards the medical alert bracelet and visible thrill, attempting venipuncture on the left AV fistula instead of using the marked PICC line.",
-          "conditionType": "action_not_taken",
-          "triggerActionIds": ["a1-picc-access"]
+          "triggerActionIds": ["b1"]
         }
       ]
     },
@@ -227,7 +229,7 @@
       },
       "expectedActions": [
         {
-          "id": "a5-reassess-transport",
+          "id": "c1",
           "shortAction": "Reassess vital signs and perfusion en route; transport to a facility with dialysis capability",
           "protocolExcerpt": "Full vital signs (pulse, blood pressure, respiratory rate, neurologic status assessment) with reassessment q 15 minutes or more frequently as appropriate",
           "priority": "important",
@@ -278,7 +280,7 @@
       },
       "expectedActions": [
         {
-          "id": "a6-fistula-pressure",
+          "id": "d1",
           "shortAction": "Apply direct pressure and a pressure dressing to the fistula puncture site; do not place a BP cuff or tourniquet on that arm",
           "protocolExcerpt": "Expose the wound and apply direct pressure to bleeding site, followed by a pressure dressing",
           "priority": "critical",
@@ -329,7 +331,7 @@
       },
       "expectedActions": [
         {
-          "id": "a7-recognize-hyperk",
+          "id": "e1",
           "shortAction": "Recognize hyperkalemia-pattern ECG changes as the cause of the wide-complex bradycardia",
           "protocolExcerpt": "Consider hyperkalemia in the patient with wide complex bradycardia",
           "priority": "critical",
@@ -337,7 +339,7 @@
           "protocolReference": "MATC: Bradycardia"
         },
         {
-          "id": "a8-late-access",
+          "id": "e2",
           "shortAction": "Establish IV access immediately (right PICC line or alternate site) now that deterioration is evident",
           "protocolExcerpt": "Establish IV access",
           "priority": "critical",
@@ -345,7 +347,7 @@
           "protocolReference": "MATC: Bradycardia"
         },
         {
-          "id": "a9-pacing-prep",
+          "id": "e3",
           "shortAction": "Prepare transcutaneous pacer in case of further hemodynamic instability",
           "protocolExcerpt": "Transcutaneous Pacing – If pacing is performed, consider sedation or pain control",
           "priority": "important",
