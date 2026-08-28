@@ -1,0 +1,243 @@
+{
+  "scenarioId": "131-cardiac-arrest-with-unverified-dnr",
+  "scenarioName": "131 - Cardiac Arrest with Unverified DNR",
+  "scenarioType": "Vital Signs",
+  "scenarioVersion": 2,
+  "scenarioTime": 900,
+  "scenarioMonitorType": 2,
+  "scenarioDefaultEnergy": 200,
+  "scenarioDefaultPacerThreshold": 55,
+  "isDemo": false,
+  "isALSILegacy": false,
+  "scenarioStory": {
+    "history": "Patient was last seen normal by his family the previous evening. The son and wife attempted to wake him this morning for his medications and found him completely unresponsive. There is no report of a witnessed collapse, no bystander CPR, and no known trauma. The family states he has a Do Not Resuscitate order signed by his physician, but no document, card, or bracelet can be produced at the bedside. The son believes it is with the family lawyer or in a safe deposit box.",
+    "discussion": "",
+    "course": "Initial Contact: The son stops the crew at the door to say his father has a DNR and would not want anything done. In the bedroom the patient is unresponsive, apneic, and without a carotid pulse. No DNR document, card, or bracelet is present at the bedside; the son believes the paperwork is with the lawyer or in a safe deposit box. The wife quietly asks for no heroics. The crew must act on a verified order or on the absence of one. → CPR started; DNR could not be verified: High-quality compressions are underway and pads are on. The monitor shows asystole and the analysis returns no shock advised. End-tidal carbon dioxide is registering, confirming compression quality. Engine 4 arrives at the bedroom door and the lead student must now organize a resuscitation, delegate roles, and decide what to ask medical control. → Roles delegated; medical control contacted: The engine crew has taken over compressions and ventilation on a rotation and the resuscitation is organized. Medical control has been given a concise report and directs the crew to continue full resuscitative efforts, with authorization to cease if a valid signed DNR order is located. The crew has met its duty to the patient while leaving the door open to honor his wishes if the document surfaces."
+  },
+  "patientInformation": {
+    "patientName": "Henry Whitmore",
+    "patientCondition": "Unresponsive, apneic, and pulseless in a home hospital bed",
+    "patientAge": 88,
+    "patientAgeUnit": "years",
+    "patientAgeCategory": 0,
+    "patientSex": 1,
+    "patientHeight": 173,
+    "patientWeight": 70,
+    "patientPhotoId": 100,
+    "patientAdmitted": 1
+  },
+  "labs": [],
+  "scenarioEvents": [
+    {
+      "type": "ScenarioEvent",
+      "name": "Initial Contact",
+      "description": "The son stops the crew at the door to say his father has a DNR and would not want anything done. In the bedroom the patient is unresponsive, apneic, and without a carotid pulse. No DNR document, card, or bracelet is present at the bedside; the son believes the paperwork is with the lawyer or in a safe deposit box. The wife quietly asks for no heroics. The crew must act on a verified order or on the absence of one.",
+      "monitorType": 0,
+      "trendTime": 0,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 3,
+        "hr": 0,
+        "bpSys": 0,
+        "bpDia": 0,
+        "respRate": 0,
+        "spo2": 0,
+        "etco2": 0,
+        "temp": 35.6,
+        "obstruction": 0,
+        "custMeasure1": 96,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": false,
+        "spo2Attached": false,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Confirm arrest: unresponsive, apneic, and pulseless",
+        "Ask for the physical DNR order or bracelet and inspect it for validity",
+        "With no order immediately available, begin high-quality compressions now",
+        "Second rescuer applies defibrillator pads and analyzes the rhythm",
+        "Explain the legal requirement to the family with patience and compassion"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "CPR started; DNR could not be verified",
+      "description": "High-quality compressions are underway and pads are on. The monitor shows asystole and the analysis returns no shock advised. End-tidal carbon dioxide is registering, confirming compression quality. Engine 4 arrives at the bedroom door and the lead student must now organize a resuscitation, delegate roles, and decide what to ask medical control.",
+      "monitorType": 0,
+      "trendTime": 20,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 3,
+        "hr": 0,
+        "bpSys": 0,
+        "bpDia": 0,
+        "respRate": 10,
+        "spo2": 0,
+        "etco2": 14,
+        "temp": 35.6,
+        "obstruction": 0,
+        "custMeasure1": 96,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": false,
+        "spo2Attached": false,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Epinephrine 1 mg IV/IO early; asystole is a non-shockable rhythm",
+        "Delegate roles to the engine crew; airway work must not pause compressions",
+        "Step aside and contact medical control about the unverified DNR"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Roles delegated; medical control contacted",
+      "description": "The engine crew has taken over compressions and ventilation on a rotation and the resuscitation is organized. Medical control has been given a concise report and directs the crew to continue full resuscitative efforts, with authorization to cease if a valid signed DNR order is located. The crew has met its duty to the patient while leaving the door open to honor his wishes if the document surfaces.",
+      "monitorType": 0,
+      "trendTime": 30,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 3,
+        "hr": 0,
+        "bpSys": 0,
+        "bpDia": 0,
+        "respRate": 10,
+        "spo2": 0,
+        "etco2": 18,
+        "temp": 35.6,
+        "obstruction": 0,
+        "custMeasure1": 96,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": false,
+        "spo2Attached": false,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "CPR withheld on the family's verbal claim",
+      "description": "No compressions have been started. The crew has either stood by uncertain of what to do or has argued with the family about the missing paperwork. The downtime is lengthening with no perfusion, end-tidal carbon dioxide is unmeasurable, and rapport with the family has been damaged. This is a failure of the duty to act, not a compassionate outcome.",
+      "monitorType": 0,
+      "trendTime": 60,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 3,
+        "hr": 0,
+        "bpSys": 0,
+        "bpDia": 0,
+        "respRate": 0,
+        "spo2": 0,
+        "etco2": 0,
+        "temp": 35.4,
+        "obstruction": 0,
+        "custMeasure1": 96,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": false,
+        "spo2Attached": false,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Recognize a verbal claim is not a valid exclusion; start compressions now",
+        "Confirm no signs of biological death are present before any withholding",
+        "Document the absent order and the names and contacts of the family present"
+      ],
+      "relatedSounds": []
+    }
+  ],
+  "checklist": [
+    {
+      "title": "Confirm arrest: unresponsive, apneic, and pulseless",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Ask for the physical DNR order or bracelet and inspect it for validity",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "With no order immediately available, begin high-quality compressions now",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Second rescuer applies defibrillator pads and analyzes the rhythm",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Explain the legal requirement to the family with patience and compassion",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Epinephrine 1 mg IV/IO early; asystole is a non-shockable rhythm",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Delegate roles to the engine crew; airway work must not pause compressions",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Step aside and contact medical control about the unverified DNR",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Recognize a verbal claim is not a valid exclusion; start compressions now",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Confirm no signs of biological death are present before any withholding",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Document the absent order and the names and contacts of the family present",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    }
+  ],
+  "media": []
+}

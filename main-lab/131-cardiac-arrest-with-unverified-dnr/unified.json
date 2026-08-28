@@ -1,0 +1,436 @@
+{
+  "meta": {
+    "id": "131-cardiac-arrest-with-unverified-dnr",
+    "name": "131 - Cardiac Arrest with Unverified DNR",
+    "version": 1,
+    "difficulty": "advanced",
+    "category": "Resuscitation",
+    "protocols": [
+      "resus-dnr-advance-directives",
+      "resus-determination-of-death",
+      "resus-cardiac-arrest",
+      "medical-end-of-life-hospice"
+    ],
+    "totalTimeSeconds": 900,
+    "tags": [
+      "resuscitation",
+      "cardiac arrest",
+      "DNR",
+      "advance directive",
+      "medical control",
+      "crew resource management",
+      "geriatric",
+      "practice summative"
+    ]
+  },
+  "patient": {
+    "name": "Henry Whitmore",
+    "age": 88,
+    "ageUnit": "years",
+    "sex": "male",
+    "weight": 70,
+    "weightLbs": 154,
+    "height": 173,
+    "chiefComplaint": "Unresponsive, apneic, and pulseless in a home hospital bed",
+    "history": {
+      "hpi": "Patient was last seen normal by his family the previous evening. The son and wife attempted to wake him this morning for his medications and found him completely unresponsive. There is no report of a witnessed collapse, no bystander CPR, and no known trauma. The family states he has a Do Not Resuscitate order signed by his physician, but no document, card, or bracelet can be produced at the bedside. The son believes it is with the family lawyer or in a safe deposit box.",
+      "pastMedical": [
+        "Advanced dementia",
+        "Congestive heart failure",
+        "Chronic kidney disease",
+        "Hypertension"
+      ],
+      "medications": [
+        "Furosemide 40 mg PO daily",
+        "Carvedilol 6.25 mg PO twice daily",
+        "Donepezil 10 mg PO nightly"
+      ],
+      "allergies": [
+        "NKDA"
+      ],
+      "lastOralIntake": "Small dinner the previous evening per the family",
+      "events": "Family attempted to wake him for morning medications and found him unresponsive and not breathing; 911 was called immediately"
+    }
+  },
+  "scene": {
+    "dispatch": "88-year-old male, unresponsive, caller cannot wake the patient, private residence",
+    "location": "Well-kept single-family home; patient supine in a home hospital bed in a back bedroom",
+    "time": "7:51 AM, weekday morning",
+    "safety": "No hazards identified; home is quiet and orderly with clear access to the bedroom",
+    "bystanders": "Son in his 50s met the crew at the front door and is calm but somber; the patient's elderly wife is seated at the bedside holding his hand",
+    "visualCues": [
+      "Patient supine and completely still in a home hospital bed",
+      "Pale with cyanosis around the lips",
+      "No chest rise observed from the doorway",
+      "Wife seated at the bedside holding his hand, quiet and composed",
+      "Morning medications laid out on the bedside table, untouched",
+      "No DNR bracelet visible on either wrist and no paperwork at the bedside"
+    ]
+  },
+  "phases": [
+    {
+      "id": "initial",
+      "name": "Initial Contact",
+      "description": "The son stops the crew at the door to say his father has a DNR and would not want anything done. In the bedroom the patient is unresponsive, apneic, and without a carotid pulse. No DNR document, card, or bracelet is present at the bedside; the son believes the paperwork is with the lawyer or in a safe deposit box. The wife quietly asks for no heroics. The crew must act on a verified order or on the absence of one.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Unresponsive",
+        "gcs": {
+          "eye": 1,
+          "verbal": 1,
+          "motor": 1
+        },
+        "airway": "Not self-maintained; requires manual opening and adjunct",
+        "breathing": "Apneic; no chest rise or fall observed, no breath sounds on auscultation",
+        "circulation": "No palpable carotid pulse; skin pale with perioral cyanosis",
+        "skin": {
+          "color": "pale with perioral cyanosis",
+          "temperature": "cool",
+          "moisture": "dry"
+        },
+        "pupils": "Dilated and non-reactive",
+        "motorFunction": "No spontaneous movement, no response to painful stimulus",
+        "otherFindings": [
+          "No dependent lividity and no rigor mortis",
+          "No injuries incompatible with life and no signs of biological death",
+          "No DNR bracelet on either wrist; no paperwork produced at the bedside",
+          "Son states the order exists but cannot produce it: \"It must be with his lawyer or in their safe deposit box\"",
+          "Wife softly asks for no heroics",
+          "Family is calm and not obstructing care"
+        ],
+        "patientSpeech": "No speech; unresponsive"
+      },
+      "monitorState": {
+        "ecgRhythm": "Asystole",
+        "ecgWaveform": 3,
+        "hr": 0,
+        "bpSys": 0,
+        "bpDia": 0,
+        "respRate": 0,
+        "spo2": 0,
+        "etco2": 0,
+        "temp": 35.6,
+        "tempF": 96.1,
+        "obstruction": 0,
+        "glucose": 96,
+        "customMeasures": [],
+        "trendTimeSeconds": 0,
+        "visibility": {
+          "spo2Visible": false,
+          "spo2Attached": false,
+          "rrVisible": true,
+          "etco2Visible": false,
+          "cvpVisible": false
+        }
+      },
+      "expectedActions": [
+        {
+          "id": "a1",
+          "shortAction": "Confirm arrest: unresponsive, apneic, and pulseless",
+          "protocolExcerpt": "A clinically dead patient is defined as any unresponsive patient found without respirations and without a palpable carotid pulse.",
+          "priority": "critical",
+          "rationale": "The family's statement does not substitute for an assessment; the crew must independently establish that this patient is in arrest.",
+          "protocolReference": "MATC: Determination of Death/Withholding Resuscitative Efforts"
+        },
+        {
+          "id": "a2",
+          "shortAction": "Ask for the physical DNR order or bracelet and inspect it for validity",
+          "protocolExcerpt": "Patients must have one of the following documents or a valid alternative (such as identification bracelet indicating wishes) immediately available. One of the documents above is valid when it meets all the following criteria: Conforms to the state specifications for color and construction; Is intact: it has not been cut, broken or shows signs of being repaired; Displays the patient's name and, if required by state law or regulation, the physician's name.",
+          "priority": "critical",
+          "rationale": "A DNR is a legal medical order that has to be seen, not described; the validity criteria are specific and checkable at the bedside.",
+          "protocolReference": "MATC: Do Not Resuscitate Status/Advance Directives/Healthcare Power of Attorney (POA) Status"
+        },
+        {
+          "id": "a3",
+          "shortAction": "With no order immediately available, begin high-quality compressions now",
+          "protocolExcerpt": "If there is question about the validity of the form/instrument, the best course of action is to proceed with the resuscitation until additional information can be obtained to clarify the best course of action. Patient Safety Considerations: In cases where the patient's status is unclear and the appropriateness of withholding resuscitation efforts is questioned, EMS personnel should initiate CPR immediately and contact medical direction.",
+          "priority": "critical",
+          "rationale": "The default setting is always to resuscitate; withholding care on a verbal claim alone is abandonment of the patient.",
+          "protocolReference": "MATC: Do Not Resuscitate Status/Advance Directives/Healthcare Power of Attorney (POA) Status"
+        },
+        {
+          "id": "a4",
+          "shortAction": "Second rescuer applies defibrillator pads and analyzes the rhythm",
+          "protocolExcerpt": "Initiate chest compressions in cases with no bystander chest compressions or take over compressions from bystanders while a second rescuer is setting up the AED or defibrillator.",
+          "priority": "critical",
+          "rationale": "Compressions and rhythm analysis proceed in parallel; the analysis returns no shock advised, which routes the resuscitation down the non-shockable path.",
+          "protocolReference": "MATC: Cardiac Arrest (VF/VT/Asystole/PEA)"
+        },
+        {
+          "id": "a5",
+          "shortAction": "Explain the legal requirement to the family with patience and compassion",
+          "protocolExcerpt": "Patient Safety Considerations: Careful and thorough assessments should be performed to identify complaints not related to the illness for which the patient is receiving hospice or end-of-life care. Care should be delivered with the utmost patience and compassion.",
+          "priority": "critical",
+          "rationale": "The family is not obstructing anything; they need to hear both that the crew understands what they want and why the protocol still requires resuscitation.",
+          "protocolReference": "MATC: End-of-Life Care/Hospice Care"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "cpr-started",
+          "if": "CPR started; DNR could not be verified",
+          "condition": "Crew independently confirms unresponsiveness, apnea, and pulselessness, asks for and does not receive a valid DNR document or bracelet, begins high-quality chest compressions while a second rescuer applies pads, and explains the legal requirement to the family with empathy.",
+          "conditionType": "action_taken",
+          "triggerActionIds": [
+            "a1",
+            "a2",
+            "a3",
+            "a4"
+          ]
+        },
+        {
+          "targetPhaseId": "cpr-withheld",
+          "if": "CPR withheld on the family's verbal claim",
+          "condition": "Crew withholds resuscitation based on the family's verbal statement alone, stands by uncertain of how to proceed, or becomes argumentative with the family; no compressions are started and the downtime lengthens.",
+          "conditionType": "action_not_taken",
+          "triggerActionIds": [
+            "a2",
+            "a3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cpr-started",
+      "name": "CPR started; DNR could not be verified",
+      "description": "High-quality compressions are underway and pads are on. The monitor shows asystole and the analysis returns no shock advised. End-tidal carbon dioxide is registering, confirming compression quality. Engine 4 arrives at the bedroom door and the lead student must now organize a resuscitation, delegate roles, and decide what to ask medical control.",
+      "triggerCondition": "With no valid exclusion to resuscitation immediately available, the crew defaulted to resuscitation; compressions are producing measurable end-tidal carbon dioxide and additional resources have arrived on scene.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Unresponsive",
+        "gcs": {
+          "eye": 1,
+          "verbal": 1,
+          "motor": 1
+        },
+        "airway": "Managed with an adjunct; bag-valve mask ventilation in progress",
+        "breathing": "Apneic; ventilations delivered without interrupting compressions",
+        "circulation": "No spontaneous pulse; compressions in progress with a palpable compression pulse",
+        "skin": {
+          "color": "pale, less cyanotic with ventilation",
+          "temperature": "cool",
+          "moisture": "dry"
+        },
+        "pupils": "Dilated and non-reactive",
+        "motorFunction": "No spontaneous movement",
+        "otherFindings": [
+          "Defibrillation pads applied; analysis returns \"No shock advised\"",
+          "Asystole confirmed in two leads",
+          "End-tidal carbon dioxide registering, confirming compression quality",
+          "Engine 4 arriving at the bedroom door",
+          "Family has moved to the hallway and remains calm",
+          "Still no DNR document produced"
+        ],
+        "patientSpeech": "No speech; unresponsive"
+      },
+      "monitorState": {
+        "ecgRhythm": "Asystole",
+        "ecgWaveform": 3,
+        "hr": 0,
+        "bpSys": 0,
+        "bpDia": 0,
+        "respRate": 10,
+        "spo2": 0,
+        "etco2": 14,
+        "temp": 35.6,
+        "tempF": 96.1,
+        "obstruction": 0,
+        "glucose": 96,
+        "customMeasures": [],
+        "trendTimeSeconds": 20,
+        "visibility": {
+          "spo2Visible": false,
+          "spo2Attached": false,
+          "rrVisible": true,
+          "etco2Visible": true,
+          "cvpVisible": false
+        }
+      },
+      "expectedActions": [
+        {
+          "id": "b1",
+          "shortAction": "Epinephrine 1 mg IV/IO early; asystole is a non-shockable rhythm",
+          "protocolExcerpt": "If feasible, IV or IO access should be obtained. Administer Epinephrine 1mg during the first or second round of compressions. Prioritize early administration of epinephrine for non-shockable rhythms.",
+          "priority": "critical",
+          "rationale": "With no shock to deliver, epinephrine moves to the front of the sequence rather than waiting on a defibrillation cycle.",
+          "protocolReference": "MATC: Cardiac Arrest (VF/VT/Asystole/PEA)"
+        },
+        {
+          "id": "b2",
+          "shortAction": "Delegate roles to the engine crew; airway work must not pause compressions",
+          "protocolExcerpt": "Regardless of the airway management and ventilation strategy, consider the following principles: The airway management strategy should not interrupt compressions. All attempts should be made to prevent avoidable interruptions in chest compressions.",
+          "priority": "critical",
+          "rationale": "Effective resuscitation depends on clear assignment of compressions, airway, monitor, and documentation; duplicated or missed tasks cost compression fraction.",
+          "protocolReference": "MATC: Cardiac Arrest (VF/VT/Asystole/PEA)"
+        },
+        {
+          "id": "b3",
+          "shortAction": "Step aside and contact medical control about the unverified DNR",
+          "protocolExcerpt": "If CPR has been initiated and a valid exclusion to resuscitation has been subsequently verified, CPR may be discontinued, and medical direction contacted as needed. If for any reason an intervention that is prohibited by an advanced directive is being considered, medical direction should be contacted.",
+          "priority": "critical",
+          "rationale": "Medical control is the resource for medico-legal gray areas; knowing when and what to ask is the skill being tested here.",
+          "protocolReference": "MATC: Do Not Resuscitate Status/Advance Directives/Healthcare Power of Attorney (POA) Status"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "medical-control-contacted",
+          "if": "Roles delegated; medical control contacted",
+          "condition": "Crew administers epinephrine early for the non-shockable rhythm, hands off compressions and airway to the arriving engine crew with clear role assignment, and the lead steps aside to give medical control a concise report of the arrest and the unverified DNR claim.",
+          "conditionType": "action_taken",
+          "triggerActionIds": [
+            "b1",
+            "b2",
+            "b3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "medical-control-contacted",
+      "name": "Roles delegated; medical control contacted",
+      "description": "The engine crew has taken over compressions and ventilation on a rotation and the resuscitation is organized. Medical control has been given a concise report and directs the crew to continue full resuscitative efforts, with authorization to cease if a valid signed DNR order is located. The crew has met its duty to the patient while leaving the door open to honor his wishes if the document surfaces.",
+      "triggerCondition": "With roles delegated and the resuscitation running, the lead has contacted medical control and received an order to continue efforts pending production of a valid DNR; no further change in the patient's presentation is expected within the scenario window.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Unresponsive",
+        "gcs": {
+          "eye": 1,
+          "verbal": 1,
+          "motor": 1
+        },
+        "airway": "Secured with an adjunct; ventilations continuing on a fixed rate",
+        "breathing": "Apneic; ventilated at 10 breaths per minute without interrupting compressions",
+        "circulation": "No spontaneous pulse; compressions rotating every two minutes",
+        "skin": {
+          "color": "pale",
+          "temperature": "cool",
+          "moisture": "dry"
+        },
+        "pupils": "Dilated and non-reactive",
+        "motorFunction": "No spontaneous movement",
+        "otherFindings": [
+          "Medical control order: continue full resuscitation; cease if a valid signed DNR is produced",
+          "Engine crew rotating compressors every two minutes",
+          "End-tidal carbon dioxide holding steady, confirming ongoing compression quality",
+          "Family updated in the hallway and searching for the paperwork",
+          "Scenario ends here; a full code is not run out"
+        ],
+        "patientSpeech": "No speech; unresponsive"
+      },
+      "monitorState": {
+        "ecgRhythm": "Asystole",
+        "ecgWaveform": 3,
+        "hr": 0,
+        "bpSys": 0,
+        "bpDia": 0,
+        "respRate": 10,
+        "spo2": 0,
+        "etco2": 18,
+        "temp": 35.6,
+        "tempF": 96.1,
+        "obstruction": 0,
+        "glucose": 96,
+        "customMeasures": [],
+        "trendTimeSeconds": 30,
+        "visibility": {
+          "spo2Visible": false,
+          "spo2Attached": false,
+          "rrVisible": true,
+          "etco2Visible": true,
+          "cvpVisible": false
+        }
+      },
+      "expectedActions": [],
+      "transitions": []
+    },
+    {
+      "id": "cpr-withheld",
+      "name": "CPR withheld on the family's verbal claim",
+      "description": "No compressions have been started. The crew has either stood by uncertain of what to do or has argued with the family about the missing paperwork. The downtime is lengthening with no perfusion, end-tidal carbon dioxide is unmeasurable, and rapport with the family has been damaged. This is a failure of the duty to act, not a compassionate outcome.",
+      "triggerCondition": "Resuscitation was withheld on a verbal statement that does not meet any of the protocol's criteria for a valid exclusion, or the crew became argumentative and lost control of the scene; either way the patient is receiving no care.",
+      "isDefault": false,
+      "clinicalPresentation": {
+        "avpu": "Unresponsive",
+        "gcs": {
+          "eye": 1,
+          "verbal": 1,
+          "motor": 1
+        },
+        "airway": "Unmanaged; no adjunct placed",
+        "breathing": "Apneic; no ventilation being provided",
+        "circulation": "No pulse and no compressions; downtime lengthening",
+        "skin": {
+          "color": "increasingly cyanotic",
+          "temperature": "cool",
+          "moisture": "dry"
+        },
+        "pupils": "Dilated and non-reactive",
+        "motorFunction": "No spontaneous movement",
+        "otherFindings": [
+          "No compressions started; no monitor applied",
+          "Still no DNR document, card, or bracelet produced",
+          "No signs of biological death present that would justify withholding",
+          "Rapport with the family strained if the crew argued rather than explained",
+          "Every minute without compressions is unrecoverable"
+        ],
+        "patientSpeech": "No speech; unresponsive"
+      },
+      "monitorState": {
+        "ecgRhythm": "Asystole",
+        "ecgWaveform": 3,
+        "hr": 0,
+        "bpSys": 0,
+        "bpDia": 0,
+        "respRate": 0,
+        "spo2": 0,
+        "etco2": 0,
+        "temp": 35.4,
+        "tempF": 95.7,
+        "obstruction": 0,
+        "glucose": 96,
+        "customMeasures": [],
+        "trendTimeSeconds": 60,
+        "visibility": {
+          "spo2Visible": false,
+          "spo2Attached": false,
+          "rrVisible": true,
+          "etco2Visible": false,
+          "cvpVisible": false
+        }
+      },
+      "expectedActions": [
+        {
+          "id": "c1",
+          "shortAction": "Recognize a verbal claim is not a valid exclusion; start compressions now",
+          "protocolExcerpt": "Patient Safety Considerations: In cases where the patient's status is unclear and the appropriateness of withholding resuscitation efforts is questioned, EMS personnel should initiate CPR immediately and contact medical direction.",
+          "priority": "critical",
+          "rationale": "None of the criteria for withholding are met: no document, no bracelet, and no signs of biological death; the protocol has one answer here.",
+          "protocolReference": "MATC: Do Not Resuscitate Status/Advance Directives/Healthcare Power of Attorney (POA) Status"
+        },
+        {
+          "id": "c2",
+          "shortAction": "Confirm no signs of biological death are present before any withholding",
+          "protocolExcerpt": "Resuscitation should be started on all patients who are found apneic and pulseless unless the following conditions exist: Medical cause or traumatic injury or body condition clearly indicating biological death (irreversible brain death), limited to: Decapitation; Decomposition or putrefaction; Transection of the torso; Incineration; Injuries incompatible with life; Nontraumatic arrest with obvious signs of death including dependent lividity or rigor mortis.",
+          "priority": "critical",
+          "rationale": "The withholding criteria are a closed list; this patient has none of them, which is what makes the decision to stand by indefensible.",
+          "protocolReference": "MATC: Determination of Death/Withholding Resuscitative Efforts"
+        },
+        {
+          "id": "c3",
+          "shortAction": "Document the absent order and the names and contacts of the family present",
+          "protocolExcerpt": "Key Documentation Elements: Detailed description of the valid exclusion to resuscitation documentation used to guide resuscitation including a copy of the document if possible. Names/contact information for significant bystanders.",
+          "priority": "critical",
+          "rationale": "What was asked for, what was and was not produced, and who was present are the facts that will be reviewed after a call like this.",
+          "protocolReference": "MATC: Do Not Resuscitate Status/Advance Directives/Healthcare Power of Attorney (POA) Status"
+        }
+      ],
+      "transitions": []
+    }
+  ],
+  "realiti": {
+    "scenarioMonitorType": 2,
+    "scenarioDefaultEnergy": 200,
+    "scenarioDefaultPacerThreshold": 55
+  }
+}
