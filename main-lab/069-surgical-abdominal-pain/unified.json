@@ -80,13 +80,54 @@
         "trendTimeSeconds": 0,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
       },
-      "expectedActions": [],
+      "expectedActions": [
+        {
+          "id": "a1",
+          "shortAction": "Perform airway assessment and obtain full vital signs (pulse, BP, RR, neuro status)",
+          "protocolExcerpt": "Perform airway assessment and management per the Airway Management Guideline. Obtain vital signs including pulse, blood pressure, respiratory rate, neurologic status assessment",
+          "priority": "critical",
+          "rationale": "Establishes baseline and rules out immediate airway/breathing threats before focused exam.",
+          "protocolReference": "MATC: Abdominal Pain"
+        },
+        {
+          "id": "a2",
+          "shortAction": "Recognize rigid, distended, rebound-tender abdomen as signs of possible perforated/ischemic bowel",
+          "protocolExcerpt": "Signs and symptoms of ischemic, necrotic, or perforated bowel: Severe tenderness. Abdominal pain with motion or palpation of the abdomen. Fever. Nausea and vomiting. Absence of passage of stool or gas. Abdominal distention, with tympany to percussion",
+          "priority": "critical",
+          "rationale": "Identifies a surgical emergency requiring rapid, gentle transport rather than prolonged on-scene time.",
+          "protocolReference": "MATC: Abdominal Pain"
+        },
+        {
+          "id": "a3",
+          "shortAction": "Assess for shock given hypotension and tachycardia; treat per Shock Guideline",
+          "protocolExcerpt": "Assess for signs of shock. If shock is present, provide treatment per appropriate Shock Guideline",
+          "priority": "critical",
+          "rationale": "Hypotension with tachycardia in this context signals early hypovolemic/distributive shock from a surgical abdomen.",
+          "protocolReference": "MATC: Abdominal Pain"
+        },
+        {
+          "id": "a4",
+          "shortAction": "Establish IV access; give 500 mL NS bolus pressure-infused <15 min (90 kg × up to 30 mL/kg = 2,700 mL goal; target MAP 65 mmHg)",
+          "protocolExcerpt": "Establish IV access. If unable to obtain within two attempts or less than 90 seconds, place an IO needle. IV fluid volume goal attained by giving boluses that are pressure infused over less than 15 minutes each based on patient's condition and clinical impression. Physiologic target: MAP goal 65 mmHg. Fluid goal of up to 30 mL/kg of isotonic fluid by administering rapid, predetermined boluses (e.g., 500 mL) unless the MAP goal is achieved, or pulmonary edema develops",
+          "priority": "critical",
+          "rationale": "Early fluid resuscitation is essential to restore perfusion while transporting to definitive surgical care.",
+          "protocolReference": "MATC: Shock"
+        }
+      ],
       "transitions": [
         {
           "targetPhaseId": "shock-recognized",
           "if": "Abdomen and shock assessed",
           "condition": "Crew performs a focused abdominal exam identifying signs of a surgical abdomen (rigidity, rebound tenderness) and recognizes hypotension/tachycardia as shock requiring treatment per the Shock Guideline.",
-          "conditionType": "action_taken"
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a2", "a3", "a4"]
+        },
+        {
+          "targetPhaseId": "shock-worsens",
+          "if": "Fluid resuscitation delayed",
+          "condition": "IV access and fluid bolus are delayed or omitted despite recognized shock; the patient progresses to decompensated shock with worsening hypotension and altered mental status.",
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["a4"]
         }
       ]
     },
@@ -131,36 +172,20 @@
       },
       "expectedActions": [
         {
-          "id": "a1-airway-vitals",
-          "shortAction": "Perform airway assessment and obtain full vital signs (pulse, BP, RR, neuro status)",
-          "protocolExcerpt": "Perform airway assessment and management per the Airway Management Guideline. Obtain vital signs including pulse, blood pressure, respiratory rate, neurologic status assessment",
-          "priority": "critical",
-          "rationale": "Establishes baseline and rules out immediate airway/breathing threats before focused exam.",
-          "protocolReference": "MATC: Abdominal Pain"
-        },
-        {
-          "id": "a2-recognize-perforation",
-          "shortAction": "Recognize rigid, distended, rebound-tender abdomen as signs of possible perforated/ischemic bowel",
-          "protocolExcerpt": "Signs and symptoms of ischemic, necrotic, or perforated bowel: Severe tenderness. Abdominal pain with motion or palpation of the abdomen. Fever. Nausea and vomiting. Absence of passage of stool or gas. Abdominal distention, with tympany to percussion",
-          "priority": "critical",
-          "rationale": "Identifies a surgical emergency requiring rapid, gentle transport rather than prolonged on-scene time.",
-          "protocolReference": "MATC: Abdominal Pain"
-        },
-        {
-          "id": "a3-assess-shock",
-          "shortAction": "Assess for shock given hypotension and tachycardia; treat per Shock Guideline",
-          "protocolExcerpt": "Assess for signs of shock. If shock is present, provide treatment per appropriate Shock Guideline",
-          "priority": "critical",
-          "rationale": "Hypotension with tachycardia in this context signals early hypovolemic/distributive shock from a surgical abdomen.",
-          "protocolReference": "MATC: Abdominal Pain"
-        },
-        {
-          "id": "a4-iv-fluid-bolus",
-          "shortAction": "Establish IV access; give 500 mL NS bolus pressure-infused <15 min (90 kg × up to 30 mL/kg = 2,700 mL goal; target MAP 65 mmHg)",
-          "protocolExcerpt": "Establish IV access. If unable to obtain within two attempts or less than 90 seconds, place an IO needle. IV fluid volume goal attained by giving boluses that are pressure infused over less than 15 minutes each based on patient's condition and clinical impression. Physiologic target: MAP goal 65 mmHg. Fluid goal of up to 30 mL/kg of isotonic fluid by administering rapid, predetermined boluses (e.g., 500 mL) unless the MAP goal is achieved, or pulmonary edema develops",
-          "priority": "critical",
-          "rationale": "Early fluid resuscitation is essential to restore perfusion while transporting to definitive surgical care.",
+          "id": "b1",
+          "shortAction": "Provide advanced notification to receiving hospital: surgical abdomen with shock",
+          "protocolExcerpt": "Provide advanced notification to the hospital",
+          "priority": "important",
+          "rationale": "Allows the receiving facility to mobilize surgical resources before arrival.",
           "protocolReference": "MATC: Shock"
+        },
+        {
+          "id": "b2",
+          "shortAction": "Reassess vitals and abdominal exam en route; transport to appropriate surgical-capable facility",
+          "protocolExcerpt": "Provide transport to an appropriate receiving facility. Consider specialty destination centers for conditions such as suspected abdominal aortic aneurysm and aortic dissection. Reassess vital signs and response to therapeutic interventions throughout transport",
+          "priority": "important",
+          "rationale": "Ongoing reassessment detects early deterioration; destination selection matters for time-critical surgical disease.",
+          "protocolReference": "MATC: Abdominal Pain"
         }
       ],
       "transitions": [
@@ -169,14 +194,7 @@
           "if": "Perfusion improves with fluids",
           "condition": "MAP improves toward goal with the fluid bolus; patient remains alert with improving vital signs, and crew proceeds to advanced notification and rapid transport to a surgical-capable facility.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["a4-iv-fluid-bolus"]
-        },
-        {
-          "targetPhaseId": "shock-worsens",
-          "if": "Fluid resuscitation delayed",
-          "condition": "IV access and fluid bolus are delayed or omitted despite recognized shock; the patient progresses to decompensated shock with worsening hypotension and altered mental status.",
-          "conditionType": "action_not_taken",
-          "triggerActionIds": ["a4-iv-fluid-bolus"]
+          "triggerActionIds": ["b1", "b2"]
         }
       ]
     },
@@ -219,24 +237,7 @@
         "trendTimeSeconds": 40,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
       },
-      "expectedActions": [
-        {
-          "id": "a5-advanced-notification",
-          "shortAction": "Provide advanced notification to receiving hospital: surgical abdomen with shock",
-          "protocolExcerpt": "Provide advanced notification to the hospital",
-          "priority": "important",
-          "rationale": "Allows the receiving facility to mobilize surgical resources before arrival.",
-          "protocolReference": "MATC: Shock"
-        },
-        {
-          "id": "a6-reassess-transport",
-          "shortAction": "Reassess vitals and abdominal exam en route; transport to appropriate surgical-capable facility",
-          "protocolExcerpt": "Provide transport to an appropriate receiving facility. Consider specialty destination centers for conditions such as suspected abdominal aortic aneurysm and aortic dissection. Reassess vital signs and response to therapeutic interventions throughout transport",
-          "priority": "important",
-          "rationale": "Ongoing reassessment detects early deterioration; destination selection matters for time-critical surgical disease.",
-          "protocolReference": "MATC: Abdominal Pain"
-        }
-      ],
+      "expectedActions": [],
       "transitions": []
     },
     {
@@ -279,7 +280,7 @@
       },
       "expectedActions": [
         {
-          "id": "a7-decompensated-shock-rescue",
+          "id": "c1",
           "shortAction": "Recognize decompensated shock; repeat 500 mL NS bolus, prepare norepinephrine 4.5 mcg/min if fluid-refractory (90 kg × 0.05 mcg/kg/min starting dose)",
           "protocolExcerpt": "IV fluid volume goal attained by giving boluses that are pressure infused over less than 15 minutes each... Vasopressors (shock unresponsive to IV fluids) titrated to physiologic targets: Norepinephrine 0.05–0.5 mcg/kg/minute",
           "priority": "critical",

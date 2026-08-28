@@ -57,7 +57,12 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [],
+      "relatedChecklist": [
+        "Perform airway assessment and obtain full vital signs (pulse, BP, RR, neuro status)",
+        "Recognize rigid, distended, rebound-tender abdomen as signs of possible perforated/ischemic bowel",
+        "Assess for shock given hypotension and tachycardia; treat per Shock Guideline",
+        "Establish IV access; give 500 mL NS bolus pressure-infused <15 min (90 kg × up to 30 mL/kg = 2,700 mL goal; target MAP 65 mmHg)"
+      ],
       "relatedSounds": []
     },
     {
@@ -90,10 +95,8 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Perform airway assessment and obtain full vital signs (pulse, BP, RR, neuro status)",
-        "Recognize rigid, distended, rebound-tender abdomen as signs of possible perforated/ischemic bowel",
-        "Assess for shock given hypotension and tachycardia; treat per Shock Guideline",
-        "Establish IV access; give 500 mL NS bolus pressure-infused <15 min (90 kg × up to 30 mL/kg = 2,700 mL goal; target MAP 65 mmHg)"
+        "Provide advanced notification to receiving hospital: surgical abdomen with shock",
+        "Reassess vitals and abdominal exam en route; transport to appropriate surgical-capable facility"
       ],
       "relatedSounds": []
     },
@@ -126,10 +129,7 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [
-        "Provide advanced notification to receiving hospital: surgical abdomen with shock",
-        "Reassess vitals and abdominal exam en route; transport to appropriate surgical-capable facility"
-      ],
+      "relatedChecklist": [],
       "relatedSounds": []
     },
     {
