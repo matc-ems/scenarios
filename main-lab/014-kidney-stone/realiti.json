@@ -57,7 +57,14 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [],
+      "relatedChecklist": [
+        "Assess pain using Numeric Rating Scale (patient >12 years old)",
+        "Assess for life-threatening causes: AAA, ectopic pregnancy, appendicitis, perforation",
+        "Establish IV access for analgesia administration",
+        "Hydromorphone 1 mg IV (70 kg × 0.015 mg/kg = 1.05 mg, rounded to 1 mg; max initial 2 mg, max cumulative 4 mg)",
+        "Ondansetron 4 mg IV for nausea",
+        "Place patient in position of comfort and reassess"
+      ],
       "relatedSounds": []
     },
     {
@@ -90,12 +97,9 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Assess pain using Numeric Rating Scale (patient >12 years old)",
-        "Assess for life-threatening causes: AAA, ectopic pregnancy, appendicitis, perforation",
-        "Establish IV access for analgesia administration",
-        "Hydromorphone 1 mg IV (70 kg × 0.015 mg/kg = 1.05 mg, rounded to 1 mg; max initial 2 mg, max cumulative 4 mg)",
-        "Ondansetron 4 mg IV for nausea",
-        "Place patient in position of comfort and reassess"
+        "Repeat hydromorphone 1 mg IV after 5 min (cumulative 2 mg; max cumulative 4 mg)",
+        "Monitor capnography/SpO2 for hypoventilation after repeat opioid dose",
+        "Transport to appropriate receiving facility, reassess vitals en route"
       ],
       "relatedSounds": []
     },
@@ -128,11 +132,7 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [
-        "Repeat hydromorphone 1 mg IV after 5 min (cumulative 2 mg; max cumulative 4 mg)",
-        "Monitor capnography/SpO2 for hypoventilation after repeat opioid dose",
-        "Transport to appropriate receiving facility, reassess vitals en route"
-      ],
+      "relatedChecklist": [],
       "relatedSounds": []
     },
     {

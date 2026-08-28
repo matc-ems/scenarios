@@ -80,13 +80,70 @@
         "trendTimeSeconds": 0,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [],
+      "expectedActions": [
+        {
+          "id": "a1",
+          "shortAction": "Assess pain using Numeric Rating Scale (patient >12 years old)",
+          "protocolExcerpt": "Greater than 12 years old: Self-report scale: Numeric Rating Scale (NRS)",
+          "priority": "important",
+          "rationale": "Establishes a baseline pain score to measure response to treatment.",
+          "protocolReference": "MATC: Pain Management"
+        },
+        {
+          "id": "a2",
+          "shortAction": "Assess for life-threatening causes: AAA, ectopic pregnancy, appendicitis, perforation",
+          "protocolExcerpt": "Assess for life-threatening causes of abdominal pain, which may include: Signs and symptoms of dissecting or ruptured abdominal aortic aneurysm (AAA)",
+          "priority": "critical",
+          "rationale": "Flank/abdominal pain can mimic life-threatening pathology that must be ruled out before treating as simple renal colic.",
+          "protocolReference": "MATC: Abdominal Pain"
+        },
+        {
+          "id": "a3",
+          "shortAction": "Establish IV access for analgesia administration",
+          "protocolExcerpt": "Obtain vascular access as necessary to provide analgesia and/or fluid resuscitation",
+          "priority": "critical",
+          "rationale": "IV access is required for parenteral opioid and antiemetic administration.",
+          "protocolReference": "MATC: Abdominal Pain"
+        },
+        {
+          "id": "a4",
+          "shortAction": "Hydromorphone 1 mg IV (70 kg × 0.015 mg/kg = 1.05 mg, rounded to 1 mg; max initial 2 mg, max cumulative 4 mg)",
+          "protocolExcerpt": "Hydromorphone: 0.015 mg/kg IM, IV, or IO (maximum initial dose 2 mg; maximum cumulative dose of 4 mg)",
+          "priority": "critical",
+          "rationale": "Weight-based opioid dosing for severe pain, capped below the protocol's maximum initial dose.",
+          "protocolReference": "MATC: Pain Management"
+        },
+        {
+          "id": "a5",
+          "shortAction": "Ondansetron 4 mg IV for nausea",
+          "protocolExcerpt": "Ondansetron (contraindicated for suspected or known diagnosis of prolonged QT syndrome): Adult: 4 mg IV/PO/SL",
+          "priority": "important",
+          "rationale": "Treats associated nausea and vomiting per the antiemetic guideline referenced from Pain Management.",
+          "protocolReference": "MATC: Nausea-Vomiting"
+        },
+        {
+          "id": "a6",
+          "shortAction": "Place patient in position of comfort and reassess",
+          "protocolExcerpt": "Transport in position of comfort and reassess as indicated",
+          "priority": "important",
+          "rationale": "Non-pharmacologic comfort measure that complements medication therapy.",
+          "protocolReference": "MATC: Pain Management"
+        }
+      ],
       "transitions": [
         {
           "targetPhaseId": "analgesia-given",
           "if": "Pain assessed and hydromorphone given",
           "condition": "Crew obtains vital signs, assesses pain on a numeric scale, establishes IV access, and administers weight-based hydromorphone with an antiemetic per protocol.",
-          "conditionType": "action_taken"
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a1", "a4"]
+        },
+        {
+          "targetPhaseId": "analgesia-withheld",
+          "if": "Analgesia withheld despite protocol",
+          "condition": "Crew defers opioid administration out of concern for masking findings, despite the protocol explicitly noting analgesics do not delay diagnosis in acute abdominal pain; patient remains in severe uncontrolled pain.",
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["a4"]
         }
       ]
     },
@@ -131,52 +188,28 @@
       },
       "expectedActions": [
         {
-          "id": "a1-pain-scale",
-          "shortAction": "Assess pain using Numeric Rating Scale (patient >12 years old)",
-          "protocolExcerpt": "Greater than 12 years old: Self-report scale: Numeric Rating Scale (NRS)",
-          "priority": "important",
-          "rationale": "Establishes a baseline pain score to measure response to treatment.",
+          "id": "b1",
+          "shortAction": "Repeat hydromorphone 1 mg IV after 5 min (cumulative 2 mg; max cumulative 4 mg)",
+          "protocolExcerpt": "If indicated based on pain assessment, and vital signs allow, repeat pain medication administration (excluding acetaminophen and nonsteroidal anti-inflammatory medicines) after 5 minutes of the previous dose",
+          "priority": "critical",
+          "rationale": "Repeat dosing follows the protocol's 5-minute reassessment interval and stays within the cumulative maximum.",
           "protocolReference": "MATC: Pain Management"
         },
         {
-          "id": "a2-life-threats",
-          "shortAction": "Assess for life-threatening causes: AAA, ectopic pregnancy, appendicitis, perforation",
-          "protocolExcerpt": "Assess for life-threatening causes of abdominal pain, which may include: Signs and symptoms of dissecting or ruptured abdominal aortic aneurysm (AAA)",
-          "priority": "critical",
-          "rationale": "Flank/abdominal pain can mimic life-threatening pathology that must be ruled out before treating as simple renal colic.",
+          "id": "b2",
+          "shortAction": "Monitor capnography/SpO2 for hypoventilation after repeat opioid dose",
+          "protocolExcerpt": "Use of non-invasive capnography is an earlier predictor of hypoventilation than pulse oximetry if opioid medications are administered",
+          "priority": "important",
+          "rationale": "Repeat opioid dosing increases cumulative respiratory depression risk requiring closer monitoring.",
+          "protocolReference": "MATC: Pain Management"
+        },
+        {
+          "id": "b3",
+          "shortAction": "Transport to appropriate receiving facility, reassess vitals en route",
+          "protocolExcerpt": "Provide transport to an appropriate receiving facility. Reassess vital signs and response to therapeutic interventions throughout transport",
+          "priority": "important",
+          "rationale": "Ensures continued monitoring and timely definitive care.",
           "protocolReference": "MATC: Abdominal Pain"
-        },
-        {
-          "id": "a3-iv-access",
-          "shortAction": "Establish IV access for analgesia administration",
-          "protocolExcerpt": "Obtain vascular access as necessary to provide analgesia and/or fluid resuscitation",
-          "priority": "critical",
-          "rationale": "IV access is required for parenteral opioid and antiemetic administration.",
-          "protocolReference": "MATC: Abdominal Pain"
-        },
-        {
-          "id": "a4-hydromorphone",
-          "shortAction": "Hydromorphone 1 mg IV (70 kg × 0.015 mg/kg = 1.05 mg, rounded to 1 mg; max initial 2 mg, max cumulative 4 mg)",
-          "protocolExcerpt": "Hydromorphone: 0.015 mg/kg IM, IV, or IO (maximum initial dose 2 mg; maximum cumulative dose of 4 mg)",
-          "priority": "critical",
-          "rationale": "Weight-based opioid dosing for severe pain, capped below the protocol's maximum initial dose.",
-          "protocolReference": "MATC: Pain Management"
-        },
-        {
-          "id": "a5-ondansetron",
-          "shortAction": "Ondansetron 4 mg IV for nausea",
-          "protocolExcerpt": "Ondansetron (contraindicated for suspected or known diagnosis of prolonged QT syndrome): Adult: 4 mg IV/PO/SL",
-          "priority": "important",
-          "rationale": "Treats associated nausea and vomiting per the antiemetic guideline referenced from Pain Management.",
-          "protocolReference": "MATC: Nausea-Vomiting"
-        },
-        {
-          "id": "a6-position-comfort",
-          "shortAction": "Place patient in position of comfort and reassess",
-          "protocolExcerpt": "Transport in position of comfort and reassess as indicated",
-          "priority": "important",
-          "rationale": "Non-pharmacologic comfort measure that complements medication therapy.",
-          "protocolReference": "MATC: Pain Management"
         }
       ],
       "transitions": [
@@ -185,14 +218,7 @@
           "if": "Reassessed at 5 min, repeat dose given",
           "condition": "Pain remains at 5/10 five minutes after the initial dose; crew reassesses vital signs and pain score, confirms no hypotension or hypoventilation, and administers a repeat hydromorphone dose within the cumulative maximum.",
           "conditionType": "time_elapsed",
-          "triggerActionIds": ["a4-hydromorphone"]
-        },
-        {
-          "targetPhaseId": "analgesia-withheld",
-          "if": "Analgesia withheld despite protocol",
-          "condition": "Crew defers opioid administration out of concern for masking findings, despite the protocol explicitly noting analgesics do not delay diagnosis in acute abdominal pain; patient remains in severe uncontrolled pain.",
-          "conditionType": "action_not_taken",
-          "triggerActionIds": ["a4-hydromorphone"]
+          "triggerActionIds": ["b1"]
         }
       ]
     },
@@ -235,32 +261,7 @@
         "trendTimeSeconds": 40,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [
-        {
-          "id": "a7-repeat-hydromorphone",
-          "shortAction": "Repeat hydromorphone 1 mg IV after 5 min (cumulative 2 mg; max cumulative 4 mg)",
-          "protocolExcerpt": "If indicated based on pain assessment, and vital signs allow, repeat pain medication administration (excluding acetaminophen and nonsteroidal anti-inflammatory medicines) after 5 minutes of the previous dose",
-          "priority": "critical",
-          "rationale": "Repeat dosing follows the protocol's 5-minute reassessment interval and stays within the cumulative maximum.",
-          "protocolReference": "MATC: Pain Management"
-        },
-        {
-          "id": "a8-monitor-hypoventilation",
-          "shortAction": "Monitor capnography/SpO2 for hypoventilation after repeat opioid dose",
-          "protocolExcerpt": "Use of non-invasive capnography is an earlier predictor of hypoventilation than pulse oximetry if opioid medications are administered",
-          "priority": "important",
-          "rationale": "Repeat opioid dosing increases cumulative respiratory depression risk requiring closer monitoring.",
-          "protocolReference": "MATC: Pain Management"
-        },
-        {
-          "id": "a9-transport",
-          "shortAction": "Transport to appropriate receiving facility, reassess vitals en route",
-          "protocolExcerpt": "Provide transport to an appropriate receiving facility. Reassess vital signs and response to therapeutic interventions throughout transport",
-          "priority": "important",
-          "rationale": "Ensures continued monitoring and timely definitive care.",
-          "protocolReference": "MATC: Abdominal Pain"
-        }
-      ],
+      "expectedActions": [],
       "transitions": []
     },
     {
@@ -304,7 +305,7 @@
       },
       "expectedActions": [
         {
-          "id": "a10-recognize-need",
+          "id": "c1",
           "shortAction": "Recognize ongoing severe pain unresponsive to non-pharmacologic measures; administer hydromorphone",
           "protocolExcerpt": "Patients with acute abdominal pain should receive analgesic interventions – Use of analgesics for acute abdominal pain does not mask clinical findings or delay diagnosis",
           "priority": "critical",
