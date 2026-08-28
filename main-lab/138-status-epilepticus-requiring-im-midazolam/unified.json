@@ -1,0 +1,451 @@
+{
+  "meta": {
+    "id": "138-status-epilepticus-requiring-im-midazolam",
+    "name": "138 - Status Epilepticus Requiring IM Midazolam",
+    "version": 1,
+    "difficulty": "intermediate",
+    "category": "Medical",
+    "protocols": [
+      "medical-seizures",
+      "resp-airway-management"
+    ],
+    "totalTimeSeconds": 900,
+    "tags": [
+      "medical",
+      "seizure",
+      "status epilepticus",
+      "midazolam",
+      "intramuscular",
+      "airway management",
+      "weight-based dosing",
+      "practice summative"
+    ]
+  },
+  "patient": {
+    "name": "David Miller",
+    "age": 34,
+    "ageUnit": "years",
+    "sex": "male",
+    "weight": 80,
+    "weightLbs": 176,
+    "height": 180,
+    "chiefComplaint": "Generalized tonic-clonic seizure ongoing for approximately six minutes on EMS arrival",
+    "history": {
+      "hpi": "A 34-year-old man with a known seizure disorder maintained on levetiracetam who ran out of his prescription three days ago and has taken none since. His roommate heard him fall in the bedroom and found him convulsing on the floor. By the time the crew arrives he has been seizing continuously for approximately six minutes with no lucid interval. The roommate reports no trauma, no fever, no recent illness, no alcohol or drug use, and no prior episode this prolonged.",
+      "pastMedical": [
+        "Seizure disorder, on maintenance anticonvulsant therapy",
+        "No diabetes, no cardiac history, no head injury reported"
+      ],
+      "medications": [
+        "Levetiracetam (Keppra), prescribed; ran out three days ago and has taken none since"
+      ],
+      "allergies": [
+        "NKDA per roommate"
+      ],
+      "lastOralIntake": "Roommate believes dinner last night; unwitnessed this morning",
+      "events": "Roommate heard a fall, entered the bedroom, and found him in a generalized tonic-clonic seizure that has continued without a break for roughly six minutes"
+    }
+  },
+  "scene": {
+    "dispatch": "34-year-old male, caller reports the patient is shaking and will not stop, private residence",
+    "location": "Second-floor bedroom of a shared apartment; patient on the floor between the bed and the wall, tight working space",
+    "time": "8:18 AM, weekday morning",
+    "safety": "Scene is secure and the roommate met the crew at the door. Confined working space around the patient; furniture should be moved before treatment begins",
+    "bystanders": "Roommate is present, cooperative, and can confirm the medication history and the approximate time the seizure started",
+    "visualCues": [
+      "Adult male in a sustained generalized tonic-clonic seizure on the bedroom floor",
+      "Foaming at the mouth with blood-tinged sputum",
+      "Audible gurgling with each breath",
+      "Empty Keppra bottle on the nightstand",
+      "Nightstand knocked over; no blood on the floor and no obvious head wound"
+    ]
+  },
+  "phases": [
+    {
+      "id": "initial",
+      "name": "Initial Contact",
+      "description": "Crew finds an 80 kg man in a continuous generalized tonic-clonic seizure that has now lasted roughly six minutes, meeting the protocol definition of status epilepticus. His airway is gurgling with blood-tinged sputum, his respirations are irregular and ineffective, and his saturation is 86 percent on room air with a rising EtCO2. Glucose is 104. He has no vascular access, which is exactly the situation the protocol writes the IM midazolam dose for: 0.2 mg/kg to a maximum of 10 mg, IM preferred.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Unresponsive",
+        "gcs": {
+          "eye": 1,
+          "verbal": 1,
+          "motor": 4
+        },
+        "airway": "Gurgling with foamy blood-tinged sputum from a bitten tongue; requires suction and lateral positioning",
+        "breathing": "Irregular and ineffective with the convulsion; poor tidal volume, no sustained ventilation",
+        "circulation": "Radial pulse strong and tachycardic at 128; skin flushed and diaphoretic",
+        "skin": {
+          "color": "flushed",
+          "temperature": "warm",
+          "moisture": "diaphoretic"
+        },
+        "pupils": "5 mm bilaterally, sluggish, with roving conjugate deviation",
+        "motorFunction": "Sustained generalized tonic-clonic activity involving all four extremities; no purposeful movement",
+        "otherFindings": [
+          "Seizure ongoing approximately six minutes without a lucid interval, meeting the greater-than-five-minute criterion",
+          "Blood-tinged oral secretions from a bitten tongue",
+          "Blood glucose 104 mg/dL",
+          "No vascular access established and none obtainable during active convulsion",
+          "Roommate confirms three days without the prescribed anticonvulsant",
+          "No signs of head trauma, no fever reported"
+        ],
+        "patientSpeech": "No verbal response; unresponsive throughout"
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 128,
+        "bpSys": 138,
+        "bpDia": 88,
+        "respRate": 22,
+        "spo2": 86,
+        "etco2": 55,
+        "temp": 37.4,
+        "tempF": 99.3,
+        "obstruction": 30,
+        "glucose": 104,
+        "trendTimeSeconds": 0,
+        "visibility": {
+          "spo2Visible": true,
+          "spo2Attached": true,
+          "rrVisible": true,
+          "etco2Visible": true,
+          "cvpVisible": false
+        }
+      },
+      "expectedActions": [
+        {
+          "id": "a1",
+          "shortAction": "Position laterally and suction; place an NPA if positioning and suction are not enough",
+          "protocolExcerpt": "If signs of airway obstruction are present and a chin-lift, jaw thrust, positioning, and/or suctioning does not alleviate it, place oropharyngeal airway (if gag reflex is absent) or nasopharyngeal airway.",
+          "priority": "critical",
+          "rationale": "He is gurgling on his own blood-tinged secretions. Aspiration is the immediate threat and it is fixed with positioning and suction, not with a drug.",
+          "protocolReference": "MATC: Seizures"
+        },
+        {
+          "id": "a2",
+          "shortAction": "Apply pulse oximetry and waveform capnography to monitor oxygenation and ventilation",
+          "protocolExcerpt": "Place pulse oximeter and/or waveform capnography to monitor oxygenation/ventilation.",
+          "priority": "important",
+          "rationale": "In status epilepticus capnography shows the ventilatory and acid-base picture that saturation alone hides.",
+          "protocolReference": "MATC: Seizures"
+        },
+        {
+          "id": "a3",
+          "shortAction": "Titrate oxygen to a 94 to 98 percent target; assist with BVM if ventilation is compromised",
+          "protocolExcerpt": "Administer oxygen as appropriate with a target of achieving 94-98% saturation. Use bag-valve-mask (BVM) ventilation if oxygenation/ventilation are compromised.",
+          "priority": "critical",
+          "rationale": "At 86 percent with ineffective respirations he needs assisted ventilation, not just a mask. The protocol sets the target and names BVM as the escalation.",
+          "protocolReference": "MATC: Seizures"
+        },
+        {
+          "id": "a4",
+          "shortAction": "Recognize status epilepticus: seizing on arrival, beyond five minutes",
+          "protocolExcerpt": "Inclusion Criteria: Seizure activity upon arrival of prehospital personnel or new/recurrent seizure activity lasting greater than 5 minutes.",
+          "priority": "critical",
+          "rationale": "Naming status epilepticus is what converts this from watchful waiting into immediate benzodiazepine administration.",
+          "protocolReference": "MATC: Seizures"
+        },
+        {
+          "id": "a5",
+          "shortAction": "Midazolam 10 mg IM lateral thigh (80 kg x 0.2 mg/kg = 16 mg, capped at 10 mg max)",
+          "protocolExcerpt": "Anticonvulsant Treatment - If vascular access is absent: Midazolam 0.2 mg/kg (maximum dose 10 mg), IM preferred, or IN.",
+          "priority": "critical",
+          "rationale": "The weight-based calculation yields 16 mg, which exceeds the protocol maximum, so the dose is capped at 10 mg. A habitual 2 mg or 5 mg dose is an underdose that will not break this seizure in an 80 kg patient.",
+          "protocolReference": "MATC: Seizures"
+        },
+        {
+          "id": "a6",
+          "shortAction": "Do not delay the benzodiazepine to chase an IV; IM and IN routes are preferred",
+          "protocolExcerpt": "Routes for treatment: IN/IM routes are preferred over IV or IO routes (if not already established) and rectal (PR) route as an alternative. IV placement is not necessary for treatment of seizures, but could be obtained if needed for other reasons.",
+          "priority": "critical",
+          "rationale": "The protocol removes any justification for spending minutes on a difficult IV in a convulsing, hypoxic patient. The drug goes in the thigh now.",
+          "protocolReference": "MATC: Seizures"
+        },
+        {
+          "id": "a7",
+          "shortAction": "Check the glucose while he is still seizing; treat below 60 mg/dL",
+          "protocolExcerpt": "Glucometry: If still actively seizing, check blood glucose level. If less than 60 mg/dL, treat per the Hypoglycemia Guideline.",
+          "priority": "critical",
+          "rationale": "Hypoglycemia is a reversible cause of a refractory seizure and the check takes seconds. His 104 rules it out.",
+          "protocolReference": "MATC: Seizures"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "midazolam-given",
+          "if": "Midazolam 10 mg IM given",
+          "condition": "Crew clears and protects the airway, recognizes status epilepticus, and gives the full weight-based 10 mg IM midazolam into the lateral thigh without delaying for vascular access. Convulsive activity ceases within about five minutes and the patient becomes postictal.",
+          "conditionType": "action_taken",
+          "triggerActionIds": [
+            "a1",
+            "a5",
+            "a6"
+          ]
+        },
+        {
+          "targetPhaseId": "iv-chased",
+          "if": "IV attempted; seizure continues",
+          "condition": "Crew spends more than five minutes attempting IV access on a convulsing patient before giving any anticonvulsant, or administers a habitual 2 mg or 5 mg dose that is far below the 0.2 mg/kg weight-based requirement. The seizure continues, hypoxia deepens, and metabolic heat production drives the temperature up.",
+          "conditionType": "action_not_taken",
+          "triggerActionIds": [
+            "a5",
+            "a6"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "midazolam-given",
+      "name": "Midazolam 10 mg IM given",
+      "description": "About five minutes after the intramuscular midazolam the convulsive activity stops. The patient is now postictal: unresponsive to voice, moaning to painful stimulus, with a snoring but manageable airway and adequate spontaneous respirations. His saturation has come up to 97 percent, his heart rate has fallen to 102, and his EtCO2 has normalized. The crew now protects a postictal airway, distinguishes true postictal depression from ongoing subtle seizure activity, and thinks carefully before a second benzodiazepine dose.",
+      "triggerCondition": "The full 10 mg weight-based IM midazolam dose was given without delaying for IV access, and the airway was cleared and protected. Convulsive activity has ceased and the patient is postictal.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Pain",
+        "gcs": {
+          "eye": 1,
+          "verbal": 2,
+          "motor": 5
+        },
+        "airway": "Snoring respirations that clear with positioning; secretions reduced after suctioning",
+        "breathing": "Spontaneous, regular, adequate depth at 16 per minute",
+        "circulation": "Radial pulse strong and regular; skin warm, flush resolving",
+        "skin": {
+          "color": "pink",
+          "temperature": "warm",
+          "moisture": "damp"
+        },
+        "pupils": "4 mm bilaterally, now reactive with no gaze deviation",
+        "motorFunction": "Flaccid with occasional purposeful withdrawal from painful stimulus; no convulsive activity",
+        "otherFindings": [
+          "All convulsive activity ceased within approximately five minutes of the IM dose",
+          "Moans to painful stimulus; no verbal response to voice",
+          "Bitten tongue visible with bleeding controlled",
+          "Incontinent of urine",
+          "No recurrence of seizure activity in the observation period",
+          "Known seizure history, so a post-seizure 12-lead is not the priority the protocol reserves for new-onset seizures"
+        ],
+        "patientSpeech": "Moans to painful stimulus; no intelligible speech"
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 102,
+        "bpSys": 132,
+        "bpDia": 84,
+        "respRate": 16,
+        "spo2": 97,
+        "etco2": 42,
+        "temp": 37.6,
+        "tempF": 99.7,
+        "obstruction": 10,
+        "glucose": 104,
+        "trendTimeSeconds": 40,
+        "visibility": {
+          "spo2Visible": true,
+          "spo2Attached": true,
+          "rrVisible": true,
+          "etco2Visible": true,
+          "cvpVisible": false
+        }
+      },
+      "expectedActions": [
+        {
+          "id": "b1",
+          "shortAction": "Keep the postictal airway open with positioning, padding, and continued suction",
+          "protocolExcerpt": "Patient positioning can significantly impact respiratory mechanics. Elevating the head or padding (shoulders, occiput) can assist with opening airway and respiratory mechanics. This can both improve the ability to ventilate and limit aspiration.",
+          "priority": "critical",
+          "rationale": "The benzodiazepine that stopped the seizure also deepens the postictal depression. The airway needs the same attention it did during the convulsion.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        },
+        {
+          "id": "b2",
+          "shortAction": "Serial neuro exam to separate postictal state from ongoing subtle seizure activity",
+          "protocolExcerpt": "Exam: Neurologic status (GCS, nystagmus, pupil size, focal neurologic deficit, or signs of stroke).",
+          "priority": "critical",
+          "rationale": "A patient who is not improving over serial exams may still be seizing without visible convulsions, which changes the plan entirely.",
+          "protocolReference": "MATC: Seizures"
+        },
+        {
+          "id": "b3",
+          "shortAction": "Weigh a second benzodiazepine dose carefully: over two doses risks airway compromise",
+          "protocolExcerpt": "Trained personnel should be able to give medication without contacting medical direction, however, more than two doses of benzodiazepines are associated with high-risk of airway compromise. Use caution, weigh risks/benefits of deferring treatment until hospital, and/or consider consultation with medical direction if patient has received two doses of benzodiazepines by bystanders and/or prehospital clinicians.",
+          "priority": "important",
+          "rationale": "He responded to the first dose. Stacking benzodiazepines on a patient who has already stopped seizing buys an intubation, not a better outcome.",
+          "protocolReference": "MATC: Seizures"
+        },
+        {
+          "id": "b4",
+          "shortAction": "Document seizure onset and cessation times, dose and route given, and glucose",
+          "protocolExcerpt": "Key Documentation Elements: Actively seizing during transport and time of seizure onset/cessation; Medication amounts/routes given by bystanders or prehospital clinicians; Neurologic status (GCS, nystagmus, pupil size, focal neurologic deficit, or signs of stroke); Blood glucose level.",
+          "priority": "important",
+          "rationale": "Total seizure duration and the exact dose given drive the hospital's decision about further anticonvulsant loading.",
+          "protocolReference": "MATC: Seizures"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "transported-postictal",
+          "if": "Airway secured; transported postictal",
+          "condition": "The postictal airway stays patent with positioning and suction, serial neurologic exams confirm gradual improvement rather than ongoing subtle seizure activity, and the patient is transported without a second benzodiazepine dose.",
+          "conditionType": "action_taken",
+          "triggerActionIds": [
+            "b1",
+            "b2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "transported-postictal",
+      "name": "Airway secured; transported postictal",
+      "description": "The patient is transported postictal with a patent airway, adequate spontaneous ventilation, and a saturation of 98 percent. He is beginning to open his eyes to voice and make sounds, consistent with a normal postictal recovery rather than ongoing seizure activity. No second benzodiazepine dose was required. All interventions are complete and no further change in presentation is expected.",
+      "triggerCondition": "The airway is protected, serial exams show steady postictal improvement, and transport is underway without recurrence of seizure activity.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Verbal",
+        "gcs": {
+          "eye": 2,
+          "verbal": 3,
+          "motor": 5
+        },
+        "airway": "Patent with positioning; snoring resolved, minimal secretions",
+        "breathing": "Spontaneous, regular, adequate depth",
+        "circulation": "Radial pulse strong and regular; skin pink and warm",
+        "skin": {
+          "color": "pink",
+          "temperature": "warm",
+          "moisture": "dry"
+        },
+        "pupils": "4 mm bilaterally, reactive",
+        "motorFunction": "Withdraws purposefully and beginning to move on his own; no convulsive activity",
+        "otherFindings": [
+          "Opens eyes to loud voice and makes inappropriate sounds; steadily improving",
+          "No recurrence of seizure activity en route",
+          "Total seizure duration and cessation time documented for the receiving team",
+          "Roommate provided the empty prescription bottle to accompany the patient"
+        ],
+        "patientSpeech": "Makes inappropriate sounds and groans to voice; no oriented speech yet"
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Rhythm",
+        "ecgWaveform": 9,
+        "hr": 96,
+        "bpSys": 128,
+        "bpDia": 80,
+        "respRate": 16,
+        "spo2": 98,
+        "etco2": 40,
+        "temp": 37.5,
+        "tempF": 99.5,
+        "obstruction": 0,
+        "glucose": 104,
+        "trendTimeSeconds": 35,
+        "visibility": {
+          "spo2Visible": true,
+          "spo2Attached": true,
+          "rrVisible": true,
+          "etco2Visible": true,
+          "cvpVisible": false
+        }
+      },
+      "expectedActions": []
+    },
+    {
+      "id": "iv-chased",
+      "name": "IV attempted; seizure continues",
+      "description": "Ten minutes into the call the patient is still convulsing. The crew spent more than five minutes attempting IV access on a moving patient before giving any anticonvulsant, or gave a habitual 2 mg or 5 mg dose that was far short of the 0.2 mg/kg the protocol requires for an 80 kg patient. His respirations have fallen to 6 per minute and are agonal, his saturation is 72 percent, and his temperature has climbed to 103.8 F from sustained metabolic heat production. He is now hypoxic, hyperthermic, and still in status.",
+      "triggerCondition": "The anticonvulsant was delayed for IV access or given at a fixed underdose rather than the weight-based 0.2 mg/kg. Status epilepticus continues with worsening hypoxia and hyperthermia.",
+      "isDefault": false,
+      "clinicalPresentation": {
+        "avpu": "Unresponsive",
+        "gcs": {
+          "eye": 1,
+          "verbal": 1,
+          "motor": 1
+        },
+        "airway": "Heavily obstructed with copious blood-tinged secretions; requires aggressive suction and an adjunct",
+        "breathing": "6 per minute and agonal; grossly inadequate ventilation requiring BVM support",
+        "circulation": "Radial pulse present and rapid at 138; skin flushed, hot, and drenched",
+        "skin": {
+          "color": "flushed with perioral cyanosis",
+          "temperature": "hot",
+          "moisture": "drenched with sweat"
+        },
+        "pupils": "6 mm bilaterally, sluggish, with sustained gaze deviation",
+        "motorFunction": "Continued generalized convulsive activity, now less vigorous but ongoing",
+        "otherFindings": [
+          "Seizure activity continuing at ten minutes from contact",
+          "Temperature 103.8 F from prolonged metabolic heat production",
+          "EtCO2 markedly elevated consistent with hypoventilation and metabolic acidosis",
+          "Still no vascular access established despite prolonged attempts",
+          "Glucose rechecked at 98 mg/dL, excluding hypoglycemia as the driver"
+        ],
+        "patientSpeech": "No verbal response"
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 138,
+        "bpSys": 118,
+        "bpDia": 70,
+        "respRate": 6,
+        "spo2": 72,
+        "etco2": 68,
+        "temp": 39.9,
+        "tempF": 103.8,
+        "obstruction": 45,
+        "glucose": 98,
+        "trendTimeSeconds": 55,
+        "visibility": {
+          "spo2Visible": true,
+          "spo2Attached": true,
+          "rrVisible": true,
+          "etco2Visible": true,
+          "cvpVisible": false
+        }
+      },
+      "expectedActions": [
+        {
+          "id": "c1",
+          "shortAction": "Suction, place an adjunct, and BVM ventilate at 10 to 12 per minute",
+          "protocolExcerpt": "Use bag-valve-mask (BVM) ventilation in the setting of respiratory failure or arrest. Rate: Adult: 10-12 breaths/minute.",
+          "priority": "critical",
+          "rationale": "At 6 agonal breaths and 72 percent he is in respiratory failure. Ventilation comes before any further medication decision.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        },
+        {
+          "id": "c2",
+          "shortAction": "Midazolam 10 mg IM now (80 kg x 0.2 mg/kg = 16 mg, capped at 10 mg); stop chasing the IV",
+          "protocolExcerpt": "Anticonvulsant Treatment - If vascular access is absent: Midazolam 0.2 mg/kg (maximum dose 10 mg), IM preferred, or IN. Routes for treatment: IN/IM routes are preferred over IV or IO routes (if not already established).",
+          "priority": "critical",
+          "rationale": "The correction is the dose and route that should have been given at minute one: the full 10 mg in the lateral thigh, no IV required.",
+          "protocolReference": "MATC: Seizures"
+        },
+        {
+          "id": "c3",
+          "shortAction": "Consider other causes of the refractory seizure, including the hyperthermia",
+          "protocolExcerpt": "For new onset seizures or seizures that are refractory to treatment, consider other potential causes including, but not limited to, trauma, stroke, electrolyte abnormality, toxic ingestion, pregnancy with eclampsia, hyperthermia.",
+          "priority": "important",
+          "rationale": "A seizure that will not break is a prompt to widen the differential rather than to keep repeating the same failed intervention.",
+          "protocolReference": "MATC: Seizures"
+        },
+        {
+          "id": "c4",
+          "shortAction": "Escalate to a supraglottic airway if BVM with an adjunct is not maintaining oxygenation",
+          "protocolExcerpt": "Supraglottic airways (SGA): Consider the use of an appropriately sized SGA if BVM (with OPA/NPA) alone is not effective in maintaining oxygenation and/or ventilation.",
+          "priority": "important",
+          "rationale": "The protocol escalates by effectiveness, not by reflex. If two-person BVM with an adjunct is not fixing the saturation, an SGA is the next step.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        }
+      ]
+    }
+  ],
+  "realiti": {
+    "scenarioDefaultEnergy": 200,
+    "scenarioDefaultPacerThreshold": 55
+  }
+}

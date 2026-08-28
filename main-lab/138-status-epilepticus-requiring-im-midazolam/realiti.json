@@ -1,0 +1,271 @@
+{
+  "scenarioId": "138-status-epilepticus-requiring-im-midazolam",
+  "scenarioName": "138 - Status Epilepticus Requiring IM Midazolam",
+  "scenarioType": "Vital Signs",
+  "scenarioVersion": 2,
+  "scenarioTime": 900,
+  "scenarioMonitorType": 2,
+  "scenarioDefaultEnergy": 200,
+  "scenarioDefaultPacerThreshold": 55,
+  "isDemo": false,
+  "isALSILegacy": false,
+  "scenarioStory": {
+    "history": "A 34-year-old man with a known seizure disorder maintained on levetiracetam who ran out of his prescription three days ago and has taken none since. His roommate heard him fall in the bedroom and found him convulsing on the floor. By the time the crew arrives he has been seizing continuously for approximately six minutes with no lucid interval. The roommate reports no trauma, no fever, no recent illness, no alcohol or drug use, and no prior episode this prolonged.",
+    "discussion": "",
+    "course": "Initial Contact: Crew finds an 80 kg man in a continuous generalized tonic-clonic seizure that has now lasted roughly six minutes, meeting the protocol definition of status epilepticus. His airway is gurgling with blood-tinged sputum, his respirations are irregular and ineffective, and his saturation is 86 percent on room air with a rising EtCO2. Glucose is 104. He has no vascular access, which is exactly the situation the protocol writes the IM midazolam dose for: 0.2 mg/kg to a maximum of 10 mg, IM preferred. → Midazolam 10 mg IM given: About five minutes after the intramuscular midazolam the convulsive activity stops. The patient is now postictal: unresponsive to voice, moaning to painful stimulus, with a snoring but manageable airway and adequate spontaneous respirations. His saturation has come up to 97 percent, his heart rate has fallen to 102, and his EtCO2 has normalized. The crew now protects a postictal airway, distinguishes true postictal depression from ongoing subtle seizure activity, and thinks carefully before a second benzodiazepine dose. → Airway secured; transported postictal: The patient is transported postictal with a patent airway, adequate spontaneous ventilation, and a saturation of 98 percent. He is beginning to open his eyes to voice and make sounds, consistent with a normal postictal recovery rather than ongoing seizure activity. No second benzodiazepine dose was required. All interventions are complete and no further change in presentation is expected."
+  },
+  "patientInformation": {
+    "patientName": "David Miller",
+    "patientCondition": "Generalized tonic-clonic seizure ongoing for approximately six minutes on EMS arrival",
+    "patientAge": 34,
+    "patientAgeUnit": "years",
+    "patientAgeCategory": 0,
+    "patientSex": 1,
+    "patientHeight": 180,
+    "patientWeight": 80,
+    "patientPhotoId": 41,
+    "patientAdmitted": 1
+  },
+  "labs": [],
+  "scenarioEvents": [
+    {
+      "type": "ScenarioEvent",
+      "name": "Initial Contact",
+      "description": "Crew finds an 80 kg man in a continuous generalized tonic-clonic seizure that has now lasted roughly six minutes, meeting the protocol definition of status epilepticus. His airway is gurgling with blood-tinged sputum, his respirations are irregular and ineffective, and his saturation is 86 percent on room air with a rising EtCO2. Glucose is 104. He has no vascular access, which is exactly the situation the protocol writes the IM midazolam dose for: 0.2 mg/kg to a maximum of 10 mg, IM preferred.",
+      "monitorType": 0,
+      "trendTime": 0,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 128,
+        "bpSys": 138,
+        "bpDia": 88,
+        "respRate": 22,
+        "spo2": 86,
+        "etco2": 55,
+        "temp": 37.4,
+        "obstruction": 30,
+        "custMeasure1": 104,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Position laterally and suction; place an NPA if positioning and suction are not enough",
+        "Apply pulse oximetry and waveform capnography to monitor oxygenation and ventilation",
+        "Titrate oxygen to a 94 to 98 percent target; assist with BVM if ventilation is compromised",
+        "Recognize status epilepticus: seizing on arrival, beyond five minutes",
+        "Midazolam 10 mg IM lateral thigh (80 kg x 0.2 mg/kg = 16 mg, capped at 10 mg max)",
+        "Do not delay the benzodiazepine to chase an IV; IM and IN routes are preferred",
+        "Check the glucose while he is still seizing; treat below 60 mg/dL"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Midazolam 10 mg IM given",
+      "description": "About five minutes after the intramuscular midazolam the convulsive activity stops. The patient is now postictal: unresponsive to voice, moaning to painful stimulus, with a snoring but manageable airway and adequate spontaneous respirations. His saturation has come up to 97 percent, his heart rate has fallen to 102, and his EtCO2 has normalized. The crew now protects a postictal airway, distinguishes true postictal depression from ongoing subtle seizure activity, and thinks carefully before a second benzodiazepine dose.",
+      "monitorType": 0,
+      "trendTime": 40,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 102,
+        "bpSys": 132,
+        "bpDia": 84,
+        "respRate": 16,
+        "spo2": 97,
+        "etco2": 42,
+        "temp": 37.6,
+        "obstruction": 10,
+        "custMeasure1": 104,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Keep the postictal airway open with positioning, padding, and continued suction",
+        "Serial neuro exam to separate postictal state from ongoing subtle seizure activity",
+        "Weigh a second benzodiazepine dose carefully: over two doses risks airway compromise",
+        "Document seizure onset and cessation times, dose and route given, and glucose"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Airway secured; transported postictal",
+      "description": "The patient is transported postictal with a patent airway, adequate spontaneous ventilation, and a saturation of 98 percent. He is beginning to open his eyes to voice and make sounds, consistent with a normal postictal recovery rather than ongoing seizure activity. No second benzodiazepine dose was required. All interventions are complete and no further change in presentation is expected.",
+      "monitorType": 0,
+      "trendTime": 35,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 96,
+        "bpSys": 128,
+        "bpDia": 80,
+        "respRate": 16,
+        "spo2": 98,
+        "etco2": 40,
+        "temp": 37.5,
+        "obstruction": 0,
+        "custMeasure1": 104,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "IV attempted; seizure continues",
+      "description": "Ten minutes into the call the patient is still convulsing. The crew spent more than five minutes attempting IV access on a moving patient before giving any anticonvulsant, or gave a habitual 2 mg or 5 mg dose that was far short of the 0.2 mg/kg the protocol requires for an 80 kg patient. His respirations have fallen to 6 per minute and are agonal, his saturation is 72 percent, and his temperature has climbed to 103.8 F from sustained metabolic heat production. He is now hypoxic, hyperthermic, and still in status.",
+      "monitorType": 0,
+      "trendTime": 55,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 138,
+        "bpSys": 118,
+        "bpDia": 70,
+        "respRate": 6,
+        "spo2": 72,
+        "etco2": 68,
+        "temp": 39.9,
+        "obstruction": 45,
+        "custMeasure1": 98,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Suction, place an adjunct, and BVM ventilate at 10 to 12 per minute",
+        "Midazolam 10 mg IM now (80 kg x 0.2 mg/kg = 16 mg, capped at 10 mg); stop chasing the IV",
+        "Consider other causes of the refractory seizure, including the hyperthermia",
+        "Escalate to a supraglottic airway if BVM with an adjunct is not maintaining oxygenation"
+      ],
+      "relatedSounds": []
+    }
+  ],
+  "checklist": [
+    {
+      "title": "Position laterally and suction; place an NPA if positioning and suction are not enough",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Apply pulse oximetry and waveform capnography to monitor oxygenation and ventilation",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Titrate oxygen to a 94 to 98 percent target; assist with BVM if ventilation is compromised",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Recognize status epilepticus: seizing on arrival, beyond five minutes",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Midazolam 10 mg IM lateral thigh (80 kg x 0.2 mg/kg = 16 mg, capped at 10 mg max)",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Do not delay the benzodiazepine to chase an IV; IM and IN routes are preferred",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Check the glucose while he is still seizing; treat below 60 mg/dL",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Keep the postictal airway open with positioning, padding, and continued suction",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Serial neuro exam to separate postictal state from ongoing subtle seizure activity",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Weigh a second benzodiazepine dose carefully: over two doses risks airway compromise",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Document seizure onset and cessation times, dose and route given, and glucose",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Suction, place an adjunct, and BVM ventilate at 10 to 12 per minute",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Midazolam 10 mg IM now (80 kg x 0.2 mg/kg = 16 mg, capped at 10 mg); stop chasing the IV",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Consider other causes of the refractory seizure, including the hyperthermia",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Escalate to a supraglottic airway if BVM with an adjunct is not maintaining oxygenation",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    }
+  ],
+  "media": []
+}
