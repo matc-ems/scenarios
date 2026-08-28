@@ -57,7 +57,10 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [],
+      "relatedChecklist": [
+        "Assign triage, treatment, and transport roles to arriving EMS personnel before patient contact",
+        "Begin sorting all patients using START/JumpSTART before providing individual treatment"
+      ],
       "relatedSounds": []
     },
     {
@@ -90,8 +93,9 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Assign triage, treatment, and transport roles to arriving EMS personnel before patient contact",
-        "Begin sorting all patients using START/JumpSTART before providing individual treatment"
+        "Tag Emma Delayed per START; do not remain with her — continue sorting remaining patients",
+        "Splint the right femur fracture in position found before moving to the next patient",
+        "Re-triage Emma and all other tagged patients periodically for the duration of the incident"
       ],
       "relatedSounds": []
     },
@@ -125,9 +129,7 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Tag Emma Delayed per START; do not remain with her — continue sorting remaining patients",
-        "Splint the right femur fracture in position found before moving to the next patient",
-        "Re-triage Emma and all other tagged patients periodically for the duration of the incident"
+        "Transport Immediate-category patients first, then Delayed patients, then assess Minimal patients for transport"
       ],
       "relatedSounds": []
     },
@@ -160,9 +162,7 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [
-        "Transport Immediate-category patients first, then Delayed patients, then assess Minimal patients for transport"
-      ],
+      "relatedChecklist": [],
       "relatedSounds": []
     },
     {

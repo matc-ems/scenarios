@@ -80,13 +80,38 @@
         "trendTimeSeconds": 0,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [],
+      "expectedActions": [
+        {
+          "id": "a1",
+          "shortAction": "Assign triage, treatment, and transport roles to arriving EMS personnel before patient contact",
+          "protocolExcerpt": "Senior EMS clinician rapidly assesses scene and assigns roles and responsibilities to EMS personnel",
+          "priority": "critical",
+          "rationale": "Without designated roles, resources default to treating one patient at a time instead of sorting the whole scene first.",
+          "protocolReference": "MATC: Trauma Mass Casualty Incident"
+        },
+        {
+          "id": "a2",
+          "shortAction": "Begin sorting all patients using START/JumpSTART before providing individual treatment",
+          "protocolExcerpt": "Sort patients using a locally agreed upon MCI triage process which is the START/JUMP-START (Simple Triage and Rapid Transport)",
+          "priority": "critical",
+          "rationale": "Rapid sorting identifies which patients need immediate life-saving intervention before time is spent on any one patient.",
+          "protocolReference": "MATC: Trauma Mass Casualty Incident"
+        }
+      ],
       "transitions": [
         {
           "targetPhaseId": "roles-assigned",
           "if": "Scene assessed and roles assigned",
           "condition": "The paramedic rapidly assesses scene safety and scope, then assigns roles and responsibilities among arriving EMS personnel before approaching individual patients.",
-          "conditionType": "action_taken"
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a1", "a2"]
+        },
+        {
+          "targetPhaseId": "immediate-patient-missed",
+          "if": "Full treatment given before sorting complete",
+          "condition": "Instead of tagging Emma and moving to the next patient, the crew stops to fully splint and treat her before any other patient on scene has been triaged, delaying identification of Immediate-category patients.",
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["a2"]
         }
       ]
     },
@@ -131,19 +156,27 @@
       },
       "expectedActions": [
         {
-          "id": "a1-roles",
-          "shortAction": "Assign triage, treatment, and transport roles to arriving EMS personnel before patient contact",
-          "protocolExcerpt": "Senior EMS clinician rapidly assesses scene and assigns roles and responsibilities to EMS personnel",
+          "id": "b1",
+          "shortAction": "Tag Emma Delayed per START; do not remain with her — continue sorting remaining patients",
+          "protocolExcerpt": "Triage categories are recommended and should be guided by local protocols: immediate, delayed, minimal, expectant, dead",
           "priority": "critical",
-          "rationale": "Without designated roles, resources default to treating one patient at a time instead of sorting the whole scene first.",
+          "rationale": "Correct categorization prevents both under-triage (missing a critical patient) and over-triage (tying up resources on a stable one).",
           "protocolReference": "MATC: Trauma Mass Casualty Incident"
         },
         {
-          "id": "a2-start-sort",
-          "shortAction": "Begin sorting all patients using START/JumpSTART before providing individual treatment",
-          "protocolExcerpt": "Sort patients using a locally agreed upon MCI triage process which is the START/JUMP-START (Simple Triage and Rapid Transport)",
-          "priority": "critical",
-          "rationale": "Rapid sorting identifies which patients need immediate life-saving intervention before time is spent on any one patient.",
+          "id": "b2",
+          "shortAction": "Splint the right femur fracture in position found before moving to the next patient",
+          "protocolExcerpt": "Splint obvious extremity fractures per the Extremity Trauma/External Hemorrhage Management Guideline",
+          "priority": "important",
+          "rationale": "A brief splint limits further injury and pain without requiring the clinician to remain with a Delayed patient.",
+          "protocolReference": "MATC: General Trauma Management"
+        },
+        {
+          "id": "b3",
+          "shortAction": "Re-triage Emma and all other tagged patients periodically for the duration of the incident",
+          "protocolExcerpt": "Re-triage frequently for duration of MCI",
+          "priority": "important",
+          "rationale": "Patient status can change; a Delayed patient can deteriorate to Immediate if not reassessed.",
           "protocolReference": "MATC: Trauma Mass Casualty Incident"
         }
       ],
@@ -153,14 +186,7 @@
           "if": "Emma triaged using START",
           "condition": "The paramedic applies the START Respiration-Perfusion-Mental-status algorithm to Emma: she is unable to walk (deformed leg), respirations are present and under 30/min, radial pulse is present, and she follows commands — categorizing her as Delayed rather than Immediate.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["a2-start-sort"]
-        },
-        {
-          "targetPhaseId": "immediate-patient-missed",
-          "if": "Full treatment given before sorting complete",
-          "condition": "Instead of tagging Emma and moving to the next patient, the crew stops to fully splint and treat her before any other patient on scene has been triaged, delaying identification of patients in the Immediate category elsewhere on scene.",
-          "conditionType": "action_not_taken",
-          "triggerActionIds": ["a2-start-sort"]
+          "triggerActionIds": ["b1", "b3"]
         }
       ]
     },
@@ -205,27 +231,11 @@
       },
       "expectedActions": [
         {
-          "id": "a3-tag-delayed",
-          "shortAction": "Tag Emma Delayed per START; do not remain with her — continue sorting remaining patients",
-          "protocolExcerpt": "Triage categories are recommended and should be guided by local protocols: immediate, delayed, minimal, expectant, dead",
+          "id": "c1",
+          "shortAction": "Transport Immediate-category patients first, then Delayed patients, then assess Minimal patients for transport",
+          "protocolExcerpt": "First transport immediate patients ... Second, transport delayed patients ... Assess minimal patients for appropriate transport decision",
           "priority": "critical",
-          "rationale": "Correct categorization prevents both under-triage (missing a critical patient) and over-triage (tying up resources on a stable one).",
-          "protocolReference": "MATC: Trauma Mass Casualty Incident"
-        },
-        {
-          "id": "a4-splint",
-          "shortAction": "Splint the right femur fracture in position found before moving to the next patient",
-          "protocolExcerpt": "Splint obvious extremity fractures per the Extremity Trauma/External Hemorrhage Management Guideline",
-          "priority": "important",
-          "rationale": "A brief splint limits further injury and pain without requiring the clinician to remain with a Delayed patient.",
-          "protocolReference": "MATC: General Trauma Management"
-        },
-        {
-          "id": "a5-retriage",
-          "shortAction": "Re-triage Emma and all other tagged patients periodically for the duration of the incident",
-          "protocolExcerpt": "Re-triage frequently for duration of MCI",
-          "priority": "important",
-          "rationale": "Patient status can change; a Delayed patient can deteriorate to Immediate if not reassessed.",
+          "rationale": "Strict category-based transport order gets the most critical patients to definitive care fastest given limited transport resources.",
           "protocolReference": "MATC: Trauma Mass Casualty Incident"
         }
       ],
@@ -235,7 +245,7 @@
           "if": "Sorting complete, transport prioritized",
           "condition": "Once all 15 patients are triaged and tagged, transport proceeds in priority order — Immediate patients first, then Delayed, with Minimal patients assessed for appropriate transport.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["a3-tag-delayed", "a5-retriage"]
+          "triggerActionIds": ["c1"]
         }
       ]
     },
@@ -278,16 +288,7 @@
         "trendTimeSeconds": 45,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [
-        {
-          "id": "a6-transport-order",
-          "shortAction": "Transport Immediate-category patients first, then Delayed patients, then assess Minimal patients for transport",
-          "protocolExcerpt": "First transport immediate patients ... Second, transport delayed patients ... Assess minimal patients for appropriate transport decision",
-          "priority": "critical",
-          "rationale": "Strict category-based transport order gets the most critical patients to definitive care fastest given limited transport resources.",
-          "protocolReference": "MATC: Trauma Mass Casualty Incident"
-        }
-      ],
+      "expectedActions": [],
       "transitions": []
     },
     {
@@ -331,7 +332,7 @@
       },
       "expectedActions": [
         {
-          "id": "a7-correct-course",
+          "id": "d1",
           "shortAction": "Stop extended single-patient care; resume rapid START sorting of all remaining patients immediately",
           "protocolExcerpt": "Triage and transport most critical requiring immediate in-hospital care first",
           "priority": "critical",
