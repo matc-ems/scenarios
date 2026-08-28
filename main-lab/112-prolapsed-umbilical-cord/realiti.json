@@ -57,7 +57,11 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [],
+      "relatedChecklist": [
+        "Place gloved hand into vagina; gently lift presenting part off the prolapsed cord",
+        "Assess cord for pulsations after relieving compression",
+        "Wrap the prolapsed cord in moist sterile gauze"
+      ],
       "relatedSounds": []
     },
     {
@@ -90,9 +94,9 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Place gloved hand into vagina; gently lift presenting part off the prolapsed cord",
-        "Assess cord for pulsations after relieving compression",
-        "Wrap the prolapsed cord in moist sterile gauze"
+        "Place mother in prone knee-chest or extreme Trendelenburg with hips elevated",
+        "Apply high-flow oxygen to mother; expedite transport to appropriate receiving facility",
+        "Contact medical direction/receiving facility to prepare team for prolapsed cord"
       ],
       "relatedSounds": []
     },
@@ -125,11 +129,7 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [
-        "Place mother in prone knee-chest or extreme Trendelenburg with hips elevated",
-        "Apply high-flow oxygen to mother; expedite transport to appropriate receiving facility",
-        "Contact medical direction/receiving facility to prepare team for prolapsed cord"
-      ],
+      "relatedChecklist": [],
       "relatedSounds": []
     },
     {

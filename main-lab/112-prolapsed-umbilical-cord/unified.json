@@ -81,19 +81,46 @@
         "trendTimeSeconds": 0,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [],
+      "expectedActions": [
+        {
+          "id": "a1",
+          "shortAction": "Place gloved hand into vagina; gently lift presenting part off the prolapsed cord",
+          "protocolExcerpt": "Prolapsed Umbilical Cord: Place gloved hand into vagina and gently lift head/body off the cord",
+          "priority": "critical",
+          "rationale": "Relieves compression of the cord between the fetal presenting part and the maternal pelvis, restoring fetal blood flow.",
+          "protocolReference": "MATC: OB/GYN Childbirth"
+        },
+        {
+          "id": "a2",
+          "shortAction": "Assess cord for pulsations after relieving compression",
+          "protocolExcerpt": "Assess for pulsations in cord, if no pulses are felt, lift the presenting part off the cord",
+          "priority": "critical",
+          "rationale": "Confirms whether manual elevation has restored fetal circulation through the cord.",
+          "protocolReference": "MATC: OB/GYN Childbirth"
+        },
+        {
+          "id": "a3",
+          "shortAction": "Wrap the prolapsed cord in moist sterile gauze",
+          "protocolExcerpt": "Wrap the prolapsed cord in moist sterile gauze",
+          "priority": "important",
+          "rationale": "Prevents desiccation and further trauma to the exposed cord during transport.",
+          "protocolReference": "MATC: OB/GYN Childbirth"
+        }
+      ],
       "transitions": [
         {
           "targetPhaseId": "manual-elevation",
           "if": "Cord manually elevated off presenting part",
           "condition": "Crew immediately recognizes the prolapsed cord as an obstetric emergency and places a gloved hand into the vagina to gently lift the presenting part off the cord to relieve compression.",
-          "conditionType": "action_taken"
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a1", "a2"]
         },
         {
           "targetPhaseId": "elevation-delayed",
           "if": "Manual elevation delayed",
           "condition": "Crew focuses on packaging for transport or other assessment before performing manual elevation of the presenting part off the cord.",
-          "conditionType": "action_not_taken"
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["a1"]
         }
       ]
     },
@@ -139,27 +166,27 @@
       },
       "expectedActions": [
         {
-          "id": "a1-manual-elevation",
-          "shortAction": "Place gloved hand into vagina; gently lift presenting part off the prolapsed cord",
-          "protocolExcerpt": "Prolapsed Umbilical Cord: Place gloved hand into vagina and gently lift head/body off the cord",
-          "priority": "critical",
-          "rationale": "Relieves compression of the cord between the fetal presenting part and the maternal pelvis, restoring fetal blood flow.",
-          "protocolReference": "MATC: OB/GYN Childbirth"
-        },
-        {
-          "id": "a2-assess-pulsations",
-          "shortAction": "Assess cord for pulsations after relieving compression",
-          "protocolExcerpt": "Assess for pulsations in cord, if no pulses are felt, lift the presenting part off the cord",
-          "priority": "critical",
-          "rationale": "Confirms whether manual elevation has restored fetal circulation through the cord.",
-          "protocolReference": "MATC: OB/GYN Childbirth"
-        },
-        {
-          "id": "a3-wrap-cord",
-          "shortAction": "Wrap the prolapsed cord in moist sterile gauze",
-          "protocolExcerpt": "Wrap the prolapsed cord in moist sterile gauze",
+          "id": "b1",
+          "shortAction": "Place mother in prone knee-chest or extreme Trendelenburg with hips elevated",
+          "protocolExcerpt": "If previous techniques are not successful, mother should be placed in prone knee-chest position or extreme Trendelenburg with hips elevated",
           "priority": "important",
-          "rationale": "Prevents desiccation and further trauma to the exposed cord during transport.",
+          "rationale": "Uses gravity to further shift the presenting part away from the cord and reduce compression.",
+          "protocolReference": "MATC: OB/GYN Childbirth"
+        },
+        {
+          "id": "b2",
+          "shortAction": "Apply high-flow oxygen to mother; expedite transport to appropriate receiving facility",
+          "protocolExcerpt": "If complications of delivery occur, apply high flow oxygen to mother and expedite transport to the appropriate receiving facility. Maternal resuscitation is critical for best fetal outcome",
+          "priority": "critical",
+          "rationale": "Maximizes fetal oxygen delivery and gets the patient to definitive care (likely emergent cesarean) as quickly as possible.",
+          "protocolReference": "MATC: OB/GYN Childbirth"
+        },
+        {
+          "id": "b3",
+          "shortAction": "Contact medical direction/receiving facility to prepare team for prolapsed cord",
+          "protocolExcerpt": "Notify medical direction/receiving facility if: Prolapsed umbilical cord",
+          "priority": "important",
+          "rationale": "Allows the receiving OB team to prepare for immediate emergent delivery on arrival.",
           "protocolReference": "MATC: OB/GYN Childbirth"
         }
       ],
@@ -169,7 +196,7 @@
           "if": "Position optimized, rapid transport initiated",
           "condition": "With the cord decompressed and pulsating well, the crew optimizes maternal positioning and initiates immediate transport while maintaining manual elevation throughout.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["a1-manual-elevation"]
+          "triggerActionIds": ["b1", "b2"]
         }
       ]
     },
@@ -213,32 +240,7 @@
         "trendTimeSeconds": 40,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [
-        {
-          "id": "a4-positioning",
-          "shortAction": "Place mother in prone knee-chest or extreme Trendelenburg with hips elevated",
-          "protocolExcerpt": "If previous techniques are not successful, mother should be placed in prone knee-chest position or extreme Trendelenburg with hips elevated",
-          "priority": "important",
-          "rationale": "Uses gravity to further shift the presenting part away from the cord and reduce compression.",
-          "protocolReference": "MATC: OB/GYN Childbirth"
-        },
-        {
-          "id": "a5-oxygen-transport",
-          "shortAction": "Apply high-flow oxygen to mother; expedite transport to appropriate receiving facility",
-          "protocolExcerpt": "If complications of delivery occur, apply high flow oxygen to mother and expedite transport to the appropriate receiving facility. Maternal resuscitation is critical for best fetal outcome",
-          "priority": "critical",
-          "rationale": "Maximizes fetal oxygen delivery and gets the patient to definitive care (likely emergent cesarean) as quickly as possible.",
-          "protocolReference": "MATC: OB/GYN Childbirth"
-        },
-        {
-          "id": "a6-notify",
-          "shortAction": "Contact medical direction/receiving facility to prepare team for prolapsed cord",
-          "protocolExcerpt": "Notify medical direction/receiving facility if: Prolapsed umbilical cord",
-          "priority": "important",
-          "rationale": "Allows the receiving OB team to prepare for immediate emergent delivery on arrival.",
-          "protocolReference": "MATC: OB/GYN Childbirth"
-        }
-      ],
+      "expectedActions": [],
       "transitions": []
     },
     {
@@ -283,7 +285,7 @@
       },
       "expectedActions": [
         {
-          "id": "a7-recover-elevation",
+          "id": "c1",
           "shortAction": "Immediately place gloved hand into vagina to lift presenting part off cord",
           "protocolExcerpt": "Prolapsed Umbilical Cord: Place gloved hand into vagina and gently lift head/body off the cord. Assess for pulsations in cord, if no pulses are felt, lift the presenting part off the cord",
           "priority": "critical",
