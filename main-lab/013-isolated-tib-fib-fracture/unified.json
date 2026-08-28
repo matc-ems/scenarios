@@ -80,13 +80,62 @@
         "trendTimeSeconds": 0,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [],
+      "expectedActions": [
+        {
+          "id": "a1",
+          "shortAction": "Assess distal pulse, sensation, and movement before splinting",
+          "protocolExcerpt": "Vascular status of extremity: Pallor, Pulse, Capillary refill and skin temperature. Neurologic status of extremity: Sensation to light touch, Distal movement of extremity",
+          "priority": "critical",
+          "rationale": "Establishes a neurovascular baseline before splinting to detect vascular compromise.",
+          "protocolReference": "MATC: Extremity Trauma/External Hemorrhage Management"
+        },
+        {
+          "id": "a2",
+          "shortAction": "Splint right lower leg in position found; apply ice pack, not directly on skin",
+          "protocolExcerpt": "Use splints as appropriate to limit movement of suspected fracture. Apply ice/cool packs to limit swelling in suspected fractures or soft tissue injury, but do not apply ice directly to bare skin",
+          "priority": "important",
+          "rationale": "Splinting in position found minimizes further tissue damage and pain.",
+          "protocolReference": "MATC: Extremity Trauma/External Hemorrhage Management"
+        },
+        {
+          "id": "a3",
+          "shortAction": "Assess pain using Numeric Rating Scale (patient >12 years old)",
+          "protocolExcerpt": "Greater than 12 years old: Self-report scale Numeric Rating Scale (NRS)",
+          "priority": "important",
+          "rationale": "Establishes a baseline pain score to guide analgesic dosing and reassessment.",
+          "protocolReference": "MATC: Pain Management"
+        },
+        {
+          "id": "a4",
+          "shortAction": "Fentanyl 84 mcg IV (84 kg × 1 mcg/kg; max initial dose 100 mcg)",
+          "protocolExcerpt": "Fentanyl: 1 mcg/kg IN, IM, IV or IO (maximum initial dose of 100 mcg)",
+          "priority": "critical",
+          "rationale": "Weight-based IV fentanyl targets severe pain without exceeding the max initial dose.",
+          "protocolReference": "MATC: Pain Management"
+        },
+        {
+          "id": "a5",
+          "shortAction": "Apply capnography to monitor for early hypoventilation after opioid administration",
+          "protocolExcerpt": "Use of non-invasive capnography is an earlier predictor of hypoventilation than pulse oximetry if opioid medications are administered",
+          "priority": "important",
+          "rationale": "Capnography detects hypoventilation before pulse oximetry would show desaturation.",
+          "protocolReference": "MATC: Pain Management"
+        }
+      ],
       "transitions": [
         {
           "targetPhaseId": "iv-fentanyl-given",
           "if": "IV obtained, fentanyl given",
           "condition": "Crew assesses pain and distal neurovascular status, splints the leg in the position found, establishes IV access, and administers weight-based fentanyl.",
-          "conditionType": "action_taken"
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a2", "a4"]
+        },
+        {
+          "targetPhaseId": "analgesia-withheld",
+          "if": "Fentanyl withheld despite severe pain",
+          "condition": "Crew splints the fracture but withholds analgesia despite the patient's 8/10 pain and no identified contraindications.",
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["a4"]
         }
       ]
     },
@@ -131,43 +180,19 @@
       },
       "expectedActions": [
         {
-          "id": "a1-neurovascular",
-          "shortAction": "Assess distal pulse, sensation, and movement before splinting",
-          "protocolExcerpt": "Vascular status of extremity: Pallor, Pulse, Capillary refill and skin temperature. Neurologic status of extremity: Sensation to light touch, Distal movement of extremity",
+          "id": "b1",
+          "shortAction": "Repeat fentanyl 84 mcg IV 5 min after first dose (84 kg × 1 mcg/kg; pain persists at 4/10)",
+          "protocolExcerpt": "If indicated based on pain assessment, and vital signs allow, repeat pain medication administration (excluding acetaminophen and nonsteroidal anti-inflammatory medicines) after 5 minutes of the previous dose",
           "priority": "critical",
-          "rationale": "Establishes a neurovascular baseline before splinting to detect vascular compromise.",
-          "protocolReference": "MATC: Extremity Trauma/External Hemorrhage Management"
-        },
-        {
-          "id": "a2-splint",
-          "shortAction": "Splint right lower leg in position found; apply ice pack, not directly on skin",
-          "protocolExcerpt": "Use splints as appropriate to limit movement of suspected fracture. Apply ice/cool packs to limit swelling in suspected fractures or soft tissue injury, but do not apply ice directly to bare skin",
-          "priority": "important",
-          "rationale": "Splinting in position found minimizes further tissue damage and pain.",
-          "protocolReference": "MATC: Extremity Trauma/External Hemorrhage Management"
-        },
-        {
-          "id": "a3-pain-scale",
-          "shortAction": "Assess pain using Numeric Rating Scale (patient >12 years old)",
-          "protocolExcerpt": "Greater than 12 years old: Self-report scale Numeric Rating Scale (NRS)",
-          "priority": "important",
-          "rationale": "Establishes a baseline pain score to guide analgesic dosing and reassessment.",
+          "rationale": "Persistent moderate pain after the first dose meets protocol criteria for a repeat dose.",
           "protocolReference": "MATC: Pain Management"
         },
         {
-          "id": "a4-fentanyl",
-          "shortAction": "Fentanyl 84 mcg IV (84 kg × 1 mcg/kg; max initial dose 100 mcg)",
-          "protocolExcerpt": "Fentanyl: 1 mcg/kg IN, IM, IV or IO (maximum initial dose of 100 mcg)",
-          "priority": "critical",
-          "rationale": "Weight-based IV fentanyl targets severe pain without exceeding the max initial dose.",
-          "protocolReference": "MATC: Pain Management"
-        },
-        {
-          "id": "a5-capnography",
-          "shortAction": "Apply capnography to monitor for early hypoventilation after opioid administration",
-          "protocolExcerpt": "Use of non-invasive capnography is an earlier predictor of hypoventilation than pulse oximetry if opioid medications are administered",
+          "id": "b2",
+          "shortAction": "Transport in position of comfort; reassess vitals and pain score en route",
+          "protocolExcerpt": "Transport in position of comfort and reassess as indicated",
           "priority": "important",
-          "rationale": "Capnography detects hypoventilation before pulse oximetry would show desaturation.",
+          "rationale": "Ongoing reassessment confirms adequate analgesia without respiratory compromise.",
           "protocolReference": "MATC: Pain Management"
         }
       ],
@@ -177,14 +202,7 @@
           "if": "Pain reassessed, repeat dose given, transport",
           "condition": "Five minutes after the initial fentanyl dose, pain remains at 4/10; crew reassesses vitals and administers a repeat fentanyl dose before transport.",
           "conditionType": "time_elapsed",
-          "triggerActionIds": ["a4-fentanyl"]
-        },
-        {
-          "targetPhaseId": "analgesia-withheld",
-          "if": "Fentanyl withheld despite severe pain",
-          "condition": "Crew splints the fracture but withholds analgesia despite the patient's 8/10 pain and no identified contraindications.",
-          "conditionType": "action_not_taken",
-          "triggerActionIds": ["a4-fentanyl"]
+          "triggerActionIds": ["b1", "b2"]
         }
       ]
     },
@@ -227,24 +245,7 @@
         "trendTimeSeconds": 40,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
       },
-      "expectedActions": [
-        {
-          "id": "a6-repeat-fentanyl",
-          "shortAction": "Repeat fentanyl 84 mcg IV 5 min after first dose (84 kg × 1 mcg/kg; pain persists at 4/10)",
-          "protocolExcerpt": "If indicated based on pain assessment, and vital signs allow, repeat pain medication administration (excluding acetaminophen and nonsteroidal anti-inflammatory medicines) after 5 minutes of the previous dose",
-          "priority": "critical",
-          "rationale": "Persistent moderate pain after the first dose meets protocol criteria for a repeat dose.",
-          "protocolReference": "MATC: Pain Management"
-        },
-        {
-          "id": "a7-transport",
-          "shortAction": "Transport in position of comfort; reassess vitals and pain score en route",
-          "protocolExcerpt": "Transport in position of comfort and reassess as indicated",
-          "priority": "important",
-          "rationale": "Ongoing reassessment confirms adequate analgesia without respiratory compromise.",
-          "protocolReference": "MATC: Pain Management"
-        }
-      ],
+      "expectedActions": [],
       "transitions": []
     },
     {
@@ -288,7 +289,7 @@
       },
       "expectedActions": [
         {
-          "id": "a8-recognize-untreated-pain",
+          "id": "c1",
           "shortAction": "Recognize undertreated severe pain; administer fentanyl 84 mcg IV (84 kg × 1 mcg/kg; max 100 mcg)",
           "protocolExcerpt": "For Moderate to Severe pain, analgesics include: Fentanyl: 1 mcg/kg IN, IM, IV or IO (maximum initial dose of 100 mcg)",
           "priority": "critical",

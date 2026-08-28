@@ -57,7 +57,13 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [],
+      "relatedChecklist": [
+        "Assess distal pulse, sensation, and movement before splinting",
+        "Splint right lower leg in position found; apply ice pack, not directly on skin",
+        "Assess pain using Numeric Rating Scale (patient >12 years old)",
+        "Fentanyl 84 mcg IV (84 kg × 1 mcg/kg; max initial dose 100 mcg)",
+        "Apply capnography to monitor for early hypoventilation after opioid administration"
+      ],
       "relatedSounds": []
     },
     {
@@ -90,11 +96,8 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Assess distal pulse, sensation, and movement before splinting",
-        "Splint right lower leg in position found; apply ice pack, not directly on skin",
-        "Assess pain using Numeric Rating Scale (patient >12 years old)",
-        "Fentanyl 84 mcg IV (84 kg × 1 mcg/kg; max initial dose 100 mcg)",
-        "Apply capnography to monitor for early hypoventilation after opioid administration"
+        "Repeat fentanyl 84 mcg IV 5 min after first dose (84 kg × 1 mcg/kg; pain persists at 4/10)",
+        "Transport in position of comfort; reassess vitals and pain score en route"
       ],
       "relatedSounds": []
     },
@@ -127,10 +130,7 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [
-        "Repeat fentanyl 84 mcg IV 5 min after first dose (84 kg × 1 mcg/kg; pain persists at 4/10)",
-        "Transport in position of comfort; reassess vitals and pain score en route"
-      ],
+      "relatedChecklist": [],
       "relatedSounds": []
     },
     {
