@@ -64,7 +64,6 @@
         "Perform airway assessment per Airway Management Guideline",
         "Check blood glucose level",
         "Recognize tachycardia with a maintained BP as early compensated shock",
-        "Assess for signs of shock and treat per Shock Guideline",
         "Administer oxygen titrated to a target of 94-98% SpO2"
       ],
       "relatedSounds": []
@@ -206,12 +205,6 @@
     },
     {
       "title": "Recognize tachycardia with a maintained BP as early compensated shock",
-      "type": "Check",
-      "value": 0,
-      "icon": 1
-    },
-    {
-      "title": "Assess for signs of shock and treat per Shock Guideline",
       "type": "Check",
       "value": 0,
       "icon": 1

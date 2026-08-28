@@ -138,14 +138,6 @@
         },
         {
           "id": "a7",
-          "shortAction": "Assess for signs of shock and treat per Shock Guideline",
-          "protocolExcerpt": "Assess for signs of shock If shock is present, provide treatment per appropriate Shock Guideline",
-          "priority": "critical",
-          "rationale": "Confirms recognition of shock physiology so treatment is escalated appropriately.",
-          "protocolReference": "MATC: Abdominal Pain"
-        },
-        {
-          "id": "a8",
           "shortAction": "Administer oxygen titrated to a target of 94-98% SpO2",
           "protocolExcerpt": "Administer oxygen as appropriate with a target of achieving 94-98% saturation",
           "priority": "critical",
@@ -159,14 +151,14 @@
           "if": "Assessment and O2 completed",
           "condition": "Crew promptly obtains full vital signs, checks blood glucose, completes an exam for skin turgor, mucous membrane hydration, and signs of shock, and applies oxygen per protocol.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["a1", "a3", "a5", "a6", "a8"]
+          "triggerActionIds": ["a1", "a3", "a5", "a6", "a7"]
         },
         {
           "targetPhaseId": "delayed-shock-progression",
           "if": "Assessment and O2 delayed",
           "condition": "If full vital signs, oxygen, and shock assessment are delayed while the crew focuses only on the GI complaint, the patient's compensated shock progresses toward hypotension.",
           "conditionType": "time_elapsed",
-          "triggerActionIds": ["a1", "a8"]
+          "triggerActionIds": ["a1", "a7"]
         }
       ]
     },
