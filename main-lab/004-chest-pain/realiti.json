@@ -57,7 +57,11 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [],
+      "relatedChecklist": [
+        "Obtain focused OPQRST history and full vital signs; recognize possible ACS despite 'indigestion' framing",
+        "Apply supplemental oxygen, titrate to target SpO2 94-98%",
+        "Administer aspirin 324 mg PO, chewable non-enteric-coated"
+      ],
       "relatedSounds": []
     },
     {
@@ -90,9 +94,8 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Obtain focused OPQRST history and full vital signs; recognize possible ACS despite 'indigestion' framing",
-        "Apply supplemental oxygen, titrate to target SpO2 94-98%",
-        "Administer aspirin 324 mg PO, chewable non-enteric-coated"
+        "Reassess pain score and full vital signs after aspirin and oxygen",
+        "Transport promptly, minimizing scene time; base destination on local system of care"
       ],
       "relatedSounds": []
     },
@@ -127,7 +130,7 @@
       "relatedLabs": [],
       "relatedChecklist": [
         "Reassess vital signs and pain level serially en route; observe for deterioration",
-        "Transport promptly, minimizing scene time; base destination on local system of care"
+        "Give early notification to the receiving facility"
       ],
       "relatedSounds": []
     },
@@ -186,13 +189,25 @@
       "icon": 1
     },
     {
-      "title": "Reassess vital signs and pain level serially en route; observe for deterioration",
+      "title": "Reassess pain score and full vital signs after aspirin and oxygen",
       "type": "Check",
       "value": 0,
       "icon": 1
     },
     {
       "title": "Transport promptly, minimizing scene time; base destination on local system of care",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Reassess vital signs and pain level serially en route; observe for deterioration",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Give early notification to the receiving facility",
       "type": "Check",
       "value": 0,
       "icon": 1

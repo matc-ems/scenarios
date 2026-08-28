@@ -81,19 +81,46 @@
         "trendTimeSeconds": 0,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [],
+      "expectedActions": [
+        {
+          "id": "a1-opqrst",
+          "shortAction": "Obtain focused OPQRST history and full vital signs; recognize possible ACS despite 'indigestion' framing",
+          "protocolExcerpt": "Chest pain or discomfort in other areas of the body (e.g., arm, jaw, epigastrium) of suspected cardiac origin, shortness of breath, associated or unexplained sweating, nausea, vomiting, or dizziness. Atypical or unusual symptoms are more common in women, the elderly, and diabetic patients.",
+          "priority": "critical",
+          "rationale": "Atypical 'indigestion' presentations with diaphoresis, nausea, and cardiac risk factors must be recognized as possible ACS rather than dismissed.",
+          "protocolReference": "MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)"
+        },
+        {
+          "id": "a2-oxygen",
+          "shortAction": "Apply supplemental oxygen, titrate to target SpO2 94-98%",
+          "protocolExcerpt": "If the patient is dyspneic, hypoxemic, or has obvious signs of heart failure, EMS clinicians should administer oxygen as appropriate with a target of achieving 94–98% saturation",
+          "priority": "important",
+          "rationale": "Patient is mildly hypoxic (SpO2 93%) on presentation and should be brought to target saturation.",
+          "protocolReference": "MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)"
+        },
+        {
+          "id": "a3-asa",
+          "shortAction": "Administer aspirin 324 mg PO, chewable non-enteric-coated",
+          "protocolExcerpt": "Administer aspirin; chewable, non-enteric-coated aspirin preferred (162–325 mg)",
+          "priority": "critical",
+          "rationale": "Early aspirin administration reduces mortality in ACS and is within BLS scope.",
+          "protocolReference": "MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)"
+        }
+      ],
       "transitions": [
         {
           "targetPhaseId": "assessed-treated",
           "if": "OPQRST completed; O2 and ASA given",
           "condition": "Crew obtains a focused OPQRST history, recognizes the presentation as suspicious for ACS despite the patient's 'indigestion' framing, applies supplemental oxygen for the mildly hypoxic patient, and administers chewable aspirin.",
-          "conditionType": "action_taken"
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a1-opqrst", "a2-oxygen", "a3-asa"]
         },
         {
           "targetPhaseId": "asa-withheld",
           "if": "ASA withheld; symptoms progress",
           "condition": "Crew accepts the patient's 'indigestion' framing at face value, does not recognize the presentation as suspicious for ACS, and does not administer aspirin.",
-          "conditionType": "action_not_taken"
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["a3-asa"]
         }
       ]
     },
@@ -138,27 +165,19 @@
       },
       "expectedActions": [
         {
-          "id": "a1-opqrst",
-          "shortAction": "Obtain focused OPQRST history and full vital signs; recognize possible ACS despite 'indigestion' framing",
-          "protocolExcerpt": "Chest pain or discomfort in other areas of the body (e.g., arm, jaw, epigastrium) of suspected cardiac origin, shortness of breath, associated or unexplained sweating, nausea, vomiting, or dizziness. Atypical or unusual symptoms are more common in women, the elderly, and diabetic patients.",
+          "id": "a4-reassess-response",
+          "shortAction": "Reassess pain score and full vital signs after aspirin and oxygen",
+          "protocolExcerpt": "Patient Care Goals: Monitor vital signs and cardiac rhythm and be prepared to provide CPR and defibrillation if needed",
           "priority": "critical",
-          "rationale": "Atypical 'indigestion' presentations with diaphoresis, nausea, and cardiac risk factors must be recognized as possible ACS rather than dismissed.",
+          "rationale": "Confirms the response to aspirin and oxygen and sets the baseline the crew trends against en route.",
           "protocolReference": "MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)"
         },
         {
-          "id": "a2-oxygen",
-          "shortAction": "Apply supplemental oxygen, titrate to target SpO2 94-98%",
-          "protocolExcerpt": "If the patient is dyspneic, hypoxemic, or has obvious signs of heart failure, EMS clinicians should administer oxygen as appropriate with a target of achieving 94–98% saturation",
+          "id": "a5-transport-decision",
+          "shortAction": "Transport promptly, minimizing scene time; base destination on local system of care",
+          "protocolExcerpt": "Transport and destination decisions should be based on local resources and system of care",
           "priority": "important",
-          "rationale": "Patient is mildly hypoxic (SpO2 93%) on presentation and should be brought to target saturation.",
-          "protocolReference": "MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)"
-        },
-        {
-          "id": "a3-asa",
-          "shortAction": "Administer aspirin 324 mg PO, chewable non-enteric-coated",
-          "protocolExcerpt": "Administer aspirin; chewable, non-enteric-coated aspirin preferred (162–325 mg)",
-          "priority": "critical",
-          "rationale": "Early aspirin administration reduces mortality in ACS and is within BLS scope.",
+          "rationale": "Minimizing scene time and ischemic burden time improves outcomes in suspected ACS.",
           "protocolReference": "MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)"
         }
       ],
@@ -168,7 +187,7 @@
           "if": "Prepared for prompt transport",
           "condition": "Patient is packaged for transport with ongoing reassessment; crew minimizes scene time given suspected ACS.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["a1-opqrst", "a3-asa"]
+          "triggerActionIds": ["a4-reassess-response", "a5-transport-decision"]
         }
       ]
     },
@@ -213,7 +232,7 @@
       },
       "expectedActions": [
         {
-          "id": "a4-serial-reassess",
+          "id": "a6-serial-reassess",
           "shortAction": "Reassess vital signs and pain level serially en route; observe for deterioration",
           "protocolExcerpt": "Observe for signs of clinical deterioration: dysrhythmias, chest pain, shortness of breath, decreased level of consciousness/syncope, or other signs of shock/hypotension",
           "priority": "critical",
@@ -221,11 +240,11 @@
           "protocolReference": "MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)"
         },
         {
-          "id": "a5-transport-decision",
-          "shortAction": "Transport promptly, minimizing scene time; base destination on local system of care",
-          "protocolExcerpt": "Transport and destination decisions should be based on local resources and system of care",
+          "id": "a7-notify-receiving",
+          "shortAction": "Give early notification to the receiving facility",
+          "protocolExcerpt": "Assessment, Treatment, and Interventions: Early notification to receiving facility of any changes in patient condition or serial EKGs",
           "priority": "important",
-          "rationale": "Minimizing scene time and ischemic burden time improves outcomes in suspected ACS.",
+          "rationale": "Early notification lets the receiving facility activate its cardiac system of care before arrival.",
           "protocolReference": "MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)"
         }
       ],
@@ -272,7 +291,7 @@
       },
       "expectedActions": [
         {
-          "id": "a6-recognize-late",
+          "id": "a8-recognize-late",
           "shortAction": "Recognize worsening presentation as ACS; give aspirin 324 mg PO chewable and apply oxygen now",
           "protocolExcerpt": "Observe for signs of clinical deterioration: dysrhythmias, chest pain, shortness of breath, decreased level of consciousness/syncope, or other signs of shock/hypotension",
           "priority": "critical",
