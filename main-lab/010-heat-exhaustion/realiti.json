@@ -57,7 +57,13 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [],
+      "relatedChecklist": [
+        "Move to cool shaded area, remove excess clothing, begin evaporative cooling (mist + fan)",
+        "Offer small sips of cool oral fluids since patient is alert and tolerating PO",
+        "Check blood glucose; treat per Hypoglycemia guideline if less than 60 mg/dL",
+        "Place patient on cardiac monitor; obtain continuous vital signs",
+        "Establish IV access; convert to IO if unsuccessful within 2 attempts or 90 seconds"
+      ],
       "relatedSounds": []
     },
     {
@@ -90,11 +96,6 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Move to cool shaded area, remove excess clothing, begin evaporative cooling (mist + fan)",
-        "Offer small sips of cool oral fluids since patient is alert and tolerating PO",
-        "Check blood glucose; treat per Hypoglycemia guideline if less than 60 mg/dL",
-        "Place patient on cardiac monitor; obtain continuous vital signs",
-        "Establish IV access; convert to IO if unsuccessful within 2 attempts or 90 seconds",
         "Normal saline bolus 500 mL IV, up to 30 mL/kg total (78 kg × 30 mL/kg = 2,340 mL) titrated to MAP 65 mmHg"
       ],
       "relatedSounds": []
