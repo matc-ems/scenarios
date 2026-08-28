@@ -81,13 +81,62 @@
         "trendTimeSeconds": 0,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [],
+      "expectedActions": [
+        {
+          "id": "a1",
+          "shortAction": "Obtain diagnostic-quality 12-lead EKG within 10 minutes despite body habitus",
+          "protocolExcerpt": "The 12-lead EKG is the primary diagnostic tool that identifies a STEMI; it is imperative that EMS clinicians routinely acquire a 12-lead EKG within 10 minutes for all patients exhibiting signs and symptoms of ACS",
+          "priority": "critical",
+          "rationale": "Timely 12-lead acquisition drives STEMI recognition and hospital notification even when electrode placement is technically difficult.",
+          "protocolReference": "MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)"
+        },
+        {
+          "id": "a2",
+          "shortAction": "Administer aspirin 324 mg chewable, non-enteric-coated PO",
+          "protocolExcerpt": "Administer aspirin; chewable, non-enteric-coated aspirin preferred (162–325 mg)",
+          "priority": "critical",
+          "rationale": "Early aspirin reduces mortality in suspected ACS and should not be delayed by equipment challenges.",
+          "protocolReference": "MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)"
+        },
+        {
+          "id": "a3",
+          "shortAction": "Establish IV access",
+          "protocolExcerpt": "Establish IV access",
+          "priority": "important",
+          "rationale": "Vascular access is needed for further medication administration if the patient deteriorates.",
+          "protocolReference": "MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)"
+        },
+        {
+          "id": "a4",
+          "shortAction": "Administer supplemental O2 titrated to 94–98% saturation",
+          "protocolExcerpt": "If the patient is dyspneic, hypoxemic, or has obvious signs of heart failure, EMS clinicians should administer oxygen as appropriate with a target of achieving 94–98% saturation",
+          "priority": "important",
+          "rationale": "The patient's SpO2 is below target and he shows dyspnea, meeting the criteria for supplemental oxygen.",
+          "protocolReference": "MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)"
+        },
+        {
+          "id": "a5",
+          "shortAction": "Request a bariatric stretcher and additional lift personnel before attempting any move",
+          "protocolExcerpt": "Transport and destination decisions should be based on local resources and system of care",
+          "priority": "critical",
+          "rationale": "Moving this patient without the right equipment and crew forces prolonged exertion that raises myocardial oxygen demand in an active ACS; the resources have to be requested before the move, not after it fails.",
+          "protocolReference": "MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)"
+        }
+      ],
       "transitions": [
         {
           "targetPhaseId": "assessed-treated",
           "if": "12-lead and ASA obtained despite challenges",
           "condition": "Crew adapts assessment technique to the patient's body habitus — using a properly sized thigh cuff for blood pressure, repositioning electrodes around the pannus for a diagnostic-quality 12-lead, and establishing IV access — and administers aspirin.",
-          "conditionType": "action_taken"
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a1", "a2", "a5"]
+        },
+        {
+          "targetPhaseId": "resources-not-requested",
+          "if": "Extrication attempted without bariatric resources",
+          "condition": "Crew attempts to move the patient to the standard cot without a bariatric stretcher and additional personnel, resulting in prolonged physical exertion for the patient during the move.",
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["a5"]
         }
       ]
     },
@@ -133,35 +182,19 @@
       },
       "expectedActions": [
         {
-          "id": "a1-12lead",
-          "shortAction": "Obtain diagnostic-quality 12-lead EKG within 10 minutes despite body habitus",
-          "protocolExcerpt": "The 12-lead EKG is the primary diagnostic tool that identifies a STEMI; it is imperative that EMS clinicians routinely acquire a 12-lead EKG within 10 minutes for all patients exhibiting signs and symptoms of ACS",
+          "id": "b1",
+          "shortAction": "Screen for PDE5 inhibitor use (sildenafil, vardenafil, tadalafil) before nitro",
+          "protocolExcerpt": "The use of nitrates should be avoided in any patient who has used a phosphodiesterase inhibitor within the past 48 hours. Examples include sildenafil (Viagra®, Revatio®), vardenafil (Levitra®, Staxyn®), tadalafil (Cialis®, Adcirca®) which are used for erectile dysfunction and pulmonary hypertension",
           "priority": "critical",
-          "rationale": "Timely 12-lead acquisition drives STEMI recognition and hospital notification even when electrode placement is technically difficult.",
+          "rationale": "Nitrates combined with PDE5 inhibitors can cause severe, refractory hypotension.",
           "protocolReference": "MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)"
         },
         {
-          "id": "a2-asa",
-          "shortAction": "Administer aspirin 324 mg chewable, non-enteric-coated PO",
-          "protocolExcerpt": "Administer aspirin; chewable, non-enteric-coated aspirin preferred (162–325 mg)",
+          "id": "b2",
+          "shortAction": "Nitroglycerin 0.4 mg SL; may repeat q3–5 min if SBP > 100 mmHg",
+          "protocolExcerpt": "Nitroglycerin 0.4 mg sublingual (SL), can repeat q (quaque, every) 3–5 minutes if SBP greater than 100 mmHg",
           "priority": "critical",
-          "rationale": "Early aspirin reduces mortality in suspected ACS and should not be delayed by equipment challenges.",
-          "protocolReference": "MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)"
-        },
-        {
-          "id": "a3-iv",
-          "shortAction": "Establish IV access",
-          "protocolExcerpt": "Establish IV access",
-          "priority": "important",
-          "rationale": "Vascular access is needed for further medication administration if the patient deteriorates.",
-          "protocolReference": "MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)"
-        },
-        {
-          "id": "a4-o2",
-          "shortAction": "Administer supplemental O2 titrated to 94–98% saturation",
-          "protocolExcerpt": "If the patient is dyspneic, hypoxemic, or has obvious signs of heart failure, EMS clinicians should administer oxygen as appropriate with a target of achieving 94–98% saturation",
-          "priority": "important",
-          "rationale": "The patient's SpO2 is below target and he shows dyspnea, meeting the criteria for supplemental oxygen.",
+          "rationale": "Nitroglycerin reduces preload and can relieve ischemic pain once safety criteria are confirmed.",
           "protocolReference": "MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)"
         }
       ],
@@ -171,13 +204,7 @@
           "if": "PDE5 screen done, nitro given",
           "condition": "Crew confirms the patient's blood pressure and no recent PDE5 inhibitor use before administering sublingual nitroglycerin.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["a1-12lead", "a2-asa"]
-        },
-        {
-          "targetPhaseId": "resources-not-requested",
-          "if": "Extrication attempted without bariatric resources",
-          "condition": "Crew attempts to move the patient to the standard cot without a bariatric stretcher and additional personnel, resulting in prolonged physical exertion for the patient during the move.",
-          "conditionType": "action_not_taken"
+          "triggerActionIds": ["b1", "b2"]
         }
       ]
     },
@@ -222,19 +249,11 @@
       },
       "expectedActions": [
         {
-          "id": "a5-pde5-screen",
-          "shortAction": "Screen for PDE5 inhibitor use (sildenafil, vardenafil, tadalafil) before nitro",
-          "protocolExcerpt": "The use of nitrates should be avoided in any patient who has used a phosphodiesterase inhibitor within the past 48 hours. Examples include sildenafil (Viagra®, Revatio®), vardenafil (Levitra®, Staxyn®), tadalafil (Cialis®, Adcirca®) which are used for erectile dysfunction and pulmonary hypertension",
-          "priority": "critical",
-          "rationale": "Nitrates combined with PDE5 inhibitors can cause severe, refractory hypotension.",
-          "protocolReference": "MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)"
-        },
-        {
-          "id": "a6-nitro",
-          "shortAction": "Nitroglycerin 0.4 mg SL; may repeat q3–5 min if SBP > 100 mmHg",
-          "protocolExcerpt": "Nitroglycerin 0.4 mg sublingual (SL), can repeat q (quaque, every) 3–5 minutes if SBP greater than 100 mmHg",
-          "priority": "critical",
-          "rationale": "Nitroglycerin reduces preload and can relieve ischemic pain once safety criteria are confirmed.",
+          "id": "c1",
+          "shortAction": "Transport to appropriate facility with early notification of EKG findings",
+          "protocolExcerpt": "Transport and destination decisions should be based on local resources and system of care. Early notification to receiving facility of any changes in patient condition or serial EKGs",
+          "priority": "important",
+          "rationale": "Early hospital notification allows the receiving team to prepare and minimizes delays to definitive care.",
           "protocolReference": "MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)"
         }
       ],
@@ -243,7 +262,8 @@
           "targetPhaseId": "transport",
           "if": "Bariatric resources arrive, extrication coordinated",
           "condition": "The bariatric stretcher and additional personnel arrive; the crew coordinates a safe, low-exertion extrication through the widened doorway and initiates transport.",
-          "conditionType": "action_taken"
+          "conditionType": "action_taken",
+          "triggerActionIds": ["c1"]
         }
       ]
     },
@@ -286,16 +306,7 @@
         "trendTimeSeconds": 40,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [
-        {
-          "id": "a7-transport",
-          "shortAction": "Transport to appropriate facility with early notification of EKG findings",
-          "protocolExcerpt": "Transport and destination decisions should be based on local resources and system of care. Early notification to receiving facility of any changes in patient condition or serial EKGs",
-          "priority": "important",
-          "rationale": "Early hospital notification allows the receiving team to prepare and minimizes delays to definitive care.",
-          "protocolReference": "MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)"
-        }
-      ],
+      "expectedActions": [],
       "transitions": []
     },
     {
@@ -337,7 +348,16 @@
         "trendTimeSeconds": 20,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [],
+      "expectedActions": [
+        {
+          "id": "d1",
+          "shortAction": "Stop the move; wait for the bariatric stretcher and extra personnel before continuing",
+          "protocolExcerpt": "Transport and destination decisions should be based on local resources and system of care",
+          "priority": "critical",
+          "rationale": "Continuing an under-resourced move keeps driving myocardial oxygen demand up; stopping and waiting for the right equipment costs less time than the ischemia it prevents.",
+          "protocolReference": "MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)"
+        }
+      ],
       "transitions": []
     }
   ],

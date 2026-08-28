@@ -57,7 +57,13 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [],
+      "relatedChecklist": [
+        "Obtain diagnostic-quality 12-lead EKG within 10 minutes despite body habitus",
+        "Administer aspirin 324 mg chewable, non-enteric-coated PO",
+        "Establish IV access",
+        "Administer supplemental O2 titrated to 94–98% saturation",
+        "Request a bariatric stretcher and additional lift personnel before attempting any move"
+      ],
       "relatedSounds": []
     },
     {
@@ -90,10 +96,8 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Obtain diagnostic-quality 12-lead EKG within 10 minutes despite body habitus",
-        "Administer aspirin 324 mg chewable, non-enteric-coated PO",
-        "Establish IV access",
-        "Administer supplemental O2 titrated to 94–98% saturation"
+        "Screen for PDE5 inhibitor use (sildenafil, vardenafil, tadalafil) before nitro",
+        "Nitroglycerin 0.4 mg SL; may repeat q3–5 min if SBP > 100 mmHg"
       ],
       "relatedSounds": []
     },
@@ -127,8 +131,7 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Screen for PDE5 inhibitor use (sildenafil, vardenafil, tadalafil) before nitro",
-        "Nitroglycerin 0.4 mg SL; may repeat q3–5 min if SBP > 100 mmHg"
+        "Transport to appropriate facility with early notification of EKG findings"
       ],
       "relatedSounds": []
     },
@@ -161,9 +164,7 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [
-        "Transport to appropriate facility with early notification of EKG findings"
-      ],
+      "relatedChecklist": [],
       "relatedSounds": []
     },
     {
@@ -195,7 +196,9 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [],
+      "relatedChecklist": [
+        "Stop the move; wait for the bariatric stretcher and extra personnel before continuing"
+      ],
       "relatedSounds": []
     }
   ],
@@ -225,6 +228,12 @@
       "icon": 1
     },
     {
+      "title": "Request a bariatric stretcher and additional lift personnel before attempting any move",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
       "title": "Screen for PDE5 inhibitor use (sildenafil, vardenafil, tadalafil) before nitro",
       "type": "Check",
       "value": 0,
@@ -238,6 +247,12 @@
     },
     {
       "title": "Transport to appropriate facility with early notification of EKG findings",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Stop the move; wait for the bariatric stretcher and extra personnel before continuing",
       "type": "Check",
       "value": 0,
       "icon": 1
