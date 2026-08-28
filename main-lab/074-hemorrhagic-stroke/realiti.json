@@ -57,7 +57,12 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [],
+      "relatedChecklist": [
+        "Perform validated prehospital stroke scale despite declining mentation; positive for asymmetric pupils and unresponsiveness",
+        "Check blood glucose to rule out hypoglycemia as a mimic (result 108 mg/dL, no treatment needed)",
+        "Establish witnessed last-known-well time from coworker",
+        "Suction soiled airway prior to intubation attempt"
+      ],
       "relatedSounds": []
     },
     {
@@ -90,9 +95,10 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Perform validated prehospital stroke scale despite declining mentation; positive for asymmetric pupils and unresponsiveness",
-        "Check blood glucose to rule out hypoglycemia as a mimic (result 108 mg/dL, no treatment needed)",
-        "Establish witnessed last-known-well time from coworker"
+        "Fentanyl 90 mcg IV premedication (90 kg × 1 mcg/kg), 2-3 minutes prior to intubation",
+        "Etomidate 22.5 mg IV push (90 kg × 0.25 mg/kg)",
+        "Rocuronium 90 mg IV push (90 kg × 1 mg/kg)",
+        "Confirm tube placement with waveform capnography, bilateral breath sounds, and absent gastric sounds"
       ],
       "relatedSounds": []
     },
@@ -126,11 +132,7 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Suction soiled airway prior to intubation attempt",
-        "Fentanyl 90 mcg IV premedication (90 kg × 1 mcg/kg), 2-3 minutes prior to intubation",
-        "Etomidate 22.5 mg IV push (90 kg × 0.25 mg/kg)",
-        "Rocuronium 90 mg IV push (90 kg × 1 mg/kg)",
-        "Confirm tube placement with waveform capnography, bilateral breath sounds, and absent gastric sounds"
+        "Ventilate to maintain EtCO2 35-45 mmHg; reserve mild hyperventilation for overt herniation signs only"
       ],
       "relatedSounds": []
     },
@@ -163,9 +165,7 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [
-        "Ventilate to maintain EtCO2 35-45 mmHg; reserve mild hyperventilation for overt herniation signs only"
-      ],
+      "relatedChecklist": [],
       "relatedSounds": []
     },
     {

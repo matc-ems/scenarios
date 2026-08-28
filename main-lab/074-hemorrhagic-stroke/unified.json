@@ -79,13 +79,54 @@
         "trendTimeSeconds": 0,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
       },
-      "expectedActions": [],
+      "expectedActions": [
+        {
+          "id": "a1",
+          "shortAction": "Perform validated prehospital stroke scale despite declining mentation; positive for asymmetric pupils and unresponsiveness",
+          "protocolExcerpt": "Use a validated prehospital stroke scale that may include, but is not limited to: Facial smile/grimace, Arm drift, Speech",
+          "priority": "critical",
+          "rationale": "A validated scale still drives destination and pre-notification decisions even in a severely affected patient.",
+          "protocolReference": "MATC: Suspected Stroke/Transient Ischemic Attack"
+        },
+        {
+          "id": "a2",
+          "shortAction": "Check blood glucose to rule out hypoglycemia as a mimic (result 108 mg/dL, no treatment needed)",
+          "protocolExcerpt": "Check blood glucose level (BGL). Treat only if glucose less than 60 mg/dL",
+          "priority": "critical",
+          "rationale": "Hypoglycemia is a rapidly reversible cause of AMS that must be excluded.",
+          "protocolReference": "MATC: Suspected Stroke/Transient Ischemic Attack"
+        },
+        {
+          "id": "a3",
+          "shortAction": "Establish witnessed last-known-well time from coworker",
+          "protocolExcerpt": "Determine \"last known well\" time. History – \"last known well\" and source of that information",
+          "priority": "critical",
+          "rationale": "LKW time is essential documentation even when the primary concern shifts to airway management.",
+          "protocolReference": "MATC: Suspected Stroke/Transient Ischemic Attack"
+        },
+        {
+          "id": "a4",
+          "shortAction": "Suction soiled airway prior to intubation attempt",
+          "protocolExcerpt": "Suction airway: for significantly contaminated airways, consider utilizing a suction assisted laryngeal airway decontamination (SALAD) technique. Suctioning to limit aspiration is a priority",
+          "priority": "critical",
+          "rationale": "Active vomiting must be cleared before airway instrumentation to limit aspiration risk.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        }
+      ],
       "transitions": [
         {
           "targetPhaseId": "scale-lkw-bgl",
           "if": "Stroke scale, BGL, and LKW established",
           "condition": "Crew performs a validated stroke scale, checks blood glucose to exclude hypoglycemia as a mimic, and establishes a precise last-known-well time from the coworker while continuously monitoring for airway compromise.",
-          "conditionType": "action_taken"
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a1", "a3", "a4"]
+        },
+        {
+          "targetPhaseId": "rsi-delayed",
+          "if": "Airway protection delayed",
+          "condition": "The crew continues focusing on the stroke workup without escalating airway management despite the patient's declining GCS, sluggish gag reflex, and active vomiting.",
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["a4"]
         }
       ]
     },
@@ -130,28 +171,36 @@
       },
       "expectedActions": [
         {
-          "id": "a1-stroke-scale",
-          "shortAction": "Perform validated prehospital stroke scale despite declining mentation; positive for asymmetric pupils and unresponsiveness",
-          "protocolExcerpt": "Use a validated prehospital stroke scale that may include, but is not limited to: Facial smile/grimace, Arm drift, Speech",
-          "priority": "critical",
-          "rationale": "A validated scale still drives destination and pre-notification decisions even in a severely affected patient.",
-          "protocolReference": "MATC: Suspected Stroke/Transient Ischemic Attack"
+          "id": "b1",
+          "shortAction": "Fentanyl 90 mcg IV premedication (90 kg × 1 mcg/kg), 2-3 minutes prior to intubation",
+          "protocolExcerpt": "Consider pre-medication with Fentanyl, 1 mcg/kg, 2-3 minutes prior to intubation attempt",
+          "priority": "important",
+          "rationale": "Blunts the sympathetic/ICP response to laryngoscopy.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
         },
         {
-          "id": "a2-bgl",
-          "shortAction": "Check blood glucose to rule out hypoglycemia as a mimic (result 108 mg/dL, no treatment needed)",
-          "protocolExcerpt": "Check blood glucose level (BGL). Treat only if glucose less than 60 mg/dL",
+          "id": "b2",
+          "shortAction": "Etomidate 22.5 mg IV push (90 kg × 0.25 mg/kg)",
+          "protocolExcerpt": "Administer induction sedative agent: Etomidate IV push, 0.2-0.3 mg/kg",
           "priority": "critical",
-          "rationale": "Hypoglycemia is a rapidly reversible cause of AMS that must be excluded.",
-          "protocolReference": "MATC: Suspected Stroke/Transient Ischemic Attack"
+          "rationale": "Etomidate provides hemodynamically stable induction, important given the elevated ICP and bradycardia already present.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
         },
         {
-          "id": "a3-lkw",
-          "shortAction": "Establish witnessed last-known-well time from coworker",
-          "protocolExcerpt": "Determine \"last known well\" time. History – \"last known well\" and source of that information",
+          "id": "b3",
+          "shortAction": "Rocuronium 90 mg IV push (90 kg × 1 mg/kg)",
+          "protocolExcerpt": "Administer paralytic agent: Rocuronium IV push, 1 mg/kg",
           "priority": "critical",
-          "rationale": "LKW time is essential documentation even when the primary concern shifts to airway management.",
-          "protocolReference": "MATC: Suspected Stroke/Transient Ischemic Attack"
+          "rationale": "Provides paralysis for first-pass intubation success.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        },
+        {
+          "id": "b4",
+          "shortAction": "Confirm tube placement with waveform capnography, bilateral breath sounds, and absent gastric sounds",
+          "protocolExcerpt": "Confirm placement of advanced airway (endotracheal tube, SGA) with waveform capnography (most reliable), absent gastric sounds, and bilateral breath sounds",
+          "priority": "critical",
+          "rationale": "Waveform capnography is the most reliable confirmation method and must be checked before committing to the tube.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
         }
       ],
       "transitions": [
@@ -159,13 +208,8 @@
           "targetPhaseId": "rsi-performed",
           "if": "RSI performed for airway protection",
           "condition": "With GCS now 9 and loss of protective airway reflexes plus active vomiting, the crew proceeds with rapid sequence intubation to protect the airway before further decline.",
-          "conditionType": "action_taken"
-        },
-        {
-          "targetPhaseId": "rsi-delayed",
-          "if": "Airway protection delayed",
-          "condition": "The crew continues focusing on the stroke workup without escalating airway management despite the patient's declining GCS, sluggish gag reflex, and active vomiting.",
-          "conditionType": "action_not_taken"
+          "conditionType": "action_taken",
+          "triggerActionIds": ["b3", "b4"]
         }
       ]
     },
@@ -210,43 +254,11 @@
       },
       "expectedActions": [
         {
-          "id": "a4-suction",
-          "shortAction": "Suction soiled airway prior to intubation attempt",
-          "protocolExcerpt": "Suction airway: for significantly contaminated airways, consider utilizing a suction assisted laryngeal airway decontamination (SALAD) technique. Suctioning to limit aspiration is a priority",
-          "priority": "critical",
-          "rationale": "Active vomiting must be cleared before airway instrumentation to limit aspiration risk.",
-          "protocolReference": "MATC: Airway Management (Includes RSI)"
-        },
-        {
-          "id": "a5-premedication",
-          "shortAction": "Fentanyl 90 mcg IV premedication (90 kg × 1 mcg/kg), 2-3 minutes prior to intubation",
-          "protocolExcerpt": "Consider pre-medication with Fentanyl, 1 mcg/kg, 2-3 minutes prior to intubation attempt",
+          "id": "c1",
+          "shortAction": "Ventilate to maintain EtCO2 35-45 mmHg; reserve mild hyperventilation for overt herniation signs only",
+          "protocolExcerpt": "In patients without primary pulmonary pathology ... maintain EtCO2 of no less than 35 and up to 40 mmHg. In patients with severe head injury with signs of herniation (unilateral dilated pupil or decerebrate posturing), modest hyperventilation to EtCO2 no less than 30 mmHg may be considered for a brief time",
           "priority": "important",
-          "rationale": "Blunts the sympathetic/ICP response to laryngoscopy.",
-          "protocolReference": "MATC: Airway Management (Includes RSI)"
-        },
-        {
-          "id": "a6-induction",
-          "shortAction": "Etomidate 22.5 mg IV push (90 kg × 0.25 mg/kg)",
-          "protocolExcerpt": "Administer induction sedative agent: Etomidate IV push, 0.2-0.3 mg/kg",
-          "priority": "critical",
-          "rationale": "Etomidate provides hemodynamically stable induction, important given the elevated ICP and bradycardia already present.",
-          "protocolReference": "MATC: Airway Management (Includes RSI)"
-        },
-        {
-          "id": "a7-paralytic",
-          "shortAction": "Rocuronium 90 mg IV push (90 kg × 1 mg/kg)",
-          "protocolExcerpt": "Administer paralytic agent: Rocuronium IV push, 1 mg/kg",
-          "priority": "critical",
-          "rationale": "Provides paralysis for first-pass intubation success.",
-          "protocolReference": "MATC: Airway Management (Includes RSI)"
-        },
-        {
-          "id": "a8-confirm-tube",
-          "shortAction": "Confirm tube placement with waveform capnography, bilateral breath sounds, and absent gastric sounds",
-          "protocolExcerpt": "Confirm placement of advanced airway (endotracheal tube, SGA) with waveform capnography (most reliable), absent gastric sounds, and bilateral breath sounds",
-          "priority": "critical",
-          "rationale": "Waveform capnography is the most reliable confirmation method and must be checked before committing to the tube.",
+          "rationale": "Routine hyperventilation is harmful; it is reserved only for overt herniation signs, and even then only briefly.",
           "protocolReference": "MATC: Airway Management (Includes RSI)"
         }
       ],
@@ -256,7 +268,7 @@
           "if": "Tube secured, ventilation continued to transport",
           "condition": "Tube is confirmed and secured; crew continues manual ventilation with continuous waveform capnography monitoring en route to a comprehensive stroke center.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["a8-confirm-tube"]
+          "triggerActionIds": ["c1"]
         }
       ]
     },
@@ -299,16 +311,7 @@
         "trendTimeSeconds": 40,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
       },
-      "expectedActions": [
-        {
-          "id": "a9-ventilation-target",
-          "shortAction": "Ventilate to maintain EtCO2 35-45 mmHg; reserve mild hyperventilation for overt herniation signs only",
-          "protocolExcerpt": "In patients without primary pulmonary pathology ... maintain EtCO2 of no less than 35 and up to 40 mmHg. In patients with severe head injury with signs of herniation (unilateral dilated pupil or decerebrate posturing), modest hyperventilation to EtCO2 no less than 30 mmHg may be considered for a brief time",
-          "priority": "important",
-          "rationale": "Routine hyperventilation is harmful; it is reserved only for overt herniation signs, and even then only briefly.",
-          "protocolReference": "MATC: Airway Management (Includes RSI)"
-        }
-      ],
+      "expectedActions": [],
       "transitions": []
     },
     {
@@ -352,7 +355,7 @@
       },
       "expectedActions": [
         {
-          "id": "a10-emergent-suction-airway",
+          "id": "d1",
           "shortAction": "Emergently suction airway, then proceed to RSI without further delay",
           "protocolExcerpt": "Suctioning to limit aspiration is a priority, since it is associated with development of hospital acquired pneumonia and related increases in ICU stay and mortality. Altered mental status with loss of normal protective airway reflexes",
           "priority": "critical",
