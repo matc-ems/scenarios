@@ -1,0 +1,450 @@
+{
+  "meta": {
+    "id": "136-opioid-overdose-with-apnea",
+    "name": "136 - Opioid Overdose with Apnea",
+    "version": 1,
+    "difficulty": "advanced",
+    "category": "Toxicology",
+    "protocols": [
+      "tox-opioid-poisoning-overdose",
+      "resp-airway-management",
+      "medical-altered-mental-status",
+      "medical-agitated-violent-behavioral",
+      "resus-cardiac-arrest"
+    ],
+    "totalTimeSeconds": 1080,
+    "tags": [
+      "toxicology",
+      "opioid overdose",
+      "apnea",
+      "naloxone",
+      "BVM ventilation",
+      "ventilate before you medicate",
+      "post-reversal agitation",
+      "practice summative"
+    ]
+  },
+  "patient": {
+    "name": "Unknown Male (approximately 22)",
+    "age": 22,
+    "ageUnit": "years",
+    "sex": "male",
+    "weight": 75,
+    "weightLbs": 165,
+    "height": 178,
+    "chiefComplaint": "Found unresponsive and apneic in a park restroom with drug paraphernalia present",
+    "history": {
+      "hpi": "No history is obtainable from anyone on scene. A bystander went to use the single-stall park restroom and found the patient slumped against the wall, motionless and apparently not breathing, and called 911. The entire history must be inferred from the physical exam and the scene: an uncapped syringe and a small piece of burnt foil on the floor beside him, pinpoint non-reactive pupils, faint track marks in the left antecubital fossa, and central cyanosis with apnea. Time of ingestion and substance are unknown.",
+      "pastMedical": [
+        "Unknown; no medical alert jewelry and no information from bystanders"
+      ],
+      "medications": [
+        "Unknown; scene findings suggest illicit opioid use"
+      ],
+      "allergies": [
+        "Unknown"
+      ],
+      "lastOralIntake": "Unknown",
+      "events": "Bystander entered the restroom, found him unresponsive against the wall, and called 911; nobody witnessed the events leading up to it"
+    }
+  },
+  "scene": {
+    "dispatch": "Male subject, unknown age, reported unresponsive near the restrooms at a city park",
+    "location": "Small, poorly lit single-stall public restroom in a lakefront park; confined working space with a concrete floor",
+    "time": "11:38 AM, weekday late morning",
+    "safety": "Confined space with an uncapped syringe and burnt foil on the floor. Sharps hazard must be acknowledged and controlled; PPE required and the patient should be moved to a workable space",
+    "bystanders": "The reporting bystander waits outside and has no information about the patient; no family or friends present",
+    "visualCues": [
+      "Male in his early twenties slumped against the restroom wall, motionless",
+      "Marked central cyanosis of the lips and face",
+      "No visible chest rise",
+      "Uncapped syringe and a small piece of burnt foil on the floor within arm's reach",
+      "Clothing disheveled; left sleeve pushed up above the elbow"
+    ]
+  },
+  "phases": [
+    {
+      "id": "initial",
+      "name": "Initial Contact",
+      "description": "Crew finds a young male unresponsive to all stimuli including sternal rub, GCS 3, with a flaccid tongue occluding the airway and no respiratory effort whatsoever. A carotid pulse is present but slow and weak at 40; no radial pulse is palpable. He is centrally cyanotic with a saturation of 68 percent. Pupils are pinpoint and non-reactive, and there are faint track marks in the left antecubital fossa. This is a respiratory arrest with a perfusing but bradycardic rhythm. The protocol is explicit that airway, breathing, and circulation are supported before naloxone is given, not after.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Unresponsive",
+        "gcs": {
+          "eye": 1,
+          "verbal": 1,
+          "motor": 1
+        },
+        "airway": "Flaccid tongue occluding the airway; no gurgling or stridor; opens with a head-tilt chin-lift",
+        "breathing": "Apneic. No chest rise or fall observed and no air movement felt",
+        "circulation": "Carotid pulse palpable but slow and weak; no radial pulse; skin cool, clammy, and cyanotic",
+        "skin": {
+          "color": "cyanotic",
+          "temperature": "cool",
+          "moisture": "clammy"
+        },
+        "pupils": "Pinpoint at 1 mm bilaterally, fixed and non-reactive to light",
+        "motorFunction": "Flaccid; no response to sternal rub or any painful stimulus",
+        "otherFindings": [
+          "Faint track marks in the left antecubital fossa",
+          "Uncapped syringe and burnt foil on the floor beside him",
+          "Blood glucose 105 mg/dL once checked",
+          "No signs of head trauma; no bleeding; no medical alert jewelry",
+          "No transdermal patch found on the skin survey"
+        ],
+        "patientSpeech": "No verbal response"
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Bradycardia",
+        "ecgWaveform": 9,
+        "hr": 40,
+        "bpSys": 70,
+        "bpDia": 40,
+        "respRate": 0,
+        "spo2": 68,
+        "etco2": 0,
+        "temp": 36.1,
+        "tempF": 97.0,
+        "obstruction": 60,
+        "glucose": 105,
+        "trendTimeSeconds": 0,
+        "visibility": {
+          "spo2Visible": true,
+          "spo2Attached": true,
+          "rrVisible": true,
+          "etco2Visible": false,
+          "cvpVisible": false
+        }
+      },
+      "expectedActions": [
+        {
+          "id": "a1",
+          "shortAction": "Don appropriate PPE and control the sharps hazard before working the patient",
+          "protocolExcerpt": "Don the appropriate PPE. Note that opioids have minimal vapor pressure and do not pose an exposure risk to rescuers unless aerosolized or ingested. Be aware that unsecured hypodermic needles may be on scene if the intravenous route may have been used by the patient, and that there is a higher risk of needle sticks during the management of this patient population which may also have an increased incidence of blood-borne pathogens.",
+          "priority": "critical",
+          "rationale": "The uncapped syringe on the floor of a cramped restroom is the realistic hazard here. The protocol also settles the myth that ambient fentanyl exposure endangers rescuers.",
+          "protocolReference": "MATC: Opioid Poisoning/Overdose"
+        },
+        {
+          "id": "a2",
+          "shortAction": "Open the airway, insert an OPA, and BVM ventilate at 1 breath every 6 seconds",
+          "protocolExcerpt": "For apnea, provide one breath every 6 seconds adjusting based on pulse oximetry and digital capnometry or capnography (with the goal of 35-45 mmHg).",
+          "priority": "critical",
+          "rationale": "He is apneic with a saturation of 68 percent. Effective ventilation is the life-saving intervention and it is what fixes the bradycardia.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        },
+        {
+          "id": "a3",
+          "shortAction": "Ventilate before medicating: support ABCs before giving naloxone",
+          "protocolExcerpt": "Critical resuscitation (opening and/or maintaining the airway, provision of oxygen, ensuring adequate circulation) should be performed prior to naloxone administration.",
+          "priority": "critical",
+          "rationale": "This is the sequencing decision the scenario is built around. Naloxone takes minutes to work; the hypoxia kills in that window if nobody is ventilating.",
+          "protocolReference": "MATC: Opioid Poisoning/Overdose"
+        },
+        {
+          "id": "a4",
+          "shortAction": "Check blood glucose to rule out hypoglycemia as the cause of the altered mental status",
+          "protocolExcerpt": "Assess the patient for other etiologies of altered mental status including hypoxia (pulse oximetry less than 94%), hypoglycemia, hypotension, and traumatic head injury.",
+          "priority": "critical",
+          "rationale": "Scene findings suggest opioids but do not prove them. The protocol requires the other reversible causes be excluded rather than assumed away.",
+          "protocolReference": "MATC: Opioid Poisoning/Overdose"
+        },
+        {
+          "id": "a5",
+          "shortAction": "Naloxone 2 mg IN (adult 0.4 to 2 mg IV/IM, up to 4 mg IN), titrated to respiratory effort",
+          "protocolExcerpt": "Adults: The typical initial adult dose ranges between Naloxone 0.4-2 mg IV, IM, up to a dose of 4 mg IN or 5 mg ETT. The administration of the initial dose or subsequent doses can be incrementally titrated until respiratory depression is reversed.",
+          "priority": "critical",
+          "rationale": "The protocol dose is a titrated range with a stated endpoint of adequate respiratory effort, not a fixed maximal dose given all at once.",
+          "protocolReference": "MATC: Opioid Poisoning/Overdose"
+        },
+        {
+          "id": "a6",
+          "shortAction": "Keep ventilating while the naloxone works; use the lowest effective dose",
+          "protocolExcerpt": "Regardless of the doses of naloxone administered, airway management with provision of adequate oxygenation and ventilation is the primary goal in patients with confirmed or suspected opioid overdose. Opioid withdrawal: Patients with altered mental status secondary to an opioid overdose may become agitated or violent following naloxone administration due to opioid withdrawal therefore the goal is to use the lowest dose as possible to avoid precipitating withdrawal.",
+          "priority": "important",
+          "rationale": "Ventilation does not stop when the drug goes in. Over-dosing naloxone buys a combative patient and a lost airway rather than a better outcome.",
+          "protocolReference": "MATC: Opioid Poisoning/Overdose"
+        },
+        {
+          "id": "a7",
+          "shortAction": "Survey the skin for a transdermal opioid patch and remove any found",
+          "protocolExcerpt": "Legally prescribed opioids are also manufactured as an adhesive patch for transdermal absorption, and if found, should be removed from the skin.",
+          "priority": "supplemental",
+          "rationale": "A patch left in place keeps dosing the patient long after the naloxone has worn off.",
+          "protocolReference": "MATC: Opioid Poisoning/Overdose"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "reversed",
+          "if": "Ventilated first; naloxone given",
+          "condition": "Crew opens the airway, places an adjunct, and begins effective BVM ventilation with high-flow oxygen before administering titrated naloxone, continuing ventilation while the drug takes effect. Within two to four minutes he takes a sudden deep gasping breath, resumes spontaneous respirations, and opens his eyes, agitated and confused.",
+          "conditionType": "action_taken",
+          "triggerActionIds": [
+            "a2",
+            "a3",
+            "a5"
+          ]
+        },
+        {
+          "targetPhaseId": "arrest",
+          "if": "Ventilation delayed; arrest",
+          "condition": "Crew delays ventilation to prepare and give naloxone first, or fails to establish an adequate airway and effective ventilations. Over two to three minutes the hypoxia and bradycardia worsen until the carotid pulse is lost and the patient arrests in a non-shockable rhythm.",
+          "conditionType": "action_not_taken",
+          "triggerActionIds": [
+            "a2",
+            "a3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "reversed",
+      "name": "Ventilated first; naloxone given",
+      "description": "Two to four minutes after the naloxone the patient takes a sudden deep gasping breath, then resumes spontaneous adequate respirations. His color improves to pink and warm, his heart rate rises to 88, and his blood pressure normalizes. He opens his eyes and is immediately agitated and confused, pulling at the oxygen mask and trying to stand up. He is in acute withdrawal, and the crew now has a scene-safety and persuasion problem on top of a medical one: the reversal is temporary and he is going to want to leave.",
+      "triggerCondition": "Effective BVM ventilation was established before naloxone was given and continued while the drug took effect. Spontaneous respirations have returned and the patient is awake but agitated from precipitated withdrawal.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": {
+          "eye": 4,
+          "verbal": 4,
+          "motor": 6
+        },
+        "airway": "Patent and self-maintained; adjunct removed as his gag returned",
+        "breathing": "Spontaneous at 16 per minute with adequate tidal volume",
+        "circulation": "Radial pulse now palpable, strong and regular; skin pink and warm",
+        "skin": {
+          "color": "pink",
+          "temperature": "warm",
+          "moisture": "dry"
+        },
+        "pupils": "4 mm bilaterally, now reactive",
+        "motorFunction": "Moves all extremities purposefully; pushing crew hands away and trying to sit up",
+        "otherFindings": [
+          "Agitated, confused, and disoriented to place and time",
+          "Pulling at the oxygen mask and the monitor leads",
+          "Diaphoretic with piloerection and yawning consistent with acute withdrawal",
+          "Stating he is fine and wants to leave",
+          "No focal neurologic deficit; no evidence of head injury"
+        ],
+        "patientSpeech": "\"Where am I? What did you do to me? Get off me, I'm fine, I'm not going to any hospital.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Rhythm",
+        "ecgWaveform": 9,
+        "hr": 88,
+        "bpSys": 110,
+        "bpDia": 70,
+        "respRate": 16,
+        "spo2": 97,
+        "etco2": 38,
+        "temp": 36.4,
+        "tempF": 97.5,
+        "obstruction": 0,
+        "glucose": 105,
+        "trendTimeSeconds": 20,
+        "visibility": {
+          "spo2Visible": true,
+          "spo2Attached": true,
+          "rrVisible": true,
+          "etco2Visible": true,
+          "cvpVisible": false
+        }
+      },
+      "expectedActions": [
+        {
+          "id": "b1",
+          "shortAction": "Stay ready to manage the airway again after the reversal",
+          "protocolExcerpt": "EMS clinicians should be prepared to initiate airway management before, during, and after naloxone administration and to provide appropriate airway support until the patient has adequate respiratory effort.",
+          "priority": "critical",
+          "rationale": "The BVM does not get packed away because he woke up. He can re-sedate at any point during transport.",
+          "protocolReference": "MATC: Opioid Poisoning/Overdose"
+        },
+        {
+          "id": "b2",
+          "shortAction": "Establish rapport and use verbal reassurance to calm him before anything else",
+          "protocolExcerpt": "Establish patient rapport: Attempt verbal reassurance and calm patient prior to use of pharmacologic and/or physical management devices.",
+          "priority": "critical",
+          "rationale": "Withdrawal agitation is expected and predictable. The protocol puts verbal de-escalation ahead of chemical or physical management, and it is what keeps this scene safe.",
+          "protocolReference": "MATC: Agitated or Violent Patient/Behavioral Emergency"
+        },
+        {
+          "id": "b3",
+          "shortAction": "Explain that naloxone wears off within an hour while the opioid lasts four or more",
+          "protocolExcerpt": "Clinical duration of naloxone: The clinical opioid reversal effect of naloxone is limited and may end within an hour whereas opioids often have a duration of 4 hours or longer. Monitor the patient for recurrent respiratory depression and decreased mental status.",
+          "priority": "critical",
+          "rationale": "This specific fact is the argument for transport. He needs to hear that he can stop breathing again after the crew leaves, and it needs to be documented that he was told.",
+          "protocolReference": "MATC: Opioid Poisoning/Overdose"
+        },
+        {
+          "id": "b4",
+          "shortAction": "Prepare a repeat naloxone dose and continued airway support if he re-sedates",
+          "protocolExcerpt": "High-potency opioids may require higher and/or more frequently administered doses of naloxone to reverse respiratory depression and/or to maintain adequate respirations.",
+          "priority": "important",
+          "rationale": "Illicit fentanyl analogs commonly outlast a single naloxone dose, so the second dose is drawn up before it is needed.",
+          "protocolReference": "MATC: Opioid Poisoning/Overdose"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "transport-accepted",
+          "if": "Transport accepted after counseling",
+          "condition": "The crew de-escalates verbally rather than escalating, keeps airway equipment at hand, and clearly explains the recurrent respiratory depression risk. He calms, accepts monitoring, and agrees to transport.",
+          "conditionType": "action_taken",
+          "triggerActionIds": [
+            "b1",
+            "b3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "transport-accepted",
+      "name": "Transport accepted after counseling",
+      "description": "The patient has calmed and agreed to transport after the crew explained that the naloxone will wear off well before the opioid does. He remains awake with adequate spontaneous respirations, monitored continuously with the BVM and a second naloxone dose at hand. All interventions are complete and no further change in presentation is expected.",
+      "triggerCondition": "Verbal de-escalation succeeded, the recurrent-respiratory-depression counseling was given and documented, and the patient consented to transport with continued airway readiness.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": {
+          "eye": 4,
+          "verbal": 5,
+          "motor": 6
+        },
+        "airway": "Patent, self-maintained, conversational",
+        "breathing": "Spontaneous, regular, adequate depth",
+        "circulation": "Radial pulse strong and regular; skin pink, warm, and dry",
+        "skin": {
+          "color": "pink",
+          "temperature": "warm",
+          "moisture": "dry"
+        },
+        "pupils": "4 mm bilaterally, reactive",
+        "motorFunction": "Moves all extremities normally; cooperative on the stretcher",
+        "otherFindings": [
+          "Oriented to person, place, and event; still irritable but cooperative",
+          "Continuous waveform capnography and pulse oximetry in place",
+          "BVM and a second naloxone dose staged at the head of the stretcher",
+          "Counseling on recurrent respiratory depression documented"
+        ],
+        "patientSpeech": "\"Alright. If you say I could stop breathing again, I'll go. I just didn't want to wake up like that.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Rhythm",
+        "ecgWaveform": 9,
+        "hr": 84,
+        "bpSys": 116,
+        "bpDia": 74,
+        "respRate": 16,
+        "spo2": 98,
+        "etco2": 38,
+        "temp": 36.5,
+        "tempF": 97.7,
+        "obstruction": 0,
+        "glucose": 105,
+        "trendTimeSeconds": 30,
+        "visibility": {
+          "spo2Visible": true,
+          "spo2Attached": true,
+          "rrVisible": true,
+          "etco2Visible": true,
+          "cvpVisible": false
+        }
+      },
+      "expectedActions": []
+    },
+    {
+      "id": "arrest",
+      "name": "Ventilation delayed; arrest",
+      "description": "Two to three minutes were spent preparing and giving naloxone while the patient stayed apneic, or the ventilations delivered were ineffective. The hypoxia and bradycardia have progressed and the carotid pulse is now lost. Organized electrical activity remains on the monitor with no pulse and no obtainable pressure: this is PEA arrest from untreated respiratory arrest. The crew must move immediately to compressions and the cardiac arrest algorithm, and must not spend any more time on naloxone.",
+      "triggerCondition": "Ventilation was delayed or ineffective while naloxone was prioritized. Progressive hypoxia and bradycardia have deteriorated into pulseless electrical activity.",
+      "isDefault": false,
+      "clinicalPresentation": {
+        "avpu": "Unresponsive",
+        "gcs": {
+          "eye": 1,
+          "verbal": 1,
+          "motor": 1
+        },
+        "airway": "Requires an adjunct and manual maintenance; no protective reflexes",
+        "breathing": "Apneic; no spontaneous effort",
+        "circulation": "No carotid or femoral pulse; blood pressure not obtainable; organized narrow complexes on the monitor",
+        "skin": {
+          "color": "cyanotic with early mottling",
+          "temperature": "cool",
+          "moisture": "clammy"
+        },
+        "pupils": "Pinpoint at 1 mm bilaterally, fixed",
+        "motorFunction": "Flaccid, no movement",
+        "otherFindings": [
+          "Pulse check confirms pulselessness with organized electrical activity",
+          "Mottling appearing over the knees and shoulders",
+          "Low EtCO2 consistent with the arrest state",
+          "Hypoxia identified as the reversible cause"
+        ],
+        "patientSpeech": "No verbal response"
+      },
+      "monitorState": {
+        "ecgRhythm": "Pulseless Electrical Activity (PEA)",
+        "ecgWaveform": 9,
+        "hr": 36,
+        "bpSys": 0,
+        "bpDia": 0,
+        "respRate": 0,
+        "spo2": 0,
+        "etco2": 12,
+        "temp": 36.0,
+        "tempF": 96.8,
+        "obstruction": 60,
+        "glucose": 105,
+        "trendTimeSeconds": 15,
+        "visibility": {
+          "spo2Visible": false,
+          "spo2Attached": true,
+          "rrVisible": true,
+          "etco2Visible": true,
+          "cvpVisible": false
+        }
+      },
+      "expectedActions": [
+        {
+          "id": "c1",
+          "shortAction": "Confirm pulselessness and start high-quality chest compressions immediately",
+          "protocolExcerpt": "The most important therapies for patients suffering from cardiac arrest are prompt cardiac defibrillation for shockable rhythms and minimally interrupted effective chest compressions. Initiate chest compressions in cases with no bystander chest compressions or take over compressions from bystanders while a second rescuer is setting up the AED or defibrillator.",
+          "priority": "critical",
+          "rationale": "The rhythm is organized but there is no pulse. Compressions start the moment the pulse check is complete.",
+          "protocolReference": "MATC: Cardiac Arrest (VF/VT/Asystole/PEA)"
+        },
+        {
+          "id": "c2",
+          "shortAction": "Do not delay compressions for naloxone: it has no benefit in cardiac arrest",
+          "protocolExcerpt": "Naloxone has no benefit in the treatment of cardiac arrest. Do not delay other interventions such as chest compressions and ventilations.",
+          "priority": "critical",
+          "rationale": "The instinct at this point is another dose of naloxone. The protocol closes that door explicitly.",
+          "protocolReference": "MATC: Opioid Poisoning/Overdose"
+        },
+        {
+          "id": "c3",
+          "shortAction": "Epinephrine 1 mg IV/IO early in the first or second round for this non-shockable rhythm",
+          "protocolExcerpt": "If feasible, IV or IO access should be obtained. Administer Epinephrine 1mg during the first or second round of compressions. Prioritize early administration of epinephrine for non-shockable rhythms.",
+          "priority": "critical",
+          "rationale": "PEA is non-shockable, so the protocol moves epinephrine up rather than waiting through rhythm checks.",
+          "protocolReference": "MATC: Cardiac Arrest (VF/VT/Asystole/PEA)"
+        },
+        {
+          "id": "c4",
+          "shortAction": "Ventilate at 10 per minute without interrupting compressions; treat hypoxia as the cause",
+          "protocolExcerpt": "BVM ventilation at 10 breaths per minute (1 breath every 10 compressions), applied during the upstroke between compressions, without interrupting the compressions.",
+          "priority": "critical",
+          "rationale": "This arrest is hypoxic in origin, so oxygenation and ventilation carry more weight here than in a primary cardiac arrest, but still must not interrupt compressions.",
+          "protocolReference": "MATC: Cardiac Arrest (VF/VT/Asystole/PEA)"
+        }
+      ]
+    }
+  ],
+  "realiti": {
+    "scenarioDefaultEnergy": 200,
+    "scenarioDefaultPacerThreshold": 55
+  }
+}
