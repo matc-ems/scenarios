@@ -199,24 +199,16 @@
       "transitions": [
         {
           "targetPhaseId": "cardioversion-performed",
-          "if": "Adenosine given, SVT persists",
-          "condition": "Adenosine 6 mg IV given without conversion; crew proceeds to prepare and deliver synchronized cardioversion given ongoing instability.",
+          "if": "Adenosine failed",
+          "condition": "Adenosine 6 mg IV is given without conversion; the SVT persists and the patient remains hypotensive and altered.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["b1"]
-        },
-        {
-          "targetPhaseId": "cardioversion-delayed",
-          "if": "Cardioversion delayed, repeat drugs given",
-          "condition": "Crew continues pharmacologic attempts (e.g., repeat adenosine or diltiazem) rather than proceeding to synchronized cardioversion despite persistent hypotension and altered mental status for more than 5 minutes.",
-          "conditionType": "time_elapsed",
-          "triggerActionIds": ["b2"],
-          "timeoutSeconds": 300
+          "triggerActionIds": ["b1", "b3"]
         }
       ]
     },
     {
       "id": "cardioversion-performed",
-      "name": "Adenosine failed, cardioversion performed",
+      "name": "Adenosine failed",
       "description": "Adenosine failed to convert the rhythm; hemodynamic status continues to deteriorate. Crew proceeds to deliver synchronized cardioversion per the unstable pathway.",
       "triggerCondition": "Despite adenosine 6 mg IV, SVT persists at HR 206 with worsening hypotension (BP 72/46) and declining mental status (GCS 10); crew proceeds directly to synchronized cardioversion per the Unstable SVT pathway.",
       "isDefault": true,
@@ -278,9 +270,16 @@
       "transitions": [
         {
           "targetPhaseId": "converted",
-          "if": "Synchronized cardioversion successful",
+          "if": "Converted to sinus rhythm",
           "condition": "Synchronized cardioversion delivered; rhythm converts to sinus rhythm with rapid improvement in blood pressure and mental status.",
           "conditionType": "action_taken",
+          "triggerActionIds": ["c2"]
+        },
+        {
+          "targetPhaseId": "cardioversion-delayed",
+          "if": "Cardioversion delayed",
+          "condition": "Crew continues pharmacologic attempts (e.g., repeat adenosine or diltiazem) rather than delivering synchronized cardioversion despite persistent hypotension and altered mental status for more than 5 minutes.",
+          "conditionType": "time_elapsed",
           "triggerActionIds": ["c2"]
         }
       ]
