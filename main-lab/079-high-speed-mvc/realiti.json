@@ -57,7 +57,12 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [],
+      "relatedChecklist": [
+        "Apply commercial tourniquet 2-3 inches proximal to right thigh wound; mark time",
+        "Establish two large-bore IV lines for fluid resuscitation and possible blood products",
+        "500 mL crystalloid bolus IV for SBP 82 (below 90 mmHg threshold); reassess after",
+        "Minimize scene time (goal under 10 minutes); initiate rapid transport to trauma center"
+      ],
       "relatedSounds": []
     },
     {
@@ -90,10 +95,8 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Apply commercial tourniquet 2-3 inches proximal to right thigh wound; mark time",
-        "Establish two large-bore IV lines for fluid resuscitation and possible blood products",
-        "500 mL crystalloid bolus IV for SBP 82 (below 90 mmHg threshold); reassess after",
-        "Minimize scene time (goal under 10 minutes); initiate rapid transport to trauma center"
+        "Reassess SBP after bolus; confirm trend toward 90 mmHg resuscitation target",
+        "Transport to highest-level trauma center per field triage guideline"
       ],
       "relatedSounds": []
     },
@@ -126,10 +129,7 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [
-        "Reassess SBP after bolus; confirm trend toward 90 mmHg resuscitation target",
-        "Transport to highest-level trauma center per field triage guideline"
-      ],
+      "relatedChecklist": [],
       "relatedSounds": []
     },
     {

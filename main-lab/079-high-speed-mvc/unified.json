@@ -82,21 +82,54 @@
         "trendTimeSeconds": 0,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
       },
-      "expectedActions": [],
+      "expectedActions": [
+        {
+          "id": "a1",
+          "shortAction": "Apply commercial tourniquet 2-3 inches proximal to right thigh wound; mark time",
+          "protocolExcerpt": "If the bleeding site is amenable to tourniquet placement, apply a commercial tourniquet to extremity: Tourniquet should be placed 2–3 inches proximal to wound, not over a joint, and tightened until bleeding stops and distal pulse is eliminated",
+          "priority": "critical",
+          "rationale": "Massive extremity hemorrhage must be controlled first per the MARCH algorithm before any other intervention.",
+          "protocolReference": "MATC: Extremity Trauma/External Hemorrhage Management"
+        },
+        {
+          "id": "a2",
+          "shortAction": "Establish two large-bore IV lines for fluid resuscitation and possible blood products",
+          "protocolExcerpt": "Establish IV access if needed (large bore preferred)",
+          "priority": "critical",
+          "rationale": "Hypotensive trauma patient requires immediate vascular access for resuscitation.",
+          "protocolReference": "MATC: General Trauma Management"
+        },
+        {
+          "id": "a3",
+          "shortAction": "500 mL crystalloid bolus IV for SBP 82 (below 90 mmHg threshold); reassess after",
+          "protocolExcerpt": "If SBP less than 90 mmHg or HR greater than 120 BPM, initiate resuscitation: Blood products are recommended if available; If blood products not available, consider 500 mL bolus of IV fluid, repeat as needed for persistent signs and symptoms of shock",
+          "priority": "critical",
+          "rationale": "SBP 82 and HR 128 both meet the protocol's threshold for immediate fluid resuscitation targeting SBP 90.",
+          "protocolReference": "MATC: General Trauma Management"
+        },
+        {
+          "id": "a4",
+          "shortAction": "Minimize scene time (goal under 10 minutes); initiate rapid transport to trauma center",
+          "protocolExcerpt": "Minimize scene time (goal is under 10 minutes) and initiate rapid transport to the highest level of care within the trauma system",
+          "priority": "critical",
+          "rationale": "Signs of hemorrhagic shock with suspected intra-abdominal source require surgical intervention that only a trauma center can provide.",
+          "protocolReference": "MATC: General Trauma Management"
+        }
+      ],
       "transitions": [
         {
           "targetPhaseId": "hemorrhage-controlled-fluids-started",
           "if": "Tourniquet applied, IV fluids started",
           "condition": "Crew performs a MARCH primary survey, identifies the right thigh as a source of massive hemorrhage, applies a tourniquet, establishes IV access, and initiates fluid resuscitation for the hypotensive trauma patient.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["a1-tourniquet", "a2-iv-access", "a3-fluid-bolus"]
+          "triggerActionIds": ["a1", "a2", "a3"]
         },
         {
           "targetPhaseId": "hemorrhage-control-delayed",
           "if": "Tourniquet application delayed",
           "condition": "Crew focuses on the abdomen or spends excessive time on secondary assessment without controlling the visible extremity hemorrhage, allowing ongoing blood loss.",
           "conditionType": "action_not_taken",
-          "triggerActionIds": ["a1-tourniquet"]
+          "triggerActionIds": ["a1"]
         }
       ]
     },
@@ -141,35 +174,19 @@
       },
       "expectedActions": [
         {
-          "id": "a1-tourniquet",
-          "shortAction": "Apply commercial tourniquet 2-3 inches proximal to right thigh wound; mark time",
-          "protocolExcerpt": "If the bleeding site is amenable to tourniquet placement, apply a commercial tourniquet to extremity: Tourniquet should be placed 2–3 inches proximal to wound, not over a joint, and tightened until bleeding stops and distal pulse is eliminated",
+          "id": "b1",
+          "shortAction": "Reassess SBP after bolus; confirm trend toward 90 mmHg resuscitation target",
+          "protocolExcerpt": "Reassess SBP after bolus given",
           "priority": "critical",
-          "rationale": "Massive extremity hemorrhage must be controlled first per the MARCH algorithm before any other intervention.",
-          "protocolReference": "MATC: Extremity Trauma/External Hemorrhage Management"
-        },
-        {
-          "id": "a2-iv-access",
-          "shortAction": "Establish two large-bore IV lines for fluid resuscitation and possible blood products",
-          "protocolExcerpt": "Establish IV access if needed (large bore preferred)",
-          "priority": "critical",
-          "rationale": "Hypotensive trauma patient requires immediate vascular access for resuscitation.",
+          "rationale": "Confirms the bolus is achieving the trauma resuscitation target and guides whether further boluses are needed.",
           "protocolReference": "MATC: General Trauma Management"
         },
         {
-          "id": "a3-fluid-bolus",
-          "shortAction": "500 mL crystalloid bolus IV for SBP 82 (below 90 mmHg threshold); reassess after",
-          "protocolExcerpt": "If SBP less than 90 mmHg or HR greater than 120 BPM, initiate resuscitation: Blood products are recommended if available; If blood products not available, consider 500 mL bolus of IV fluid, repeat as needed for persistent signs and symptoms of shock",
-          "priority": "critical",
-          "rationale": "SBP 82 and HR 128 both meet the protocol's threshold for immediate fluid resuscitation targeting SBP 90.",
-          "protocolReference": "MATC: General Trauma Management"
-        },
-        {
-          "id": "a4-minimize-scene-time",
-          "shortAction": "Minimize scene time (goal under 10 minutes); initiate rapid transport to trauma center",
-          "protocolExcerpt": "Minimize scene time (goal is under 10 minutes) and initiate rapid transport to the highest level of care within the trauma system",
-          "priority": "critical",
-          "rationale": "Signs of hemorrhagic shock with suspected intra-abdominal source require surgical intervention that only a trauma center can provide.",
+          "id": "b2",
+          "shortAction": "Transport to highest-level trauma center per field triage guideline",
+          "protocolExcerpt": "Decisions regarding transport destination should be based on the ACS-COT 2022 National Guideline for the Field Triage of Injured Patients",
+          "priority": "important",
+          "rationale": "Persistent abdominal tenderness despite fluid resuscitation suggests a surgical source of hemorrhage requiring definitive trauma center care.",
           "protocolReference": "MATC: General Trauma Management"
         }
       ],
@@ -179,14 +196,14 @@
           "if": "SBP reassessed, perfusion improving",
           "condition": "After the initial 500 mL bolus, the crew reassesses SBP per protocol; blood pressure trends toward the 90 mmHg target and the patient is packaged for rapid transport.",
           "conditionType": "vital_threshold",
-          "triggerActionIds": ["a3-fluid-bolus"]
+          "triggerActionIds": ["b1"]
         },
         {
           "targetPhaseId": "ongoing-hemorrhage-unrecognized",
           "if": "Bolus repeated without reassessment",
           "condition": "Crew repeats fluid boluses without reassessing SBP or re-examining the abdomen and tourniquet, missing a source of ongoing internal hemorrhage not controlled by the tourniquet alone.",
           "conditionType": "action_not_taken",
-          "triggerActionIds": ["a3-fluid-bolus"]
+          "triggerActionIds": ["b1"]
         }
       ]
     },
@@ -228,24 +245,7 @@
         "trendTimeSeconds": 40,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
       },
-      "expectedActions": [
-        {
-          "id": "a5-reassess-sbp",
-          "shortAction": "Reassess SBP after bolus; confirm trend toward 90 mmHg resuscitation target",
-          "protocolExcerpt": "Reassess SBP after bolus given",
-          "priority": "critical",
-          "rationale": "Confirms the bolus is achieving the trauma resuscitation target and guides whether further boluses are needed.",
-          "protocolReference": "MATC: General Trauma Management"
-        },
-        {
-          "id": "a6-transport-destination",
-          "shortAction": "Transport to highest-level trauma center per field triage guideline",
-          "protocolExcerpt": "Decisions regarding transport destination should be based on the ACS-COT 2022 National Guideline for the Field Triage of Injured Patients",
-          "priority": "important",
-          "rationale": "Persistent abdominal tenderness despite fluid resuscitation suggests a surgical source of hemorrhage requiring definitive trauma center care.",
-          "protocolReference": "MATC: General Trauma Management"
-        }
-      ],
+      "expectedActions": [],
       "transitions": []
     },
     {
@@ -288,7 +288,7 @@
       },
       "expectedActions": [
         {
-          "id": "a7-rescue-tourniquet",
+          "id": "c1",
           "shortAction": "Immediately apply tourniquet to right thigh; recognize decompensating hemorrhagic shock",
           "protocolExcerpt": "Survival is markedly improved when a tourniquet is placed *before* shock develops",
           "priority": "critical",
@@ -338,7 +338,7 @@
       },
       "expectedActions": [
         {
-          "id": "a8-recognize-internal-source",
+          "id": "d1",
           "shortAction": "Reassess SBP and abdomen; recognize non-fluid-responsive shock requires rapid surgical transport",
           "protocolExcerpt": "Life-threatening injuries identified on primary survey should be mitigated immediately with rapid transport to a trauma center",
           "priority": "critical",
