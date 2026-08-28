@@ -79,13 +79,54 @@
         "trendTimeSeconds": 0,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [],
+      "expectedActions": [
+        {
+          "id": "a1",
+          "shortAction": "Position patient laterally; suction oral secretions to maintain airway patency",
+          "protocolExcerpt": "If signs of airway obstruction are present and a chin-lift, jaw thrust, positioning, and/or suctioning does not alleviate it, place oropharyngeal airway (if gag reflex is absent) or nasopharyngeal airway",
+          "priority": "critical",
+          "rationale": "Positioning and suctioning protect the airway from aspiration during ongoing convulsions.",
+          "protocolReference": "MATC: Seizures"
+        },
+        {
+          "id": "a2",
+          "shortAction": "Apply oxygen targeting 94-98% SpO2; assist ventilations with BVM if inadequate",
+          "protocolExcerpt": "Administer oxygen as appropriate with a target of achieving 94-98% saturation. Use bag-valve-mask (BVM) ventilation if oxygenation/ventilation are compromised",
+          "priority": "critical",
+          "rationale": "Postictal and ictal hypoventilation risk hypoxia if not supported.",
+          "protocolReference": "MATC: Seizures"
+        },
+        {
+          "id": "a3",
+          "shortAction": "Check blood glucose while still actively seizing",
+          "protocolExcerpt": "If still actively seizing, check blood glucose level. If less than 60 mg/dL, treat per the Hypoglycemia Guideline",
+          "priority": "important",
+          "rationale": "Hypoglycemia is a reversible cause of seizure that must be identified early.",
+          "protocolReference": "MATC: Seizures"
+        },
+        {
+          "id": "a4",
+          "shortAction": "Midazolam 10 mg IM (65 kg x 0.2 mg/kg = 13 mg, capped at 10 mg max; no IV access)",
+          "protocolExcerpt": "If vascular access is absent: Midazolam 0.2 mg/kg (maximum dose 10 mg), IM preferred, or IN",
+          "priority": "critical",
+          "rationale": "IM/IN routes are preferred over delaying treatment to obtain IV access in an actively seizing patient.",
+          "protocolReference": "MATC: Seizures"
+        }
+      ],
       "transitions": [
         {
           "targetPhaseId": "midazolam-given",
           "if": "Positioned and IM midazolam given",
           "condition": "Crew positions the patient laterally to protect the airway, clears the surrounding area, suctions oral secretions, applies oxygen, and administers IM midazolam without delaying for IV access, per the protocol's preferred route for actively seizing patients.",
-          "conditionType": "action_taken"
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a1", "a4"]
+        },
+        {
+          "targetPhaseId": "second-dose-needed",
+          "if": "Seizure continues past 5 minutes",
+          "condition": "Five minutes after the initial IM midazolam dose, convulsive activity persists without improvement, meeting criteria to consider a second benzodiazepine dose while weighing the elevated risk of airway compromise from repeat dosing.",
+          "conditionType": "time_elapsed",
+          "triggerActionIds": ["a4"]
         }
       ]
     },
@@ -129,35 +170,11 @@
       },
       "expectedActions": [
         {
-          "id": "a1-position-suction",
-          "shortAction": "Position patient laterally; suction oral secretions to maintain airway patency",
-          "protocolExcerpt": "If signs of airway obstruction are present and a chin-lift, jaw thrust, positioning, and/or suctioning does not alleviate it, place oropharyngeal airway (if gag reflex is absent) or nasopharyngeal airway",
+          "id": "b1",
+          "shortAction": "Reassess airway patency, breathing effectiveness, and neurologic status for transport",
+          "protocolExcerpt": "Airway patency. Breath sounds, respiratory rate, and effectiveness of ventilation. Neurologic status (GCS, nystagmus, pupil size, focal neurologic deficit, or signs of stroke)",
           "priority": "critical",
-          "rationale": "Positioning and suctioning protect the airway from aspiration during ongoing convulsions.",
-          "protocolReference": "MATC: Seizures"
-        },
-        {
-          "id": "a2-oxygen",
-          "shortAction": "Apply oxygen targeting 94-98% SpO2; assist ventilations with BVM if inadequate",
-          "protocolExcerpt": "Administer oxygen as appropriate with a target of achieving 94-98% saturation. Use bag-valve-mask (BVM) ventilation if oxygenation/ventilation are compromised",
-          "priority": "critical",
-          "rationale": "Postictal and ictal hypoventilation risk hypoxia if not supported.",
-          "protocolReference": "MATC: Seizures"
-        },
-        {
-          "id": "a3-midazolam",
-          "shortAction": "Midazolam 10 mg IM (65 kg x 0.2 mg/kg = 13 mg, capped at 10 mg max; no IV access)",
-          "protocolExcerpt": "If vascular access is absent: Midazolam 0.2 mg/kg (maximum dose 10 mg), IM preferred, or IN",
-          "priority": "critical",
-          "rationale": "IM/IN routes are preferred over delaying treatment to obtain IV access in an actively seizing patient.",
-          "protocolReference": "MATC: Seizures"
-        },
-        {
-          "id": "a4-glucometry",
-          "shortAction": "Check blood glucose while still actively seizing",
-          "protocolExcerpt": "If still actively seizing, check blood glucose level. If less than 60 mg/dL, treat per the Hypoglycemia Guideline",
-          "priority": "important",
-          "rationale": "Hypoglycemia is a reversible cause of seizure that must be identified early.",
+          "rationale": "Postictal patients require ongoing reassessment as mental status and airway control return.",
           "protocolReference": "MATC: Seizures"
         }
       ],
@@ -167,14 +184,7 @@
           "if": "Seizure resolves after midazolam",
           "condition": "Approximately 90 seconds after IM midazolam, convulsive movements cease and the patient transitions into a postictal state with spontaneous, though initially depressed, respirations.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["a3-midazolam"]
-        },
-        {
-          "targetPhaseId": "second-dose-needed",
-          "if": "Seizure continues past 5 minutes",
-          "condition": "Five minutes after the initial IM midazolam dose, convulsive activity persists without improvement, meeting criteria to consider a second benzodiazepine dose while weighing the elevated risk of airway compromise from repeat dosing.",
-          "conditionType": "time_elapsed",
-          "timeoutSeconds": 300
+          "triggerActionIds": ["b1"]
         }
       ]
     },
@@ -216,16 +226,7 @@
         "trendTimeSeconds": 40,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
       },
-      "expectedActions": [
-        {
-          "id": "a5-reassess",
-          "shortAction": "Reassess airway patency, breathing effectiveness, and neurologic status for transport",
-          "protocolExcerpt": "Airway patency. Breath sounds, respiratory rate, and effectiveness of ventilation. Neurologic status (GCS, nystagmus, pupil size, focal neurologic deficit, or signs of stroke)",
-          "priority": "critical",
-          "rationale": "Postictal patients require ongoing reassessment as mental status and airway control return.",
-          "protocolReference": "MATC: Seizures"
-        }
-      ],
+      "expectedActions": [],
       "transitions": []
     },
     {
@@ -268,7 +269,7 @@
       },
       "expectedActions": [
         {
-          "id": "a6-risk-benefit",
+          "id": "c1",
           "shortAction": "Weigh risk/benefit of a second benzodiazepine dose; consider medical direction consult",
           "protocolExcerpt": "Trained personnel should be able to give medication without contacting medical direction, however, more than two doses of benzodiazepines are associated with high-risk of airway compromise. Use caution, weigh risks/benefits of deferring treatment until hospital, and/or consider consultation with medical direction if patient has received two doses of benzodiazepines by bystanders and/or prehospital clinicians",
           "priority": "critical",
@@ -276,7 +277,7 @@
           "protocolReference": "MATC: Seizures"
         },
         {
-          "id": "a7-airway-escalation",
+          "id": "c2",
           "shortAction": "Prepare for advanced airway management if ventilation remains inadequate despite BVM support",
           "protocolExcerpt": "Many airway/breathing issues in seizing patients can be managed without intubation or placement of an advanced airway. Reserve these measures for patients that fail less invasive maneuvers as noted above",
           "priority": "critical",

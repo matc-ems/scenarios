@@ -57,7 +57,12 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [],
+      "relatedChecklist": [
+        "Position patient laterally; suction oral secretions to maintain airway patency",
+        "Apply oxygen targeting 94-98% SpO2; assist ventilations with BVM if inadequate",
+        "Check blood glucose while still actively seizing",
+        "Midazolam 10 mg IM (65 kg x 0.2 mg/kg = 13 mg, capped at 10 mg max; no IV access)"
+      ],
       "relatedSounds": []
     },
     {
@@ -90,10 +95,7 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Position patient laterally; suction oral secretions to maintain airway patency",
-        "Apply oxygen targeting 94-98% SpO2; assist ventilations with BVM if inadequate",
-        "Midazolam 10 mg IM (65 kg x 0.2 mg/kg = 13 mg, capped at 10 mg max; no IV access)",
-        "Check blood glucose while still actively seizing"
+        "Reassess airway patency, breathing effectiveness, and neurologic status for transport"
       ],
       "relatedSounds": []
     },
@@ -126,9 +128,7 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [
-        "Reassess airway patency, breathing effectiveness, and neurologic status for transport"
-      ],
+      "relatedChecklist": [],
       "relatedSounds": []
     },
     {
@@ -181,13 +181,13 @@
       "icon": 1
     },
     {
-      "title": "Midazolam 10 mg IM (65 kg x 0.2 mg/kg = 13 mg, capped at 10 mg max; no IV access)",
+      "title": "Check blood glucose while still actively seizing",
       "type": "Check",
       "value": 0,
       "icon": 1
     },
     {
-      "title": "Check blood glucose while still actively seizing",
+      "title": "Midazolam 10 mg IM (65 kg x 0.2 mg/kg = 13 mg, capped at 10 mg max; no IV access)",
       "type": "Check",
       "value": 0,
       "icon": 1
