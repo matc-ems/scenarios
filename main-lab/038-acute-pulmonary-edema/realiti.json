@@ -57,7 +57,12 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [],
+      "relatedChecklist": [
+        "Apply CPAP with coaching and reassurance; maintain continuous mask seal",
+        "Screen for PDE5 inhibitor use in past 48 hours before administering nitroglycerin",
+        "Nitroglycerin 0.8 mg SL, may repeat every 5 minutes while SBP remains greater than 100 mmHg",
+        "Place waveform capnography in line to monitor ventilatory status and response to CPAP"
+      ],
       "relatedSounds": []
     },
     {
@@ -90,10 +95,8 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Apply CPAP with coaching and reassurance; maintain continuous mask seal",
-        "Screen for PDE5 inhibitor use in past 48 hours before administering nitroglycerin",
-        "Nitroglycerin 0.8 mg SL, may repeat every 5 minutes while SBP remains greater than 100 mmHg",
-        "Place waveform capnography in line to monitor ventilatory status and response to CPAP"
+        "Maintain continuous CPAP seal through transport; do not remove until ED-ready to switch",
+        "Reassess blood pressure before and after each nitroglycerin dose"
       ],
       "relatedSounds": []
     },
@@ -126,10 +129,7 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [
-        "Maintain continuous CPAP seal through transport; do not remove until ED-ready to switch",
-        "Reassess blood pressure before and after each nitroglycerin dose"
-      ],
+      "relatedChecklist": [],
       "relatedSounds": []
     },
     {
