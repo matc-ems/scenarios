@@ -80,19 +80,62 @@
         "trendTimeSeconds": 0,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [],
+      "expectedActions": [
+        {
+          "id": "a1",
+          "shortAction": "Perform MARCH primary survey: hemorrhage, airway, breathing, circulation, head/hypothermia",
+          "protocolExcerpt": "Primary survey (Use \"MARCH\" algorithm)",
+          "priority": "critical",
+          "rationale": "Confirms no other immediately correctable life threat before focusing on the chest wound.",
+          "protocolReference": "MATC: General Trauma Management"
+        },
+        {
+          "id": "a2",
+          "shortAction": "Recognize JVD, muffled heart sounds, and hypotension as obstructive shock (tamponade)",
+          "protocolExcerpt": "Obstructive (pulmonary embolism (PE), tension pneumothorax, cardiac tamponade)",
+          "priority": "critical",
+          "rationale": "Differentiating tamponade from tension pneumothorax changes the appropriate field intervention.",
+          "protocolReference": "MATC: Shock"
+        },
+        {
+          "id": "a3",
+          "shortAction": "Apply semi-occlusive dressing over the open chest wound",
+          "protocolExcerpt": "For open chest wound, place semi-occlusive dressing",
+          "priority": "critical",
+          "rationale": "Prevents an open wound from converting to a communicating pneumothorax.",
+          "protocolReference": "MATC: General Trauma Management"
+        },
+        {
+          "id": "a4",
+          "shortAction": "Establish IV access; 500 mL crystalloid bolus (SBP <90 mmHg, HR >120)",
+          "protocolExcerpt": "If SBP less than 90 mmHg or heart rate greater than 120 BPM, initiate resuscitation... consider 500 mL bolus of IV fluid, repeat as needed for persistent signs and symptoms of shock",
+          "priority": "important",
+          "rationale": "Supports preload in obstructive shock while definitive care (pericardiocentesis/thoracotomy) is unavailable in the field.",
+          "protocolReference": "MATC: General Trauma Management"
+        },
+        {
+          "id": "a5",
+          "shortAction": "Minimize scene time (<10 min); initiate rapid transport to trauma center",
+          "protocolExcerpt": "Patients with major hemorrhage, hemodynamic instability, penetrating torso trauma, or signs of traumatic brain injury often require rapid surgical intervention. Minimize scene time (goal is under 10 minutes) and initiate rapid transport to the highest level of care within the trauma system",
+          "priority": "critical",
+          "rationale": "Cardiac tamponade requires emergent surgical decompression that cannot be provided in the field.",
+          "protocolReference": "MATC: General Trauma Management"
+        }
+      ],
       "transitions": [
         {
           "targetPhaseId": "recognized-obstructive",
           "if": "Tamponade recognized, dressing and transport initiated",
           "condition": "Crew completes the MARCH primary survey, notes equal bilateral breath sounds ruling out tension pneumothorax, recognizes JVD + muffled heart sounds + hypotension as concerning for cardiac tamponade, applies a semi-occlusive dressing, and initiates rapid transport.",
-          "conditionType": "action_taken"
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a2", "a3", "a5"]
         },
         {
           "targetPhaseId": "needle-decompression-wrong",
           "if": "Needle decompression attempted despite equal breath sounds",
           "condition": "Crew assumes tension pneumothorax without confirming absent/diminished breath sounds and performs needle decompression, delaying recognition of tamponade and rapid transport.",
-          "conditionType": "action_not_taken"
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["a2"]
         }
       ]
     },
@@ -138,43 +181,11 @@
       },
       "expectedActions": [
         {
-          "id": "a1-march",
-          "shortAction": "Perform MARCH primary survey: hemorrhage, airway, breathing, circulation, head/hypothermia",
-          "protocolExcerpt": "Primary survey (Use \"MARCH\" algorithm)",
-          "priority": "critical",
-          "rationale": "Confirms no other immediately correctable life threat before focusing on the chest wound.",
-          "protocolReference": "MATC: General Trauma Management"
-        },
-        {
-          "id": "a2-recognize-tamponade",
-          "shortAction": "Recognize JVD, muffled heart sounds, and hypotension as obstructive shock (tamponade)",
-          "protocolExcerpt": "Obstructive (pulmonary embolism (PE), tension pneumothorax, cardiac tamponade)",
-          "priority": "critical",
-          "rationale": "Differentiating tamponade from tension pneumothorax changes the appropriate field intervention.",
-          "protocolReference": "MATC: Shock"
-        },
-        {
-          "id": "a3-dressing",
-          "shortAction": "Apply semi-occlusive dressing over the open chest wound",
-          "protocolExcerpt": "For open chest wound, place semi-occlusive dressing",
-          "priority": "critical",
-          "rationale": "Prevents an open wound from converting to a communicating pneumothorax.",
-          "protocolReference": "MATC: General Trauma Management"
-        },
-        {
-          "id": "a4-iv-bolus",
-          "shortAction": "Establish IV access; 500 mL crystalloid bolus (SBP <90 mmHg, HR >120)",
-          "protocolExcerpt": "If SBP less than 90 mmHg or heart rate greater than 120 BPM, initiate resuscitation... consider 500 mL bolus of IV fluid, repeat as needed for persistent signs and symptoms of shock",
+          "id": "b1",
+          "shortAction": "Reassess vitals and breath sounds serially en route for decompensation",
+          "protocolExcerpt": "Monitor patient for deterioration over time with serial vital signs (pulse, blood pressure, respiratory rate, neurologic status assessment) and repeat neurologic status assessment",
           "priority": "important",
-          "rationale": "Supports preload in obstructive shock while definitive care (pericardiocentesis/thoracotomy) is unavailable in the field.",
-          "protocolReference": "MATC: General Trauma Management"
-        },
-        {
-          "id": "a5-rapid-transport",
-          "shortAction": "Minimize scene time (<10 min); initiate rapid transport to trauma center",
-          "protocolExcerpt": "Patients with major hemorrhage, hemodynamic instability, penetrating torso trauma, or signs of traumatic brain injury often require rapid surgical intervention. Minimize scene time (goal is under 10 minutes) and initiate rapid transport to the highest level of care within the trauma system",
-          "priority": "critical",
-          "rationale": "Cardiac tamponade requires emergent surgical decompression that cannot be provided in the field.",
+          "rationale": "Tamponade physiology can decompensate abruptly; frequent reassessment catches early deterioration.",
           "protocolReference": "MATC: General Trauma Management"
         }
       ],
@@ -184,7 +195,7 @@
           "if": "En route with serial reassessment",
           "condition": "Patient is packaged and transport is underway with continued serial vital sign reassessment.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["a5-rapid-transport"]
+          "triggerActionIds": ["b1"]
         }
       ]
     },
@@ -227,16 +238,7 @@
         "trendTimeSeconds": 30,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [
-        {
-          "id": "a6-serial-reassess",
-          "shortAction": "Reassess vitals and breath sounds serially en route for decompensation",
-          "protocolExcerpt": "Monitor patient for deterioration over time with serial vital signs (pulse, blood pressure, respiratory rate, neurologic status assessment) and repeat neurologic status assessment",
-          "priority": "important",
-          "rationale": "Tamponade physiology can decompensate abruptly; frequent reassessment catches early deterioration.",
-          "protocolReference": "MATC: General Trauma Management"
-        }
-      ],
+      "expectedActions": [],
       "transitions": []
     },
     {
@@ -280,7 +282,7 @@
       },
       "expectedActions": [
         {
-          "id": "a7-recognize-error",
+          "id": "c1",
           "shortAction": "Confirm breath sounds equal bilaterally; abandon tension pneumothorax pathway, initiate rapid transport",
           "protocolExcerpt": "If absent or diminished breath sounds in a hypotensive trauma patient, especially those with chest trauma and/or tracheal deviation, consider tension pneumothorax and perform needle decompression of side without breath sounds",
           "priority": "critical",
