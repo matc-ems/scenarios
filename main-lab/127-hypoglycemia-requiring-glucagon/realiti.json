@@ -1,0 +1,243 @@
+{
+  "scenarioId": "127-hypoglycemia-requiring-glucagon",
+  "scenarioName": "127 - Hypoglycemia Requiring Glucagon",
+  "scenarioType": "Vital Signs",
+  "scenarioVersion": 2,
+  "scenarioTime": 900,
+  "scenarioMonitorType": 2,
+  "scenarioDefaultEnergy": 200,
+  "scenarioDefaultPacerThreshold": 55,
+  "isDemo": false,
+  "isALSILegacy": false,
+  "scenarioStory": {
+    "history": "Patient was reportedly at his baseline this morning, took his usual morning medications, and spent the day working in his garage. He skipped lunch entirely. Approximately one hour before the 911 call his wife noticed he was confused, sweaty, and no longer making sense. He has not answered her questions since. There is no report of trauma, fall, chest pain, headache, seizure activity, or focal weakness. He is not able to give any history himself; all information comes from his wife.",
+    "discussion": "",
+    "course": "Initial Contact: Crew arrives to find a 68-year-old male slumped in a recliner, pale and diaphoretic, mumbling incoherently and not oriented to person, place, time, or event. He does not follow commands. His airway is self-maintained and his vital signs are stable apart from tachycardia. His wife reports a one-hour history of confusion, a skipped lunch, and a nightly long-acting insulin dose. → BGL checked; glucagon 1 mg IM given: Within several minutes of the intramuscular glucagon the patient begins tracking the providers and can state his name. Over roughly fifteen minutes he becomes alert and oriented to person, place, time, and event. His skin turns pink, warm, and dry, his heart rate falls, and a repeat glucose is 110 mg/dL. He reports feeling shaky and does not remember the last hour. → Reassessed; transport accepted: The patient remains alert and oriented with normal skin signs and a stable glucose. He has eaten and has accepted transport. The crew hands off with a documented pre- and post-treatment glucose, the reassessment findings, and the identified cause of the episode."
+  },
+  "patientInformation": {
+    "patientName": "John Harris",
+    "patientCondition": "Confusion and diaphoresis of one hour duration, unable to answer questions",
+    "patientAge": 68,
+    "patientAgeUnit": "years",
+    "patientAgeCategory": 0,
+    "patientSex": 1,
+    "patientHeight": 178,
+    "patientWeight": 88,
+    "patientPhotoId": 82,
+    "patientAdmitted": 1
+  },
+  "labs": [],
+  "scenarioEvents": [
+    {
+      "type": "ScenarioEvent",
+      "name": "Initial Contact",
+      "description": "Crew arrives to find a 68-year-old male slumped in a recliner, pale and diaphoretic, mumbling incoherently and not oriented to person, place, time, or event. He does not follow commands. His airway is self-maintained and his vital signs are stable apart from tachycardia. His wife reports a one-hour history of confusion, a skipped lunch, and a nightly long-acting insulin dose.",
+      "monitorType": 0,
+      "trendTime": 0,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 112,
+        "bpSys": 116,
+        "bpDia": 72,
+        "respRate": 20,
+        "spo2": 98,
+        "etco2": 0,
+        "temp": 36.7,
+        "obstruction": 0,
+        "custMeasure1": 45,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Primary survey; confirm airway patency and reposition as needed",
+        "Obtain full SAMPLE history from the wife; patient cannot give one",
+        "Check blood glucose level; result is 45 mg/dL",
+        "Withhold oral glucose; patient cannot protect his own airway",
+        "Glucagon 1 mg IM if IV access cannot be established"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "BGL checked; glucagon 1 mg IM given",
+      "description": "Within several minutes of the intramuscular glucagon the patient begins tracking the providers and can state his name. Over roughly fifteen minutes he becomes alert and oriented to person, place, time, and event. His skin turns pink, warm, and dry, his heart rate falls, and a repeat glucose is 110 mg/dL. He reports feeling shaky and does not remember the last hour.",
+      "monitorType": 0,
+      "trendTime": 55,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 88,
+        "bpSys": 128,
+        "bpDia": 80,
+        "respRate": 16,
+        "spo2": 98,
+        "etco2": 0,
+        "temp": 36.8,
+        "obstruction": 0,
+        "custMeasure1": 110,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Reassess vitals and mental status; recheck glucose after treatment",
+        "Offer a carbohydrate and protein meal now that he can swallow",
+        "Strongly encourage transport; nightly Lantus is still on board"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Reassessed; transport accepted",
+      "description": "The patient remains alert and oriented with normal skin signs and a stable glucose. He has eaten and has accepted transport. The crew hands off with a documented pre- and post-treatment glucose, the reassessment findings, and the identified cause of the episode.",
+      "monitorType": 0,
+      "trendTime": 45,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 82,
+        "bpSys": 130,
+        "bpDia": 78,
+        "respRate": 16,
+        "spo2": 98,
+        "etco2": 0,
+        "temp": 36.8,
+        "obstruction": 0,
+        "custMeasure1": 124,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "BGL not checked or oral glucose forced",
+      "description": "Roughly ten minutes from initial contact the mumbling stops. The patient now responds only to painful stimulus with a groan. His respirations are slow and shallow, his pulse is thready, and his skin is very clammy. A glucose checked at this point reads 30 mg/dL. He is at high risk for seizure and airway loss.",
+      "monitorType": 0,
+      "trendTime": 60,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 124,
+        "bpSys": 102,
+        "bpDia": 64,
+        "respRate": 10,
+        "spo2": 93,
+        "etco2": 0,
+        "temp": 36.5,
+        "obstruction": 0,
+        "custMeasure1": 30,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": false,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Recognize deterioration; support ventilation and check glucose now",
+        "Glucagon 1 mg IM now, or D10% 250 mL IV if access is obtained",
+        "Initiate rapid transport for refractory hypoglycemia"
+      ],
+      "relatedSounds": []
+    }
+  ],
+  "checklist": [
+    {
+      "title": "Primary survey; confirm airway patency and reposition as needed",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Obtain full SAMPLE history from the wife; patient cannot give one",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Check blood glucose level; result is 45 mg/dL",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Withhold oral glucose; patient cannot protect his own airway",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Glucagon 1 mg IM if IV access cannot be established",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Reassess vitals and mental status; recheck glucose after treatment",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Offer a carbohydrate and protein meal now that he can swallow",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Strongly encourage transport; nightly Lantus is still on board",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Recognize deterioration; support ventilation and check glucose now",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Glucagon 1 mg IM now, or D10% 250 mL IV if access is obtained",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Initiate rapid transport for refractory hypoglycemia",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    }
+  ],
+  "media": []
+}
