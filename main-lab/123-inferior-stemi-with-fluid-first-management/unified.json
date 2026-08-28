@@ -79,19 +79,54 @@
         "trendTimeSeconds": 0,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [],
+      "expectedActions": [
+        {
+          "id": "a1",
+          "shortAction": "Acquire 12-lead EKG within 10 minutes; transmit for STEMI interpretation",
+          "protocolExcerpt": "The 12-lead EKG is the primary diagnostic tool that identifies a STEMI; it is imperative that EMS clinicians routinely acquire a 12-lead EKG within 10 minutes for all patients exhibiting signs and symptoms of ACS. The EKG may be transmitted for remote interpretation by a physician or screened for STEMI by properly trained EMS clinicians",
+          "priority": "critical",
+          "rationale": "Rapid 12-lead acquisition and transmission minimizes first-medical-contact-to-intervention time.",
+          "protocolReference": "MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)"
+        },
+        {
+          "id": "a2",
+          "shortAction": "Aspirin 324 mg PO, chewable non-enteric-coated",
+          "protocolExcerpt": "Administer aspirin; chewable, non-enteric-coated aspirin preferred (162–325 mg)",
+          "priority": "critical",
+          "rationale": "Early antiplatelet therapy reduces infarct progression.",
+          "protocolReference": "MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)"
+        },
+        {
+          "id": "a3",
+          "shortAction": "Establish IV access; if unable within 2 attempts or 90 seconds, place IO",
+          "protocolExcerpt": "Establish IV access. If unable to obtain within two attempts or less than 90 seconds, place an IO needle",
+          "priority": "critical",
+          "rationale": "Vascular access is required before fluid resuscitation and any medication administration.",
+          "protocolReference": "MATC: Shock"
+        },
+        {
+          "id": "a4",
+          "shortAction": "500 mL NS bolus IV, pressure-infused over <15 min, reassess before repeating (up to 30 mL/kg = 2700 mL max)",
+          "protocolExcerpt": "IV fluid volume goal attained by giving boluses that are pressure infused over less than 15 minutes each based on patient's condition and clinical impression... Fluid goal of up to 30 mL/kg of isotonic fluid by administering rapid, predetermined boluses (e.g., 500 mL) unless the MAP goal is achieved, or pulmonary edema develops",
+          "priority": "critical",
+          "rationale": "RV infarct is preload-dependent; fluid resuscitation before nitrates prevents precipitous hypotension.",
+          "protocolReference": "MATC: Shock"
+        }
+      ],
       "transitions": [
         {
           "targetPhaseId": "12lead-fluid",
           "if": "12-lead acquired and fluid bolus given",
           "condition": "Crew acquires a 12-lead EKG within 10 minutes revealing inferior ST elevation with right-sided lead confirmation, and recognizes the borderline hypotension as likely RV involvement requiring IV fluid before nitrates.",
-          "conditionType": "action_taken"
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a1", "a4"]
         },
         {
           "targetPhaseId": "nitro-before-fluid",
           "if": "Nitro given before fluid bolus",
           "condition": "Crew administers sublingual nitroglycerin immediately per standard chest pain routine without first addressing the patient's borderline hypotension and likely preload-dependent RV infarct.",
-          "conditionType": "action_taken"
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a4"]
         }
       ]
     },
@@ -136,36 +171,20 @@
       },
       "expectedActions": [
         {
-          "id": "a1-12lead",
-          "shortAction": "Acquire 12-lead EKG within 10 minutes; transmit for STEMI interpretation",
-          "protocolExcerpt": "The 12-lead EKG is the primary diagnostic tool that identifies a STEMI; it is imperative that EMS clinicians routinely acquire a 12-lead EKG within 10 minutes for all patients exhibiting signs and symptoms of ACS. The EKG may be transmitted for remote interpretation by a physician or screened for STEMI by properly trained EMS clinicians",
-          "priority": "critical",
-          "rationale": "Rapid 12-lead acquisition and transmission minimizes first-medical-contact-to-intervention time.",
+          "id": "b1",
+          "shortAction": "Nitroglycerin 0.4 mg SL once BP supports it; may repeat q3–5 min if SBP >100",
+          "protocolExcerpt": "Nitroglycerin 0.4 mg sublingual (SL), can repeat q (quaque, every) 3–5 minutes if SBP greater than 100 mmHg... The location of the infarct does not preclude the use of nitrates. Right-sided leads are of no additional value if an inferior STEMI has been diagnosed and such findings (presumed RV infarct) do not preclude the use of nitroglycerin: however, continually monitor the patient's hemodynamic status and be prepared to resuscitate if hypotension occurs",
+          "priority": "important",
+          "rationale": "MATC explicitly permits nitrates in RV infarct once volume status is addressed, provided hemodynamics are monitored closely.",
           "protocolReference": "MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)"
         },
         {
-          "id": "a2-asa",
-          "shortAction": "Aspirin 324 mg PO, chewable non-enteric-coated",
-          "protocolExcerpt": "Administer aspirin; chewable, non-enteric-coated aspirin preferred (162–325 mg)",
-          "priority": "critical",
-          "rationale": "Early antiplatelet therapy reduces infarct progression.",
+          "id": "b2",
+          "shortAction": "Reassess vital signs and rhythm serially en route; repeat 12-lead if condition changes",
+          "protocolExcerpt": "Observe for signs of clinical deterioration: dysrhythmias, chest pain, shortness of breath, decreased level of consciousness/syncope, or other signs of shock/hypotension. Perform serial 12-lead EKGs (especially if clinical changes are noted)",
+          "priority": "important",
+          "rationale": "Continued monitoring detects deterioration or reinfarction en route.",
           "protocolReference": "MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)"
-        },
-        {
-          "id": "a3-iv",
-          "shortAction": "Establish IV access; if unable within 2 attempts or 90 seconds, place IO",
-          "protocolExcerpt": "Establish IV access. If unable to obtain within two attempts or less than 90 seconds, place an IO needle",
-          "priority": "critical",
-          "rationale": "Vascular access is required before fluid resuscitation and any medication administration.",
-          "protocolReference": "MATC: Shock"
-        },
-        {
-          "id": "a4-fluid-bolus",
-          "shortAction": "500 mL NS bolus IV, pressure-infused over <15 min, reassess before repeating (up to 30 mL/kg = 2700 mL max)",
-          "protocolExcerpt": "IV fluid volume goal attained by giving boluses that are pressure infused over less than 15 minutes each based on patient's condition and clinical impression... Fluid goal of up to 30 mL/kg of isotonic fluid by administering rapid, predetermined boluses (e.g., 500 mL) unless the MAP goal is achieved, or pulmonary edema develops",
-          "priority": "critical",
-          "rationale": "RV infarct is preload-dependent; fluid resuscitation before nitrates prevents precipitous hypotension.",
-          "protocolReference": "MATC: Shock"
         }
       ],
       "transitions": [
@@ -174,7 +193,7 @@
           "if": "BP responds, nitro given cautiously",
           "condition": "After the fluid bolus, blood pressure improves to a level that supports cautious nitroglycerin administration with continued hemodynamic monitoring, and the patient is prepared for transport with STEMI activation.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["a4-fluid-bolus"]
+          "triggerActionIds": ["b1", "b2"]
         }
       ]
     },
@@ -217,24 +236,7 @@
         "trendTimeSeconds": 30,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [
-        {
-          "id": "a5-ntg",
-          "shortAction": "Nitroglycerin 0.4 mg SL once BP supports it; may repeat q3–5 min if SBP >100",
-          "protocolExcerpt": "Nitroglycerin 0.4 mg sublingual (SL), can repeat q (quaque, every) 3–5 minutes if SBP greater than 100 mmHg... The location of the infarct does not preclude the use of nitrates. Right-sided leads are of no additional value if an inferior STEMI has been diagnosed and such findings (presumed RV infarct) do not preclude the use of nitroglycerin: however, continually monitor the patient's hemodynamic status and be prepared to resuscitate if hypotension occurs",
-          "priority": "important",
-          "rationale": "MATC explicitly permits nitrates in RV infarct once volume status is addressed, provided hemodynamics are monitored closely.",
-          "protocolReference": "MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)"
-        },
-        {
-          "id": "a6-serial-vitals",
-          "shortAction": "Reassess vital signs and rhythm serially en route; repeat 12-lead if condition changes",
-          "protocolExcerpt": "Observe for signs of clinical deterioration: dysrhythmias, chest pain, shortness of breath, decreased level of consciousness/syncope, or other signs of shock/hypotension. Perform serial 12-lead EKGs (especially if clinical changes are noted)",
-          "priority": "important",
-          "rationale": "Continued monitoring detects deterioration or reinfarction en route.",
-          "protocolReference": "MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)"
-        }
-      ],
+      "expectedActions": [],
       "transitions": []
     },
     {
@@ -278,7 +280,7 @@
       },
       "expectedActions": [
         {
-          "id": "a7-rescue-fluid",
+          "id": "c1",
           "shortAction": "Rescue: 500 mL NS bolus IV immediately, pressure-infused, reassess for repeat",
           "protocolExcerpt": "IV fluid volume goal attained by giving boluses that are pressure infused over less than 15 minutes each based on patient's condition and clinical impression... Fluid goal of up to 30 mL/kg of isotonic fluid by administering rapid, predetermined boluses (e.g., 500 mL) unless the MAP goal is achieved, or pulmonary edema develops",
           "priority": "critical",

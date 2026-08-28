@@ -57,7 +57,12 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [],
+      "relatedChecklist": [
+        "Acquire 12-lead EKG within 10 minutes; transmit for STEMI interpretation",
+        "Aspirin 324 mg PO, chewable non-enteric-coated",
+        "Establish IV access; if unable within 2 attempts or 90 seconds, place IO",
+        "500 mL NS bolus IV, pressure-infused over <15 min, reassess before repeating (up to 30 mL/kg = 2700 mL max)"
+      ],
       "relatedSounds": []
     },
     {
@@ -90,10 +95,8 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Acquire 12-lead EKG within 10 minutes; transmit for STEMI interpretation",
-        "Aspirin 324 mg PO, chewable non-enteric-coated",
-        "Establish IV access; if unable within 2 attempts or 90 seconds, place IO",
-        "500 mL NS bolus IV, pressure-infused over <15 min, reassess before repeating (up to 30 mL/kg = 2700 mL max)"
+        "Nitroglycerin 0.4 mg SL once BP supports it; may repeat q3–5 min if SBP >100",
+        "Reassess vital signs and rhythm serially en route; repeat 12-lead if condition changes"
       ],
       "relatedSounds": []
     },
@@ -126,10 +129,7 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [
-        "Nitroglycerin 0.4 mg SL once BP supports it; may repeat q3–5 min if SBP >100",
-        "Reassess vital signs and rhythm serially en route; repeat 12-lead if condition changes"
-      ],
+      "relatedChecklist": [],
       "relatedSounds": []
     },
     {
