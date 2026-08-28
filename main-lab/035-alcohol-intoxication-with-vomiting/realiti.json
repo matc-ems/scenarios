@@ -57,7 +57,11 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [],
+      "relatedChecklist": [
+        "Position in recovery position, suction airway to clear vomitus",
+        "Apply continuous pulse oximetry and waveform capnography monitoring",
+        "Recognize sedative-hypnotic toxidrome; obtain IV access, check BGL"
+      ],
       "relatedSounds": []
     },
     {
@@ -90,9 +94,10 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Position in recovery position, suction airway to clear vomitus",
-        "Apply continuous pulse oximetry and waveform capnography monitoring",
-        "Recognize sedative-hypnotic toxidrome; obtain IV access, check BGL"
+        "Preoxygenate with high-flow O2 and positive pressure ventilation for ≥2 minutes before RSI",
+        "Etomidate 20.5 mg IV (82 kg × 0.25 mg/kg = 20.5 mg) for induction",
+        "Rocuronium 82 mg IV (82 kg × 1 mg/kg = 82 mg) for paralysis",
+        "Confirm tube placement with waveform capnography and bilateral breath sounds; secure tube"
       ],
       "relatedSounds": []
     },
@@ -126,10 +131,7 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Preoxygenate with high-flow O2 and positive pressure ventilation for ≥2 minutes before RSI",
-        "Etomidate 20.5 mg IV (82 kg × 0.25 mg/kg = 20.5 mg) for induction",
-        "Rocuronium 82 mg IV (82 kg × 1 mg/kg = 82 mg) for paralysis",
-        "Confirm tube placement with waveform capnography and bilateral breath sounds; secure tube"
+        "Ventilate 10-12 breaths/min, 6-8 mL/kg tidal volume, target EtCO2 35-45 mmHg"
       ],
       "relatedSounds": []
     },
@@ -162,9 +164,7 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [
-        "Ventilate 10-12 breaths/min, 6-8 mL/kg tidal volume, target EtCO2 35-45 mmHg"
-      ],
+      "relatedChecklist": [],
       "relatedSounds": []
     },
     {

@@ -81,13 +81,46 @@
         "trendTimeSeconds": 0,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [],
+      "expectedActions": [
+        {
+          "id": "a1",
+          "shortAction": "Position in recovery position, suction airway to clear vomitus",
+          "protocolExcerpt": "Patient positioning can significantly impact respiratory mechanics... This can both improve the ability to ventilate and limit aspiration. Suction airway: for significantly contaminated airways, consider utilizing a suction assisted laryngeal airway decontamination (SALAD) technique",
+          "priority": "critical",
+          "rationale": "Active vomiting with depressed mental status is a high aspiration risk that must be addressed before further airway management.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        },
+        {
+          "id": "a2",
+          "shortAction": "Apply continuous pulse oximetry and waveform capnography monitoring",
+          "protocolExcerpt": "Patients with significant respiratory distress should have continuous pulse oximetry and waveform capnography monitoring for both assessment and for guiding therapy",
+          "priority": "important",
+          "rationale": "Establishes a baseline and trend for detecting respiratory decompensation.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        },
+        {
+          "id": "a3",
+          "shortAction": "Recognize sedative-hypnotic toxidrome; obtain IV access, check BGL",
+          "protocolExcerpt": "Sedative Hypnotic: Central nervous system depression, Ataxia (unstable gait or balance), Slurred speech, Normal or depressed vital signs. Initiate IV access for infusion of treatment medication",
+          "priority": "important",
+          "rationale": "Confirms the intoxication etiology and rules out hypoglycemia as a contributor to altered mental status.",
+          "protocolReference": "MATC: Poisoning/Overdose Universal Care"
+        }
+      ],
       "transitions": [
         {
           "targetPhaseId": "airway-protection",
           "if": "Positioned and suctioned for airway protection",
           "condition": "Crew immediately positions the patient in the recovery position, applies suction to clear vomitus, and attaches monitoring while assessing for a toxidrome.",
-          "conditionType": "action_taken"
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a1", "a2"]
+        },
+        {
+          "targetPhaseId": "aspiration-event",
+          "if": "Intubation attempted without suction ready",
+          "condition": "The crew proceeds directly to intubation without having suction immediately available at the head of the bed, and the patient vomits during laryngoscopy.",
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["a1"]
         }
       ]
     },
@@ -132,28 +165,36 @@
       },
       "expectedActions": [
         {
-          "id": "a1-position-suction",
-          "shortAction": "Position in recovery position, suction airway to clear vomitus",
-          "protocolExcerpt": "Patient positioning can significantly impact respiratory mechanics... This can both improve the ability to ventilate and limit aspiration. Suction airway: for significantly contaminated airways, consider utilizing a suction assisted laryngeal airway decontamination (SALAD) technique",
+          "id": "b1",
+          "shortAction": "Preoxygenate with high-flow O2 and positive pressure ventilation for ≥2 minutes before RSI",
+          "protocolExcerpt": "Patient should be pre-oxygenated with high flow oxygen, and positive pressure ventilation for a minimum of two minutes prior to the procedure",
           "priority": "critical",
-          "rationale": "Active vomiting with depressed mental status is a high aspiration risk that must be addressed before further airway management.",
+          "rationale": "Adequate preoxygenation delays desaturation during the apneic period of RSI.",
           "protocolReference": "MATC: Airway Management (Includes RSI)"
         },
         {
-          "id": "a2-monitor",
-          "shortAction": "Apply continuous pulse oximetry and waveform capnography monitoring",
-          "protocolExcerpt": "Patients with significant respiratory distress should have continuous pulse oximetry and waveform capnography monitoring for both assessment and for guiding therapy",
-          "priority": "important",
-          "rationale": "Establishes a baseline and trend for detecting respiratory decompensation.",
+          "id": "b2",
+          "shortAction": "Etomidate 20.5 mg IV (82 kg × 0.25 mg/kg = 20.5 mg) for induction",
+          "protocolExcerpt": "Administer induction sedative agent: Etomidate IV push, 0.2-0.3 mg/kg",
+          "priority": "critical",
+          "rationale": "Induces sedation to permit safe intubation.",
           "protocolReference": "MATC: Airway Management (Includes RSI)"
         },
         {
-          "id": "a3-toxidrome-iv",
-          "shortAction": "Recognize sedative-hypnotic toxidrome; obtain IV access, check BGL",
-          "protocolExcerpt": "Sedative Hypnotic: Central nervous system depression, Ataxia (unstable gait or balance), Slurred speech, Normal or depressed vital signs. Initiate IV access for infusion of treatment medication",
-          "priority": "important",
-          "rationale": "Confirms the intoxication etiology and rules out hypoglycemia as a contributor to altered mental status.",
-          "protocolReference": "MATC: Poisoning/Overdose Universal Care"
+          "id": "b3",
+          "shortAction": "Rocuronium 82 mg IV (82 kg × 1 mg/kg = 82 mg) for paralysis",
+          "protocolExcerpt": "Administer paralytic agent: Rocuronium IV push, 1 mg/kg",
+          "priority": "critical",
+          "rationale": "Provides paralysis needed to optimize first-pass intubation success.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        },
+        {
+          "id": "b4",
+          "shortAction": "Confirm tube placement with waveform capnography and bilateral breath sounds; secure tube",
+          "protocolExcerpt": "Confirm placement of advanced airway (endotracheal tube, SGA) with waveform capnography (most reliable), absent gastric sounds, and bilateral breath sounds. Secure tube manually",
+          "priority": "critical",
+          "rationale": "Waveform capnography is the most reliable confirmation of correct tube placement.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
         }
       ],
       "transitions": [
@@ -162,14 +203,7 @@
           "if": "RSI performed for airway protection",
           "condition": "Despite positioning and suction, the patient continues to vomit with no protective airway reflexes and GCS remains critically low; the crew proceeds to RSI to secure a definitive airway.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["a1-position-suction"]
-        },
-        {
-          "targetPhaseId": "aspiration-event",
-          "if": "Intubation attempted without suction ready",
-          "condition": "The crew proceeds directly to intubation without having suction immediately available at the head of the bed, and the patient vomits during laryngoscopy.",
-          "conditionType": "action_not_taken",
-          "triggerActionIds": ["a1-position-suction"]
+          "triggerActionIds": ["b3", "b4"]
         }
       ]
     },
@@ -214,35 +248,11 @@
       },
       "expectedActions": [
         {
-          "id": "a4-preoxygenate",
-          "shortAction": "Preoxygenate with high-flow O2 and positive pressure ventilation for ≥2 minutes before RSI",
-          "protocolExcerpt": "Patient should be pre-oxygenated with high flow oxygen, and positive pressure ventilation for a minimum of two minutes prior to the procedure",
-          "priority": "critical",
-          "rationale": "Adequate preoxygenation delays desaturation during the apneic period of RSI.",
-          "protocolReference": "MATC: Airway Management (Includes RSI)"
-        },
-        {
-          "id": "a5-etomidate",
-          "shortAction": "Etomidate 20.5 mg IV (82 kg × 0.25 mg/kg = 20.5 mg) for induction",
-          "protocolExcerpt": "Administer induction sedative agent: Etomidate IV push, 0.2-0.3 mg/kg",
-          "priority": "critical",
-          "rationale": "Induces sedation to permit safe intubation.",
-          "protocolReference": "MATC: Airway Management (Includes RSI)"
-        },
-        {
-          "id": "a6-rocuronium",
-          "shortAction": "Rocuronium 82 mg IV (82 kg × 1 mg/kg = 82 mg) for paralysis",
-          "protocolExcerpt": "Administer paralytic agent: Rocuronium IV push, 1 mg/kg",
-          "priority": "critical",
-          "rationale": "Provides paralysis needed to optimize first-pass intubation success.",
-          "protocolReference": "MATC: Airway Management (Includes RSI)"
-        },
-        {
-          "id": "a7-confirm-secure",
-          "shortAction": "Confirm tube placement with waveform capnography and bilateral breath sounds; secure tube",
-          "protocolExcerpt": "Confirm placement of advanced airway (endotracheal tube, SGA) with waveform capnography (most reliable), absent gastric sounds, and bilateral breath sounds. Secure tube manually",
-          "priority": "critical",
-          "rationale": "Waveform capnography is the most reliable confirmation of correct tube placement.",
+          "id": "c1",
+          "shortAction": "Ventilate 10-12 breaths/min, 6-8 mL/kg tidal volume, target EtCO2 35-45 mmHg",
+          "protocolExcerpt": "Adult: 10–12 breaths/minute... Ventilate with just enough volume to see chest rise, approximately 6–8 mL/kg ideal body weight... maintain EtCO2 of no less than 35 and up to 40 mmHg",
+          "priority": "important",
+          "rationale": "Lung-protective ventilation avoids barotrauma and hyperventilation-related complications.",
           "protocolReference": "MATC: Airway Management (Includes RSI)"
         }
       ],
@@ -252,7 +262,7 @@
           "if": "Ventilation and monitoring maintained",
           "condition": "The airway is secured and confirmed; the crew maintains lung-protective ventilation and continuous capnography en route to the hospital.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["a7-confirm-secure"]
+          "triggerActionIds": ["c1"]
         }
       ]
     },
@@ -295,16 +305,7 @@
         "trendTimeSeconds": 40,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
       },
-      "expectedActions": [
-        {
-          "id": "a8-maintain-vent",
-          "shortAction": "Ventilate 10-12 breaths/min, 6-8 mL/kg tidal volume, target EtCO2 35-45 mmHg",
-          "protocolExcerpt": "Adult: 10–12 breaths/minute... Ventilate with just enough volume to see chest rise, approximately 6–8 mL/kg ideal body weight... maintain EtCO2 of no less than 35 and up to 40 mmHg",
-          "priority": "important",
-          "rationale": "Lung-protective ventilation avoids barotrauma and hyperventilation-related complications.",
-          "protocolReference": "MATC: Airway Management (Includes RSI)"
-        }
-      ],
+      "expectedActions": [],
       "transitions": []
     },
     {
@@ -348,7 +349,7 @@
       },
       "expectedActions": [
         {
-          "id": "a9-emergency-suction",
+          "id": "d1",
           "shortAction": "Immediately suction airway, consider SALAD technique, reoxygenate before re-attempting",
           "protocolExcerpt": "Suctioning to limit aspiration is a priority, since it is associated with development of hospital acquired pneumonia and related increases in ICU stay and mortality. Suction airway: for significantly contaminated airways, consider utilizing a suction assisted laryngeal airway decontamination (SALAD) technique",
           "priority": "critical",
