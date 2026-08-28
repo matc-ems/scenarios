@@ -57,7 +57,11 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [],
+      "relatedChecklist": [
+        "Auscultate breath sounds, assess air entry and work of breathing",
+        "Apply supplemental oxygen via nasal cannula, titrate to SpO2 94-98%",
+        "Albuterol 5 mg nebulized with ipratropium 0.5 mg nebulized, combined treatment"
+      ],
       "relatedSounds": []
     },
     {
@@ -90,9 +94,7 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Auscultate breath sounds, assess air entry and work of breathing",
-        "Apply supplemental oxygen via nasal cannula, titrate to SpO2 94-98%",
-        "Albuterol 5 mg nebulized with ipratropium 0.5 mg nebulized, combined treatment"
+        "Reassess breath sounds, vital signs, and work of breathing after treatment"
       ],
       "relatedSounds": []
     },
@@ -125,9 +127,7 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [
-        "Reassess breath sounds, vital signs, and work of breathing after treatment"
-      ],
+      "relatedChecklist": [],
       "relatedSounds": []
     },
     {
