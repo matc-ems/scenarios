@@ -57,7 +57,11 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [],
+      "relatedChecklist": [
+        "Assess airway, breathing, circulation, and mental status",
+        "Support airway and ventilation with BVM and oxygen before naloxone",
+        "Naloxone 0.4 mg IV, titrate up to 2 mg IV until adequate respiratory effort"
+      ],
       "relatedSounds": []
     },
     {
@@ -90,11 +94,12 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Assess airway, breathing, circulation, and mental status",
-        "Support airway and ventilation with BVM and oxygen before naloxone",
-        "Naloxone 0.4 mg IV, titrate up to 2 mg IV until adequate respiratory effort",
         "Recognize respiratory depression persists despite naloxone; prepare for RSI",
-        "Preoxygenate with high-flow O2 and positive pressure ventilation ≥2 minutes before RSI"
+        "Preoxygenate with high-flow O2 and positive pressure ventilation ≥2 minutes before RSI",
+        "Fentanyl 82 mcg IV (82 kg × 1 mcg/kg) 2-3 minutes before intubation",
+        "Ketamine 123 mg IV push (82 kg × 1.5 mg/kg) for induction sedation",
+        "Rocuronium 82 mg IV push (82 kg × 1 mg/kg) for paralysis",
+        "Intubate; confirm placement with waveform capnography and bilateral breath sounds"
       ],
       "relatedSounds": []
     },
@@ -128,10 +133,6 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Fentanyl 82 mcg IV (82 kg × 1 mcg/kg) 2-3 minutes before intubation",
-        "Ketamine 123 mg IV push (82 kg × 1.5 mg/kg) for induction sedation",
-        "Rocuronium 82 mg IV push (82 kg × 1 mg/kg) for paralysis",
-        "Intubate; confirm placement with waveform capnography and bilateral breath sounds",
         "Secure tube; ventilate at 10-12 breaths/min, target EtCO2 35-45 mmHg"
       ],
       "relatedSounds": []

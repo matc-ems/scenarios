@@ -80,13 +80,39 @@
         "trendTimeSeconds": 0,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [],
+      "expectedActions": [
+        {
+          "id": "a1",
+          "shortAction": "Assess airway, breathing, circulation, and mental status",
+          "protocolExcerpt": "Assess the patient's airway, breathing, circulation, and mental status",
+          "priority": "critical",
+          "rationale": "Establishes baseline severity and rules out other causes of altered mental status.",
+          "protocolReference": "MATC: Opioid Poisoning/Overdose"
+        },
+        {
+          "id": "a2",
+          "shortAction": "Support airway and ventilation with BVM and oxygen before naloxone",
+          "protocolExcerpt": "Critical resuscitation (opening and/or maintaining the airway, provision of oxygen, ensuring adequate circulation) should be performed prior to naloxone administration. Support the patient's airway by positioning, oxygen administration, and ventilator assistance with a bag valve mask if necessary",
+          "priority": "critical",
+          "rationale": "Ventilation and oxygenation take priority over naloxone administration per protocol sequencing.",
+          "protocolReference": "MATC: Opioid Poisoning/Overdose"
+        },
+        {
+          "id": "a3",
+          "shortAction": "Naloxone 0.4 mg IV, titrate up to 2 mg IV until adequate respiratory effort",
+          "protocolExcerpt": "Adults: The typical initial adult dose ranges between Naloxone 0.4–2 mg IV, IM, up to a dose of 4 mg IN or 5 mg ETT. The administration of naloxone can be titrated until adequate respiratory effort is achieved if administered with a syringe IV, IM, IN, or ETT",
+          "priority": "critical",
+          "rationale": "Titrated dosing reverses respiratory depression while minimizing precipitated withdrawal.",
+          "protocolReference": "MATC: Opioid Poisoning/Overdose"
+        }
+      ],
       "transitions": [
         {
           "targetPhaseId": "naloxone-bvm",
           "if": "Airway supported, naloxone titrated",
           "condition": "Crew opens and supports the airway with BVM ventilation and oxygen before administering titrated naloxone for suspected opioid overdose.",
-          "conditionType": "action_taken"
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a2", "a3"]
         }
       ]
     },
@@ -131,31 +157,7 @@
       },
       "expectedActions": [
         {
-          "id": "a1-abc",
-          "shortAction": "Assess airway, breathing, circulation, and mental status",
-          "protocolExcerpt": "Assess the patient's airway, breathing, circulation, and mental status",
-          "priority": "critical",
-          "rationale": "Establishes baseline severity and rules out other causes of altered mental status.",
-          "protocolReference": "MATC: Opioid Poisoning/Overdose"
-        },
-        {
-          "id": "a2-airway-support",
-          "shortAction": "Support airway and ventilation with BVM and oxygen before naloxone",
-          "protocolExcerpt": "Critical resuscitation (opening and/or maintaining the airway, provision of oxygen, ensuring adequate circulation) should be performed prior to naloxone administration. Support the patient's airway by positioning, oxygen administration, and ventilator assistance with a bag valve mask if necessary",
-          "priority": "critical",
-          "rationale": "Ventilation and oxygenation take priority over naloxone administration per protocol sequencing.",
-          "protocolReference": "MATC: Opioid Poisoning/Overdose"
-        },
-        {
-          "id": "a3-naloxone",
-          "shortAction": "Naloxone 0.4 mg IV, titrate up to 2 mg IV until adequate respiratory effort",
-          "protocolExcerpt": "Adults: The typical initial adult dose ranges between Naloxone 0.4–2 mg IV, IM, up to a dose of 4 mg IN or 5 mg ETT. The administration of naloxone can be titrated until adequate respiratory effort is achieved if administered with a syringe IV, IM, IN, or ETT",
-          "priority": "critical",
-          "rationale": "Titrated dosing reverses respiratory depression while minimizing precipitated withdrawal.",
-          "protocolReference": "MATC: Opioid Poisoning/Overdose"
-        },
-        {
-          "id": "a4-recognize-persistent",
+          "id": "b1",
           "shortAction": "Recognize respiratory depression persists despite naloxone; prepare for RSI",
           "protocolExcerpt": "Regardless of the doses of naloxone administered, airway management with provision of adequate oxygenation and ventilation is the primary goal in patients with confirmed or suspected opioid overdose",
           "priority": "critical",
@@ -163,28 +165,60 @@
           "protocolReference": "MATC: Opioid Poisoning/Overdose"
         },
         {
-          "id": "a5-preoxygenate",
+          "id": "b2",
           "shortAction": "Preoxygenate with high-flow O2 and positive pressure ventilation ≥2 minutes before RSI",
           "protocolExcerpt": "Patient should be pre-oxygenated with high flow oxygen, and positive pressure ventilation for a minimum of two minutes prior to the procedure",
           "priority": "critical",
           "rationale": "Adequate preoxygenation extends the safe apnea time during laryngoscopy and reduces peri-intubation hypoxia risk.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        },
+        {
+          "id": "b3",
+          "shortAction": "Fentanyl 82 mcg IV (82 kg × 1 mcg/kg) 2-3 minutes before intubation",
+          "protocolExcerpt": "Consider pre-medication with Fentanyl, 1 mcg/kg, 2-3 minutes prior to intubation attempt",
+          "priority": "important",
+          "rationale": "Blunts the sympathetic response to laryngoscopy.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        },
+        {
+          "id": "b4",
+          "shortAction": "Ketamine 123 mg IV push (82 kg × 1.5 mg/kg) for induction sedation",
+          "protocolExcerpt": "Administer induction sedative agent: Etomidate IV push, 0.2-0.3 mg/kg OR Ketamine IV push, 1-2 mg/kg OR Midazolam IV push, 0.05-0.10 mg/kg",
+          "priority": "critical",
+          "rationale": "Induction sedation must precede paralysis to prevent an awake paralysis.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        },
+        {
+          "id": "b5",
+          "shortAction": "Rocuronium 82 mg IV push (82 kg × 1 mg/kg) for paralysis",
+          "protocolExcerpt": "Administer paralytic agent: Succinylcholine IV push, 1-2 mg/kg OR Rocuronium IV push, 1 mg/kg OR Vecuronium IV push, 0.1 mg/kg",
+          "priority": "critical",
+          "rationale": "Paralysis optimizes intubating conditions and first-pass success.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        },
+        {
+          "id": "b6",
+          "shortAction": "Intubate; confirm placement with waveform capnography and bilateral breath sounds",
+          "protocolExcerpt": "Confirm placement of advanced airway (endotracheal tube, SGA) with waveform capnography (most reliable), absent gastric sounds, and bilateral breath sounds",
+          "priority": "critical",
+          "rationale": "Waveform capnography is the most reliable confirmation method and must be checked before trusting placement.",
           "protocolReference": "MATC: Airway Management (Includes RSI)"
         }
       ],
       "transitions": [
         {
           "targetPhaseId": "rsi-performed",
-          "if": "Preoxygenated before RSI attempt",
+          "if": "RSI performed, tube secured",
           "condition": "Crew preoxygenates with high-flow oxygen and positive pressure ventilation for a full two minutes prior to attempting RSI.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["a5-preoxygenate"]
+          "triggerActionIds": ["b5", "b6"]
         },
         {
           "targetPhaseId": "rsi-without-preox",
           "if": "RSI attempted without preoxygenation",
           "condition": "Crew proceeds directly to sedation and paralysis without completing an adequate preoxygenation period.",
           "conditionType": "action_not_taken",
-          "triggerActionIds": ["a5-preoxygenate"]
+          "triggerActionIds": ["b2"]
         }
       ]
     },
@@ -229,39 +263,7 @@
       },
       "expectedActions": [
         {
-          "id": "a6-premedicate",
-          "shortAction": "Fentanyl 82 mcg IV (82 kg × 1 mcg/kg) 2-3 minutes before intubation",
-          "protocolExcerpt": "Consider pre-medication with Fentanyl, 1 mcg/kg, 2-3 minutes prior to intubation attempt",
-          "priority": "important",
-          "rationale": "Blunts the sympathetic response to laryngoscopy.",
-          "protocolReference": "MATC: Airway Management (Includes RSI)"
-        },
-        {
-          "id": "a7-induction",
-          "shortAction": "Ketamine 123 mg IV push (82 kg × 1.5 mg/kg) for induction sedation",
-          "protocolExcerpt": "Administer induction sedative agent: Etomidate IV push, 0.2-0.3 mg/kg OR Ketamine IV push, 1-2 mg/kg OR Midazolam IV push, 0.05-0.10 mg/kg",
-          "priority": "critical",
-          "rationale": "Induction sedation must precede paralysis to prevent an awake paralysis.",
-          "protocolReference": "MATC: Airway Management (Includes RSI)"
-        },
-        {
-          "id": "a8-paralytic",
-          "shortAction": "Rocuronium 82 mg IV push (82 kg × 1 mg/kg) for paralysis",
-          "protocolExcerpt": "Administer paralytic agent: Succinylcholine IV push, 1-2 mg/kg OR Rocuronium IV push, 1 mg/kg OR Vecuronium IV push, 0.1 mg/kg",
-          "priority": "critical",
-          "rationale": "Paralysis optimizes intubating conditions and first-pass success.",
-          "protocolReference": "MATC: Airway Management (Includes RSI)"
-        },
-        {
-          "id": "a9-intubate-confirm",
-          "shortAction": "Intubate; confirm placement with waveform capnography and bilateral breath sounds",
-          "protocolExcerpt": "Confirm placement of advanced airway (endotracheal tube, SGA) with waveform capnography (most reliable), absent gastric sounds, and bilateral breath sounds",
-          "priority": "critical",
-          "rationale": "Waveform capnography is the most reliable confirmation method and must be checked before trusting placement.",
-          "protocolReference": "MATC: Airway Management (Includes RSI)"
-        },
-        {
-          "id": "a10-secure-ventilate",
+          "id": "c1",
           "shortAction": "Secure tube; ventilate at 10-12 breaths/min, target EtCO2 35-45 mmHg",
           "protocolExcerpt": "Secure tube manually. Once proper position is confirmed, secure the tube with tape, twill, or commercial device. Adult: 10–12 breaths/minute",
           "priority": "critical",
@@ -312,7 +314,7 @@
       },
       "expectedActions": [
         {
-          "id": "a11-recognize-hypoxia",
+          "id": "d1",
           "shortAction": "Stop attempt at desaturation <90%; resume BVM ventilation with PEEP",
           "protocolExcerpt": "Attempt intubation, limiting attempts to 15 seconds, or a desaturation below 90%, whichever occurs first. Meticulous attention should be paid to avoiding hypoxia and hypotension during intubation attempts to limit patient morbidity and mortality",
           "priority": "critical",
