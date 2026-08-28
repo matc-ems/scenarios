@@ -1,0 +1,519 @@
+{
+  "meta": {
+    "id": "132-competent-refusal-versus-poa",
+    "name": "132 - Competent Refusal Versus POA",
+    "version": 1,
+    "difficulty": "advanced",
+    "category": "Medical",
+    "protocols": [
+      "resus-dnr-advance-directives",
+      "medical-end-of-life-hospice",
+      "resp-respiratory-distress",
+      "medical-agitated-violent-behavioral"
+    ],
+    "totalTimeSeconds": 900,
+    "tags": [
+      "medical",
+      "patient autonomy",
+      "power of attorney",
+      "DNR",
+      "refusal of care",
+      "de-escalation",
+      "end-stage CHF",
+      "practice summative"
+    ]
+  },
+  "patient": {
+    "name": "Arthur Denning",
+    "age": 84,
+    "ageUnit": "years",
+    "sex": "male",
+    "weight": 75,
+    "weightLbs": 165,
+    "height": 175,
+    "chiefComplaint": "Mild shortness of breath and generalized fatigue in a patient with end-stage CHF who is refusing transport",
+    "history": {
+      "hpi": "Patient reports feeling more tired than usual today with mild shortness of breath at rest, which he describes as no different from his ordinary bad days. He remains on his usual 2 liters of oxygen by nasal cannula. His son came over to check on him, saw him coughing, and called 911 over the patient's objection. The patient denies chest pain, fever, orthopnea beyond his baseline, or any change in his weight or ankle swelling. He is clear that he does not want to return to the hospital and that he wants to remain at home for comfort.",
+      "pastMedical": [
+        "End-stage congestive heart failure",
+        "Chronic obstructive pulmonary disease",
+        "Chronic home oxygen dependence"
+      ],
+      "medications": [
+        "Furosemide (Lasix) 40 mg PO daily",
+        "Lisinopril 10 mg PO daily",
+        "Albuterol inhaler PRN"
+      ],
+      "allergies": [
+        "Sulfa drugs"
+      ],
+      "lastOralIntake": "Tea and toast approximately one hour ago",
+      "events": "Son came over to check on him, saw him coughing, and called 911; the patient did not request EMS and does not want to go"
+    }
+  },
+  "scene": {
+    "dispatch": "84-year-old male, difficulty breathing, caller states patient is refusing to help himself, private residence",
+    "location": "Single-story home; patient seated in a recliner in a living room cluttered with medical supplies",
+    "time": "2:30 PM, weekday afternoon",
+    "safety": "No physical hazards; oxygen in use so no ignition sources. Rising interpersonal conflict between the son and the patient is the scene management concern",
+    "bystanders": "Adult son who called 911, holds healthcare power of attorney paperwork, and is increasingly agitated and insistent that his father be transported",
+    "visualCues": [
+      "Home oxygen concentrator running with 2 L nasal cannula in place",
+      "Nebulizer and boxes of medical supplies stacked around the living room",
+      "Patient frail but calm, sitting comfortably in a recliner",
+      "Visible intact DNR bracelet on the patient's wrist with his name legible",
+      "Son pacing with a folder of paperwork in his hand",
+      "No signs of neglect; home is warm and the patient is clean and well cared for"
+    ]
+  },
+  "phases": [
+    {
+      "id": "initial",
+      "name": "Initial Contact",
+      "description": "Crew finds an 84-year-old male with end-stage CHF and COPD sitting calmly in a recliner on his usual 2 liters of oxygen. He is alert and oriented to person, place, time, and event, mildly short of breath, and apologizes for his son calling. He wears a visible, intact DNR bracelet. His vital signs are close to what would be expected at his baseline. He states plainly that he is not going back to the hospital.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": {
+          "eye": 4,
+          "verbal": 5,
+          "motor": 6
+        },
+        "airway": "Patent and self-maintained; speaking in full sentences",
+        "breathing": "Slightly labored at 20/min with mild accessory muscle use; scattered chronic crackles at the bases without change from baseline",
+        "circulation": "Radial pulse regular and adequate; skin warm and dry with chronic trace pedal edema",
+        "skin": {
+          "color": "pink",
+          "temperature": "warm",
+          "moisture": "dry"
+        },
+        "pupils": "PERRL",
+        "motorFunction": "Frail but moves all extremities purposefully; transfers with a walker at baseline",
+        "otherFindings": [
+          "Alert and oriented to person, place, time, and event (A&O x4)",
+          "Visible intact DNR bracelet with the patient's name legible and no signs of tampering",
+          "SpO2 94 percent on his usual 2 L nasal cannula",
+          "EtCO2 45 mmHg, consistent with his chronic COPD baseline",
+          "Denies chest pain, fever, or a change from his ordinary bad days",
+          "Apologizes for the crew being called"
+        ],
+        "patientSpeech": "\"I'm sorry my son called you. I'm just a bit tired today, but I am not going back to that hospital.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Normal Sinus Rhythm",
+        "ecgWaveform": 9,
+        "hr": 76,
+        "bpSys": 138,
+        "bpDia": 88,
+        "respRate": 20,
+        "spo2": 94,
+        "etco2": 45,
+        "temp": 36.8,
+        "tempF": 98.2,
+        "obstruction": 20,
+        "glucose": 112,
+        "customMeasures": [],
+        "trendTimeSeconds": 0,
+        "visibility": {
+          "spo2Visible": true,
+          "spo2Attached": true,
+          "rrVisible": true,
+          "etco2Visible": true,
+          "cvpVisible": false
+        }
+      },
+      "expectedActions": [
+        {
+          "id": "a1",
+          "shortAction": "Full vital signs with pulse oximetry and waveform capnography",
+          "protocolExcerpt": "Exam: Full set of vital signs (pulse, blood pressure, respiratory rate, neurologic status assessment), temperature, and O2 saturation. Consider temperature and waveform capnography.",
+          "priority": "critical",
+          "rationale": "A refusal is only defensible if a real assessment was offered and completed; the numbers also establish that this is near his baseline rather than an acute decompensation.",
+          "protocolReference": "MATC: Respiratory Distress (includes Bronchospasm, Pulmonary Edema)"
+        },
+        {
+          "id": "a2",
+          "shortAction": "Assess mentation; confirm he has capacity and understands the risks",
+          "protocolExcerpt": "If the patient can communicate and has the capacity to make decisions regarding treatment and transport, consult directly with the patient before treatment and/or transport.",
+          "priority": "critical",
+          "rationale": "Capacity is the pivot of the entire call; if he has it, the conversation is with him, and if he does not, the advance care planning takes over.",
+          "protocolReference": "MATC: End-of-Life Care/Hospice Care"
+        },
+        {
+          "id": "a3",
+          "shortAction": "Verify the DNR bracelet is intact, named, and unaltered",
+          "protocolExcerpt": "One of the documents above is valid when it meets all the following criteria: Conforms to the state specifications for color and construction; Is intact: it has not been cut, broken or shows signs of being repaired; Displays the patient's name and, if required by state law or regulation, the physician's name.",
+          "priority": "critical",
+          "rationale": "The bracelet is checked against the same validity criteria as a paper order, and it is checked now rather than during an arrest.",
+          "protocolReference": "MATC: Do Not Resuscitate Status/Advance Directives/Healthcare Power of Attorney (POA) Status"
+        },
+        {
+          "id": "a4",
+          "shortAction": "Titrate oxygen to his 94 to 98 percent target; escalate from the cannula if needed",
+          "protocolExcerpt": "Airway: Give supplemental oxygen for dyspnea to a target of 94-98% saturation. Escalate from a nasal cannula as needed to reach this goal.",
+          "priority": "important",
+          "rationale": "A DNR is not a do-not-treat order; symptom-directed care continues regardless of the transport decision.",
+          "protocolReference": "MATC: Respiratory Distress (includes Bronchospasm, Pulmonary Edema)"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "poa-conflict",
+          "if": "Capacity confirmed; son escalates",
+          "condition": "Crew completes a full assessment, establishes that the patient is alert and oriented and can articulate the risks of remaining home, and verifies the DNR bracelet; as they do, the son enters the room with the power of attorney folder and demands that his father be transported.",
+          "conditionType": "action_taken",
+          "triggerActionIds": [
+            "a1",
+            "a2",
+            "a3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "poa-conflict",
+      "name": "Capacity confirmed; son escalates",
+      "description": "The patient remains alert and oriented and can state his name, his location, the date, and exactly why his son is upset. He articulates a clear understanding that staying home risks his heart failure worsening. The son produces the power of attorney paperwork and insists that his father is not thinking straight and that he is the decision maker. The crew must now hold the line on patient autonomy while keeping the son from escalating further.",
+      "triggerCondition": "With capacity established at the bedside, the son enters holding the healthcare power of attorney documents and asserts that his authority overrides his father's judgment; the disagreement becomes the primary scene management problem.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": {
+          "eye": 4,
+          "verbal": 5,
+          "motor": 6
+        },
+        "airway": "Patent and self-maintained",
+        "breathing": "Slightly more labored at 22/min with the rising tension in the room",
+        "circulation": "Radial pulse regular; skin warm and dry",
+        "skin": {
+          "color": "pink",
+          "temperature": "warm",
+          "moisture": "dry"
+        },
+        "pupils": "PERRL",
+        "motorFunction": "Seated comfortably; no change from baseline",
+        "otherFindings": [
+          "Patient can state his name, location, the date, and why his son is upset",
+          "Demonstrates clear understanding of the risk that his CHF may worsen at home",
+          "Son holding a folder of power of attorney paperwork, voice rising",
+          "Patient's respiratory rate and blood pressure drifting up with the conflict",
+          "No change in the patient's stated wishes"
+        ],
+        "patientSpeech": "\"I know exactly what could happen. I have made my peace with it. I would like to stay in my own house.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Normal Sinus Rhythm",
+        "ecgWaveform": 9,
+        "hr": 82,
+        "bpSys": 144,
+        "bpDia": 92,
+        "respRate": 22,
+        "spo2": 93,
+        "etco2": 46,
+        "temp": 36.8,
+        "tempF": 98.2,
+        "obstruction": 20,
+        "glucose": 112,
+        "customMeasures": [],
+        "trendTimeSeconds": 40,
+        "visibility": {
+          "spo2Visible": true,
+          "spo2Attached": true,
+          "rrVisible": true,
+          "etco2Visible": true,
+          "cvpVisible": false
+        }
+      },
+      "expectedActions": [
+        {
+          "id": "b1",
+          "shortAction": "De-escalate: acknowledge the son's concern with calm verbal reassurance",
+          "protocolExcerpt": "Establish patient rapport: Attempt verbal reassurance and calm patient prior to use of pharmacologic and/or physical management devices. Engage family members/loved ones to encourage patient cooperation if their presence does not exacerbate the patient's agitation.",
+          "priority": "critical",
+          "rationale": "The son is frightened, not malicious; validating his role as a caregiver is what makes the legal explanation land instead of escalating.",
+          "protocolReference": "MATC: Agitated or Violent Patient/Behavioral Emergency"
+        },
+        {
+          "id": "b2",
+          "shortAction": "Explain that POA activates only when the patient lacks capacity",
+          "protocolExcerpt": "If the patient lacks the capacity to make decisions regarding treatment and/or transport, identify any advanced care planning in place for information relating to advanced care planning and consent for treatment: Advance directives; Medical/Physician Order for Life-Sustaining Treatment (MOLST/POLST) or similar directing forms; Guardian, power of attorney, or other accepted healthcare proxy. -- As specified from state to state, in the absence of formal written directions (MOLST, POLST, DNR, advanced directives), and in the presence of a person with power of attorney for healthcare or healthcare proxy, that person may prescribe limits of treatment.",
+          "priority": "critical",
+          "rationale": "Both protocols condition the proxy's authority on the patient lacking capacity; this patient has it, so his decision governs.",
+          "protocolReference": "MATC: End-of-Life Care/Hospice Care"
+        },
+        {
+          "id": "b3",
+          "shortAction": "Contact medical direction to confirm the refusal and speak with the son",
+          "protocolExcerpt": "Engage with the patient's hospice or end-of-life care team or their primary care physician if possible. If not a viable option, contact medical direction.",
+          "priority": "important",
+          "rationale": "A physician confirming the same thing the crew has said is often what lets the son accept it, and it puts the decision on the record.",
+          "protocolReference": "MATC: End-of-Life Care/Hospice Care"
+        },
+        {
+          "id": "b4",
+          "shortAction": "Continue symptom-directed treatment; a DNR is not a do-not-treat order",
+          "protocolExcerpt": "If there is a valid exclusion to resuscitation and there are signs of life (pulse and respirations), EMS clinicians should provide standard appropriate treatment under existing protocols according to the patient's condition. The patient should receive full treatment per protocols with the exception of any intervention specifically prohibited in the patient's valid exclusion to resuscitation.",
+          "priority": "critical",
+          "rationale": "The bracelet limits resuscitation, not comfort or symptom care; withholding oxygen or reassessment because of it is a misreading of the order.",
+          "protocolReference": "MATC: Do Not Resuscitate Status/Advance Directives/Healthcare Power of Attorney (POA) Status"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "refusal-honored",
+          "if": "De-escalated; refusal honored",
+          "condition": "Crew acknowledges the son's concern, explains that a competent patient's own decision overrides a power of attorney and that the proxy's authority activates only when capacity is lost, contacts medical direction for confirmation, and continues symptom-directed care; the son begrudgingly accepts the decision.",
+          "conditionType": "action_taken",
+          "triggerActionIds": [
+            "b1",
+            "b2",
+            "b3"
+          ]
+        },
+        {
+          "targetPhaseId": "forced-transport",
+          "if": "Patient moved against his refusal",
+          "condition": "Crew moves the patient to the stretcher against his verbal refusal because the son has the paperwork, or fails to de-escalate the scene at all; the patient becomes combative and states he is being kidnapped, and the crew has committed battery.",
+          "conditionType": "action_not_taken",
+          "triggerActionIds": [
+            "b1",
+            "b2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "refusal-honored",
+      "name": "De-escalated; refusal honored",
+      "description": "The son is still frustrated but has stopped arguing and is listening. Medical control has confirmed the patient's right to refuse. The patient thanks the crew for listening to him and is visibly less anxious; his respiratory rate and blood pressure have settled back toward where they started. What remains is the paperwork, which on this call is the largest part of the work.",
+      "triggerCondition": "After de-escalation, a clear explanation of the legal limits of a power of attorney, and confirmation from medical direction, the son accepts the decision and the patient's refusal stands.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": {
+          "eye": 4,
+          "verbal": 5,
+          "motor": 6
+        },
+        "airway": "Patent and self-maintained",
+        "breathing": "Back to 20/min, no worse than his stated baseline",
+        "circulation": "Radial pulse regular; skin warm and dry",
+        "skin": {
+          "color": "pink",
+          "temperature": "warm",
+          "moisture": "dry"
+        },
+        "pupils": "PERRL",
+        "motorFunction": "Comfortable in the recliner, no change from baseline",
+        "otherFindings": [
+          "Patient visibly less anxious and thanks the crew for listening",
+          "Son frustrated but no longer arguing; willing to stay with his father",
+          "Medical direction has confirmed the patient's right to refuse",
+          "Oxygen left in place at 2 L by nasal cannula",
+          "Patient remains A&O x4 with unchanged capacity"
+        ],
+        "patientSpeech": "\"Thank you for hearing me out. Nobody has done that in a while.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Normal Sinus Rhythm",
+        "ecgWaveform": 9,
+        "hr": 78,
+        "bpSys": 136,
+        "bpDia": 86,
+        "respRate": 20,
+        "spo2": 94,
+        "etco2": 45,
+        "temp": 36.8,
+        "tempF": 98.2,
+        "obstruction": 20,
+        "glucose": 112,
+        "customMeasures": [],
+        "trendTimeSeconds": 45,
+        "visibility": {
+          "spo2Visible": true,
+          "spo2Attached": true,
+          "rrVisible": true,
+          "etco2Visible": true,
+          "cvpVisible": false
+        }
+      },
+      "expectedActions": [
+        {
+          "id": "d1",
+          "shortAction": "Document the DNR verification and the advance care documentation present",
+          "protocolExcerpt": "Key Documentation Elements: Detailed description of the valid exclusion to resuscitation documentation used to guide resuscitation including a copy of the document if possible. Names/contact information for significant bystanders.",
+          "priority": "critical",
+          "rationale": "The bracelet, the power of attorney folder, and who was present all have to be described specifically enough that a reviewer can reconstruct the scene.",
+          "protocolReference": "MATC: Do Not Resuscitate Status/Advance Directives/Healthcare Power of Attorney (POA) Status"
+        },
+        {
+          "id": "d2",
+          "shortAction": "Document capacity, the specific risks explained, and the refusal with a witness",
+          "protocolExcerpt": "Key Documentation Elements: Interaction with hospice or end-of-life care clinician. Confirmation of advanced directive or other advanced care documentation.",
+          "priority": "critical",
+          "rationale": "This narrative is the crew's entire defense; the capacity assessment, the exact risks stated aloud, and the medical control contact all belong in it, ideally with the son as witness signature.",
+          "protocolReference": "MATC: End-of-Life Care/Hospice Care"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "crew-clears",
+          "if": "Refusal documented; crew clears",
+          "condition": "Crew completes a standard refusal of care with a witness signature, documents the capacity assessment, the specific risks explained, the DNR verification, and the presence and role of the son, and clears the scene leaving the patient with his oxygen and his son.",
+          "conditionType": "action_taken",
+          "triggerActionIds": [
+            "d1",
+            "d2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "crew-clears",
+      "name": "Refusal documented; crew clears",
+      "description": "The refusal is documented with a witness signature and the crew clears with the patient stable in his own recliner, on his own oxygen, with his son staying with him. No treatment was forced and no rights were overridden. The narrative on this call is long, and that is the correct outcome.",
+      "triggerCondition": "With the refusal properly documented and witnessed, and the patient stable and supported at home, there is nothing further for the crew to do on scene.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": {
+          "eye": 4,
+          "verbal": 5,
+          "motor": 6
+        },
+        "airway": "Patent and self-maintained",
+        "breathing": "Unchanged from baseline at 20/min on 2 L by nasal cannula",
+        "circulation": "Radial pulse regular; skin warm and dry",
+        "skin": {
+          "color": "pink",
+          "temperature": "warm",
+          "moisture": "dry"
+        },
+        "pupils": "PERRL",
+        "motorFunction": "Seated comfortably, unchanged",
+        "otherFindings": [
+          "Refusal of care form completed with witness signature",
+          "Son remaining with the patient and has crew instructions on when to call back",
+          "Patient advised to call 911 for any change; he acknowledges",
+          "DNR bracelet left in place and documented",
+          "Scene cleared without conflict"
+        ],
+        "patientSpeech": "\"I appreciate it. I know how to reach you if things change.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Normal Sinus Rhythm",
+        "ecgWaveform": 9,
+        "hr": 76,
+        "bpSys": 134,
+        "bpDia": 84,
+        "respRate": 20,
+        "spo2": 94,
+        "etco2": 45,
+        "temp": 36.8,
+        "tempF": 98.2,
+        "obstruction": 20,
+        "glucose": 112,
+        "customMeasures": [],
+        "trendTimeSeconds": 40,
+        "visibility": {
+          "spo2Visible": true,
+          "spo2Attached": true,
+          "rrVisible": true,
+          "etco2Visible": true,
+          "cvpVisible": false
+        }
+      },
+      "expectedActions": [],
+      "transitions": []
+    },
+    {
+      "id": "forced-transport",
+      "name": "Patient moved against his refusal",
+      "description": "The crew has begun moving the patient to the stretcher on the strength of the son's paperwork. The patient is now combative, yelling that he is being kidnapped, while the son continues shouting. The patient's blood pressure, heart rate, and respiratory rate have all climbed with the struggle. This is battery and false imprisonment of a competent adult, and it is also actively harming the patient's respiratory status.",
+      "triggerCondition": "A competent patient's verbal refusal was overridden on the basis of a power of attorney that had not activated, or the scene was never de-escalated; the physical struggle produces a stress response on top of end-stage cardiopulmonary disease.",
+      "isDefault": false,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": {
+          "eye": 4,
+          "verbal": 5,
+          "motor": 6
+        },
+        "airway": "Patent but the patient is shouting and unable to catch his breath between phrases",
+        "breathing": "Labored at 28/min with marked accessory muscle use brought on by the struggle",
+        "circulation": "Radial pulse rapid and full; skin flushed and becoming diaphoretic",
+        "skin": {
+          "color": "flushed",
+          "temperature": "warm",
+          "moisture": "diaphoretic"
+        },
+        "pupils": "PERRL",
+        "motorFunction": "Actively resisting the move to the stretcher; pushing crew hands away",
+        "otherFindings": [
+          "Patient yelling that he is being kidnapped",
+          "Son still shouting; scene is now out of the crew's control",
+          "Stress-induced rise in blood pressure, heart rate, and respiratory rate",
+          "Patient's capacity is unchanged; he is still A&O x4 and still refusing",
+          "Crew has committed battery and false imprisonment of a competent adult"
+        ],
+        "patientSpeech": "\"Get your hands off me! This is kidnapping! I said no!\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 110,
+        "bpSys": 180,
+        "bpDia": 100,
+        "respRate": 28,
+        "spo2": 90,
+        "etco2": 40,
+        "temp": 36.9,
+        "tempF": 98.4,
+        "obstruction": 25,
+        "glucose": 112,
+        "customMeasures": [],
+        "trendTimeSeconds": 30,
+        "visibility": {
+          "spo2Visible": true,
+          "spo2Attached": true,
+          "rrVisible": true,
+          "etco2Visible": true,
+          "cvpVisible": false
+        }
+      },
+      "expectedActions": [
+        {
+          "id": "e1",
+          "shortAction": "Stop the move immediately; a competent patient's refusal is binding",
+          "protocolExcerpt": "If the patient can communicate and has the capacity to make decisions regarding treatment and transport, consult directly with the patient before treatment and/or transport.",
+          "priority": "critical",
+          "rationale": "Capacity has not changed; the transport has no lawful basis and every additional second compounds the harm and the liability.",
+          "protocolReference": "MATC: End-of-Life Care/Hospice Care"
+        },
+        {
+          "id": "e2",
+          "shortAction": "De-escalate both the patient and the son with calm verbal reassurance",
+          "protocolExcerpt": "Establish patient rapport: Attempt verbal reassurance and calm patient prior to use of pharmacologic and/or physical management devices. Continued verbal reassurance and calming of patient following use of chemical/physical management devices.",
+          "priority": "critical",
+          "rationale": "The agitation is itself now a clinical problem in a patient with end-stage CHF and COPD; lowering the temperature is treatment, not just etiquette.",
+          "protocolReference": "MATC: Agitated or Violent Patient/Behavioral Emergency"
+        },
+        {
+          "id": "e3",
+          "shortAction": "Contact medical direction and a supervisor; document the entire event",
+          "protocolExcerpt": "Engage with the patient's hospice or end-of-life care team or their primary care physician if possible. If not a viable option, contact medical direction. Key Documentation Elements: Confirmation of advanced directive or other advanced care documentation.",
+          "priority": "critical",
+          "rationale": "A scene that has gone this far needs physician and supervisory involvement, and the record has to reflect what actually happened rather than a cleaned-up version.",
+          "protocolReference": "MATC: End-of-Life Care/Hospice Care"
+        }
+      ],
+      "transitions": []
+    }
+  ],
+  "realiti": {
+    "scenarioMonitorType": 2,
+    "scenarioDefaultEnergy": 200,
+    "scenarioDefaultPacerThreshold": 55
+  }
+}

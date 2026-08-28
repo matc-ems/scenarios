@@ -1,0 +1,290 @@
+{
+  "scenarioId": "132-competent-refusal-versus-poa",
+  "scenarioName": "132 - Competent Refusal Versus POA",
+  "scenarioType": "Vital Signs",
+  "scenarioVersion": 2,
+  "scenarioTime": 900,
+  "scenarioMonitorType": 2,
+  "scenarioDefaultEnergy": 200,
+  "scenarioDefaultPacerThreshold": 55,
+  "isDemo": false,
+  "isALSILegacy": false,
+  "scenarioStory": {
+    "history": "Patient reports feeling more tired than usual today with mild shortness of breath at rest, which he describes as no different from his ordinary bad days. He remains on his usual 2 liters of oxygen by nasal cannula. His son came over to check on him, saw him coughing, and called 911 over the patient's objection. The patient denies chest pain, fever, orthopnea beyond his baseline, or any change in his weight or ankle swelling. He is clear that he does not want to return to the hospital and that he wants to remain at home for comfort.",
+    "discussion": "",
+    "course": "Initial Contact: Crew finds an 84-year-old male with end-stage CHF and COPD sitting calmly in a recliner on his usual 2 liters of oxygen. He is alert and oriented to person, place, time, and event, mildly short of breath, and apologizes for his son calling. He wears a visible, intact DNR bracelet. His vital signs are close to what would be expected at his baseline. He states plainly that he is not going back to the hospital. → Capacity confirmed; son escalates: The patient remains alert and oriented and can state his name, his location, the date, and exactly why his son is upset. He articulates a clear understanding that staying home risks his heart failure worsening. The son produces the power of attorney paperwork and insists that his father is not thinking straight and that he is the decision maker. The crew must now hold the line on patient autonomy while keeping the son from escalating further. → De-escalated; refusal honored: The son is still frustrated but has stopped arguing and is listening. Medical control has confirmed the patient's right to refuse. The patient thanks the crew for listening to him and is visibly less anxious; his respiratory rate and blood pressure have settled back toward where they started. What remains is the paperwork, which on this call is the largest part of the work. → Refusal documented; crew clears: The refusal is documented with a witness signature and the crew clears with the patient stable in his own recliner, on his own oxygen, with his son staying with him. No treatment was forced and no rights were overridden. The narrative on this call is long, and that is the correct outcome."
+  },
+  "patientInformation": {
+    "patientName": "Arthur Denning",
+    "patientCondition": "Mild shortness of breath and generalized fatigue in a patient with end-stage CHF who is refusing transport",
+    "patientAge": 84,
+    "patientAgeUnit": "years",
+    "patientAgeCategory": 0,
+    "patientSex": 1,
+    "patientHeight": 175,
+    "patientWeight": 75,
+    "patientPhotoId": 100,
+    "patientAdmitted": 1
+  },
+  "labs": [],
+  "scenarioEvents": [
+    {
+      "type": "ScenarioEvent",
+      "name": "Initial Contact",
+      "description": "Crew finds an 84-year-old male with end-stage CHF and COPD sitting calmly in a recliner on his usual 2 liters of oxygen. He is alert and oriented to person, place, time, and event, mildly short of breath, and apologizes for his son calling. He wears a visible, intact DNR bracelet. His vital signs are close to what would be expected at his baseline. He states plainly that he is not going back to the hospital.",
+      "monitorType": 0,
+      "trendTime": 0,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 76,
+        "bpSys": 138,
+        "bpDia": 88,
+        "respRate": 20,
+        "spo2": 94,
+        "etco2": 45,
+        "temp": 36.8,
+        "obstruction": 20,
+        "custMeasure1": 112,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Full vital signs with pulse oximetry and waveform capnography",
+        "Assess mentation; confirm he has capacity and understands the risks",
+        "Verify the DNR bracelet is intact, named, and unaltered",
+        "Titrate oxygen to his 94 to 98 percent target; escalate from the cannula if needed"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Capacity confirmed; son escalates",
+      "description": "The patient remains alert and oriented and can state his name, his location, the date, and exactly why his son is upset. He articulates a clear understanding that staying home risks his heart failure worsening. The son produces the power of attorney paperwork and insists that his father is not thinking straight and that he is the decision maker. The crew must now hold the line on patient autonomy while keeping the son from escalating further.",
+      "monitorType": 0,
+      "trendTime": 40,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 82,
+        "bpSys": 144,
+        "bpDia": 92,
+        "respRate": 22,
+        "spo2": 93,
+        "etco2": 46,
+        "temp": 36.8,
+        "obstruction": 20,
+        "custMeasure1": 112,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "De-escalate: acknowledge the son's concern with calm verbal reassurance",
+        "Explain that POA activates only when the patient lacks capacity",
+        "Contact medical direction to confirm the refusal and speak with the son",
+        "Continue symptom-directed treatment; a DNR is not a do-not-treat order"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "De-escalated; refusal honored",
+      "description": "The son is still frustrated but has stopped arguing and is listening. Medical control has confirmed the patient's right to refuse. The patient thanks the crew for listening to him and is visibly less anxious; his respiratory rate and blood pressure have settled back toward where they started. What remains is the paperwork, which on this call is the largest part of the work.",
+      "monitorType": 0,
+      "trendTime": 45,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 78,
+        "bpSys": 136,
+        "bpDia": 86,
+        "respRate": 20,
+        "spo2": 94,
+        "etco2": 45,
+        "temp": 36.8,
+        "obstruction": 20,
+        "custMeasure1": 112,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Document the DNR verification and the advance care documentation present",
+        "Document capacity, the specific risks explained, and the refusal with a witness"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Refusal documented; crew clears",
+      "description": "The refusal is documented with a witness signature and the crew clears with the patient stable in his own recliner, on his own oxygen, with his son staying with him. No treatment was forced and no rights were overridden. The narrative on this call is long, and that is the correct outcome.",
+      "monitorType": 0,
+      "trendTime": 40,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 76,
+        "bpSys": 134,
+        "bpDia": 84,
+        "respRate": 20,
+        "spo2": 94,
+        "etco2": 45,
+        "temp": 36.8,
+        "obstruction": 20,
+        "custMeasure1": 112,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Patient moved against his refusal",
+      "description": "The crew has begun moving the patient to the stretcher on the strength of the son's paperwork. The patient is now combative, yelling that he is being kidnapped, while the son continues shouting. The patient's blood pressure, heart rate, and respiratory rate have all climbed with the struggle. This is battery and false imprisonment of a competent adult, and it is also actively harming the patient's respiratory status.",
+      "monitorType": 0,
+      "trendTime": 30,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 110,
+        "bpSys": 180,
+        "bpDia": 100,
+        "respRate": 28,
+        "spo2": 90,
+        "etco2": 40,
+        "temp": 36.9,
+        "obstruction": 25,
+        "custMeasure1": 112,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Stop the move immediately; a competent patient's refusal is binding",
+        "De-escalate both the patient and the son with calm verbal reassurance",
+        "Contact medical direction and a supervisor; document the entire event"
+      ],
+      "relatedSounds": []
+    }
+  ],
+  "checklist": [
+    {
+      "title": "Full vital signs with pulse oximetry and waveform capnography",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Assess mentation; confirm he has capacity and understands the risks",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Verify the DNR bracelet is intact, named, and unaltered",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Titrate oxygen to his 94 to 98 percent target; escalate from the cannula if needed",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "De-escalate: acknowledge the son's concern with calm verbal reassurance",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Explain that POA activates only when the patient lacks capacity",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Contact medical direction to confirm the refusal and speak with the son",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Continue symptom-directed treatment; a DNR is not a do-not-treat order",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Document the DNR verification and the advance care documentation present",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Document capacity, the specific risks explained, and the refusal with a witness",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Stop the move immediately; a competent patient's refusal is binding",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "De-escalate both the patient and the son with calm verbal reassurance",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Contact medical direction and a supervisor; document the entire event",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    }
+  ],
+  "media": []
+}
