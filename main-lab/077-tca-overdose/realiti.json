@@ -57,7 +57,10 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [],
+      "relatedChecklist": [
+        "Ensure scene and patient safety given the intentional, self-harm nature of the ingestion",
+        "Continuously monitor ECG with specific attention to QRS duration"
+      ],
       "relatedSounds": []
     },
     {
@@ -92,8 +95,7 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Continuously monitor ECG with specific attention to QRS duration",
-        "Ensure scene and patient safety given the intentional, self-harm nature of the ingestion"
+        "Sodium bicarbonate 65 mEq IV (65 kg × 1 mEq/kg), repeat as needed to narrow QRS and improve BP"
       ],
       "relatedSounds": []
     },
@@ -129,7 +131,7 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Sodium bicarbonate 65 mEq IV (65 kg × 1 mEq/kg), repeat as needed to narrow QRS and improve BP"
+        "Repeat vital signs and ECG frequently; monitor closely for rapid deterioration"
       ],
       "relatedSounds": []
     },
@@ -164,9 +166,7 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [
-        "Repeat vital signs and ECG frequently; monitor closely for rapid deterioration"
-      ],
+      "relatedChecklist": [],
       "relatedSounds": []
     },
     {
@@ -209,13 +209,13 @@
   ],
   "checklist": [
     {
-      "title": "Continuously monitor ECG with specific attention to QRS duration",
+      "title": "Ensure scene and patient safety given the intentional, self-harm nature of the ingestion",
       "type": "Check",
       "value": 0,
       "icon": 1
     },
     {
-      "title": "Ensure scene and patient safety given the intentional, self-harm nature of the ingestion",
+      "title": "Continuously monitor ECG with specific attention to QRS duration",
       "type": "Check",
       "value": 0,
       "icon": 1

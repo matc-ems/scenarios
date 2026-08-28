@@ -95,14 +95,6 @@
           "priority": "critical",
           "rationale": "QRS widening is the key marker of TCA cardiotoxicity and guides the decision to give sodium bicarbonate.",
           "protocolReference": "MATC: Poisoning/Overdose Universal Care"
-        },
-        {
-          "id": "a3",
-          "shortAction": "Sodium bicarbonate 65 mEq IV (65 kg × 1 mEq/kg), repeat as needed to narrow QRS and improve BP",
-          "protocolExcerpt": "Tricyclic Antidepressant (TCA)/Sodium Channel Blocker Overdose — If widened QRS (100 msec or greater), consider sodium bicarbonate 1–2 mEq/kg IV, this can be repeated as needed to narrow QRS and improve blood pressure",
-          "priority": "critical",
-          "rationale": "Sodium bicarbonate is the definitive prehospital treatment for TCA-induced sodium channel blockade and QRS widening.",
-          "protocolReference": "MATC: Poisoning/Overdose Universal Care"
         }
       ],
       "transitions": [
@@ -111,14 +103,7 @@
           "if": "Monitor placed, widened QRS identified",
           "condition": "Crew places the patient on a cardiac monitor with attention to QRS duration, establishes IV access, and ensures scene/patient safety given the intentional nature of the ingestion.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["a2", "a3"]
-        },
-        {
-          "targetPhaseId": "bicarb-delayed",
-          "if": "Sodium bicarbonate withheld despite widened QRS",
-          "condition": "Despite the identified QRS widening, the crew does not administer sodium bicarbonate, and the cardiotoxicity progresses.",
-          "conditionType": "action_not_taken",
-          "triggerActionIds": ["a3"]
+          "triggerActionIds": ["a1", "a2"]
         }
       ]
     },
@@ -164,10 +149,10 @@
       "expectedActions": [
         {
           "id": "b1",
-          "shortAction": "Repeat vital signs and ECG frequently; monitor closely for rapid deterioration",
-          "protocolExcerpt": "Repeat vital signs often. Frequent reassessment is essential as patient deterioration can be rapid and catastrophic",
-          "priority": "important",
-          "rationale": "TCA toxicity can deteriorate suddenly even after initial improvement.",
+          "shortAction": "Sodium bicarbonate 65 mEq IV (65 kg × 1 mEq/kg), repeat as needed to narrow QRS and improve BP",
+          "protocolExcerpt": "Tricyclic Antidepressant (TCA)/Sodium Channel Blocker Overdose — If widened QRS (100 msec or greater), consider sodium bicarbonate 1–2 mEq/kg IV, this can be repeated as needed to narrow QRS and improve blood pressure",
+          "priority": "critical",
+          "rationale": "Sodium bicarbonate is the definitive prehospital treatment for TCA-induced sodium channel blockade and QRS widening.",
           "protocolReference": "MATC: Poisoning/Overdose Universal Care"
         }
       ],
@@ -177,6 +162,13 @@
           "if": "Sodium bicarbonate given, QRS narrows",
           "condition": "Given the widened QRS of 112 msec, the crew administers IV sodium bicarbonate, repeating as needed to narrow the QRS and improve blood pressure.",
           "conditionType": "action_taken",
+          "triggerActionIds": ["b1"]
+        },
+        {
+          "targetPhaseId": "bicarb-delayed",
+          "if": "Sodium bicarbonate withheld despite widened QRS",
+          "condition": "Despite the identified QRS widening, the crew does not administer sodium bicarbonate, and the cardiotoxicity progresses.",
+          "conditionType": "action_not_taken",
           "triggerActionIds": ["b1"]
         }
       ]
@@ -220,8 +212,25 @@
         "trendTimeSeconds": 30,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
       },
-      "expectedActions": [],
-      "transitions": []
+      "expectedActions": [
+        {
+          "id": "c1",
+          "shortAction": "Repeat vital signs and ECG frequently; monitor closely for rapid deterioration",
+          "protocolExcerpt": "Repeat vital signs often. Frequent reassessment is essential as patient deterioration can be rapid and catastrophic",
+          "priority": "important",
+          "rationale": "TCA toxicity can deteriorate suddenly even after initial improvement.",
+          "protocolReference": "MATC: Poisoning/Overdose Universal Care"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "transport-stable",
+          "if": "QRS narrowed, stable for transport",
+          "condition": "With the QRS narrowed and blood pressure improving after bicarbonate, the crew continues frequent ECG and vital sign reassessment and transports, alert for recurrence of cardiotoxicity.",
+          "conditionType": "action_taken",
+          "triggerActionIds": ["c1"]
+        }
+      ]
     },
     {
       "id": "transport-stable",
@@ -306,7 +315,7 @@
       },
       "expectedActions": [
         {
-          "id": "c1",
+          "id": "d1",
           "shortAction": "Give rescue sodium bicarbonate 65-130 mEq IV (65 kg × 1-2 mEq/kg) now for progressive QRS widening",
           "protocolExcerpt": "If widened QRS (100 msec or greater), consider sodium bicarbonate 1–2 mEq/kg IV, this can be repeated as needed to narrow QRS and improve blood pressure",
           "priority": "critical",
@@ -314,7 +323,7 @@
           "protocolReference": "MATC: Poisoning/Overdose Universal Care"
         },
         {
-          "id": "c2",
+          "id": "d2",
           "shortAction": "Treat the seizure per the Seizures Guideline if it recurs or persists",
           "protocolExcerpt": "For seizure, treat per Seizures Guideline",
           "priority": "critical",
