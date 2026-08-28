@@ -57,7 +57,11 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [],
+      "relatedChecklist": [
+        "Establish IV access; administer 1000 mL normal saline bolus before limb release",
+        "Attach cardiac monitor; watch for hyperkalemia changes before and after release",
+        "Morphine 8 mg IV (80 kg × 0.1 mg/kg = 8 mg; max initial dose 10 mg); reassess BP after dosing"
+      ],
       "relatedSounds": []
     },
     {
@@ -90,9 +94,6 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Establish IV access; administer 1000 mL normal saline bolus before limb release",
-        "Attach cardiac monitor; watch for hyperkalemia changes before and after release",
-        "Morphine 8 mg IV (80 kg × 0.1 mg/kg = 8 mg; max initial dose 10 mg); reassess BP after dosing",
         "Consider sodium bicarbonate 50 mEq IV over 5 min (80 kg × 1 mEq/kg = 80 mEq → cap at 50 mEq max)"
       ],
       "relatedSounds": []

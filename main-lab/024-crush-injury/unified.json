@@ -80,13 +80,46 @@
         "trendTimeSeconds": 0,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [],
+      "expectedActions": [
+        {
+          "id": "a1",
+          "shortAction": "Establish IV access; administer 1000 mL normal saline bolus before limb release",
+          "protocolExcerpt": "Establish IV access. IV fluids should be administered prior to releasing the crushed body part. Administer 1000 mL normal saline (NS) bolus. Avoid lactated Ringer's solution as it contains potassium. Crush injury without adequate fluid resuscitation develops into crush syndrome",
+          "priority": "critical",
+          "rationale": "Pre-treatment fluid loading blunts the hyperkalemic and hypovolemic reperfusion surge that occurs when the crushed limb is released.",
+          "protocolReference": "MATC: Crush Injury/Crush Syndrome"
+        },
+        {
+          "id": "a2",
+          "shortAction": "Attach cardiac monitor; watch for hyperkalemia changes before and after release",
+          "protocolExcerpt": "Attach cardiac monitor. Obtain/interpret 12-lead EKG, if available. Carefully monitor for dysrhythmias or signs of hyperkalemia before and immediately after release of pressure and during transport (e.g., peaked T waves, wide QRS, lengthening QT interval, loss of P wave)",
+          "priority": "critical",
+          "rationale": "Sudden potassium release on reperfusion can trigger lethal dysrhythmias immediately after extrication.",
+          "protocolReference": "MATC: Crush Injury/Crush Syndrome"
+        },
+        {
+          "id": "a3",
+          "shortAction": "Morphine 8 mg IV (80 kg × 0.1 mg/kg = 8 mg; max initial dose 10 mg); reassess BP after dosing",
+          "protocolExcerpt": "Morphine sulfate: 0.1 mg/kg IM, IV or IO (maximum initial dose is 10 mg)",
+          "priority": "important",
+          "rationale": "Weight-based morphine controls severe entrapment pain; reassessing blood pressure after dosing screens for opioid-associated hypotension per protocol caution.",
+          "protocolReference": "MATC: Pain Management"
+        }
+      ],
       "transitions": [
         {
           "targetPhaseId": "pre-extrication-care",
           "if": "IV fluids and pain control given before release",
           "condition": "Crew establishes IV access, administers a 1000 mL normal saline bolus, attaches the cardiac monitor, and administers weight-based morphine for pain, all prior to fire crew releasing the pinned limb.",
-          "conditionType": "action_taken"
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a1", "a2", "a3"]
+        },
+        {
+          "targetPhaseId": "hyperkalemia-onset",
+          "if": "Limb released before fluids given",
+          "condition": "Fire crew releases the limb before IV fluids and cardiac monitoring are established; the patient develops acute hyperkalemic ECG changes and hypotension from unbuffered reperfusion.",
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["a1", "a2"]
         }
       ]
     },
@@ -132,31 +165,7 @@
       },
       "expectedActions": [
         {
-          "id": "a1-iv-fluids",
-          "shortAction": "Establish IV access; administer 1000 mL normal saline bolus before limb release",
-          "protocolExcerpt": "Establish IV access. IV fluids should be administered prior to releasing the crushed body part. Administer 1000 mL normal saline (NS) bolus. Avoid lactated Ringer's solution as it contains potassium. Crush injury without adequate fluid resuscitation develops into crush syndrome",
-          "priority": "critical",
-          "rationale": "Pre-treatment fluid loading blunts the hyperkalemic and hypovolemic reperfusion surge that occurs when the crushed limb is released.",
-          "protocolReference": "MATC: Crush Injury/Crush Syndrome"
-        },
-        {
-          "id": "a2-monitor",
-          "shortAction": "Attach cardiac monitor; watch for hyperkalemia changes before and after release",
-          "protocolExcerpt": "Attach cardiac monitor. Obtain/interpret 12-lead EKG, if available. Carefully monitor for dysrhythmias or signs of hyperkalemia before and immediately after release of pressure and during transport (e.g., peaked T waves, wide QRS, lengthening QT interval, loss of P wave)",
-          "priority": "critical",
-          "rationale": "Sudden potassium release on reperfusion can trigger lethal dysrhythmias immediately after extrication.",
-          "protocolReference": "MATC: Crush Injury/Crush Syndrome"
-        },
-        {
-          "id": "a3-morphine",
-          "shortAction": "Morphine 8 mg IV (80 kg × 0.1 mg/kg = 8 mg; max initial dose 10 mg); reassess BP after dosing",
-          "protocolExcerpt": "Morphine sulfate: 0.1 mg/kg IM, IV or IO (maximum initial dose is 10 mg)",
-          "priority": "important",
-          "rationale": "Weight-based morphine controls severe entrapment pain; reassessing blood pressure after dosing screens for opioid-associated hypotension per protocol caution.",
-          "protocolReference": "MATC: Pain Management"
-        },
-        {
-          "id": "a4-bicarb",
+          "id": "b1",
           "shortAction": "Consider sodium bicarbonate 50 mEq IV over 5 min (80 kg × 1 mEq/kg = 80 mEq → cap at 50 mEq max)",
           "protocolExcerpt": "For significant crush injuries or prolonged entrapment of an extremity, consider sodium bicarbonate 1 mEq/kg (maximum dose of 50 mEq) IV bolus over 5 minutes",
           "priority": "important",
@@ -170,14 +179,7 @@
           "if": "Limb released after adequate pre-treatment",
           "condition": "Fire crew releases the limb after fluids, monitoring, and analgesia are established; patient remains hemodynamically stable through extrication and continued fluid resuscitation begins.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["a1-iv-fluids", "a2-monitor"]
-        },
-        {
-          "targetPhaseId": "hyperkalemia-onset",
-          "if": "Limb released before fluids given",
-          "condition": "Fire crew releases the limb before IV fluids and cardiac monitoring are established; the patient develops acute hyperkalemic ECG changes and hypotension from unbuffered reperfusion.",
-          "conditionType": "action_not_taken",
-          "triggerActionIds": ["a1-iv-fluids"]
+          "triggerActionIds": ["b1"]
         }
       ]
     },
@@ -222,7 +224,7 @@
       },
       "expectedActions": [
         {
-          "id": "a5-post-fluids",
+          "id": "c1",
           "shortAction": "Continue normal saline at 500–1000 mL/hr post extrication; reassess pain and repeat morphine if indicated after 5 minutes",
           "protocolExcerpt": "Consider the following post extrication: Continued resuscitation with normal saline (500–1000 mL/hr for adults, 10 mL/kg/hr for children)",
           "priority": "critical",
@@ -230,7 +232,7 @@
           "protocolReference": "MATC: Crush Injury/Crush Syndrome"
         },
         {
-          "id": "a6-transport",
+          "id": "c2",
           "shortAction": "Transport in position of comfort; reassess pain scale and vital signs en route",
           "protocolExcerpt": "Transport in position of comfort and reassess as indicated",
           "priority": "important",
@@ -281,7 +283,7 @@
       },
       "expectedActions": [
         {
-          "id": "a7-calcium",
+          "id": "d1",
           "shortAction": "Calcium chloride 1 g IV/IO over 5 min (ensure IV patency, do not exceed 1 mL/min) for hyperkalemic ECG changes",
           "protocolExcerpt": "If EKG suggestive of hyperkalemia or if findings of hyperkalemia, administer IV fluids and consider administration of: Calcium chloride – 1 gm IV/IO over 5 minutes, ensure IV patency and do not exceed 1 mL per minute",
           "priority": "critical",
@@ -289,7 +291,7 @@
           "protocolReference": "MATC: Crush Injury/Crush Syndrome"
         },
         {
-          "id": "a8-bicarb-rescue",
+          "id": "d2",
           "shortAction": "Sodium bicarbonate 50 mEq IV over 5 min (80 kg × 1 mEq/kg = 80 mEq → cap at 50 mEq max) for hyperkalemic changes",
           "protocolExcerpt": "If not already administered, for significant crush injuries with EKG suggestive of hyperkalemia, administer sodium bicarbonate 1 mEq/kg (max dose of 50 mEq) IV bolus over 5 minutes",
           "priority": "critical",
