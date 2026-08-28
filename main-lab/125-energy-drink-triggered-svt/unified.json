@@ -79,13 +79,46 @@
         "trendTimeSeconds": 0,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [],
+      "expectedActions": [
+        {
+          "id": "a1",
+          "shortAction": "Establish O2, cardiac monitor, 12-lead EKG, and IV access",
+          "protocolExcerpt": "Manage airway as necessary. Administer oxygen as appropriate with a target of achieving 94–98% saturation. Initiate monitoring and perform 12-lead EKG. Establish IV access.",
+          "priority": "critical",
+          "rationale": "Confirms the rhythm on 12-lead and establishes access needed for sedation prior to cardioversion.",
+          "protocolReference": "MATC: Tachycardia with a Pulse"
+        },
+        {
+          "id": "a2",
+          "shortAction": "Check blood glucose to rule out hypoglycemia as a contributing cause",
+          "protocolExcerpt": "Check blood glucose and treat hypoglycemia per the Hypoglycemia Guideline",
+          "priority": "important",
+          "rationale": "Hypoglycemia is a listed reversible cause of tachycardia that must be excluded.",
+          "protocolReference": "MATC: Tachycardia with a Pulse"
+        },
+        {
+          "id": "a3",
+          "shortAction": "Recognize hypotension and near-syncope as unstable SVT; bypass the stable pharmacologic pathway",
+          "protocolExcerpt": "Regular Narrow Complex Tachycardia – Unstable: Deliver a synchronized shock based on manufacturer's recommendations.",
+          "priority": "critical",
+          "rationale": "Vagal maneuvers and adenosine belong to the stable pathway; using them here delays definitive treatment for an unstable patient.",
+          "protocolReference": "MATC: Tachycardia with a Pulse"
+        }
+      ],
       "transitions": [
         {
           "targetPhaseId": "instability-recognized",
           "if": "Unstable pathway recognized",
           "condition": "Crew completes the initial assessment (oxygen, monitor, 12-lead, IV access, blood glucose) and identifies hemodynamic instability (hypotension, near-syncope) meeting criteria for the unstable SVT pathway.",
-          "conditionType": "action_taken"
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a1", "a3"]
+        },
+        {
+          "targetPhaseId": "delayed-vagal-adenosine",
+          "if": "Vagal/adenosine attempted despite instability",
+          "condition": "Crew instead attempts vagal maneuvers and/or adenosine as though the patient were hemodynamically stable, delaying definitive synchronized cardioversion.",
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["a3"]
         }
       ]
     },
@@ -130,27 +163,19 @@
       },
       "expectedActions": [
         {
-          "id": "a1-assessment",
-          "shortAction": "Establish O2, cardiac monitor, 12-lead EKG, and IV access",
-          "protocolExcerpt": "Manage airway as necessary. Administer oxygen as appropriate with a target of achieving 94–98% saturation. Initiate monitoring and perform 12-lead EKG. Establish IV access.",
+          "id": "b1",
+          "shortAction": "Ketamine 22 mg IV for procedural sedation (88 kg × 0.25 mg/kg = 22 mg; max initial 25 mg)",
+          "protocolExcerpt": "Ketamine: 0.25 mg/kg IM, IV or IO (maximum initial dose 25 mg; maximum cumulative dose 100 mg)",
           "priority": "critical",
-          "rationale": "Confirms the rhythm on 12-lead and establishes access needed for sedation prior to cardioversion.",
-          "protocolReference": "MATC: Tachycardia with a Pulse"
+          "rationale": "Provides sedation and analgesia for a responsive patient prior to cardioversion, as directed by the tachycardia protocol.",
+          "protocolReference": "MATC: Pain Management"
         },
         {
-          "id": "a2-bgl",
-          "shortAction": "Check blood glucose to rule out hypoglycemia as a contributing cause",
-          "protocolExcerpt": "Check blood glucose and treat hypoglycemia per the Hypoglycemia Guideline",
-          "priority": "important",
-          "rationale": "Hypoglycemia is a listed reversible cause of tachycardia that must be excluded.",
-          "protocolReference": "MATC: Tachycardia with a Pulse"
-        },
-        {
-          "id": "a3-recognize-unstable",
-          "shortAction": "Recognize hypotension and near-syncope as unstable SVT; bypass the stable pharmacologic pathway",
-          "protocolExcerpt": "Regular Narrow Complex Tachycardia – Unstable: Deliver a synchronized shock based on manufacturer's recommendations.",
+          "id": "b2",
+          "shortAction": "Deliver synchronized cardioversion per manufacturer's energy recommendation",
+          "protocolExcerpt": "Regular Narrow Complex Tachycardia – Unstable: Deliver a synchronized shock based on manufacturer's recommendations. For responsive patients, consider sedation and analgesia.",
           "priority": "critical",
-          "rationale": "Vagal maneuvers and adenosine belong to the stable pathway; using them here delays definitive treatment for an unstable patient.",
+          "rationale": "Definitive treatment for unstable SVT unresponsive to reflex compensation.",
           "protocolReference": "MATC: Tachycardia with a Pulse"
         }
       ],
@@ -160,14 +185,7 @@
           "if": "Sedation given, cardioversion performed",
           "condition": "Crew proceeds directly to procedural sedation followed by synchronized cardioversion per the unstable pathway, without attempting vagal maneuvers or adenosine.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["a3-recognize-unstable"]
-        },
-        {
-          "targetPhaseId": "delayed-vagal-adenosine",
-          "if": "Vagal/adenosine attempted despite instability",
-          "condition": "Crew instead attempts vagal maneuvers and/or adenosine as though the patient were hemodynamically stable, delaying definitive synchronized cardioversion.",
-          "conditionType": "action_not_taken",
-          "triggerActionIds": ["a3-recognize-unstable"]
+          "triggerActionIds": ["b1", "b2"]
         }
       ]
     },
@@ -211,19 +229,11 @@
       },
       "expectedActions": [
         {
-          "id": "a4-ketamine",
-          "shortAction": "Ketamine 22 mg IV for procedural sedation (88 kg × 0.25 mg/kg = 22 mg; max initial 25 mg)",
-          "protocolExcerpt": "Ketamine: 0.25 mg/kg IM, IV or IO (maximum initial dose 25 mg; maximum cumulative dose 100 mg)",
-          "priority": "critical",
-          "rationale": "Provides sedation and analgesia for a responsive patient prior to cardioversion, as directed by the tachycardia protocol.",
-          "protocolReference": "MATC: Pain Management"
-        },
-        {
-          "id": "a5-cardioversion",
-          "shortAction": "Deliver synchronized cardioversion per manufacturer's energy recommendation",
-          "protocolExcerpt": "Regular Narrow Complex Tachycardia – Unstable: Deliver a synchronized shock based on manufacturer's recommendations. For responsive patients, consider sedation and analgesia.",
-          "priority": "critical",
-          "rationale": "Definitive treatment for unstable SVT unresponsive to reflex compensation.",
+          "id": "c1",
+          "shortAction": "Reassess vitals and rhythm; obtain post-conversion 12-lead EKG",
+          "protocolExcerpt": "Initial rhythm and all rhythm changes ... Obtain monitor strips after each intervention",
+          "priority": "important",
+          "rationale": "Confirms successful conversion and documents rhythm change for handoff.",
           "protocolReference": "MATC: Tachycardia with a Pulse"
         }
       ],
@@ -233,7 +243,7 @@
           "if": "Converted to sinus rhythm",
           "condition": "Synchronized cardioversion successfully converts the rhythm to sinus, with rapid improvement in blood pressure and mental status.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["a5-cardioversion"]
+          "triggerActionIds": ["c1"]
         }
       ]
     },
@@ -275,16 +285,7 @@
         "trendTimeSeconds": 15,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [
-        {
-          "id": "a6-reassess",
-          "shortAction": "Reassess vitals and rhythm; obtain post-conversion 12-lead EKG",
-          "protocolExcerpt": "Initial rhythm and all rhythm changes ... Obtain monitor strips after each intervention",
-          "priority": "important",
-          "rationale": "Confirms successful conversion and documents rhythm change for handoff.",
-          "protocolReference": "MATC: Tachycardia with a Pulse"
-        }
-      ],
+      "expectedActions": [],
       "transitions": []
     },
     {
@@ -328,7 +329,7 @@
       },
       "expectedActions": [
         {
-          "id": "a7-recover",
+          "id": "d1",
           "shortAction": "Abandon the stable pathway; sedate and perform synchronized cardioversion immediately",
           "protocolExcerpt": "Regular Narrow Complex Tachycardia – Unstable: Deliver a synchronized shock based on manufacturer's recommendations. For responsive patients, consider sedation and analgesia.",
           "priority": "critical",

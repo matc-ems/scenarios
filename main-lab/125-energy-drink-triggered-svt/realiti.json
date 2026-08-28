@@ -57,7 +57,11 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [],
+      "relatedChecklist": [
+        "Establish O2, cardiac monitor, 12-lead EKG, and IV access",
+        "Check blood glucose to rule out hypoglycemia as a contributing cause",
+        "Recognize hypotension and near-syncope as unstable SVT; bypass the stable pharmacologic pathway"
+      ],
       "relatedSounds": []
     },
     {
@@ -90,9 +94,8 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Establish O2, cardiac monitor, 12-lead EKG, and IV access",
-        "Check blood glucose to rule out hypoglycemia as a contributing cause",
-        "Recognize hypotension and near-syncope as unstable SVT; bypass the stable pharmacologic pathway"
+        "Ketamine 22 mg IV for procedural sedation (88 kg × 0.25 mg/kg = 22 mg; max initial 25 mg)",
+        "Deliver synchronized cardioversion per manufacturer's energy recommendation"
       ],
       "relatedSounds": []
     },
@@ -126,8 +129,7 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Ketamine 22 mg IV for procedural sedation (88 kg × 0.25 mg/kg = 22 mg; max initial 25 mg)",
-        "Deliver synchronized cardioversion per manufacturer's energy recommendation"
+        "Reassess vitals and rhythm; obtain post-conversion 12-lead EKG"
       ],
       "relatedSounds": []
     },
@@ -160,9 +162,7 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [
-        "Reassess vitals and rhythm; obtain post-conversion 12-lead EKG"
-      ],
+      "relatedChecklist": [],
       "relatedSounds": []
     },
     {
