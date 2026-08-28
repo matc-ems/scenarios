@@ -57,7 +57,12 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [],
+      "relatedChecklist": [
+        "Assess full vital signs, breath sounds, and mental status",
+        "Apply nasal cannula O2 titrated to 94–98% SpO2",
+        "Position patient upright in position of comfort",
+        "Apply continuous pulse oximetry monitoring"
+      ],
       "relatedSounds": []
     },
     {
@@ -90,10 +95,7 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Assess full vital signs, breath sounds, and mental status",
-        "Apply nasal cannula O2 titrated to 94–98% SpO2",
-        "Position patient upright in position of comfort",
-        "Apply continuous pulse oximetry monitoring"
+        "Reassess vital signs and response to oxygen/positioning en route"
       ],
       "relatedSounds": []
     },
@@ -126,9 +128,7 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [
-        "Reassess vital signs and response to oxygen/positioning en route"
-      ],
+      "relatedChecklist": [],
       "relatedSounds": []
     },
     {

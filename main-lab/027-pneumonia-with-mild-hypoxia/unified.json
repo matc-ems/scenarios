@@ -80,19 +80,54 @@
         "trendTimeSeconds": 0,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [],
+      "expectedActions": [
+        {
+          "id": "a1",
+          "shortAction": "Assess full vital signs, breath sounds, and mental status",
+          "protocolExcerpt": "Exam: Full set of vital signs (pulse, blood pressure, respiratory rate, neurologic status assessment), temperature, and O2 saturation... Breath sounds (wheezes, crackles, rales, rhonchi, diminished, clear)... Mental status (alert, tired, lethargic, unresponsive)",
+          "priority": "critical",
+          "rationale": "Establishes baseline severity and guides oxygen titration and transport priority.",
+          "protocolReference": "MATC: Respiratory Distress"
+        },
+        {
+          "id": "a2",
+          "shortAction": "Apply nasal cannula O2 titrated to 94–98% SpO2",
+          "protocolExcerpt": "Give supplemental oxygen for dyspnea to a target of 94–98% saturation. Escalate from a nasal cannula as needed to reach this goal",
+          "priority": "critical",
+          "rationale": "Corrects hypoxia from pneumonia-related V/Q mismatch.",
+          "protocolReference": "MATC: Respiratory Distress"
+        },
+        {
+          "id": "a3",
+          "shortAction": "Position patient upright in position of comfort",
+          "protocolExcerpt": "Patient positioning can significantly impact respiratory mechanics... Elevating the head or padding (shoulders, occiput) can assist with opening airway and respiratory mechanics. This can both improve the ability to ventilate and limit aspiration",
+          "priority": "important",
+          "rationale": "Upright positioning eases work of breathing and reduces aspiration risk.",
+          "protocolReference": "MATC: Airway Management"
+        },
+        {
+          "id": "a4",
+          "shortAction": "Apply continuous pulse oximetry monitoring",
+          "protocolExcerpt": "Pulse oximetry and EtCO2 should be routinely used as adjuncts to other forms of monitoring in patients with respiratory complaints",
+          "priority": "important",
+          "rationale": "Continuous monitoring detects trending desaturation before clinical decompensation is obvious.",
+          "protocolReference": "MATC: Respiratory Distress"
+        }
+      ],
       "transitions": [
         {
           "targetPhaseId": "o2-positioning",
-          "if": "Oxygen and positioning provided promptly",
+          "if": "Oxygen and positioning provided",
           "condition": "Crew promptly assesses full vital signs and breath sounds, applies supplemental oxygen via nasal cannula titrated to target saturation, and positions the patient upright for comfort.",
-          "conditionType": "action_taken"
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a2", "a3"]
         },
         {
           "targetPhaseId": "o2-delayed",
           "if": "Oxygen delayed",
           "condition": "Crew focuses on history-taking and packaging without promptly applying supplemental oxygen, allowing hypoxia to worsen.",
-          "conditionType": "action_not_taken"
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["a2"]
         }
       ]
     },
@@ -137,35 +172,11 @@
       },
       "expectedActions": [
         {
-          "id": "a1-assess",
-          "shortAction": "Assess full vital signs, breath sounds, and mental status",
-          "protocolExcerpt": "Exam: Full set of vital signs (pulse, blood pressure, respiratory rate, neurologic status assessment), temperature, and O2 saturation... Breath sounds (wheezes, crackles, rales, rhonchi, diminished, clear)... Mental status (alert, tired, lethargic, unresponsive)",
-          "priority": "critical",
-          "rationale": "Establishes baseline severity and guides oxygen titration and transport priority.",
-          "protocolReference": "MATC: Respiratory Distress"
-        },
-        {
-          "id": "a2-o2",
-          "shortAction": "Apply nasal cannula O2 titrated to 94–98% SpO2",
-          "protocolExcerpt": "Give supplemental oxygen for dyspnea to a target of 94–98% saturation. Escalate from a nasal cannula as needed to reach this goal",
-          "priority": "critical",
-          "rationale": "Corrects hypoxia from pneumonia-related V/Q mismatch.",
-          "protocolReference": "MATC: Respiratory Distress"
-        },
-        {
-          "id": "a3-position",
-          "shortAction": "Position patient upright in position of comfort",
-          "protocolExcerpt": "Patient positioning can significantly impact respiratory mechanics... Elevating the head or padding (shoulders, occiput) can assist with opening airway and respiratory mechanics. This can both improve the ability to ventilate and limit aspiration",
+          "id": "b1",
+          "shortAction": "Reassess vital signs and response to oxygen/positioning en route",
+          "protocolExcerpt": "Percentage of patients with abnormal pulse oximetry, respiratory rate, EtCO2 value with normalization on final set of vital signs",
           "priority": "important",
-          "rationale": "Upright positioning eases work of breathing and reduces aspiration risk.",
-          "protocolReference": "MATC: Airway Management"
-        },
-        {
-          "id": "a4-monitor",
-          "shortAction": "Apply continuous pulse oximetry monitoring",
-          "protocolExcerpt": "Pulse oximetry and EtCO2 should be routinely used as adjuncts to other forms of monitoring in patients with respiratory complaints",
-          "priority": "important",
-          "rationale": "Continuous monitoring detects trending desaturation before clinical decompensation is obvious.",
+          "rationale": "Confirms the patient continues to respond to supportive care and detects any deterioration early.",
           "protocolReference": "MATC: Respiratory Distress"
         }
       ],
@@ -175,7 +186,7 @@
           "if": "Reassessed and prepared for transport",
           "condition": "Oxygenation and comfort have improved with nasal cannula O2 and positioning; patient is packaged for transport with ongoing reassessment.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["a2-o2", "a3-position"]
+          "triggerActionIds": ["b1"]
         }
       ]
     },
@@ -217,16 +228,7 @@
         "trendTimeSeconds": 40,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [
-        {
-          "id": "a5-reassess",
-          "shortAction": "Reassess vital signs and response to oxygen/positioning en route",
-          "protocolExcerpt": "Percentage of patients with abnormal pulse oximetry, respiratory rate, EtCO2 value with normalization on final set of vital signs",
-          "priority": "important",
-          "rationale": "Confirms the patient continues to respond to supportive care and detects any deterioration early.",
-          "protocolReference": "MATC: Respiratory Distress"
-        }
-      ],
+      "expectedActions": [],
       "transitions": []
     },
     {
@@ -270,7 +272,7 @@
       },
       "expectedActions": [
         {
-          "id": "a6-recover-o2",
+          "id": "c1",
           "shortAction": "Recognize worsening hypoxia; apply O2 titrated to 94–98% SpO2 without further delay",
           "protocolExcerpt": "Give supplemental oxygen for dyspnea to a target of 94–98% saturation. Escalate from a nasal cannula as needed to reach this goal",
           "priority": "critical",
