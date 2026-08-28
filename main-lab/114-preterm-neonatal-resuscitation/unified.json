@@ -80,19 +80,46 @@
         "trendTimeSeconds": 0,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [],
+      "expectedActions": [
+        {
+          "id": "a1",
+          "shortAction": "Provide aggressive warming: dry, swaddle, warm blankets covering body and head",
+          "protocolExcerpt": "Newborn infants are prone to hypothermia which may lead to hypoglycemia, hypoxia, and lethargy. Aggressive warming techniques should be initiated including drying, swaddling, and warm blankets covering body and head. When available, radiant warmers or other warming adjuncts are suggested for babies who require resuscitation, especially for preterm babies",
+          "priority": "critical",
+          "rationale": "Preterm infants have minimal subcutaneous fat and a high surface-area-to-mass ratio, making them especially prone to rapid, harmful heat loss.",
+          "protocolReference": "MATC: Neonatal Resuscitation"
+        },
+        {
+          "id": "a2",
+          "shortAction": "Initiate BVM ventilation with 100% oxygen at 40-60 breaths/min for 90 seconds",
+          "protocolExcerpt": "Positive pressure ventilation (PPV) with bag-mask device may be initiated with room air (21% oxygen) in term and late preterm babies; otherwise use 100% oxygen. Initiate BVM ventilation with room air at 40–60 breaths per minute for 90 seconds",
+          "priority": "critical",
+          "rationale": "A 34-week preterm infant with heart rate below 100 and inadequate respiratory effort requires supplemental oxygen with PPV, unlike a term or late-preterm infant.",
+          "protocolReference": "MATC: Neonatal Resuscitation"
+        },
+        {
+          "id": "a3",
+          "shortAction": "Evaluate heart rate every 30 seconds during ventilation",
+          "protocolExcerpt": "Primary indicator of effective ventilation is improvement in heart rate. Evaluate heart rate every 30 seconds",
+          "priority": "critical",
+          "rationale": "Determines whether to continue current ventilation or escalate oxygen delivery and consider advanced airway.",
+          "protocolReference": "MATC: Neonatal Resuscitation"
+        }
+      ],
       "transitions": [
         {
           "targetPhaseId": "aggressive-warming-ppv",
           "if": "Aggressive warming and PPV started",
           "condition": "Crew recognizes the preterm infant's elevated hypothermia risk and initiates aggressive warming alongside positive pressure ventilation for the heart rate below 100 bpm and inadequate respiratory effort.",
-          "conditionType": "action_taken"
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a1", "a2", "a3"]
         },
         {
           "targetPhaseId": "warming-inadequate",
           "if": "Warming inadequate, hypothermia worsens",
           "condition": "Crew provides only routine drying without aggressive warming measures appropriate for a preterm infant, allowing progressive hypothermia.",
-          "conditionType": "action_not_taken"
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["a1"]
         }
       ]
     },
@@ -138,27 +165,27 @@
       },
       "expectedActions": [
         {
-          "id": "a1-aggressive-warming",
-          "shortAction": "Provide aggressive warming: dry, swaddle, warm blankets covering body and head",
-          "protocolExcerpt": "Newborn infants are prone to hypothermia which may lead to hypoglycemia, hypoxia, and lethargy. Aggressive warming techniques should be initiated including drying, swaddling, and warm blankets covering body and head. When available, radiant warmers or other warming adjuncts are suggested for babies who require resuscitation, especially for preterm babies",
+          "id": "b1",
+          "shortAction": "Initiate two-thumb-encircling-hands chest compressions, coordinated 3:1 with ventilation",
+          "protocolExcerpt": "If no improvement after 30 seconds, initiate chest compressions — two-thumb-encircling-hands technique is preferred. Coordinate chest compressions with positive pressure ventilation (3:1 ratio, 90 compressions and 30 breaths per minute)",
           "priority": "critical",
-          "rationale": "Preterm infants have minimal subcutaneous fat and a high surface-area-to-mass ratio, making them especially prone to rapid, harmful heat loss.",
+          "rationale": "Heart rate below 60 bpm despite effective ventilation meets the protocol threshold for chest compressions.",
           "protocolReference": "MATC: Neonatal Resuscitation"
         },
         {
-          "id": "a2-ppv-preterm",
-          "shortAction": "Initiate BVM ventilation with 100% oxygen at 40-60 breaths/min for 90 seconds",
-          "protocolExcerpt": "Positive pressure ventilation (PPV) with bag-mask device may be initiated with room air (21% oxygen) in term and late preterm babies; otherwise use 100% oxygen. Initiate BVM ventilation with room air at 40–60 breaths per minute for 90 seconds",
+          "id": "b2",
+          "shortAction": "Prepare epinephrine 0.022 mg IV/IO (2.2 kg x 0.01 mg/kg; 0.1 mg/mL concentration) q3-5min if HR remains <60",
+          "protocolExcerpt": "Administer epinephrine (0.1 mg/mL) 0.01 mg/kg IV/IO (preferable if access obtained) or 0.1 mg/kg via the ETT (if unable to obtain access) q 3–5 min if heart rate remains less than 60 BPM",
           "priority": "critical",
-          "rationale": "A 34-week preterm infant with heart rate below 100 and inadequate respiratory effort requires supplemental oxygen with PPV, unlike a term or late-preterm infant.",
+          "rationale": "Epinephrine is indicated if heart rate remains below 60 despite effective ventilation and chest compressions.",
           "protocolReference": "MATC: Neonatal Resuscitation"
         },
         {
-          "id": "a3-reassess-hr",
-          "shortAction": "Evaluate heart rate every 30 seconds during ventilation",
-          "protocolExcerpt": "Primary indicator of effective ventilation is improvement in heart rate. Evaluate heart rate every 30 seconds",
-          "priority": "critical",
-          "rationale": "Determines whether to continue current ventilation or escalate oxygen delivery and consider advanced airway.",
+          "id": "b3",
+          "shortAction": "Check blood glucose given ongoing resuscitation",
+          "protocolExcerpt": "Consider checking a blood glucose for ongoing resuscitation, maternal history of diabetes, ill appearing or unable to feed",
+          "priority": "important",
+          "rationale": "Hypoglycemia is common in stressed preterm newborns and can worsen neurologic outcome if unrecognized.",
           "protocolReference": "MATC: Neonatal Resuscitation"
         }
       ],
@@ -168,7 +195,7 @@
           "if": "Oxygen escalated, HR remains under 60",
           "condition": "After 90 seconds of effective PPV with no heart rate improvement, the crew escalates FiO2 and heart rate continues to fall below 60 bpm, meeting criteria for chest compressions.",
           "conditionType": "vital_threshold",
-          "triggerActionIds": ["a3-reassess-hr"]
+          "triggerActionIds": ["b1", "b2"]
         }
       ]
     },
@@ -212,32 +239,7 @@
         "trendTimeSeconds": 20,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [
-        {
-          "id": "a4-compressions",
-          "shortAction": "Initiate two-thumb-encircling-hands chest compressions, coordinated 3:1 with ventilation",
-          "protocolExcerpt": "If no improvement after 30 seconds, initiate chest compressions — two-thumb-encircling-hands technique is preferred. Coordinate chest compressions with positive pressure ventilation (3:1 ratio, 90 compressions and 30 breaths per minute)",
-          "priority": "critical",
-          "rationale": "Heart rate below 60 bpm despite effective ventilation meets the protocol threshold for chest compressions.",
-          "protocolReference": "MATC: Neonatal Resuscitation"
-        },
-        {
-          "id": "a5-epi-dose",
-          "shortAction": "Prepare epinephrine 0.022 mg IV/IO (2.2 kg x 0.01 mg/kg; 0.1 mg/mL concentration) q3-5min if HR remains <60",
-          "protocolExcerpt": "Administer epinephrine (0.1 mg/mL) 0.01 mg/kg IV/IO (preferable if access obtained) or 0.1 mg/kg via the ETT (if unable to obtain access) q 3–5 min if heart rate remains less than 60 BPM",
-          "priority": "critical",
-          "rationale": "Epinephrine is indicated if heart rate remains below 60 despite effective ventilation and chest compressions.",
-          "protocolReference": "MATC: Neonatal Resuscitation"
-        },
-        {
-          "id": "a6-glucose-check",
-          "shortAction": "Check blood glucose given ongoing resuscitation",
-          "protocolExcerpt": "Consider checking a blood glucose for ongoing resuscitation, maternal history of diabetes, ill appearing or unable to feed",
-          "priority": "important",
-          "rationale": "Hypoglycemia is common in stressed preterm newborns and can worsen neurologic outcome if unrecognized.",
-          "protocolReference": "MATC: Neonatal Resuscitation"
-        }
-      ],
+      "expectedActions": [],
       "transitions": []
     },
     {
@@ -282,7 +284,7 @@
       },
       "expectedActions": [
         {
-          "id": "a7-recover-warming",
+          "id": "c1",
           "shortAction": "Immediately escalate to aggressive warming: radiant warmer or blankets covering body and head, plus PPV",
           "protocolExcerpt": "Aggressive warming techniques should be initiated including drying, swaddling, and warm blankets covering body and head. When available, radiant warmers or other warming adjuncts are suggested for babies who require resuscitation, especially for preterm babies",
           "priority": "critical",

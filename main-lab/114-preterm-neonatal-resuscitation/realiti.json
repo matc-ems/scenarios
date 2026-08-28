@@ -57,7 +57,11 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [],
+      "relatedChecklist": [
+        "Provide aggressive warming: dry, swaddle, warm blankets covering body and head",
+        "Initiate BVM ventilation with 100% oxygen at 40-60 breaths/min for 90 seconds",
+        "Evaluate heart rate every 30 seconds during ventilation"
+      ],
       "relatedSounds": []
     },
     {
@@ -90,9 +94,9 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Provide aggressive warming: dry, swaddle, warm blankets covering body and head",
-        "Initiate BVM ventilation with 100% oxygen at 40-60 breaths/min for 90 seconds",
-        "Evaluate heart rate every 30 seconds during ventilation"
+        "Initiate two-thumb-encircling-hands chest compressions, coordinated 3:1 with ventilation",
+        "Prepare epinephrine 0.022 mg IV/IO (2.2 kg x 0.01 mg/kg; 0.1 mg/mL concentration) q3-5min if HR remains <60",
+        "Check blood glucose given ongoing resuscitation"
       ],
       "relatedSounds": []
     },
@@ -125,11 +129,7 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [
-        "Initiate two-thumb-encircling-hands chest compressions, coordinated 3:1 with ventilation",
-        "Prepare epinephrine 0.022 mg IV/IO (2.2 kg x 0.01 mg/kg; 0.1 mg/mL concentration) q3-5min if HR remains <60",
-        "Check blood glucose given ongoing resuscitation"
-      ],
+      "relatedChecklist": [],
       "relatedSounds": []
     },
     {
