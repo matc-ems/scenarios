@@ -57,7 +57,11 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [],
+      "relatedChecklist": [
+        "100% oxygen via non-rebreather mask immediately",
+        "Apply cardiac monitor, pulse oximetry, and EtCO2; check blood glucose",
+        "Do not rely on normal SpO2 to exclude significant CO or cyanide toxicity"
+      ],
       "relatedSounds": []
     },
     {
@@ -90,9 +94,12 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "100% oxygen via non-rebreather mask immediately",
-        "Apply cardiac monitor, pulse oximetry, and EtCO2; check blood glucose",
-        "Do not rely on normal SpO2 to exclude significant CO or cyanide toxicity"
+        "Preoxygenate with high-flow O2 and positive pressure for 2 minutes before RSI",
+        "Suction soot/secretions from oropharynx before laryngoscopy",
+        "Fentanyl 90 mcg IV premedication (90 kg × 1 mcg/kg), 2-3 min before intubation",
+        "Etomidate 27 mg IV push (90 kg × 0.3 mg/kg)",
+        "Rocuronium 90 mg IV push (90 kg × 1 mg/kg)",
+        "Intubate with 8.0 mm ETT (adult male), limit attempt to 15 seconds or SpO2 <90%"
       ],
       "relatedSounds": []
     },
@@ -126,12 +133,8 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Preoxygenate with high-flow O2 and positive pressure for 2 minutes before RSI",
-        "Suction soot/secretions from oropharynx before laryngoscopy",
-        "Fentanyl 90 mcg IV premedication (90 kg × 1 mcg/kg), 2-3 min before intubation",
-        "Etomidate 27 mg IV push (90 kg × 0.3 mg/kg)",
-        "Rocuronium 90 mg IV push (90 kg × 1 mg/kg)",
-        "Intubate with 8.0 mm ETT (adult male), limit attempt to 15 seconds or SpO2 <90%"
+        "Confirm tube placement with waveform capnography, secure tube, reassess after each movement",
+        "Consider direct transport to a hyperbaric-capable facility given severe CO exposure"
       ],
       "relatedSounds": []
     },
@@ -164,10 +167,7 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [
-        "Confirm tube placement with waveform capnography, secure tube, reassess after each movement",
-        "Consider direct transport to a hyperbaric-capable facility given severe CO exposure"
-      ],
+      "relatedChecklist": [],
       "relatedSounds": []
     },
     {

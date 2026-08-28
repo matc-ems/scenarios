@@ -86,13 +86,39 @@
         "trendTimeSeconds": 0,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [],
+      "expectedActions": [
+        {
+          "id": "a1",
+          "shortAction": "100% oxygen via non-rebreather mask immediately",
+          "protocolExcerpt": "100% oxygen via non-rebreather mask or high flow oxygen by nasal cannula (HFNC) or CPAP or bag valve mask or advanced airway as indicated",
+          "priority": "critical",
+          "rationale": "Carbon monoxide has high affinity for hemoglobin; high-flow oxygen accelerates its displacement even when pulse oximetry appears normal.",
+          "protocolReference": "MATC: Carbon Monoxide/Smoke Inhalation"
+        },
+        {
+          "id": "a2",
+          "shortAction": "Apply cardiac monitor, pulse oximetry, and EtCO2; check blood glucose",
+          "protocolExcerpt": "Vital signs (pulse, blood pressure, respiratory rate, neurologic status assessment) temperature, and O2 saturation, and EtCO2 if available. Apply a cardiac monitor, examine rhythm strip for arrhythmias, and obtain a 12-lead EKG if available. Check blood glucose level",
+          "priority": "important",
+          "rationale": "Establishes baseline monitoring and rules out other contributing causes of altered vitals.",
+          "protocolReference": "MATC: Carbon Monoxide/Smoke Inhalation"
+        },
+        {
+          "id": "a3",
+          "shortAction": "Do not rely on normal SpO2 to exclude significant CO or cyanide toxicity",
+          "protocolExcerpt": "Pulse oximetry is inaccurate due to the carbon monoxide binding with hemoglobin",
+          "priority": "important",
+          "rationale": "A reassuring SpO2 can mask severe hypoxic injury from CO/cyanide binding rather than true oxygen desaturation.",
+          "protocolReference": "MATC: Carbon Monoxide/Smoke Inhalation"
+        }
+      ],
       "transitions": [
         {
           "targetPhaseId": "o2-monitoring",
           "if": "High-flow O2 and monitoring started",
           "condition": "Crew places the patient on 100% oxygen and attaches cardiac monitor, pulse oximetry, and capnography while obtaining a focused exposure history.",
-          "conditionType": "action_taken"
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a1", "a2"]
         }
       ]
     },
@@ -137,28 +163,52 @@
       },
       "expectedActions": [
         {
-          "id": "a1-o2",
-          "shortAction": "100% oxygen via non-rebreather mask immediately",
-          "protocolExcerpt": "100% oxygen via non-rebreather mask or high flow oxygen by nasal cannula (HFNC) or CPAP or bag valve mask or advanced airway as indicated",
+          "id": "b1",
+          "shortAction": "Preoxygenate with high-flow O2 and positive pressure for 2 minutes before RSI",
+          "protocolExcerpt": "Patient should be pre-oxygenated with high flow oxygen, and positive pressure ventilation for a minimum of two minutes prior to the procedure",
           "priority": "critical",
-          "rationale": "Carbon monoxide has high affinity for hemoglobin; high-flow oxygen accelerates its displacement even when pulse oximetry appears normal.",
-          "protocolReference": "MATC: Carbon Monoxide/Smoke Inhalation"
+          "rationale": "Maximizes oxygen reserve before apnea during induction and paralysis.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
         },
         {
-          "id": "a2-monitor",
-          "shortAction": "Apply cardiac monitor, pulse oximetry, and EtCO2; check blood glucose",
-          "protocolExcerpt": "Vital signs (pulse, blood pressure, respiratory rate, neurologic status assessment) temperature, and O2 saturation, and EtCO2 if available. Apply a cardiac monitor, examine rhythm strip for arrhythmias, and obtain a 12-lead EKG if available. Check blood glucose level",
+          "id": "b2",
+          "shortAction": "Suction soot/secretions from oropharynx before laryngoscopy",
+          "protocolExcerpt": "Prompt suctioning of soiled airways before intubation attempt may improve first pass success and limit morbidity and mortality",
           "priority": "important",
-          "rationale": "Establishes baseline monitoring and rules out other contributing causes of altered vitals.",
-          "protocolReference": "MATC: Carbon Monoxide/Smoke Inhalation"
+          "rationale": "Carbonaceous debris in the airway can obscure the glottic view and increase aspiration risk.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
         },
         {
-          "id": "a3-pulseox-caveat",
-          "shortAction": "Do not rely on normal SpO2 to exclude significant CO or cyanide toxicity",
-          "protocolExcerpt": "Pulse oximetry is inaccurate due to the carbon monoxide binding with hemoglobin",
+          "id": "b3",
+          "shortAction": "Fentanyl 90 mcg IV premedication (90 kg × 1 mcg/kg), 2-3 min before intubation",
+          "protocolExcerpt": "Consider pre-medication with Fentanyl, 1 mcg/kg, 2-3 minutes prior to intubation attempt",
           "priority": "important",
-          "rationale": "A reassuring SpO2 can mask severe hypoxic injury from CO/cyanide binding rather than true oxygen desaturation.",
-          "protocolReference": "MATC: Carbon Monoxide/Smoke Inhalation"
+          "rationale": "Blunts the sympathetic response to laryngoscopy.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        },
+        {
+          "id": "b4",
+          "shortAction": "Etomidate 27 mg IV push (90 kg × 0.3 mg/kg)",
+          "protocolExcerpt": "Administer induction sedative agent: Etomidate IV push, 0.2-0.3 mg/kg",
+          "priority": "critical",
+          "rationale": "Provides rapid sedation with minimal hemodynamic effect prior to paralysis.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        },
+        {
+          "id": "b5",
+          "shortAction": "Rocuronium 90 mg IV push (90 kg × 1 mg/kg)",
+          "protocolExcerpt": "Administer paralytic agent: Rocuronium IV push, 1 mg/kg",
+          "priority": "critical",
+          "rationale": "Achieves complete paralysis for optimal first-pass intubation conditions.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        },
+        {
+          "id": "b6",
+          "shortAction": "Intubate with 8.0 mm ETT (adult male), limit attempt to 15 seconds or SpO2 <90%",
+          "protocolExcerpt": "Absent significant airway swelling or underlying anatomic abnormalities, initial tube size (internal diameter in millimeters) for adult females should be 7.5, adult males 8.0. Attempt intubation, limiting attempts to 15 seconds, or a desaturation below 90%, whichever occurs first",
+          "priority": "critical",
+          "rationale": "Secures the airway before further swelling makes glottic visualization impossible.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
         }
       ],
       "transitions": [
@@ -167,17 +217,18 @@
           "if": "Early RSI performed for impending obstruction",
           "condition": "Worsening hoarseness, increasing stridor, and visible soot/carbonaceous sputum in the oropharynx are recognized as signs of impending airway obstruction, prompting early RSI before the airway swells shut.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["a1-o2", "a2-monitor"]
+          "triggerActionIds": ["b5", "b6"]
         },
         {
           "targetPhaseId": "airway-closes",
           "if": "Intubation delayed despite worsening stridor",
           "condition": "Crew defers airway management, waiting for further deterioration instead of intubating early; stridor and hoarseness progress toward near-complete obstruction.",
-          "conditionType": "action_not_taken"
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["b6"]
         },
         {
           "targetPhaseId": "cyanide-suspected",
-          "if": "Sudden hypotension/AMS raises cyanide concern",
+          "if": "Hydroxocobalamin given for suspected cyanide toxicity",
           "condition": "Patient develops sudden hypotension and worsening mental status out of proportion to visible burn severity, raising concern for concurrent cyanide toxicity from combustion of synthetic materials.",
           "conditionType": "vital_threshold"
         }
@@ -224,61 +275,29 @@
       },
       "expectedActions": [
         {
-          "id": "a4-preox",
-          "shortAction": "Preoxygenate with high-flow O2 and positive pressure for 2 minutes before RSI",
-          "protocolExcerpt": "Patient should be pre-oxygenated with high flow oxygen, and positive pressure ventilation for a minimum of two minutes prior to the procedure",
+          "id": "c1",
+          "shortAction": "Confirm tube placement with waveform capnography, secure tube, reassess after each movement",
+          "protocolExcerpt": "Confirm placement of advanced airway (endotracheal tube, SGA) with waveform capnography (most reliable), absent gastric sounds, and bilateral breath sounds. Secure tube manually. Once proper position is confirmed, secure the tube with tape, twill, or commercial device",
           "priority": "critical",
-          "rationale": "Maximizes oxygen reserve before apnea during induction and paralysis.",
+          "rationale": "Waveform capnography is the most reliable confirmation method and must be continuously monitored for displacement.",
           "protocolReference": "MATC: Airway Management (Includes RSI)"
         },
         {
-          "id": "a5-suction",
-          "shortAction": "Suction soot/secretions from oropharynx before laryngoscopy",
-          "protocolExcerpt": "Prompt suctioning of soiled airways before intubation attempt may improve first pass success and limit morbidity and mortality",
+          "id": "c2",
+          "shortAction": "Consider direct transport to a hyperbaric-capable facility given severe CO exposure",
+          "protocolExcerpt": "Consider transporting patients with severe carbon monoxide poisoning directly to a facility with hyperbaric oxygen capabilities if feasible and patient does not meet criteria for other specialty care (e.g., trauma or burn)",
           "priority": "important",
-          "rationale": "Carbonaceous debris in the airway can obscure the glottic view and increase aspiration risk.",
-          "protocolReference": "MATC: Airway Management (Includes RSI)"
-        },
-        {
-          "id": "a6-premed",
-          "shortAction": "Fentanyl 90 mcg IV premedication (90 kg × 1 mcg/kg), 2-3 min before intubation",
-          "protocolExcerpt": "Consider pre-medication with Fentanyl, 1 mcg/kg, 2-3 minutes prior to intubation attempt",
-          "priority": "important",
-          "rationale": "Blunts the sympathetic response to laryngoscopy.",
-          "protocolReference": "MATC: Airway Management (Includes RSI)"
-        },
-        {
-          "id": "a7-induction",
-          "shortAction": "Etomidate 27 mg IV push (90 kg × 0.3 mg/kg)",
-          "protocolExcerpt": "Administer induction sedative agent: Etomidate IV push, 0.2-0.3 mg/kg",
-          "priority": "critical",
-          "rationale": "Provides rapid sedation with minimal hemodynamic effect prior to paralysis.",
-          "protocolReference": "MATC: Airway Management (Includes RSI)"
-        },
-        {
-          "id": "a8-paralytic",
-          "shortAction": "Rocuronium 90 mg IV push (90 kg × 1 mg/kg)",
-          "protocolExcerpt": "Administer paralytic agent: Rocuronium IV push, 1 mg/kg",
-          "priority": "critical",
-          "rationale": "Achieves complete paralysis for optimal first-pass intubation conditions.",
-          "protocolReference": "MATC: Airway Management (Includes RSI)"
-        },
-        {
-          "id": "a9-intubate",
-          "shortAction": "Intubate with 8.0 mm ETT (adult male), limit attempt to 15 seconds or SpO2 <90%",
-          "protocolExcerpt": "Absent significant airway swelling or underlying anatomic abnormalities, initial tube size (internal diameter in millimeters) for adult females should be 7.5, adult males 8.0. Attempt intubation, limiting attempts to 15 seconds, or a desaturation below 90%, whichever occurs first",
-          "priority": "critical",
-          "rationale": "Secures the airway before further swelling makes glottic visualization impossible.",
-          "protocolReference": "MATC: Airway Management (Includes RSI)"
+          "rationale": "Hyperbaric oxygen therapy reduces the risk of delayed neurologic sequelae from significant CO exposure.",
+          "protocolReference": "MATC: Carbon Monoxide/Smoke Inhalation"
         }
       ],
       "transitions": [
         {
           "targetPhaseId": "secured-transport",
-          "if": "Tube confirmed and secured",
+          "if": "Tube confirmed and secured, transport initiated",
           "condition": "Successful first-pass intubation is confirmed with waveform capnography, bilateral breath sounds, and absent gastric sounds; tube is secured and ventilation begins.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["a9-intubate"]
+          "triggerActionIds": ["c1", "c2"]
         }
       ]
     },
@@ -321,24 +340,7 @@
         "trendTimeSeconds": 40,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
       },
-      "expectedActions": [
-        {
-          "id": "a10-confirm",
-          "shortAction": "Confirm tube placement with waveform capnography, secure tube, reassess after each movement",
-          "protocolExcerpt": "Confirm placement of advanced airway (endotracheal tube, SGA) with waveform capnography (most reliable), absent gastric sounds, and bilateral breath sounds. Secure tube manually. Once proper position is confirmed, secure the tube with tape, twill, or commercial device",
-          "priority": "critical",
-          "rationale": "Waveform capnography is the most reliable confirmation method and must be continuously monitored for displacement.",
-          "protocolReference": "MATC: Airway Management (Includes RSI)"
-        },
-        {
-          "id": "a11-hyperbaric",
-          "shortAction": "Consider direct transport to a hyperbaric-capable facility given severe CO exposure",
-          "protocolExcerpt": "Consider transporting patients with severe carbon monoxide poisoning directly to a facility with hyperbaric oxygen capabilities if feasible and patient does not meet criteria for other specialty care (e.g., trauma or burn)",
-          "priority": "important",
-          "rationale": "Hyperbaric oxygen therapy reduces the risk of delayed neurologic sequelae from significant CO exposure.",
-          "protocolReference": "MATC: Carbon Monoxide/Smoke Inhalation"
-        }
-      ],
+      "expectedActions": [],
       "transitions": []
     },
     {
@@ -382,7 +384,7 @@
       },
       "expectedActions": [
         {
-          "id": "a12-surgical-airway",
+          "id": "d1",
           "shortAction": "Prepare for surgical airway; oxygenation/ventilation cannot be achieved by less invasive means",
           "protocolExcerpt": "When patients cannot be oxygenated/ventilated effectively using the above interventions, or when conventional airway approaches are impossible, surgical airway management is a reasonable option if the clinician has competency in the procedure and risk of death for not escalating airway management seems to outweigh the risk of a procedural complication",
           "priority": "critical",
@@ -433,7 +435,7 @@
       },
       "expectedActions": [
         {
-          "id": "a13-hydroxocobalamin",
+          "id": "e1",
           "shortAction": "Hydroxocobalamin 5 g IV over 15 minutes for suspected cyanide toxicity",
           "protocolExcerpt": "Administer hydroxocobalamin: Initial dose is 5 g administered over 15 minutes slow IV. Each 5 g vial of hydroxocobalamin for injection is to be reconstituted with 200 mL of LR, NS, or D5W (25 mg/mL) and administered at 10-15 mL/minute",
           "priority": "critical",
@@ -441,7 +443,7 @@
           "protocolReference": "MATC: Cyanide Exposure"
         },
         {
-          "id": "a14-continue-o2",
+          "id": "e2",
           "shortAction": "Continue 100% oxygen via non-rebreather, CPAP, or BVM as tolerated",
           "protocolExcerpt": "100% oxygen via non-rebreather mask, CPAP, or bag valve mask",
           "priority": "critical",
