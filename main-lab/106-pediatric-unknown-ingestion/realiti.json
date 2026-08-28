@@ -57,7 +57,11 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [],
+      "relatedChecklist": [
+        "Obtain ingestion history: agent, quantity, timing; bring bottle/pills to ED",
+        "Attach continuous cardiac monitor and pulse oximetry; establish IV access",
+        "Activated charcoal 14 g PO (14 kg x 1 g/kg), given within first hour, airway protected"
+      ],
       "relatedSounds": []
     },
     {
@@ -90,9 +94,9 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Obtain ingestion history: agent, quantity, timing; bring bottle/pills to ED",
-        "Activated charcoal 14 g PO (14 kg x 1 g/kg), given within first hour, airway protected",
-        "Attach continuous cardiac monitor and pulse oximetry; establish IV access"
+        "Atropine 0.28 mg IV (14 kg x 0.02 mg/kg; max 0.5 mg), q5min to total 1 mg",
+        "Calcium gluconate 840 mg IV over 10 min (14 kg x 60 mg/kg)",
+        "IV fluid bolus 280 mL NS (14 kg x 20 mL/kg) for hypoperfusion"
       ],
       "relatedSounds": []
     },
@@ -126,9 +130,8 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Atropine 0.28 mg IV (14 kg x 0.02 mg/kg; max 0.5 mg), q5min to total 1 mg",
-        "Calcium gluconate 840 mg IV over 10 min (14 kg x 60 mg/kg)",
-        "IV fluid bolus 280 mL NS (14 kg x 20 mL/kg) for hypoperfusion"
+        "Repeat vital signs and ECG frequently en route for delayed re-deterioration",
+        "Contact poison control / medical control for ongoing guidance"
       ],
       "relatedSounds": []
     },
@@ -161,10 +164,7 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [
-        "Repeat vital signs and ECG frequently en route for delayed re-deterioration",
-        "Contact poison control / medical control for ongoing guidance"
-      ],
+      "relatedChecklist": [],
       "relatedSounds": []
     },
     {
@@ -244,13 +244,13 @@
       "icon": 1
     },
     {
-      "title": "Activated charcoal 14 g PO (14 kg x 1 g/kg), given within first hour, airway protected",
+      "title": "Attach continuous cardiac monitor and pulse oximetry; establish IV access",
       "type": "Check",
       "value": 0,
       "icon": 1
     },
     {
-      "title": "Attach continuous cardiac monitor and pulse oximetry; establish IV access",
+      "title": "Activated charcoal 14 g PO (14 kg x 1 g/kg), given within first hour, airway protected",
       "type": "Check",
       "value": 0,
       "icon": 1

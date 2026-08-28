@@ -80,13 +80,46 @@
         "trendTimeSeconds": 0,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [],
+      "expectedActions": [
+        {
+          "id": "a1",
+          "shortAction": "Obtain ingestion history: agent, quantity, timing; bring bottle/pills to ED",
+          "protocolExcerpt": "When indicated, identify specific medication taken (including immediate release vs sustained release), time of ingestion, dose, and quantity. When appropriate, bring all medications (prescribed and not prescribed) found in the environment",
+          "priority": "critical",
+          "rationale": "Identifying the specific agent and formulation (extended-release) directly changes risk stratification and treatment.",
+          "protocolReference": "MATC: Poisoning/Overdose Universal Care"
+        },
+        {
+          "id": "a2",
+          "shortAction": "Attach continuous cardiac monitor and pulse oximetry; establish IV access",
+          "protocolExcerpt": "Apply a cardiac monitor, examine rhythm strip for arrhythmias, and consider obtaining a 12-lead EKG. ... Monitor pulse oximetry and EtCO2 for respiratory decompensation",
+          "priority": "critical",
+          "rationale": "CCB toxicity can cause delayed-onset bradycardia and hypotension, especially with extended-release formulations.",
+          "protocolReference": "MATC: Calcium Channel Blocker Poisoning/Overdose"
+        },
+        {
+          "id": "a3",
+          "shortAction": "Activated charcoal 14 g PO (14 kg x 1 g/kg), given within first hour, airway protected",
+          "protocolExcerpt": "Consider activated charcoal without sorbitol (1 g/kg) PO only if within the first hour of ingestion, if indicated per the time of ingestion. If risk of rapid decreasing mental status, do not administer oral agent without adequately protecting the airway",
+          "priority": "important",
+          "rationale": "Reduces further GI absorption of the extended-release calcium channel blocker while the child is still protecting his own airway.",
+          "protocolReference": "MATC: Calcium Channel Blocker Poisoning/Overdose"
+        }
+      ],
       "transitions": [
         {
           "targetPhaseId": "charcoal-iv",
           "if": "History obtained, charcoal and IV access initiated",
           "condition": "Crew obtains an accurate ingestion history, identifies the specific agent as a calcium channel blocker, confirms the child is protecting his airway and within the first hour of possible ingestion, and proceeds with activated charcoal and IV access while attaching monitoring.",
-          "conditionType": "action_taken"
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a1", "a2", "a3"]
+        },
+        {
+          "targetPhaseId": "charcoal-airway-not-protected",
+          "if": "Charcoal given despite declining mental status",
+          "condition": "Crew administers activated charcoal even as the child's mental status begins to decline, without first protecting the airway, risking aspiration.",
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["a3"]
         }
       ]
     },
@@ -131,27 +164,27 @@
       },
       "expectedActions": [
         {
-          "id": "a1-history",
-          "shortAction": "Obtain ingestion history: agent, quantity, timing; bring bottle/pills to ED",
-          "protocolExcerpt": "When indicated, identify specific medication taken (including immediate release vs sustained release), time of ingestion, dose, and quantity. When appropriate, bring all medications (prescribed and not prescribed) found in the environment",
-          "priority": "critical",
-          "rationale": "Identifying the specific agent and formulation (extended-release) directly changes risk stratification and treatment.",
-          "protocolReference": "MATC: Poisoning/Overdose Universal Care"
-        },
-        {
-          "id": "a2-charcoal",
-          "shortAction": "Activated charcoal 14 g PO (14 kg x 1 g/kg), given within first hour, airway protected",
-          "protocolExcerpt": "Consider activated charcoal without sorbitol (1 g/kg) PO only if within the first hour of ingestion, if indicated per the time of ingestion. If risk of rapid decreasing mental status, do not administer oral agent without adequately protecting the airway",
+          "id": "b1",
+          "shortAction": "Atropine 0.28 mg IV (14 kg x 0.02 mg/kg; max 0.5 mg), q5min to total 1 mg",
+          "protocolExcerpt": "Consider atropine sulfate for symptomatic bradycardia. Pediatric: atropine 0.02 mg/kg (0.5 mg maximum) q 5 minutes, maximum total dose 1 mg",
           "priority": "important",
-          "rationale": "Reduces further GI absorption of the extended-release calcium channel blocker while the child is still protecting his own airway.",
+          "rationale": "First-line per the escalation sequence, though it may have little effect in CCB toxicity.",
           "protocolReference": "MATC: Calcium Channel Blocker Poisoning/Overdose"
         },
         {
-          "id": "a3-monitor",
-          "shortAction": "Attach continuous cardiac monitor and pulse oximetry; establish IV access",
-          "protocolExcerpt": "Apply a cardiac monitor, examine rhythm strip for arrhythmias, and consider obtaining a 12-lead EKG. ... Monitor pulse oximetry and EtCO2 for respiratory decompensation",
+          "id": "b2",
+          "shortAction": "Calcium gluconate 840 mg IV over 10 min (14 kg x 60 mg/kg)",
+          "protocolExcerpt": "Calcium gluconate. Pediatric: Calcium gluconate 60 mg/kg IVP over 10 minutes",
           "priority": "critical",
-          "rationale": "CCB toxicity can cause delayed-onset bradycardia and hypotension, especially with extended-release formulations.",
+          "rationale": "Directly counteracts the calcium-channel blockade causing the bradycardia and hypotension.",
+          "protocolReference": "MATC: Calcium Channel Blocker Poisoning/Overdose"
+        },
+        {
+          "id": "b3",
+          "shortAction": "IV fluid bolus 280 mL NS (14 kg x 20 mL/kg) for hypoperfusion",
+          "protocolExcerpt": "Consider IV fluid bolus (normal saline or lactated Ringer's) 20 mL/kg up to 2 liters",
+          "priority": "important",
+          "rationale": "Supports perfusion while calcium and atropine take effect.",
           "protocolReference": "MATC: Calcium Channel Blocker Poisoning/Overdose"
         }
       ],
@@ -160,14 +193,15 @@
           "targetPhaseId": "bradycardia-calcium",
           "if": "Bradycardia and hypotension develop, calcium given",
           "condition": "Approximately 20 minutes later, the child develops symptomatic bradycardia and hypotension consistent with delayed-onset extended-release CCB toxicity; the crew recognizes this and administers weight-based calcium gluconate.",
-          "conditionType": "time_elapsed"
+          "conditionType": "time_elapsed",
+          "triggerActionIds": ["b1", "b2", "b3"]
         },
         {
-          "targetPhaseId": "charcoal-airway-not-protected",
-          "if": "Charcoal given despite declining mental status",
-          "condition": "Crew administers activated charcoal even as the child's mental status begins to decline, without first protecting the airway, risking aspiration.",
+          "targetPhaseId": "calcium-withheld",
+          "if": "Calcium withheld despite worsening bradycardia",
+          "condition": "Crew continues supportive care only without administering calcium gluconate despite persistent symptomatic bradycardia and hypotension, allowing progression toward refractory shock.",
           "conditionType": "action_not_taken",
-          "triggerActionIds": ["a2-charcoal"]
+          "triggerActionIds": ["b2"]
         }
       ]
     },
@@ -212,28 +246,20 @@
       },
       "expectedActions": [
         {
-          "id": "a4-atropine",
-          "shortAction": "Atropine 0.28 mg IV (14 kg x 0.02 mg/kg; max 0.5 mg), q5min to total 1 mg",
-          "protocolExcerpt": "Consider atropine sulfate for symptomatic bradycardia. Pediatric: atropine 0.02 mg/kg (0.5 mg maximum) q 5 minutes, maximum total dose 1 mg",
-          "priority": "important",
-          "rationale": "First-line per the escalation sequence, though it may have little effect in CCB toxicity.",
-          "protocolReference": "MATC: Calcium Channel Blocker Poisoning/Overdose"
-        },
-        {
-          "id": "a5-calcium",
-          "shortAction": "Calcium gluconate 840 mg IV over 10 min (14 kg x 60 mg/kg)",
-          "protocolExcerpt": "Calcium gluconate. Pediatric: Calcium gluconate 60 mg/kg IVP over 10 minutes",
+          "id": "c1",
+          "shortAction": "Repeat vital signs and ECG frequently en route for delayed re-deterioration",
+          "protocolExcerpt": "Repeat evaluation and documentation of signs and symptoms as patient clinical conditions may deteriorate rapidly. ... Serial frequent assessments are essential as these patients often have rapid deterioration with profound hypotension",
           "priority": "critical",
-          "rationale": "Directly counteracts the calcium-channel blockade causing the bradycardia and hypotension.",
+          "rationale": "Extended-release CCB ingestions can have delayed and prolonged toxicity requiring vigilant reassessment.",
           "protocolReference": "MATC: Calcium Channel Blocker Poisoning/Overdose"
         },
         {
-          "id": "a6-fluids",
-          "shortAction": "IV fluid bolus 280 mL NS (14 kg x 20 mL/kg) for hypoperfusion",
-          "protocolExcerpt": "Consider IV fluid bolus (normal saline or lactated Ringer's) 20 mL/kg up to 2 liters",
+          "id": "c2",
+          "shortAction": "Contact poison control / medical control for ongoing guidance",
+          "protocolExcerpt": "The regional poison center should be engaged as early as reasonably possible to aid in appropriate therapy and to track patient outcomes to improve knowledge of toxic effects",
           "priority": "important",
-          "rationale": "Supports perfusion while calcium and atropine take effect.",
-          "protocolReference": "MATC: Calcium Channel Blocker Poisoning/Overdose"
+          "rationale": "Poison control can help estimate ingested dose and anticipate the expected clinical course.",
+          "protocolReference": "MATC: Poisoning/Overdose Universal Care"
         }
       ],
       "transitions": [
@@ -242,14 +268,7 @@
           "if": "Heart rate and perfusion improve, transport",
           "condition": "Following calcium gluconate and a fluid bolus, the child's heart rate and blood pressure trend toward normal, and he is transported with continuous monitoring for further deterioration.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["a5-calcium", "a6-fluids"]
-        },
-        {
-          "targetPhaseId": "calcium-withheld",
-          "if": "Calcium withheld despite worsening bradycardia",
-          "condition": "Crew continues supportive care only without administering calcium gluconate despite persistent symptomatic bradycardia and hypotension, allowing progression toward refractory shock.",
-          "conditionType": "action_not_taken",
-          "triggerActionIds": ["a5-calcium"]
+          "triggerActionIds": ["c1", "c2"]
         }
       ]
     },
@@ -292,24 +311,7 @@
         "trendTimeSeconds": 40,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [
-        {
-          "id": "a7-reassess",
-          "shortAction": "Repeat vital signs and ECG frequently en route for delayed re-deterioration",
-          "protocolExcerpt": "Repeat evaluation and documentation of signs and symptoms as patient clinical conditions may deteriorate rapidly. ... Serial frequent assessments are essential as these patients often have rapid deterioration with profound hypotension",
-          "priority": "critical",
-          "rationale": "Extended-release CCB ingestions can have delayed and prolonged toxicity requiring vigilant reassessment.",
-          "protocolReference": "MATC: Calcium Channel Blocker Poisoning/Overdose"
-        },
-        {
-          "id": "a8-poison-control",
-          "shortAction": "Contact poison control / medical control for ongoing guidance",
-          "protocolExcerpt": "The regional poison center should be engaged as early as reasonably possible to aid in appropriate therapy and to track patient outcomes to improve knowledge of toxic effects",
-          "priority": "important",
-          "rationale": "Poison control can help estimate ingested dose and anticipate the expected clinical course.",
-          "protocolReference": "MATC: Poisoning/Overdose Universal Care"
-        }
-      ],
+      "expectedActions": [],
       "transitions": []
     },
     {
@@ -353,7 +355,7 @@
       },
       "expectedActions": [
         {
-          "id": "a9-suction-rescue",
+          "id": "d1",
           "shortAction": "Suction airway, position for airway protection, support oxygenation",
           "protocolExcerpt": "If risk of rapid decreasing mental status, do not administer oral agent without adequately protecting the airway",
           "priority": "critical",
@@ -403,7 +405,7 @@
       },
       "expectedActions": [
         {
-          "id": "a10-glucagon-rescue",
+          "id": "e1",
           "shortAction": "Glucagon 0.5 mg IV (patient <25 kg), calcium gluconate, consider pacing",
           "protocolExcerpt": "If atropine, calcium, and vasopressors have failed in the symptomatic bradycardia patient, consider: Pediatric: Glucagon 0.5 mg IVP (less than 25 kg); q 5 minutes as necessary. Consider transcutaneous pacing if refractory to initial pharmacologic interventions",
           "priority": "critical",
