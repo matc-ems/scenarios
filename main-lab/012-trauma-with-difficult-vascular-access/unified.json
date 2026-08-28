@@ -81,19 +81,38 @@
         "trendTimeSeconds": 0,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [],
+      "expectedActions": [
+        {
+          "id": "a1",
+          "shortAction": "Perform MARCH primary survey: hemorrhage, airway, breathing, circulation, head/hypothermia",
+          "protocolExcerpt": "Primary survey (Use \"MARCH\" algorithm)",
+          "priority": "critical",
+          "rationale": "Identifies life threats and directs the crew toward recognizing occult hemorrhagic shock.",
+          "protocolReference": "MATC: General Trauma Management"
+        },
+        {
+          "id": "a2",
+          "shortAction": "Place IO after 2 failed peripheral IV attempts (or >90 sec) on vasoconstricted veins",
+          "protocolExcerpt": "Establish IV access. If unable to obtain within two attempts or less than 90 seconds, place an IO needle",
+          "priority": "critical",
+          "rationale": "Compensated shock causes peripheral vasoconstriction that makes standard IV access unreliable; IO gives immediate reliable access.",
+          "protocolReference": "MATC: Shock"
+        }
+      ],
       "transitions": [
         {
           "targetPhaseId": "io-access-fluids",
           "if": "IO placed after failed IV attempts",
           "condition": "Crew performs the MARCH primary survey, recognizes signs of hemorrhagic shock, attempts peripheral IV access twice without success on vasoconstricted veins, and transitions to IO access within the protocol's 90-second/two-attempt threshold.",
-          "conditionType": "action_taken"
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a1", "a2"]
         },
         {
           "targetPhaseId": "access-delayed",
           "if": "Peripheral attempts continue past threshold",
           "condition": "Crew continues attempting peripheral IV access beyond two attempts or 90 seconds instead of transitioning to IO, delaying fluid resuscitation while the patient's shock progresses.",
-          "conditionType": "time_elapsed"
+          "conditionType": "time_elapsed",
+          "triggerActionIds": ["a2"]
         }
       ]
     },
@@ -138,23 +157,7 @@
       },
       "expectedActions": [
         {
-          "id": "a1-march",
-          "shortAction": "Perform MARCH primary survey: hemorrhage, airway, breathing, circulation, head/hypothermia",
-          "protocolExcerpt": "Primary survey (Use \"MARCH\" algorithm)",
-          "priority": "critical",
-          "rationale": "Identifies life threats and directs the crew toward recognizing occult hemorrhagic shock.",
-          "protocolReference": "MATC: General Trauma Management"
-        },
-        {
-          "id": "a2-io-access",
-          "shortAction": "Place IO after 2 failed peripheral IV attempts (or >90 sec) on vasoconstricted veins",
-          "protocolExcerpt": "Establish IV access. If unable to obtain within two attempts or less than 90 seconds, place an IO needle",
-          "priority": "critical",
-          "rationale": "Compensated shock causes peripheral vasoconstriction that makes standard IV access unreliable; IO gives immediate reliable access.",
-          "protocolReference": "MATC: Shock"
-        },
-        {
-          "id": "a3-fluid-bolus",
+          "id": "b1",
           "shortAction": "Give 500 mL isotonic fluid bolus via IO for SBP <90 mmHg with HR >100",
           "protocolExcerpt": "If SBP less than 90 mmHg or HR greater than 120 BPM, initiate resuscitation: ... consider 500 mL bolus of IV fluid, repeat as needed for persistent signs and symptoms of shock",
           "priority": "critical",
@@ -162,11 +165,19 @@
           "protocolReference": "MATC: General Trauma Management"
         },
         {
-          "id": "a4-reassess-sbp",
+          "id": "b2",
           "shortAction": "Reassess SBP and mental status after fluid bolus",
           "protocolExcerpt": "Reassess SBP after bolus given",
           "priority": "important",
           "rationale": "Confirms response to fluids and guides whether additional boluses are needed.",
+          "protocolReference": "MATC: General Trauma Management"
+        },
+        {
+          "id": "b3",
+          "shortAction": "Minimize scene time (<10 min) and transport to appropriate trauma center per field triage guideline",
+          "protocolExcerpt": "Target scene time less than 10 minutes for unstable patients or those likely to need surgical intervention. Decisions regarding transport destination should be based on the ACS-COT 2022 National Guideline for the Field Triage of Injured Patients",
+          "priority": "critical",
+          "rationale": "Suspected intra-abdominal hemorrhage requires rapid surgical evaluation at an appropriate trauma center.",
           "protocolReference": "MATC: General Trauma Management"
         }
       ],
@@ -176,7 +187,7 @@
           "if": "Packaged for rapid transport",
           "condition": "IO access secured, fluid resuscitation underway, and patient is packaged with continued serial reassessment for rapid transport to an appropriate trauma center.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["a2-io-access", "a3-fluid-bolus"]
+          "triggerActionIds": ["b1", "b3"]
         }
       ]
     },
@@ -221,19 +232,11 @@
       },
       "expectedActions": [
         {
-          "id": "a5-serial-reassess",
+          "id": "c1",
           "shortAction": "Reassess vitals and neuro status serially en route; monitor for occult hemorrhage",
           "protocolExcerpt": "Monitor patient for deterioration over time with serial vital signs (pulse, blood pressure, respiratory rate, neurologic status assessment) and repeat neurologic status assessment. Patients with compensated shock may not manifest hypotension until severe blood loss has occurred",
           "priority": "critical",
           "rationale": "Compensated shock can mask ongoing intra-abdominal hemorrhage until decompensation occurs suddenly.",
-          "protocolReference": "MATC: General Trauma Management"
-        },
-        {
-          "id": "a6-minimize-scene-transport",
-          "shortAction": "Minimize scene time (<10 min) and transport to appropriate trauma center per field triage guideline",
-          "protocolExcerpt": "Target scene time less than 10 minutes for unstable patients or those likely to need surgical intervention. Decisions regarding transport destination should be based on the ACS-COT 2022 National Guideline for the Field Triage of Injured Patients",
-          "priority": "critical",
-          "rationale": "Suspected intra-abdominal hemorrhage requires rapid surgical evaluation at an appropriate trauma center.",
           "protocolReference": "MATC: General Trauma Management"
         }
       ],
@@ -280,7 +283,7 @@
       },
       "expectedActions": [
         {
-          "id": "a7-recover-io",
+          "id": "d1",
           "shortAction": "Stop peripheral attempts now; place IO immediately and begin fluid bolus",
           "protocolExcerpt": "Establish IV access. If unable to obtain within two attempts or less than 90 seconds, place an IO needle",
           "priority": "critical",
