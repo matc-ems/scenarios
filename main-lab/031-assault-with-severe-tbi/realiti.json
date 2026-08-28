@@ -57,7 +57,12 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [],
+      "relatedChecklist": [
+        "Apply high-flow O2 via NRB; suction blood/emesis from oropharynx",
+        "Maintain cervical spine stabilization; assume concomitant C-spine injury",
+        "Reassess BP before sedative/paralytic; treat to maintain SBP ≥110 mmHg",
+        "Preoxygenate with high-flow O2 + PPV for at least 2 minutes before RSI attempt"
+      ],
       "relatedSounds": []
     },
     {
@@ -90,10 +95,10 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Apply high-flow O2 via NRB; suction blood/emesis from oropharynx",
-        "Maintain cervical spine stabilization; assume concomitant C-spine injury",
-        "Preoxygenate with high-flow O2 + PPV for at least 2 minutes before RSI attempt",
-        "Reassess BP before sedative/paralytic; treat to maintain SBP ≥110 mmHg"
+        "Fentanyl 85 mcg IV premedication (85 kg × 1 mcg/kg), 2–3 min prior to intubation",
+        "Etomidate 25 mg IV push induction (85 kg × 0.3 mg/kg = 25.5 mg)",
+        "Rocuronium 85 mg IV push paralytic (85 kg × 1 mg/kg)",
+        "Intubate; confirm placement with waveform capnography and bilateral breath sounds"
       ],
       "relatedSounds": []
     },
@@ -127,10 +132,6 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Fentanyl 85 mcg IV premedication (85 kg × 1 mcg/kg), 2–3 min prior to intubation",
-        "Etomidate 25 mg IV push induction (85 kg × 0.3 mg/kg = 25.5 mg)",
-        "Rocuronium 85 mg IV push paralytic (85 kg × 1 mg/kg)",
-        "Intubate; confirm placement with waveform capnography and bilateral breath sounds",
         "Ventilate at 10 breaths/min; target EtCO2 35–45 mmHg, avoid hyperventilation"
       ],
       "relatedSounds": []
@@ -253,13 +254,13 @@
       "icon": 1
     },
     {
-      "title": "Preoxygenate with high-flow O2 + PPV for at least 2 minutes before RSI attempt",
+      "title": "Reassess BP before sedative/paralytic; treat to maintain SBP ≥110 mmHg",
       "type": "Check",
       "value": 0,
       "icon": 1
     },
     {
-      "title": "Reassess BP before sedative/paralytic; treat to maintain SBP ≥110 mmHg",
+      "title": "Preoxygenate with high-flow O2 + PPV for at least 2 minutes before RSI attempt",
       "type": "Check",
       "value": 0,
       "icon": 1

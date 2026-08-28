@@ -81,13 +81,54 @@
         "trendTimeSeconds": 0,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [],
+      "expectedActions": [
+        {
+          "id": "a1",
+          "shortAction": "Apply high-flow O2 via NRB; suction blood/emesis from oropharynx",
+          "protocolExcerpt": "Administer high-flow oxygen via NRB (non-rebreather) as a precaution against unanticipated deterioration.",
+          "priority": "critical",
+          "rationale": "Prevents hypoxia and aspiration prior to advanced airway management.",
+          "protocolReference": "MATC: Head Injury"
+        },
+        {
+          "id": "a2",
+          "shortAction": "Maintain cervical spine stabilization; assume concomitant C-spine injury",
+          "protocolExcerpt": "Assume concomitant cervical spine injury in patients with moderate/severe head injury",
+          "priority": "critical",
+          "rationale": "Blunt head trauma with altered mentation carries high risk of concurrent cervical injury.",
+          "protocolReference": "MATC: Head Injury"
+        },
+        {
+          "id": "a3",
+          "shortAction": "Reassess BP before sedative/paralytic; treat to maintain SBP ≥110 mmHg",
+          "protocolExcerpt": "Assess the patient's blood pressure prior to the administration of any medication that may cause hypotension. Adult (age greater than 10 years): maintain SBP greater than or equal to 110 mmHg",
+          "priority": "critical",
+          "rationale": "Hypotension worsens cerebral perfusion and secondary brain injury in TBI.",
+          "protocolReference": "MATC: Head Injury"
+        },
+        {
+          "id": "a4",
+          "shortAction": "Preoxygenate with high-flow O2 + PPV for at least 2 minutes before RSI attempt",
+          "protocolExcerpt": "Patient should be pre-oxygenated with high flow oxygen, and positive pressure ventilation for a minimum of two minutes prior to the procedure.",
+          "priority": "critical",
+          "rationale": "Extends the safe apnea window during the intubation attempt and prevents peri-intubation hypoxia.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        }
+      ],
       "transitions": [
         {
           "targetPhaseId": "preox-rsi-prep",
-          "if": "Primary survey and preoxygenation started",
+          "if": "Preoxygenated for RSI",
           "condition": "Crew performs a primary survey, recognizes GCS 7 with inadequate airway protection and active vomiting meeting RSI criteria, and begins high-flow oxygenation and C-spine stabilization in preparation for drug-assisted airway management.",
-          "conditionType": "action_taken"
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a1", "a4"]
+        },
+        {
+          "targetPhaseId": "rsi-without-preox",
+          "if": "RSI attempted without adequate preoxygenation",
+          "condition": "Crew proceeds directly to sedative/paralytic administration without completing the required two-minute high-flow preoxygenation period.",
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["a4"]
         }
       ]
     },
@@ -132,52 +173,45 @@
       },
       "expectedActions": [
         {
-          "id": "a1-o2-suction",
-          "shortAction": "Apply high-flow O2 via NRB; suction blood/emesis from oropharynx",
-          "protocolExcerpt": "Administer high-flow oxygen via NRB (non-rebreather) as a precaution against unanticipated deterioration.",
-          "priority": "critical",
-          "rationale": "Prevents hypoxia and aspiration prior to advanced airway management.",
-          "protocolReference": "MATC: Head Injury"
-        },
-        {
-          "id": "a2-cspine",
-          "shortAction": "Maintain cervical spine stabilization; assume concomitant C-spine injury",
-          "protocolExcerpt": "Assume concomitant cervical spine injury in patients with moderate/severe head injury",
-          "priority": "critical",
-          "rationale": "Blunt head trauma with altered mentation carries high risk of concurrent cervical injury.",
-          "protocolReference": "MATC: Head Injury"
-        },
-        {
-          "id": "a3-preox",
-          "shortAction": "Preoxygenate with high-flow O2 + PPV for at least 2 minutes before RSI attempt",
-          "protocolExcerpt": "Patient should be pre-oxygenated with high flow oxygen, and positive pressure ventilation for a minimum of two minutes prior to the procedure.",
-          "priority": "critical",
-          "rationale": "Extends the safe apnea window during the intubation attempt and prevents peri-intubation hypoxia.",
+          "id": "b1",
+          "shortAction": "Fentanyl 85 mcg IV premedication (85 kg × 1 mcg/kg), 2–3 min prior to intubation",
+          "protocolExcerpt": "Consider pre-medication with Fentanyl, 1 mcg/kg, 2-3 minutes prior to intubation attempt.",
+          "priority": "important",
+          "rationale": "Blunts the sympathetic/ICP response to laryngoscopy.",
           "protocolReference": "MATC: Airway Management (Includes RSI)"
         },
         {
-          "id": "a4-sbp-check",
-          "shortAction": "Reassess BP before sedative/paralytic; treat to maintain SBP ≥110 mmHg",
-          "protocolExcerpt": "Assess the patient's blood pressure prior to the administration of any medication that may cause hypotension. Adult (age greater than 10 years): maintain SBP greater than or equal to 110 mmHg",
+          "id": "b2",
+          "shortAction": "Etomidate 25 mg IV push induction (85 kg × 0.3 mg/kg = 25.5 mg)",
+          "protocolExcerpt": "Administer induction sedative agent: Etomidate IV push, 0.2-0.3 mg/kg",
           "priority": "critical",
-          "rationale": "Hypotension worsens cerebral perfusion and secondary brain injury in TBI.",
-          "protocolReference": "MATC: Head Injury"
+          "rationale": "Hemodynamically neutral induction agent appropriate for a TBI patient.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        },
+        {
+          "id": "b3",
+          "shortAction": "Rocuronium 85 mg IV push paralytic (85 kg × 1 mg/kg)",
+          "protocolExcerpt": "Administer paralytic agent: Succinylcholine IV push, 1-2 mg/kg OR Rocuronium IV push, 1 mg/kg OR Vecuronium IV push, 0.1 mg/kg",
+          "priority": "critical",
+          "rationale": "Provides paralysis for first-pass intubation success.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        },
+        {
+          "id": "b4",
+          "shortAction": "Intubate; confirm placement with waveform capnography and bilateral breath sounds",
+          "protocolExcerpt": "Confirm placement of advanced airway (endotracheal tube, SGA) with waveform capnography (most reliable), absent gastric sounds, and bilateral breath sounds",
+          "priority": "critical",
+          "rationale": "Waveform capnography is the most reliable confirmation of correct tube placement.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
         }
       ],
       "transitions": [
         {
           "targetPhaseId": "rsi-performed",
-          "if": "RSI performed after adequate preoxygenation",
+          "if": "RSI performed, tube confirmed",
           "condition": "After confirming two minutes of preoxygenation and an adequate blood pressure, the crew proceeds with premedication, induction, and paralysis for RSI.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["a3-preox"]
-        },
-        {
-          "targetPhaseId": "rsi-without-preox",
-          "if": "RSI attempted without adequate preoxygenation",
-          "condition": "Crew proceeds directly to sedative/paralytic administration without completing the required two-minute high-flow preoxygenation period.",
-          "conditionType": "action_not_taken",
-          "triggerActionIds": ["a3-preox"]
+          "triggerActionIds": ["b3", "b4"]
         }
       ]
     },
@@ -222,39 +256,7 @@
       },
       "expectedActions": [
         {
-          "id": "a5-fentanyl",
-          "shortAction": "Fentanyl 85 mcg IV premedication (85 kg × 1 mcg/kg), 2–3 min prior to intubation",
-          "protocolExcerpt": "Consider pre-medication with Fentanyl, 1 mcg/kg, 2-3 minutes prior to intubation attempt.",
-          "priority": "important",
-          "rationale": "Blunts the sympathetic/ICP response to laryngoscopy.",
-          "protocolReference": "MATC: Airway Management (Includes RSI)"
-        },
-        {
-          "id": "a6-etomidate",
-          "shortAction": "Etomidate 25 mg IV push induction (85 kg × 0.3 mg/kg = 25.5 mg)",
-          "protocolExcerpt": "Administer induction sedative agent: Etomidate IV push, 0.2-0.3 mg/kg",
-          "priority": "critical",
-          "rationale": "Hemodynamically neutral induction agent appropriate for a TBI patient.",
-          "protocolReference": "MATC: Airway Management (Includes RSI)"
-        },
-        {
-          "id": "a7-rocuronium",
-          "shortAction": "Rocuronium 85 mg IV push paralytic (85 kg × 1 mg/kg)",
-          "protocolExcerpt": "Administer paralytic agent: Succinylcholine IV push, 1-2 mg/kg OR Rocuronium IV push, 1 mg/kg OR Vecuronium IV push, 0.1 mg/kg",
-          "priority": "critical",
-          "rationale": "Provides paralysis for first-pass intubation success.",
-          "protocolReference": "MATC: Airway Management (Includes RSI)"
-        },
-        {
-          "id": "a8-intubate-confirm",
-          "shortAction": "Intubate; confirm placement with waveform capnography and bilateral breath sounds",
-          "protocolExcerpt": "Confirm placement of advanced airway (endotracheal tube, SGA) with waveform capnography (most reliable), absent gastric sounds, and bilateral breath sounds",
-          "priority": "critical",
-          "rationale": "Waveform capnography is the most reliable confirmation of correct tube placement.",
-          "protocolReference": "MATC: Airway Management (Includes RSI)"
-        },
-        {
-          "id": "a9-etco2-target",
+          "id": "c1",
           "shortAction": "Ventilate at 10 breaths/min; target EtCO2 35–45 mmHg, avoid hyperventilation",
           "protocolExcerpt": "Do not induce hypocapnia through hyper-/overventilation. Maintain all patients in EtCO2 range of 35–45 mmHg",
           "priority": "critical",
@@ -265,17 +267,17 @@
       "transitions": [
         {
           "targetPhaseId": "post-intubation-transport",
-          "if": "Ventilation rate controlled to target",
+          "if": "Ventilation controlled, transport",
           "condition": "Ventilation rate is maintained at 10 breaths/min with EtCO2 held in the 35-45 mmHg range; patient is packaged for transport.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["a9-etco2-target"]
+          "triggerActionIds": ["c1"]
         },
         {
           "targetPhaseId": "overventilation-herniation",
           "if": "Hyperventilation drives EtCO2 low",
           "condition": "Crew ventilates faster than the protocol-directed rate, driving EtCO2 below 30 mmHg and risking cerebral vasoconstriction.",
           "conditionType": "action_not_taken",
-          "triggerActionIds": ["a9-etco2-target"]
+          "triggerActionIds": ["c1"]
         }
       ]
     },
@@ -320,7 +322,7 @@
       },
       "expectedActions": [
         {
-          "id": "a10-sedation",
+          "id": "d1",
           "shortAction": "Maintain post-intubation sedation; reassess RASS/comfort en route",
           "protocolExcerpt": "Intubated patients should be provided appropriate sedation with sedative or opioid medications, and sedation titrated to an appropriate target level using RASS score or similar scale",
           "priority": "important",
@@ -328,7 +330,7 @@
           "protocolReference": "MATC: Airway Management (Includes RSI)"
         },
         {
-          "id": "a11-transport",
+          "id": "d2",
           "shortAction": "Transport to highest level trauma center per GCS 3–13 criteria",
           "protocolExcerpt": "Preferential transport to highest level of care within trauma system: GCS 3–13, P (pain) or U (unresponsive) on AVPU scale",
           "priority": "important",
@@ -378,7 +380,7 @@
       },
       "expectedActions": [
         {
-          "id": "a12-abort-reoxygenate",
+          "id": "e1",
           "shortAction": "Abort attempt at SpO2 <90%; resume BVM with PEEP to reoxygenate",
           "protocolExcerpt": "Attempt intubation, limiting attempts to 15 seconds, or a desaturation below 90%, whichever occurs first.",
           "priority": "critical",
@@ -428,7 +430,7 @@
       },
       "expectedActions": [
         {
-          "id": "a13-correct-rate",
+          "id": "f1",
           "shortAction": "Reduce ventilation rate to 10/min; retarget EtCO2 to 35–45 mmHg",
           "protocolExcerpt": "Do not induce hypocapnia through hyper-/overventilation. Hyperventilation results in vasoconstriction which further decreases blood flow to the brain and worsens the secondary brain injury.",
           "priority": "critical",
