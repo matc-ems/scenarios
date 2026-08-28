@@ -80,19 +80,38 @@
         "trendTimeSeconds": 0,
         "visibility": { "spo2Visible": false, "spo2Attached": false, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [],
+      "expectedActions": [
+        {
+          "id": "a1",
+          "shortAction": "Begin immediate high-quality chest compressions, minimally interrupted",
+          "protocolExcerpt": "Successful resuscitation from cardiac arrest depends primarily on effective, minimally interrupted chest compressions and prompt defibrillation if the patient is in pulseless VT/VF. Arrests of respiratory etiology (including drowning). In addition to the above, consider early management of the patient's airway",
+          "priority": "critical",
+          "rationale": "Chest compressions remain the priority even in an arrest of respiratory etiology; airway care is escalated early alongside them rather than delayed.",
+          "protocolReference": "MATC: Cardiac Arrest"
+        },
+        {
+          "id": "a2",
+          "shortAction": "Perform direct laryngoscopy to visualize the oropharynx; suction and clear the obstructing food bolus (SALAD technique)",
+          "protocolExcerpt": "Airway obstruction with foreign body or swelling (e.g., angioedema, posterior pharyngeal and laryngeal infections). Suction airway: for significantly contaminated airways, consider utilizing a suction assisted laryngeal airway decontamination (SALAD) technique",
+          "priority": "critical",
+          "rationale": "Ventilation cannot be effective until the obstructing foreign body is visualized and removed from the airway.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        }
+      ],
       "transitions": [
         {
           "targetPhaseId": "cpr-airway-cleared",
           "if": "CPR started, airway obstruction cleared",
           "condition": "Crew immediately begins high-quality chest compressions while a second provider performs direct laryngoscopy to visualize and suction the obstructing food bolus, then achieves effective bag-valve-mask ventilation.",
-          "conditionType": "action_taken"
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a1", "a2"]
         },
         {
           "targetPhaseId": "ventilation-ineffective",
           "if": "Airway obstruction not cleared",
           "condition": "Crew attempts bag-valve-mask ventilation without first visualizing and clearing the obstructing food bolus, resulting in no chest rise and continued hypoxia despite compressions.",
-          "conditionType": "action_not_taken"
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["a2"]
         }
       ]
     },
@@ -138,23 +157,7 @@
       },
       "expectedActions": [
         {
-          "id": "a1-compressions",
-          "shortAction": "Begin immediate high-quality chest compressions, minimally interrupted",
-          "protocolExcerpt": "Successful resuscitation from cardiac arrest depends primarily on effective, minimally interrupted chest compressions and prompt defibrillation if the patient is in pulseless VT/VF. Arrests of respiratory etiology (including drowning). In addition to the above, consider early management of the patient's airway",
-          "priority": "critical",
-          "rationale": "Chest compressions remain the priority even in an arrest of respiratory etiology; airway care is escalated early alongside them rather than delayed.",
-          "protocolReference": "MATC: Cardiac Arrest"
-        },
-        {
-          "id": "a2-visualize-clear",
-          "shortAction": "Perform direct laryngoscopy to visualize the oropharynx; suction and clear the obstructing food bolus (SALAD technique)",
-          "protocolExcerpt": "Airway obstruction with foreign body or swelling (e.g., angioedema, posterior pharyngeal and laryngeal infections). Suction airway: for significantly contaminated airways, consider utilizing a suction assisted laryngeal airway decontamination (SALAD) technique",
-          "priority": "critical",
-          "rationale": "Ventilation cannot be effective until the obstructing foreign body is visualized and removed from the airway.",
-          "protocolReference": "MATC: Airway Management (Includes RSI)"
-        },
-        {
-          "id": "a3-bvm",
+          "id": "b1",
           "shortAction": "Provide two-person, two-thumbs-up BVM ventilation once the airway is cleared, with PEEP",
           "protocolExcerpt": "Use bag-valve-mask (BVM) ventilation in the setting of respiratory failure or arrest. Two-person, two-thumbs-up BVM ventilation is preferred. PEEP should be used with BVM",
           "priority": "critical",
@@ -162,7 +165,7 @@
           "protocolReference": "MATC: Airway Management (Includes RSI)"
         },
         {
-          "id": "a4-capnography",
+          "id": "b2",
           "shortAction": "Apply continuous waveform capnography to monitor CPR quality and detect ROSC",
           "protocolExcerpt": "Is strongly encouraged in patients in cardiac arrest to monitor quality of CPR, as an early indicator of ROSC (rapid increase of 10-15 in EtCO2)",
           "priority": "important",
@@ -176,7 +179,7 @@
           "if": "ROSC achieved after airway cleared",
           "condition": "With the airway cleared and effective ventilation and compressions ongoing, EtCO2 rises sharply and a palpable pulse returns.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["a1-compressions", "a2-visualize-clear", "a3-bvm"]
+          "triggerActionIds": ["b1", "b2"]
         }
       ]
     },
@@ -222,7 +225,7 @@
       },
       "expectedActions": [
         {
-          "id": "a5-secure-airway",
+          "id": "c1",
           "shortAction": "Secure the airway and support ventilation, avoiding hyperoxygenation (target SpO2 94-98%)",
           "protocolExcerpt": "Secure airway. Administer oxygen as appropriate with a target of achieving 94-98% saturation. Do not hyperoxygenate",
           "priority": "critical",
@@ -230,7 +233,7 @@
           "protocolReference": "MATC: Adult Post-ROSC (Return of Spontaneous Circulation) Care"
         },
         {
-          "id": "a6-avoid-hyperventilation",
+          "id": "c2",
           "shortAction": "Ventilate at 8-10 breaths/minute, targeting EtCO2 35-45 mmHg; avoid hyperventilation",
           "protocolExcerpt": "Do not hyperventilate. Maintain a ventilation rate of 8-10 breaths per minute, targeting an EtCO2 of 35-45 mmHg",
           "priority": "critical",
@@ -238,7 +241,7 @@
           "protocolReference": "MATC: Adult Post-ROSC (Return of Spontaneous Circulation) Care"
         },
         {
-          "id": "a7-monitor-rearrest",
+          "id": "c3",
           "shortAction": "Monitor closely for recurrence of cardiac arrest using cardiac and EtCO2 monitoring and signs of perfusion",
           "protocolExcerpt": "Monitor closely for recurrence of cardiac arrest using clinical and adjunctive criteria such as cardiac monitoring, EtCO2 monitoring, and physical signs of perfusion",
           "priority": "important",
@@ -289,7 +292,7 @@
       },
       "expectedActions": [
         {
-          "id": "a8-recognize-failed-ventilation",
+          "id": "d1",
           "shortAction": "Recognize failed ventilation (no chest rise); reassess airway, perform direct laryngoscopy and suction to clear obstruction",
           "protocolExcerpt": "Airway obstruction with foreign body or swelling (e.g., angioedema, posterior pharyngeal and laryngeal infections). Suction airway: for significantly contaminated airways, consider utilizing a suction assisted laryngeal airway decontamination (SALAD) technique",
           "priority": "critical",

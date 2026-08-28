@@ -57,7 +57,10 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [],
+      "relatedChecklist": [
+        "Begin immediate high-quality chest compressions, minimally interrupted",
+        "Perform direct laryngoscopy to visualize the oropharynx; suction and clear the obstructing food bolus (SALAD technique)"
+      ],
       "relatedSounds": []
     },
     {
@@ -90,8 +93,6 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Begin immediate high-quality chest compressions, minimally interrupted",
-        "Perform direct laryngoscopy to visualize the oropharynx; suction and clear the obstructing food bolus (SALAD technique)",
         "Provide two-person, two-thumbs-up BVM ventilation once the airway is cleared, with PEEP",
         "Apply continuous waveform capnography to monitor CPR quality and detect ROSC"
       ],
