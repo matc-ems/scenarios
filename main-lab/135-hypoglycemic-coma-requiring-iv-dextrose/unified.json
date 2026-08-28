@@ -1,0 +1,445 @@
+{
+  "meta": {
+    "id": "135-hypoglycemic-coma-requiring-iv-dextrose",
+    "name": "135 - Hypoglycemic Coma Requiring IV Dextrose",
+    "version": 1,
+    "difficulty": "intermediate",
+    "category": "Medical",
+    "protocols": [
+      "medical-hypoglycemia",
+      "medical-altered-mental-status",
+      "resp-airway-management",
+      "medical-seizures"
+    ],
+    "totalTimeSeconds": 900,
+    "tags": [
+      "medical",
+      "hypoglycemia",
+      "dextrose",
+      "insulin pump",
+      "airway management",
+      "type 1 diabetes",
+      "bystander history",
+      "practice summative"
+    ]
+  },
+  "patient": {
+    "name": "Jennifer Vance",
+    "age": 45,
+    "ageUnit": "years",
+    "sex": "female",
+    "weight": 70,
+    "weightLbs": 154,
+    "height": 168,
+    "chiefComplaint": "Sudden slurred speech followed by loss of consciousness in a coffee shop",
+    "history": {
+      "hpi": "Type 1 diabetic since her teens who wears a continuous subcutaneous insulin pump. According to her friend she has had a gastrointestinal illness for two days with poor oral intake and nausea. She ate only a piece of toast this morning and reports feeling nauseous afterward, but took her usual insulin. She was conversing normally in the coffee shop when her speech became jumbled, her expression went blank, and she slumped over within a minute or two. No fall, no head strike, no seizure activity witnessed, no complaints of chest pain or headache beforehand.",
+      "pastMedical": [
+        "Type 1 diabetes mellitus since adolescence",
+        "Insulin pump therapy",
+        "Two-day gastrointestinal illness with poor oral intake"
+      ],
+      "medications": [
+        "Continuous subcutaneous insulin infusion via pump (rapid-acting insulin)",
+        "Friend unaware of any other medications"
+      ],
+      "allergies": [
+        "Penicillin"
+      ],
+      "lastOralIntake": "One piece of toast this morning; has eaten poorly for two days because of nausea",
+      "events": "Speech became slurred mid-conversation, followed by a blank stare and slumping unresponsive in her chair at a coffee shop"
+    }
+  },
+  "scene": {
+    "dispatch": "45-year-old female, unconscious, coffee shop on North Plankinton Avenue",
+    "location": "Busy downtown coffee shop; patient slumped in a chair at a small two-top table near the window",
+    "time": "10:27 AM, weekday morning",
+    "safety": "No hazards; patrons have been moved back and an engine company is staging equipment at the door",
+    "bystanders": "Her friend Sarah was sitting with her, witnessed the entire event, and is a reliable historian; other patrons are watching from a distance",
+    "visualCues": [
+      "Patient slumped sideways in a chair, head lolling forward",
+      "Skin visibly soaked with sweat, face pale",
+      "Loud sonorous snoring respirations audible from across the room",
+      "Insulin pump clipped to her belt with tubing visible at her abdomen",
+      "Untouched coffee and a partially eaten pastry on the table"
+    ]
+  },
+  "phases": [
+    {
+      "id": "initial",
+      "name": "Initial Contact",
+      "description": "Crew finds a 45-year-old type 1 diabetic unresponsive to voice, responding to a sternal rub only with a moan and arm withdrawal, GCS 7. Her tongue is obstructing the airway and producing sonorous respirations that correct with a jaw thrust. She is pale, cool, and profoundly diaphoretic with a rapid thready radial pulse. The blood glucose is 28 mg/dL. She has an insulin pump running and ALS interventions are available, which changes what the protocol says to do with the pump.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Pain",
+        "gcs": {
+          "eye": 1,
+          "verbal": 2,
+          "motor": 4
+        },
+        "airway": "Sonorous snoring respirations from posterior tongue displacement; corrects with jaw thrust or head-tilt chin-lift",
+        "breathing": "Rapid and shallow with poor tidal volume; lungs clear when the airway is opened",
+        "circulation": "Radial pulse present, very rapid and thready; skin pale, cool, and profoundly diaphoretic",
+        "skin": {
+          "color": "pale",
+          "temperature": "cool",
+          "moisture": "profusely diaphoretic"
+        },
+        "pupils": "5 mm bilaterally, PERRL",
+        "motorFunction": "Withdraws the arm from painful stimulus; no posturing; no focal deficit or facial droop appreciated",
+        "otherFindings": [
+          "Blood glucose 28 mg/dL on the initial check",
+          "Insulin pump on her belt, tubing intact and infusing at the abdominal site",
+          "No signs of trauma, no head strike, no tongue bite",
+          "Diaphoresis makes the skin slippery and IV cannulation difficult",
+          "No medical alert bracelet; history comes entirely from her friend"
+        ],
+        "patientSpeech": "Moans without forming words when stimulated"
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 128,
+        "bpSys": 98,
+        "bpDia": 60,
+        "respRate": 24,
+        "spo2": 95,
+        "etco2": 38,
+        "temp": 36.8,
+        "tempF": 98.2,
+        "obstruction": 25,
+        "glucose": 28,
+        "trendTimeSeconds": 0,
+        "visibility": {
+          "spo2Visible": true,
+          "spo2Attached": true,
+          "rrVisible": true,
+          "etco2Visible": true,
+          "cvpVisible": false
+        }
+      },
+      "expectedActions": [
+        {
+          "id": "a1",
+          "shortAction": "Open the airway with a jaw thrust and place an NPA to clear the snoring",
+          "protocolExcerpt": "Oropharyngeal airways (OPA) or nasopharyngeal airways (NPA) can be placed if needed to maintain a patent airway and make BVM ventilation more effective.",
+          "priority": "critical",
+          "rationale": "The obstruction is positional and reversible. Nothing else the crew does matters if the airway stays occluded.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        },
+        {
+          "id": "a2",
+          "shortAction": "Titrate oxygen to a 94 to 98 percent saturation target",
+          "protocolExcerpt": "Administer oxygen if needed for air hunger or respiratory distress and titrate to a target SPO2 of 94-98%. Depending on patient presentation, this may be accomplished with nasal cannula, nonrebreather, BVM, NIV.",
+          "priority": "critical",
+          "rationale": "The protocol sets a saturation target rather than a device. She is at 95 percent with an obstructed airway, so opening the airway is the first oxygenation intervention and supplemental oxygen is titrated to the target.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        },
+        {
+          "id": "a3",
+          "shortAction": "Check the blood glucose level",
+          "protocolExcerpt": "Assessment: Monitoring: Check blood glucose level.",
+          "priority": "critical",
+          "rationale": "Glucometry on every altered patient is the performance measure. Without it, the treatable cause here is invisible.",
+          "protocolReference": "MATC: Hypoglycemia"
+        },
+        {
+          "id": "a4",
+          "shortAction": "Dextrose 25 g IV in incremental doses (D10% 250 mL preferred over D50% 50 mL)",
+          "protocolExcerpt": "If blood glucose is 60 mg/dL or less administer one of the following: Unconscious patient, or patients who are unable to protect their own airway: Dextrose IV - administer in incremental doses until mental status improves or maximum field dosing is reached (if available, D10% is preferred). Maximum field adult dosing: 25 g of 10-50% dextrose IV: 50 mL of 50% dextrose; 100 mL of 25% dextrose; 250 mL of 10% dextrose.",
+          "priority": "critical",
+          "rationale": "The maximum field dose is 25 g at any concentration, but the protocol states D10 is preferred and warns that D50 causes tissue damage on extravasation for little clinical gain. Dosing is incremental, stopping when mental status improves.",
+          "protocolReference": "MATC: Hypoglycemia"
+        },
+        {
+          "id": "a5",
+          "shortAction": "If IV access fails, glucagon 1 mg IM/IN as the fallback",
+          "protocolExcerpt": "Glucagon IM/IN - an option for patients for whom IV access cannot be established. Adult dosing: 1 mg IM/IN (or prefilled 3 mg dry powder IN or prefilled IM autoinjector).",
+          "priority": "important",
+          "rationale": "Her diaphoresis makes cannulation genuinely hard. The protocol names the alternative route so treatment is never stalled by a failed IV.",
+          "protocolReference": "MATC: Hypoglycemia"
+        },
+        {
+          "id": "a6",
+          "shortAction": "Leave the insulin pump connected and running; ALS interventions are available",
+          "protocolExcerpt": "For patients with an insulin pump who are hypoglycemic with associated altered mental status (GCS less than 15): Stop the pump, disconnect, or remove at insertion site if patient cannot ingest oral glucose or ALS is not available; Leave the pump connected and running if able to ingest oral glucose or receive ALS interventions.",
+          "priority": "important",
+          "rationale": "The reflex is to rip the pump off. The protocol says the opposite when ALS treatment is on scene, and this crew is giving IV dextrose.",
+          "protocolReference": "MATC: Hypoglycemia"
+        },
+        {
+          "id": "a7",
+          "shortAction": "Survey for other treatable causes of altered mental status (AEIOU-TIPS)",
+          "protocolExcerpt": "Consider the following differential using the mnemonic AEIOU-TIPS: A - Alcohol, Abuse, Atypical migraine; E - Epilepsy, Electrolytes; I - Insulin (hypoglycemia); O - Oxygen, Overdose; U - Uremia (kidney failure); T - Trauma, Tumor; I - Infection; P - Psych, Poisoning; S - Seizure, Subarachnoid hemorrhage, Sepsis.",
+          "priority": "supplemental",
+          "rationale": "A low glucose is an answer, but it does not excuse skipping the survey for a second cause, particularly after two days of illness.",
+          "protocolReference": "MATC: Altered Mental Status"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "dextrose-given",
+          "if": "Airway managed; dextrose given",
+          "condition": "Crew corrects the airway obstruction, checks the glucose, and administers incremental IV dextrose to a maximum field dose of 25 g. She begins to stir within 60 to 90 seconds, opens her eyes and states her name within three minutes, and is oriented within five to seven minutes.",
+          "conditionType": "action_taken",
+          "triggerActionIds": [
+            "a1",
+            "a3",
+            "a4"
+          ]
+        },
+        {
+          "targetPhaseId": "dextrose-delayed",
+          "if": "Dextrose delayed; seizure occurs",
+          "condition": "Crew does not check a glucose, or fails to obtain IV access and does not move to the IO or IM glucagon alternative. Over 8 to 10 minutes the profound hypoglycemia progresses to a generalized tonic-clonic seizure with hypoventilation and hypoxia.",
+          "conditionType": "action_not_taken",
+          "triggerActionIds": [
+            "a3",
+            "a4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dextrose-given",
+      "name": "Airway managed; dextrose given",
+      "description": "Within 90 seconds of the dextrose the patient begins to stir purposefully, and by three minutes she opens her eyes and states her name. Over the next several minutes she becomes fully oriented, though she feels awful and is embarrassed. Her repeat glucose is 148 mg/dL, her heart rate has fallen to 90, and her skin is warm and dry. She is protecting her own airway. The crew now reassesses, documents, and addresses disposition, where the field release criteria matter.",
+      "triggerCondition": "The airway obstruction was corrected and incremental IV dextrose was given to the field maximum. Mental status and glucose have both normalized.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": {
+          "eye": 4,
+          "verbal": 5,
+          "motor": 6
+        },
+        "airway": "Patent and self-maintained; snoring resolved, adjunct removed as she regained her gag",
+        "breathing": "Regular, unlabored, adequate depth",
+        "circulation": "Radial pulse strong and regular; skin slightly pale but warm and dry",
+        "skin": {
+          "color": "slightly pale",
+          "temperature": "warm",
+          "moisture": "dry"
+        },
+        "pupils": "4 mm bilaterally, PERRL",
+        "motorFunction": "Moves all extremities purposefully; no focal deficit; grip strength equal",
+        "otherFindings": [
+          "Repeat blood glucose 148 mg/dL",
+          "Oriented to person, place, time, and event within five to seven minutes",
+          "Reports persistent nausea and says she does not feel able to eat",
+          "Insulin pump still connected and running",
+          "Friend confirms the two-day illness and poor intake"
+        ],
+        "patientSpeech": "\"Oh my gosh, I feel awful. What happened? I don't think I can keep anything down right now.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Rhythm",
+        "ecgWaveform": 9,
+        "hr": 90,
+        "bpSys": 122,
+        "bpDia": 76,
+        "respRate": 16,
+        "spo2": 99,
+        "etco2": 38,
+        "temp": 36.9,
+        "tempF": 98.4,
+        "obstruction": 0,
+        "glucose": 148,
+        "trendTimeSeconds": 25,
+        "visibility": {
+          "spo2Visible": true,
+          "spo2Attached": true,
+          "rrVisible": true,
+          "etco2Visible": true,
+          "cvpVisible": false
+        }
+      },
+      "expectedActions": [
+        {
+          "id": "b1",
+          "shortAction": "Recheck the glucose and reassess vitals and mental status after the dextrose",
+          "protocolExcerpt": "Reassess patient: Reassess vital signs (pulse, blood pressure, respiratory rate, neurologic status assessment) and mental status. Repeat check of blood glucose level if previous hypoglycemia and mental status has not returned to normal.",
+          "priority": "critical",
+          "rationale": "Confirming both the number and the mental status closes the loop on the treatment and establishes whether more dextrose is needed.",
+          "protocolReference": "MATC: Hypoglycemia"
+        },
+        {
+          "id": "b2",
+          "shortAction": "Transport: she cannot eat and her cause is ongoing illness, so release criteria are not met",
+          "protocolExcerpt": "If symptoms of hypoglycemia resolve after treatment, release without transport should only be considered if all the following are true: Repeat glucose is greater than 80 mg/dL; Patient takes insulin or metformin to control diabetes and does not take long-acting oral sulphunylurea agents (e.g., glipizide, glyburide, or others); Patient returns to normal mental status, with no focal neurologic signs/symptoms after receiving glucose/dextrose; Patient can promptly obtain and will eat a carbohydrate meal; Patient or legal guardian refuses transport and EMS clinicians agree transport not indicated; A reliable adult will be staying with patient; No major co-morbid symptoms exist, like chest pain, shortness of breath, seizures, intoxication; A clear cause of the hypoglycemia is identified (e.g., missed meal).",
+          "priority": "critical",
+          "rationale": "Every criterion must be true to release. She is nauseated and cannot reliably eat a carbohydrate meal, and her pump will keep delivering insulin, so transport is required.",
+          "protocolReference": "MATC: Hypoglycemia"
+        },
+        {
+          "id": "b3",
+          "shortAction": "Document repeat vitals and mental status after the dextrose",
+          "protocolExcerpt": "Key Documentation Elements: Document reassessment of vital signs and mental status after administration of glucose/dextrose/glucagon. Document point of care glucose level (if in scope of practice) when indicated.",
+          "priority": "important",
+          "rationale": "The pre- and post-treatment glucose and mental status pair is the record that the intervention worked.",
+          "protocolReference": "MATC: Hypoglycemia"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "transported",
+          "if": "Reassessed; transported for observation",
+          "condition": "Repeat glucose and mental status are documented, the patient is counselled that the field release criteria are not met given her ongoing illness and inability to eat, and she agrees to transport for further evaluation.",
+          "conditionType": "action_taken",
+          "triggerActionIds": [
+            "b1",
+            "b2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "transported",
+      "name": "Reassessed; transported for observation",
+      "description": "The patient is fully oriented, glucose is holding at 132 mg/dL, and her vital signs are normal. She is transported for evaluation of the underlying illness and observation for recurrent hypoglycemia while her pump continues to run under monitoring. All interventions are complete and no further change in presentation is expected.",
+      "triggerCondition": "Reassessment is documented, disposition has been decided against field release, and the patient is en route with continued monitoring.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": {
+          "eye": 4,
+          "verbal": 5,
+          "motor": 6
+        },
+        "airway": "Patent and conversational",
+        "breathing": "Regular and unlabored",
+        "circulation": "Radial pulse strong; skin warm and dry",
+        "skin": {
+          "color": "pink",
+          "temperature": "warm",
+          "moisture": "dry"
+        },
+        "pupils": "4 mm bilaterally, PERRL",
+        "motorFunction": "Normal strength and coordination in all four extremities",
+        "otherFindings": [
+          "Glucose stable at 132 mg/dL on repeat en route",
+          "No recurrence of confusion or diaphoresis",
+          "Nausea persists; nothing given by mouth",
+          "Friend following to the hospital"
+        ],
+        "patientSpeech": "\"I've been sick for two days and I still took my normal insulin. That was stupid of me.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Rhythm",
+        "ecgWaveform": 9,
+        "hr": 84,
+        "bpSys": 118,
+        "bpDia": 74,
+        "respRate": 16,
+        "spo2": 99,
+        "etco2": 38,
+        "temp": 36.9,
+        "tempF": 98.4,
+        "obstruction": 0,
+        "glucose": 132,
+        "trendTimeSeconds": 30,
+        "visibility": {
+          "spo2Visible": true,
+          "spo2Attached": true,
+          "rrVisible": true,
+          "etco2Visible": true,
+          "cvpVisible": false
+        }
+      },
+      "expectedActions": []
+    },
+    {
+      "id": "dextrose-delayed",
+      "name": "Dextrose delayed; seizure occurs",
+      "description": "Eight to ten minutes into the call the glucose has still not been corrected: either it was never checked, or the IV failed and no alternative route was used. The patient has stopped responding to painful stimulus, her muscles begin to twitch, and she has a generalized tonic-clonic seizure lasting one to two minutes. Her respirations have fallen to 8 per minute and are irregular, her saturation has dropped to 86 percent, and the glucometer now reads LOW. This is neuroglycopenic injury in progress and requires immediate ventilation and dextrose.",
+      "triggerCondition": "The blood glucose was never corrected, either because it was not checked or because a failed IV was not escalated to IO or IM glucagon. Profound hypoglycemia has produced a seizure with hypoventilation and hypoxia.",
+      "isDefault": false,
+      "clinicalPresentation": {
+        "avpu": "Unresponsive",
+        "gcs": {
+          "eye": 1,
+          "verbal": 1,
+          "motor": 1
+        },
+        "airway": "Clenched jaw during the seizure with oral secretions; obstructed after the seizure until repositioned and suctioned",
+        "breathing": "8 per minute, irregular and shallow; requires bag-valve-mask assistance",
+        "circulation": "Radial pulse thready at 140; skin pale, cool, and diaphoretic with perioral cyanosis during the seizure",
+        "skin": {
+          "color": "pale with perioral cyanosis",
+          "temperature": "cool",
+          "moisture": "diaphoretic"
+        },
+        "pupils": "6 mm bilaterally, sluggish",
+        "motorFunction": "Generalized tonic-clonic activity for one to two minutes, then flaccid; no response to painful stimulus",
+        "otherFindings": [
+          "Glucometer now reads LOW (below measurable range)",
+          "Oral secretions requiring suction",
+          "No response to sternal rub",
+          "Insulin pump still infusing",
+          "Rising EtCO2 consistent with hypoventilation"
+        ],
+        "patientSpeech": "No verbal response"
+      },
+      "monitorState": {
+        "ecgRhythm": "Sinus Tachycardia",
+        "ecgWaveform": 9,
+        "hr": 140,
+        "bpSys": 88,
+        "bpDia": 50,
+        "respRate": 8,
+        "spo2": 86,
+        "etco2": 55,
+        "temp": 36.7,
+        "tempF": 98.1,
+        "obstruction": 45,
+        "glucose": 22,
+        "trendTimeSeconds": 50,
+        "visibility": {
+          "spo2Visible": true,
+          "spo2Attached": true,
+          "rrVisible": true,
+          "etco2Visible": true,
+          "cvpVisible": false
+        }
+      },
+      "expectedActions": [
+        {
+          "id": "c1",
+          "shortAction": "Assist ventilations by BVM at 10 to 12 per minute with an airway adjunct",
+          "protocolExcerpt": "Use bag-valve-mask (BVM) ventilation in the setting of respiratory failure or arrest. Rate: Adult: 10-12 breaths/minute.",
+          "priority": "critical",
+          "rationale": "She is hypoventilating and hypoxic. Ventilation precedes everything else, including the dextrose that will fix the underlying cause.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        },
+        {
+          "id": "c2",
+          "shortAction": "Dextrose 25 g IV now in incremental doses (D10% 250 mL preferred); IO if no IV",
+          "protocolExcerpt": "Unconscious patient, or patients who are unable to protect their own airway: Dextrose IV - administer in incremental doses until mental status improves or maximum field dosing is reached (if available, D10% is preferred). Maximum field adult dosing: 25 g of 10-50% dextrose IV: 50 mL of 50% dextrose; 100 mL of 25% dextrose; 250 mL of 10% dextrose.",
+          "priority": "critical",
+          "rationale": "The seizure is a symptom of the untreated hypoglycemia. Correcting the glucose is the treatment, not a benzodiazepine.",
+          "protocolReference": "MATC: Hypoglycemia"
+        },
+        {
+          "id": "c3",
+          "shortAction": "Recheck the glucose in the actively seizing patient and treat below 60 mg/dL",
+          "protocolExcerpt": "Glucometry: If still actively seizing, check blood glucose level. If less than 60 mg/dL, treat per the Hypoglycemia Guideline.",
+          "priority": "critical",
+          "rationale": "The seizure protocol routes a hypoglycemic seizure straight back to the hypoglycemia guideline rather than to an anticonvulsant.",
+          "protocolReference": "MATC: Seizures"
+        },
+        {
+          "id": "c4",
+          "shortAction": "Transport regardless of response: a hypoglycemic patient who seized must go",
+          "protocolExcerpt": "Hypoglycemic patients who have had a seizure should be transported to the hospital regardless of their mental status and response to therapy.",
+          "priority": "important",
+          "rationale": "Field release is off the table once a seizure has occurred, no matter how well she wakes up after the dextrose.",
+          "protocolReference": "MATC: Hypoglycemia"
+        }
+      ]
+    }
+  ],
+  "realiti": {
+    "scenarioDefaultEnergy": 200,
+    "scenarioDefaultPacerThreshold": 55
+  }
+}

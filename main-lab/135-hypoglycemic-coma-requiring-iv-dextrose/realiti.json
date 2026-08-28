@@ -1,0 +1,264 @@
+{
+  "scenarioId": "135-hypoglycemic-coma-requiring-iv-dextrose",
+  "scenarioName": "135 - Hypoglycemic Coma Requiring IV Dextrose",
+  "scenarioType": "Vital Signs",
+  "scenarioVersion": 2,
+  "scenarioTime": 900,
+  "scenarioMonitorType": 2,
+  "scenarioDefaultEnergy": 200,
+  "scenarioDefaultPacerThreshold": 55,
+  "isDemo": false,
+  "isALSILegacy": false,
+  "scenarioStory": {
+    "history": "Type 1 diabetic since her teens who wears a continuous subcutaneous insulin pump. According to her friend she has had a gastrointestinal illness for two days with poor oral intake and nausea. She ate only a piece of toast this morning and reports feeling nauseous afterward, but took her usual insulin. She was conversing normally in the coffee shop when her speech became jumbled, her expression went blank, and she slumped over within a minute or two. No fall, no head strike, no seizure activity witnessed, no complaints of chest pain or headache beforehand.",
+    "discussion": "",
+    "course": "Initial Contact: Crew finds a 45-year-old type 1 diabetic unresponsive to voice, responding to a sternal rub only with a moan and arm withdrawal, GCS 7. Her tongue is obstructing the airway and producing sonorous respirations that correct with a jaw thrust. She is pale, cool, and profoundly diaphoretic with a rapid thready radial pulse. The blood glucose is 28 mg/dL. She has an insulin pump running and ALS interventions are available, which changes what the protocol says to do with the pump. → Airway managed; dextrose given: Within 90 seconds of the dextrose the patient begins to stir purposefully, and by three minutes she opens her eyes and states her name. Over the next several minutes she becomes fully oriented, though she feels awful and is embarrassed. Her repeat glucose is 148 mg/dL, her heart rate has fallen to 90, and her skin is warm and dry. She is protecting her own airway. The crew now reassesses, documents, and addresses disposition, where the field release criteria matter. → Reassessed; transported for observation: The patient is fully oriented, glucose is holding at 132 mg/dL, and her vital signs are normal. She is transported for evaluation of the underlying illness and observation for recurrent hypoglycemia while her pump continues to run under monitoring. All interventions are complete and no further change in presentation is expected."
+  },
+  "patientInformation": {
+    "patientName": "Jennifer Vance",
+    "patientCondition": "Sudden slurred speech followed by loss of consciousness in a coffee shop",
+    "patientAge": 45,
+    "patientAgeUnit": "years",
+    "patientAgeCategory": 0,
+    "patientSex": 2,
+    "patientHeight": 168,
+    "patientWeight": 70,
+    "patientPhotoId": 54,
+    "patientAdmitted": 1
+  },
+  "labs": [],
+  "scenarioEvents": [
+    {
+      "type": "ScenarioEvent",
+      "name": "Initial Contact",
+      "description": "Crew finds a 45-year-old type 1 diabetic unresponsive to voice, responding to a sternal rub only with a moan and arm withdrawal, GCS 7. Her tongue is obstructing the airway and producing sonorous respirations that correct with a jaw thrust. She is pale, cool, and profoundly diaphoretic with a rapid thready radial pulse. The blood glucose is 28 mg/dL. She has an insulin pump running and ALS interventions are available, which changes what the protocol says to do with the pump.",
+      "monitorType": 0,
+      "trendTime": 0,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 128,
+        "bpSys": 98,
+        "bpDia": 60,
+        "respRate": 24,
+        "spo2": 95,
+        "etco2": 38,
+        "temp": 36.8,
+        "obstruction": 25,
+        "custMeasure1": 28,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Open the airway with a jaw thrust and place an NPA to clear the snoring",
+        "Titrate oxygen to a 94 to 98 percent saturation target",
+        "Check the blood glucose level",
+        "Dextrose 25 g IV in incremental doses (D10% 250 mL preferred over D50% 50 mL)",
+        "If IV access fails, glucagon 1 mg IM/IN as the fallback",
+        "Leave the insulin pump connected and running; ALS interventions are available",
+        "Survey for other treatable causes of altered mental status (AEIOU-TIPS)"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Airway managed; dextrose given",
+      "description": "Within 90 seconds of the dextrose the patient begins to stir purposefully, and by three minutes she opens her eyes and states her name. Over the next several minutes she becomes fully oriented, though she feels awful and is embarrassed. Her repeat glucose is 148 mg/dL, her heart rate has fallen to 90, and her skin is warm and dry. She is protecting her own airway. The crew now reassesses, documents, and addresses disposition, where the field release criteria matter.",
+      "monitorType": 0,
+      "trendTime": 25,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 90,
+        "bpSys": 122,
+        "bpDia": 76,
+        "respRate": 16,
+        "spo2": 99,
+        "etco2": 38,
+        "temp": 36.9,
+        "obstruction": 0,
+        "custMeasure1": 148,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Recheck the glucose and reassess vitals and mental status after the dextrose",
+        "Transport: she cannot eat and her cause is ongoing illness, so release criteria are not met",
+        "Document repeat vitals and mental status after the dextrose"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Reassessed; transported for observation",
+      "description": "The patient is fully oriented, glucose is holding at 132 mg/dL, and her vital signs are normal. She is transported for evaluation of the underlying illness and observation for recurrent hypoglycemia while her pump continues to run under monitoring. All interventions are complete and no further change in presentation is expected.",
+      "monitorType": 0,
+      "trendTime": 30,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 84,
+        "bpSys": 118,
+        "bpDia": 74,
+        "respRate": 16,
+        "spo2": 99,
+        "etco2": 38,
+        "temp": 36.9,
+        "obstruction": 0,
+        "custMeasure1": 132,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Dextrose delayed; seizure occurs",
+      "description": "Eight to ten minutes into the call the glucose has still not been corrected: either it was never checked, or the IV failed and no alternative route was used. The patient has stopped responding to painful stimulus, her muscles begin to twitch, and she has a generalized tonic-clonic seizure lasting one to two minutes. Her respirations have fallen to 8 per minute and are irregular, her saturation has dropped to 86 percent, and the glucometer now reads LOW. This is neuroglycopenic injury in progress and requires immediate ventilation and dextrose.",
+      "monitorType": 0,
+      "trendTime": 50,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 9,
+        "hr": 140,
+        "bpSys": 88,
+        "bpDia": 50,
+        "respRate": 8,
+        "spo2": 86,
+        "etco2": 55,
+        "temp": 36.7,
+        "obstruction": 45,
+        "custMeasure1": 22,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Assist ventilations by BVM at 10 to 12 per minute with an airway adjunct",
+        "Dextrose 25 g IV now in incremental doses (D10% 250 mL preferred); IO if no IV",
+        "Recheck the glucose in the actively seizing patient and treat below 60 mg/dL",
+        "Transport regardless of response: a hypoglycemic patient who seized must go"
+      ],
+      "relatedSounds": []
+    }
+  ],
+  "checklist": [
+    {
+      "title": "Open the airway with a jaw thrust and place an NPA to clear the snoring",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Titrate oxygen to a 94 to 98 percent saturation target",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Check the blood glucose level",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Dextrose 25 g IV in incremental doses (D10% 250 mL preferred over D50% 50 mL)",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "If IV access fails, glucagon 1 mg IM/IN as the fallback",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Leave the insulin pump connected and running; ALS interventions are available",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Survey for other treatable causes of altered mental status (AEIOU-TIPS)",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Recheck the glucose and reassess vitals and mental status after the dextrose",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Transport: she cannot eat and her cause is ongoing illness, so release criteria are not met",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Document repeat vitals and mental status after the dextrose",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Assist ventilations by BVM at 10 to 12 per minute with an airway adjunct",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Dextrose 25 g IV now in incremental doses (D10% 250 mL preferred); IO if no IV",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Recheck the glucose in the actively seizing patient and treat below 60 mg/dL",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Transport regardless of response: a hypoglycemic patient who seized must go",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    }
+  ],
+  "media": []
+}
