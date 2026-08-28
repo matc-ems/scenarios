@@ -81,13 +81,54 @@
         "trendTimeSeconds": 0,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [],
+      "expectedActions": [
+        {
+          "id": "a1",
+          "shortAction": "Place IO needle for vascular access given anticipated difficult peripheral IV in a hypoperfused infant",
+          "protocolExcerpt": "Establish IV access. If unable to obtain within two attempts or less than 90 seconds, place an IO needle",
+          "priority": "critical",
+          "rationale": "Rapid vascular access is essential in decompensating pediatric shock; peripheral IV attempts are often futile in a severely hypoperfused infant.",
+          "protocolReference": "MATC: Shock"
+        },
+        {
+          "id": "a2",
+          "shortAction": "Normal saline bolus 150 mL IV/IO (7.5 kg x 20 mL/kg = 150 mL) over less than 15 minutes",
+          "protocolExcerpt": "Pediatric Fluid goal of up to a total of 60 mL/kg or 1 liter of isotonic fluid by giving 20 mL/kg of isotonic fluid by administering rapid boluses (for cardiogenic shock give 10 mL/kg boluses)",
+          "priority": "critical",
+          "rationale": "Early aggressive fluid resuscitation is essential for suspected pediatric septic shock.",
+          "protocolReference": "MATC: Shock"
+        },
+        {
+          "id": "a3",
+          "shortAction": "Check blood glucose; correct with dextrose if less than 60 mg/dL",
+          "protocolExcerpt": "Check blood sugar, and correct if less than 60 mg/dL",
+          "priority": "important",
+          "rationale": "Hypoglycemia is common in septic infants and can mimic or worsen altered mental status.",
+          "protocolReference": "MATC: Shock"
+        },
+        {
+          "id": "a4",
+          "shortAction": "Provide advance notification to receiving hospital for suspected pediatric septic shock",
+          "protocolExcerpt": "Provide advanced notification to the hospital",
+          "priority": "important",
+          "rationale": "Advance notice allows the receiving pediatric team to prepare for rapid sepsis management on arrival.",
+          "protocolReference": "MATC: Shock"
+        }
+      ],
       "transitions": [
         {
           "targetPhaseId": "io-fluids",
           "if": "IO access obtained, fluids started",
           "condition": "Crew recognizes signs of septic shock (tachycardia, delayed capillary refill, sunken fontanelle, fever, decreased mental status) and attempts vascular access; given poor peripheral perfusion in a hypoperfused infant, an IO needle is placed and isotonic fluid boluses are initiated per pediatric shock dosing.",
-          "conditionType": "action_taken"
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a1", "a2"]
+        },
+        {
+          "targetPhaseId": "fluid-refractory",
+          "if": "IO access delayed, fluids withheld",
+          "condition": "Vascular access is delayed or fluid boluses are withheld despite clear signs of compensated septic shock; the infant progresses toward uncompensated shock as tachycardia and poor perfusion worsen.",
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["a1", "a2"]
         }
       ]
     },
@@ -132,35 +173,19 @@
       },
       "expectedActions": [
         {
-          "id": "a1-io-access",
-          "shortAction": "Place IO needle for vascular access given anticipated difficult peripheral IV in a hypoperfused infant",
-          "protocolExcerpt": "Establish IV access. If unable to obtain within two attempts or less than 90 seconds, place an IO needle",
+          "id": "b1",
+          "shortAction": "Repeat normal saline bolus 150 mL IV/IO (7.5 kg x 20 mL/kg = 150 mL), total 300 mL toward 450 mL (60 mL/kg) goal",
+          "protocolExcerpt": "Pediatric Fluid goal of up to a total of 60 mL/kg or 1 liter of isotonic fluid by giving 20 mL/kg of isotonic fluid by administering rapid boluses",
           "priority": "critical",
-          "rationale": "Rapid vascular access is essential in decompensating pediatric shock; peripheral IV attempts are often futile in a severely hypoperfused infant.",
+          "rationale": "Persistent tachycardia and delayed capillary refill after the first bolus indicate ongoing hypoperfusion requiring additional fluid toward the total goal.",
           "protocolReference": "MATC: Shock"
         },
         {
-          "id": "a2-fluid-bolus-1",
-          "shortAction": "Normal saline bolus 150 mL IV/IO (7.5 kg x 20 mL/kg = 150 mL) over less than 15 minutes",
-          "protocolExcerpt": "Pediatric Fluid goal of up to a total of 60 mL/kg or 1 liter of isotonic fluid by giving 20 mL/kg of isotonic fluid by administering rapid boluses (for cardiogenic shock give 10 mL/kg boluses)",
-          "priority": "critical",
-          "rationale": "Early aggressive fluid resuscitation is essential for suspected pediatric septic shock.",
-          "protocolReference": "MATC: Shock"
-        },
-        {
-          "id": "a3-bgl-check",
-          "shortAction": "Check blood glucose; correct with dextrose if less than 60 mg/dL",
-          "protocolExcerpt": "Check blood sugar, and correct if less than 60 mg/dL",
+          "id": "b2",
+          "shortAction": "Reassess vital signs, perfusion, and mental status after each fluid bolus",
+          "protocolExcerpt": "Full vital signs (pulse, blood pressure, respiratory rate, neurologic status assessment) with reassessment q 15 minutes or more frequently as appropriate",
           "priority": "important",
-          "rationale": "Hypoglycemia is common in septic infants and can mimic or worsen altered mental status.",
-          "protocolReference": "MATC: Shock"
-        },
-        {
-          "id": "a4-advance-notification",
-          "shortAction": "Provide advance notification to receiving hospital for suspected pediatric septic shock",
-          "protocolExcerpt": "Provide advanced notification to the hospital",
-          "priority": "important",
-          "rationale": "Advance notice allows the receiving pediatric team to prepare for rapid sepsis management on arrival.",
+          "rationale": "Frequent reassessment identifies whether the infant is responding to fluids or trending toward cardiogenic shock, which would require withholding further boluses.",
           "protocolReference": "MATC: Shock"
         }
       ],
@@ -170,14 +195,7 @@
           "if": "Repeat bolus given, perfusion improves",
           "condition": "After the first 20 mL/kg bolus, reassessment shows persistent tachycardia and delayed capillary refill, so a second 20 mL/kg bolus is administered toward the up-to-60 mL/kg goal; mental status and perfusion begin to improve.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["a2-fluid-bolus-1"]
-        },
-        {
-          "targetPhaseId": "fluid-refractory",
-          "if": "IO access delayed, fluids withheld",
-          "condition": "Vascular access is delayed or fluid boluses are withheld despite clear signs of compensated septic shock; the infant progresses toward uncompensated shock as tachycardia worsens and systolic blood pressure falls toward the pediatric hypotension threshold.",
-          "conditionType": "action_not_taken",
-          "triggerActionIds": ["a1-io-access", "a2-fluid-bolus-1"]
+          "triggerActionIds": ["b1", "b2"]
         }
       ]
     },
@@ -220,24 +238,7 @@
         "trendTimeSeconds": 40,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [
-        {
-          "id": "a5-fluid-bolus-2",
-          "shortAction": "Repeat normal saline bolus 150 mL IV/IO (7.5 kg x 20 mL/kg = 150 mL), total 300 mL toward 450 mL (60 mL/kg) goal",
-          "protocolExcerpt": "Pediatric Fluid goal of up to a total of 60 mL/kg or 1 liter of isotonic fluid by giving 20 mL/kg of isotonic fluid by administering rapid boluses",
-          "priority": "critical",
-          "rationale": "Persistent tachycardia and delayed capillary refill after the first bolus indicate ongoing hypoperfusion requiring additional fluid toward the total goal.",
-          "protocolReference": "MATC: Shock"
-        },
-        {
-          "id": "a6-reassess",
-          "shortAction": "Reassess vital signs, perfusion, and mental status after each fluid bolus",
-          "protocolExcerpt": "Full vital signs (pulse, blood pressure, respiratory rate, neurologic status assessment) with reassessment q 15 minutes or more frequently as appropriate",
-          "priority": "important",
-          "rationale": "Frequent reassessment identifies whether the infant is responding to fluids or trending toward cardiogenic shock, which would require withholding further boluses.",
-          "protocolReference": "MATC: Shock"
-        }
-      ],
+      "expectedActions": [],
       "transitions": []
     },
     {
@@ -281,7 +282,7 @@
       },
       "expectedActions": [
         {
-          "id": "a7-recognize-uncompensated",
+          "id": "c1",
           "shortAction": "Recognize uncompensated shock (SBP below 60 mmHg for age); establish IO access emergently and begin fluid bolus",
           "protocolExcerpt": "Hypotension for age (lowest acceptable systolic blood pressure in mmHg): Less than 1 years of age: 60. Establish IV access. If unable to obtain within two attempts or less than 90 seconds, place an IO needle",
           "priority": "critical",
