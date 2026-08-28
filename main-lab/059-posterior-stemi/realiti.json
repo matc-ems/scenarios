@@ -59,7 +59,8 @@
       "relatedLabs": [],
       "relatedChecklist": [
         "Perform focused history/physical; recognize atypical anginal-equivalent symptoms (epigastric/back pain, diaphoresis) as possible ACS",
-        "Acquire 12-lead EKG within 10 minutes of patient contact"
+        "Acquire 12-lead EKG within 10 minutes of patient contact",
+        "Obtain posterior leads (V7-V9); initial EKG is non-diagnostic in appearance but suspicious"
       ],
       "relatedSounds": []
     },
@@ -93,7 +94,6 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Obtain posterior leads (V7-V9); initial EKG is non-diagnostic in appearance but suspicious",
         "Activate STEMI system of care; give advance notification to receiving PCI-capable hospital",
         "Aspirin 324 mg PO, chewed, non-enteric-coated",
         "Establish IV access",
@@ -167,7 +167,9 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [],
+      "relatedChecklist": [
+        "Recognize the non-diagnostic 12-lead does not exclude ACS; obtain posterior leads V7-V9 and repeat the EKG"
+      ],
       "relatedSounds": []
     },
     {
@@ -271,6 +273,12 @@
     },
     {
       "title": "Fentanyl 95 mcg IV (95 kg x 1 mcg/kg = 95 mcg; max initial dose 100 mcg) for discomfort unresponsive to nitrates",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Recognize the non-diagnostic 12-lead does not exclude ACS; obtain posterior leads V7-V9 and repeat the EKG",
       "type": "Check",
       "value": 0,
       "icon": 1

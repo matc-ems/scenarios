@@ -96,22 +96,30 @@
           "priority": "critical",
           "rationale": "Early 12-lead acquisition is the only way to catch the ST depression V1-V3/tall R wave pattern that signals a posterior STEMI equivalent.",
           "protocolReference": "MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)"
+        },
+        {
+          "id": "a3",
+          "shortAction": "Obtain posterior leads (V7-V9); initial EKG is non-diagnostic in appearance but suspicious",
+          "protocolExcerpt": "Performance of serial EKGs is encouraged for symptomatic patients with EKGs initially non-diagnostic for STEMI.",
+          "priority": "critical",
+          "rationale": "Posterior leads reveal the ST elevation that is 'mirrored' as ST depression on the standard anterior leads V1-V3.",
+          "protocolReference": "MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)"
         }
       ],
       "transitions": [
         {
           "targetPhaseId": "posterior-recognized",
-          "if": "12-lead acquired, posterior leads confirm STEMI",
+          "if": "Posterior STEMI recognized",
           "condition": "Crew acquires 12-lead EKG within 10 minutes, recognizes ST depression in V1-V3 with tall, broad R waves as a posterior STEMI equivalent, and obtains posterior leads (V7-V9) which confirm ST elevation.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["a2"]
+          "triggerActionIds": ["a2", "a3"]
         },
         {
           "targetPhaseId": "stemi-missed",
-          "if": "Posterior STEMI missed, treated as reflux",
+          "if": "Posterior STEMI missed",
           "condition": "Crew attributes the presentation to indigestion/GERD, does not obtain posterior leads or recognize the ST depression V1-V3 with tall R wave pattern as a posterior STEMI equivalent, and no STEMI activation is made.",
           "conditionType": "action_not_taken",
-          "triggerActionIds": ["a2"]
+          "triggerActionIds": ["a2", "a3"]
         }
       ]
     },
@@ -157,14 +165,6 @@
       "expectedActions": [
         {
           "id": "b1",
-          "shortAction": "Obtain posterior leads (V7-V9); initial EKG is non-diagnostic in appearance but suspicious",
-          "protocolExcerpt": "Performance of serial EKGs is encouraged for symptomatic patients with EKGs initially non-diagnostic for STEMI.",
-          "priority": "critical",
-          "rationale": "Posterior leads reveal the ST elevation that is 'mirrored' as ST depression on the standard anterior leads V1-V3.",
-          "protocolReference": "MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)"
-        },
-        {
-          "id": "b2",
           "shortAction": "Activate STEMI system of care; give advance notification to receiving PCI-capable hospital",
           "protocolExcerpt": "Advance notification should be provided to the receiving hospital for patients identified as having a STEMI.",
           "priority": "critical",
@@ -172,7 +172,7 @@
           "protocolReference": "MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)"
         },
         {
-          "id": "b3",
+          "id": "b2",
           "shortAction": "Aspirin 324 mg PO, chewed, non-enteric-coated",
           "protocolExcerpt": "Administer aspirin; chewable, non-enteric-coated aspirin preferred (162-325 mg).",
           "priority": "critical",
@@ -180,7 +180,7 @@
           "protocolReference": "MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)"
         },
         {
-          "id": "b4",
+          "id": "b3",
           "shortAction": "Establish IV access",
           "protocolExcerpt": "Establish IV access.",
           "priority": "important",
@@ -188,7 +188,7 @@
           "protocolReference": "MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)"
         },
         {
-          "id": "b5",
+          "id": "b4",
           "shortAction": "Nitroglycerin 0.4 mg SL (SBP 122 mmHg, above 100 mmHg threshold); may repeat q3-5 min; screened negative for PDE5 inhibitor use",
           "protocolExcerpt": "Nitroglycerin 0.4 mg sublingual (SL), can repeat q (quaque, every) 3-5 minutes if SBP greater than 100 mmHg. The use of nitrates should be avoided in any patient who has used a phosphodiesterase inhibitor within the past 48 hours.",
           "priority": "important",
@@ -196,7 +196,7 @@
           "protocolReference": "MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)"
         },
         {
-          "id": "b6",
+          "id": "b5",
           "shortAction": "Continue cardiac monitoring; watch for dysrhythmias or clinical deterioration",
           "protocolExcerpt": "Observe for signs of clinical deterioration: dysrhythmias, chest pain, shortness of breath, decreased level of consciousness/syncope, or other signs of shock/hypotension.",
           "priority": "supplemental",
@@ -207,10 +207,10 @@
       "transitions": [
         {
           "targetPhaseId": "transport-pci",
-          "if": "STEMI activated and treatment initiated",
+          "if": "STEMI activated, transport to PCI center",
           "condition": "Aspirin given, IV established, nitroglycerin administered for persistent discomfort after PDE5 screening, and STEMI activation transmitted to the receiving facility.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["b2", "b3"]
+          "triggerActionIds": ["b1", "b2"]
         }
       ]
     },
@@ -319,14 +319,23 @@
         "trendTimeSeconds": 40,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [],
+      "expectedActions": [
+        {
+          "id": "d1",
+          "shortAction": "Recognize the non-diagnostic 12-lead does not exclude ACS; obtain posterior leads V7-V9 and repeat the EKG",
+          "protocolExcerpt": "Performance of serial EKGs is encouraged for symptomatic patients with EKGs initially non-diagnostic for STEMI",
+          "priority": "critical",
+          "rationale": "A standard 12-lead is frequently non-diagnostic in posterior infarction; serial and posterior leads are what reveal it before ischemia progresses.",
+          "protocolReference": "MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)"
+        }
+      ],
       "transitions": [
         {
           "targetPhaseId": "vf-arrest",
-          "if": "Ischemia progresses to VF arrest",
+          "if": "VF arrest - missed STEMI",
           "condition": "Approximately 5 minutes after worsening symptoms with no STEMI treatment or activation, the patient becomes unresponsive and pulseless as untreated posterior ischemia precipitates ventricular fibrillation.",
           "conditionType": "time_elapsed",
-          "timeoutSeconds": 300
+          "triggerActionIds": ["d1"]
         }
       ]
     },
@@ -367,7 +376,7 @@
       },
       "expectedActions": [
         {
-          "id": "d1",
+          "id": "e1",
           "shortAction": "Recognize cardiac arrest; begin immediate high-quality chest compressions",
           "protocolExcerpt": "Initiate chest compressions in cases with no bystander chest compressions or take over compressions from bystanders while a second rescuer is setting up the AED or defibrillator.",
           "priority": "critical",
@@ -375,7 +384,7 @@
           "protocolReference": "MATC: Cardiac Arrest (VF/VT/Asystole/PEA)"
         },
         {
-          "id": "d2",
+          "id": "e2",
           "shortAction": "Defibrillate at 120 J (Zoll biphasic) as soon as VF is confirmed",
           "protocolExcerpt": "Zoll i. Adult - 120 J, 150 J, 200 J.",
           "priority": "critical",
@@ -383,7 +392,7 @@
           "protocolReference": "MATC: Cardiac Arrest (VF/VT/Asystole/PEA)"
         },
         {
-          "id": "d3",
+          "id": "e3",
           "shortAction": "Epinephrine 1 mg IV/IO push (95 kg x 0.1 mg/kg = 9.5 mg, capped at protocol max 1 mg)",
           "protocolExcerpt": "Administer epinephrine (0.1 mg/kg, maximum dose 1 mg) IV/IO during the first or second round of compressions.",
           "priority": "critical",
@@ -391,7 +400,7 @@
           "protocolReference": "MATC: Cardiac Arrest (VF/VT/Asystole/PEA)"
         },
         {
-          "id": "d4",
+          "id": "e4",
           "shortAction": "Resume chest compressions immediately post-shock without a pulse check, for 2 minutes",
           "protocolExcerpt": "Chest compressions should resume immediately after defibrillation attempts with no pauses for pulse checks for 2 minutes regardless of the rhythm displayed on the cardiac monitor.",
           "priority": "important",
