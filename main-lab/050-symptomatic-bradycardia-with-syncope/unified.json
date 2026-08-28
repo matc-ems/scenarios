@@ -107,15 +107,23 @@
           "priority": "critical",
           "rationale": "Required for atropine and any subsequent vasopressor or sedation administration.",
           "protocolReference": "MATC: Bradycardia"
+        },
+        {
+          "id": "a5",
+          "shortAction": "Atropine 1 mg IV push; may repeat every 3-5 minutes to a max total dose of 3 mg",
+          "protocolExcerpt": "Atropine 1 mg IV q 3–5 minutes (maximum total dose of 3 mg)",
+          "priority": "critical",
+          "rationale": "First-line additional therapy for symptomatic bradycardia per protocol.",
+          "protocolReference": "MATC: Bradycardia"
         }
       ],
       "transitions": [
         {
           "targetPhaseId": "atropine-given",
-          "if": "IV access established",
+          "if": "Atropine given",
           "condition": "IV access obtained and initial assessment complete; heart rate remains 32 with hypotension (78/50), meeting inclusion criteria for symptomatic bradycardia requiring pharmacologic treatment.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["a4"]
+          "triggerActionIds": ["a4", "a5"]
         }
       ]
     },
@@ -156,36 +164,51 @@
       },
       "expectedActions": [
         {
-          "id": "a5",
-          "shortAction": "Atropine 1 mg IV push; may repeat every 3-5 minutes to a max total dose of 3 mg",
-          "protocolExcerpt": "Atropine 1 mg IV q 3–5 minutes (maximum total dose of 3 mg)",
-          "priority": "critical",
-          "rationale": "First-line additional therapy for symptomatic bradycardia per protocol.",
-          "protocolReference": "MATC: Bradycardia"
-        },
-        {
-          "id": "a6",
+          "id": "b1",
           "shortAction": "Reassess HR and BP after each atropine dose; recognize third-degree block may be atropine-refractory",
           "protocolExcerpt": "Third-degree heart block or the denervated heart (as in cardiac transplant) may not respond to atropine and in these cases, proceed quickly to chronotropic agents (such as epinephrine or dopamine) or transcutaneous pacing",
           "priority": "important",
           "rationale": "Prevents delay in escalating to pacing when atropine is unlikely to work for infranodal (third-degree) block.",
+          "protocolReference": "MATC: Bradycardia"
+        },
+        {
+          "id": "b2",
+          "shortAction": "Administer sedation/analgesia prior to pacing per local protocol",
+          "protocolExcerpt": "If pacing is performed, consider sedation or pain control",
+          "priority": "critical",
+          "rationale": "TCP is painful; sedation improves patient tolerance and cooperation.",
+          "protocolReference": "MATC: Bradycardia"
+        },
+        {
+          "id": "b3",
+          "shortAction": "Apply pacing pads (anterior/posterior) and initiate transcutaneous pacing",
+          "protocolExcerpt": "Transcutaneous Pacing – If pacing is performed, consider sedation or pain control",
+          "priority": "critical",
+          "rationale": "Third-degree block is atropine-refractory; TCP is the next escalation per protocol.",
           "protocolReference": "MATC: Bradycardia"
         }
       ],
       "transitions": [
         {
           "targetPhaseId": "tcp-initiated",
-          "if": "Atropine fails after two doses",
+          "if": "TCP initiated",
           "condition": "Two 1 mg doses of atropine (2 mg total) administered IV with no improvement in heart rate or blood pressure; patient remains symptomatic with HR 32 and BP 76/48. Provider recognizes atropine-refractory third-degree block and escalates to transcutaneous pacing.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["a5", "a6"]
+          "triggerActionIds": ["b1", "b2", "b3"]
         },
         {
           "targetPhaseId": "deterioration-atropine-max",
-          "if": "Atropine repeated to max dose, pacing delayed",
+          "if": "Atropine repeated, pacing delayed",
           "condition": "Atropine given to the maximum total dose of 3 mg without initiating transcutaneous pacing; heart rate remains 32 and blood pressure continues to fall, with worsening mental status.",
           "conditionType": "action_not_taken",
-          "triggerActionIds": ["a5"]
+          "triggerActionIds": ["b3"]
+        },
+        {
+          "targetPhaseId": "pacing-without-sedation",
+          "if": "Pacing without sedation",
+          "condition": "Transcutaneous pacing is initiated without administering sedation or analgesia; patient experiences significant pain and agitation from pacing, complicating capture assessment and patient cooperation.",
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["b2"]
         }
       ]
     },
@@ -226,23 +249,7 @@
       },
       "expectedActions": [
         {
-          "id": "a7",
-          "shortAction": "Apply pacing pads (anterior/posterior) and initiate transcutaneous pacing",
-          "protocolExcerpt": "Transcutaneous Pacing – If pacing is performed, consider sedation or pain control",
-          "priority": "critical",
-          "rationale": "Third-degree block is atropine-refractory; TCP is the next escalation per protocol.",
-          "protocolReference": "MATC: Bradycardia"
-        },
-        {
-          "id": "a8",
-          "shortAction": "Administer sedation/analgesia prior to pacing per local protocol",
-          "protocolExcerpt": "If pacing is performed, consider sedation or pain control",
-          "priority": "critical",
-          "rationale": "TCP is painful; sedation improves patient tolerance and cooperation.",
-          "protocolReference": "MATC: Bradycardia"
-        },
-        {
-          "id": "a9",
+          "id": "c1",
           "shortAction": "Confirm electrical and mechanical capture; document pacer rate, mA, and patient response",
           "protocolExcerpt": "Pacing: Time started or stopped, rate, joules, capture, and response rate",
           "priority": "critical",
@@ -253,17 +260,10 @@
       "transitions": [
         {
           "targetPhaseId": "captured-stabilized",
-          "if": "Capture achieved with sedation given",
+          "if": "Capture achieved; perfusion improved",
           "condition": "Pacing pads applied, sedation administered, and transcutaneous pacing captures at the set rate with a palpable pulse; heart rate rises to the paced rate and blood pressure improves.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["a7", "a8", "a9"]
-        },
-        {
-          "targetPhaseId": "pacing-without-sedation",
-          "if": "Pacing started without sedation",
-          "condition": "Transcutaneous pacing is initiated without administering sedation or analgesia; patient experiences significant pain and agitation from pacing, complicating capture assessment and patient cooperation.",
-          "conditionType": "action_not_taken",
-          "triggerActionIds": ["a8"]
+          "triggerActionIds": ["c1"]
         }
       ]
     },
@@ -304,7 +304,7 @@
       },
       "expectedActions": [
         {
-          "id": "a10",
+          "id": "d1",
           "shortAction": "Reassess vitals and mental status; provide advance hospital notification given persistent hemodynamic instability requiring pacing",
           "protocolExcerpt": "Provide advanced notification to the hospital",
           "priority": "important",
@@ -312,7 +312,7 @@
           "protocolReference": "MATC: Shock"
         },
         {
-          "id": "a11",
+          "id": "d2",
           "shortAction": "Continue cardiac monitoring and reassess vitals throughout transport",
           "protocolExcerpt": "Ongoing vital signs",
           "priority": "supplemental",
@@ -359,7 +359,7 @@
       },
       "expectedActions": [
         {
-          "id": "b1a",
+          "id": "e1",
           "shortAction": "Recognize impending hemodynamic collapse; proceed directly to transcutaneous pacing without further atropine",
           "protocolExcerpt": "In cases of impending hemodynamic collapse, proceed directly to transcutaneous pacing",
           "priority": "critical",
@@ -406,7 +406,7 @@
       },
       "expectedActions": [
         {
-          "id": "b2a",
+          "id": "f1",
           "shortAction": "Administer sedation/analgesia promptly to reduce pain and improve tolerance of pacing",
           "protocolExcerpt": "If pacing is performed, consider sedation or pain control",
           "priority": "important",

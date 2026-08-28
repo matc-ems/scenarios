@@ -61,7 +61,8 @@
         "Apply cardiac monitor and obtain 12-lead EKG",
         "Administer oxygen titrated to a target SpO2 of 94-98%",
         "Check blood glucose level",
-        "Establish IV access"
+        "Establish IV access",
+        "Atropine 1 mg IV push; may repeat every 3-5 minutes to a max total dose of 3 mg"
       ],
       "relatedSounds": []
     },
@@ -95,8 +96,9 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Atropine 1 mg IV push; may repeat every 3-5 minutes to a max total dose of 3 mg",
-        "Reassess HR and BP after each atropine dose; recognize third-degree block may be atropine-refractory"
+        "Reassess HR and BP after each atropine dose; recognize third-degree block may be atropine-refractory",
+        "Administer sedation/analgesia prior to pacing per local protocol",
+        "Apply pacing pads (anterior/posterior) and initiate transcutaneous pacing"
       ],
       "relatedSounds": []
     },
@@ -130,8 +132,6 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Apply pacing pads (anterior/posterior) and initiate transcutaneous pacing",
-        "Administer sedation/analgesia prior to pacing per local protocol",
         "Confirm electrical and mechanical capture; document pacer rate, mA, and patient response"
       ],
       "relatedSounds": []
@@ -286,13 +286,13 @@
       "icon": 1
     },
     {
-      "title": "Apply pacing pads (anterior/posterior) and initiate transcutaneous pacing",
+      "title": "Administer sedation/analgesia prior to pacing per local protocol",
       "type": "Check",
       "value": 0,
       "icon": 1
     },
     {
-      "title": "Administer sedation/analgesia prior to pacing per local protocol",
+      "title": "Apply pacing pads (anterior/posterior) and initiate transcutaneous pacing",
       "type": "Check",
       "value": 0,
       "icon": 1
