@@ -97,7 +97,9 @@
       "relatedChecklist": [
         "Recognize oral glucose contraindicated; patient cannot protect his airway",
         "Administer oxygen, titrate toward SpO2 94–98%",
-        "Position patient laterally to protect airway and limit aspiration risk"
+        "Position patient laterally to protect airway and limit aspiration risk",
+        "Transport to closest appropriate receiving facility",
+        "Reassess vital signs and mental status"
       ],
       "relatedSounds": []
     },
@@ -130,15 +132,12 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [
-        "Transport to closest appropriate receiving facility",
-        "Reassess vital signs and mental status en route"
-      ],
+      "relatedChecklist": [],
       "relatedSounds": []
     },
     {
       "type": "ScenarioEvent",
-      "name": "Primary survey delayed",
+      "name": "Airway compromised",
       "description": "Assessment and airway repositioning were delayed. The patient's positional airway obstruction has progressed: breathing is now irregular with audible gurgling, and oxygenation is dropping.",
       "monitorType": 0,
       "trendTime": 30,
@@ -222,7 +221,7 @@
       "icon": 1
     },
     {
-      "title": "Reassess vital signs and mental status en route",
+      "title": "Reassess vital signs and mental status",
       "type": "Check",
       "value": 0,
       "icon": 1

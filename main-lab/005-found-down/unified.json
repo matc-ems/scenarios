@@ -87,7 +87,7 @@
       },
       "expectedActions": [
         {
-          "id": "init-a1",
+          "id": "a1",
           "shortAction": "Assess airway patency; reposition patient to open airway",
           "protocolExcerpt": "Airway: Make sure airway remains patent; reposition patient as needed",
           "priority": "critical",
@@ -95,7 +95,7 @@
           "protocolReference": "MATC: Altered Mental Status"
         },
         {
-          "id": "init-a2",
+          "id": "a2",
           "shortAction": "Assess breathing for respiratory depression; check SpO2",
           "protocolExcerpt": "Breathing: Look for respiratory depression; check SPO2, EtCO2, and CO detector readings",
           "priority": "critical",
@@ -103,7 +103,7 @@
           "protocolReference": "MATC: Altered Mental Status"
         },
         {
-          "id": "init-a3",
+          "id": "a3",
           "shortAction": "Determine AVPU and Glasgow Coma Score",
           "protocolExcerpt": "Glasgow Coma Score and/or AVPU",
           "priority": "critical",
@@ -111,7 +111,7 @@
           "protocolReference": "MATC: Altered Mental Status"
         },
         {
-          "id": "init-a4",
+          "id": "a4",
           "shortAction": "Check blood glucose level",
           "protocolExcerpt": "Blood glucose level",
           "priority": "critical",
@@ -122,17 +122,17 @@
       "transitions": [
         {
           "targetPhaseId": "survey-completed",
-          "if": "Primary survey completed, glucose checked",
+          "if": "Primary survey completed",
           "condition": "Within the first two minutes on scene, the crew reassesses airway patency, checks breathing and SpO2, determines AVPU/GCS, and obtains a blood glucose reading, which returns at 38 mg/dL.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["init-a1", "init-a2", "init-a3", "init-a4"]
+          "triggerActionIds": ["a1", "a2", "a3", "a4"]
         },
         {
           "targetPhaseId": "survey-delayed",
-          "if": "Primary survey delayed >3 min",
+          "if": "Airway compromised",
           "condition": "The crew becomes preoccupied with bystander history-taking or scene logistics and delays airway reassessment, repositioning, and glucose check for more than three minutes; the patient's positional airway obstruction worsens.",
           "conditionType": "time_elapsed",
-          "timeoutSeconds": 180
+          "triggerActionIds": ["a1"]
         }
       ]
     },
@@ -177,7 +177,7 @@
       },
       "expectedActions": [
         {
-          "id": "surv-a1",
+          "id": "b1",
           "shortAction": "Recognize oral glucose contraindicated; patient cannot protect his airway",
           "protocolExcerpt": "Conscious patient with a patent airway: Glucose, oral (in form of glucose tablets, glucose gel, tube of cake icing, etc.) Unconscious patient, or patients who are unable to protect their own airway: Dextrose IV – administer in incremental doses until mental status improves or maximum field dosing is reached",
           "priority": "critical",
@@ -185,7 +185,7 @@
           "protocolReference": "MATC: Hypoglycemia"
         },
         {
-          "id": "surv-a2",
+          "id": "b2",
           "shortAction": "Administer oxygen, titrate toward SpO2 94–98%",
           "protocolExcerpt": "Administer oxygen if needed for air hunger or respiratory distress and titrate to a target SPO2 of 94–98%",
           "priority": "critical",
@@ -193,28 +193,44 @@
           "protocolReference": "MATC: Airway Management (Includes RSI)"
         },
         {
-          "id": "surv-a3",
+          "id": "b3",
           "shortAction": "Position patient laterally to protect airway and limit aspiration risk",
           "protocolExcerpt": "Patient positioning can significantly impact respiratory mechanics. Elevating the head or padding (shoulders, occiput) can assist with opening airway and respiratory mechanics. This can both improve the ability to ventilate and limit aspiration",
           "priority": "important",
           "rationale": "An unresponsive patient with intact but depressed airway reflexes should be positioned to minimize aspiration risk during transport.",
           "protocolReference": "MATC: Airway Management (Includes RSI)"
+        },
+        {
+          "id": "b4",
+          "shortAction": "Transport to closest appropriate receiving facility",
+          "protocolExcerpt": "If hypoglycemia with continued symptoms, transport to closest appropriate receiving facility",
+          "priority": "critical",
+          "rationale": "Symptomatic hypoglycemia with depressed mental status that cannot be corrected at the BLS level requires prompt transport for definitive treatment.",
+          "protocolReference": "MATC: Hypoglycemia"
+        },
+        {
+          "id": "b5",
+          "shortAction": "Reassess vital signs and mental status",
+          "protocolExcerpt": "Reassess vital signs (pulse, blood pressure, respiratory rate, neurologic status assessment) and mental status",
+          "priority": "important",
+          "rationale": "Ongoing reassessment detects deterioration or improvement and guides communication with the receiving facility.",
+          "protocolReference": "MATC: Hypoglycemia"
         }
       ],
       "transitions": [
         {
           "targetPhaseId": "transport-initiated",
-          "if": "Oxygen applied, patient positioned, rapid transport begun",
+          "if": "Rapid transport initiated",
           "condition": "Crew applies oxygen titrated toward 94–98% SpO2, positions the patient laterally to protect the airway, and initiates rapid transport with an ALS intercept requested for definitive dextrose administration.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["surv-a1", "surv-a2", "surv-a3"]
+          "triggerActionIds": ["b2", "b3", "b4"]
         },
         {
           "targetPhaseId": "survey-delayed",
-          "if": "Airway not protected before transport",
+          "if": "Airway compromised",
           "condition": "Crew fails to position the patient laterally or apply oxygen before moving to transport; the unprotected airway allows secretions/emesis to compromise breathing.",
           "conditionType": "action_not_taken",
-          "triggerActionIds": ["surv-a3"]
+          "triggerActionIds": ["b3"]
         }
       ]
     },
@@ -257,29 +273,12 @@
         "trendTimeSeconds": 30,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [
-        {
-          "id": "trans-a1",
-          "shortAction": "Transport to closest appropriate receiving facility",
-          "protocolExcerpt": "If hypoglycemia with continued symptoms, transport to closest appropriate receiving facility",
-          "priority": "critical",
-          "rationale": "Symptomatic hypoglycemia with depressed mental status that cannot be corrected at the BLS level requires prompt transport for definitive treatment.",
-          "protocolReference": "MATC: Hypoglycemia"
-        },
-        {
-          "id": "trans-a2",
-          "shortAction": "Reassess vital signs and mental status en route",
-          "protocolExcerpt": "Reassess vital signs (pulse, blood pressure, respiratory rate, neurologic status assessment) and mental status",
-          "priority": "important",
-          "rationale": "Ongoing reassessment detects deterioration or improvement and guides communication with the receiving facility.",
-          "protocolReference": "MATC: Hypoglycemia"
-        }
-      ],
+      "expectedActions": [],
       "transitions": []
     },
     {
       "id": "survey-delayed",
-      "name": "Primary survey delayed",
+      "name": "Airway compromised",
       "description": "Assessment and airway repositioning were delayed. The patient's positional airway obstruction has progressed: breathing is now irregular with audible gurgling, and oxygenation is dropping.",
       "triggerCondition": "The crew delayed reassessing the airway, repositioning the patient, and/or applying oxygen for more than three minutes (or moved to transport without protecting the airway); secretions have pooled in the posterior pharynx and the patient's SpO2 has fallen.",
       "isDefault": false,
@@ -318,7 +317,7 @@
       },
       "expectedActions": [
         {
-          "id": "delay-a1",
+          "id": "c1",
           "shortAction": "Suction airway immediately to clear pooled secretions",
           "protocolExcerpt": "Suction airway: for significantly contaminated airways, consider utilizing a suction assisted laryngeal airway decontamination (SALAD) technique",
           "priority": "critical",
@@ -326,7 +325,7 @@
           "protocolReference": "MATC: Airway Management (Includes RSI)"
         },
         {
-          "id": "delay-a2",
+          "id": "c2",
           "shortAction": "Open airway with head tilt/chin lift and reposition immediately",
           "protocolExcerpt": "Open and maintain patent airway. If needed, Provide head tilt/chin lift, or jaw thrust if concern for potential spinal injury",
           "priority": "critical",
