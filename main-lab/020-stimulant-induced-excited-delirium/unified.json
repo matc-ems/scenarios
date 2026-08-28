@@ -81,13 +81,54 @@
         "trendTimeSeconds": 0,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [],
+      "expectedActions": [
+        {
+          "id": "a1",
+          "shortAction": "Attempt brief verbal reassurance/de-escalation before pharmacologic or physical management",
+          "protocolExcerpt": "Attempt verbal reassurance and calm patient prior to use of pharmacologic and/or physical management devices",
+          "priority": "important",
+          "rationale": "De-escalation is the first-line step even when severity ultimately requires chemical restraint.",
+          "protocolReference": "MATC: Agitated or Violent Patient/Behavioral Emergency"
+        },
+        {
+          "id": "a2",
+          "shortAction": "Use a validated risk tool (RASS/AMSS/BARS) to risk-stratify the patient as high violence risk",
+          "protocolExcerpt": "Use a validated risk assessment tool such as RASS (Richmond Agitation Sedation Score), AMSS (Altered Mental Status Score), or BARS (Behavioral Activity Rating Scale) to risk stratify violent patients to help guide interventions",
+          "priority": "important",
+          "rationale": "Risk stratification guides selection of the sedation-level ketamine dose over lower-tier alternatives.",
+          "protocolReference": "MATC: Agitated or Violent Patient/Behavioral Emergency"
+        },
+        {
+          "id": "a3",
+          "shortAction": "Secure all four extremities to the stationary stretcher frame without restricting chest wall motion",
+          "protocolExcerpt": "Secure all four extremities to maximize safety for patient, staff, and others Secure all extremities to the stationary frame of the stretcher",
+          "priority": "important",
+          "rationale": "Proper restraint technique protects against positional asphyxia while maintaining scene safety.",
+          "protocolReference": "MATC: Agitated or Violent Patient/Behavioral Emergency"
+        },
+        {
+          "id": "a4",
+          "shortAction": "Ketamine 340 mg IM (85 kg × 4 mg/kg) for chemical restraint of high-violence-risk agitation",
+          "protocolExcerpt": "Ketamine (option for high violence risk) — Adults: 4 mg/kg IM; 3–5 minute onset of action",
+          "priority": "critical",
+          "rationale": "The sedation-tier ketamine dose is substantially higher than the analgesic dose and is what achieves effective chemical restraint.",
+          "protocolReference": "MATC: Agitated or Violent Patient/Behavioral Emergency"
+        }
+      ],
       "transitions": [
         {
           "targetPhaseId": "ketamine-sedation",
           "if": "Sedation dose ketamine given",
           "condition": "Crew recognizes a high violence risk, uses a validated risk assessment tool, and administers the ketamine sedation dose (4 mg/kg IM) per the Agitated/Violent Patient protocol.",
-          "conditionType": "action_taken"
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a2", "a4"]
+        },
+        {
+          "targetPhaseId": "subtherapeutic-dose",
+          "if": "Sub-therapeutic ketamine dose given",
+          "condition": "Crew mistakenly administers the lower analgesic ketamine dose (0.25 mg/kg IM, per the Pain Management protocol) instead of the 4 mg/kg IM sedation dose, leaving the patient inadequately sedated and still combative.",
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["a4"]
         }
       ]
     },
@@ -132,39 +173,7 @@
       },
       "expectedActions": [
         {
-          "id": "a1-verbal-deescalation",
-          "shortAction": "Attempt brief verbal reassurance/de-escalation before pharmacologic or physical management",
-          "protocolExcerpt": "Attempt verbal reassurance and calm patient prior to use of pharmacologic and/or physical management devices",
-          "priority": "important",
-          "rationale": "De-escalation is the first-line step even when severity ultimately requires chemical restraint.",
-          "protocolReference": "MATC: Agitated or Violent Patient/Behavioral Emergency"
-        },
-        {
-          "id": "a2-risk-stratify",
-          "shortAction": "Use a validated risk tool (RASS/AMSS/BARS) to risk-stratify the patient as high violence risk",
-          "protocolExcerpt": "Use a validated risk assessment tool such as RASS (Richmond Agitation Sedation Score), AMSS (Altered Mental Status Score), or BARS (Behavioral Activity Rating Scale) to risk stratify violent patients to help guide interventions",
-          "priority": "important",
-          "rationale": "Risk stratification guides selection of the sedation-level ketamine dose over lower-tier alternatives.",
-          "protocolReference": "MATC: Agitated or Violent Patient/Behavioral Emergency"
-        },
-        {
-          "id": "a3-secure-extremities",
-          "shortAction": "Secure all four extremities to the stationary stretcher frame without restricting chest wall motion",
-          "protocolExcerpt": "Secure all four extremities to maximize safety for patient, staff, and others Secure all extremities to the stationary frame of the stretcher",
-          "priority": "important",
-          "rationale": "Proper restraint technique protects against positional asphyxia while maintaining scene safety.",
-          "protocolReference": "MATC: Agitated or Violent Patient/Behavioral Emergency"
-        },
-        {
-          "id": "a4-ketamine-sedation-dose",
-          "shortAction": "Ketamine 340 mg IM (85 kg × 4 mg/kg) for chemical restraint of high-violence-risk agitation",
-          "protocolExcerpt": "Ketamine (option for high violence risk) — Adults: 4 mg/kg IM; 3–5 minute onset of action",
-          "priority": "critical",
-          "rationale": "The sedation-tier ketamine dose is substantially higher than the analgesic dose and is what achieves effective chemical restraint.",
-          "protocolReference": "MATC: Agitated or Violent Patient/Behavioral Emergency"
-        },
-        {
-          "id": "a5-monitor",
+          "id": "b1",
           "shortAction": "Apply cardiac monitor and capnography; watch closely for hypoventilation/oversedation after ketamine",
           "protocolExcerpt": "Apply a cardiac monitor as soon as possible, particularly when pharmacologic management medications have been administered All patients who have received pharmacologic management medications must be monitored closely for the development of hypoventilation and oversedation Utilize capnography if available",
           "priority": "critical",
@@ -172,7 +181,7 @@
           "protocolReference": "MATC: Agitated or Violent Patient/Behavioral Emergency"
         },
         {
-          "id": "a6-cooling",
+          "id": "b2",
           "shortAction": "Begin external cooling with cold/ice packs to axilla and groin for suspected hyperthermia",
           "protocolExcerpt": "If hyperthermia suspected, begin external cooling (e.g., cold or ice packs to axilla/groin)",
           "priority": "important",
@@ -186,14 +195,7 @@
           "if": "Cooling and monitoring maintained",
           "condition": "Adequate ketamine sedation controls the agitation; cardiac monitor, capnography, and external cooling are maintained while the patient is packaged and transported.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["a4-ketamine-sedation-dose", "a5-monitor", "a6-cooling"]
-        },
-        {
-          "targetPhaseId": "subtherapeutic-dose",
-          "if": "Sub-therapeutic ketamine dose given",
-          "condition": "Crew mistakenly administers the lower analgesic ketamine dose (0.25 mg/kg IM, per the Pain Management protocol) instead of the 4 mg/kg IM sedation dose, leaving the patient inadequately sedated and still combative.",
-          "conditionType": "action_not_taken",
-          "triggerActionIds": ["a4-ketamine-sedation-dose"]
+          "triggerActionIds": ["b1", "b2"]
         }
       ]
     },
@@ -238,7 +240,7 @@
       },
       "expectedActions": [
         {
-          "id": "a7-continuous-monitoring",
+          "id": "c1",
           "shortAction": "Continuously monitor airway patency, respiratory status, SpO2/EtCO2, and cardiac status en route",
           "protocolExcerpt": "Continuous monitoring of: Airway patency Respiratory status with pulse oximetry and/or capnography Circulatory status with frequent blood pressure measurements Mental status and trends in level of patient cooperation Cardiac status, especially if the patient has received pharmacologic management medication",
           "priority": "critical",
@@ -246,7 +248,7 @@
           "protocolReference": "MATC: Agitated or Violent Patient/Behavioral Emergency"
         },
         {
-          "id": "a8-serial-reassessment",
+          "id": "c2",
           "shortAction": "Reassess and document mental status trend and circulatory status serially en route",
           "protocolExcerpt": "Repeated assessment of mental status and trends in the level of patient cooperation Repeated assessment of circulatory status with blood pressure, capillary refill, cardiac monitoring",
           "priority": "important",
@@ -297,7 +299,7 @@
       },
       "expectedActions": [
         {
-          "id": "a9-recognize-analgesic-dose",
+          "id": "d1",
           "shortAction": "Recognize 21 mg IM (85 kg × 0.25 mg/kg) is an analgesic dose only, inadequate for chemical restraint of this agitation",
           "protocolExcerpt": "Ketamine: 0.25 mg/kg IM, IV or IO (maximum initial dose 25 mg; maximum cumulative dose 100 mg)",
           "priority": "critical",
@@ -305,7 +307,7 @@
           "protocolReference": "MATC: Pain Management"
         },
         {
-          "id": "a10-redose-sedation",
+          "id": "d2",
           "shortAction": "Redose ketamine to reach 340 mg IM total (85 kg × 4 mg/kg sedation dose) for adequate chemical restraint",
           "protocolExcerpt": "Ketamine (option for high violence risk) — Adults: 4 mg/kg IM; 3–5 minute onset of action",
           "priority": "critical",

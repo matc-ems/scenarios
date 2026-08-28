@@ -57,7 +57,12 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [],
+      "relatedChecklist": [
+        "Attempt brief verbal reassurance/de-escalation before pharmacologic or physical management",
+        "Use a validated risk tool (RASS/AMSS/BARS) to risk-stratify the patient as high violence risk",
+        "Secure all four extremities to the stationary stretcher frame without restricting chest wall motion",
+        "Ketamine 340 mg IM (85 kg × 4 mg/kg) for chemical restraint of high-violence-risk agitation"
+      ],
       "relatedSounds": []
     },
     {
@@ -90,10 +95,6 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Attempt brief verbal reassurance/de-escalation before pharmacologic or physical management",
-        "Use a validated risk tool (RASS/AMSS/BARS) to risk-stratify the patient as high violence risk",
-        "Secure all four extremities to the stationary stretcher frame without restricting chest wall motion",
-        "Ketamine 340 mg IM (85 kg × 4 mg/kg) for chemical restraint of high-violence-risk agitation",
         "Apply cardiac monitor and capnography; watch closely for hypoventilation/oversedation after ketamine",
         "Begin external cooling with cold/ice packs to axilla and groin for suspected hyperthermia"
       ],
