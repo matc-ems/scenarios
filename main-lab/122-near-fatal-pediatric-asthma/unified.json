@@ -81,13 +81,62 @@
         "trendTimeSeconds": 0,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [],
+      "expectedActions": [
+        {
+          "id": "a1",
+          "shortAction": "Recognize impending respiratory failure: near-silent chest, minimal air movement, exhaustion",
+          "protocolExcerpt": "Signs of distress include: Apprehension, anxiety, combativeness. Hypoxia (less than 90% oxygen saturation). Intercostal/subcostal/supraclavicular retractions, accessory muscle use. In the setting of severe bronchoconstriction, wheezing may not be heard. Patients with known asthma with severe dyspnea should be empirically treated, even if wheezing is absent",
+          "priority": "critical",
+          "rationale": "A quiet chest in a known asthmatic is a pre-arrest finding, not reassurance of mild disease.",
+          "protocolReference": "MATC: Respiratory Distress (includes Bronchospasm, Pulmonary Edema)"
+        },
+        {
+          "id": "a2",
+          "shortAction": "Place continuous waveform capnography to monitor severe bronchospasm and guide therapy",
+          "protocolExcerpt": "Continuous waveform capnography monitoring should be placed in line. Continuous waveform capnography...should be used in spontaneously breathing patients who are...in severe respiratory distress (e.g., receiving epinephrine, magnesium therapy)",
+          "priority": "important",
+          "rationale": "A shark-fin waveform confirms ongoing severe obstructive physiology and tracks response to treatment.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        },
+        {
+          "id": "a3",
+          "shortAction": "Continuous nebulized albuterol 5 mg with ipratropium 0.5 mg (up to 3 doses)",
+          "protocolExcerpt": "Albuterol 5 mg nebulized (or 6 puffs metered dose inhaler) should be administered to all patients in respiratory distress with signs of bronchospasm (e.g., known asthmatics, quiet wheezers). Repeat at this dose with unlimited frequency for ongoing respiratory distress. Ipratropium 0.5 mg nebulized should be given up to 3 doses in conjunction with albuterol",
+          "priority": "critical",
+          "rationale": "Repeated bronchodilator dosing is indicated for ongoing distress regardless of frequency limits.",
+          "protocolReference": "MATC: Respiratory Distress (includes Bronchospasm, Pulmonary Edema)"
+        },
+        {
+          "id": "a4",
+          "shortAction": "Epinephrine 0.3 mg IM 1 mg/mL (50 kg × 0.01 mg/kg = 0.5 mg → capped at 0.3 mg max)",
+          "protocolExcerpt": "Epinephrine (0.01 mg/kg of 1 mg/mL solution IM, maximum dose of 0.3 mg) should only be administered for impending respiratory failure as adjunctive therapy when there are no clinical signs of improvement with the above treatments",
+          "priority": "critical",
+          "rationale": "IM epinephrine is reserved for impending respiratory failure, exactly this presentation.",
+          "protocolReference": "MATC: Respiratory Distress (includes Bronchospasm, Pulmonary Edema)"
+        },
+        {
+          "id": "a5",
+          "shortAction": "Magnesium sulfate 2 g IV (50 kg × 40 mg/kg = 2000 mg = 2 g; max dose 2 g) over 10-15 min",
+          "protocolExcerpt": "Magnesium sulfate (40 mg/kg IV, maximum dose of 2 g) over 10–15 minutes should be administered for severe bronchoconstriction and concern for impending respiratory failure",
+          "priority": "critical",
+          "rationale": "This patient's weight-based dose lands exactly at the protocol maximum.",
+          "protocolReference": "MATC: Respiratory Distress (includes Bronchospasm, Pulmonary Edema)"
+        }
+      ],
       "transitions": [
         {
           "targetPhaseId": "nebs-epi-mag",
           "if": "Impending respiratory failure recognized, epi/mag given",
           "condition": "Crew recognizes the near-silent chest and minimal air movement as impending respiratory failure and escalates immediately to IM epinephrine and IV magnesium alongside continuous nebulized bronchodilators, rather than waiting on standard nebulizer treatment alone.",
-          "conditionType": "action_taken"
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a1", "a4", "a5"]
+        },
+        {
+          "targetPhaseId": "resp-arrest-bvm",
+          "if": "Escalation delayed despite silent chest",
+          "condition": "Crew continues only standard nebulizer treatment without escalating to NIV or reassessing frequently; the patient's silent chest and exhaustion progress unrecognized to frank respiratory arrest.",
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["a1", "a4"]
         }
       ]
     },
@@ -133,43 +182,19 @@
       },
       "expectedActions": [
         {
-          "id": "a1-recognize-failure",
-          "shortAction": "Recognize impending respiratory failure: near-silent chest, minimal air movement, exhaustion",
-          "protocolExcerpt": "Signs of distress include: Apprehension, anxiety, combativeness. Hypoxia (less than 90% oxygen saturation). Intercostal/subcostal/supraclavicular retractions, accessory muscle use. In the setting of severe bronchoconstriction, wheezing may not be heard. Patients with known asthma with severe dyspnea should be empirically treated, even if wheezing is absent",
+          "id": "b1",
+          "shortAction": "Apply CPAP with nebulizer in-line via T-connector; maintain continuous mask seal",
+          "protocolExcerpt": "Non-invasive ventilation (NIV) should be considered early for severe respiratory distress or impending respiratory failure. Nebulized medications may be administered through a CPAP or BiPAP mask. A specialized T-connector with a spring valve assembly is required to allow maintenance of positive airway pressure",
           "priority": "critical",
-          "rationale": "A quiet chest in a known asthmatic is a pre-arrest finding, not reassurance of mild disease.",
-          "protocolReference": "MATC: Respiratory Distress (includes Bronchospasm, Pulmonary Edema)"
+          "rationale": "Early NIV can avert the need for invasive airway management in severe bronchospasm.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
         },
         {
-          "id": "a2-continuous-neb",
-          "shortAction": "Continuous nebulized albuterol 5 mg with ipratropium 0.5 mg (up to 3 doses)",
-          "protocolExcerpt": "Albuterol 5 mg nebulized (or 6 puffs metered dose inhaler) should be administered to all patients in respiratory distress with signs of bronchospasm (e.g., known asthmatics, quiet wheezers). Repeat at this dose with unlimited frequency for ongoing respiratory distress. Ipratropium 0.5 mg nebulized should be given up to 3 doses in conjunction with albuterol",
-          "priority": "critical",
-          "rationale": "Repeated bronchodilator dosing is indicated for ongoing distress regardless of frequency limits.",
-          "protocolReference": "MATC: Respiratory Distress (includes Bronchospasm, Pulmonary Edema)"
-        },
-        {
-          "id": "a3-im-epi",
-          "shortAction": "Epinephrine 0.3 mg IM 1 mg/mL (50 kg × 0.01 mg/kg = 0.5 mg → capped at 0.3 mg max)",
-          "protocolExcerpt": "Epinephrine (0.01 mg/kg of 1 mg/mL solution IM, maximum dose of 0.3 mg) should only be administered for impending respiratory failure as adjunctive therapy when there are no clinical signs of improvement with the above treatments",
-          "priority": "critical",
-          "rationale": "IM epinephrine is reserved for impending respiratory failure, exactly this presentation.",
-          "protocolReference": "MATC: Respiratory Distress (includes Bronchospasm, Pulmonary Edema)"
-        },
-        {
-          "id": "a4-magnesium",
-          "shortAction": "Magnesium sulfate 2 g IV (50 kg × 40 mg/kg = 2000 mg = 2 g; max dose 2 g) over 10-15 min",
-          "protocolExcerpt": "Magnesium sulfate (40 mg/kg IV, maximum dose of 2 g) over 10–15 minutes should be administered for severe bronchoconstriction and concern for impending respiratory failure",
-          "priority": "critical",
-          "rationale": "This patient's weight-based dose lands exactly at the protocol maximum.",
-          "protocolReference": "MATC: Respiratory Distress (includes Bronchospasm, Pulmonary Edema)"
-        },
-        {
-          "id": "a5-capnography",
-          "shortAction": "Place continuous waveform capnography to monitor severe bronchospasm and guide therapy",
-          "protocolExcerpt": "Continuous waveform capnography monitoring should be placed in line. Continuous waveform capnography...should be used in spontaneously breathing patients who are...in severe respiratory distress (e.g., receiving epinephrine, magnesium therapy)",
+          "id": "b2",
+          "shortAction": "Do not break CPAP mask seal until hospital CPAP is ready to take over",
+          "protocolExcerpt": "Once initiated and patient is tolerating mask, DO NOT discontinue CPAP/BiPAP until patient is on the emergency department stretcher and hospital CPAP/BiPAP is immediately available for patient to be switched over...Breaking the mask seal causes a significant decrease in airway pressures and may lead to abrupt decompensation due to atelectasis and alveolar collapse",
           "priority": "important",
-          "rationale": "A shark-fin waveform confirms ongoing severe obstructive physiology and tracks response to treatment.",
+          "rationale": "Interrupting CPAP to reposition the patient or during transfer can trigger rapid decompensation.",
           "protocolReference": "MATC: Airway Management (Includes RSI)"
         }
       ],
@@ -178,14 +203,8 @@
           "targetPhaseId": "cpap-improved",
           "if": "NIV started early, air movement improves",
           "condition": "Non-invasive ventilation (CPAP with nebulizer in-line via T-connector) is started promptly alongside continued bronchodilator/epi/magnesium therapy, and the patient's air movement and mental status improve, avoiding the need for invasive airway management.",
-          "conditionType": "action_taken"
-        },
-        {
-          "targetPhaseId": "resp-arrest-bvm",
-          "if": "Escalation delayed despite silent chest",
-          "condition": "Crew continues only standard nebulizer treatment without escalating to NIV or reassessing frequently; the patient's silent chest and exhaustion progress unrecognized to frank respiratory arrest.",
-          "conditionType": "action_not_taken",
-          "triggerActionIds": ["a1-recognize-failure"]
+          "conditionType": "action_taken",
+          "triggerActionIds": ["b1", "b2"]
         }
       ]
     },
@@ -229,24 +248,7 @@
         "trendTimeSeconds": 50,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
       },
-      "expectedActions": [
-        {
-          "id": "a6-niv-early",
-          "shortAction": "Apply CPAP with nebulizer in-line via T-connector; maintain continuous mask seal",
-          "protocolExcerpt": "Non-invasive ventilation (NIV) should be considered early for severe respiratory distress or impending respiratory failure. Nebulized medications may be administered through a CPAP or BiPAP mask. A specialized T-connector with a spring valve assembly is required to allow maintenance of positive airway pressure",
-          "priority": "critical",
-          "rationale": "Early NIV can avert the need for invasive airway management in severe bronchospasm.",
-          "protocolReference": "MATC: Airway Management (Includes RSI)"
-        },
-        {
-          "id": "a7-maintain-seal",
-          "shortAction": "Do not break CPAP mask seal until hospital CPAP is ready to take over",
-          "protocolExcerpt": "Once initiated and patient is tolerating mask, DO NOT discontinue CPAP/BiPAP until patient is on the emergency department stretcher and hospital CPAP/BiPAP is immediately available for patient to be switched over...Breaking the mask seal causes a significant decrease in airway pressures and may lead to abrupt decompensation due to atelectasis and alveolar collapse",
-          "priority": "important",
-          "rationale": "Interrupting CPAP to reposition the patient or during transfer can trigger rapid decompensation.",
-          "protocolReference": "MATC: Airway Management (Includes RSI)"
-        }
-      ],
+      "expectedActions": [],
       "transitions": []
     },
     {
@@ -291,7 +293,7 @@
       },
       "expectedActions": [
         {
-          "id": "a8-bvm-pediatric-rate",
+          "id": "c1",
           "shortAction": "Two-person BVM with PEEP 5 cmH2O at pediatric rate 20-30/min",
           "protocolExcerpt": "Use bag-valve-mask (BVM) ventilation in the setting of respiratory failure or arrest...Two-person, two-thumbs-up BVM ventilation is preferred. PEEP should be used with BVM...5 cmH2O is generally an appropriate initial PEEP setting. Rate: Child: 20–30 breaths/minute",
           "priority": "critical",
@@ -305,7 +307,7 @@
           "if": "BVM ineffective, RSI performed",
           "condition": "BVM ventilation fails to achieve adequate oxygenation and ventilation despite PEEP and airway adjuncts, and the crew proceeds to rapid sequence intubation with pediatric tube sizing.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["a8-bvm-pediatric-rate"]
+          "triggerActionIds": ["c1"]
         }
       ]
     },
@@ -351,7 +353,7 @@
       },
       "expectedActions": [
         {
-          "id": "a9-rsi-ketamine",
+          "id": "d1",
           "shortAction": "RSI with ketamine 75 mg IV (50 kg × 1.5 mg/kg) then rocuronium 50 mg IV (50 kg × 1 mg/kg)",
           "protocolExcerpt": "Administer induction sedative agent: Ketamine IV push, 1-2 mg/kg...Administer paralytic agent: Rocuronium IV push, 1 mg/kg",
           "priority": "critical",
@@ -359,7 +361,7 @@
           "protocolReference": "MATC: Airway Management (Includes RSI)"
         },
         {
-          "id": "a10-pediatric-tube-size",
+          "id": "d2",
           "shortAction": "Size endotracheal tube using pediatric formula: (14/4) + 3.5 = 7.0 mm cuffed",
           "protocolExcerpt": "For pediatrics, cuffed tubes are now recommended...2–15 years: [age(yrs.)/4]+4 (uncuffed) or [age(yrs.)/4]+3.5 (cuffed)",
           "priority": "critical",
@@ -367,7 +369,7 @@
           "protocolReference": "MATC: Airway Management (Includes RSI)"
         },
         {
-          "id": "a11-confirm-placement",
+          "id": "d3",
           "shortAction": "Confirm tube placement with waveform capnography, bilateral breath sounds, absent gastric sounds",
           "protocolExcerpt": "Confirm placement of advanced airway (endotracheal tube, SGA) with waveform capnography (most reliable), absent gastric sounds, and bilateral breath sounds",
           "priority": "critical",

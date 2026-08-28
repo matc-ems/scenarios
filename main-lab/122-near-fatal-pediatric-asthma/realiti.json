@@ -57,7 +57,13 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [],
+      "relatedChecklist": [
+        "Recognize impending respiratory failure: near-silent chest, minimal air movement, exhaustion",
+        "Place continuous waveform capnography to monitor severe bronchospasm and guide therapy",
+        "Continuous nebulized albuterol 5 mg with ipratropium 0.5 mg (up to 3 doses)",
+        "Epinephrine 0.3 mg IM 1 mg/mL (50 kg × 0.01 mg/kg = 0.5 mg → capped at 0.3 mg max)",
+        "Magnesium sulfate 2 g IV (50 kg × 40 mg/kg = 2000 mg = 2 g; max dose 2 g) over 10-15 min"
+      ],
       "relatedSounds": []
     },
     {
@@ -90,11 +96,8 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Recognize impending respiratory failure: near-silent chest, minimal air movement, exhaustion",
-        "Continuous nebulized albuterol 5 mg with ipratropium 0.5 mg (up to 3 doses)",
-        "Epinephrine 0.3 mg IM 1 mg/mL (50 kg × 0.01 mg/kg = 0.5 mg → capped at 0.3 mg max)",
-        "Magnesium sulfate 2 g IV (50 kg × 40 mg/kg = 2000 mg = 2 g; max dose 2 g) over 10-15 min",
-        "Place continuous waveform capnography to monitor severe bronchospasm and guide therapy"
+        "Apply CPAP with nebulizer in-line via T-connector; maintain continuous mask seal",
+        "Do not break CPAP mask seal until hospital CPAP is ready to take over"
       ],
       "relatedSounds": []
     },
@@ -127,10 +130,7 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [
-        "Apply CPAP with nebulizer in-line via T-connector; maintain continuous mask seal",
-        "Do not break CPAP mask seal until hospital CPAP is ready to take over"
-      ],
+      "relatedChecklist": [],
       "relatedSounds": []
     },
     {
@@ -212,6 +212,12 @@
       "icon": 1
     },
     {
+      "title": "Place continuous waveform capnography to monitor severe bronchospasm and guide therapy",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
       "title": "Continuous nebulized albuterol 5 mg with ipratropium 0.5 mg (up to 3 doses)",
       "type": "Check",
       "value": 0,
@@ -225,12 +231,6 @@
     },
     {
       "title": "Magnesium sulfate 2 g IV (50 kg × 40 mg/kg = 2000 mg = 2 g; max dose 2 g) over 10-15 min",
-      "type": "Check",
-      "value": 0,
-      "icon": 1
-    },
-    {
-      "title": "Place continuous waveform capnography to monitor severe bronchospasm and guide therapy",
       "type": "Check",
       "value": 0,
       "icon": 1
