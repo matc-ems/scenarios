@@ -138,14 +138,14 @@
       "transitions": [
         {
           "targetPhaseId": "rosc-achieved",
-          "if": "Single shock delivered, compressions resumed",
+          "if": "Single shock, ROSC achieved",
           "condition": "Defibrillator pads applied promptly, a single 120 J biphasic shock delivered for coarse VF, and high-quality compressions resumed immediately without a pulse check, achieving ROSC at the end of the first 2-minute cycle.",
           "conditionType": "action_taken",
           "triggerActionIds": ["p1-shock", "p1-resume-cpr"]
         },
         {
           "targetPhaseId": "compressions-delayed",
-          "if": "Compressions interrupted or delayed",
+          "if": "Compressions delayed",
           "condition": "Rescuers pause chest compressions for a prolonged pulse check, hover over the patient while charging, or otherwise delay resumption of compressions after the shock, reducing coronary perfusion pressure.",
           "conditionType": "action_not_taken",
           "triggerActionIds": ["p1-resume-cpr"]
@@ -240,14 +240,14 @@
       "transitions": [
         {
           "targetPhaseId": "post-rosc-stabilization",
-          "if": "Oxygenation and ventilation optimized",
+          "if": "Post-ROSC stabilization and transport",
           "condition": "Providers secure the airway, titrate oxygen to 94-98% SpO2, ventilate at 8-10 breaths/min targeting EtCO2 35-45 mmHg, and obtain a 12-lead ECG without further hemodynamic compromise.",
           "conditionType": "action_taken",
           "triggerActionIds": ["p2-o2-titrate", "p2-vent-rate", "p2-12-lead"]
         },
         {
           "targetPhaseId": "hyperventilation-rearrest",
-          "if": "Ventilated too fast after ROSC",
+          "if": "Hyperventilation after ROSC",
           "condition": "Providers ventilate at an excessive rate/volume in the post-ROSC period, dropping EtCO2 below target and precipitating hypotension with risk of re-arrest.",
           "conditionType": "action_not_taken",
           "triggerActionIds": ["p2-vent-rate"]
