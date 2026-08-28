@@ -57,7 +57,13 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [],
+      "relatedChecklist": [
+        "Perform MARCH primary survey; identify absent left breath sounds, JVD, and hypotension",
+        "Needle decompression of left 2nd intercostal space, midclavicular line",
+        "Apply semi-occlusive dressing over the open chest wound",
+        "Apply supplemental oxygen to maintain SpO2 greater than 94%",
+        "Establish large-bore IV access; give 500 mL crystalloid bolus for SBP <90 mmHg"
+      ],
       "relatedSounds": []
     },
     {
@@ -90,11 +96,8 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Perform MARCH primary survey; identify absent left breath sounds, JVD, and hypotension",
-        "Needle decompression of left 2nd intercostal space, midclavicular line",
-        "Apply semi-occlusive dressing over the open chest wound",
-        "Establish large-bore IV access; give 500 mL crystalloid bolus for SBP <90 mmHg",
-        "Apply supplemental oxygen to maintain SpO2 greater than 94%"
+        "Reassess breath sounds, vitals, and mental status serially en route",
+        "Transport to trauma center; minimize scene time (goal under 10 minutes) for penetrating torso trauma"
       ],
       "relatedSounds": []
     },
@@ -127,10 +130,7 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [
-        "Reassess breath sounds, vitals, and mental status serially en route",
-        "Transport to trauma center; minimize scene time (goal under 10 minutes) for penetrating torso trauma"
-      ],
+      "relatedChecklist": [],
       "relatedSounds": []
     },
     {
@@ -188,13 +188,13 @@
       "icon": 1
     },
     {
-      "title": "Establish large-bore IV access; give 500 mL crystalloid bolus for SBP <90 mmHg",
+      "title": "Apply supplemental oxygen to maintain SpO2 greater than 94%",
       "type": "Check",
       "value": 0,
       "icon": 1
     },
     {
-      "title": "Apply supplemental oxygen to maintain SpO2 greater than 94%",
+      "title": "Establish large-bore IV access; give 500 mL crystalloid bolus for SBP <90 mmHg",
       "type": "Check",
       "value": 0,
       "icon": 1

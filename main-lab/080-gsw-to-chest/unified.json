@@ -81,13 +81,62 @@
         "trendTimeSeconds": 0,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [],
+      "expectedActions": [
+        {
+          "id": "a1",
+          "shortAction": "Perform MARCH primary survey; identify absent left breath sounds, JVD, and hypotension",
+          "protocolExcerpt": "If absent or diminished breath sounds in a hypotensive trauma patient, especially those with chest trauma and/or tracheal deviation, consider tension pneumothorax",
+          "priority": "critical",
+          "rationale": "Recognizing the triad of absent breath sounds, JVD, and hypotension is what drives urgent decompression.",
+          "protocolReference": "MATC: General Trauma Management"
+        },
+        {
+          "id": "a2",
+          "shortAction": "Needle decompression of left 2nd intercostal space, midclavicular line",
+          "protocolExcerpt": "perform needle decompression of side without breath sounds or side opposite tracheal deviation; may need second or third needle decompression on same side if there is a rush of air but patient again has symptoms",
+          "priority": "critical",
+          "rationale": "Immediate decompression relieves the obstructive physiology causing hypotension and hypoxia.",
+          "protocolReference": "MATC: General Trauma Management"
+        },
+        {
+          "id": "a3",
+          "shortAction": "Apply semi-occlusive dressing over the open chest wound",
+          "protocolExcerpt": "For open chest wound, place semi-occlusive dressing",
+          "priority": "critical",
+          "rationale": "Prevents ongoing air entry through the chest wall wound while allowing trapped air to vent.",
+          "protocolReference": "MATC: General Trauma Management"
+        },
+        {
+          "id": "a4",
+          "shortAction": "Apply supplemental oxygen to maintain SpO2 greater than 94%",
+          "protocolExcerpt": "Monitor oxygen saturation (SpO2) and, if indicated, provide supplemental oxygen to maintain SPO2 greater than 94% and respiratory support if needed",
+          "priority": "important",
+          "rationale": "Corrects hypoxia from the ventilation-perfusion mismatch caused by the pneumothorax.",
+          "protocolReference": "MATC: General Trauma Management"
+        },
+        {
+          "id": "a5",
+          "shortAction": "Establish large-bore IV access; give 500 mL crystalloid bolus for SBP <90 mmHg",
+          "protocolExcerpt": "Establish IV access if needed (large bore preferred). If SBP less than 90 mmHg or HR greater than 120 BPM, initiate resuscitation: consider 500 mL bolus of IV fluid, repeat as needed for persistent signs and symptoms of shock. Trauma resuscitation target SBP 90 mmHg",
+          "priority": "important",
+          "rationale": "Supports perfusion while the obstructive component is being addressed.",
+          "protocolReference": "MATC: General Trauma Management"
+        }
+      ],
       "transitions": [
         {
           "targetPhaseId": "decompression-performed",
-          "if": "Tension pneumothorax recognized, decompressed",
+          "if": "Tension pneumothorax decompressed",
           "condition": "Crew performs a MARCH primary survey, recognizes absent left breath sounds with JVD, tracheal deviation, and hypotension as tension pneumothorax, and performs immediate needle decompression of the left second intercostal space.",
-          "conditionType": "action_taken"
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a1", "a2"]
+        },
+        {
+          "targetPhaseId": "decompression-delayed",
+          "if": "Decompression delayed",
+          "condition": "The crew focuses on IV access and fluid administration without recognizing or acting on the signs of tension pneumothorax, delaying needle decompression.",
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["a2"]
         }
       ]
     },
@@ -133,43 +182,19 @@
       },
       "expectedActions": [
         {
-          "id": "a1-march",
-          "shortAction": "Perform MARCH primary survey; identify absent left breath sounds, JVD, and hypotension",
-          "protocolExcerpt": "If absent or diminished breath sounds in a hypotensive trauma patient, especially those with chest trauma and/or tracheal deviation, consider tension pneumothorax",
+          "id": "b1",
+          "shortAction": "Reassess breath sounds, vitals, and mental status serially en route",
+          "protocolExcerpt": "Monitor patient for deterioration over time with serial vital signs (pulse, blood pressure, respiratory rate, neurologic status assessment) and repeat neurologic status assessment",
           "priority": "critical",
-          "rationale": "Recognizing the triad of absent breath sounds, JVD, and hypotension is what drives urgent decompression.",
+          "rationale": "Tension physiology can recur; repeat exam catches early recurrence before decompensation.",
           "protocolReference": "MATC: General Trauma Management"
         },
         {
-          "id": "a2-decompress",
-          "shortAction": "Needle decompression of left 2nd intercostal space, midclavicular line",
-          "protocolExcerpt": "perform needle decompression of side without breath sounds or side opposite tracheal deviation; may need second or third needle decompression on same side if there is a rush of air but patient again has symptoms",
+          "id": "b2",
+          "shortAction": "Transport to trauma center; minimize scene time (goal under 10 minutes) for penetrating torso trauma",
+          "protocolExcerpt": "Patients with major hemorrhage, hemodynamic instability, penetrating torso trauma, or signs of traumatic brain injury often require rapid surgical intervention. Minimize scene time (goal is under 10 minutes) and initiate rapid transport to the highest level of care within the trauma system",
           "priority": "critical",
-          "rationale": "Immediate decompression relieves the obstructive physiology causing hypotension and hypoxia.",
-          "protocolReference": "MATC: General Trauma Management"
-        },
-        {
-          "id": "a3-occlusive-dressing",
-          "shortAction": "Apply semi-occlusive dressing over the open chest wound",
-          "protocolExcerpt": "For open chest wound, place semi-occlusive dressing",
-          "priority": "critical",
-          "rationale": "Prevents ongoing air entry through the chest wall wound while allowing trapped air to vent.",
-          "protocolReference": "MATC: General Trauma Management"
-        },
-        {
-          "id": "a4-iv-fluids",
-          "shortAction": "Establish large-bore IV access; give 500 mL crystalloid bolus for SBP <90 mmHg",
-          "protocolExcerpt": "Establish IV access if needed (large bore preferred). If SBP less than 90 mmHg or HR greater than 120 BPM, initiate resuscitation: consider 500 mL bolus of IV fluid, repeat as needed for persistent signs and symptoms of shock. Trauma resuscitation target SBP 90 mmHg",
-          "priority": "important",
-          "rationale": "Supports perfusion while the obstructive component is being addressed.",
-          "protocolReference": "MATC: General Trauma Management"
-        },
-        {
-          "id": "a5-oxygen",
-          "shortAction": "Apply supplemental oxygen to maintain SpO2 greater than 94%",
-          "protocolExcerpt": "Monitor oxygen saturation (SpO2) and, if indicated, provide supplemental oxygen to maintain SPO2 greater than 94% and respiratory support if needed",
-          "priority": "important",
-          "rationale": "Corrects hypoxia from the ventilation-perfusion mismatch caused by the pneumothorax.",
+          "rationale": "Penetrating torso trauma requires surgical intervention that only a trauma center can provide.",
           "protocolReference": "MATC: General Trauma Management"
         }
       ],
@@ -179,14 +204,7 @@
           "if": "Rapid transport initiated",
           "condition": "With the tension pneumothorax decompressed and hemodynamics improving, the crew packages the patient and initiates rapid transport to the trauma center with minimal scene time.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["a2-decompress", "a4-iv-fluids"]
-        },
-        {
-          "targetPhaseId": "decompression-delayed",
-          "if": "Decompression delayed",
-          "condition": "The crew focuses on IV access and fluid administration without recognizing or acting on the signs of tension pneumothorax, delaying needle decompression.",
-          "conditionType": "action_not_taken",
-          "triggerActionIds": ["a2-decompress"]
+          "triggerActionIds": ["b2"]
         }
       ]
     },
@@ -229,24 +247,7 @@
         "trendTimeSeconds": 30,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [
-        {
-          "id": "a6-reassess",
-          "shortAction": "Reassess breath sounds, vitals, and mental status serially en route",
-          "protocolExcerpt": "Monitor patient for deterioration over time with serial vital signs (pulse, blood pressure, respiratory rate, neurologic status assessment) and repeat neurologic status assessment",
-          "priority": "critical",
-          "rationale": "Tension physiology can recur; repeat exam catches early recurrence before decompensation.",
-          "protocolReference": "MATC: General Trauma Management"
-        },
-        {
-          "id": "a7-rapid-transport",
-          "shortAction": "Transport to trauma center; minimize scene time (goal under 10 minutes) for penetrating torso trauma",
-          "protocolExcerpt": "Patients with major hemorrhage, hemodynamic instability, penetrating torso trauma, or signs of traumatic brain injury often require rapid surgical intervention. Minimize scene time (goal is under 10 minutes) and initiate rapid transport to the highest level of care within the trauma system",
-          "priority": "critical",
-          "rationale": "Penetrating torso trauma requires surgical intervention that only a trauma center can provide.",
-          "protocolReference": "MATC: General Trauma Management"
-        }
-      ],
+      "expectedActions": [],
       "transitions": []
     },
     {
@@ -290,7 +291,7 @@
       },
       "expectedActions": [
         {
-          "id": "a8-rescue-decompression",
+          "id": "c1",
           "shortAction": "Recognize worsening tension physiology; perform immediate needle decompression",
           "protocolExcerpt": "perform needle decompression of side without breath sounds or side opposite tracheal deviation; may need second or third needle decompression on same side if there is a rush of air but patient again has symptoms",
           "priority": "critical",
