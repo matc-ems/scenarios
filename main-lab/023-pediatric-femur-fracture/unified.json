@@ -81,13 +81,54 @@
         "trendTimeSeconds": 0,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [],
+      "expectedActions": [
+        {
+          "id": "a1",
+          "shortAction": "Perform MARCH primary survey; confirm isolated extremity injury, no other life threats",
+          "protocolExcerpt": "Primary survey (Use \"MARCH\" algorithm)",
+          "priority": "critical",
+          "rationale": "Rules out life threats before focusing on the obvious leg deformity.",
+          "protocolReference": "MATC: General Trauma Management"
+        },
+        {
+          "id": "a2",
+          "shortAction": "Assess distal pulse, sensation, and movement of right leg before treatment",
+          "protocolExcerpt": "Vascular status of extremity: Pallor, Pulse, Capillary refill and skin temperature. Neurologic status of extremity: Sensation to light touch, Distal movement of extremity",
+          "priority": "critical",
+          "rationale": "Establishes a neurovascular baseline before analgesia and splinting to detect compromise.",
+          "protocolReference": "MATC: Extremity Trauma/External Hemorrhage Management"
+        },
+        {
+          "id": "a3",
+          "shortAction": "Assess pain using Wong-Baker Faces scale (age-appropriate self-report tool)",
+          "protocolExcerpt": "4–12 years old: Self-report scale Wong Baker Faces, Faces Pain Scale (FPS), Faces Pain Scale Revised (FPS-R)",
+          "priority": "important",
+          "rationale": "A validated pediatric pain scale is required before choosing an analgesic strategy.",
+          "protocolReference": "MATC: Pain Management"
+        },
+        {
+          "id": "a4",
+          "shortAction": "Fentanyl 36 mcg IN (36 kg × 1 mcg/kg; max initial dose 100 mcg)",
+          "protocolExcerpt": "Fentanyl: 1 mcg/kg IN, IM, IV or IO (maximum initial dose of 100 mcg)",
+          "priority": "critical",
+          "rationale": "Weight-based fentanyl given intranasally avoids the need for IV access before treating severe pain in a pediatric patient.",
+          "protocolReference": "MATC: Pain Management"
+        }
+      ],
       "transitions": [
         {
           "targetPhaseId": "analgesia-splint",
           "if": "Fentanyl given before splinting",
           "condition": "Crew completes a primary survey confirming an isolated extremity injury with intact distal neurovascular status and no other life threats, assesses pain via a validated pediatric scale, and administers weight-based intranasal fentanyl before attempting to move or splint the leg.",
-          "conditionType": "action_taken"
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a3", "a4"]
+        },
+        {
+          "targetPhaseId": "splint-before-analgesia",
+          "if": "Splinted before fentanyl given",
+          "condition": "Crew moves directly to splinting the deformed leg without first treating pain, causing a sharp increase in pain and distress.",
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["a4"]
         }
       ]
     },
@@ -133,39 +174,7 @@
       },
       "expectedActions": [
         {
-          "id": "a1-march",
-          "shortAction": "Perform MARCH primary survey; confirm isolated extremity injury, no other life threats",
-          "protocolExcerpt": "Primary survey (Use \"MARCH\" algorithm)",
-          "priority": "critical",
-          "rationale": "Rules out life threats before focusing on the obvious leg deformity.",
-          "protocolReference": "MATC: General Trauma Management"
-        },
-        {
-          "id": "a2-neurovascular",
-          "shortAction": "Assess distal pulse, sensation, and movement of right leg before treatment",
-          "protocolExcerpt": "Vascular status of extremity: Pallor, Pulse, Capillary refill and skin temperature. Neurologic status of extremity: Sensation to light touch, Distal movement of extremity",
-          "priority": "critical",
-          "rationale": "Establishes a neurovascular baseline before analgesia and splinting to detect compromise.",
-          "protocolReference": "MATC: Extremity Trauma/External Hemorrhage Management"
-        },
-        {
-          "id": "a3-pain-scale",
-          "shortAction": "Assess pain using Wong-Baker Faces scale (age-appropriate self-report tool)",
-          "protocolExcerpt": "4–12 years old: Self-report scale Wong Baker Faces, Faces Pain Scale (FPS), Faces Pain Scale Revised (FPS-R)",
-          "priority": "important",
-          "rationale": "A validated pediatric pain scale is required before choosing an analgesic strategy.",
-          "protocolReference": "MATC: Pain Management"
-        },
-        {
-          "id": "a4-fentanyl",
-          "shortAction": "Fentanyl 36 mcg IN (36 kg × 1 mcg/kg; max initial dose 100 mcg)",
-          "protocolExcerpt": "Fentanyl: 1 mcg/kg IN, IM, IV or IO (maximum initial dose of 100 mcg)",
-          "priority": "critical",
-          "rationale": "Weight-based fentanyl given intranasally avoids the need for IV access before treating severe pain in a pediatric patient.",
-          "protocolReference": "MATC: Pain Management"
-        },
-        {
-          "id": "a5-splint",
+          "id": "b1",
           "shortAction": "Splint right leg in position found after analgesia; apply ice pack, not directly on skin",
           "protocolExcerpt": "Strongly consider pain management before attempting to move a suspected fracture. Use splints as appropriate to limit movement of suspected fracture. Apply ice/cool packs to limit swelling in suspected fractures or soft tissue injury, but do not apply ice directly to bare skin",
           "priority": "important",
@@ -173,7 +182,7 @@
           "protocolReference": "MATC: Extremity Trauma/External Hemorrhage Management"
         },
         {
-          "id": "a6-reassess-nv",
+          "id": "b2",
           "shortAction": "Reassess distal pulse, sensation, and movement after splinting",
           "protocolExcerpt": "Reassess distal neurovascular status after any manipulation or splinting of fractures/dislocations",
           "priority": "important",
@@ -187,14 +196,7 @@
           "if": "Splinted and pain improved, transport",
           "condition": "Fentanyl and splinting reduce pain and confirm stable distal neurovascular status; patient is packaged for transport with ongoing reassessment.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["a4-fentanyl", "a5-splint"]
-        },
-        {
-          "targetPhaseId": "splint-before-analgesia",
-          "if": "Splinted before fentanyl given",
-          "condition": "Crew moves directly to splinting the deformed leg without first treating pain, causing a sharp increase in pain and distress.",
-          "conditionType": "action_not_taken",
-          "triggerActionIds": ["a4-fentanyl"]
+          "triggerActionIds": ["b1", "b2"]
         }
       ]
     },
@@ -239,7 +241,7 @@
       },
       "expectedActions": [
         {
-          "id": "a7-repeat-pain",
+          "id": "c1",
           "shortAction": "Reassess pain and vitals; may repeat fentanyl 36 mcg IN if pain persists >5 min after first dose",
           "protocolExcerpt": "If indicated based on pain assessment, and vital signs allow, repeat pain medication administration (excluding acetaminophen and nonsteroidal anti-inflammatory medicines) after 5 minutes of the previous dose",
           "priority": "important",
@@ -247,7 +249,7 @@
           "protocolReference": "MATC: Pain Management"
         },
         {
-          "id": "a8-transport-position",
+          "id": "c2",
           "shortAction": "Transport in position of comfort; reassess as indicated",
           "protocolExcerpt": "Transport in position of comfort and reassess as indicated",
           "priority": "supplemental",
@@ -298,7 +300,7 @@
       },
       "expectedActions": [
         {
-          "id": "a9-recover-analgesia",
+          "id": "d1",
           "shortAction": "Give fentanyl 36 mcg IN (36 kg × 1 mcg/kg; max 100 mcg) now to regain control of pain",
           "protocolExcerpt": "Strongly consider pain management before attempting to move a suspected fracture",
           "priority": "critical",
