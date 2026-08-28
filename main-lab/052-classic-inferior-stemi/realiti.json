@@ -57,7 +57,12 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [],
+      "relatedChecklist": [
+        "Acquire 12-lead EKG within 10 minutes; recognize inferior STEMI pattern",
+        "Administer aspirin 324 mg PO, chewable non-enteric-coated",
+        "Establish IV access",
+        "Provide advance STEMI notification to the receiving hospital"
+      ],
       "relatedSounds": []
     },
     {
@@ -90,11 +95,9 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Acquire 12-lead EKG within 10 minutes; recognize inferior STEMI pattern",
-        "Administer aspirin 324 mg PO, chewable non-enteric-coated",
-        "Establish IV access",
         "Screen for PDE5 inhibitor use and confirm SBP >100 mmHg before nitroglycerin",
-        "Provide advance STEMI notification to the receiving hospital"
+        "Nitroglycerin 0.4 mg SL; may repeat q3-5 min if SBP remains >100 mmHg",
+        "Continually monitor hemodynamic status given inferior/possible RV infarct; be ready to resuscitate if hypotension occurs"
       ],
       "relatedSounds": []
     },
@@ -128,8 +131,9 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Nitroglycerin 0.4 mg SL; may repeat q3-5 min if SBP remains >100 mmHg",
-        "Continually monitor hemodynamic status given inferior/possible RV infarct; be ready to resuscitate if hypotension occurs"
+        "Perform serial 12-lead EKGs en route; reassess for clinical change",
+        "Transport promptly to appropriate PCI-capable facility, minimizing scene time",
+        "Provide early notification to receiving facility of any changes in condition or serial EKGs"
       ],
       "relatedSounds": []
     },
@@ -162,11 +166,7 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [
-        "Perform serial 12-lead EKGs en route; reassess for clinical change",
-        "Transport promptly to appropriate PCI-capable facility, minimizing scene time",
-        "Provide early notification to receiving facility of any changes in condition or serial EKGs"
-      ],
+      "relatedChecklist": [],
       "relatedSounds": []
     },
     {
@@ -295,13 +295,13 @@
       "icon": 1
     },
     {
-      "title": "Screen for PDE5 inhibitor use and confirm SBP >100 mmHg before nitroglycerin",
+      "title": "Provide advance STEMI notification to the receiving hospital",
       "type": "Check",
       "value": 0,
       "icon": 1
     },
     {
-      "title": "Provide advance STEMI notification to the receiving hospital",
+      "title": "Screen for PDE5 inhibitor use and confirm SBP >100 mmHg before nitroglycerin",
       "type": "Check",
       "value": 0,
       "icon": 1

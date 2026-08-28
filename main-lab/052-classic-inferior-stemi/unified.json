@@ -80,19 +80,54 @@
         "trendTimeSeconds": 0,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [],
+      "expectedActions": [
+        {
+          "id": "a1",
+          "shortAction": "Acquire 12-lead EKG within 10 minutes; recognize inferior STEMI pattern",
+          "protocolExcerpt": "The 12-lead EKG is the primary diagnostic tool that identifies a STEMI; it is imperative that EMS clinicians routinely acquire a 12-lead EKG within 10 minutes for all patients exhibiting signs and symptoms of ACS",
+          "priority": "critical",
+          "rationale": "Rapid 12-lead acquisition and STEMI recognition drives destination decisions and enables advance hospital notification.",
+          "protocolReference": "MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)"
+        },
+        {
+          "id": "a2",
+          "shortAction": "Administer aspirin 324 mg PO, chewable non-enteric-coated",
+          "protocolExcerpt": "Administer aspirin; chewable, non-enteric-coated aspirin preferred (162–325 mg)",
+          "priority": "critical",
+          "rationale": "Early aspirin administration reduces mortality in ACS.",
+          "protocolReference": "MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)"
+        },
+        {
+          "id": "a3",
+          "shortAction": "Establish IV access",
+          "protocolExcerpt": "Establish IV access",
+          "priority": "important",
+          "rationale": "IV access is required for medication administration and fluid resuscitation should the patient deteriorate.",
+          "protocolReference": "MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)"
+        },
+        {
+          "id": "a4",
+          "shortAction": "Provide advance STEMI notification to the receiving hospital",
+          "protocolExcerpt": "Advance notification should be provided to the receiving hospital for patients identified as having a STEMI",
+          "priority": "important",
+          "rationale": "Advance notification activates the cath lab and reduces door-to-balloon time.",
+          "protocolReference": "MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)"
+        }
+      ],
       "transitions": [
         {
           "targetPhaseId": "ekg-asa-iv",
-          "if": "12-lead acquired within 10 min; ASA and IV started",
+          "if": "12-lead acquired; ASA and IV started",
           "condition": "Crew recognizes the classic ACS presentation, promptly acquires a 12-lead EKG within 10 minutes identifying inferior STEMI, administers chewable aspirin, and establishes IV access.",
-          "conditionType": "action_taken"
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a1", "a2", "a3"]
         },
         {
           "targetPhaseId": "delayed-recognition",
           "if": "STEMI recognition delayed",
           "condition": "Crew delays acquiring the 12-lead EKG beyond 10 minutes and does not promptly administer aspirin despite the classic presentation, allowing the ischemic process to progress untreated.",
-          "conditionType": "action_not_taken"
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["a1"]
         }
       ]
     },
@@ -137,31 +172,7 @@
       },
       "expectedActions": [
         {
-          "id": "a1-12lead",
-          "shortAction": "Acquire 12-lead EKG within 10 minutes; recognize inferior STEMI pattern",
-          "protocolExcerpt": "The 12-lead EKG is the primary diagnostic tool that identifies a STEMI; it is imperative that EMS clinicians routinely acquire a 12-lead EKG within 10 minutes for all patients exhibiting signs and symptoms of ACS",
-          "priority": "critical",
-          "rationale": "Rapid 12-lead acquisition and STEMI recognition drives destination decisions and enables advance hospital notification.",
-          "protocolReference": "MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)"
-        },
-        {
-          "id": "a2-asa",
-          "shortAction": "Administer aspirin 324 mg PO, chewable non-enteric-coated",
-          "protocolExcerpt": "Administer aspirin; chewable, non-enteric-coated aspirin preferred (162–325 mg)",
-          "priority": "critical",
-          "rationale": "Early aspirin administration reduces mortality in ACS.",
-          "protocolReference": "MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)"
-        },
-        {
-          "id": "a3-iv",
-          "shortAction": "Establish IV access",
-          "protocolExcerpt": "Establish IV access",
-          "priority": "important",
-          "rationale": "IV access is required for medication administration and fluid resuscitation should the patient deteriorate.",
-          "protocolReference": "MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)"
-        },
-        {
-          "id": "a4-pde5-screen",
+          "id": "b1",
           "shortAction": "Screen for PDE5 inhibitor use and confirm SBP >100 mmHg before nitroglycerin",
           "protocolExcerpt": "The use of nitrates should be avoided in any patient who has used a phosphodiesterase inhibitor within the past 48 hours. Examples include sildenafil (Viagra®, Revatio®), vardenafil (Levitra®, Staxyn®), tadalafil (Cialis®, Adcirca®) which are used for erectile dysfunction and pulmonary hypertension.",
           "priority": "critical",
@@ -169,11 +180,19 @@
           "protocolReference": "MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)"
         },
         {
-          "id": "a5-stemi-notify",
-          "shortAction": "Provide advance STEMI notification to the receiving hospital",
-          "protocolExcerpt": "Advance notification should be provided to the receiving hospital for patients identified as having a STEMI",
-          "priority": "important",
-          "rationale": "Advance notification activates the cath lab and reduces door-to-balloon time.",
+          "id": "b2",
+          "shortAction": "Nitroglycerin 0.4 mg SL; may repeat q3-5 min if SBP remains >100 mmHg",
+          "protocolExcerpt": "Nitroglycerin 0.4 mg sublingual (SL), can repeat q (quaque, every) 3–5 minutes if SBP greater than 100 mmHg",
+          "priority": "critical",
+          "rationale": "NTG relieves ischemic pain via coronary and venous dilation; repeat dosing requires reconfirming adequate SBP each time.",
+          "protocolReference": "MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)"
+        },
+        {
+          "id": "b3",
+          "shortAction": "Continually monitor hemodynamic status given inferior/possible RV infarct; be ready to resuscitate if hypotension occurs",
+          "protocolExcerpt": "Right-sided leads are of no additional value if an inferior STEMI has been diagnosed and such findings (presumed RV infarct) do not preclude the use of nitroglycerin: however, continually monitor the patient's hemodynamic status and be prepared to resuscitate if hypotension occurs",
+          "priority": "critical",
+          "rationale": "Inferior STEMI carries increased risk of right ventricular involvement, making patients more preload-dependent and sensitive to nitrate-induced hypotension.",
           "protocolReference": "MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)"
         }
       ],
@@ -183,14 +202,14 @@
           "if": "NTG given after screening, IV started",
           "condition": "Crew confirms no PDE5 inhibitor use and SBP greater than 100 mmHg, then administers sublingual nitroglycerin with continued hemodynamic monitoring.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["a4-pde5-screen"]
+          "triggerActionIds": ["b1", "b2"]
         },
         {
           "targetPhaseId": "ntg-no-screen",
           "if": "NTG given without PDE5 screen",
           "condition": "Crew administers nitroglycerin without asking about recent PDE5 inhibitor use; the patient, who took sildenafil the night before, develops profound hypotension.",
           "conditionType": "action_not_taken",
-          "triggerActionIds": ["a4-pde5-screen"]
+          "triggerActionIds": ["b1"]
         },
         {
           "targetPhaseId": "bradycardia-branch",
@@ -241,19 +260,27 @@
       },
       "expectedActions": [
         {
-          "id": "a6-ntg",
-          "shortAction": "Nitroglycerin 0.4 mg SL; may repeat q3-5 min if SBP remains >100 mmHg",
-          "protocolExcerpt": "Nitroglycerin 0.4 mg sublingual (SL), can repeat q (quaque, every) 3–5 minutes if SBP greater than 100 mmHg",
-          "priority": "critical",
-          "rationale": "NTG relieves ischemic pain via coronary and venous dilation; repeat dosing requires reconfirming adequate SBP each time.",
+          "id": "c1",
+          "shortAction": "Perform serial 12-lead EKGs en route; reassess for clinical change",
+          "protocolExcerpt": "Perform serial 12-lead EKGs (especially if clinical changes are noted)",
+          "priority": "important",
+          "rationale": "STEMI patients can evolve; serial EKGs catch new changes requiring updated hospital notification.",
           "protocolReference": "MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)"
         },
         {
-          "id": "a7-monitor-hemodynamics",
-          "shortAction": "Continually monitor hemodynamic status given inferior/possible RV infarct; be ready to resuscitate if hypotension occurs",
-          "protocolExcerpt": "Right-sided leads are of no additional value if an inferior STEMI has been diagnosed and such findings (presumed RV infarct) do not preclude the use of nitroglycerin: however, continually monitor the patient's hemodynamic status and be prepared to resuscitate if hypotension occurs",
+          "id": "c2",
+          "shortAction": "Transport promptly to appropriate PCI-capable facility, minimizing scene time",
+          "protocolExcerpt": "Transport and destination decisions should be based on local resources and system of care",
           "priority": "critical",
-          "rationale": "Inferior STEMI carries increased risk of right ventricular involvement, making patients more preload-dependent and sensitive to nitrate-induced hypotension.",
+          "rationale": "Minimizing scene and transport time reduces total ischemic burden.",
+          "protocolReference": "MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)"
+        },
+        {
+          "id": "c3",
+          "shortAction": "Provide early notification to receiving facility of any changes in condition or serial EKGs",
+          "protocolExcerpt": "Early notification to receiving facility of any changes in patient condition or serial EKGs",
+          "priority": "important",
+          "rationale": "Timely updates allow the receiving facility to prepare and adjust cath lab activation as needed.",
           "protocolReference": "MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)"
         }
       ],
@@ -263,7 +290,7 @@
           "if": "Prepared for transport with STEMI notification",
           "condition": "With pain improving and hemodynamics stable, the crew packages the patient and initiates prompt transport with ongoing serial reassessment.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["a5-stemi-notify", "a6-ntg"]
+          "triggerActionIds": ["c2", "c3"]
         }
       ]
     },
@@ -306,32 +333,7 @@
         "trendTimeSeconds": 40,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [
-        {
-          "id": "a8-serial-ekg",
-          "shortAction": "Perform serial 12-lead EKGs en route; reassess for clinical change",
-          "protocolExcerpt": "Perform serial 12-lead EKGs (especially if clinical changes are noted)",
-          "priority": "important",
-          "rationale": "STEMI patients can evolve; serial EKGs catch new changes requiring updated hospital notification.",
-          "protocolReference": "MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)"
-        },
-        {
-          "id": "a9-transport",
-          "shortAction": "Transport promptly to appropriate PCI-capable facility, minimizing scene time",
-          "protocolExcerpt": "Transport and destination decisions should be based on local resources and system of care",
-          "priority": "critical",
-          "rationale": "Minimizing scene and transport time reduces total ischemic burden.",
-          "protocolReference": "MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)"
-        },
-        {
-          "id": "a10-early-notify",
-          "shortAction": "Provide early notification to receiving facility of any changes in condition or serial EKGs",
-          "protocolExcerpt": "Early notification to receiving facility of any changes in patient condition or serial EKGs",
-          "priority": "important",
-          "rationale": "Timely updates allow the receiving facility to prepare and adjust cath lab activation as needed.",
-          "protocolReference": "MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)"
-        }
-      ],
+      "expectedActions": [],
       "transitions": []
     },
     {
@@ -375,7 +377,7 @@
       },
       "expectedActions": [
         {
-          "id": "b1-recognize-pde5",
+          "id": "d1",
           "shortAction": "Recognize missed PDE5 inhibitor use as the cause of nitrate-induced hypotension",
           "protocolExcerpt": "The use of nitrates should be avoided in any patient who has used a phosphodiesterase inhibitor within the past 48 hours",
           "priority": "critical",
@@ -383,7 +385,7 @@
           "protocolReference": "MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)"
         },
         {
-          "id": "b2-fluid-bolus",
+          "id": "d2",
           "shortAction": "Hold further nitroglycerin; treat hypotension with IV fluid bolus, prepared to add a pressor",
           "protocolExcerpt": "Care should always be taken when giving nitroglycerin when the patient's blood pressure is marginal. If used in this setting, the clinician should weigh the risk and benefit of nitrate administration over the administration of an opiate analgesic and be ready to respond to hypotension with fluid bolus or pressor",
           "priority": "critical",
@@ -434,7 +436,7 @@
       },
       "expectedActions": [
         {
-          "id": "c1-late-ekg",
+          "id": "e1",
           "shortAction": "Recognize delayed STEMI identification; acquire 12-lead EKG immediately",
           "protocolExcerpt": "it is imperative that EMS clinicians routinely acquire a 12-lead EKG within 10 minutes for all patients exhibiting signs and symptoms of ACS",
           "priority": "critical",
@@ -442,7 +444,7 @@
           "protocolReference": "MATC: Chest Pain/Acute Coronary Syndrome (ACS)/ST-segment Elevation Myocardial Infarction (STEMI)"
         },
         {
-          "id": "c2-late-asa",
+          "id": "e2",
           "shortAction": "Administer aspirin 324 mg PO chewable now that ACS is recognized",
           "protocolExcerpt": "Administer aspirin; chewable, non-enteric-coated aspirin preferred (162–325 mg)",
           "priority": "critical",
@@ -493,7 +495,7 @@
       },
       "expectedActions": [
         {
-          "id": "d1-recognize-brady",
+          "id": "f1",
           "shortAction": "Recognize symptomatic bradycardia complicating inferior STEMI (HR 36, hypotensive, dizzy)",
           "protocolExcerpt": "Heart rate less than 60 beats per minute (BPM) with either symptoms (altered mental status (AMS), chest pain (CP), congestive heart failure (CHF), seizure, syncope, shock, pallor, diaphoresis) or evidence of hemodynamic instability",
           "priority": "critical",
@@ -501,7 +503,7 @@
           "protocolReference": "MATC: Bradycardia"
         },
         {
-          "id": "d2-atropine",
+          "id": "f2",
           "shortAction": "Atropine 1 mg IV; may repeat q3-5 min (maximum total dose 3 mg)",
           "protocolExcerpt": "Atropine 1 mg IV q 3–5 minutes (maximum total dose of 3 mg)",
           "priority": "critical",
