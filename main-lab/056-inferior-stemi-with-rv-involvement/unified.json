@@ -145,7 +145,7 @@
       "transitions": [
         {
           "targetPhaseId": "leads-acquired",
-          "if": "12-lead and V4R acquired",
+          "if": "12-Lead and V4R Acquired",
           "condition": "Crew acquires the initial 12-lead EKG showing ST elevation in leads II, III, and aVF, and obtains a right-sided V4R lead confirming ST elevation consistent with RV infarction.",
           "conditionType": "action_taken",
           "triggerActionIds": ["initial-2"]
@@ -227,14 +227,14 @@
       "transitions": [
         {
           "targetPhaseId": "fluid-response",
-          "if": "Fluid bolus given before nitro",
+          "if": "Fluid Bolus Given",
           "condition": "Crew withholds nitroglycerin and administers the 500 mL IV fluid bolus first; blood pressure begins to improve as RV preload is restored.",
           "conditionType": "action_taken",
           "triggerActionIds": ["leads-2"]
         },
         {
           "targetPhaseId": "nitro-crash",
-          "if": "Nitro given without fluid resuscitation",
+          "if": "Nitro Given Without Fluids",
           "condition": "Crew administers sublingual nitroglycerin for chest pain without first correcting the RV-infarct hypotension with a fluid bolus, causing a further drop in preload and blood pressure.",
           "conditionType": "action_not_taken",
           "triggerActionIds": ["leads-2"]
@@ -316,7 +316,7 @@
       "transitions": [
         {
           "targetPhaseId": "transport-enroute",
-          "if": "BP stable, transport continues",
+          "if": "Transport En Route",
           "condition": "Blood pressure remains stable to improving after the fluid bolus and analgesia; the crew continues transport with ongoing monitoring.",
           "conditionType": "vital_threshold",
           "triggerActionIds": ["fluid-1", "fluid-2"]
