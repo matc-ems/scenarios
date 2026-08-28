@@ -57,7 +57,13 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [],
+      "relatedChecklist": [
+        "Initiate CPAP for severe hypoxic respiratory distress",
+        "Establish IV access; if unsuccessful within 2 attempts or 90 seconds, place an IO needle",
+        "Administer isotonic fluid bolus (500 mL) toward a MAP goal of 65 mmHg, up to 30 mL/kg total",
+        "Check blood glucose; correct if less than 60 mg/dL",
+        "Provide advanced notification to the receiving hospital for suspected sepsis"
+      ],
       "relatedSounds": []
     },
     {
@@ -90,11 +96,8 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Initiate CPAP for severe hypoxic respiratory distress",
-        "Establish IV access; if unsuccessful within 2 attempts or 90 seconds, place an IO needle",
-        "Administer isotonic fluid bolus (500 mL) toward a MAP goal of 65 mmHg, up to 30 mL/kg total",
-        "Check blood glucose; correct if less than 60 mg/dL",
-        "Provide advanced notification to the receiving hospital for suspected sepsis"
+        "Maintain continuous CPAP mask seal throughout transport until hospital CPAP is ready to take over",
+        "Consider empiric antibiotics per regional coordination if prolonged transport time anticipated"
       ],
       "relatedSounds": []
     },
@@ -127,10 +130,7 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [
-        "Maintain continuous CPAP mask seal throughout transport until hospital CPAP is ready to take over",
-        "Consider empiric antibiotics per regional coordination if prolonged transport time anticipated"
-      ],
+      "relatedChecklist": [],
       "relatedSounds": []
     },
     {

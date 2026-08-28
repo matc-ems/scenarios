@@ -81,19 +81,62 @@
         "trendTimeSeconds": 0,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [],
+      "expectedActions": [
+        {
+          "id": "a1",
+          "shortAction": "Initiate CPAP for severe hypoxic respiratory distress",
+          "protocolExcerpt": "Non-invasive ventilation (NIV) should be administered for severe respiratory distress via BVM, continuous positive airway pressure (CPAP) or bi-level positive airway pressure (BiPAP)",
+          "priority": "critical",
+          "rationale": "Severe hypoxia from pneumonia warrants early non-invasive ventilatory support.",
+          "protocolReference": "MATC: Respiratory Distress (includes Bronchospasm, Pulmonary Edema)"
+        },
+        {
+          "id": "a2",
+          "shortAction": "Establish IV access; if unsuccessful within 2 attempts or 90 seconds, place an IO needle",
+          "protocolExcerpt": "Establish IV access. If unable to obtain within two attempts or less than 90 seconds, place an IO needle",
+          "priority": "critical",
+          "rationale": "Prompt vascular access is essential to begin fluid resuscitation for septic shock.",
+          "protocolReference": "MATC: Shock"
+        },
+        {
+          "id": "a3",
+          "shortAction": "Administer isotonic fluid bolus (500 mL) toward a MAP goal of 65 mmHg, up to 30 mL/kg total",
+          "protocolExcerpt": "Fluid goal of up to 30 mL/kg of isotonic fluid by administering rapid, predetermined boluses (e.g., 500 mL) unless the MAP goal is achieved, or pulmonary edema develops",
+          "priority": "critical",
+          "rationale": "Aggressive early fluid resuscitation is essential in suspected septic shock.",
+          "protocolReference": "MATC: Shock"
+        },
+        {
+          "id": "a4",
+          "shortAction": "Check blood glucose; correct if less than 60 mg/dL",
+          "protocolExcerpt": "Check blood sugar, and correct if less than 60 mg/dL",
+          "priority": "important",
+          "rationale": "Hypoglycemia can mimic or worsen altered mental status in a septic patient and is quickly correctable.",
+          "protocolReference": "MATC: Shock"
+        },
+        {
+          "id": "a5",
+          "shortAction": "Provide advanced notification to the receiving hospital for suspected sepsis",
+          "protocolExcerpt": "Provide advanced notification to the hospital",
+          "priority": "important",
+          "rationale": "Advance notice allows the receiving facility to activate sepsis protocols before arrival.",
+          "protocolReference": "MATC: Shock"
+        }
+      ],
       "transitions": [
         {
           "targetPhaseId": "cpap-fluids-started",
           "if": "CPAP and IV fluids started",
           "condition": "Crew recognizes combined severe hypoxic respiratory distress and early septic shock, initiating CPAP for oxygenation while simultaneously establishing IV/IO access and beginning fluid resuscitation toward a MAP goal.",
-          "conditionType": "action_taken"
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a1", "a2", "a3"]
         },
         {
           "targetPhaseId": "shock-progresses",
           "if": "Fluids withheld, shock progresses",
           "condition": "Crew focuses only on respiratory support without establishing IV access or initiating fluid resuscitation, and the patient's perfusion continues to decline toward uncompensated septic shock.",
-          "conditionType": "action_not_taken"
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["a2", "a3"]
         }
       ]
     },
@@ -139,43 +182,19 @@
       },
       "expectedActions": [
         {
-          "id": "a1-cpap",
-          "shortAction": "Initiate CPAP for severe hypoxic respiratory distress",
-          "protocolExcerpt": "Non-invasive ventilation (NIV) should be administered for severe respiratory distress via BVM, continuous positive airway pressure (CPAP) or bi-level positive airway pressure (BiPAP)",
+          "id": "b1",
+          "shortAction": "Maintain continuous CPAP mask seal throughout transport until hospital CPAP is ready to take over",
+          "protocolExcerpt": "Once initiated and patient is tolerating mask, DO NOT discontinue CPAP/BiPAP until patient is on the emergency department stretcher and hospital CPAP/BiPAP is immediately available for patient to be switched over, or physician is at bedside and requesting CPAP/BiPAP be discontinued",
           "priority": "critical",
-          "rationale": "Severe hypoxia from pneumonia warrants early non-invasive ventilatory support.",
-          "protocolReference": "MATC: Respiratory Distress (includes Bronchospasm, Pulmonary Edema)"
+          "rationale": "Interrupting CPAP can cause rapid decompensation from atelectasis and alveolar collapse.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
         },
         {
-          "id": "a2-iv-io-access",
-          "shortAction": "Establish IV access; if unsuccessful within 2 attempts or 90 seconds, place an IO needle",
-          "protocolExcerpt": "Establish IV access. If unable to obtain within two attempts or less than 90 seconds, place an IO needle",
-          "priority": "critical",
-          "rationale": "Prompt vascular access is essential to begin fluid resuscitation for septic shock.",
-          "protocolReference": "MATC: Shock"
-        },
-        {
-          "id": "a3-fluid-bolus",
-          "shortAction": "Administer isotonic fluid bolus (500 mL) toward a MAP goal of 65 mmHg, up to 30 mL/kg total",
-          "protocolExcerpt": "Fluid goal of up to 30 mL/kg of isotonic fluid by administering rapid, predetermined boluses (e.g., 500 mL) unless the MAP goal is achieved, or pulmonary edema develops",
-          "priority": "critical",
-          "rationale": "Aggressive early fluid resuscitation is essential in suspected septic shock.",
-          "protocolReference": "MATC: Shock"
-        },
-        {
-          "id": "a4-glucose-check",
-          "shortAction": "Check blood glucose; correct if less than 60 mg/dL",
-          "protocolExcerpt": "Check blood sugar, and correct if less than 60 mg/dL",
-          "priority": "important",
-          "rationale": "Hypoglycemia can mimic or worsen altered mental status in a septic patient and is quickly correctable.",
-          "protocolReference": "MATC: Shock"
-        },
-        {
-          "id": "a5-notification",
-          "shortAction": "Provide advanced notification to the receiving hospital for suspected sepsis",
-          "protocolExcerpt": "Provide advanced notification to the hospital",
-          "priority": "important",
-          "rationale": "Advance notice allows the receiving facility to activate sepsis protocols before arrival.",
+          "id": "b2",
+          "shortAction": "Consider empiric antibiotics per regional coordination if prolonged transport time anticipated",
+          "protocolExcerpt": "Consider empiric antibiotics for suspected septic shock if transport time is anticipated to be prolonged, if blood cultures can be obtained in advance, and/or EMS has coordinated with regional receiving hospitals about choice of antibiotic therapy",
+          "priority": "supplemental",
+          "rationale": "Early antibiotics improve septic shock outcomes when local protocols and coordination support prehospital administration.",
           "protocolReference": "MATC: Shock"
         }
       ],
@@ -185,7 +204,7 @@
           "if": "Perfusion improving, transport initiated",
           "condition": "With CPAP and fluid resuscitation, oxygenation and perfusion begin to improve; crew continues management en route.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["a1-cpap", "a3-fluid-bolus"]
+          "triggerActionIds": ["b1"]
         }
       ]
     },
@@ -228,24 +247,7 @@
         "trendTimeSeconds": 40,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
       },
-      "expectedActions": [
-        {
-          "id": "a6-maintain-cpap-seal",
-          "shortAction": "Maintain continuous CPAP mask seal throughout transport until hospital CPAP is ready to take over",
-          "protocolExcerpt": "Once initiated and patient is tolerating mask, DO NOT discontinue CPAP/BiPAP until patient is on the emergency department stretcher and hospital CPAP/BiPAP is immediately available for patient to be switched over, or physician is at bedside and requesting CPAP/BiPAP be discontinued",
-          "priority": "critical",
-          "rationale": "Interrupting CPAP can cause rapid decompensation from atelectasis and alveolar collapse.",
-          "protocolReference": "MATC: Airway Management (Includes RSI)"
-        },
-        {
-          "id": "a7-antibiotics-coordination",
-          "shortAction": "Consider empiric antibiotics per regional coordination if prolonged transport time anticipated",
-          "protocolExcerpt": "Consider empiric antibiotics for suspected septic shock if transport time is anticipated to be prolonged, if blood cultures can be obtained in advance, and/or EMS has coordinated with regional receiving hospitals about choice of antibiotic therapy",
-          "priority": "supplemental",
-          "rationale": "Early antibiotics improve septic shock outcomes when local protocols and coordination support prehospital administration.",
-          "protocolReference": "MATC: Shock"
-        }
-      ],
+      "expectedActions": [],
       "transitions": []
     },
     {
@@ -289,7 +291,7 @@
       },
       "expectedActions": [
         {
-          "id": "a8-recognize-uncompensated-shock",
+          "id": "c1",
           "shortAction": "Recognize uncompensated septic shock; establish IV/IO access immediately and begin fluid resuscitation",
           "protocolExcerpt": "Hypotension indicates uncompensated shock, which may progress to cardiopulmonary failure within minutes. Establish IV access. If unable to obtain within two attempts or less than 90 seconds, place an IO needle",
           "priority": "critical",
