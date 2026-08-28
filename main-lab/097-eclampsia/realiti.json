@@ -57,7 +57,12 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [],
+      "relatedChecklist": [
+        "Recognize new seizure at 34 weeks gestation as eclampsia until proven otherwise",
+        "Establish IV access; administer O2 to target 94-98% saturation",
+        "Position patient left lateral or manually displace uterus to the left",
+        "Magnesium sulfate 6 g IV over 5-10 min for seizure management"
+      ],
       "relatedSounds": []
     },
     {
@@ -90,11 +95,9 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Recognize new seizure at 34 weeks gestation as eclampsia until proven otherwise",
-        "Establish IV access; administer O2 to target 94-98% saturation",
-        "Magnesium sulfate 6 g IV over 5-10 min for seizure management",
-        "Position patient left lateral or manually displace uterus to the left",
-        "Reassess deep tendon reflexes and respiratory status after magnesium bolus"
+        "Reassess deep tendon reflexes and respiratory status after magnesium bolus",
+        "Continue magnesium sulfate maintenance infusion at 2 g/hr",
+        "Labetalol 20 mg IV over 2 minutes for persistent severe hypertension"
       ],
       "relatedSounds": []
     },
@@ -129,8 +132,6 @@
       "relatedLabs": [],
       "relatedChecklist": [
         "Repeat blood pressure and vital signs every 10 minutes during transport",
-        "Continue magnesium sulfate maintenance infusion at 2 g/hr",
-        "Labetalol 20 mg IV over 2 minutes for persistent severe hypertension",
         "Transport emergently to closest appropriate receiving facility; notify en route"
       ],
       "relatedSounds": []
@@ -220,25 +221,19 @@
       "icon": 1
     },
     {
-      "title": "Magnesium sulfate 6 g IV over 5-10 min for seizure management",
-      "type": "Check",
-      "value": 0,
-      "icon": 1
-    },
-    {
       "title": "Position patient left lateral or manually displace uterus to the left",
       "type": "Check",
       "value": 0,
       "icon": 1
     },
     {
-      "title": "Reassess deep tendon reflexes and respiratory status after magnesium bolus",
+      "title": "Magnesium sulfate 6 g IV over 5-10 min for seizure management",
       "type": "Check",
       "value": 0,
       "icon": 1
     },
     {
-      "title": "Repeat blood pressure and vital signs every 10 minutes during transport",
+      "title": "Reassess deep tendon reflexes and respiratory status after magnesium bolus",
       "type": "Check",
       "value": 0,
       "icon": 1
@@ -251,6 +246,12 @@
     },
     {
       "title": "Labetalol 20 mg IV over 2 minutes for persistent severe hypertension",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Repeat blood pressure and vital signs every 10 minutes during transport",
       "type": "Check",
       "value": 0,
       "icon": 1

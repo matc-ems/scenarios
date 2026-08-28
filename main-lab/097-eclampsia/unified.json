@@ -80,21 +80,54 @@
         "trendTimeSeconds": 0,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [],
+      "expectedActions": [
+        {
+          "id": "a1",
+          "shortAction": "Recognize new seizure at 34 weeks gestation as eclampsia until proven otherwise",
+          "protocolExcerpt": "Eclampsia: Any pregnant patient who is seizing should be assumed to have eclampsia and treated as such until arrival at the hospital. Seizure in any late term pregnancy or postpartum patient.",
+          "priority": "critical",
+          "rationale": "Eclampsia is a life-threatening obstetric emergency that must be assumed and treated immediately, not diagnosed by exclusion.",
+          "protocolReference": "MATC: Eclampsia/Pre-Eclampsia"
+        },
+        {
+          "id": "a2",
+          "shortAction": "Establish IV access; administer O2 to target 94-98% saturation",
+          "protocolExcerpt": "IV fluids: NS or LR – keep continuous infusion with maximum rate of fluids to 80 mL/hr. Administer high flow oxygen as indicated.",
+          "priority": "important",
+          "rationale": "IV access is needed for magnesium administration, while supplemental O2 supports maternal and fetal oxygenation.",
+          "protocolReference": "MATC: Eclampsia/Pre-Eclampsia"
+        },
+        {
+          "id": "a3",
+          "shortAction": "Position patient left lateral or manually displace uterus to the left",
+          "protocolExcerpt": "Patients in second or third trimester of pregnancy should be transported on left side or with uterus manually displaced to left to ensure adequate uterine perfusion.",
+          "priority": "important",
+          "rationale": "Relieves aortocaval compression from the gravid uterus, improving venous return and uterine perfusion.",
+          "protocolReference": "MATC: Eclampsia/Pre-Eclampsia"
+        },
+        {
+          "id": "a4",
+          "shortAction": "Magnesium sulfate 6 g IV over 5-10 min for seizure management",
+          "protocolExcerpt": "Seizure Management: 6 g IV over 5–10 minutes or 8 g IM (4 grams in each buttock) to prevent seizure",
+          "priority": "critical",
+          "rationale": "Magnesium sulfate is the definitive first-line agent to stop and prevent recurrent eclamptic seizures.",
+          "protocolReference": "MATC: Eclampsia/Pre-Eclampsia"
+        }
+      ],
       "transitions": [
         {
           "targetPhaseId": "mag-started",
           "if": "Eclampsia recognized, magnesium given",
           "condition": "Crew recognizes that any pregnant patient beyond 20 weeks who seizes is treated as eclampsia until proven otherwise, and promptly administers magnesium sulfate along with airway support and positioning.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["a3-mag-given"]
+          "triggerActionIds": ["a1", "a4"]
         },
         {
           "targetPhaseId": "mag-delayed",
           "if": "Magnesium delayed, transport prioritized",
           "condition": "Crew prioritizes loading for transport without first administering magnesium sulfate; without seizure prophylaxis on board, the patient seizes again en route.",
           "conditionType": "action_not_taken",
-          "triggerActionIds": ["a3-mag-given"]
+          "triggerActionIds": ["a4"]
         }
       ]
     },
@@ -140,43 +173,27 @@
       },
       "expectedActions": [
         {
-          "id": "a1-recognize",
-          "shortAction": "Recognize new seizure at 34 weeks gestation as eclampsia until proven otherwise",
-          "protocolExcerpt": "Eclampsia: Any pregnant patient who is seizing should be assumed to have eclampsia and treated as such until arrival at the hospital. Seizure in any late term pregnancy or postpartum patient.",
-          "priority": "critical",
-          "rationale": "Eclampsia is a life-threatening obstetric emergency that must be assumed and treated immediately, not diagnosed by exclusion.",
-          "protocolReference": "MATC: Eclampsia/Pre-Eclampsia"
-        },
-        {
-          "id": "a2-iv-o2",
-          "shortAction": "Establish IV access; administer O2 to target 94-98% saturation",
-          "protocolExcerpt": "IV fluids: NS or LR – keep continuous infusion with maximum rate of fluids to 80 mL/hr. Administer high flow oxygen as indicated.",
-          "priority": "important",
-          "rationale": "IV access is needed for magnesium administration, while supplemental O2 supports maternal and fetal oxygenation.",
-          "protocolReference": "MATC: Eclampsia/Pre-Eclampsia"
-        },
-        {
-          "id": "a3-mag-given",
-          "shortAction": "Magnesium sulfate 6 g IV over 5-10 min for seizure management",
-          "protocolExcerpt": "Seizure Management: 6 g IV over 5–10 minutes or 8 g IM (4 grams in each buttock) to prevent seizure",
-          "priority": "critical",
-          "rationale": "Magnesium sulfate is the definitive first-line agent to stop and prevent recurrent eclamptic seizures.",
-          "protocolReference": "MATC: Eclampsia/Pre-Eclampsia"
-        },
-        {
-          "id": "a4-lateral-position",
-          "shortAction": "Position patient left lateral or manually displace uterus to the left",
-          "protocolExcerpt": "Patients in second or third trimester of pregnancy should be transported on left side or with uterus manually displaced to left to ensure adequate uterine perfusion.",
-          "priority": "important",
-          "rationale": "Relieves aortocaval compression from the gravid uterus, improving venous return and uterine perfusion.",
-          "protocolReference": "MATC: Eclampsia/Pre-Eclampsia"
-        },
-        {
-          "id": "a5-dtr-reassess",
+          "id": "b1",
           "shortAction": "Reassess deep tendon reflexes and respiratory status after magnesium bolus",
           "protocolExcerpt": "Magnesium toxicity (progression): Hypotension followed by Loss of deep tendon reflexes followed by Somnolence, slurred speech followed by Respiratory paralysis followed by Cardiac arrest",
           "priority": "critical",
           "rationale": "Early recognition of the magnesium toxicity progression prevents respiratory paralysis and arrest.",
+          "protocolReference": "MATC: Eclampsia/Pre-Eclampsia"
+        },
+        {
+          "id": "b2",
+          "shortAction": "Continue magnesium sulfate maintenance infusion at 2 g/hr",
+          "protocolExcerpt": "Magnesium sulfate: 4 g IV over 5–10 min, followed by 2 g/hr",
+          "priority": "important",
+          "rationale": "Ongoing infusion maintains therapeutic magnesium levels to prevent seizure recurrence.",
+          "protocolReference": "MATC: Eclampsia/Pre-Eclampsia"
+        },
+        {
+          "id": "b3",
+          "shortAction": "Labetalol 20 mg IV over 2 minutes for persistent severe hypertension",
+          "protocolExcerpt": "Severe hypertension (SBP greater than 160 or DBP greater than 110) lasting more than 15 min with associated preeclampsia symptoms... Labetalol 20 mg IV over 2 minutes. May repeat every 10 minutes X 2 doses for persistent severe hypertension with preeclampsia symptoms. Ensure that HR is greater than 60 BPM prior to administration.",
+          "priority": "important",
+          "rationale": "Sustained severe hypertension with preeclampsia symptoms carries a maternal stroke risk and requires treatment toward a goal BP of roughly 140/90.",
           "protocolReference": "MATC: Eclampsia/Pre-Eclampsia"
         }
       ],
@@ -186,14 +203,14 @@
           "if": "DTRs reassessed, transport initiated",
           "condition": "Reflexes and respiratory status remain normal after the magnesium bolus; crew proceeds with the maintenance infusion, repeat vitals, and emergent transport.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["a5-dtr-reassess"]
+          "triggerActionIds": ["b1", "b2"]
         },
         {
           "targetPhaseId": "mag-toxicity-unrecognized",
           "if": "DTRs not reassessed",
           "condition": "The magnesium infusion continues without interval reassessment of deep tendon reflexes or respiratory status, allowing signs of magnesium toxicity to progress unrecognized.",
           "conditionType": "action_not_taken",
-          "triggerActionIds": ["a5-dtr-reassess"]
+          "triggerActionIds": ["b1"]
         }
       ]
     },
@@ -239,7 +256,7 @@
       },
       "expectedActions": [
         {
-          "id": "a6-repeat-vitals",
+          "id": "c1",
           "shortAction": "Repeat blood pressure and vital signs every 10 minutes during transport",
           "protocolExcerpt": "Monitoring: Vital signs including repeat blood pressures every 10 min. Reassess vital signs every 10 minutes during transport.",
           "priority": "critical",
@@ -247,23 +264,7 @@
           "protocolReference": "MATC: Eclampsia/Pre-Eclampsia"
         },
         {
-          "id": "a7-mag-infusion",
-          "shortAction": "Continue magnesium sulfate maintenance infusion at 2 g/hr",
-          "protocolExcerpt": "Magnesium sulfate: 4 g IV over 5–10 min, followed by 2 g/hr",
-          "priority": "important",
-          "rationale": "Ongoing infusion maintains therapeutic magnesium levels to prevent seizure recurrence.",
-          "protocolReference": "MATC: Eclampsia/Pre-Eclampsia"
-        },
-        {
-          "id": "a8-antihypertensive",
-          "shortAction": "Labetalol 20 mg IV over 2 minutes for persistent severe hypertension",
-          "protocolExcerpt": "Severe hypertension (SBP greater than 160 or DBP greater than 110) lasting more than 15 min with associated preeclampsia symptoms... Labetalol 20 mg IV over 2 minutes. May repeat every 10 minutes X 2 doses for persistent severe hypertension with preeclampsia symptoms. Ensure that HR is greater than 60 BPM prior to administration.",
-          "priority": "important",
-          "rationale": "Sustained severe hypertension with preeclampsia symptoms carries a maternal stroke risk and requires treatment toward a goal BP of roughly 140/90.",
-          "protocolReference": "MATC: Eclampsia/Pre-Eclampsia"
-        },
-        {
-          "id": "a9-transport",
+          "id": "c2",
           "shortAction": "Transport emergently to closest appropriate receiving facility; notify en route",
           "protocolExcerpt": "Disposition: Transport emergently to closest appropriate receiving facility – notify en route if possible so the receiving team can prepare",
           "priority": "critical",
@@ -314,7 +315,7 @@
       },
       "expectedActions": [
         {
-          "id": "a10-benzo-rescue",
+          "id": "d1",
           "shortAction": "Midazolam 4 mg IV (78 kg x 0.1 mg/kg = 7.8 mg -> cap at 4 mg max) for recurrent seizure",
           "protocolExcerpt": "If vascular access (IV or IO) is present: ... Midazolam 0.1 mg/kg IV or IO, maximum 4 mg. Benzodiazepine, per Seizures Guideline, for active seizure not responding to magnesium. Caution: respiratory depression",
           "priority": "critical",
@@ -365,7 +366,7 @@
       },
       "expectedActions": [
         {
-          "id": "a11-recognize-toxicity",
+          "id": "e1",
           "shortAction": "Recognize absent DTRs, somnolence, and slurred speech as magnesium toxicity",
           "protocolExcerpt": "Magnesium toxicity (progression): Hypotension followed by Loss of deep tendon reflexes followed by Somnolence, slurred speech followed by Respiratory paralysis followed by Cardiac arrest",
           "priority": "critical",
@@ -373,7 +374,7 @@
           "protocolReference": "MATC: Eclampsia/Pre-Eclampsia"
         },
         {
-          "id": "a12-stop-mag",
+          "id": "e2",
           "shortAction": "Stop the magnesium sulfate infusion immediately",
           "protocolExcerpt": "Treatment of magnesium toxicity: Stop magnesium drip",
           "priority": "critical",
@@ -381,7 +382,7 @@
           "protocolReference": "MATC: Eclampsia/Pre-Eclampsia"
         },
         {
-          "id": "a13-calcium",
+          "id": "e3",
           "shortAction": "Calcium gluconate 3 g IV to reverse magnesium toxicity; support respirations",
           "protocolExcerpt": "Give calcium gluconate 3 g IV or calcium chloride 1 g IV in cases of pending respiratory arrest. Support respiratory effort.",
           "priority": "critical",
