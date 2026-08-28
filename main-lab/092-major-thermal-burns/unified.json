@@ -81,13 +81,62 @@
         "trendTimeSeconds": 0,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [],
+      "expectedActions": [
+        {
+          "id": "a1",
+          "shortAction": "Estimate TBSA at 50% using Rule of 9's; exclude first-degree burns from the calculation",
+          "protocolExcerpt": "Estimate TBSA burned and depth of burn Use \"Rule of 9's\" First-degree/superficial burns (skin erythema only) are not included in TBSA calculations",
+          "priority": "critical",
+          "rationale": "Accurate TBSA is the basis for the fluid resuscitation calculation.",
+          "protocolReference": "MATC: Burns"
+        },
+        {
+          "id": "a2",
+          "shortAction": "Establish IV access through unburned skin, avoiding burned areas",
+          "protocolExcerpt": "Establish IV access, avoid placement through burned skin",
+          "priority": "critical",
+          "rationale": "IV sites through burned tissue are at higher risk of infection and poor cannulation.",
+          "protocolReference": "MATC: Burns"
+        },
+        {
+          "id": "a3",
+          "shortAction": "Initiate LR or NS at 500 mL/hr (50% TBSA x 10 mL/hr/%TBSA, Rule of 10, patient 68 kg within 40-80 kg range)",
+          "protocolExcerpt": "For persons over 40 kg, the initial fluid rate can also be calculated using the \"Rule of 10\": Calculate the TBSA (round to nearest 10%) Multiply TBSA x 10 = initial fluid rate (mL/hr) {for persons between 40–80 kg}",
+          "priority": "critical",
+          "rationale": "The Rule of 10 gives a rapid, weight-appropriate starting infusion rate for a burn of this size.",
+          "protocolReference": "MATC: Burns"
+        },
+        {
+          "id": "a4",
+          "shortAction": "Cover burns with dry dressing or clean sheet; do not apply gels or ointments",
+          "protocolExcerpt": "Cover burns with dry dressing or clean sheet Do not apply gels or ointments",
+          "priority": "important",
+          "rationale": "Minimizes contamination without interfering with burn center assessment.",
+          "protocolReference": "MATC: Burns"
+        },
+        {
+          "id": "a5",
+          "shortAction": "Fentanyl 68 mcg IV (68 kg x 1 mcg/kg; max initial dose 100 mcg)",
+          "protocolExcerpt": "Fentanyl: 1 mcg/kg IN, IM, IV or IO (maximum initial dose of 100 mcg)",
+          "priority": "important",
+          "rationale": "Pain management is critical in acute burns and should not be delayed.",
+          "protocolReference": "MATC: Pain Management"
+        }
+      ],
       "transitions": [
         {
           "targetPhaseId": "tbsa-fluid-calc",
           "if": "TBSA calculated, fluids initiated",
           "condition": "Crew estimates TBSA using the Rule of 9's, calculates the Rule of 10 initial fluid rate, and establishes IV access through unburned skin.",
-          "conditionType": "action_taken"
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a1", "a3"]
+        },
+        {
+          "targetPhaseId": "fluid-rate-miscalculated",
+          "if": "TBSA rounded incorrectly, rate under-dosed",
+          "condition": "Crew rounds the TBSA estimate down or miscalculates the Rule of 10 rate, delivering an inadequate fluid rate for a 50% TBSA burn.",
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["a1", "a3"]
         }
       ]
     },
@@ -132,44 +181,20 @@
       },
       "expectedActions": [
         {
-          "id": "a1-tbsa",
-          "shortAction": "Estimate TBSA at 50% using Rule of 9's; exclude first-degree burns from the calculation",
-          "protocolExcerpt": "Estimate TBSA burned and depth of burn Use \"Rule of 9's\" First-degree/superficial burns (skin erythema only) are not included in TBSA calculations",
-          "priority": "critical",
-          "rationale": "Accurate TBSA is the basis for the fluid resuscitation calculation.",
-          "protocolReference": "MATC: Burns"
-        },
-        {
-          "id": "a2-ivaccess",
-          "shortAction": "Establish IV access through unburned skin, avoiding burned areas",
-          "protocolExcerpt": "Establish IV access, avoid placement through burned skin",
-          "priority": "critical",
-          "rationale": "IV sites through burned tissue are at higher risk of infection and poor cannulation.",
-          "protocolReference": "MATC: Burns"
-        },
-        {
-          "id": "a3-fluidcalc",
-          "shortAction": "Initiate LR or NS at 500 mL/hr (50% TBSA x 10 mL/hr/%TBSA, Rule of 10, patient 68 kg within 40-80 kg range)",
-          "protocolExcerpt": "For persons over 40 kg, the initial fluid rate can also be calculated using the \"Rule of 10\": Calculate the TBSA (round to nearest 10%) Multiply TBSA x 10 = initial fluid rate (mL/hr) {for persons between 40–80 kg}",
-          "priority": "critical",
-          "rationale": "The Rule of 10 gives a rapid, weight-appropriate starting infusion rate for a burn of this size.",
-          "protocolReference": "MATC: Burns"
-        },
-        {
-          "id": "a4-dressing",
-          "shortAction": "Cover burns with dry dressing or clean sheet; do not apply gels or ointments",
-          "protocolExcerpt": "Cover burns with dry dressing or clean sheet Do not apply gels or ointments",
+          "id": "b1",
+          "shortAction": "Prevent systemic heat loss; keep patient warm with blankets",
+          "protocolExcerpt": "Prevent systemic heat loss and keep the patient warm",
           "priority": "important",
-          "rationale": "Minimizes contamination without interfering with burn center assessment.",
+          "rationale": "Large-surface-area skin loss causes rapid, uncontrolled heat loss and hypothermia risk.",
           "protocolReference": "MATC: Burns"
         },
         {
-          "id": "a5-pain",
-          "shortAction": "Fentanyl 68 mcg IV (68 kg x 1 mcg/kg; max initial dose 100 mcg)",
-          "protocolExcerpt": "Fentanyl: 1 mcg/kg IN, IM, IV or IO (maximum initial dose of 100 mcg)",
+          "id": "b2",
+          "shortAction": "Transport directly to a burn center (TBSA greater than 10% with torso involvement)",
+          "protocolExcerpt": "Consider transport directly to burn center if partial or full thickness burns (TBSA) greater than 10% and/or involvement of hands/feet, genitalia, face, and/or circumferential burns",
           "priority": "important",
-          "rationale": "Pain management is critical in acute burns and should not be delayed.",
-          "protocolReference": "MATC: Pain Management"
+          "rationale": "Ensures definitive burn care at an appropriate facility.",
+          "protocolReference": "MATC: Burns"
         }
       ],
       "transitions": [
@@ -178,14 +203,7 @@
           "if": "Fluid rate titrated on reassessment",
           "condition": "Vital signs are reassessed and the fluid rate is titrated based on response; the patient is warmed and kept comfortable for transport.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["a3-fluidcalc"]
-        },
-        {
-          "targetPhaseId": "fluid-rate-miscalculated",
-          "if": "TBSA rounded incorrectly, rate under-dosed",
-          "condition": "Crew rounds the TBSA estimate down or miscalculates the Rule of 10 rate, delivering an inadequate fluid rate for a 50% TBSA burn.",
-          "conditionType": "action_not_taken",
-          "triggerActionIds": ["a3-fluidcalc"]
+          "triggerActionIds": ["b1", "b2"]
         }
       ]
     },
@@ -228,24 +246,7 @@
         "trendTimeSeconds": 40,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [
-        {
-          "id": "a6-warm",
-          "shortAction": "Prevent systemic heat loss; keep patient warm with blankets",
-          "protocolExcerpt": "Prevent systemic heat loss and keep the patient warm",
-          "priority": "important",
-          "rationale": "Large-surface-area skin loss causes rapid, uncontrolled heat loss and hypothermia risk.",
-          "protocolReference": "MATC: Burns"
-        },
-        {
-          "id": "a7-transport",
-          "shortAction": "Transport directly to a burn center (TBSA greater than 10% with torso involvement)",
-          "protocolExcerpt": "Consider transport directly to burn center if partial or full thickness burns (TBSA) greater than 10% and/or involvement of hands/feet, genitalia, face, and/or circumferential burns",
-          "priority": "important",
-          "rationale": "Ensures definitive burn care at an appropriate facility.",
-          "protocolReference": "MATC: Burns"
-        }
-      ],
+      "expectedActions": [],
       "transitions": []
     },
     {
@@ -289,7 +290,7 @@
       },
       "expectedActions": [
         {
-          "id": "a8-recalc",
+          "id": "c1",
           "shortAction": "Recalculate TBSA and fluid rate; correct infusion up to 500 mL/hr",
           "protocolExcerpt": "Multiply TBSA x 10 = initial fluid rate (mL/hr) {for persons between 40–80 kg}",
           "priority": "critical",

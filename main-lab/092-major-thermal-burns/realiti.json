@@ -57,7 +57,13 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [],
+      "relatedChecklist": [
+        "Estimate TBSA at 50% using Rule of 9's; exclude first-degree burns from the calculation",
+        "Establish IV access through unburned skin, avoiding burned areas",
+        "Initiate LR or NS at 500 mL/hr (50% TBSA x 10 mL/hr/%TBSA, Rule of 10, patient 68 kg within 40-80 kg range)",
+        "Cover burns with dry dressing or clean sheet; do not apply gels or ointments",
+        "Fentanyl 68 mcg IV (68 kg x 1 mcg/kg; max initial dose 100 mcg)"
+      ],
       "relatedSounds": []
     },
     {
@@ -90,11 +96,8 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Estimate TBSA at 50% using Rule of 9's; exclude first-degree burns from the calculation",
-        "Establish IV access through unburned skin, avoiding burned areas",
-        "Initiate LR or NS at 500 mL/hr (50% TBSA x 10 mL/hr/%TBSA, Rule of 10, patient 68 kg within 40-80 kg range)",
-        "Cover burns with dry dressing or clean sheet; do not apply gels or ointments",
-        "Fentanyl 68 mcg IV (68 kg x 1 mcg/kg; max initial dose 100 mcg)"
+        "Prevent systemic heat loss; keep patient warm with blankets",
+        "Transport directly to a burn center (TBSA greater than 10% with torso involvement)"
       ],
       "relatedSounds": []
     },
@@ -127,10 +130,7 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [
-        "Prevent systemic heat loss; keep patient warm with blankets",
-        "Transport directly to a burn center (TBSA greater than 10% with torso involvement)"
-      ],
+      "relatedChecklist": [],
       "relatedSounds": []
     },
     {
