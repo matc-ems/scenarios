@@ -57,7 +57,11 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [],
+      "relatedChecklist": [
+        "Establish IV access (IO if 2 failed attempts or >90 sec); check blood glucose and full vitals",
+        "NS bolus 500 mL IV, repeat toward 2,040 mL (68 kg × 30 mL/kg) or MAP 65 mmHg",
+        "Provide advance notification to receiving hospital of suspected septic shock with impending airway management"
+      ],
       "relatedSounds": []
     },
     {
@@ -90,9 +94,12 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Establish IV access (IO if 2 failed attempts or >90 sec); check blood glucose and full vitals",
-        "NS bolus 500 mL IV, repeat toward 2,040 mL (68 kg × 30 mL/kg) or MAP 65 mmHg",
-        "Provide advance notification to receiving hospital of suspected septic shock with impending airway management"
+        "Recognize RSI indication: AMS with loss of protective airway reflexes, unresolved after fluids",
+        "Pre-oxygenate with high-flow O2 and PPV for at least 2 minutes prior to RSI",
+        "Fentanyl 68 mcg IV (68 kg × 1 mcg/kg) 2-3 minutes prior to intubation attempt",
+        "Ketamine 102 mg IV push (68 kg × 1.5 mg/kg, within 1-2 mg/kg range) for induction",
+        "Rocuronium 68 mg IV push (68 kg × 1 mg/kg) as paralytic agent",
+        "Attempt intubation, limiting each attempt to 15 seconds or SpO2 <90%, whichever first"
       ],
       "relatedSounds": []
     },
@@ -126,12 +133,8 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Recognize RSI indication: AMS with loss of protective airway reflexes, unresolved after fluids",
-        "Pre-oxygenate with high-flow O2 and PPV for at least 2 minutes prior to RSI",
-        "Fentanyl 68 mcg IV (68 kg × 1 mcg/kg) 2-3 minutes prior to intubation attempt",
-        "Ketamine 102 mg IV push (68 kg × 1.5 mg/kg, within 1-2 mg/kg range) for induction",
-        "Rocuronium 68 mg IV push (68 kg × 1 mg/kg) as paralytic agent",
-        "Attempt intubation, limiting each attempt to 15 seconds or SpO2 <90%, whichever first"
+        "Confirm ETT placement with waveform capnography and bilateral breath sounds; secure tube",
+        "Post-intubation sedation: Fentanyl 68-136 mcg IV (1-2 mcg/kg) plus Midazolam 1.4 mg IV (0.02 mg/kg)"
       ],
       "relatedSounds": []
     },
@@ -164,10 +167,7 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [
-        "Confirm ETT placement with waveform capnography and bilateral breath sounds; secure tube",
-        "Post-intubation sedation: Fentanyl 68-136 mcg IV (1-2 mcg/kg) plus Midazolam 1.4 mg IV (0.02 mg/kg)"
-      ],
+      "relatedChecklist": [],
       "relatedSounds": []
     },
     {

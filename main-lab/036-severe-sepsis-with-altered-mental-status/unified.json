@@ -81,13 +81,46 @@
         "trendTimeSeconds": 0,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
       },
-      "expectedActions": [],
+      "expectedActions": [
+        {
+          "id": "a1",
+          "shortAction": "Establish IV access (IO if 2 failed attempts or >90 sec); check blood glucose and full vitals",
+          "protocolExcerpt": "Check vital signs. Check blood sugar, and correct if less than 60 mg/dL. Establish IV access. If unable to obtain within two attempts or less than 90 seconds, place an IO needle",
+          "priority": "critical",
+          "rationale": "Confirms hypoglycemia is not a contributing cause of AMS and secures access for resuscitation before airway intervention.",
+          "protocolReference": "MATC: Shock"
+        },
+        {
+          "id": "a2",
+          "shortAction": "NS bolus 500 mL IV, repeat toward 2,040 mL (68 kg × 30 mL/kg) or MAP 65 mmHg",
+          "protocolExcerpt": "Physiologic target: MAP goal 65 mmHg. Fluid goal of up to 30 mL/kg of isotonic fluid by administering rapid, predetermined boluses (e.g., 500 mL) unless the MAP goal is achieved, or pulmonary edema develops.",
+          "priority": "critical",
+          "rationale": "Early aggressive fluid resuscitation is the primary treatment for septic shock and should precede sedative/paralytic administration whenever possible to avoid peri-intubation hypotension.",
+          "protocolReference": "MATC: Shock"
+        },
+        {
+          "id": "a3",
+          "shortAction": "Provide advance notification to receiving hospital of suspected septic shock with impending airway management",
+          "protocolExcerpt": "Provide advanced notification to the hospital",
+          "priority": "important",
+          "rationale": "Allows the receiving facility to prepare resources for a critically ill septic patient requiring airway management.",
+          "protocolReference": "MATC: Shock"
+        }
+      ],
       "transitions": [
         {
           "targetPhaseId": "fluids-started",
-          "if": "IV access and fluid bolus started",
+          "if": "Fluids and Access Started",
           "condition": "Crew recognizes signs of distributive (septic) shock, establishes IV/IO access, checks blood glucose, and initiates rapid isotonic fluid boluses toward a MAP goal.",
-          "conditionType": "action_taken"
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a1", "a2"]
+        },
+        {
+          "targetPhaseId": "hypotension-post-intubation",
+          "if": "RSI Without Fluid Resuscitation",
+          "condition": "The crew proceeds directly to RSI without completing adequate fluid resuscitation first; induction agents and positive pressure ventilation on top of unresuscitated shock precipitate abrupt hypotension.",
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["a2"]
         }
       ]
     },
@@ -133,44 +166,61 @@
       },
       "expectedActions": [
         {
-          "id": "a1-access-vitals",
-          "shortAction": "Establish IV access (IO if 2 failed attempts or >90 sec); check blood glucose and full vitals",
-          "protocolExcerpt": "Check vital signs. Check blood sugar, and correct if less than 60 mg/dL. Establish IV access. If unable to obtain within two attempts or less than 90 seconds, place an IO needle",
+          "id": "b1",
+          "shortAction": "Recognize RSI indication: AMS with loss of protective airway reflexes, unresolved after fluids",
+          "protocolExcerpt": "Other indications may include potential airway obstruction, severe inhalation burns, multiple traumatic injuries, altered mental status with loss of normal protective airway reflexes",
           "priority": "critical",
-          "rationale": "Confirms hypoglycemia is not a contributing cause of AMS and secures access for resuscitation before airway intervention.",
-          "protocolReference": "MATC: Shock"
+          "rationale": "Confirms the patient meets a specific protocol indication for definitive airway management rather than proceeding reflexively.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
         },
         {
-          "id": "a2-fluid-bolus",
-          "shortAction": "NS bolus 500 mL IV, repeat toward 2,040 mL (68 kg × 30 mL/kg) or MAP 65 mmHg",
-          "protocolExcerpt": "Physiologic target: MAP goal 65 mmHg. Fluid goal of up to 30 mL/kg of isotonic fluid by administering rapid, predetermined boluses (e.g., 500 mL) unless the MAP goal is achieved, or pulmonary edema develops.",
+          "id": "b2",
+          "shortAction": "Pre-oxygenate with high-flow O2 and PPV for at least 2 minutes prior to RSI",
+          "protocolExcerpt": "Patient should be pre-oxygenated with high flow oxygen, and positive pressure ventilation for a minimum of two minutes prior to the procedure. In some circumstances, sedation may be required for adequate pre-oxygenation",
           "priority": "critical",
-          "rationale": "Early aggressive fluid resuscitation is the primary treatment for septic shock and should precede sedative/paralytic administration whenever possible to avoid peri-intubation hypotension.",
-          "protocolReference": "MATC: Shock"
+          "rationale": "Maximizes oxygen reserve to prevent peri-intubation hypoxia during the apneic period.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
         },
         {
-          "id": "a3-hospital-notification",
-          "shortAction": "Provide advance notification to receiving hospital of suspected septic shock with impending airway management",
-          "protocolExcerpt": "Provide advanced notification to the hospital",
+          "id": "b3",
+          "shortAction": "Fentanyl 68 mcg IV (68 kg × 1 mcg/kg) 2-3 minutes prior to intubation attempt",
+          "protocolExcerpt": "Consider pre-medication with Fentanyl, 1 mcg/kg, 2-3 minutes prior to intubation attempt.",
           "priority": "important",
-          "rationale": "Allows the receiving facility to prepare resources for a critically ill septic patient requiring airway management.",
-          "protocolReference": "MATC: Shock"
+          "rationale": "Blunts the sympathetic/hemodynamic response to laryngoscopy.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        },
+        {
+          "id": "b4",
+          "shortAction": "Ketamine 102 mg IV push (68 kg × 1.5 mg/kg, within 1-2 mg/kg range) for induction",
+          "protocolExcerpt": "Administer induction sedative agent: Etomidate IV push, 0.2-0.3 mg/kg OR Ketamine IV push, 1-2 mg/kg OR Midazolam IV push, 0.05-0.10 mg/kg",
+          "priority": "critical",
+          "rationale": "Ketamine is favored here for its relative hemodynamic stability compared to other induction agents in a hypotensive, shock-prone patient.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        },
+        {
+          "id": "b5",
+          "shortAction": "Rocuronium 68 mg IV push (68 kg × 1 mg/kg) as paralytic agent",
+          "protocolExcerpt": "Administer paralytic agent: Succinylcholine IV push, 1-2 mg/kg OR Rocuronium IV push, 1 mg/kg OR Vecuronium IV push, 0.1 mg/kg",
+          "priority": "critical",
+          "rationale": "Provides paralysis to optimize intubating conditions after adequate sedation.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        },
+        {
+          "id": "b6",
+          "shortAction": "Attempt intubation, limiting each attempt to 15 seconds or SpO2 <90%, whichever first",
+          "protocolExcerpt": "Attempt intubation, limiting attempts to 15 seconds, or a desaturation below 90%, whichever occurs first",
+          "priority": "critical",
+          "rationale": "Prevents prolonged apnea and hypoxia during laryngoscopy attempts.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
         }
       ],
       "transitions": [
         {
           "targetPhaseId": "rsi-performed",
-          "if": "RSI performed for airway protection",
+          "if": "RSI Performed",
           "condition": "Despite fluid resuscitation, the patient remains obtunded (GCS 8) with an unreliable airway and labored breathing; the crew proceeds with rapid sequence intubation for airway protection after adequate fluid resuscitation.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["a2-fluid-bolus"]
-        },
-        {
-          "targetPhaseId": "hypotension-post-intubation",
-          "if": "RSI performed without fluid resuscitation",
-          "condition": "The crew proceeds directly to RSI without completing adequate fluid resuscitation first; induction agents and positive pressure ventilation on top of unresuscitated shock precipitate abrupt hypotension.",
-          "conditionType": "action_not_taken",
-          "triggerActionIds": ["a2-fluid-bolus"]
+          "triggerActionIds": ["b5", "b6"]
         }
       ]
     },
@@ -216,61 +266,29 @@
       },
       "expectedActions": [
         {
-          "id": "a4-rsi-indication",
-          "shortAction": "Recognize RSI indication: AMS with loss of protective airway reflexes, unresolved after fluids",
-          "protocolExcerpt": "Other indications may include potential airway obstruction, severe inhalation burns, multiple traumatic injuries, altered mental status with loss of normal protective airway reflexes",
+          "id": "c1",
+          "shortAction": "Confirm ETT placement with waveform capnography and bilateral breath sounds; secure tube",
+          "protocolExcerpt": "Confirm placement of advanced airway (endotracheal tube, SGA) with waveform capnography (most reliable), absent gastric sounds, and bilateral breath sounds",
           "priority": "critical",
-          "rationale": "Confirms the patient meets a specific protocol indication for definitive airway management rather than proceeding reflexively.",
+          "rationale": "Waveform capnography is the most reliable confirmation method and reduces risk of unrecognized esophageal intubation.",
           "protocolReference": "MATC: Airway Management (Includes RSI)"
         },
         {
-          "id": "a5-preoxygenate",
-          "shortAction": "Pre-oxygenate with high-flow O2 and PPV for at least 2 minutes prior to RSI",
-          "protocolExcerpt": "Patient should be pre-oxygenated with high flow oxygen, and positive pressure ventilation for a minimum of two minutes prior to the procedure. In some circumstances, sedation may be required for adequate pre-oxygenation",
-          "priority": "critical",
-          "rationale": "Maximizes oxygen reserve to prevent peri-intubation hypoxia during the apneic period.",
-          "protocolReference": "MATC: Airway Management (Includes RSI)"
-        },
-        {
-          "id": "a6-fentanyl-premed",
-          "shortAction": "Fentanyl 68 mcg IV (68 kg × 1 mcg/kg) 2-3 minutes prior to intubation attempt",
-          "protocolExcerpt": "Consider pre-medication with Fentanyl, 1 mcg/kg, 2-3 minutes prior to intubation attempt.",
+          "id": "c2",
+          "shortAction": "Post-intubation sedation: Fentanyl 68-136 mcg IV (1-2 mcg/kg) plus Midazolam 1.4 mg IV (0.02 mg/kg)",
+          "protocolExcerpt": "Consider sedation with sedative and/or opioid medications if agitated: Fentanyl 1-2 mcg/kg And Midazolam 0.02 mg/kg",
           "priority": "important",
-          "rationale": "Blunts the sympathetic/hemodynamic response to laryngoscopy.",
-          "protocolReference": "MATC: Airway Management (Includes RSI)"
-        },
-        {
-          "id": "a7-ketamine-induction",
-          "shortAction": "Ketamine 102 mg IV push (68 kg × 1.5 mg/kg, within 1-2 mg/kg range) for induction",
-          "protocolExcerpt": "Administer induction sedative agent: Etomidate IV push, 0.2-0.3 mg/kg OR Ketamine IV push, 1-2 mg/kg OR Midazolam IV push, 0.05-0.10 mg/kg",
-          "priority": "critical",
-          "rationale": "Ketamine is favored here for its relative hemodynamic stability compared to other induction agents in a hypotensive, shock-prone patient.",
-          "protocolReference": "MATC: Airway Management (Includes RSI)"
-        },
-        {
-          "id": "a8-rocuronium-paralytic",
-          "shortAction": "Rocuronium 68 mg IV push (68 kg × 1 mg/kg) as paralytic agent",
-          "protocolExcerpt": "Administer paralytic agent: Succinylcholine IV push, 1-2 mg/kg OR Rocuronium IV push, 1 mg/kg OR Vecuronium IV push, 0.1 mg/kg",
-          "priority": "critical",
-          "rationale": "Provides paralysis to optimize intubating conditions after adequate sedation.",
-          "protocolReference": "MATC: Airway Management (Includes RSI)"
-        },
-        {
-          "id": "a9-attempt-limit",
-          "shortAction": "Attempt intubation, limiting each attempt to 15 seconds or SpO2 <90%, whichever first",
-          "protocolExcerpt": "Attempt intubation, limiting attempts to 15 seconds, or a desaturation below 90%, whichever occurs first",
-          "priority": "critical",
-          "rationale": "Prevents prolonged apnea and hypoxia during laryngoscopy attempts.",
+          "rationale": "Maintains adequate sedation for the intubated, paralyzed patient during transport.",
           "protocolReference": "MATC: Airway Management (Includes RSI)"
         }
       ],
       "transitions": [
         {
           "targetPhaseId": "stable-transport",
-          "if": "Tube confirmed, ventilation stable",
+          "if": "Tube Confirmed, Stable Transport",
           "condition": "Endotracheal tube placement is confirmed with waveform capnography and bilateral breath sounds; the tube is secured and mechanical ventilation is established, with stable hemodynamics maintained.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["a9-attempt-limit"]
+          "triggerActionIds": ["c1", "c2"]
         }
       ]
     },
@@ -314,24 +332,7 @@
         "trendTimeSeconds": 30,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
       },
-      "expectedActions": [
-        {
-          "id": "a10-confirm-secure",
-          "shortAction": "Confirm ETT placement with waveform capnography and bilateral breath sounds; secure tube",
-          "protocolExcerpt": "Confirm placement of advanced airway (endotracheal tube, SGA) with waveform capnography (most reliable), absent gastric sounds, and bilateral breath sounds",
-          "priority": "critical",
-          "rationale": "Waveform capnography is the most reliable confirmation method and reduces risk of unrecognized esophageal intubation.",
-          "protocolReference": "MATC: Airway Management (Includes RSI)"
-        },
-        {
-          "id": "a11-post-intubation-sedation",
-          "shortAction": "Post-intubation sedation: Fentanyl 68-136 mcg IV (1-2 mcg/kg) plus Midazolam 1.4 mg IV (0.02 mg/kg)",
-          "protocolExcerpt": "Consider sedation with sedative and/or opioid medications if agitated: Fentanyl 1-2 mcg/kg And Midazolam 0.02 mg/kg",
-          "priority": "important",
-          "rationale": "Maintains adequate sedation for the intubated, paralyzed patient during transport.",
-          "protocolReference": "MATC: Airway Management (Includes RSI)"
-        }
-      ],
+      "expectedActions": [],
       "transitions": []
     },
     {
@@ -375,7 +376,7 @@
       },
       "expectedActions": [
         {
-          "id": "a12-rescue-fluid",
+          "id": "d1",
           "shortAction": "Rapid NS bolus 500 mL IV, reassess toward MAP 65 mmHg goal",
           "protocolExcerpt": "Fluid goal of up to 30 mL/kg of isotonic fluid by administering rapid, predetermined boluses (e.g., 500 mL) unless the MAP goal is achieved, or pulmonary edema develops.",
           "priority": "critical",
@@ -383,7 +384,7 @@
           "protocolReference": "MATC: Shock"
         },
         {
-          "id": "a13-rescue-vasopressor",
+          "id": "d2",
           "shortAction": "Norepinephrine infusion 3.4 mcg/min (68 kg × 0.05 mcg/kg/min), titrate to MAP 65 mmHg",
           "protocolExcerpt": "Vasopressors (shock unresponsive to IV fluids) titrated to physiologic targets ... Norepinephrine 0.05–0.5 mcg/kg/minute ... Preference in both neurogenic and infectious (sepsis) causes of distributive shock",
           "priority": "critical",
