@@ -81,13 +81,46 @@
         "trendTimeSeconds": 0,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [],
+      "expectedActions": [
+        {
+          "id": "a1",
+          "shortAction": "Obtain history of onset, triggers, prior treatments, and full vital signs including SPO2",
+          "protocolExcerpt": "Onset of symptoms. Concurrent symptoms (e.g., fever, cough, rhinorrhea, tongue/lip swelling, rash, labored breathing, foreign body aspiration). Treatments prior to EMS: Oxygen, inhaler, nebulizer, other treatments, chronic or recent steroids. Full set of vital signs (pulse, blood pressure, respiratory rate, neurologic status assessment), temperature, and O2 saturation",
+          "priority": "critical",
+          "rationale": "Establishes baseline severity and guides escalation decisions.",
+          "protocolReference": "MATC: Respiratory Distress (includes Bronchospasm, Pulmonary Edema)"
+        },
+        {
+          "id": "a2",
+          "shortAction": "Apply nasal cannula oxygen titrated to 94-98% SPO2 (permissive hypoxia to 90% acceptable given COPD)",
+          "protocolExcerpt": "Give supplemental oxygen for dyspnea to a target of 94–98% saturation. Escalate from a nasal cannula as needed to reach this goal",
+          "priority": "critical",
+          "rationale": "Corrects hypoxia while avoiding over-oxygenation risk in chronic COPD.",
+          "protocolReference": "MATC: Respiratory Distress (includes Bronchospasm, Pulmonary Edema)"
+        },
+        {
+          "id": "a3",
+          "shortAction": "Albuterol 5 mg nebulized with Ipratropium 0.5 mg nebulized (DuoNeb) for bronchospasm",
+          "protocolExcerpt": "Albuterol 5 mg nebulized (or 6 puffs metered dose inhaler) should be administered to all patients in respiratory distress with signs of bronchospasm (e.g., known asthmatics, quiet wheezers). Repeat at this dose with unlimited frequency for ongoing respiratory distress. Ipratropium 0.5 mg nebulized should be given up to 3 doses in conjunction with albuterol",
+          "priority": "critical",
+          "rationale": "Bronchodilator and anticholinergic combination directly targets the bronchospasm driving the exacerbation.",
+          "protocolReference": "MATC: Respiratory Distress (includes Bronchospasm, Pulmonary Edema)"
+        }
+      ],
       "transitions": [
         {
           "targetPhaseId": "o2-duoneb-given",
           "if": "Oxygen and DuoNeb administered",
           "condition": "Crew places patient on nasal cannula oxygen titrated toward 94-98% (permissive hypoxia acceptable per COPD history) and administers a nebulized bronchodilator treatment.",
-          "conditionType": "action_taken"
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a2", "a3"]
+        },
+        {
+          "targetPhaseId": "treatment-delayed",
+          "if": "Bronchodilator therapy delayed",
+          "condition": "Crew delays or omits nebulized bronchodilator therapy despite clear signs of bronchospasm, allowing distress to progress.",
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["a3"]
         }
       ]
     },
@@ -132,27 +165,11 @@
       },
       "expectedActions": [
         {
-          "id": "a1-history-exam",
-          "shortAction": "Obtain history of onset, triggers, prior treatments, and full vital signs including SPO2",
-          "protocolExcerpt": "Onset of symptoms. Concurrent symptoms (e.g., fever, cough, rhinorrhea, tongue/lip swelling, rash, labored breathing, foreign body aspiration). Treatments prior to EMS: Oxygen, inhaler, nebulizer, other treatments, chronic or recent steroids. Full set of vital signs (pulse, blood pressure, respiratory rate, neurologic status assessment), temperature, and O2 saturation",
-          "priority": "critical",
-          "rationale": "Establishes baseline severity and guides escalation decisions.",
-          "protocolReference": "MATC: Respiratory Distress (includes Bronchospasm, Pulmonary Edema)"
-        },
-        {
-          "id": "a2-oxygen",
-          "shortAction": "Apply nasal cannula oxygen titrated to 94-98% SPO2 (permissive hypoxia to 90% acceptable given COPD)",
-          "protocolExcerpt": "Give supplemental oxygen for dyspnea to a target of 94–98% saturation. Escalate from a nasal cannula as needed to reach this goal",
-          "priority": "critical",
-          "rationale": "Corrects hypoxia while avoiding over-oxygenation risk in chronic COPD.",
-          "protocolReference": "MATC: Respiratory Distress (includes Bronchospasm, Pulmonary Edema)"
-        },
-        {
-          "id": "a3-duoneb",
-          "shortAction": "Albuterol 5 mg nebulized with Ipratropium 0.5 mg nebulized (DuoNeb) for bronchospasm",
-          "protocolExcerpt": "Albuterol 5 mg nebulized (or 6 puffs metered dose inhaler) should be administered to all patients in respiratory distress with signs of bronchospasm (e.g., known asthmatics, quiet wheezers). Repeat at this dose with unlimited frequency for ongoing respiratory distress. Ipratropium 0.5 mg nebulized should be given up to 3 doses in conjunction with albuterol",
-          "priority": "critical",
-          "rationale": "Bronchodilator and anticholinergic combination directly targets the bronchospasm driving the exacerbation.",
+          "id": "b1",
+          "shortAction": "Reassess vital signs, SPO2, and work of breathing; document response to treatment",
+          "protocolExcerpt": "Document key aspects of the exam at baseline and after each intervention: Respiratory rate. Oxygen saturation. Use of accessory muscles. Breath sounds and quality. Response to interventions",
+          "priority": "important",
+          "rationale": "Confirms the treatment is working and guides transport decision.",
           "protocolReference": "MATC: Respiratory Distress (includes Bronchospasm, Pulmonary Edema)"
         }
       ],
@@ -162,14 +179,7 @@
           "if": "Symptoms improve without CPAP",
           "condition": "Patient's work of breathing, wheezing, and SPO2 continue to improve with oxygen and nebulized bronchodilator therapy alone, without need for non-invasive ventilation.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["a2-oxygen", "a3-duoneb"]
-        },
-        {
-          "targetPhaseId": "treatment-delayed",
-          "if": "Bronchodilator therapy delayed",
-          "condition": "Crew delays or omits nebulized bronchodilator therapy despite clear signs of bronchospasm, allowing distress to progress.",
-          "conditionType": "action_not_taken",
-          "triggerActionIds": ["a3-duoneb"]
+          "triggerActionIds": ["b1"]
         }
       ]
     },
@@ -212,16 +222,7 @@
         "trendTimeSeconds": 40,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [
-        {
-          "id": "a4-reassess",
-          "shortAction": "Reassess vital signs, SPO2, and work of breathing; document response to treatment",
-          "protocolExcerpt": "Document key aspects of the exam at baseline and after each intervention: Respiratory rate. Oxygen saturation. Use of accessory muscles. Breath sounds and quality. Response to interventions",
-          "priority": "important",
-          "rationale": "Confirms the treatment is working and guides transport decision.",
-          "protocolReference": "MATC: Respiratory Distress (includes Bronchospasm, Pulmonary Edema)"
-        }
-      ],
+      "expectedActions": [],
       "transitions": []
     },
     {
@@ -265,7 +266,7 @@
       },
       "expectedActions": [
         {
-          "id": "a5-recover-duoneb",
+          "id": "c1",
           "shortAction": "Initiate DuoNeb without further delay: Albuterol 5 mg + Ipratropium 0.5 mg nebulized",
           "protocolExcerpt": "Albuterol 5 mg nebulized (or 6 puffs metered dose inhaler) should be administered to all patients in respiratory distress with signs of bronchospasm (e.g., known asthmatics, quiet wheezers). Repeat at this dose with unlimited frequency for ongoing respiratory distress. Ipratropium 0.5 mg nebulized should be given up to 3 doses in conjunction with albuterol",
           "priority": "critical",

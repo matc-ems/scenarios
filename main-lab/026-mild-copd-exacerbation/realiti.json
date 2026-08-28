@@ -57,7 +57,11 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [],
+      "relatedChecklist": [
+        "Obtain history of onset, triggers, prior treatments, and full vital signs including SPO2",
+        "Apply nasal cannula oxygen titrated to 94-98% SPO2 (permissive hypoxia to 90% acceptable given COPD)",
+        "Albuterol 5 mg nebulized with Ipratropium 0.5 mg nebulized (DuoNeb) for bronchospasm"
+      ],
       "relatedSounds": []
     },
     {
@@ -90,9 +94,7 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Obtain history of onset, triggers, prior treatments, and full vital signs including SPO2",
-        "Apply nasal cannula oxygen titrated to 94-98% SPO2 (permissive hypoxia to 90% acceptable given COPD)",
-        "Albuterol 5 mg nebulized with Ipratropium 0.5 mg nebulized (DuoNeb) for bronchospasm"
+        "Reassess vital signs, SPO2, and work of breathing; document response to treatment"
       ],
       "relatedSounds": []
     },
@@ -125,9 +127,7 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [
-        "Reassess vital signs, SPO2, and work of breathing; document response to treatment"
-      ],
+      "relatedChecklist": [],
       "relatedSounds": []
     },
     {
