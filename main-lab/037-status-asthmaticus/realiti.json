@@ -57,7 +57,13 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [],
+      "relatedChecklist": [
+        "Recognize impending respiratory failure: minimal air movement, silent chest, rising EtCO2 despite tachypnea",
+        "Maintain CPAP with in-line nebulizer; do not break the mask seal",
+        "Apply continuous waveform capnography; monitor for shark-fin pattern and trend EtCO2",
+        "Epinephrine 0.3 mg IM (65 kg × 0.01 mg/kg = 0.65 mg → capped at 0.3 mg max)",
+        "Magnesium sulfate 2 g IV (65 kg × 40 mg/kg = 2,600 mg → capped at 2 g max) over 10–15 minutes"
+      ],
       "relatedSounds": []
     },
     {
@@ -90,11 +96,7 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Recognize impending respiratory failure: minimal air movement, silent chest, rising EtCO2 despite tachypnea",
-        "Maintain CPAP with in-line nebulizer; do not break the mask seal",
-        "Epinephrine 0.3 mg IM (65 kg × 0.01 mg/kg = 0.65 mg → capped at 0.3 mg max)",
-        "Magnesium sulfate 2 g IV (65 kg × 40 mg/kg = 2,600 mg → capped at 2 g max) over 10–15 minutes",
-        "Apply continuous waveform capnography; monitor for shark-fin pattern and trend EtCO2"
+        "Continue serial reassessment of air movement, EtCO2, and mental status en route"
       ],
       "relatedSounds": []
     },
@@ -127,9 +129,7 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [
-        "Continue serial reassessment of air movement, EtCO2, and mental status en route"
-      ],
+      "relatedChecklist": [],
       "relatedSounds": []
     },
     {
@@ -184,6 +184,12 @@
       "icon": 1
     },
     {
+      "title": "Apply continuous waveform capnography; monitor for shark-fin pattern and trend EtCO2",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
       "title": "Epinephrine 0.3 mg IM (65 kg × 0.01 mg/kg = 0.65 mg → capped at 0.3 mg max)",
       "type": "Check",
       "value": 0,
@@ -191,12 +197,6 @@
     },
     {
       "title": "Magnesium sulfate 2 g IV (65 kg × 40 mg/kg = 2,600 mg → capped at 2 g max) over 10–15 minutes",
-      "type": "Check",
-      "value": 0,
-      "icon": 1
-    },
-    {
-      "title": "Apply continuous waveform capnography; monitor for shark-fin pattern and trend EtCO2",
       "type": "Check",
       "value": 0,
       "icon": 1

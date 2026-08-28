@@ -81,21 +81,62 @@
         "trendTimeSeconds": 0,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
       },
-      "expectedActions": [],
+      "expectedActions": [
+        {
+          "id": "a1",
+          "shortAction": "Recognize impending respiratory failure: minimal air movement, silent chest, rising EtCO2 despite tachypnea",
+          "protocolExcerpt": "Normal EtCO2 (35–45 mmHg) with tachypnea and respiratory distress is an indicator of impending respiratory failure",
+          "priority": "critical",
+          "rationale": "Silent chest and normalizing EtCO2 despite severe tachypnea are late, ominous signs of impending arrest, not improvement.",
+          "protocolReference": "MATC: Respiratory Distress"
+        },
+        {
+          "id": "a2",
+          "shortAction": "Maintain CPAP with in-line nebulizer; do not break the mask seal",
+          "protocolExcerpt": "DO NOT discontinue CPAP/BiPAP until patient is on the emergency department stretcher and hospital CPAP/BiPAP is immediately available for patient to be switched over, or physician is at bedside and requesting CPAP/BiPAP be discontinued. Breaking the mask seal causes a significant decrease in airway pressures and may lead to abrupt decompensation due to atelectasis and alveolar collapse.",
+          "priority": "important",
+          "rationale": "Breaking the seal even briefly can precipitate abrupt decompensation in a patient this tenuous.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        },
+        {
+          "id": "a3",
+          "shortAction": "Apply continuous waveform capnography; monitor for shark-fin pattern and trend EtCO2",
+          "protocolExcerpt": "A \"shark fin\" on waveform capnography suggests significant bronchospasm and obstructive physiology",
+          "priority": "important",
+          "rationale": "Continuous capnography trending guides whether therapy is working or the patient is progressing to failure.",
+          "protocolReference": "MATC: Respiratory Distress"
+        },
+        {
+          "id": "a4",
+          "shortAction": "Epinephrine 0.3 mg IM (65 kg × 0.01 mg/kg = 0.65 mg → capped at 0.3 mg max)",
+          "protocolExcerpt": "Epinephrine (0.01 mg/kg of 1 mg/mL solution IM, maximum dose of 0.3 mg) should only be administered for impending respiratory failure as adjunctive therapy when there are no clinical signs of improvement with the above treatments",
+          "priority": "critical",
+          "rationale": "Adjunctive IM epinephrine is indicated once bronchodilators and NIV alone fail to reverse impending respiratory failure.",
+          "protocolReference": "MATC: Respiratory Distress"
+        },
+        {
+          "id": "a5",
+          "shortAction": "Magnesium sulfate 2 g IV (65 kg × 40 mg/kg = 2,600 mg → capped at 2 g max) over 10–15 minutes",
+          "protocolExcerpt": "Magnesium sulfate (40 mg/kg IV, maximum dose of 2 g) over 10–15 minutes should be administered for severe bronchoconstriction and concern for impending respiratory failure",
+          "priority": "critical",
+          "rationale": "Magnesium provides additional smooth muscle relaxation in severe bronchoconstriction unresponsive to first-line therapy.",
+          "protocolReference": "MATC: Respiratory Distress"
+        }
+      ],
       "transitions": [
         {
           "targetPhaseId": "epi-mag-given",
-          "if": "IM epi and IV mag given",
+          "if": "IM epi and mag given",
           "condition": "Crew recognizes impending respiratory failure (minimal air movement, silent chest, rising/normal EtCO2 despite tachypnea) and escalates with IM epinephrine and IV magnesium sulfate as adjunctive therapy since CPAP and nebulizers alone are not sufficient.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["a3-epi", "a4-mag"]
+          "triggerActionIds": ["a4", "a5"]
         },
         {
           "targetPhaseId": "rsi-performed",
-          "if": "Escalation delayed on failing CPAP",
+          "if": "RSI performed for respiratory failure",
           "condition": "Crew continues CPAP and nebulizer therapy alone without escalating to IM epinephrine or magnesium sulfate; the patient continues to deteriorate toward respiratory failure.",
           "conditionType": "action_not_taken",
-          "triggerActionIds": ["a3-epi", "a4-mag"]
+          "triggerActionIds": ["a4", "a5"]
         }
       ]
     },
@@ -140,53 +181,21 @@
       },
       "expectedActions": [
         {
-          "id": "a1-recognize-failure",
-          "shortAction": "Recognize impending respiratory failure: minimal air movement, silent chest, rising EtCO2 despite tachypnea",
-          "protocolExcerpt": "Normal EtCO2 (35–45 mmHg) with tachypnea and respiratory distress is an indicator of impending respiratory failure",
-          "priority": "critical",
-          "rationale": "Silent chest and normalizing EtCO2 despite severe tachypnea are late, ominous signs of impending arrest, not improvement.",
-          "protocolReference": "MATC: Respiratory Distress"
-        },
-        {
-          "id": "a2-maintain-cpap",
-          "shortAction": "Maintain CPAP with in-line nebulizer; do not break the mask seal",
-          "protocolExcerpt": "DO NOT discontinue CPAP/BiPAP until patient is on the emergency department stretcher and hospital CPAP/BiPAP is immediately available for patient to be switched over, or physician is at bedside and requesting CPAP/BiPAP be discontinued. Breaking the mask seal causes a significant decrease in airway pressures and may lead to abrupt decompensation due to atelectasis and alveolar collapse.",
+          "id": "b1",
+          "shortAction": "Continue serial reassessment of air movement, EtCO2, and mental status en route",
+          "protocolExcerpt": "Ongoing assessment is critical when an airway device is in place.",
           "priority": "important",
-          "rationale": "Breaking the seal even briefly can precipitate abrupt decompensation in a patient this tenuous.",
+          "rationale": "Status asthmaticus can relapse; continuous reassessment ensures early recognition if the patient begins to deteriorate again.",
           "protocolReference": "MATC: Airway Management (Includes RSI)"
-        },
-        {
-          "id": "a3-epi",
-          "shortAction": "Epinephrine 0.3 mg IM (65 kg × 0.01 mg/kg = 0.65 mg → capped at 0.3 mg max)",
-          "protocolExcerpt": "Epinephrine (0.01 mg/kg of 1 mg/mL solution IM, maximum dose of 0.3 mg) should only be administered for impending respiratory failure as adjunctive therapy when there are no clinical signs of improvement with the above treatments",
-          "priority": "critical",
-          "rationale": "Adjunctive IM epinephrine is indicated once bronchodilators and NIV alone fail to reverse impending respiratory failure.",
-          "protocolReference": "MATC: Respiratory Distress"
-        },
-        {
-          "id": "a4-mag",
-          "shortAction": "Magnesium sulfate 2 g IV (65 kg × 40 mg/kg = 2,600 mg → capped at 2 g max) over 10–15 minutes",
-          "protocolExcerpt": "Magnesium sulfate (40 mg/kg IV, maximum dose of 2 g) over 10–15 minutes should be administered for severe bronchoconstriction and concern for impending respiratory failure",
-          "priority": "critical",
-          "rationale": "Magnesium provides additional smooth muscle relaxation in severe bronchoconstriction unresponsive to first-line therapy.",
-          "protocolReference": "MATC: Respiratory Distress"
-        },
-        {
-          "id": "a5-capnography",
-          "shortAction": "Apply continuous waveform capnography; monitor for shark-fin pattern and trend EtCO2",
-          "protocolExcerpt": "A \"shark fin\" on waveform capnography suggests significant bronchospasm and obstructive physiology",
-          "priority": "important",
-          "rationale": "Continuous capnography trending guides whether therapy is working or the patient is progressing to failure.",
-          "protocolReference": "MATC: Respiratory Distress"
         }
       ],
       "transitions": [
         {
           "targetPhaseId": "improved-avoided-intubation",
-          "if": "Air movement improves after epi/mag",
+          "if": "Improved, avoided intubation",
           "condition": "Following IM epinephrine and IV magnesium sulfate, air movement and wheeze audibly improve, EtCO2 begins trending down toward normal, and mental status remains intact, avoiding the need for intubation.",
           "conditionType": "vital_threshold",
-          "triggerActionIds": ["a3-epi", "a4-mag"]
+          "triggerActionIds": ["b1"]
         }
       ]
     },
@@ -229,16 +238,7 @@
         "trendTimeSeconds": 40,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
       },
-      "expectedActions": [
-        {
-          "id": "a6-reassess-transport",
-          "shortAction": "Continue serial reassessment of air movement, EtCO2, and mental status en route",
-          "protocolExcerpt": "Ongoing assessment is critical when an airway device is in place.",
-          "priority": "important",
-          "rationale": "Status asthmaticus can relapse; continuous reassessment ensures early recognition if the patient begins to deteriorate again.",
-          "protocolReference": "MATC: Airway Management (Includes RSI)"
-        }
-      ],
+      "expectedActions": [],
       "transitions": []
     },
     {
@@ -282,7 +282,7 @@
       },
       "expectedActions": [
         {
-          "id": "b1-recognize-progression",
+          "id": "c1",
           "shortAction": "Recognize progression to respiratory failure: silent chest, declining mental status, rising EtCO2",
           "protocolExcerpt": "Severe respiratory distress may manifest with hypoxia, altered mentation, diaphoresis, or inability to speak more than 2–3 words",
           "priority": "critical",
@@ -290,7 +290,7 @@
           "protocolReference": "MATC: Respiratory Distress"
         },
         {
-          "id": "b2-preoxygenate",
+          "id": "c2",
           "shortAction": "Preoxygenate with high-flow O2 and positive pressure ventilation for at least 2 minutes before RSI",
           "protocolExcerpt": "Patient should be pre-oxygenated with high flow oxygen, and positive pressure ventilation for a minimum of two minutes prior to the procedure",
           "priority": "critical",
@@ -298,7 +298,7 @@
           "protocolReference": "MATC: Airway Management (Includes RSI)"
         },
         {
-          "id": "b3-induction-paralytic",
+          "id": "c3",
           "shortAction": "Ketamine 98 mg IV (65 kg × 1.5 mg/kg = 97.5 mg) induction, then Rocuronium 65 mg IV (65 kg × 1 mg/kg) for paralysis",
           "protocolExcerpt": "Administer induction sedative agent: Etomidate IV push, 0.2-0.3 mg/kg OR Ketamine IV push, 1-2 mg/kg OR Midazolam IV push, 0.05-0.10 mg/kg ... Administer paralytic agent: Succinylcholine IV push, 1-2 mg/kg OR Rocuronium IV push, 1 mg/kg OR Vecuronium IV push, 0.1 mg/kg",
           "priority": "critical",
@@ -306,7 +306,7 @@
           "protocolReference": "MATC: Airway Management (Includes RSI)"
         },
         {
-          "id": "b4-confirm-secure",
+          "id": "c4",
           "shortAction": "Confirm ETT placement with waveform capnography and bilateral breath sounds, then secure the tube",
           "protocolExcerpt": "Confirm placement of advanced airway (endotracheal tube, SGA) with waveform capnography (most reliable), absent gastric sounds, and bilateral breath sounds. Secure tube manually. Once proper position is confirmed, secure the tube with tape, twill, or commercial device",
           "priority": "critical",
