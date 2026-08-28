@@ -80,13 +80,62 @@
         "trendTimeSeconds": 0,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [],
+      "expectedActions": [
+        {
+          "id": "a1",
+          "shortAction": "Establish IV access (two large-bore lines preferred)",
+          "protocolExcerpt": "Establish IV access.",
+          "priority": "critical",
+          "rationale": "Vascular access must be secured before the entrapping pressure is released.",
+          "protocolReference": "MATC: Crush Injury/Crush Syndrome"
+        },
+        {
+          "id": "a2",
+          "shortAction": "Attach cardiac monitor and obtain 12-lead EKG; watch for hyperkalemia changes",
+          "protocolExcerpt": "Attach cardiac monitor. Obtain/interpret 12-lead EKG, if available. Carefully monitor for dysrhythmias or signs of hyperkalemia before and immediately after release of pressure and during transport (e.g., peaked T waves, wide QRS, lengthening QT interval, loss of P wave)",
+          "priority": "critical",
+          "rationale": "Hyperkalemia from crushed muscle can precipitate lethal arrhythmias at the moment of release.",
+          "protocolReference": "MATC: Crush Injury/Crush Syndrome"
+        },
+        {
+          "id": "a3",
+          "shortAction": "Administer 1,000 mL normal saline IV bolus before release (avoid lactated Ringer's)",
+          "protocolExcerpt": "IV fluids should be administered prior to releasing the crushed body part. Administer 1000 mL normal saline (NS) bolus. Avoid lactated Ringer's solution as it contains potassium.",
+          "priority": "critical",
+          "rationale": "Pre-release volume loading blunts the hypovolemia and electrolyte shifts of reperfusion syndrome.",
+          "protocolReference": "MATC: Crush Injury/Crush Syndrome"
+        },
+        {
+          "id": "a4",
+          "shortAction": "Sodium bicarbonate 50 mEq IV over 5 min (90 kg × 1 mEq/kg = 90 mEq → capped at 50 mEq max)",
+          "protocolExcerpt": "For significant crush injuries or prolonged entrapment of an extremity, consider sodium bicarbonate 1 mEq/kg (maximum dose of 50 mEq) IV bolus over 5 minutes",
+          "priority": "important",
+          "rationale": "Alkalinization reduces the risk of myoglobin-related renal injury and helps counter impending hyperkalemia.",
+          "protocolReference": "MATC: Crush Injury/Crush Syndrome"
+        },
+        {
+          "id": "a5",
+          "shortAction": "Fentanyl 90 mcg IV (90 kg × 1 mcg/kg; max initial dose 100 mcg)",
+          "protocolExcerpt": "Fentanyl: 1 mcg/kg IN, IM, IV or IO (maximum initial dose of 100 mcg)",
+          "priority": "important",
+          "rationale": "Adequate analgesia is needed before and during a painful, prolonged extrication.",
+          "protocolReference": "MATC: Pain Management"
+        }
+      ],
       "transitions": [
         {
           "targetPhaseId": "pre-extrication-fluids",
           "if": "IV fluids and bicarb given before release",
           "condition": "Crew establishes IV access, administers a 1,000 mL normal saline bolus and sodium bicarbonate, attaches cardiac monitoring, and provides analgesia before fire/rescue releases the entrapping pressure.",
-          "conditionType": "action_taken"
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a2", "a3", "a4"]
+        },
+        {
+          "targetPhaseId": "premature-release",
+          "if": "Release attempted before fluids",
+          "condition": "Fire/rescue releases the racking before the crew has completed IV fluid resuscitation, precipitating an unbuffered reperfusion event.",
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["a3"]
         }
       ]
     },
@@ -131,44 +180,20 @@
       },
       "expectedActions": [
         {
-          "id": "a1-iv-access",
-          "shortAction": "Establish IV access (two large-bore lines preferred)",
-          "protocolExcerpt": "Establish IV access.",
+          "id": "b1",
+          "shortAction": "Continuously monitor EKG for peaked T waves, widening QRS during and after release",
+          "protocolExcerpt": "Carefully monitor for dysrhythmias or signs of hyperkalemia before and immediately after release of pressure and during transport (e.g., peaked T waves, wide QRS, lengthening QT interval, loss of P wave)",
           "priority": "critical",
-          "rationale": "Vascular access must be secured before the entrapping pressure is released.",
+          "rationale": "The moment of release is when reperfusion-driven hyperkalemia is most likely to manifest.",
           "protocolReference": "MATC: Crush Injury/Crush Syndrome"
         },
         {
-          "id": "a2-ns-bolus",
-          "shortAction": "Administer 1,000 mL normal saline IV bolus before release (avoid lactated Ringer's)",
-          "protocolExcerpt": "IV fluids should be administered prior to releasing the crushed body part. Administer 1000 mL normal saline (NS) bolus. Avoid lactated Ringer's solution as it contains potassium.",
-          "priority": "critical",
-          "rationale": "Pre-release volume loading blunts the hypovolemia and electrolyte shifts of reperfusion syndrome.",
-          "protocolReference": "MATC: Crush Injury/Crush Syndrome"
-        },
-        {
-          "id": "a3-bicarb",
-          "shortAction": "Sodium bicarbonate 50 mEq IV over 5 min (90 kg × 1 mEq/kg = 90 mEq → capped at 50 mEq max)",
-          "protocolExcerpt": "For significant crush injuries or prolonged entrapment of an extremity, consider sodium bicarbonate 1 mEq/kg (maximum dose of 50 mEq) IV bolus over 5 minutes",
+          "id": "b2",
+          "shortAction": "Continue normal saline infusion through and after extrication",
+          "protocolExcerpt": "Continue fluid resuscitation through extrication and transfer to hospital",
           "priority": "important",
-          "rationale": "Alkalinization reduces the risk of myoglobin-related renal injury and helps counter impending hyperkalemia.",
+          "rationale": "Ongoing volume support is required as reperfusion continues to shift fluid and electrolytes.",
           "protocolReference": "MATC: Crush Injury/Crush Syndrome"
-        },
-        {
-          "id": "a4-monitor",
-          "shortAction": "Attach cardiac monitor and obtain 12-lead EKG; watch for hyperkalemia changes",
-          "protocolExcerpt": "Attach cardiac monitor. Obtain/interpret 12-lead EKG, if available. Carefully monitor for dysrhythmias or signs of hyperkalemia before and immediately after release of pressure and during transport (e.g., peaked T waves, wide QRS, lengthening QT interval, loss of P wave)",
-          "priority": "critical",
-          "rationale": "Hyperkalemia from crushed muscle can precipitate lethal arrhythmias at the moment of release.",
-          "protocolReference": "MATC: Crush Injury/Crush Syndrome"
-        },
-        {
-          "id": "a5-fentanyl",
-          "shortAction": "Fentanyl 90 mcg IV (90 kg × 1 mcg/kg; max initial dose 100 mcg)",
-          "protocolExcerpt": "Fentanyl: 1 mcg/kg IN, IM, IV or IO (maximum initial dose of 100 mcg)",
-          "priority": "important",
-          "rationale": "Adequate analgesia is needed before and during a painful, prolonged extrication.",
-          "protocolReference": "MATC: Pain Management"
         }
       ],
       "transitions": [
@@ -177,14 +202,7 @@
           "if": "Extrication coordinated after fluids given",
           "condition": "With fluids, bicarbonate, and monitoring in place, the crew coordinates with fire/rescue for a controlled release of the crushing pressure.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["a2-ns-bolus", "a3-bicarb", "a4-monitor"]
-        },
-        {
-          "targetPhaseId": "premature-release",
-          "if": "Release attempted before fluids",
-          "condition": "Fire/rescue releases the racking before the crew has completed IV fluid resuscitation, precipitating an unbuffered reperfusion event.",
-          "conditionType": "action_not_taken",
-          "triggerActionIds": ["a2-ns-bolus"]
+          "triggerActionIds": ["b1", "b2"]
         }
       ]
     },
@@ -229,19 +247,19 @@
       },
       "expectedActions": [
         {
-          "id": "a6-monitor-release",
-          "shortAction": "Continuously monitor EKG for peaked T waves, widening QRS during and after release",
-          "protocolExcerpt": "Carefully monitor for dysrhythmias or signs of hyperkalemia before and immediately after release of pressure and during transport (e.g., peaked T waves, wide QRS, lengthening QT interval, loss of P wave)",
-          "priority": "critical",
-          "rationale": "The moment of release is when reperfusion-driven hyperkalemia is most likely to manifest.",
+          "id": "c1",
+          "shortAction": "Continue normal saline infusion at 500–1,000 mL/hr post-extrication",
+          "protocolExcerpt": "Continued resuscitation with normal saline (500–1000 mL/hr for adults, 10 mL/kg/hr for children)",
+          "priority": "important",
+          "rationale": "Sustained fluid support continues to mitigate delayed rhabdomyolysis-related complications.",
           "protocolReference": "MATC: Crush Injury/Crush Syndrome"
         },
         {
-          "id": "a7-continue-fluids",
-          "shortAction": "Continue normal saline infusion through and after extrication",
-          "protocolExcerpt": "Continue fluid resuscitation through extrication and transfer to hospital",
+          "id": "c2",
+          "shortAction": "Rapid transport to a trauma center; reassess neurovascular status and pain en route",
+          "protocolExcerpt": "Rapid extrication and evacuation to a definitive care facility (trauma center preferred)",
           "priority": "important",
-          "rationale": "Ongoing volume support is required as reperfusion continues to shift fluid and electrolytes.",
+          "rationale": "Definitive management of crush injury and monitoring for delayed complications requires trauma center resources.",
           "protocolReference": "MATC: Crush Injury/Crush Syndrome"
         }
       ],
@@ -251,14 +269,14 @@
           "if": "Stable release, no hyperkalemia signs",
           "condition": "The EKG remains free of peaked T waves or QRS widening after release, and the patient remains hemodynamically stable.",
           "conditionType": "vital_threshold",
-          "triggerActionIds": ["a6-monitor-release"]
+          "triggerActionIds": ["c1"]
         },
         {
           "targetPhaseId": "hyperkalemia-recognized",
           "if": "Peaked T waves recognized post-release",
           "condition": "Shortly after release, the EKG develops peaked T waves and a widening QRS consistent with hyperkalemia from the reperfused limb.",
           "conditionType": "vital_threshold",
-          "triggerActionIds": ["a6-monitor-release"]
+          "triggerActionIds": ["c1"]
         }
       ]
     },
@@ -301,24 +319,7 @@
         "trendTimeSeconds": 40,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [
-        {
-          "id": "a8-continue-fluids-post",
-          "shortAction": "Continue normal saline infusion at 500–1,000 mL/hr post-extrication",
-          "protocolExcerpt": "Continued resuscitation with normal saline (500–1000 mL/hr for adults, 10 mL/kg/hr for children)",
-          "priority": "important",
-          "rationale": "Sustained fluid support continues to mitigate delayed rhabdomyolysis-related complications.",
-          "protocolReference": "MATC: Crush Injury/Crush Syndrome"
-        },
-        {
-          "id": "a9-trauma-transport",
-          "shortAction": "Rapid transport to a trauma center; reassess neurovascular status and pain en route",
-          "protocolExcerpt": "Rapid extrication and evacuation to a definitive care facility (trauma center preferred)",
-          "priority": "important",
-          "rationale": "Definitive management of crush injury and monitoring for delayed complications requires trauma center resources.",
-          "protocolReference": "MATC: Crush Injury/Crush Syndrome"
-        }
-      ],
+      "expectedActions": [],
       "transitions": []
     },
     {
@@ -362,7 +363,7 @@
       },
       "expectedActions": [
         {
-          "id": "a10-recognize-reperfusion",
+          "id": "d1",
           "shortAction": "Recognize reperfusion syndrome: sudden hypotension and arrhythmia risk after release without adequate fluids",
           "protocolExcerpt": "Sudden release of a crushed extremity may result in reperfusion syndrome (acute hypovolemia, electrolyte abnormalities, and subsequent lethal arrhythmia)",
           "priority": "critical",
@@ -412,7 +413,7 @@
       },
       "expectedActions": [
         {
-          "id": "a11-calcium-chloride",
+          "id": "e1",
           "shortAction": "Calcium chloride 1 g IV over 5 min (ensure IV patency; do not exceed 1 mL/min)",
           "protocolExcerpt": "Calcium chloride – 1 gm IV/IO over 5 minutes, ensure IV patency and do not exceed 1 mL per minute",
           "priority": "critical",
@@ -420,7 +421,7 @@
           "protocolReference": "MATC: Crush Injury/Crush Syndrome"
         },
         {
-          "id": "a12-albuterol-hyperkalemia",
+          "id": "e2",
           "shortAction": "Consider albuterol 5 mg nebulized for hyperkalemia; may repeat if no response",
           "protocolExcerpt": "If EKG suggestive of hyperkalemia, consider albuterol 5 mg via small volume nebulizer (can be repeated if no response is seen)",
           "priority": "important",

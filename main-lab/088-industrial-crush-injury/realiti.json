@@ -57,7 +57,13 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [],
+      "relatedChecklist": [
+        "Establish IV access (two large-bore lines preferred)",
+        "Attach cardiac monitor and obtain 12-lead EKG; watch for hyperkalemia changes",
+        "Administer 1,000 mL normal saline IV bolus before release (avoid lactated Ringer's)",
+        "Sodium bicarbonate 50 mEq IV over 5 min (90 kg × 1 mEq/kg = 90 mEq → capped at 50 mEq max)",
+        "Fentanyl 90 mcg IV (90 kg × 1 mcg/kg; max initial dose 100 mcg)"
+      ],
       "relatedSounds": []
     },
     {
@@ -90,11 +96,8 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Establish IV access (two large-bore lines preferred)",
-        "Administer 1,000 mL normal saline IV bolus before release (avoid lactated Ringer's)",
-        "Sodium bicarbonate 50 mEq IV over 5 min (90 kg × 1 mEq/kg = 90 mEq → capped at 50 mEq max)",
-        "Attach cardiac monitor and obtain 12-lead EKG; watch for hyperkalemia changes",
-        "Fentanyl 90 mcg IV (90 kg × 1 mcg/kg; max initial dose 100 mcg)"
+        "Continuously monitor EKG for peaked T waves, widening QRS during and after release",
+        "Continue normal saline infusion through and after extrication"
       ],
       "relatedSounds": []
     },
@@ -128,8 +131,8 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Continuously monitor EKG for peaked T waves, widening QRS during and after release",
-        "Continue normal saline infusion through and after extrication"
+        "Continue normal saline infusion at 500–1,000 mL/hr post-extrication",
+        "Rapid transport to a trauma center; reassess neurovascular status and pain en route"
       ],
       "relatedSounds": []
     },
@@ -162,10 +165,7 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [
-        "Continue normal saline infusion at 500–1,000 mL/hr post-extrication",
-        "Rapid transport to a trauma center; reassess neurovascular status and pain en route"
-      ],
+      "relatedChecklist": [],
       "relatedSounds": []
     },
     {
@@ -246,6 +246,12 @@
       "icon": 1
     },
     {
+      "title": "Attach cardiac monitor and obtain 12-lead EKG; watch for hyperkalemia changes",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
       "title": "Administer 1,000 mL normal saline IV bolus before release (avoid lactated Ringer's)",
       "type": "Check",
       "value": 0,
@@ -253,12 +259,6 @@
     },
     {
       "title": "Sodium bicarbonate 50 mEq IV over 5 min (90 kg × 1 mEq/kg = 90 mEq → capped at 50 mEq max)",
-      "type": "Check",
-      "value": 0,
-      "icon": 1
-    },
-    {
-      "title": "Attach cardiac monitor and obtain 12-lead EKG; watch for hyperkalemia changes",
       "type": "Check",
       "value": 0,
       "icon": 1
