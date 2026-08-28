@@ -57,7 +57,10 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [],
+      "relatedChecklist": [
+        "Check blood glucose level with glucometer",
+        "Oral glucose gel 12.5 g PO (25 kg × 0.5 g/kg)"
+      ],
       "relatedSounds": []
     },
     {
@@ -90,8 +93,9 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Check blood glucose level with glucometer",
-        "Oral glucose gel 12.5 g PO (25 kg × 0.5 g/kg)"
+        "Recheck BGL after oral dose; confirm still 45 mg/dL with persistent symptoms",
+        "Dextrose 12.5 g IV as 125 mL D10% (25 kg × 5 mL/kg = 125 mL)",
+        "Use D10% concentration rather than higher-concentration dextrose for this pediatric patient"
       ],
       "relatedSounds": []
     },
@@ -125,9 +129,7 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Recheck BGL after oral dose; confirm still 45 mg/dL with persistent symptoms",
-        "Dextrose 12.5 g IV as 125 mL D10% (25 kg × 5 mL/kg = 125 mL)",
-        "Use D10% concentration rather than higher-concentration dextrose for this pediatric patient"
+        "Reassess vitals and mental status; transport given continued symptomatic hypoglycemia today"
       ],
       "relatedSounds": []
     },
@@ -160,9 +162,7 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [
-        "Reassess vitals and mental status; transport given continued symptomatic hypoglycemia today"
-      ],
+      "relatedChecklist": [],
       "relatedSounds": []
     },
     {

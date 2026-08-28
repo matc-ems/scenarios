@@ -79,13 +79,31 @@
         "trendTimeSeconds": 0,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [],
+      "expectedActions": [
+        {
+          "id": "a1",
+          "shortAction": "Check blood glucose level with glucometer",
+          "protocolExcerpt": "Monitoring: Check blood glucose level",
+          "priority": "critical",
+          "rationale": "Confirms hypoglycemia (BGL less than 60 mg/dL) before treatment.",
+          "protocolReference": "MATC: Hypoglycemia"
+        },
+        {
+          "id": "a2",
+          "shortAction": "Oral glucose gel 12.5 g PO (25 kg × 0.5 g/kg)",
+          "protocolExcerpt": "Conscious patient with a patent airway: Glucose, oral (in form of glucose tablets, glucose gel, tube of cake icing, etc.) Pediatric Dosing: 0.5–1 g/kg",
+          "priority": "critical",
+          "rationale": "Oral glucose is first-line for a conscious, airway-protecting pediatric patient.",
+          "protocolReference": "MATC: Hypoglycemia"
+        }
+      ],
       "transitions": [
         {
           "targetPhaseId": "oral-glucose-given",
           "if": "Oral glucose given",
           "condition": "Crew confirms blood glucose is 42 mg/dL, recognizes symptomatic hypoglycemia, and administers weight-based oral glucose since the patient is conscious with a patent airway.",
-          "conditionType": "action_taken"
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a1", "a2"]
         }
       ]
     },
@@ -130,36 +148,44 @@
       },
       "expectedActions": [
         {
-          "id": "a1-glucometer",
-          "shortAction": "Check blood glucose level with glucometer",
-          "protocolExcerpt": "Monitoring: Check blood glucose level",
+          "id": "b1",
+          "shortAction": "Recheck BGL after oral dose; confirm still 45 mg/dL with persistent symptoms",
+          "protocolExcerpt": "Repeat check of blood glucose level if previous hypoglycemia and mental status has not returned to normal",
           "priority": "critical",
-          "rationale": "Confirms hypoglycemia (BGL less than 60 mg/dL) before treatment.",
+          "rationale": "Identifies that oral glucose alone did not resolve hypoglycemia, justifying escalation.",
           "protocolReference": "MATC: Hypoglycemia"
         },
         {
-          "id": "a2-oral-glucose",
-          "shortAction": "Oral glucose gel 12.5 g PO (25 kg × 0.5 g/kg)",
-          "protocolExcerpt": "Conscious patient with a patent airway: Glucose, oral (in form of glucose tablets, glucose gel, tube of cake icing, etc.) Pediatric Dosing: 0.5–1 g/kg",
+          "id": "b2",
+          "shortAction": "Dextrose 12.5 g IV as 125 mL D10% (25 kg × 5 mL/kg = 125 mL)",
+          "protocolExcerpt": "Maximum field pediatric dosing: 0.5–1 g/kg of 10–25% dextrose IV 5–10 mL/kg of 10% dextrose (newborns 2 mL/kg)",
           "priority": "critical",
-          "rationale": "Oral glucose is first-line for a conscious, airway-protecting pediatric patient.",
+          "rationale": "Weight-based IV dextrose corrects persistent hypoglycemia when oral treatment is insufficient.",
+          "protocolReference": "MATC: Hypoglycemia"
+        },
+        {
+          "id": "b3",
+          "shortAction": "Use D10% concentration rather than higher-concentration dextrose for this pediatric patient",
+          "protocolExcerpt": "Dextrose 10% can be safely used in all ages of patient. Dextrose 10% works as effectively and quickly as other concentrations",
+          "priority": "important",
+          "rationale": "D10% is equally effective and safer than more concentrated dextrose solutions in pediatric patients.",
           "protocolReference": "MATC: Hypoglycemia"
         }
       ],
       "transitions": [
         {
           "targetPhaseId": "iv-dextrose-given",
-          "if": "BGL recheck still low after oral",
+          "if": "IV dextrose given",
           "condition": "Repeat blood glucose after oral glucose remains 45 mg/dL and the patient's tremor/diaphoresis has not resolved, prompting escalation to IV dextrose.",
           "conditionType": "vital_threshold",
-          "triggerActionIds": ["a1-glucometer"]
+          "triggerActionIds": ["b1", "b2"]
         },
         {
           "targetPhaseId": "recheck-skipped",
           "if": "BGL recheck skipped",
           "condition": "Crew does not recheck blood glucose or reassess mental status after the oral dose, missing persistent unresolved hypoglycemia.",
           "conditionType": "action_not_taken",
-          "triggerActionIds": ["a1-glucometer"]
+          "triggerActionIds": ["b1"]
         }
       ]
     },
@@ -204,37 +230,21 @@
       },
       "expectedActions": [
         {
-          "id": "a3-recheck-bgl",
-          "shortAction": "Recheck BGL after oral dose; confirm still 45 mg/dL with persistent symptoms",
-          "protocolExcerpt": "Repeat check of blood glucose level if previous hypoglycemia and mental status has not returned to normal",
-          "priority": "critical",
-          "rationale": "Identifies that oral glucose alone did not resolve hypoglycemia, justifying escalation.",
-          "protocolReference": "MATC: Hypoglycemia"
-        },
-        {
-          "id": "a4-iv-dextrose",
-          "shortAction": "Dextrose 12.5 g IV as 125 mL D10% (25 kg × 5 mL/kg = 125 mL)",
-          "protocolExcerpt": "Maximum field pediatric dosing: 0.5–1 g/kg of 10–25% dextrose IV 5–10 mL/kg of 10% dextrose (newborns 2 mL/kg)",
-          "priority": "critical",
-          "rationale": "Weight-based IV dextrose corrects persistent hypoglycemia when oral treatment is insufficient.",
-          "protocolReference": "MATC: Hypoglycemia"
-        },
-        {
-          "id": "a5-d10-preferred",
-          "shortAction": "Use D10% concentration rather than higher-concentration dextrose for this pediatric patient",
-          "protocolExcerpt": "Dextrose 10% can be safely used in all ages of patient. Dextrose 10% works as effectively and quickly as other concentrations",
+          "id": "c1",
+          "shortAction": "Reassess vitals and mental status; transport given continued symptomatic hypoglycemia today",
+          "protocolExcerpt": "If hypoglycemia with continued symptoms, transport to closest appropriate receiving facility",
           "priority": "important",
-          "rationale": "D10% is equally effective and safer than more concentrated dextrose solutions in pediatric patients.",
+          "rationale": "A symptomatic pediatric hypoglycemic episode requiring IV dextrose warrants transport rather than field release.",
           "protocolReference": "MATC: Hypoglycemia"
         }
       ],
       "transitions": [
         {
           "targetPhaseId": "resolved",
-          "if": "BGL and mental status normalized",
+          "if": "Improved, transport",
           "condition": "Repeat blood glucose rises above 80 mg/dL, tremor and diaphoresis resolve, and the patient returns to his baseline mental status.",
           "conditionType": "vital_threshold",
-          "triggerActionIds": ["a4-iv-dextrose"]
+          "triggerActionIds": ["c1"]
         }
       ]
     },
@@ -277,16 +287,7 @@
         "trendTimeSeconds": 30,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [
-        {
-          "id": "a6-reassess-transport",
-          "shortAction": "Reassess vitals and mental status; transport given continued symptomatic hypoglycemia today",
-          "protocolExcerpt": "If hypoglycemia with continued symptoms, transport to closest appropriate receiving facility",
-          "priority": "important",
-          "rationale": "A symptomatic pediatric hypoglycemic episode requiring IV dextrose warrants transport rather than field release.",
-          "protocolReference": "MATC: Hypoglycemia"
-        }
-      ],
+      "expectedActions": [],
       "transitions": []
     },
     {
@@ -330,7 +331,7 @@
       },
       "expectedActions": [
         {
-          "id": "a7-recognize-deterioration",
+          "id": "d1",
           "shortAction": "Recognize worsening hypoglycemia; recheck BGL and reassess mental status immediately",
           "protocolExcerpt": "Repeat check of blood glucose level if previous hypoglycemia and mental status has not returned to normal",
           "priority": "critical",
