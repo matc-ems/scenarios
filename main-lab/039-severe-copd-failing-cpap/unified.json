@@ -81,13 +81,39 @@
         "trendTimeSeconds": 0,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
       },
-      "expectedActions": [],
+      "expectedActions": [
+        {
+          "id": "a1",
+          "shortAction": "Initiate CPAP with in-line nebulized bronchodilator; coach patient through mask seal",
+          "protocolExcerpt": "Non-invasive ventilation (NIV) should be considered early for severe respiratory distress or impending respiratory failure. NIV options include continuous positive airway pressure (CPAP), bilevel positive airway pressure (BiPAP)... Nebulized medications may be administered through a CPAP or BiPAP mask. A specialized T-connector with a spring valve assembly is required to allow maintenance of positive airway pressure.",
+          "priority": "critical",
+          "rationale": "Early NIV with bronchodilator is the first-line escalation for severe COPD-related bronchospasm and impending failure.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        },
+        {
+          "id": "a2",
+          "shortAction": "Accept SpO2 ≥90% rather than titrating to normal saturation; monitor EtCO2 trend, not absolute normalization",
+          "protocolExcerpt": "Permissive hypoxia (SPO2 ≥ 90%) may be appropriate in patients with COPD or other complex respiratory pathology... Patients who have end stage COPD may have chronically elevated EtCO2 as high as 50s–60s, and thus tolerate elevated EtCO2 better so normalization may not be a good target.",
+          "priority": "important",
+          "rationale": "Chasing a normal SpO2/EtCO2 in a chronic CO2-retainer can worsen outcomes; the trend matters more than the absolute number.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        },
+        {
+          "id": "a3",
+          "shortAction": "Maintain continuous waveform capnography and pulse oximetry throughout NIV trial",
+          "protocolExcerpt": "Patients with significant respiratory distress should have continuous pulse oximetry and waveform capnography monitoring for both assessment and for guiding therapy.",
+          "priority": "important",
+          "rationale": "Continuous capnography is the earliest objective sign of CPAP failure and progressing CO2 narcosis.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        }
+      ],
       "transitions": [
         {
           "targetPhaseId": "cpap-started",
           "if": "CPAP with in-line duoneb started",
           "condition": "Crew recognizes severe respiratory distress with impending failure and initiates CPAP with nebulized bronchodilator administered in-line, coaching the patient through mask application.",
-          "conditionType": "action_taken"
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a1", "a3"]
         }
       ]
     },
@@ -132,27 +158,43 @@
       },
       "expectedActions": [
         {
-          "id": "a1-niv",
-          "shortAction": "Initiate CPAP with in-line nebulized bronchodilator; coach patient through mask seal",
-          "protocolExcerpt": "Non-invasive ventilation (NIV) should be considered early for severe respiratory distress or impending respiratory failure. NIV options include continuous positive airway pressure (CPAP), bilevel positive airway pressure (BiPAP)... Nebulized medications may be administered through a CPAP or BiPAP mask. A specialized T-connector with a spring valve assembly is required to allow maintenance of positive airway pressure.",
+          "id": "b1",
+          "shortAction": "Recognize CPAP failure (worsened mental status, rising EtCO2); remove CPAP and escalate",
+          "protocolExcerpt": "If patient deteriorates on CPAP/BiPAP (e.g., worsened mental status, increasing EtCO2, vomiting), remove CPAP/BiPAP and escalate airway management options as above.",
           "priority": "critical",
-          "rationale": "Early NIV with bronchodilator is the first-line escalation for severe COPD-related bronchospasm and impending failure.",
+          "rationale": "Recognizing CPAP failure promptly prevents progression to respiratory arrest.",
           "protocolReference": "MATC: Airway Management (Includes RSI)"
         },
         {
-          "id": "a2-permissive-hypoxia",
-          "shortAction": "Accept SpO2 ≥90% rather than titrating to normal saturation; monitor EtCO2 trend, not absolute normalization",
-          "protocolExcerpt": "Permissive hypoxia (SPO2 ≥ 90%) may be appropriate in patients with COPD or other complex respiratory pathology... Patients who have end stage COPD may have chronically elevated EtCO2 as high as 50s–60s, and thus tolerate elevated EtCO2 better so normalization may not be a good target.",
-          "priority": "important",
-          "rationale": "Chasing a normal SpO2/EtCO2 in a chronic CO2-retainer can worsen outcomes; the trend matters more than the absolute number.",
+          "id": "b2",
+          "shortAction": "Preoxygenate with high-flow O2 and positive pressure ventilation for at least 2 minutes before RSI",
+          "protocolExcerpt": "Patient should be pre-oxygenated with high flow oxygen, and positive pressure ventilation for a minimum of two minutes prior to the procedure.",
+          "priority": "critical",
+          "rationale": "Adequate preoxygenation reduces the risk of peri-intubation hypoxia and hypoxic cardiac arrest.",
           "protocolReference": "MATC: Airway Management (Includes RSI)"
         },
         {
-          "id": "a3-continuous-monitor",
-          "shortAction": "Maintain continuous waveform capnography and pulse oximetry throughout NIV trial",
-          "protocolExcerpt": "Patients with significant respiratory distress should have continuous pulse oximetry and waveform capnography monitoring for both assessment and for guiding therapy.",
+          "id": "b3",
+          "shortAction": "Fentanyl 78 mcg IV push (78 kg × 1 mcg/kg) 2-3 minutes prior to intubation attempt",
+          "protocolExcerpt": "Consider pre-medication with Fentanyl, 1 mcg/kg, 2-3 minutes prior to intubation attempt.",
           "priority": "important",
-          "rationale": "Continuous capnography is the earliest objective sign of CPAP failure and progressing CO2 narcosis.",
+          "rationale": "Blunts the sympathetic/hemodynamic response to laryngoscopy.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        },
+        {
+          "id": "b4",
+          "shortAction": "Ketamine 117 mg IV push (78 kg × 1.5 mg/kg) as induction agent",
+          "protocolExcerpt": "Administer induction sedative agent: Etomidate IV push, 0.2-0.3 mg/kg OR Ketamine IV push, 1-2 mg/kg OR Midazolam IV push, 0.05-0.10 mg/kg.",
+          "priority": "critical",
+          "rationale": "Ketamine provides bronchodilation in addition to sedation, favorable in a patient with severe bronchospasm.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        },
+        {
+          "id": "b5",
+          "shortAction": "Rocuronium 78 mg IV push (78 kg × 1 mg/kg) as paralytic",
+          "protocolExcerpt": "Administer paralytic agent: Succinylcholine IV push, 1-2 mg/kg OR Rocuronium IV push, 1 mg/kg OR Vecuronium IV push, 0.1 mg/kg.",
+          "priority": "critical",
+          "rationale": "Provides complete paralysis to optimize first-pass intubation success.",
           "protocolReference": "MATC: Airway Management (Includes RSI)"
         }
       ],
@@ -162,14 +204,14 @@
           "if": "CPAP failure recognized, RSI performed",
           "condition": "Despite a well-sealed CPAP trial with bronchodilator, the patient's EtCO2 continues climbing and mental status worsens; crew recognizes CPAP failure per protocol and removes CPAP to proceed with RSI.",
           "conditionType": "vital_threshold",
-          "triggerActionIds": ["a3-continuous-monitor"]
+          "triggerActionIds": ["b4", "b5"]
         },
         {
           "targetPhaseId": "cpap-continued-deterioration",
           "if": "CPAP continued despite worsening mental status",
           "condition": "Crew continues CPAP without reassessing for failure criteria despite objective signs of deterioration (rising EtCO2, worsening mental status), delaying necessary escalation to airway management.",
           "conditionType": "action_not_taken",
-          "triggerActionIds": ["a3-continuous-monitor"]
+          "triggerActionIds": ["b1"]
         }
       ]
     },
@@ -214,43 +256,27 @@
       },
       "expectedActions": [
         {
-          "id": "a4-recognize-failure",
-          "shortAction": "Recognize CPAP failure (worsened mental status, rising EtCO2); remove CPAP and escalate",
-          "protocolExcerpt": "If patient deteriorates on CPAP/BiPAP (e.g., worsened mental status, increasing EtCO2, vomiting), remove CPAP/BiPAP and escalate airway management options as above.",
+          "id": "c1",
+          "shortAction": "Confirm tube placement with waveform capnography, bilateral breath sounds, absent gastric sounds",
+          "protocolExcerpt": "Confirm placement of advanced airway (endotracheal tube, SGA) with waveform capnography (most reliable), absent gastric sounds, and bilateral breath sounds.",
           "priority": "critical",
-          "rationale": "Recognizing CPAP failure promptly prevents progression to respiratory arrest.",
+          "rationale": "Waveform capnography is the most reliable confirmation method and must be used before trusting tube placement.",
           "protocolReference": "MATC: Airway Management (Includes RSI)"
         },
         {
-          "id": "a5-preox",
-          "shortAction": "Preoxygenate with high-flow O2 and positive pressure ventilation for at least 2 minutes before RSI",
-          "protocolExcerpt": "Patient should be pre-oxygenated with high flow oxygen, and positive pressure ventilation for a minimum of two minutes prior to the procedure.",
-          "priority": "critical",
-          "rationale": "Adequate preoxygenation reduces the risk of peri-intubation hypoxia and hypoxic cardiac arrest.",
-          "protocolReference": "MATC: Airway Management (Includes RSI)"
-        },
-        {
-          "id": "a6-fentanyl",
-          "shortAction": "Fentanyl 78 mcg IV push (78 kg × 1 mcg/kg) 2-3 minutes prior to intubation attempt",
-          "protocolExcerpt": "Consider pre-medication with Fentanyl, 1 mcg/kg, 2-3 minutes prior to intubation attempt.",
+          "id": "c2",
+          "shortAction": "Titrate ventilation to gradually decrease EtCO2 rather than rapid normalization",
+          "protocolExcerpt": "to gradually decrease EtCO2 in chronically and acutely severely hypercarbic patients including post-arrest.",
           "priority": "important",
-          "rationale": "Blunts the sympathetic/hemodynamic response to laryngoscopy.",
+          "rationale": "Rapid correction of chronic hypercapnia can precipitate dangerous alkalosis and hemodynamic instability.",
           "protocolReference": "MATC: Airway Management (Includes RSI)"
         },
         {
-          "id": "a7-ketamine",
-          "shortAction": "Ketamine 117 mg IV push (78 kg × 1.5 mg/kg) as induction agent",
-          "protocolExcerpt": "Administer induction sedative agent: Etomidate IV push, 0.2-0.3 mg/kg OR Ketamine IV push, 1-2 mg/kg OR Midazolam IV push, 0.05-0.10 mg/kg.",
-          "priority": "critical",
-          "rationale": "Ketamine provides bronchodilation in addition to sedation, favorable in a patient with severe bronchospasm.",
-          "protocolReference": "MATC: Airway Management (Includes RSI)"
-        },
-        {
-          "id": "a8-rocuronium",
-          "shortAction": "Rocuronium 78 mg IV push (78 kg × 1 mg/kg) as paralytic",
-          "protocolExcerpt": "Administer paralytic agent: Succinylcholine IV push, 1-2 mg/kg OR Rocuronium IV push, 1 mg/kg OR Vecuronium IV push, 0.1 mg/kg.",
-          "priority": "critical",
-          "rationale": "Provides complete paralysis to optimize first-pass intubation success.",
+          "id": "c3",
+          "shortAction": "Provide post-intubation sedation with fentanyl and midazolam or ketamine per protocol",
+          "protocolExcerpt": "Intubated patients should be provided appropriate sedation with sedative or opioid medications, and sedation titrated to an appropriate target level using RASS score or similar scale.",
+          "priority": "important",
+          "rationale": "Adequate sedation prevents patient-ventilator dyssynchrony and reduces physiologic stress response.",
           "protocolReference": "MATC: Airway Management (Includes RSI)"
         }
       ],
@@ -260,7 +286,7 @@
           "if": "Tube confirmed, ventilated for permissive hypercapnia",
           "condition": "Endotracheal tube placement is confirmed with waveform capnography and bilateral breath sounds; patient is secured and mechanically ventilated with a target EtCO2 appropriate for a chronic CO2 retainer rather than normalization.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["a7-ketamine", "a8-rocuronium"]
+          "triggerActionIds": ["c1", "c2"]
         }
       ]
     },
@@ -303,32 +329,7 @@
         "trendTimeSeconds": 45,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
       },
-      "expectedActions": [
-        {
-          "id": "a9-confirm",
-          "shortAction": "Confirm tube placement with waveform capnography, bilateral breath sounds, absent gastric sounds",
-          "protocolExcerpt": "Confirm placement of advanced airway (endotracheal tube, SGA) with waveform capnography (most reliable), absent gastric sounds, and bilateral breath sounds.",
-          "priority": "critical",
-          "rationale": "Waveform capnography is the most reliable confirmation method and must be used before trusting tube placement.",
-          "protocolReference": "MATC: Airway Management (Includes RSI)"
-        },
-        {
-          "id": "a10-gradual-etco2",
-          "shortAction": "Titrate ventilation to gradually decrease EtCO2 rather than rapid normalization",
-          "protocolExcerpt": "to gradually decrease EtCO2 in chronically and acutely severely hypercarbic patients including post-arrest.",
-          "priority": "important",
-          "rationale": "Rapid correction of chronic hypercapnia can precipitate dangerous alkalosis and hemodynamic instability.",
-          "protocolReference": "MATC: Airway Management (Includes RSI)"
-        },
-        {
-          "id": "a11-sedation",
-          "shortAction": "Provide post-intubation sedation with fentanyl and midazolam or ketamine per protocol",
-          "protocolExcerpt": "Intubated patients should be provided appropriate sedation with sedative or opioid medications, and sedation titrated to an appropriate target level using RASS score or similar scale.",
-          "priority": "important",
-          "rationale": "Adequate sedation prevents patient-ventilator dyssynchrony and reduces physiologic stress response.",
-          "protocolReference": "MATC: Airway Management (Includes RSI)"
-        }
-      ],
+      "expectedActions": [],
       "transitions": []
     },
     {
@@ -372,7 +373,7 @@
       },
       "expectedActions": [
         {
-          "id": "a12-rescue",
+          "id": "d1",
           "shortAction": "Remove CPAP immediately, begin BVM ventilation, prepare emergent RSI",
           "protocolExcerpt": "If patient deteriorates on CPAP/BiPAP (e.g., worsened mental status, increasing EtCO2, vomiting), remove CPAP/BiPAP and escalate airway management options as above.",
           "priority": "critical",

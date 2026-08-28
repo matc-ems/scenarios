@@ -57,7 +57,11 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [],
+      "relatedChecklist": [
+        "Initiate CPAP with in-line nebulized bronchodilator; coach patient through mask seal",
+        "Accept SpO2 ≥90% rather than titrating to normal saturation; monitor EtCO2 trend, not absolute normalization",
+        "Maintain continuous waveform capnography and pulse oximetry throughout NIV trial"
+      ],
       "relatedSounds": []
     },
     {
@@ -90,9 +94,11 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Initiate CPAP with in-line nebulized bronchodilator; coach patient through mask seal",
-        "Accept SpO2 ≥90% rather than titrating to normal saturation; monitor EtCO2 trend, not absolute normalization",
-        "Maintain continuous waveform capnography and pulse oximetry throughout NIV trial"
+        "Recognize CPAP failure (worsened mental status, rising EtCO2); remove CPAP and escalate",
+        "Preoxygenate with high-flow O2 and positive pressure ventilation for at least 2 minutes before RSI",
+        "Fentanyl 78 mcg IV push (78 kg × 1 mcg/kg) 2-3 minutes prior to intubation attempt",
+        "Ketamine 117 mg IV push (78 kg × 1.5 mg/kg) as induction agent",
+        "Rocuronium 78 mg IV push (78 kg × 1 mg/kg) as paralytic"
       ],
       "relatedSounds": []
     },
@@ -126,11 +132,9 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Recognize CPAP failure (worsened mental status, rising EtCO2); remove CPAP and escalate",
-        "Preoxygenate with high-flow O2 and positive pressure ventilation for at least 2 minutes before RSI",
-        "Fentanyl 78 mcg IV push (78 kg × 1 mcg/kg) 2-3 minutes prior to intubation attempt",
-        "Ketamine 117 mg IV push (78 kg × 1.5 mg/kg) as induction agent",
-        "Rocuronium 78 mg IV push (78 kg × 1 mg/kg) as paralytic"
+        "Confirm tube placement with waveform capnography, bilateral breath sounds, absent gastric sounds",
+        "Titrate ventilation to gradually decrease EtCO2 rather than rapid normalization",
+        "Provide post-intubation sedation with fentanyl and midazolam or ketamine per protocol"
       ],
       "relatedSounds": []
     },
@@ -163,11 +167,7 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [
-        "Confirm tube placement with waveform capnography, bilateral breath sounds, absent gastric sounds",
-        "Titrate ventilation to gradually decrease EtCO2 rather than rapid normalization",
-        "Provide post-intubation sedation with fentanyl and midazolam or ketamine per protocol"
-      ],
+      "relatedChecklist": [],
       "relatedSounds": []
     },
     {
