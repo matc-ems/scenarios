@@ -80,13 +80,62 @@
         "trendTimeSeconds": 0,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
       },
-      "expectedActions": [],
+      "expectedActions": [
+        {
+          "id": "a1",
+          "shortAction": "Check point-of-care blood glucose",
+          "protocolExcerpt": "Monitoring: Check blood glucose level",
+          "priority": "critical",
+          "rationale": "Confirms hyperglycemia and guides fluid resuscitation decisions.",
+          "protocolReference": "MATC: Hyperglycemia"
+        },
+        {
+          "id": "a2",
+          "shortAction": "Assess for dehydration: sunken eyes, dry mucous membranes, tachypnea, tachycardia",
+          "protocolExcerpt": "Secondary survey pertinent to altered blood glucose level: Constitutional: assess for tachycardia, hypotension, and tachypnea Eyes: assess for sunken eyes from dehydration Nose/mouth/ears: assess for dry mucous membranes or tongue bite from seizure",
+          "priority": "important",
+          "rationale": "Confirms the severity of dehydration driving fluid resuscitation decisions.",
+          "protocolReference": "MATC: Hyperglycemia"
+        },
+        {
+          "id": "a3",
+          "shortAction": "Obtain 12-lead EKG to screen for hyperkalemic changes or ischemia",
+          "protocolExcerpt": "Obtain 12-lead EKG to assess for findings consistent with hyperkalemia or acute coronary syndrome",
+          "priority": "important",
+          "rationale": "DKA can cause dangerous potassium shifts that manifest on the EKG before lab results are available.",
+          "protocolReference": "MATC: Hyperglycemia"
+        },
+        {
+          "id": "a4",
+          "shortAction": "Normal saline bolus 1,300 mL IV (65 kg × 20 mL/kg = 1,300 mL) infused at 1,000 mL/hr",
+          "protocolExcerpt": "Provide volume expansion with normal saline bolus Adult: Normal saline 20 mL/kg at rate of 1000 mL/hr; if symptoms of hypovolemic shock, follow Shock Guideline.",
+          "priority": "critical",
+          "rationale": "Profound dehydration from osmotic diuresis is a hallmark of DKA and drives most of the early morbidity.",
+          "protocolReference": "MATC: Hyperglycemia"
+        },
+        {
+          "id": "a5",
+          "shortAction": "Reassess vital signs, mental status, and dehydration signs after fluid bolus",
+          "protocolExcerpt": "Reassess patient Reassess vital signs (pulse, blood pressure, respiratory rate, neurologic status assessment), mental status, and signs of dehydration",
+          "priority": "important",
+          "rationale": "Overly aggressive fluid administration without reassessment risks cerebral edema, so response must be tracked closely.",
+          "protocolReference": "MATC: Hyperglycemia"
+        }
+      ],
       "transitions": [
         {
           "targetPhaseId": "bgl-checked-fluids-started",
           "if": "BGL checked, fluids started",
           "condition": "Crew recognizes Kussmaul respirations, fruity breath, and dehydration in a known type 1 diabetic, checks point-of-care glucose, obtains a 12-lead, and begins weight-based fluid resuscitation per the Hyperglycemia guideline.",
-          "conditionType": "action_taken"
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a1", "a4", "a5"]
+        },
+        {
+          "targetPhaseId": "fluids-without-reassessment",
+          "if": "Fluids given without reassessment",
+          "condition": "The crew infuses the fluid bolus but does not reassess vital signs or mental status afterward; over the following minutes the patient's mental status paradoxically declines rather than improves, raising concern for cerebral edema.",
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["a5"]
         }
       ]
     },
@@ -131,43 +180,11 @@
       },
       "expectedActions": [
         {
-          "id": "a1-check-bgl",
-          "shortAction": "Check point-of-care blood glucose",
-          "protocolExcerpt": "Monitoring: Check blood glucose level",
-          "priority": "critical",
-          "rationale": "Confirms hyperglycemia and guides fluid resuscitation decisions.",
-          "protocolReference": "MATC: Hyperglycemia"
-        },
-        {
-          "id": "a2-12-lead",
-          "shortAction": "Obtain 12-lead EKG to screen for hyperkalemic changes or ischemia",
-          "protocolExcerpt": "Obtain 12-lead EKG to assess for findings consistent with hyperkalemia or acute coronary syndrome",
-          "priority": "important",
-          "rationale": "DKA can cause dangerous potassium shifts that manifest on the EKG before lab results are available.",
-          "protocolReference": "MATC: Hyperglycemia"
-        },
-        {
-          "id": "a3-ns-bolus",
-          "shortAction": "Normal saline bolus 1,300 mL IV (65 kg × 20 mL/kg = 1,300 mL) infused at 1,000 mL/hr",
-          "protocolExcerpt": "Provide volume expansion with normal saline bolus Adult: Normal saline 20 mL/kg at rate of 1000 mL/hr; if symptoms of hypovolemic shock, follow Shock Guideline.",
-          "priority": "critical",
-          "rationale": "Profound dehydration from osmotic diuresis is a hallmark of DKA and drives most of the early morbidity.",
-          "protocolReference": "MATC: Hyperglycemia"
-        },
-        {
-          "id": "a4-dehydration-survey",
-          "shortAction": "Assess for dehydration: sunken eyes, dry mucous membranes, tachypnea, tachycardia",
-          "protocolExcerpt": "Secondary survey pertinent to altered blood glucose level: Constitutional: assess for tachycardia, hypotension, and tachypnea Eyes: assess for sunken eyes from dehydration Nose/mouth/ears: assess for dry mucous membranes or tongue bite from seizure",
-          "priority": "important",
-          "rationale": "Confirms the severity of dehydration driving fluid resuscitation decisions.",
-          "protocolReference": "MATC: Hyperglycemia"
-        },
-        {
-          "id": "a5-reassess-post-bolus",
-          "shortAction": "Reassess vital signs, mental status, and dehydration signs after fluid bolus",
-          "protocolExcerpt": "Reassess patient Reassess vital signs (pulse, blood pressure, respiratory rate, neurologic status assessment), mental status, and signs of dehydration",
-          "priority": "important",
-          "rationale": "Overly aggressive fluid administration without reassessment risks cerebral edema, so response must be tracked closely.",
+          "id": "b1",
+          "shortAction": "Transport to closest appropriate receiving facility",
+          "protocolExcerpt": "Disposition Transport to closest appropriate receiving facility",
+          "priority": "supplemental",
+          "rationale": "DKA requires hospital-based insulin therapy and lab monitoring that cannot be completed in the field.",
           "protocolReference": "MATC: Hyperglycemia"
         }
       ],
@@ -177,14 +194,7 @@
           "if": "Reassessed after fluid bolus",
           "condition": "After the normal saline bolus infuses, the crew reassesses vital signs, mental status, and signs of dehydration; the patient shows improved perfusion and a clearing sensorium.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["a3-ns-bolus", "a5-reassess-post-bolus"]
-        },
-        {
-          "targetPhaseId": "fluids-without-reassessment",
-          "if": "Fluids given without reassessment",
-          "condition": "The crew infuses the fluid bolus but does not reassess vital signs or mental status afterward; over the following minutes the patient's mental status paradoxically declines rather than improves, raising concern for cerebral edema from rapid fluid shifts.",
-          "conditionType": "action_not_taken",
-          "triggerActionIds": ["a5-reassess-post-bolus"]
+          "triggerActionIds": ["b1"]
         }
       ]
     },
@@ -227,16 +237,7 @@
         "trendTimeSeconds": 45,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
       },
-      "expectedActions": [
-        {
-          "id": "a6-transport",
-          "shortAction": "Transport to closest appropriate receiving facility",
-          "protocolExcerpt": "Disposition Transport to closest appropriate receiving facility",
-          "priority": "supplemental",
-          "rationale": "DKA requires hospital-based insulin therapy and lab monitoring that cannot be completed in the field.",
-          "protocolReference": "MATC: Hyperglycemia"
-        }
-      ],
+      "expectedActions": [],
       "transitions": []
     },
     {
@@ -280,7 +281,7 @@
       },
       "expectedActions": [
         {
-          "id": "a7-stop-fluids",
+          "id": "c1",
           "shortAction": "Recognize declining mental status as possible cerebral edema; stop IV fluids and elevate head of bed",
           "protocolExcerpt": "Closely monitor for signs of altered mental status, increased intracranial pressure, and immediately discontinue IV fluids and elevate head of bed if signs of increased ICP develop",
           "priority": "critical",
@@ -288,7 +289,7 @@
           "protocolReference": "MATC: Hyperglycemia"
         },
         {
-          "id": "a8-manage-airway",
+          "id": "c2",
           "shortAction": "Reassess and manage airway as needed given declining mental status",
           "protocolExcerpt": "Reassess and manage airway as needed",
           "priority": "critical",

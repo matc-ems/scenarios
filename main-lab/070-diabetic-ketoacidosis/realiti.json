@@ -57,7 +57,13 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [],
+      "relatedChecklist": [
+        "Check point-of-care blood glucose",
+        "Assess for dehydration: sunken eyes, dry mucous membranes, tachypnea, tachycardia",
+        "Obtain 12-lead EKG to screen for hyperkalemic changes or ischemia",
+        "Normal saline bolus 1,300 mL IV (65 kg × 20 mL/kg = 1,300 mL) infused at 1,000 mL/hr",
+        "Reassess vital signs, mental status, and dehydration signs after fluid bolus"
+      ],
       "relatedSounds": []
     },
     {
@@ -90,11 +96,7 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Check point-of-care blood glucose",
-        "Obtain 12-lead EKG to screen for hyperkalemic changes or ischemia",
-        "Normal saline bolus 1,300 mL IV (65 kg × 20 mL/kg = 1,300 mL) infused at 1,000 mL/hr",
-        "Assess for dehydration: sunken eyes, dry mucous membranes, tachypnea, tachycardia",
-        "Reassess vital signs, mental status, and dehydration signs after fluid bolus"
+        "Transport to closest appropriate receiving facility"
       ],
       "relatedSounds": []
     },
@@ -127,9 +129,7 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [
-        "Transport to closest appropriate receiving facility"
-      ],
+      "relatedChecklist": [],
       "relatedSounds": []
     },
     {
@@ -176,6 +176,12 @@
       "icon": 1
     },
     {
+      "title": "Assess for dehydration: sunken eyes, dry mucous membranes, tachypnea, tachycardia",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
       "title": "Obtain 12-lead EKG to screen for hyperkalemic changes or ischemia",
       "type": "Check",
       "value": 0,
@@ -183,12 +189,6 @@
     },
     {
       "title": "Normal saline bolus 1,300 mL IV (65 kg × 20 mL/kg = 1,300 mL) infused at 1,000 mL/hr",
-      "type": "Check",
-      "value": 0,
-      "icon": 1
-    },
-    {
-      "title": "Assess for dehydration: sunken eyes, dry mucous membranes, tachypnea, tachycardia",
       "type": "Check",
       "value": 0,
       "icon": 1
