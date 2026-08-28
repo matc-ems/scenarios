@@ -1,0 +1,243 @@
+{
+  "scenarioId": "128-pulmonary-edema-requiring-cpap",
+  "scenarioName": "128 - Pulmonary Edema Requiring CPAP",
+  "scenarioType": "Vital Signs",
+  "scenarioVersion": 2,
+  "scenarioTime": 900,
+  "scenarioMonitorType": 2,
+  "scenarioDefaultEnergy": 200,
+  "scenarioDefaultPacerThreshold": 55,
+  "isDemo": false,
+  "isALSILegacy": false,
+  "scenarioStory": {
+    "history": "Patient woke from a sound sleep approximately thirty minutes before the 911 call gasping for air, and the dyspnea has worsened steadily since. For the past two nights she has been unable to sleep lying flat and has propped herself up with pillows. Her husband reports her ankles have been swelling over the past several days and that she missed her furosemide dose yesterday. She describes her chest as tight and heavy. She is too dyspneic to give her own history and can manage only one or two words at a time.",
+    "discussion": "",
+    "course": "Initial Contact: Crew finds a 72-year-old female in severe respiratory distress, tripoding on the edge of her bed, anxious, hypoxic at 86 percent on room air, hypertensive, and in an irregularly irregular tachycardia. She can manage only single words. Auscultation reveals coarse crackles throughout all fields and she has two-plus pitting pedal edema bilaterally. → CPAP applied with coaching: Five to ten minutes after CPAP is established the patient is visibly less anxious. Her work of breathing has dropped substantially, she has come out of the tripod position, and she can speak in full sentences again. Saturation has climbed to 96 percent on CPAP and her blood pressure has begun to fall from its initial peak. → Nitroglycerin given; CPAP maintained: The patient is packaged and moved to the ambulance with CPAP in place and the circuit never broken. Work of breathing continues to improve, blood pressure has come down with the nitrates, and saturation is holding above the target. She is transported to definitive care with the receiving facility notified."
+  },
+  "patientInformation": {
+    "patientName": "Carol Peters",
+    "patientCondition": "Severe shortness of breath waking her from sleep, unable to speak in full sentences",
+    "patientAge": 72,
+    "patientAgeUnit": "years",
+    "patientAgeCategory": 0,
+    "patientSex": 2,
+    "patientHeight": 162,
+    "patientWeight": 72,
+    "patientPhotoId": 87,
+    "patientAdmitted": 1
+  },
+  "labs": [],
+  "scenarioEvents": [
+    {
+      "type": "ScenarioEvent",
+      "name": "Initial Contact",
+      "description": "Crew finds a 72-year-old female in severe respiratory distress, tripoding on the edge of her bed, anxious, hypoxic at 86 percent on room air, hypertensive, and in an irregularly irregular tachycardia. She can manage only single words. Auscultation reveals coarse crackles throughout all fields and she has two-plus pitting pedal edema bilaterally.",
+      "monitorType": 0,
+      "trendTime": 0,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 38,
+        "hr": 118,
+        "bpSys": 188,
+        "bpDia": 102,
+        "respRate": 34,
+        "spo2": 86,
+        "etco2": 30,
+        "temp": 36.8,
+        "obstruction": 0,
+        "custMeasure1": 130,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Full vital signs with pulse oximetry and waveform capnography",
+        "Auscultate lungs and check for JVD and pedal edema",
+        "Obtain history from husband: missed furosemide dose and orthopnea",
+        "Apply CPAP with continuous coaching; keep a tight mask seal",
+        "Apply cardiac monitor and acquire a 12-lead EKG"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "CPAP applied with coaching",
+      "description": "Five to ten minutes after CPAP is established the patient is visibly less anxious. Her work of breathing has dropped substantially, she has come out of the tripod position, and she can speak in full sentences again. Saturation has climbed to 96 percent on CPAP and her blood pressure has begun to fall from its initial peak.",
+      "monitorType": 0,
+      "trendTime": 50,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 38,
+        "hr": 104,
+        "bpSys": 164,
+        "bpDia": 92,
+        "respRate": 22,
+        "spo2": 96,
+        "etco2": 34,
+        "temp": 36.8,
+        "obstruction": 0,
+        "custMeasure1": 130,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Screen for PDE5 inhibitors, then nitroglycerin 0.8 mg SL; repeat q5 min if SBP over 100",
+        "Maintain the mask seal; do not remove CPAP before ED handoff",
+        "Reassess RR, SpO2, EtCO2, accessory muscle use, and mental status"
+      ],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "Nitroglycerin given; CPAP maintained",
+      "description": "The patient is packaged and moved to the ambulance with CPAP in place and the circuit never broken. Work of breathing continues to improve, blood pressure has come down with the nitrates, and saturation is holding above the target. She is transported to definitive care with the receiving facility notified.",
+      "monitorType": 0,
+      "trendTime": 45,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 38,
+        "hr": 96,
+        "bpSys": 142,
+        "bpDia": 84,
+        "respRate": 18,
+        "spo2": 97,
+        "etco2": 36,
+        "temp": 36.8,
+        "obstruction": 0,
+        "custMeasure1": 130,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [],
+      "relatedSounds": []
+    },
+    {
+      "type": "ScenarioEvent",
+      "name": "CPAP withheld; oxygen mask only",
+      "description": "About ten minutes from initial contact the patient's respiratory effort weakens as she exhausts herself. Her breathing becomes shallow and slow, her level of consciousness declines, and she slumps back onto the bed unable to hold the tripod position. Saturation is 75 percent despite a non-rebreather and her EtCO2 is climbing. She is in decompensated respiratory failure and progressing to respiratory arrest.",
+      "monitorType": 0,
+      "trendTime": 60,
+      "jumpTime": 0,
+      "defibShock": false,
+      "defibDisarm": true,
+      "parameters": {
+        "ecgWaveform": 38,
+        "hr": 130,
+        "bpSys": 205,
+        "bpDia": 112,
+        "respRate": 10,
+        "spo2": 75,
+        "etco2": 58,
+        "temp": 36.6,
+        "obstruction": 0,
+        "custMeasure1": 130,
+        "custMeasureLabel1": "mg/dL",
+        "spo2Visible": true,
+        "spo2Attached": true,
+        "rrVisible": true,
+        "etco2Visible": true,
+        "cvpVisible": false
+      },
+      "relatedMedia": [],
+      "relatedLabs": [],
+      "relatedChecklist": [
+        "Recognize respiratory failure; begin assisted BVM ventilation now",
+        "Escalate airway management if BVM with adjuncts is ineffective",
+        "Confirm ventilation with waveform capnography and reassess continuously"
+      ],
+      "relatedSounds": []
+    }
+  ],
+  "checklist": [
+    {
+      "title": "Full vital signs with pulse oximetry and waveform capnography",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Auscultate lungs and check for JVD and pedal edema",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Obtain history from husband: missed furosemide dose and orthopnea",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Apply CPAP with continuous coaching; keep a tight mask seal",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Apply cardiac monitor and acquire a 12-lead EKG",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Screen for PDE5 inhibitors, then nitroglycerin 0.8 mg SL; repeat q5 min if SBP over 100",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Maintain the mask seal; do not remove CPAP before ED handoff",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Reassess RR, SpO2, EtCO2, accessory muscle use, and mental status",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Recognize respiratory failure; begin assisted BVM ventilation now",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Escalate airway management if BVM with adjuncts is ineffective",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    },
+    {
+      "title": "Confirm ventilation with waveform capnography and reassess continuously",
+      "type": "Check",
+      "value": 0,
+      "icon": 1
+    }
+  ],
+  "media": []
+}

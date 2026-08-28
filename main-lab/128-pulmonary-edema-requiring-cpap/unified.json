@@ -1,0 +1,428 @@
+{
+  "meta": {
+    "id": "128-pulmonary-edema-requiring-cpap",
+    "name": "128 - Pulmonary Edema Requiring CPAP",
+    "version": 1,
+    "difficulty": "intermediate",
+    "category": "Respiratory",
+    "protocols": [
+      "resp-respiratory-distress",
+      "resp-airway-management"
+    ],
+    "totalTimeSeconds": 900,
+    "tags": [
+      "respiratory",
+      "pulmonary edema",
+      "CHF",
+      "CPAP",
+      "nitroglycerin",
+      "atrial fibrillation",
+      "geriatric",
+      "practice summative"
+    ]
+  },
+  "patient": {
+    "name": "Carol Peters",
+    "age": 72,
+    "ageUnit": "years",
+    "sex": "female",
+    "weight": 72,
+    "weightLbs": 159,
+    "height": 162,
+    "chiefComplaint": "Severe shortness of breath waking her from sleep, unable to speak in full sentences",
+    "history": {
+      "hpi": "Patient woke from a sound sleep approximately thirty minutes before the 911 call gasping for air, and the dyspnea has worsened steadily since. For the past two nights she has been unable to sleep lying flat and has propped herself up with pillows. Her husband reports her ankles have been swelling over the past several days and that she missed her furosemide dose yesterday. She describes her chest as tight and heavy. She is too dyspneic to give her own history and can manage only one or two words at a time.",
+      "pastMedical": [
+        "Congestive heart failure",
+        "Hypertension",
+        "Atrial fibrillation"
+      ],
+      "medications": [
+        "Furosemide 40 mg PO daily (dose missed yesterday)",
+        "Lisinopril 10 mg PO daily",
+        "Metoprolol 50 mg PO twice daily"
+      ],
+      "allergies": [
+        "Penicillin - rash"
+      ],
+      "lastOralIntake": "Dinner at approximately 7:00 PM the previous evening; nothing by mouth since",
+      "events": "Two nights of worsening orthopnea requiring extra pillows, then acute onset of severe dyspnea that woke her from sleep and progressively worsened over thirty minutes"
+    }
+  },
+  "scene": {
+    "dispatch": "72-year-old female, difficulty breathing, third-floor apartment",
+    "location": "Tidy third-floor apartment served by an elevator; patient in the bedroom seated on the edge of the bed",
+    "time": "6:51 AM, early morning",
+    "safety": "No hazards identified; elevator access available for stretcher operations",
+    "bystanders": "Husband, Robert, met the crew at the apartment door and is the historian; the patient is too dyspneic to answer questions",
+    "visualCues": [
+      "Patient sitting bolt upright in tripod position, weight on outstretched hands",
+      "Visible accessory muscle use with rapid, shallow respirations",
+      "Speaking only one or two words at a time, visibly anxious",
+      "Stack of extra pillows piled at the head of the bed",
+      "Swollen ankles visible below the hem of her nightgown",
+      "Furosemide bottle on the nightstand with yesterday's dose still in the organizer"
+    ]
+  },
+  "phases": [
+    {
+      "id": "initial",
+      "name": "Initial Contact",
+      "description": "Crew finds a 72-year-old female in severe respiratory distress, tripoding on the edge of her bed, anxious, hypoxic at 86 percent on room air, hypertensive, and in an irregularly irregular tachycardia. She can manage only single words. Auscultation reveals coarse crackles throughout all fields and she has two-plus pitting pedal edema bilaterally.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": {
+          "eye": 4,
+          "verbal": 5,
+          "motor": 6
+        },
+        "airway": "Patent; no foreign body obstruction, no stridor",
+        "breathing": "Rapid, shallow, and labored with visible accessory muscle use; coarse crackles (rales) throughout all lung fields, most prominent at the bases",
+        "circulation": "Radial pulse present, rapid and irregularly irregular; skin pale, cool, and diaphoretic",
+        "skin": {
+          "color": "pale",
+          "temperature": "cool",
+          "moisture": "diaphoretic"
+        },
+        "pupils": "PERRL",
+        "motorFunction": "Strength intact; maintaining tripod position under her own effort",
+        "otherFindings": [
+          "Tripod position, leaning forward on outstretched hands",
+          "Oriented to person, place, and time but unable to speak in full sentences",
+          "Two-plus pitting pedal edema in both ankles and feet",
+          "Jugular venous distention appreciated at 45 degrees",
+          "Answers with single words or a nod: \"Yes\" or \"Can't\"",
+          "Reports chest tightness and heaviness by gesture"
+        ],
+        "patientSpeech": "\"Can't... breathe...\" (single words only, one or two at a time)"
+      },
+      "monitorState": {
+        "ecgRhythm": "Atrial Fibrillation",
+        "ecgWaveform": 38,
+        "hr": 118,
+        "bpSys": 188,
+        "bpDia": 102,
+        "respRate": 34,
+        "spo2": 86,
+        "etco2": 30,
+        "temp": 36.8,
+        "tempF": 98.2,
+        "obstruction": 0,
+        "glucose": 130,
+        "customMeasures": [],
+        "trendTimeSeconds": 0,
+        "visibility": {
+          "spo2Visible": true,
+          "spo2Attached": true,
+          "rrVisible": true,
+          "etco2Visible": true,
+          "cvpVisible": false
+        }
+      },
+      "expectedActions": [
+        {
+          "id": "a1",
+          "shortAction": "Full vital signs with pulse oximetry and waveform capnography",
+          "protocolExcerpt": "Exam: Full set of vital signs (pulse, blood pressure, respiratory rate, neurologic status assessment), temperature, and O2 saturation. Consider temperature and waveform capnography.",
+          "priority": "critical",
+          "rationale": "Capnography distinguishes the low EtCO2 of pulmonary edema from the obstructive pattern of COPD and tracks the response to therapy.",
+          "protocolReference": "MATC: Respiratory Distress (includes Bronchospasm, Pulmonary Edema)"
+        },
+        {
+          "id": "a2",
+          "shortAction": "Auscultate lungs and check for JVD and pedal edema",
+          "protocolExcerpt": "Etiology of respiratory distress: Fluid overload etiology (e.g., CHF, pulmonary edema) is suggested by: Jugular venous distention; Rales on auscultation; Peripheral edema; History of CHF, diuretic therapy, dialysis noncompliance, hypertension.",
+          "priority": "critical",
+          "rationale": "Crackles plus pedal edema plus the CHF history is the finding set that separates fluid overload from bronchospasm and drives the choice of therapy.",
+          "protocolReference": "MATC: Respiratory Distress (includes Bronchospasm, Pulmonary Edema)"
+        },
+        {
+          "id": "a3",
+          "shortAction": "Obtain history from husband: missed furosemide dose and orthopnea",
+          "protocolExcerpt": "History: Onset of symptoms. Concurrent symptoms (e.g., fever, cough, rhinorrhea, tongue/lip swelling, rash, labored breathing, foreign body aspiration). Treatments prior to EMS: Oxygen, inhaler, nebulizer, other treatments, chronic or recent steroids.",
+          "priority": "important",
+          "rationale": "The missed diuretic dose and two nights of orthopnea confirm the fluid-overload picture; the patient is too dyspneic to supply this herself.",
+          "protocolReference": "MATC: Respiratory Distress (includes Bronchospasm, Pulmonary Edema)"
+        },
+        {
+          "id": "a4",
+          "shortAction": "Apply CPAP with continuous coaching; keep a tight mask seal",
+          "protocolExcerpt": "Non-invasive ventilation (NIV) should be administered for severe respiratory distress via BVM, continuous positive airway pressure (CPAP) or bi-level positive airway pressure (BiPAP). The key to successful use of NIV in a patient who has not used it before is coaching and explanation of the process and reassurance of the patient.",
+          "priority": "critical",
+          "rationale": "A non-rebreather delivers oxygen but does nothing about alveoli filled with fluid; positive pressure is the mechanical intervention this patient needs.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        },
+        {
+          "id": "a5",
+          "shortAction": "Apply cardiac monitor and acquire a 12-lead EKG",
+          "protocolExcerpt": "Continuous cardiac monitoring may be indicated in patients with respiratory distress associated with suspected acute or decompensated congestive heart failure (CHF) or dysrhythmia. 12-lead EKG may be indicated to assess for dysrhythmia or ischemia, particularly in patients with risk factors for coronary artery disease and/or presentation consistent with CHF.",
+          "priority": "important",
+          "rationale": "The irregularly irregular rate needs characterizing, and ischemia is a common precipitant of an acute heart failure exacerbation.",
+          "protocolReference": "MATC: Respiratory Distress (includes Bronchospasm, Pulmonary Edema)"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "cpap-applied",
+          "if": "CPAP applied with coaching",
+          "condition": "Crew obtains full vitals with pulse oximetry and capnography, auscultates crackles and identifies pedal edema and JVD, recognizes acute cardiogenic pulmonary edema, and assembles and applies CPAP with a good mask seal while coaching the patient through the initial sensation.",
+          "conditionType": "action_taken",
+          "triggerActionIds": [
+            "a1",
+            "a2",
+            "a4"
+          ]
+        },
+        {
+          "targetPhaseId": "cpap-withheld",
+          "if": "CPAP withheld; oxygen mask only",
+          "condition": "Crew fails to recognize the need for non-invasive ventilation, significantly delays its application, or applies only a non-rebreather mask; the patient tires against the fluid-filled alveoli and progresses toward respiratory failure over the next ten minutes.",
+          "conditionType": "action_not_taken",
+          "triggerActionIds": [
+            "a2",
+            "a4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cpap-applied",
+      "name": "CPAP applied with coaching",
+      "description": "Five to ten minutes after CPAP is established the patient is visibly less anxious. Her work of breathing has dropped substantially, she has come out of the tripod position, and she can speak in full sentences again. Saturation has climbed to 96 percent on CPAP and her blood pressure has begun to fall from its initial peak.",
+      "triggerCondition": "Continuous positive airway pressure drives fluid out of the alveoli back into the pulmonary circulation and reduces preload, restoring gas exchange; the improvement in oxygenation and work of breathing follows within minutes of a good mask seal.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": {
+          "eye": 4,
+          "verbal": 5,
+          "motor": 6
+        },
+        "airway": "Patent, protected, tolerating the CPAP mask well",
+        "breathing": "Unlabored at 22/min with markedly reduced accessory muscle use; crackles now limited to the bases",
+        "circulation": "Radial pulse rapid and irregularly irregular but stronger; skin pink, warm, and less diaphoretic",
+        "skin": {
+          "color": "pink",
+          "temperature": "warm",
+          "moisture": "less diaphoretic"
+        },
+        "pupils": "PERRL",
+        "motorFunction": "Strength intact; no longer requires the tripod position to breathe",
+        "otherFindings": [
+          "Able to speak in full sentences on CPAP",
+          "No longer tripoding; sitting comfortably upright",
+          "Visible anxiety substantially reduced",
+          "Mask seal intact with no leak around the bridge of the nose"
+        ],
+        "patientSpeech": "\"Oh, thank you. That is so much better. I can finally catch my breath.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Atrial Fibrillation",
+        "ecgWaveform": 38,
+        "hr": 104,
+        "bpSys": 164,
+        "bpDia": 92,
+        "respRate": 22,
+        "spo2": 96,
+        "etco2": 34,
+        "temp": 36.8,
+        "tempF": 98.2,
+        "obstruction": 0,
+        "glucose": 130,
+        "customMeasures": [],
+        "trendTimeSeconds": 50,
+        "visibility": {
+          "spo2Visible": true,
+          "spo2Attached": true,
+          "rrVisible": true,
+          "etco2Visible": true,
+          "cvpVisible": false
+        }
+      },
+      "expectedActions": [
+        {
+          "id": "b1",
+          "shortAction": "Screen for PDE5 inhibitors, then nitroglycerin 0.8 mg SL; repeat q5 min if SBP over 100",
+          "protocolExcerpt": "SBP >= 160 mmHg or MAP greater than 120: Nitroglycerin 0.8 mg SL, can repeat every 5 minutes for SBP greater than 100 mmHg. Consider IV nitroglycerin infusion titrated to blood pressure. -- Patient Safety Considerations: The use of nitrates should be avoided in any patient who has used a phosphodiesterase inhibitor within the past 48 hours. Examples are sildenafil, vardenafil and tadalafil, which are used for erectile dysfunction and pulmonary hypertension.",
+          "priority": "critical",
+          "rationale": "At an SBP of 164 the protocol calls for the 0.8 mg dose; nitrates reduce preload and afterload and are the pharmacologic complement to the mechanical support of CPAP.",
+          "protocolReference": "MATC: Respiratory Distress (includes Bronchospasm, Pulmonary Edema)"
+        },
+        {
+          "id": "b2",
+          "shortAction": "Maintain the mask seal; do not remove CPAP before ED handoff",
+          "protocolExcerpt": "Once initiated and patient is tolerating mask, DO NOT discontinue CPAP/BiPAP until patient is on the emergency department stretcher and hospital CPAP/BiPAP is immediately available for patient to be switched over, or physician is at bedside and requesting CPAP/BiPAP be discontinued. Breaking the mask seal causes a significant decrease in airway pressures and may lead to abrupt decompensation due to atelectasis and alveolar collapse.",
+          "priority": "critical",
+          "rationale": "Breaking the circuit for a stair-chair move or to reposition costs the recruitment that has already been gained and can decompensate her abruptly.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        },
+        {
+          "id": "b3",
+          "shortAction": "Reassess RR, SpO2, EtCO2, accessory muscle use, and mental status",
+          "protocolExcerpt": "Document key aspects of the exam at baseline and after each intervention: Respiratory rate; Oxygen saturation; EtCO2/waveform shape; Use of accessory muscles; Breath sounds and quality; Mental status; Response to interventions.",
+          "priority": "critical",
+          "rationale": "Reassessment every five minutes is how the crew proves CPAP is working and detects the deterioration that would require escalation.",
+          "protocolReference": "MATC: Respiratory Distress (includes Bronchospasm, Pulmonary Edema)"
+        }
+      ],
+      "transitions": [
+        {
+          "targetPhaseId": "transport-on-cpap",
+          "if": "Nitroglycerin given; CPAP maintained",
+          "condition": "Crew screens for phosphodiesterase inhibitor use, administers nitroglycerin 0.8 mg sublingual for the SBP of 164, maintains the CPAP circuit unbroken through packaging, and documents serial reassessment of respiratory rate, saturation, capnography, and mental status.",
+          "conditionType": "action_taken",
+          "triggerActionIds": [
+            "b1",
+            "b2",
+            "b3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "transport-on-cpap",
+      "name": "Nitroglycerin given; CPAP maintained",
+      "description": "The patient is packaged and moved to the ambulance with CPAP in place and the circuit never broken. Work of breathing continues to improve, blood pressure has come down with the nitrates, and saturation is holding above the target. She is transported to definitive care with the receiving facility notified.",
+      "triggerCondition": "With positive pressure maintained and preload reduced by sublingual nitrates, the pulmonary edema continues to clear; the crew moves her without interrupting therapy.",
+      "isDefault": true,
+      "clinicalPresentation": {
+        "avpu": "Alert",
+        "gcs": {
+          "eye": 4,
+          "verbal": 5,
+          "motor": 6
+        },
+        "airway": "Patent, CPAP mask in place with an intact seal",
+        "breathing": "Unlabored at 18/min, minimal accessory muscle use, crackles clearing",
+        "circulation": "Pulse irregularly irregular but slower and stronger; skin pink, warm, dry",
+        "skin": {
+          "color": "pink",
+          "temperature": "warm",
+          "moisture": "dry"
+        },
+        "pupils": "PERRL",
+        "motorFunction": "Strength intact, comfortable in a semi-Fowler position on the stretcher",
+        "otherFindings": [
+          "CPAP circuit maintained unbroken through the stair chair and elevator move",
+          "Speaking comfortably in full sentences",
+          "Receiving facility notified of an acute heart failure exacerbation on CPAP",
+          "12-lead transmitted; no acute ST elevation"
+        ],
+        "patientSpeech": "\"I feel much better than I did. Please don't take this mask off yet.\""
+      },
+      "monitorState": {
+        "ecgRhythm": "Atrial Fibrillation",
+        "ecgWaveform": 38,
+        "hr": 96,
+        "bpSys": 142,
+        "bpDia": 84,
+        "respRate": 18,
+        "spo2": 97,
+        "etco2": 36,
+        "temp": 36.8,
+        "tempF": 98.2,
+        "obstruction": 0,
+        "glucose": 130,
+        "customMeasures": [],
+        "trendTimeSeconds": 45,
+        "visibility": {
+          "spo2Visible": true,
+          "spo2Attached": true,
+          "rrVisible": true,
+          "etco2Visible": true,
+          "cvpVisible": false
+        }
+      },
+      "expectedActions": [],
+      "transitions": []
+    },
+    {
+      "id": "cpap-withheld",
+      "name": "CPAP withheld; oxygen mask only",
+      "description": "About ten minutes from initial contact the patient's respiratory effort weakens as she exhausts herself. Her breathing becomes shallow and slow, her level of consciousness declines, and she slumps back onto the bed unable to hold the tripod position. Saturation is 75 percent despite a non-rebreather and her EtCO2 is climbing. She is in decompensated respiratory failure and progressing to respiratory arrest.",
+      "triggerCondition": "Supplemental oxygen alone cannot cross alveoli that are filled with fluid; without positive pressure the patient fatigues, minute ventilation collapses, and hypoxia and hypercarbia progress together.",
+      "isDefault": false,
+      "clinicalPresentation": {
+        "avpu": "Verbal",
+        "gcs": {
+          "eye": 3,
+          "verbal": 2,
+          "motor": 4
+        },
+        "airway": "At risk; no longer reliably self-maintained, requires positioning and suction readiness",
+        "breathing": "Shallow at 10/min and bordering on agonal; markedly diminished tidal volume with crackles throughout",
+        "circulation": "Radial pulse rapid and thready; skin now dusky and profusely diaphoretic",
+        "skin": {
+          "color": "dusky with perioral cyanosis",
+          "temperature": "cool",
+          "moisture": "profusely diaphoretic"
+        },
+        "pupils": "PERRL, sluggish",
+        "motorFunction": "Slumped back onto the bed, no longer able to hold a tripod position",
+        "otherFindings": [
+          "Responds to verbal stimulus with a moan only",
+          "SpO2 75 percent on a non-rebreather mask",
+          "Rising EtCO2 indicating failing minute ventilation",
+          "Immediate candidate for assisted ventilation with a bag-valve mask"
+        ],
+        "patientSpeech": "Moans to verbal stimulus; no intelligible speech"
+      },
+      "monitorState": {
+        "ecgRhythm": "Atrial Fibrillation",
+        "ecgWaveform": 38,
+        "hr": 130,
+        "bpSys": 205,
+        "bpDia": 112,
+        "respRate": 10,
+        "spo2": 75,
+        "etco2": 58,
+        "temp": 36.6,
+        "tempF": 97.9,
+        "obstruction": 0,
+        "glucose": 130,
+        "customMeasures": [],
+        "trendTimeSeconds": 60,
+        "visibility": {
+          "spo2Visible": true,
+          "spo2Attached": true,
+          "rrVisible": true,
+          "etco2Visible": true,
+          "cvpVisible": false
+        }
+      },
+      "expectedActions": [
+        {
+          "id": "c1",
+          "shortAction": "Recognize respiratory failure; begin assisted BVM ventilation now",
+          "protocolExcerpt": "Airway: Give supplemental oxygen for dyspnea to a target of 94-98% saturation. Escalate from a nasal cannula as needed to reach this goal. Non-invasive ventilation (NIV) should be administered for severe respiratory distress via BVM, continuous positive airway pressure (CPAP) or bi-level positive airway pressure (BiPAP).",
+          "priority": "critical",
+          "rationale": "At a rate of 10 with shallow depth the patient is no longer moving enough air; positive pressure must now be delivered by hand rather than by mask.",
+          "protocolReference": "MATC: Respiratory Distress (includes Bronchospasm, Pulmonary Edema)"
+        },
+        {
+          "id": "c2",
+          "shortAction": "Escalate airway management if BVM with adjuncts is ineffective",
+          "protocolExcerpt": "Supraglottic airways (SGA): Consider the use of an appropriately sized SGA if BVM (with OPA/NPA) alone is not effective in maintaining oxygenation and/or ventilation. Endotracheal intubation: When less-invasive methods (two-person BVM, SGA placement) are ineffective or inappropriate, consider endotracheal intubation to maintain oxygenation and/or ventilation.",
+          "priority": "critical",
+          "rationale": "The airway is managed in the least invasive way that works; escalation is driven by the failure of the previous step, not by the diagnosis.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        },
+        {
+          "id": "c3",
+          "shortAction": "Confirm ventilation with waveform capnography and reassess continuously",
+          "protocolExcerpt": "Continuously monitor EtCO2 to guide tidal volume and minute ventilation.",
+          "priority": "critical",
+          "rationale": "Capnography is the objective measure that the assisted ventilation is actually correcting the hypercarbia this patient has developed.",
+          "protocolReference": "MATC: Airway Management (Includes RSI)"
+        }
+      ],
+      "transitions": []
+    }
+  ],
+  "realiti": {
+    "scenarioMonitorType": 2,
+    "scenarioDefaultEnergy": 200,
+    "scenarioDefaultPacerThreshold": 55
+  }
+}
