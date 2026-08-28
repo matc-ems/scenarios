@@ -57,7 +57,13 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [],
+      "relatedChecklist": [
+        "Perform MARCH primary survey; recognize penetrating torso trauma as high acuity",
+        "Reinforce direct pressure/wound packing at entry wound; roll and examine back for exit wound",
+        "Cover eviscerated bowel with moist sterile dressing; do not attempt to reduce contents",
+        "Establish large-bore IV access en route without delaying transport",
+        "Minimize scene time to under 10 minutes; initiate rapid transport to trauma center"
+      ],
       "relatedSounds": []
     },
     {
@@ -90,11 +96,8 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Perform MARCH primary survey; recognize penetrating torso trauma as high acuity",
-        "Reinforce direct pressure/wound packing at entry wound; roll and examine back for exit wound",
-        "Cover eviscerated bowel with moist sterile dressing; do not attempt to reduce contents",
-        "Establish large-bore IV access en route without delaying transport",
-        "Minimize scene time to under 10 minutes; initiate rapid transport to trauma center"
+        "Give 500 mL crystalloid bolus targeting SBP 90 mmHg; reassess after bolus",
+        "Provide advance notification to trauma center using AT-MIST report"
       ],
       "relatedSounds": []
     },
@@ -127,10 +130,7 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [
-        "Give 500 mL crystalloid bolus targeting SBP 90 mmHg; reassess after bolus",
-        "Provide advance notification to trauma center using AT-MIST report"
-      ],
+      "relatedChecklist": [],
       "relatedSounds": []
     },
     {

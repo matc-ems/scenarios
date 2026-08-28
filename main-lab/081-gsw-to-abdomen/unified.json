@@ -81,13 +81,62 @@
         "trendTimeSeconds": 0,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [],
+      "expectedActions": [
+        {
+          "id": "a1",
+          "shortAction": "Perform MARCH primary survey; recognize penetrating torso trauma as high acuity",
+          "protocolExcerpt": "Primary survey (Use \"MARCH\" algorithm)",
+          "priority": "critical",
+          "rationale": "Structured primary survey ensures massive hemorrhage and airway threats are addressed before secondary exam.",
+          "protocolReference": "MATC: General Trauma Management"
+        },
+        {
+          "id": "a2",
+          "shortAction": "Reinforce direct pressure/wound packing at entry wound; roll and examine back for exit wound",
+          "protocolExcerpt": "First stop severe external and extremity hemorrhage with extremity tourniquets or appropriate wound packing with hemostatic gauze. Be sure to roll patient and examine the back as well.",
+          "priority": "critical",
+          "rationale": "Ongoing external hemorrhage is a primary driver of this patient's shock and must be addressed immediately.",
+          "protocolReference": "MATC: General Trauma Management"
+        },
+        {
+          "id": "a3",
+          "shortAction": "Cover eviscerated bowel with moist sterile dressing; do not attempt to reduce contents",
+          "protocolExcerpt": "Cover eviscerated abdominal contents with moist dressings",
+          "priority": "critical",
+          "rationale": "Attempting to push bowel back into the abdomen risks contamination and further injury; moist coverage protects exposed tissue.",
+          "protocolReference": "MATC: General Trauma Management"
+        },
+        {
+          "id": "a4",
+          "shortAction": "Establish large-bore IV access en route without delaying transport",
+          "protocolExcerpt": "Establish IV access if needed (large bore preferred)",
+          "priority": "important",
+          "rationale": "Vascular access supports fluid resuscitation but should not extend scene time for an unstable penetrating trauma patient.",
+          "protocolReference": "MATC: General Trauma Management"
+        },
+        {
+          "id": "a5",
+          "shortAction": "Minimize scene time to under 10 minutes; initiate rapid transport to trauma center",
+          "protocolExcerpt": "Patients with major hemorrhage, hemodynamic instability, penetrating torso trauma, or signs of traumatic brain injury often require rapid surgical intervention. Minimize scene time (goal is under 10 minutes) and initiate rapid transport to the highest level of care within the trauma system",
+          "priority": "critical",
+          "rationale": "This patient has penetrating torso trauma with hemodynamic instability and needs surgical intervention rather than prolonged scene interventions.",
+          "protocolReference": "MATC: General Trauma Management"
+        }
+      ],
       "transitions": [
         {
           "targetPhaseId": "hemorrhage-controlled",
           "if": "Primary survey and hemorrhage controlled",
           "condition": "Crew performs a rapid MARCH primary survey, controls external hemorrhage, covers the evisceration with a moist sterile dressing, and prepares for rapid transport given penetrating torso trauma.",
-          "conditionType": "action_taken"
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a1", "a2"]
+        },
+        {
+          "targetPhaseId": "evisceration-mismanaged",
+          "if": "Evisceration contents reduced improperly",
+          "condition": "Instead of covering the eviscerated bowel in place, the crew attempts to manually push the protruding bowel back into the abdomen and applies a dry dressing, deviating from protocol.",
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["a3"]
         }
       ]
     },
@@ -133,43 +182,19 @@
       },
       "expectedActions": [
         {
-          "id": "a1-march",
-          "shortAction": "Perform MARCH primary survey; recognize penetrating torso trauma as high acuity",
-          "protocolExcerpt": "Primary survey (Use \"MARCH\" algorithm)",
+          "id": "b1",
+          "shortAction": "Give 500 mL crystalloid bolus targeting SBP 90 mmHg; reassess after bolus",
+          "protocolExcerpt": "If SBP less than 90 mmHg or HR greater than 120 BPM, initiate resuscitation: ... consider 500 mL bolus of IV fluid, repeat as needed for persistent signs and symptoms of shock ... Trauma resuscitation target SBP 90 mmHg (palpable radial pulse or alert mental status). Reassess SBP after bolus given",
           "priority": "critical",
-          "rationale": "Structured primary survey ensures massive hemorrhage and airway threats are addressed before secondary exam.",
+          "rationale": "Permissive hypotension avoids disrupting clot formation while maintaining adequate perfusion for an alert, penetrating-trauma patient.",
           "protocolReference": "MATC: General Trauma Management"
         },
         {
-          "id": "a2-hemorrhage",
-          "shortAction": "Reinforce direct pressure/wound packing at entry wound; roll and examine back for exit wound",
-          "protocolExcerpt": "First stop severe external and extremity hemorrhage with extremity tourniquets or appropriate wound packing with hemostatic gauze. Be sure to roll patient and examine the back as well.",
-          "priority": "critical",
-          "rationale": "Ongoing external hemorrhage is a primary driver of this patient's shock and must be addressed immediately.",
-          "protocolReference": "MATC: General Trauma Management"
-        },
-        {
-          "id": "a3-evisceration",
-          "shortAction": "Cover eviscerated bowel with moist sterile dressing; do not attempt to reduce contents",
-          "protocolExcerpt": "Cover eviscerated abdominal contents with moist dressings",
-          "priority": "critical",
-          "rationale": "Attempting to push bowel back into the abdomen risks contamination and further injury; moist coverage protects exposed tissue.",
-          "protocolReference": "MATC: General Trauma Management"
-        },
-        {
-          "id": "a4-iv",
-          "shortAction": "Establish large-bore IV access en route without delaying transport",
-          "protocolExcerpt": "Establish IV access if needed (large bore preferred)",
+          "id": "b2",
+          "shortAction": "Provide advance notification to trauma center using AT-MIST report",
+          "protocolExcerpt": "Use structured communication tool for patient handoff to higher level care such as AT-MIST",
           "priority": "important",
-          "rationale": "Vascular access supports fluid resuscitation but should not extend scene time for an unstable penetrating trauma patient.",
-          "protocolReference": "MATC: General Trauma Management"
-        },
-        {
-          "id": "a5-scenetime",
-          "shortAction": "Minimize scene time to under 10 minutes; initiate rapid transport to trauma center",
-          "protocolExcerpt": "Patients with major hemorrhage, hemodynamic instability, penetrating torso trauma, or signs of traumatic brain injury often require rapid surgical intervention. Minimize scene time (goal is under 10 minutes) and initiate rapid transport to the highest level of care within the trauma system",
-          "priority": "critical",
-          "rationale": "This patient has penetrating torso trauma with hemodynamic instability and needs surgical intervention rather than prolonged scene interventions.",
+          "rationale": "Advance notification allows the trauma team to mobilize surgical resources before arrival.",
           "protocolReference": "MATC: General Trauma Management"
         }
       ],
@@ -179,14 +204,7 @@
           "if": "Permissive hypotension maintained en route",
           "condition": "En route, the crew targets a trauma resuscitation SBP of 90 mmHg rather than aggressively normalizing blood pressure, reassessing after each fluid bolus.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["a4-iv", "a5-scenetime"]
-        },
-        {
-          "targetPhaseId": "evisceration-mismanaged",
-          "if": "Evisceration contents reduced improperly",
-          "condition": "Instead of covering the eviscerated bowel in place, the crew attempts to manually push the protruding bowel back into the abdomen and applies a dry dressing, deviating from protocol.",
-          "conditionType": "action_not_taken",
-          "triggerActionIds": ["a3-evisceration"]
+          "triggerActionIds": ["b1", "b2"]
         }
       ]
     },
@@ -229,24 +247,7 @@
         "trendTimeSeconds": 40,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [
-        {
-          "id": "a6-fluid-target",
-          "shortAction": "Give 500 mL crystalloid bolus targeting SBP 90 mmHg; reassess after bolus",
-          "protocolExcerpt": "If SBP less than 90 mmHg or HR greater than 120 BPM, initiate resuscitation: ... consider 500 mL bolus of IV fluid, repeat as needed for persistent signs and symptoms of shock ... Trauma resuscitation target SBP 90 mmHg (palpable radial pulse or alert mental status). Reassess SBP after bolus given",
-          "priority": "critical",
-          "rationale": "Permissive hypotension avoids disrupting clot formation while maintaining adequate perfusion for an alert, penetrating-trauma patient.",
-          "protocolReference": "MATC: General Trauma Management"
-        },
-        {
-          "id": "a7-notify",
-          "shortAction": "Provide advance notification to trauma center using AT-MIST report",
-          "protocolExcerpt": "Use structured communication tool for patient handoff to higher level care such as AT-MIST",
-          "priority": "important",
-          "rationale": "Advance notification allows the trauma team to mobilize surgical resources before arrival.",
-          "protocolReference": "MATC: General Trauma Management"
-        }
-      ],
+      "expectedActions": [],
       "transitions": []
     },
     {
@@ -290,7 +291,7 @@
       },
       "expectedActions": [
         {
-          "id": "a8-recognize",
+          "id": "c1",
           "shortAction": "Recognize improper evisceration management; expose wound, apply moist sterile dressing, avoid reduction",
           "protocolExcerpt": "Cover eviscerated abdominal contents with moist dressings",
           "priority": "critical",
