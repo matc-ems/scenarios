@@ -57,7 +57,11 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [],
+      "relatedChecklist": [
+        "Restrain supine with extremities individually secured to the stretcher frame; never prone, never hobbled, chest wall unrestricted",
+        "Ketamine 320 mg IM (80 kg × 4 mg/kg), 3-5 minute onset expected",
+        "Apply cardiac monitor immediately given known risk of sudden cardiopulmonary arrest"
+      ],
       "relatedSounds": []
     },
     {
@@ -90,9 +94,8 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Ketamine 320 mg IM (80 kg × 4 mg/kg), 3-5 minute onset expected",
-        "Restrain supine with extremities individually secured to the stretcher frame; never prone, never hobbled, chest wall unrestricted",
-        "Apply cardiac monitor immediately given known risk of sudden cardiopulmonary arrest"
+        "Begin active cooling (evaporative/tarp-assisted) — avoid wet cloths, continue until temp under 102.2°F or mental status improves",
+        "Establish IV access; give cool isotonic fluid bolus 1600 mL (80 kg × 20 mL/kg)"
       ],
       "relatedSounds": []
     },
@@ -126,8 +129,7 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Begin active cooling (evaporative/tarp-assisted) — avoid wet cloths, continue until temp under 102.2°F or mental status improves",
-        "Establish IV access; give cool isotonic fluid bolus 1600 mL (80 kg × 20 mL/kg)"
+        "Continuously reassess airway, breathing, circulation, and extremity perfusion in restraints throughout transport"
       ],
       "relatedSounds": []
     },
@@ -160,9 +162,7 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [
-        "Continuously reassess airway, breathing, circulation, and extremity perfusion in restraints throughout transport"
-      ],
+      "relatedChecklist": [],
       "relatedSounds": []
     },
     {
@@ -202,13 +202,13 @@
   ],
   "checklist": [
     {
-      "title": "Ketamine 320 mg IM (80 kg × 4 mg/kg), 3-5 minute onset expected",
+      "title": "Restrain supine with extremities individually secured to the stretcher frame; never prone, never hobbled, chest wall unrestricted",
       "type": "Check",
       "value": 0,
       "icon": 1
     },
     {
-      "title": "Restrain supine with extremities individually secured to the stretcher frame; never prone, never hobbled, chest wall unrestricted",
+      "title": "Ketamine 320 mg IM (80 kg × 4 mg/kg), 3-5 minute onset expected",
       "type": "Check",
       "value": 0,
       "icon": 1

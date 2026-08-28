@@ -79,13 +79,46 @@
         "trendTimeSeconds": 0,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
       },
-      "expectedActions": [],
+      "expectedActions": [
+        {
+          "id": "a1",
+          "shortAction": "Restrain supine with extremities individually secured to the stretcher frame; never prone, never hobbled, chest wall unrestricted",
+          "protocolExcerpt": "The following techniques should be expressly prohibited for use by EMS clinicians: Secure or transport in a prone position with or without hands and feet behind the back (hobbling or \"hog-tying\"). Physical management devices, including stretcher straps, should never restrict the patient's chest wall motion",
+          "priority": "critical",
+          "rationale": "Prone/hobbled restraint and chest wall restriction are directly linked to positional asphyxia and sudden death in this population.",
+          "protocolReference": "MATC: Agitated or Violent Patient/Behavioral Emergency"
+        },
+        {
+          "id": "a2",
+          "shortAction": "Ketamine 320 mg IM (80 kg × 4 mg/kg), 3-5 minute onset expected",
+          "protocolExcerpt": "Dissociative Agents (provide sedation and anesthesia) — Ketamine (option for high violence risk) — Adults: ... 4 mg/kg IM; 3–5 minute onset of action",
+          "priority": "critical",
+          "rationale": "Ketamine provides rapid, reliable sedation for high-violence-risk excited delirium.",
+          "protocolReference": "MATC: Agitated or Violent Patient/Behavioral Emergency"
+        },
+        {
+          "id": "a3",
+          "shortAction": "Apply cardiac monitor immediately given known risk of sudden cardiopulmonary arrest",
+          "protocolExcerpt": "Apply a cardiac monitor as soon as possible, particularly when pharmacologic management medications have been administered. Uncontrolled or poorly controlled patient agitation and physical violence can place the patient at risk for sudden cardiopulmonary arrest",
+          "priority": "critical",
+          "rationale": "Excited delirium carries a real risk of sudden arrest even with appropriate management; continuous monitoring is essential.",
+          "protocolReference": "MATC: Agitated or Violent Patient/Behavioral Emergency"
+        }
+      ],
       "transitions": [
         {
           "targetPhaseId": "sedation-restraint-appropriate",
           "if": "Sedation given, safe restraint applied",
           "condition": "Crew administers pharmacologic sedation, applies safe physical restraint (never prone, never hobbled), and places the patient on a cardiac monitor immediately given the risk of sudden cardiopulmonary arrest.",
-          "conditionType": "action_taken"
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a1", "a2"]
+        },
+        {
+          "targetPhaseId": "prone-restraint-used",
+          "if": "Prone or hobbled restraint used",
+          "condition": "Under pressure to control the violently combative patient, the crew (or law enforcement, uncorrected by the crew) restrains the patient prone with hands and feet secured behind the back.",
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["a1"]
         }
       ]
     },
@@ -130,28 +163,20 @@
       },
       "expectedActions": [
         {
-          "id": "a1-ketamine",
-          "shortAction": "Ketamine 320 mg IM (80 kg × 4 mg/kg), 3-5 minute onset expected",
-          "protocolExcerpt": "Dissociative Agents (provide sedation and anesthesia) — Ketamine (option for high violence risk) — Adults: ... 4 mg/kg IM; 3–5 minute onset of action",
+          "id": "b1",
+          "shortAction": "Begin active cooling (evaporative/tarp-assisted) — avoid wet cloths, continue until temp under 102.2°F or mental status improves",
+          "protocolExcerpt": "If core temperature is greater than 104°F (40°C) or if altered mental status is present, begin active cooling by: ... DO NOT apply wet cloths or wet clothing, as they may trap heat and prevent evaporative cooling. Cooling efforts should continue until the patient's temperature is less than 102.2°F (39°C) or ... until the patient demonstrates improvement in mental status",
           "priority": "critical",
-          "rationale": "Ketamine provides rapid, reliable sedation for high-violence-risk excited delirium.",
-          "protocolReference": "MATC: Agitated or Violent Patient/Behavioral Emergency"
+          "rationale": "Untreated severe hyperthermia causes rapid, life-threatening organ injury and worsens the sudden-arrest risk.",
+          "protocolReference": "MATC: Hyperthermia/Heat Exposure"
         },
         {
-          "id": "a2-safe-restraint",
-          "shortAction": "Restrain supine with extremities individually secured to the stretcher frame; never prone, never hobbled, chest wall unrestricted",
-          "protocolExcerpt": "The following techniques should be expressly prohibited for use by EMS clinicians: Secure or transport in a prone position with or without hands and feet behind the back (hobbling or \"hog-tying\"). Physical management devices, including stretcher straps, should never restrict the patient's chest wall motion",
+          "id": "b2",
+          "shortAction": "Establish IV access; give cool isotonic fluid bolus 1600 mL (80 kg × 20 mL/kg)",
+          "protocolExcerpt": "Establish IV access for patients suffering from heat stroke — give cool fluids at 20 mL/kg boluses and reduce to 10 mL/kg/hr boluses when vitals are stable",
           "priority": "critical",
-          "rationale": "Prone/hobbled restraint and chest wall restriction are directly linked to positional asphyxia and sudden death in this population.",
-          "protocolReference": "MATC: Agitated or Violent Patient/Behavioral Emergency"
-        },
-        {
-          "id": "a3-monitor-immediately",
-          "shortAction": "Apply cardiac monitor immediately given known risk of sudden cardiopulmonary arrest",
-          "protocolExcerpt": "Apply a cardiac monitor as soon as possible, particularly when pharmacologic management medications have been administered. Uncontrolled or poorly controlled patient agitation and physical violence can place the patient at risk for sudden cardiopulmonary arrest",
-          "priority": "critical",
-          "rationale": "Excited delirium carries a real risk of sudden arrest even with appropriate management; continuous monitoring is essential.",
-          "protocolReference": "MATC: Agitated or Violent Patient/Behavioral Emergency"
+          "rationale": "Cool IV fluids support both cooling and circulatory resuscitation.",
+          "protocolReference": "MATC: Hyperthermia/Heat Exposure"
         }
       ],
       "transitions": [
@@ -159,14 +184,8 @@
           "targetPhaseId": "active-cooling",
           "if": "Active cooling initiated for hyperthermia",
           "condition": "With the patient sedated and safely restrained, the crew recognizes the core temperature above 104°F and begins active cooling measures alongside cool IV fluids.",
-          "conditionType": "action_taken"
-        },
-        {
-          "targetPhaseId": "prone-restraint-used",
-          "if": "Prone or hobbled restraint used",
-          "condition": "Under pressure to control the violently combative patient, the crew (or law enforcement, uncorrected by the crew) restrains the patient prone with hands and feet secured behind the back.",
-          "conditionType": "action_not_taken",
-          "triggerActionIds": ["a2-safe-restraint"]
+          "conditionType": "action_taken",
+          "triggerActionIds": ["b1", "b2"]
         }
       ]
     },
@@ -211,20 +230,12 @@
       },
       "expectedActions": [
         {
-          "id": "a4-active-cooling",
-          "shortAction": "Begin active cooling (evaporative/tarp-assisted) — avoid wet cloths, continue until temp under 102.2°F or mental status improves",
-          "protocolExcerpt": "If core temperature is greater than 104°F (40°C) or if altered mental status is present, begin active cooling by: ... DO NOT apply wet cloths or wet clothing, as they may trap heat and prevent evaporative cooling. Cooling efforts should continue until the patient's temperature is less than 102.2°F (39°C) or ... until the patient demonstrates improvement in mental status",
-          "priority": "critical",
-          "rationale": "Untreated severe hyperthermia causes rapid, life-threatening organ injury and worsens the sudden-arrest risk.",
-          "protocolReference": "MATC: Hyperthermia/Heat Exposure"
-        },
-        {
-          "id": "a5-cool-fluids",
-          "shortAction": "Establish IV access; give cool isotonic fluid bolus 1600 mL (80 kg × 20 mL/kg)",
-          "protocolExcerpt": "Establish IV access for patients suffering from heat stroke — give cool fluids at 20 mL/kg boluses and reduce to 10 mL/kg/hr boluses when vitals are stable",
-          "priority": "critical",
-          "rationale": "Cool IV fluids support both cooling and circulatory resuscitation.",
-          "protocolReference": "MATC: Hyperthermia/Heat Exposure"
+          "id": "c1",
+          "shortAction": "Continuously reassess airway, breathing, circulation, and extremity perfusion in restraints throughout transport",
+          "protocolExcerpt": "Continuous monitoring of: Airway patency, Respiratory status with pulse oximetry and/or capnography, Circulatory status with frequent blood pressure measurements ... Extremity perfusion with capillary refill in patients in physical management device",
+          "priority": "important",
+          "rationale": "Sedated, restrained patients require close ongoing monitoring for both cardiorespiratory deterioration and restraint-related complications.",
+          "protocolReference": "MATC: Agitated or Violent Patient/Behavioral Emergency"
         }
       ],
       "transitions": [
@@ -232,7 +243,8 @@
           "targetPhaseId": "transport-monitored",
           "if": "Improving, monitored closely for transport",
           "condition": "With cooling and fluids in progress, the patient's temperature and vital signs trend toward normal; crew continues close cardiac monitoring throughout transport given the ongoing sudden-arrest risk.",
-          "conditionType": "action_taken"
+          "conditionType": "action_taken",
+          "triggerActionIds": ["c1"]
         }
       ]
     },
@@ -275,16 +287,7 @@
         "trendTimeSeconds": 50,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": true, "cvpVisible": false }
       },
-      "expectedActions": [
-        {
-          "id": "a6-ongoing-monitoring",
-          "shortAction": "Continuously reassess airway, breathing, circulation, and extremity perfusion in restraints throughout transport",
-          "protocolExcerpt": "Continuous monitoring of: Airway patency, Respiratory status with pulse oximetry and/or capnography, Circulatory status with frequent blood pressure measurements ... Extremity perfusion with capillary refill in patients in physical management device",
-          "priority": "important",
-          "rationale": "Sedated, restrained patients require close ongoing monitoring for both cardiorespiratory deterioration and restraint-related complications.",
-          "protocolReference": "MATC: Agitated or Violent Patient/Behavioral Emergency"
-        }
-      ],
+      "expectedActions": [],
       "transitions": []
     },
     {
@@ -328,7 +331,7 @@
       },
       "expectedActions": [
         {
-          "id": "a7-correct-positioning",
+          "id": "d1",
           "shortAction": "Immediately reposition supine or lateral, remove hobble restraint, reassess airway and breathing",
           "protocolExcerpt": "Positional asphyxia: Sudden death from restriction of chest wall movement and/or obstruction of the airway secondary to restricted head or neck positioning resulting in hypercarbia and/or hypoxia. The following techniques should be expressly prohibited for use by EMS clinicians: Secure or transport in a prone position with or without hands and feet behind the back (hobbling or \"hog-tying\")",
           "priority": "critical",
