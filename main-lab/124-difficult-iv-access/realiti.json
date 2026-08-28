@@ -57,7 +57,11 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [],
+      "relatedChecklist": [
+        "Recognize signs of distributive (septic) shock: AMS, tachycardia, hypotension for age",
+        "Check blood glucose; correct if less than 60 mg/dL",
+        "Place IO needle after 2 failed peripheral IV attempts / over 90 seconds"
+      ],
       "relatedSounds": []
     },
     {
@@ -90,9 +94,8 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Recognize signs of distributive (septic) shock: AMS, tachycardia, hypotension for age",
-        "Place IO needle after 2 failed peripheral IV attempts / over 90 seconds",
-        "Check blood glucose; correct if less than 60 mg/dL"
+        "Isotonic fluid bolus 500 mL pressure-infused via IO over <15 min toward MAP goal 65 mmHg",
+        "Provide advance notification to receiving hospital for suspected sepsis"
       ],
       "relatedSounds": []
     },
@@ -126,8 +129,7 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Isotonic fluid bolus 500 mL pressure-infused via IO over <15 min toward MAP goal 65 mmHg",
-        "Provide advance notification to receiving hospital for suspected sepsis"
+        "Reassess vital signs and mental status serially en route"
       ],
       "relatedSounds": []
     },
@@ -160,9 +162,7 @@
       },
       "relatedMedia": [],
       "relatedLabs": [],
-      "relatedChecklist": [
-        "Reassess vital signs and mental status serially en route"
-      ],
+      "relatedChecklist": [],
       "relatedSounds": []
     },
     {
@@ -208,13 +208,13 @@
       "icon": 1
     },
     {
-      "title": "Place IO needle after 2 failed peripheral IV attempts / over 90 seconds",
+      "title": "Check blood glucose; correct if less than 60 mg/dL",
       "type": "Check",
       "value": 0,
       "icon": 1
     },
     {
-      "title": "Check blood glucose; correct if less than 60 mg/dL",
+      "title": "Place IO needle after 2 failed peripheral IV attempts / over 90 seconds",
       "type": "Check",
       "value": 0,
       "icon": 1

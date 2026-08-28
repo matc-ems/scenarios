@@ -82,13 +82,46 @@
         "trendTimeSeconds": 0,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [],
+      "expectedActions": [
+        {
+          "id": "a1",
+          "shortAction": "Recognize signs of distributive (septic) shock: AMS, tachycardia, hypotension for age",
+          "protocolExcerpt": "Signs of poor perfusion (due to a medical cause) such as one or more of the following: Altered mental status ... Hypotension for age (lowest acceptable systolic blood pressure in mmHg): Greater than 10 years old: 90",
+          "priority": "critical",
+          "rationale": "Early recognition of shock drives the urgency of vascular access and fluid resuscitation.",
+          "protocolReference": "MATC: Shock"
+        },
+        {
+          "id": "a2",
+          "shortAction": "Check blood glucose; correct if less than 60 mg/dL",
+          "protocolExcerpt": "Check blood sugar, and correct if less than 60 mg/dL",
+          "priority": "important",
+          "rationale": "Rules out hypoglycemia as a contributor to altered mental status.",
+          "protocolReference": "MATC: Shock"
+        },
+        {
+          "id": "a3",
+          "shortAction": "Place IO needle after 2 failed peripheral IV attempts / over 90 seconds",
+          "protocolExcerpt": "Establish IV access. If unable to obtain within two attempts or less than 90 seconds, place an IO needle",
+          "priority": "critical",
+          "rationale": "Protocol-directed threshold prevents prolonged delay of fluid resuscitation in shock.",
+          "protocolReference": "MATC: Shock"
+        }
+      ],
       "transitions": [
         {
           "targetPhaseId": "iv-attempted",
           "if": "Vascular access attempted",
           "condition": "Crew recognizes signs of distributive shock from a likely urinary source and begins vascular access attempts, targeting fluid resuscitation.",
-          "conditionType": "action_taken"
+          "conditionType": "action_taken",
+          "triggerActionIds": ["a1", "a3"]
+        },
+        {
+          "targetPhaseId": "access-delayed",
+          "if": "Peripheral attempts continue past threshold",
+          "condition": "Crew continues attempting peripheral IV access beyond the two-attempt/90-second threshold instead of escalating to IO, delaying fluid resuscitation.",
+          "conditionType": "action_not_taken",
+          "triggerActionIds": ["a3"]
         }
       ]
     },
@@ -133,27 +166,19 @@
       },
       "expectedActions": [
         {
-          "id": "a1-recognize-shock",
-          "shortAction": "Recognize signs of distributive (septic) shock: AMS, tachycardia, hypotension for age",
-          "protocolExcerpt": "Signs of poor perfusion (due to a medical cause) such as one or more of the following: Altered mental status ... Hypotension for age (lowest acceptable systolic blood pressure in mmHg): Greater than 10 years old: 90",
+          "id": "b1",
+          "shortAction": "Isotonic fluid bolus 500 mL pressure-infused via IO over <15 min toward MAP goal 65 mmHg",
+          "protocolExcerpt": "Fluid goal of up to 30 mL/kg of isotonic fluid by administering rapid, predetermined boluses (e.g., 500 mL) unless the MAP goal is achieved, or pulmonary edema develops. Physiologic target: MAP goal 65 mmHg",
           "priority": "critical",
-          "rationale": "Early recognition of shock drives the urgency of vascular access and fluid resuscitation.",
+          "rationale": "Aggressive early fluid resuscitation is essential for suspected septic shock.",
           "protocolReference": "MATC: Shock"
         },
         {
-          "id": "a2-io-threshold",
-          "shortAction": "Place IO needle after 2 failed peripheral IV attempts / over 90 seconds",
-          "protocolExcerpt": "Establish IV access. If unable to obtain within two attempts or less than 90 seconds, place an IO needle",
-          "priority": "critical",
-          "rationale": "Protocol-directed threshold prevents prolonged delay of fluid resuscitation in shock.",
-          "protocolReference": "MATC: Shock"
-        },
-        {
-          "id": "a3-monitor-glucose",
-          "shortAction": "Check blood glucose; correct if less than 60 mg/dL",
-          "protocolExcerpt": "Check blood sugar, and correct if less than 60 mg/dL",
+          "id": "b2",
+          "shortAction": "Provide advance notification to receiving hospital for suspected sepsis",
+          "protocolExcerpt": "Provide advanced notification to the hospital",
           "priority": "important",
-          "rationale": "Rules out hypoglycemia as a contributor to altered mental status.",
+          "rationale": "Allows the receiving facility to prepare for early sepsis management.",
           "protocolReference": "MATC: Shock"
         }
       ],
@@ -163,14 +188,7 @@
           "if": "IO placed, fluid bolus started",
           "condition": "After the second failed peripheral attempt exceeds the 90-second threshold, crew places an IO needle and initiates a pressure-infused fluid bolus toward a MAP goal of 65 mmHg.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["a2-io-threshold"]
-        },
-        {
-          "targetPhaseId": "access-delayed",
-          "if": "Peripheral attempts continue past threshold",
-          "condition": "Crew continues attempting peripheral IV access beyond the two-attempt/90-second threshold instead of escalating to IO, delaying fluid resuscitation.",
-          "conditionType": "action_not_taken",
-          "triggerActionIds": ["a2-io-threshold"]
+          "triggerActionIds": ["b1", "b2"]
         }
       ]
     },
@@ -215,19 +233,11 @@
       },
       "expectedActions": [
         {
-          "id": "a4-fluid-bolus",
-          "shortAction": "Isotonic fluid bolus 500 mL pressure-infused via IO over <15 min toward MAP goal 65 mmHg",
-          "protocolExcerpt": "Fluid goal of up to 30 mL/kg of isotonic fluid by administering rapid, predetermined boluses (e.g., 500 mL) unless the MAP goal is achieved, or pulmonary edema develops. Physiologic target: MAP goal 65 mmHg",
-          "priority": "critical",
-          "rationale": "Aggressive early fluid resuscitation is essential for suspected septic shock.",
-          "protocolReference": "MATC: Shock"
-        },
-        {
-          "id": "a5-advance-notification",
-          "shortAction": "Provide advance notification to receiving hospital for suspected sepsis",
-          "protocolExcerpt": "Provide advanced notification to the hospital",
+          "id": "c1",
+          "shortAction": "Reassess vital signs and mental status serially en route",
+          "protocolExcerpt": "Full vital signs (pulse, blood pressure, respiratory rate, neurologic status assessment) with reassessment q 15 minutes or more frequently as appropriate",
           "priority": "important",
-          "rationale": "Allows the receiving facility to prepare for early sepsis management.",
+          "rationale": "Serial reassessment confirms ongoing response to treatment and guides further fluid administration.",
           "protocolReference": "MATC: Shock"
         }
       ],
@@ -237,7 +247,7 @@
           "if": "MAP improves toward goal",
           "condition": "After the first fluid bolus, blood pressure and mental status improve; crew reassesses and continues toward the 30 mL/kg fluid goal while transporting.",
           "conditionType": "action_taken",
-          "triggerActionIds": ["a4-fluid-bolus"]
+          "triggerActionIds": ["c1"]
         }
       ]
     },
@@ -280,16 +290,7 @@
         "trendTimeSeconds": 40,
         "visibility": { "spo2Visible": true, "spo2Attached": true, "rrVisible": true, "etco2Visible": false, "cvpVisible": false }
       },
-      "expectedActions": [
-        {
-          "id": "a6-reassess",
-          "shortAction": "Reassess vital signs and mental status serially en route",
-          "protocolExcerpt": "Full vital signs (pulse, blood pressure, respiratory rate, neurologic status assessment) with reassessment q 15 minutes or more frequently as appropriate",
-          "priority": "important",
-          "rationale": "Serial reassessment confirms ongoing response to treatment and guides further fluid administration.",
-          "protocolReference": "MATC: Shock"
-        }
-      ],
+      "expectedActions": [],
       "transitions": []
     },
     {
@@ -333,7 +334,7 @@
       },
       "expectedActions": [
         {
-          "id": "a7-recover-io",
+          "id": "d1",
           "shortAction": "Abandon further peripheral attempts; place IO needle immediately and start fluid bolus",
           "protocolExcerpt": "Establish IV access. If unable to obtain within two attempts or less than 90 seconds, place an IO needle",
           "priority": "critical",
