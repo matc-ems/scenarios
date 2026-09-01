@@ -7,7 +7,7 @@
     "category": "Medical",
     "protocols": ["medical-abdominal-pain", "medical-pain-management", "medical-nausea-vomiting"],
     "totalTimeSeconds": 780,
-    "tags": ["ALS", "pain management", "med math", "kidney stone", "hydromorphone", "914B"]
+    "tags": ["ALS", "pain management", "med math", "kidney stone", "fentanyl", "914B"]
   },
   "patient": {
     "name": "Renata Ford",
@@ -107,10 +107,10 @@
         },
         {
           "id": "a4",
-          "shortAction": "Hydromorphone 1 mg IV (70 kg × 0.015 mg/kg = 1.05 mg, rounded to 1 mg; max initial 2 mg, max cumulative 4 mg)",
-          "protocolExcerpt": "Hydromorphone: 0.015 mg/kg IM, IV, or IO (maximum initial dose 2 mg; maximum cumulative dose of 4 mg)",
+          "shortAction": "Fentanyl 70 mcg IV (70 kg × 1 mcg/kg = 70 mcg; max initial 100 mcg)",
+          "protocolExcerpt": "Fentanyl: 1 mcg/kg IN, IM, IV or IO (maximum initial dose of 100 mcg)",
           "priority": "critical",
-          "rationale": "Weight-based opioid dosing for severe pain, capped below the protocol's maximum initial dose.",
+          "rationale": "Weight-based opioid dosing for severe pain, within the protocol's maximum initial dose.",
           "protocolReference": "MATC: Pain Management"
         },
         {
@@ -133,8 +133,8 @@
       "transitions": [
         {
           "targetPhaseId": "analgesia-given",
-          "if": "Pain assessed and hydromorphone given",
-          "condition": "Crew obtains vital signs, assesses pain on a numeric scale, establishes IV access, and administers weight-based hydromorphone with an antiemetic per protocol.",
+          "if": "Pain assessed and fentanyl given",
+          "condition": "Crew obtains vital signs, assesses pain on a numeric scale, establishes IV access, and administers weight-based fentanyl with an antiemetic per protocol.",
           "conditionType": "action_taken",
           "triggerActionIds": ["a1", "a4"]
         },
@@ -149,8 +149,8 @@
     },
     {
       "id": "analgesia-given",
-      "name": "Pain assessed and hydromorphone given",
-      "description": "Crew obtains a full set of vitals, assesses pain using a numeric rating scale, establishes IV access, and administers weight-based hydromorphone along with ondansetron for nausea. Patient is placed in a position of comfort.",
+      "name": "Pain assessed and fentanyl given",
+      "description": "Crew obtains a full set of vitals, assesses pain using a numeric rating scale, establishes IV access, and administers weight-based fentanyl along with ondansetron for nausea. Patient is placed in a position of comfort.",
       "triggerCondition": "After confirming no signs of shock, AAA, or other life-threatening cause, the crew recognizes classic kidney stone presentation, establishes IV access, and treats pain and nausea per the Pain Management and Nausea-Vomiting Guidelines.",
       "isDefault": true,
       "clinicalPresentation": {
@@ -163,7 +163,7 @@
         "pupils": "PERRL",
         "motorFunction": "Intact in all extremities; less restless",
         "otherFindings": [
-          "Pain reduced to 5/10 approximately 5 minutes after hydromorphone",
+          "Pain reduced to 5/10 approximately 5 minutes after fentanyl",
           "Nausea improved after ondansetron, no further emesis",
           "Left costovertebral angle tenderness persists but patient is calmer"
         ],
@@ -189,10 +189,10 @@
       "expectedActions": [
         {
           "id": "b1",
-          "shortAction": "Repeat hydromorphone 1 mg IV after 5 min (cumulative 2 mg; max cumulative 4 mg)",
+          "shortAction": "Repeat fentanyl 70 mcg IV after 5 min if pain persists and vitals allow",
           "protocolExcerpt": "If indicated based on pain assessment, and vital signs allow, repeat pain medication administration (excluding acetaminophen and nonsteroidal anti-inflammatory medicines) after 5 minutes of the previous dose",
           "priority": "critical",
-          "rationale": "Repeat dosing follows the protocol's 5-minute reassessment interval and stays within the cumulative maximum.",
+          "rationale": "Repeat dosing follows the protocol's 5-minute reassessment interval, contingent on acceptable vital signs.",
           "protocolReference": "MATC: Pain Management"
         },
         {
@@ -216,7 +216,7 @@
         {
           "targetPhaseId": "repeat-dose-transport",
           "if": "Reassessed at 5 min, repeat dose given",
-          "condition": "Pain remains at 5/10 five minutes after the initial dose; crew reassesses vital signs and pain score, confirms no hypotension or hypoventilation, and administers a repeat hydromorphone dose within the cumulative maximum.",
+          "condition": "Pain remains at 5/10 five minutes after the initial dose; crew reassesses vital signs and pain score, confirms no hypotension or hypoventilation, and administers a repeat fentanyl dose.",
           "conditionType": "time_elapsed",
           "triggerActionIds": ["b1"]
         }
@@ -225,8 +225,8 @@
     {
       "id": "repeat-dose-transport",
       "name": "Reassessed at 5 min, repeat dose given",
-      "description": "Five minutes after the initial dose, pain remains moderate. Crew reassesses vital signs, confirms hemodynamic stability, and administers a repeat weight-based hydromorphone dose within the protocol's cumulative maximum before transporting.",
-      "triggerCondition": "Per protocol, pain medication may be repeated after 5 minutes if vital signs allow and pain persists; crew reassesses and administers a second dose within the cumulative maximum of 4 mg.",
+      "description": "Five minutes after the initial dose, pain remains moderate. Crew reassesses vital signs, confirms hemodynamic stability, and administers a repeat weight-based fentanyl dose before transporting.",
+      "triggerCondition": "Per protocol, pain medication may be repeated after 5 minutes if vital signs allow and pain persists; crew reassesses and administers a second 70 mcg fentanyl dose.",
       "isDefault": true,
       "clinicalPresentation": {
         "avpu": "Alert",
@@ -306,7 +306,7 @@
       "expectedActions": [
         {
           "id": "c1",
-          "shortAction": "Recognize ongoing severe pain unresponsive to non-pharmacologic measures; administer hydromorphone",
+          "shortAction": "Recognize ongoing severe pain unresponsive to non-pharmacologic measures; administer fentanyl",
           "protocolExcerpt": "Patients with acute abdominal pain should receive analgesic interventions – Use of analgesics for acute abdominal pain does not mask clinical findings or delay diagnosis",
           "priority": "critical",
           "rationale": "Delayed recognition that opioid analgesia is indicated and safe for this presentation.",
