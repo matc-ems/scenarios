@@ -1,6 +1,6 @@
 {
   "scenarioId": "B-T1-01",
-  "scenarioName": "Excited Delirium with Occult Hypoglycemia",
+  "scenarioName": "Hypoglycemia Presenting as Confusion",
   "scenarioType": "Vital Signs",
   "scenarioVersion": 2,
   "scenarioTime": 1200,
@@ -10,13 +10,13 @@
   "isDemo": false,
   "isALSILegacy": false,
   "scenarioStory": {
-    "history": "42-year-old male with longstanding Type 1 Diabetes Mellitus (Omnipod insulin pump on right upper arm). Wife states he completed a 45-minute morning run at 0700, came inside acting 'fine,' then about 20 minutes ago became progressively confused, sweaty, and increasingly agitated. He pushed his wife when she tried to redirect him and is now pacing the kitchen yelling about people in the walls. Wife denies any drug or alcohol use; she states 'he's never been like this.' She thinks he skipped breakfast after the run. The pump 'beeped earlier' but she doesn't know what the alarm was.",
+    "history": "42-year-old male with longstanding Type 1 Diabetes Mellitus (Omnipod insulin pump on right upper arm). Wife states he completed a 45-minute morning run at 0700, came inside acting 'fine,' then about 20 minutes ago became progressively confused, sweaty, and restless. He isn't making sense, won't sit down when she asks, and is now wandering around the kitchen. Wife denies any drug or alcohol use; she states 'he's never been like this.' She thinks he skipped breakfast after the run. The pump 'beeped earlier' but she doesn't know what the alarm was.",
     "discussion": "",
-    "course": "Initial Contact: Crew arrives to find PD on scene with a 42-year-old male pacing the kitchen, diaphoretic and agitated. Wife reports sudden onset 20 minutes ago after a morning run. Patient is verbally aggressive but not actively assaulting anyone. There are subtle medical tells available to the observant clinician: profuse diaphoresis, an insulin pump on the right upper arm, and a medical alert bracelet for Type 1 Diabetes. → Hypoglycemia identified: Glucose comes back at 38 mg/dL. The clinical picture now resolves: this is symptomatic hypoglycemia presenting as agitation, not a primary behavioral emergency. Patient remains combative and unwilling to take oral glucose; IV access is unsafe while he is agitated. Glucagon IM is the protocol-correct bridge to safely correct glucose and allow further assessment. → Glucose corrected, patient oriented: Glucagon has taken effect. Patient is now oriented x4, embarrassed by his behavior, and cooperative. Glucose now ~92 mg/dL. He is asking what happened. Crew can now establish IV access, give PO complex carbs, and transport for evaluation. Per protocol he should be transported because symptoms were severe and pump malfunction is suspected."
+    "course": "Initial Contact: Crew arrives to find PD on scene with a 42-year-old male wandering the kitchen, diaphoretic, restless, and confused. Wife reports sudden onset 20 minutes ago after a morning run. Patient is not verbally aggressive or threatening — he just isn't making sense and doesn't follow directions well. NOTE: While he seems confused, he is still able to somewhat follow orders if the providers start talking to him and give him simple instructions (e.g., 'come sit down here'). He will sit when asked, though he may need prompting again. There are subtle medical tells available to the observant clinician: profuse diaphoresis, an insulin pump on the right upper arm, and a medical alert bracelet for Type 1 Diabetes. → Hypoglycemia identified: Glucose comes back at 38 mg/dL. The clinical picture now resolves: this is symptomatic hypoglycemia presenting as confusion, not a primary behavioral emergency. Patient remains confused and restless — too confused to reliably swallow oral glucose. Because he will sit and follow simple instructions with calm coaching (and his wife's help), an IV may be obtainable; if so, IV dextrose (D10 preferred) is the protocol treatment. If he keeps pulling his arm away and IV access cannot be established, glucagon IM is the protocol alternative. Either is acceptable. → Dextrose or glucagon given: Dextrose or glucagon has taken effect. Patient is now oriented x4, embarrassed by his behavior, and cooperative. Glucose now ~92 mg/dL. He is asking what happened. Crew can now establish IV access if not already in place, give PO complex carbs, and transport for evaluation. Per protocol he should be transported because symptoms were severe and pump malfunction is suspected."
   },
   "patientInformation": {
     "patientName": "Daniel Whitlock",
-    "patientCondition": "Agitation, combativeness, acting 'not himself' for the past 20 minutes",
+    "patientCondition": "Confusion and restlessness, acting 'not himself' for the past 20 minutes",
     "patientAge": 42,
     "patientAgeUnit": "years",
     "patientAgeCategory": 0,
@@ -31,7 +31,7 @@
     {
       "type": "ScenarioEvent",
       "name": "Initial Contact",
-      "description": "Crew arrives to find PD on scene with a 42-year-old male pacing the kitchen, diaphoretic and agitated. Wife reports sudden onset 20 minutes ago after a morning run. Patient is verbally aggressive but not actively assaulting anyone. There are subtle medical tells available to the observant clinician: profuse diaphoresis, an insulin pump on the right upper arm, and a medical alert bracelet for Type 1 Diabetes.",
+      "description": "Crew arrives to find PD on scene with a 42-year-old male wandering the kitchen, diaphoretic, restless, and confused. Wife reports sudden onset 20 minutes ago after a morning run. Patient is not verbally aggressive or threatening — he just isn't making sense and doesn't follow directions well. NOTE: While he seems confused, he is still able to somewhat follow orders if the providers start talking to him and give him simple instructions (e.g., 'come sit down here'). He will sit when asked, though he may need prompting again. There are subtle medical tells available to the observant clinician: profuse diaphoresis, an insulin pump on the right upper arm, and a medical alert bracelet for Type 1 Diabetes.",
       "monitorType": 0,
       "trendTime": 0,
       "jumpTime": 0,
@@ -70,7 +70,7 @@
     {
       "type": "ScenarioEvent",
       "name": "Hypoglycemia identified",
-      "description": "Glucose comes back at 38 mg/dL. The clinical picture now resolves: this is symptomatic hypoglycemia presenting as agitation, not a primary behavioral emergency. Patient remains combative and unwilling to take oral glucose; IV access is unsafe while he is agitated. Glucagon IM is the protocol-correct bridge to safely correct glucose and allow further assessment.",
+      "description": "Glucose comes back at 38 mg/dL. The clinical picture now resolves: this is symptomatic hypoglycemia presenting as confusion, not a primary behavioral emergency. Patient remains confused and restless — too confused to reliably swallow oral glucose. Because he will sit and follow simple instructions with calm coaching (and his wife's help), an IV may be obtainable; if so, IV dextrose (D10 preferred) is the protocol treatment. If he keeps pulling his arm away and IV access cannot be established, glucagon IM is the protocol alternative. Either is acceptable.",
       "monitorType": 0,
       "trendTime": 30,
       "jumpTime": 0,
@@ -98,17 +98,17 @@
       "relatedLabs": [],
       "relatedChecklist": [
         "Defer oral glucose — patient unable to safely protect airway/cooperate",
-        "Glucagon 1 mg IM (adult fixed dose) — patient cannot safely accept IV/PO",
+        "D10 IV in 100 mL (10 g) increments to mental status, max 250 mL (25 g) — OR glucagon 1 mg IM if no IV",
         "Have wife stop/disconnect the insulin pump",
         "Apply SpO2 and cardiac monitor as patient tolerates",
-        "Reassess vitals, mental status, and repeat glucose after glucagon"
+        "Reassess vitals, mental status, and repeat glucose after dextrose/glucagon"
       ],
       "relatedSounds": []
     },
     {
       "type": "ScenarioEvent",
-      "name": "Glucose corrected, patient oriented",
-      "description": "Glucagon has taken effect. Patient is now oriented x4, embarrassed by his behavior, and cooperative. Glucose now ~92 mg/dL. He is asking what happened. Crew can now establish IV access, give PO complex carbs, and transport for evaluation. Per protocol he should be transported because symptoms were severe and pump malfunction is suspected.",
+      "name": "Dextrose or glucagon given",
+      "description": "Dextrose or glucagon has taken effect. Patient is now oriented x4, embarrassed by his behavior, and cooperative. Glucose now ~92 mg/dL. He is asking what happened. Crew can now establish IV access if not already in place, give PO complex carbs, and transport for evaluation. Per protocol he should be transported because symptoms were severe and pump malfunction is suspected.",
       "monitorType": 0,
       "trendTime": 45,
       "jumpTime": 0,
@@ -135,10 +135,10 @@
       "relatedMedia": [],
       "relatedLabs": [],
       "relatedChecklist": [
-        "Establish IV access now that patient is cooperative",
+        "Establish IV access if not already obtained",
         "Offer 25 g oral glucose / complex carbs once airway protected",
         "Transport — pump malfunction suspected, refusal criteria not met",
-        "Document glucose values, IM glucagon, pump status, mental-status trend"
+        "Document glucose values, dextrose/glucagon given, pump status, mental-status trend"
       ],
       "relatedSounds": []
     },
@@ -225,7 +225,7 @@
       "icon": 1
     },
     {
-      "title": "Glucagon 1 mg IM (adult fixed dose) — patient cannot safely accept IV/PO",
+      "title": "D10 IV in 100 mL (10 g) increments to mental status, max 250 mL (25 g) — OR glucagon 1 mg IM if no IV",
       "type": "Check",
       "value": 0,
       "icon": 1
@@ -243,13 +243,13 @@
       "icon": 1
     },
     {
-      "title": "Reassess vitals, mental status, and repeat glucose after glucagon",
+      "title": "Reassess vitals, mental status, and repeat glucose after dextrose/glucagon",
       "type": "Check",
       "value": 0,
       "icon": 1
     },
     {
-      "title": "Establish IV access now that patient is cooperative",
+      "title": "Establish IV access if not already obtained",
       "type": "Check",
       "value": 0,
       "icon": 1
@@ -267,7 +267,7 @@
       "icon": 1
     },
     {
-      "title": "Document glucose values, IM glucagon, pump status, mental-status trend",
+      "title": "Document glucose values, dextrose/glucagon given, pump status, mental-status trend",
       "type": "Check",
       "value": 0,
       "icon": 1
