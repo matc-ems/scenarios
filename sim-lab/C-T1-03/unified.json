@@ -156,12 +156,6 @@
           "if": "NTG given without neuro exam",
           "condition": "Crew anchors on the dramatic BP reading and administers nitroglycerin 0.4 mg SL (or pursues other aggressive prehospital BP reduction) before completing a systematic neuro exam and SAMPLE history.",
           "conditionType": "action_taken"
-        },
-        {
-          "targetPhaseId": "neuro-exam-skipped",
-          "if": "Neuro exam skipped or incomplete",
-          "condition": "Crew obtains vitals and treats the patient as 'just a headache' without performing a stroke scale, pupil check, motor/sensory exam, or detailed mental status assessment.",
-          "conditionType": "action_not_taken"
         }
       ]
     },
@@ -438,72 +432,6 @@
           "protocolExcerpt": "Prevent aspiration – elevate head of stretcher 15–30 degrees if systolic BP greater than 100 mmHg. Maintain head and neck in neutral alignment, without flexing the neck.",
           "priority": "important",
           "rationale": "Standard stroke positioning now that he is a stroke patient.",
-          "protocolReference": "MATC: Suspected Stroke/Transient Ischemic Attack"
-        }
-      ],
-      "transitions": []
-    },
-    {
-      "id": "neuro-exam-skipped",
-      "name": "Neuro exam skipped",
-      "description": "Crew obtains vitals, notes the elevated BP, and treats this as 'just a headache from missing his meds.' They never perform a stroke scale, never check pupils, never assess motor or sensory function. They package the patient and head to the hospital BLS-style. On arrival, the ED catches a subtle left facial droop and mild expressive aphasia that the crew missed — this was a true hypertensive EMERGENCY with an evolving stroke, undertriaged and untreated. Last-known-well window is now eaten up by an unhurried response.",
-      "triggerCondition": "Crew skipped the Cincinnati Stroke Scale, pupil exam, motor/sensory exam, and detailed mental status assessment. They anchored on 'headache + missed meds = urgency' without doing the work to rule out emergency.",
-      "isDefault": false,
-      "clinicalPresentation": {
-        "avpu": "Alert",
-        "gcs": { "eye": 4, "verbal": 4, "motor": 6 },
-        "airway": "Patent",
-        "breathing": "Unlabored",
-        "circulation": "Strong pulses, warm dry skin",
-        "skin": { "color": "pink", "temperature": "warm", "moisture": "dry" },
-        "pupils": "PERRL — but never documented by crew",
-        "motorFunction": "Subtle left facial droop and mild expressive aphasia present from arrival, missed by crew",
-        "otherFindings": [
-          "ED triage nurse identifies left facial droop and word-finding difficulty within 60 seconds",
-          "Last-known-well window now compressed",
-          "CT confirms an evolving ischemic stroke with hemorrhagic conversion risk",
-          "Crew documentation reads 'neuro grossly intact' — but no scale was actually performed"
-        ],
-        "patientSpeech": "My... my head still hurts. Can I... can I get some water?"
-      },
-      "monitorState": {
-        "ecgRhythm": "Sinus Rhythm",
-        "ecgWaveform": 9,
-        "hr": 90,
-        "bpSys": 220,
-        "bpDia": 128,
-        "respRate": 16,
-        "spo2": 97,
-        "etco2": 38,
-        "temp": 36.9,
-        "tempF": 98.4,
-        "obstruction": 0,
-        "glucose": 118,
-        "customMeasures": [],
-        "trendTimeSeconds": 50,
-        "visibility": {
-          "spo2Visible": true,
-          "spo2Attached": true,
-          "rrVisible": true,
-          "etco2Visible": false,
-          "cvpVisible": false
-        }
-      },
-      "expectedActions": [
-        {
-          "id": "retroactive-stroke-scale",
-          "shortAction": "Recognize missed stroke; activate stroke alert immediately",
-          "protocolExcerpt": "Use a validated prehospital stroke scale that may include, but is not limited to: Facial smile/grimace – ask patient to smile; Arm drift – close eyes and hold out arms for count of 10 seconds; Speech – ask patient to say \"You can't teach an old dog new tricks\". Early hospital notification per local stroke plan that should include any suspected large vessel occlusion (LVO) stroke.",
-          "priority": "critical",
-          "rationale": "Debrief: a stroke scale on every severe-HTN headache patient takes 90 seconds and could have changed the destination.",
-          "protocolReference": "MATC: Suspected Stroke/Transient Ischemic Attack"
-        },
-        {
-          "id": "evaluate-mimics",
-          "shortAction": "Evaluate for stroke mimics (BGL, seizure, sepsis, migraine)",
-          "protocolExcerpt": "Evaluate for the presence of stroke mimics including: Hypoglycemia; Seizure; Sepsis; Migraine; Intoxication.",
-          "priority": "important",
-          "rationale": "Even when you suspect stroke, work through the mimics list — it's also how you catch the diagnoses you anchored away from.",
           "protocolReference": "MATC: Suspected Stroke/Transient Ischemic Attack"
         }
       ],

@@ -178,41 +178,6 @@
         "Elevate head of stretcher 15–30 degrees; neutral neck alignment"
       ],
       "relatedSounds": []
-    },
-    {
-      "type": "ScenarioEvent",
-      "name": "Neuro exam skipped",
-      "description": "Crew obtains vitals, notes the elevated BP, and treats this as 'just a headache from missing his meds.' They never perform a stroke scale, never check pupils, never assess motor or sensory function. They package the patient and head to the hospital BLS-style. On arrival, the ED catches a subtle left facial droop and mild expressive aphasia that the crew missed — this was a true hypertensive EMERGENCY with an evolving stroke, undertriaged and untreated. Last-known-well window is now eaten up by an unhurried response.",
-      "monitorType": 0,
-      "trendTime": 50,
-      "jumpTime": 0,
-      "defibShock": false,
-      "defibDisarm": true,
-      "parameters": {
-        "ecgWaveform": 9,
-        "hr": 90,
-        "bpSys": 220,
-        "bpDia": 128,
-        "respRate": 16,
-        "spo2": 97,
-        "etco2": 38,
-        "temp": 36.9,
-        "obstruction": 0,
-        "custMeasure1": 118,
-        "custMeasureLabel1": "mg/dL",
-        "spo2Visible": true,
-        "spo2Attached": true,
-        "rrVisible": true,
-        "etco2Visible": false,
-        "cvpVisible": false
-      },
-      "relatedMedia": [],
-      "relatedLabs": [],
-      "relatedChecklist": [
-        "Recognize missed stroke; activate stroke alert immediately",
-        "Evaluate for stroke mimics (BGL, seizure, sepsis, migraine)"
-      ],
-      "relatedSounds": []
     }
   ],
   "checklist": [
@@ -326,18 +291,6 @@
     },
     {
       "title": "Elevate head of stretcher 15–30 degrees; neutral neck alignment",
-      "type": "Check",
-      "value": 0,
-      "icon": 1
-    },
-    {
-      "title": "Recognize missed stroke; activate stroke alert immediately",
-      "type": "Check",
-      "value": 0,
-      "icon": 1
-    },
-    {
-      "title": "Evaluate for stroke mimics (BGL, seizure, sepsis, migraine)",
       "type": "Check",
       "value": 0,
       "icon": 1
